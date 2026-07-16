@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const siteUrl = "https://dewank.com";
-export const siteName = "ديوانك";
+export const siteName = "Dewank | ديوانك";
 export const defaultDescription =
-  "ديوانك استوديو نمو إبداعي في السعودية يجمع البراندينج والتسويق وتصميم المواقع وأتمتة الذكاء الاصطناعي في منظومة واحدة.";
+  "Dewank is a Saudi-focused creative growth studio combining brand strategy, digital marketing, website design, SEO, and AI automation for ambitious businesses across the GCC.";
 
 export function createMetadata({
   title,
@@ -19,10 +19,15 @@ export function createMetadata({
   const canonical = new URL(path, siteUrl).toString();
 
   return {
-    title,
+    title: { absolute: title },
     description,
     keywords,
-    alternates: { canonical },
+    alternates: {
+      canonical,
+      languages: {
+        "ar-SA": canonical,
+      },
+    },
     openGraph: {
       type: "website",
       locale: "ar_SA",
@@ -32,10 +37,10 @@ export function createMetadata({
       description,
       images: [
         {
-          url: "/dewank-logo.png",
+          url: `${siteUrl}/dewank-logo.png`,
           width: 1200,
           height: 630,
-          alt: "ديوانك — البراندينج والتسويق والذكاء الاصطناعي",
+          alt: "Dewank creative growth studio",
         },
       ],
     },
@@ -43,7 +48,7 @@ export function createMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/dewank-logo.png"],
+      images: [`${siteUrl}/dewank-logo.png`],
     },
   };
 }

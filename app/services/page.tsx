@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "../lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "خدمات البراندينج والتسويق والمواقع والأتمتة",
+  title: "Dewank Services | Branding, Digital Marketing, Web & AI",
   description: "خدمات ديوانك للشركات: استراتيجية البراند، الهوية البصرية، التسويق الرقمي، تصميم المواقع، SEO وAEO، وأتمتة الذكاء الاصطناعي.",
   path: "/services",
   keywords: ["خدمات البراندينج", "شركة تسويق رقمي", "تصميم مواقع للشركات", "SEO السعودية", "AI Automation"],
@@ -33,6 +33,16 @@ export default function ServicesPage() {
           </article>
         ))}
       </section>
+      <section className="seo-content shell" aria-labelledby="services-approach-title">
+        <span className="section-label">[ OUR APPROACH ]</span>
+        <h2 id="services-approach-title">خدمات مترابطة حول هدف تجاري واحد.</h2>
+        <div className="seo-content-grid">
+          <p>تبدأ مشروعات البراندينج بتحديد التموضع والجمهور والميزة التي تستحق أن يتذكرك السوق بسببها. بعد ذلك نبني الهوية والرسائل بطريقة تساعد فريقك على الظهور بصورة متماسكة في الموقع والمحتوى والعروض والحملات.</p>
+          <p>في التسويق الرقمي نركز على رحلة العميل، وليس عدد المنشورات فقط. نحدد القنوات المناسبة، زوايا المحتوى، الرسائل البيعية، وصفحات الهبوط التي تساعد على زيادة التواصل والطلبات مع إمكانية القياس والتحسين.</p>
+          <p>أما المواقع والأتمتة، فنربطهما بالمبيعات وخدمة العملاء. الموقع يشرح القيمة ويقود الزائر إلى إجراء واضح، بينما تتولى أنظمة واتساب وCRM الرد والتأهيل والمتابعة والتذكير لتقليل الفرص الضائعة.</p>
+        </div>
+      </section>
+
       <section className="fit-section shell"><div><span className="section-label">[ قبل أن نبدأ ]</span><h2>الخدمة المناسبة ليست الأكبر.<br/><em>بل الأقرب لمشكلتك.</em></h2></div><div className="fit-card"><p>ابدأ بجلسة اكتشاف قصيرة. نحدد فيها نقطة الاختناق، والنتيجة المطلوبة، وأصغر نطاق يصنع فرقًا حقيقيًا.</p><Link className="button primary" href="/contact">ناقش مشروعك <span>←</span></Link></div></section>
       <Footer />
     </main>

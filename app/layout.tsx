@@ -45,8 +45,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="lazyOnload" />
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -55,7 +55,7 @@ export default function RootLayout({
         `}
       </Script>
 
-      <Script id="meta-pixel" strategy="afterInteractive">
+      <Script id="meta-pixel" strategy="lazyOnload">
         {`
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -71,7 +71,7 @@ export default function RootLayout({
       </Script>
 
       <body className={`${alexandria.variable} ${cormorant.variable}`}>
-        <Script id="organization-schema" type="application/ld+json" strategy="beforeInteractive">
+        <Script id="organization-schema" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",

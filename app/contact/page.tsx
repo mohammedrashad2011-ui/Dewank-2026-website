@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "../lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "تواصل مع ديوانك وابدأ مشروعك",
+  title: "Contact Dewank | Start Your Branding, Web or Automation Project",
   description: "تواصل مع ديوانك لمناقشة مشروع البراندينج أو التسويق أو تصميم الموقع أو أتمتة واتساب والذكاء الاصطناعي.",
   path: "/contact",
   keywords: ["تواصل مع ديوانك", "شركة براندينج السعودية", "طلب تصميم موقع", "استشارة تسويق"],

@@ -546,3 +546,14 @@ body{
   .network-node{gap:5px;padding:7px 9px;font-size:8px}.network-node i{width:5px;height:5px}
   .node-1{top:4%}.node-2{top:23%;right:3%}.node-3{bottom:23%;right:3%}.node-4{bottom:4%}.node-5{bottom:23%;left:3%}.node-6{top:23%;left:3%}
 }
+
+/* SEO content sections: useful, readable content that preserves the existing visual system. */
+.seo-content,.faq-section{padding-top:clamp(72px,9vw,140px);padding-bottom:clamp(72px,9vw,140px)}
+.seo-content h2,.faq-section h2{font-size:clamp(2rem,4vw,4.6rem);line-height:1.05;max-width:900px;margin:20px 0 36px}
+.seo-content-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
+.seo-content-grid p{font-size:clamp(1rem,1.25vw,1.2rem);line-height:1.9;color:var(--muted,#6d6d6d);margin:0}
+.faq-grid{display:grid;gap:12px;max-width:980px}
+.faq-grid details{border-top:1px solid rgba(20,20,20,.16);padding:20px 0}
+.faq-grid summary{cursor:pointer;font-weight:700;font-size:clamp(1.05rem,1.4vw,1.25rem)}
+.faq-grid p{max-width:760px;line-height:1.85;color:var(--muted,#6d6d6d);margin:14px 0 0}
+@media (max-width:800px){.seo-content-grid{grid-template-columns:1fr}.seo-content,.faq-section{padding-top:64px;padding-bottom:64px}}
