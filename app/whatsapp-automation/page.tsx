@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+import { createMetadata } from "../lib/seo";
+
+export const metadata: Metadata = createMetadata({
+  title: "واتساب أوتوميشن وCRM للشركات",
+  description: "نظام واتساب أوتوميشن ذكي يرد على العملاء 24/7، يؤهلهم، يوجّههم للحجز، يرسل التذكيرات ويربط المحادثات بنظام CRM.",
+  path: "/whatsapp-automation",
+  keywords: ["واتساب أوتوميشن", "WhatsApp Automation", "CRM واتساب", "شات بوت واتساب", "أتمتة المبيعات"],
+});
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
 import AutomationFlow from "../components/automation-flow";

@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+import { createMetadata } from "./lib/seo";
+
+export const metadata: Metadata = createMetadata({
+  title: "ديوانك | براندينج وتسويق ومواقع وأتمتة ذكاء اصطناعي",
+  description: "ديوانك استوديو نمو إبداعي يساعد الشركات في السعودية والخليج على بناء العلامات، صناعة الطلب، تطوير المواقع وأتمتة المبيعات وخدمة العملاء.",
+  path: "/",
+  keywords: ["شركة تسويق في السعودية", "براندينج", "تصميم مواقع", "أتمتة الذكاء الاصطناعي", "ديوانك"],
+});
 import Link from "next/link";
 import { Footer, Header } from "./components/site-shell";
 import MotionSystem from "./components/motion-system";

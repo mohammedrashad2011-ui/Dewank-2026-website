@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+import { createMetadata } from "../lib/seo";
+
+export const metadata: Metadata = createMetadata({
+  title: "أعمال البراندينج والهوية البصرية",
+  description: "استكشف أعمال ديوانك المفاهيمية في استراتيجية البراند، التسمية، الهوية البصرية والتجارب الرقمية للعلامات الطموحة.",
+  path: "/work",
+  keywords: ["أعمال براندينج", "تصميم هوية بصرية", "Brand Identity Portfolio", "استراتيجية العلامة"],
+});
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
 

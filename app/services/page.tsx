@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+import { createMetadata } from "../lib/seo";
+
+export const metadata: Metadata = createMetadata({
+  title: "خدمات البراندينج والتسويق والمواقع والأتمتة",
+  description: "خدمات ديوانك للشركات: استراتيجية البراند، الهوية البصرية، التسويق الرقمي، تصميم المواقع، SEO وAEO، وأتمتة الذكاء الاصطناعي.",
+  path: "/services",
+  keywords: ["خدمات البراندينج", "شركة تسويق رقمي", "تصميم مواقع للشركات", "SEO السعودية", "AI Automation"],
+});
 import Link from "next/link";
 import { Footer, Header, PageHero } from "../components/site-shell";
 

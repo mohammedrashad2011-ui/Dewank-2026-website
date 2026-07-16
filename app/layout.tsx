@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Alexandria, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { defaultDescription, siteName, siteUrl } from "./lib/seo";
 
 const alexandria = Alexandria({ variable: "--font-arabic", subsets: ["arabic", "latin"] });
 const cormorant = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700"] });
@@ -9,10 +10,27 @@ const gaId = "G-5SKKT1NBHB";
 const metaPixelId = "2274266710087331";
 
 export const metadata: Metadata = {
-  title: "ديوانك | براندينج، تسويق وأتمتة ذكاء اصطناعي",
-  description: "ديوانك يبني علامات أوضح، وتسويقًا يصنع الطلب، وأنظمة ذكاء اصطناعي تختصر وقتك.",
-  other: {
-    "codex-preview": "development",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "ديوانك | براندينج، تسويق، مواقع وأتمتة AI",
+    template: "%s | ديوانك",
+  },
+  description: defaultDescription,
+  applicationName: siteName,
+  authors: [{ name: "Dewank", url: siteUrl }],
+  creator: "Dewank",
+  publisher: "Dewank",
+  category: "Marketing and Branding",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   icons: {
     icon: "/favicon.svg",
@@ -53,6 +71,28 @@ export default function RootLayout({
       </Script>
 
       <body className={`${alexandria.variable} ${cormorant.variable}`}>
+        <Script id="organization-schema" type="application/ld+json" strategy="beforeInteractive">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            name: siteName,
+            alternateName: "Dewank",
+            url: siteUrl,
+            logo: `${siteUrl}/dewank-logo.png`,
+            description: defaultDescription,
+            email: "hello@dewank.com",
+            telephone: "+97339066649",
+            areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
+            sameAs: ["https://www.instagram.com/dewank_marketing"],
+            serviceType: [
+              "Brand Strategy",
+              "Digital Marketing",
+              "Website Design",
+              "AI Automation",
+              "WhatsApp Automation",
+            ],
+          })}
+        </Script>
         <noscript>
           <img
             height="1"
