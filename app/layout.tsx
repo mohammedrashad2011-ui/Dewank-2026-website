@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   creator: "Dewank",
   publisher: "Dewank",
   category: "Marketing and Branding",
+  verification: {
+    other: {
+      "p:domain_verify": "3809cbbe8b9237c104790a33b44efdd7",
+    },
+  },
   robots: {
     index: true,
     follow: true,
