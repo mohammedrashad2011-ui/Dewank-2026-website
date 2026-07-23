@@ -1,49 +1,140 @@
 import type { Metadata } from "next";
-import { createMetadata } from "../lib/seo";
-
-export const metadata: Metadata = createMetadata({
-  title: "Dewank Services | Branding, Digital Marketing, Web & AI",
-  description: "خدمات ديوانك للشركات: استراتيجية البراند، الهوية البصرية، التسويق الرقمي، تصميم المواقع، SEO وAEO، وأتمتة الذكاء الاصطناعي.",
-  path: "/services",
-  keywords: ["خدمات البراندينج", "شركة تسويق رقمي", "تصميم مواقع للشركات", "SEO السعودية", "AI Automation"],
-});
 import Link from "next/link";
+import { createMetadata } from "../lib/seo";
 import { Footer, Header, PageHero } from "../components/site-shell";
 
-const groups = [
-  { n: "01", en: "BRAND SYSTEMS", tone: "brand", title: "البراندينج الاستراتيجي", lead: "نبني الأساس الذي يجعل كل قرار لاحق أكثر وضوحًا واتساقًا.", items: ["بحث السوق والمنافسين", "استراتيجية وتموضع البراند", "تسمية العلامة والسلوجن", "الهوية البصرية ودليل الاستخدام", "نبرة الصوت والرسائل الرئيسية"] },
-  { n: "02", en: "DIGITAL GROWTH", tone: "growth", title: "التسويق وصناعة الطلب", lead: "نحوّل الاستراتيجية إلى حضور مستمر يقود العميل من الانتباه إلى الفعل.", items: ["استراتيجية التسويق والمحتوى", "خطط LinkedIn وInstagram", "حملات الإعلانات المدفوعة", "صفحات الهبوط والرسائل البيعية", "تحسين SEO وAEO"] },
-  { n: "03", en: "AI AUTOMATION", tone: "automation", title: "أتمتة الذكاء الاصطناعي", lead: "نبني سير عمل يخفف التشغيل اليدوي ويحسن سرعة الاستجابة وجودتها.", items: ["تحليل العمليات المتكررة", "تصميم سير العمل الذكي", "أنظمة المحتوى والمبيعات", "مساعدات ووكلاء الذكاء الاصطناعي", "تكامل الأدوات والتوثيق"] },
-  { n: "04", en: "WEB EXPERIENCES", tone: "web", title: "تصميم وبناء المواقع", lead: "نحوّل رسالتك إلى تجربة رقمية سريعة وواضحة تقود الزائر من الانطباع الأول إلى الإجراء.", items: ["استراتيجية وهيكلة الموقع", "تصميم UI/UX متجاوب", "تطوير صفحات ومواقع الشركات", "تحسين السرعة والتحويل CRO", "تهيئة SEO وAEO والتحليلات"] },
+export const metadata: Metadata = createMetadata({
+  title: "خدمات ديوانك | براندينج، تسويق، مواقع وأتمتة AI",
+  description: "اكتشف خدمات ديوانك للشركات في السعودية والخليج: استراتيجية البراند، التسويق الرقمي، الإعلانات، تصميم المواقع، SEO وAEO وأتمتة الذكاء الاصطناعي.",
+  path: "/services",
+  keywords: ["خدمات التسويق الرقمي", "شركة براندينج في السعودية", "تصميم مواقع", "إدارة إعلانات ميتا", "SEO وAEO", "أتمتة الذكاء الاصطناعي"],
+});
+
+const services = [
+  {
+    no: "01",
+    en: "BRAND STRATEGY & IDENTITY",
+    tone: "brand",
+    title: "علامتك لا تحتاج شعارًا آخر.",
+    hook: "تحتاج سببًا يجعلها الاختيار.",
+    text: "استراتيجية براند، تموضع، تسمية وهوية بصرية تجعل مشروعك أوضح وأسهل تذكّرًا وأكثر اتساقًا عبر كل نقطة تواصل.",
+    tags: ["Strategy", "Naming", "Identity"],
+    href: "/branding",
+  },
+  {
+    no: "02",
+    en: "DIGITAL MARKETING",
+    tone: "growth",
+    title: "المحتوى يلفت النظر.",
+    hook: "الاستراتيجية تحرّك القرار.",
+    text: "نربط الرسالة بالقناة ورحلة العميل لبناء حضور رقمي يصنع طلبًا حقيقيًا بدل نشر محتوى جميل بلا أثر تجاري واضح.",
+    tags: ["Content", "Journey", "Growth"],
+    href: "/digital-marketing",
+  },
+  {
+    no: "03",
+    en: "META & GOOGLE ADS",
+    tone: "growth",
+    title: "الإعلان لا يصلح رحلة مكسورة.",
+    hook: "نصلح المنظومة كلها.",
+    text: "إدارة إعلانات Meta وGoogle بمنطق يربط الجمهور والإبداع والصفحة والتتبع والمتابعة لتقليل الهدر وزيادة التحويل.",
+    tags: ["Meta Ads", "Google Ads", "CRO"],
+    href: "/paid-ads",
+  },
+  {
+    no: "04",
+    en: "WEBSITE DESIGN & CRO",
+    tone: "web",
+    title: "موقعك ليس كتالوجًا.",
+    hook: "هو موظف مبيعات لا ينام.",
+    text: "مواقع سريعة ومتجاوبة تجمع الرسالة وتجربة المستخدم وSEO وAEO لتقود الزائر نحو تواصل أو حجز أو شراء واضح.",
+    tags: ["UX/UI", "Web", "Conversion"],
+    href: "/website-design",
+  },
+  {
+    no: "05",
+    en: "SEO & AEO",
+    tone: "web",
+    title: "لا يكفي أن تكون موجودًا.",
+    hook: "كن الإجابة الأفضل.",
+    text: "تحسين تقني ومحتوى وهيكلة وSchema تساعد Google ومحركات الإجابة والذكاء الاصطناعي على فهم خبرتك وإظهارها للجمهور المناسب.",
+    tags: ["Technical SEO", "AEO", "Schema"],
+    href: "/seo-aeo",
+  },
+  {
+    no: "06",
+    en: "WHATSAPP AUTOMATION & CRM",
+    tone: "automation",
+    title: "واتساب لا يرد فقط.",
+    hook: "يفهم، يؤهّل، ويتابع.",
+    text: "منظومة واتساب ذكية للرد والتأهيل والحجز والتذكير والمتابعة وربط المحادثات بنظام CRM واضح وقابل للقياس.",
+    tags: ["WhatsApp", "CRM", "Follow-up"],
+    href: "/whatsapp-automation",
+  },
+  {
+    no: "07",
+    en: "AI AUTOMATION",
+    tone: "automation",
+    title: "لا تضف AI إلى الفوضى.",
+    hook: "نظّم العملية ثم أتمتها.",
+    text: "حلول أتمتة وذكاء اصطناعي تربط التسويق والمبيعات وخدمة العملاء والتشغيل لتقليل العمل اليدوي وتسريع القرار.",
+    tags: ["AI Agents", "Workflows", "Integrations"],
+    href: "/ai-automation",
+  },
 ];
 
 export default function ServicesPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Dewank Services",
+    itemListElement: services.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: service.title,
+      url: `https://dewank.com${service.href}`,
+    })),
+  };
+
   return (
     <main className="inner-page services-page">
       <Header />
-      <PageHero eyebrow="خدمات ديوانك" title={<>من الوضوح إلى النمو،<br/><em>دون فجوات.</em></>} text="يمكنك البدء بخدمة واحدة أو بناء منظومة متكاملة تجمع العلامة والتسويق والمواقع والأتمتة حول هدف تجاري واضح." />
-      <section className="shell services-detail-bento">
-        {groups.map((group) => (
-          <article id={group.tone} className={`service-detail ${group.tone}`} key={group.n}>
-            <div className="detail-top"><span>{group.n}</span><small>{group.en}</small></div>
-            <div className={`service-symbol ${group.tone}`} aria-hidden="true"><i/><i/><i/></div>
-            <div className="detail-copy"><h2>{group.title}</h2><p>{group.lead}</p></div>
-            <ul>{group.items.map(item => <li key={item}><span>↙</span>{item}</li>)}</ul>
-            {group.tone === "automation" && <Link className="detail-link" href="/whatsapp-automation">شاهد منظومة واتساب Next‑Gen <span>←</span></Link>}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <PageHero
+        eyebrow="خدمات ديوانك"
+        title={<>خدمات كثيرة.<br/><em>منظومة واحدة.</em></>}
+        text="ابدأ من المشكلة، لا من اسم الخدمة. كل مسار هنا يقودك إلى صفحة تشرح ما الذي نحلّه، ما الذي تستلمه، وكيف نربط التنفيذ بهدف تجاري واضح."
+      />
+
+      <section className="shell services-detail-bento" aria-label="خدمات ديوانك">
+        {services.map((service) => (
+          <article className={`service-detail ${service.tone}`} key={service.href}>
+            <div className="detail-top"><span>{service.no}</span><small>{service.en}</small></div>
+            <div className={`service-symbol ${service.tone}`} aria-hidden="true"><i/><i/><i/></div>
+            <div className="detail-copy">
+              <h2>{service.title}<br/><em>{service.hook}</em></h2>
+              <p>{service.text}</p>
+              <div className="tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+            </div>
+            <Link className="detail-link" href={service.href}>اكتشف الخدمة <span>←</span></Link>
           </article>
         ))}
       </section>
+
       <section className="seo-content shell" aria-labelledby="services-approach-title">
-        <span className="section-label">[ OUR APPROACH ]</span>
-        <h2 id="services-approach-title">خدمات مترابطة حول هدف تجاري واحد.</h2>
+        <span className="section-label">[ كيف تختار الخدمة ]</span>
+        <h2 id="services-approach-title">الخدمة المناسبة ليست الأكبر.<br/><em>بل الأقرب لمشكلتك.</em></h2>
         <div className="seo-content-grid">
-          <p>تبدأ مشروعات البراندينج بتحديد التموضع والجمهور والميزة التي تستحق أن يتذكرك السوق بسببها. بعد ذلك نبني الهوية والرسائل بطريقة تساعد فريقك على الظهور بصورة متماسكة في الموقع والمحتوى والعروض والحملات.</p>
-          <p>في التسويق الرقمي نركز على رحلة العميل، وليس عدد المنشورات فقط. نحدد القنوات المناسبة، زوايا المحتوى، الرسائل البيعية، وصفحات الهبوط التي تساعد على زيادة التواصل والطلبات مع إمكانية القياس والتحسين.</p>
-          <p>أما المواقع والأتمتة، فنربطهما بالمبيعات وخدمة العملاء. الموقع يشرح القيمة ويقود الزائر إلى إجراء واضح، بينما تتولى أنظمة واتساب وCRM الرد والتأهيل والمتابعة والتذكير لتقليل الفرص الضائعة.</p>
+          <p>إذا كانت المشكلة في وضوح العلامة أو اختلاف الرسائل، ابدأ باستراتيجية البراند والهوية. إذا كان الظهور جيدًا لكن الطلب ضعيف، راجع التسويق والإعلانات وتجربة الموقع قبل زيادة الميزانية.</p>
+          <p>إذا كان العملاء يصلون لكن المتابعة بطيئة أو غير منظمة، فالأولوية تكون لأتمتة واتساب وCRM. وإذا كان فريقك يكرر مهامًا يدوية بين أدوات مختلفة، فحلول AI Automation قد تستعيد وقتًا كبيرًا وتقلل الأخطاء.</p>
+          <p>أما SEO وAEO فهما استثمار طويل الأجل يساعد موقعك على الظهور عندما يبحث العميل أو يسأل محركات الإجابة عن حل تقدمه بالفعل. ويمكن دمجهما مع تصميم الموقع والمحتوى منذ البداية.</p>
         </div>
       </section>
 
-      <section className="fit-section shell"><div><span className="section-label">[ قبل أن نبدأ ]</span><h2>الخدمة المناسبة ليست الأكبر.<br/><em>بل الأقرب لمشكلتك.</em></h2></div><div className="fit-card"><p>ابدأ بجلسة اكتشاف قصيرة. نحدد فيها نقطة الاختناق، والنتيجة المطلوبة، وأصغر نطاق يصنع فرقًا حقيقيًا.</p><Link className="button primary" href="/contact">ناقش مشروعك <span>←</span></Link></div></section>
+      <section className="fit-section shell">
+        <div><span className="section-label">[ قبل أن نبدأ ]</span><h2>لا تعرف من أين تبدأ؟<br/><em>ابدأ من نقطة الاختناق.</em></h2></div>
+        <div className="fit-card"><p>في جلسة اكتشاف قصيرة نحدد المشكلة والنتيجة المطلوبة وأصغر نطاق يصنع فرقًا حقيقيًا، ثم نقترح المسار المناسب دون تضخيم غير ضروري.</p><Link className="button primary" href="/contact">ناقش مشروعك <span>←</span></Link></div>
+      </section>
       <Footer />
     </main>
   );
