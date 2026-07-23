@@ -5,9 +5,9 @@ import { Footer, Header, PageHero } from "../components/site-shell";
 
 export const metadata: Metadata = createMetadata({
   title: "خدمات ديوانك | براندينج، تسويق، مواقع وأتمتة AI",
-  description: "اكتشف خدمات ديوانك للشركات في السعودية والخليج: استراتيجية البراند، التسويق الرقمي، الإعلانات، تصميم المواقع، SEO وAEO وأتمتة الذكاء الاصطناعي.",
+  description: "اكتشف خدمات ديوانك للشركات في السعودية والخليج: استراتيجية البراند، التسويق الرقمي، الإعلانات، تصميم المواقع، SEO وAEO، أتمتة الذكاء الاصطناعي وخدمات ATS CV.",
   path: "/services",
-  keywords: ["خدمات التسويق الرقمي", "شركة براندينج في السعودية", "تصميم مواقع", "إدارة إعلانات ميتا", "SEO وAEO", "أتمتة الذكاء الاصطناعي"],
+  keywords: ["خدمات التسويق الرقمي", "شركة براندينج في السعودية", "تصميم مواقع", "إدارة إعلانات ميتا", "SEO وAEO", "أتمتة الذكاء الاصطناعي", "كتابة سيرة ذاتية ATS"],
 });
 
 const services = [
@@ -83,18 +83,45 @@ const services = [
   },
 ];
 
+const careerServices = [
+  {
+    no: "C01",
+    en: "ATS CV & CAREER BRANDING",
+    tone: "web",
+    title: "سيرتك ليست ورقة.",
+    hook: "هي أول قرار قبل المقابلة.",
+    text: "كتابة وتطوير سيرة ذاتية متوافقة مع ATS، مخصصة للوظيفة المستهدفة، مع تحسين الإنجازات والكلمات المفتاحية وLinkedIn.",
+    tags: ["ATS CV", "LinkedIn", "Career Branding"],
+    href: "/ats-cv",
+  },
+];
+
 export default function ServicesPage() {
+  const allServices = [...services, ...careerServices];
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Dewank Services",
-    itemListElement: services.map((service, index) => ({
+    itemListElement: allServices.map((service, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: service.title,
       url: `https://dewank.com${service.href}`,
     })),
   };
+
+  const renderCard = (service: (typeof allServices)[number]) => (
+    <article className={`service-detail ${service.tone}`} key={service.href}>
+      <div className="detail-top"><span>{service.no}</span><small>{service.en}</small></div>
+      <div className={`service-symbol ${service.tone}`} aria-hidden="true"><i/><i/><i/></div>
+      <div className="detail-copy">
+        <h2>{service.title}<br/><em>{service.hook}</em></h2>
+        <p>{service.text}</p>
+        <div className="tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+      </div>
+      <Link className="detail-link" href={service.href}>اكتشف الخدمة <span>←</span></Link>
+    </article>
+  );
 
   return (
     <main className="inner-page services-page">
@@ -103,22 +130,20 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="خدمات ديوانك"
         title={<>خدمات كثيرة.<br/><em>منظومة واحدة.</em></>}
-        text="ابدأ من المشكلة، لا من اسم الخدمة. كل مسار هنا يقودك إلى صفحة تشرح ما الذي نحلّه، ما الذي تستلمه، وكيف نربط التنفيذ بهدف تجاري واضح."
+        text="ابدأ من المشكلة، لا من اسم الخدمة. كل مسار هنا يقودك إلى صفحة تشرح ما الذي نحلّه، ما الذي تستلمه، وكيف نربط التنفيذ بهدف واضح."
       />
 
-      <section className="shell services-detail-bento" aria-label="خدمات ديوانك">
-        {services.map((service) => (
-          <article className={`service-detail ${service.tone}`} key={service.href}>
-            <div className="detail-top"><span>{service.no}</span><small>{service.en}</small></div>
-            <div className={`service-symbol ${service.tone}`} aria-hidden="true"><i/><i/><i/></div>
-            <div className="detail-copy">
-              <h2>{service.title}<br/><em>{service.hook}</em></h2>
-              <p>{service.text}</p>
-              <div className="tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-            </div>
-            <Link className="detail-link" href={service.href}>اكتشف الخدمة <span>←</span></Link>
-          </article>
-        ))}
+      <section className="shell services-detail-bento" aria-label="خدمات ديوانك للشركات">
+        {services.map(renderCard)}
+      </section>
+
+      <section className="seo-content shell" aria-labelledby="career-services-title">
+        <span className="section-label">[ خدمات مهنية للأفراد ]</span>
+        <h2 id="career-services-title">خبرتك قوية.<br/><em>يجب أن تظهر كذلك.</em></h2>
+        <p>خدمة مستقلة للباحثين عن عمل والمحترفين، منفصلة عن خدمات الشركات، وتركز على تقديم الخبرة بصورة أوضح لأنظمة التوظيف ومديري الموارد البشرية.</p>
+      </section>
+      <section className="shell services-detail-bento" aria-label="خدمات السيرة الذاتية والتوظيف">
+        {careerServices.map(renderCard)}
       </section>
 
       <section className="seo-content shell" aria-labelledby="services-approach-title">
@@ -126,8 +151,8 @@ export default function ServicesPage() {
         <h2 id="services-approach-title">الخدمة المناسبة ليست الأكبر.<br/><em>بل الأقرب لمشكلتك.</em></h2>
         <div className="seo-content-grid">
           <p>إذا كانت المشكلة في وضوح العلامة أو اختلاف الرسائل، ابدأ باستراتيجية البراند والهوية. إذا كان الظهور جيدًا لكن الطلب ضعيف، راجع التسويق والإعلانات وتجربة الموقع قبل زيادة الميزانية.</p>
-          <p>إذا كان العملاء يصلون لكن المتابعة بطيئة أو غير منظمة، فالأولوية تكون لأتمتة واتساب وCRM. وإذا كان فريقك يكرر مهامًا يدوية بين أدوات مختلفة، فحلول AI Automation قد تستعيد وقتًا كبيرًا وتقلل الأخطاء.</p>
-          <p>أما SEO وAEO فهما استثمار طويل الأجل يساعد موقعك على الظهور عندما يبحث العميل أو يسأل محركات الإجابة عن حل تقدمه بالفعل. ويمكن دمجهما مع تصميم الموقع والمحتوى منذ البداية.</p>
+          <p>إذا كان العملاء يصلون لكن المتابعة بطيئة أو غير منظمة، فالأولوية لأتمتة واتساب وCRM. وإذا كان فريقك يكرر مهامًا يدوية بين أدوات مختلفة، فحلول AI Automation قد تستعيد وقتًا كبيرًا وتقلل الأخطاء.</p>
+          <p>أما SEO وAEO فهما استثمار طويل الأجل يساعد موقعك على الظهور عندما يبحث العميل أو يسأل محركات الإجابة عن حل تقدمه بالفعل.</p>
         </div>
       </section>
 
