@@ -98,6 +98,7 @@ export default function AboutPage() {
             <small>GCC MARKET EXPERIENCE</small>
             <strong>نفهم أن الثقة، السرعة، واتساب، واللغة ليست تفاصيل جانبية.</strong>
             <p>هي أجزاء أساسية من قرار العميل الخليجي وطريقة انتقاله من الاهتمام إلى التواصل.</p>
+            <span className="gcc-word" aria-hidden="true">GCC</span>
           </div>
         </div>
       </section>
