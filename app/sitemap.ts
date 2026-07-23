@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/seo-aeo", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/whatsapp-automation", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/ai-automation", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/ats-cv", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/work", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.6, changeFrequency: "yearly" as const },
   ];
