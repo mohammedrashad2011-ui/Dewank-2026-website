@@ -81,11 +81,16 @@ export default function ContactForm() {
           <option value="" disabled>
             اختر الخدمة
           </option>
-          <option>البراندينج الاستراتيجي</option>
-          <option>تصميم وبناء المواقع</option>
-          <option>التسويق وصناعة المحتوى</option>
+          <option>البراندينج الاستراتيجي والهوية</option>
+          <option>التسويق الرقمي وصناعة المحتوى</option>
+          <option>إدارة إعلانات Meta وGoogle</option>
+          <option>تصميم وتطوير المواقع</option>
+          <option>SEO وAEO</option>
+          <option>أتمتة واتساب وCRM</option>
           <option>أتمتة الذكاء الاصطناعي</option>
+          <option>ATS CV وتهيئة LinkedIn</option>
           <option>منظومة متكاملة</option>
+          <option>غير متأكد — أحتاج ترشيح</option>
         </select>
       </label>
 
