@@ -19,7 +19,7 @@ const services = [
     text: "استراتيجية وتموضع وهوية تجعل مشروعك واضحًا، متماسكًا، وصعب التقليد.",
     tags: ["Strategy", "Naming", "Identity"],
     tone: "brand",
-    href: "/services#brand",
+    href: "/branding",
   },
   {
     n: "02",
@@ -28,7 +28,7 @@ const services = [
     text: "محتوى وحملات وتجارب رقمية تنقل العميل من الانتباه إلى القرار.",
     tags: ["Content", "Campaigns", "SEO + AEO"],
     tone: "growth",
-    href: "/services#growth",
+    href: "/digital-marketing",
   },
   {
     n: "03",
@@ -46,7 +46,7 @@ const services = [
     text: "مواقع سريعة ومتجاوبة تجمع الرسالة والتجربة وSEO وAEO لتقود الزائر نحو إجراء واضح.",
     tags: ["Web Design", "UX / CRO", "SEO + AEO"],
     tone: "web",
-    href: "/services#web",
+    href: "/website-design",
   },
 ];
 
