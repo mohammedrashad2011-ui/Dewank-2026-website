@@ -51,10 +51,9 @@ const services = [
 ];
 
 const projects = [
-  { n: "01", sector: "BEAUTY / BRAND IDENTITY", title: "Clinika", subtitle: "Beauty with a clear story", image: "/work/clinika.png", tone: "clinika" },
-  { n: "02", sector: "MARKETING / BRAND IDENTITY", title: "ReachwayAD", subtitle: "Guiding brands to success", image: "/work/reachwayad.png", tone: "reachway" },
-  { n: "03", sector: "TRAVEL / BRAND IDENTITY", title: "Arab Sun", subtitle: "A modern Arabian travel mark", image: "/work/arab-sun.png", tone: "arab-sun" },
-  { n: "04", sector: "HEALTHCARE / BRAND IDENTITY", title: "Dar Al Safa", subtitle: "A premium healthcare identity", image: "/work/dar-al-safa.jpg", tone: "dar-safa" },
+  { n: "01", sector: "LUXURY HOSPITALITY / ALULA", title: "NOMAÏ", subtitle: "Stay beyond time", tone: "nomai" },
+  { n: "02", sector: "ARCHITECTURE / COPENHAGEN", title: "KOVA", subtitle: "Form follows feeling", tone: "kova" },
+  { n: "03", sector: "SKINCARE / PARIS", title: "LUME", subtitle: "Proof over promises", tone: "lume" },
 ];
 
 export default function Home() {
@@ -124,14 +123,12 @@ export default function Home() {
           {projects.map((project) => (
             <Link href="/work" className={`project-card ${project.tone}`} key={project.n} dir="ltr">
               <div className="project-meta"><span>{project.n}</span><small>{project.sector}</small><b>↗</b></div>
-              <div className="project-art project-image" aria-hidden="true">
-                <img src={project.image} alt="" loading="lazy" />
-              </div>
+              <div className="project-art" aria-hidden="true"><span>{project.title.charAt(0)}</span><i>{project.title}</i></div>
               <div className="project-name"><h3>{project.title}</h3><p>{project.subtitle}</p></div>
             </Link>
           ))}
         </div>
-        <p className="concept-line">نماذج مختارة من هويات وعلامات طوّرها ديوانك لقطاعات متنوعة.</p>
+        <p className="concept-line">الأعمال المعروضة مشروعات مفاهيمية أصلية توضح مستوى التفكير والتنفيذ الإبداعي في ديوانك.</p>
       </section>
 
       <section className="case-study shell" aria-labelledby="case-study-title">
