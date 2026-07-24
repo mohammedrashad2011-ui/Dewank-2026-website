@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header, PageHero } from "../components/site-shell";
+import AiWorkflowVisual from "./ai-workflow-visual";
 
 export const metadata: Metadata = createMetadata({
   title: "خدمات ديوانك | براندينج، تسويق، مواقع وأتمتة AI",
@@ -81,7 +82,7 @@ const services = [
     no: "07",
     en: "AI AUTOMATION",
     tone: "automation",
-    visual: "automation",
+    visual: "ai",
     title: "لا تضف AI إلى الفوضى.",
     hook: "نظّم العملية ثم أتمتها.",
     text: "حلول أتمتة وذكاء اصطناعي تربط التسويق والمبيعات وخدمة العملاء والتشغيل لتقليل العمل اليدوي وتسريع القرار.",
@@ -121,7 +122,11 @@ export default function ServicesPage() {
   const renderCard = (service: (typeof allServices)[number]) => (
     <article className={`service-detail ${service.tone}`} key={service.href}>
       <div className="detail-top"><span>{service.no}</span><small>{service.en}</small></div>
-      <div className={`service-symbol ${service.visual}`} aria-hidden="true"><i/><i/><i/></div>
+      {service.visual === "ai" ? (
+        <AiWorkflowVisual />
+      ) : (
+        <div className={`service-symbol ${service.visual}`} aria-hidden="true"><i/><i/><i/></div>
+      )}
       <div className="detail-copy">
         <h2>{service.title}<br/><em>{service.hook}</em></h2>
         <p>{service.text}</p>
