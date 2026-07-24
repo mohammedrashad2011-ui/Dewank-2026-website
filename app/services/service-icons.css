@@ -1,0 +1,101 @@
+.services-page .service-symbol.search{
+  position:relative;
+  width:230px;
+  height:180px;
+  align-self:center;
+  justify-self:center;
+}
+.services-page .service-symbol.search:before{
+  content:"";
+  position:absolute;
+  width:108px;
+  height:108px;
+  right:34px;
+  top:12px;
+  border:14px solid var(--blue);
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 0 0 9px rgba(22,71,255,.09);
+}
+.services-page .service-symbol.search:after{
+  content:"";
+  position:absolute;
+  width:82px;
+  height:18px;
+  right:2px;
+  bottom:30px;
+  border-radius:999px;
+  background:var(--blue);
+  transform:rotate(-42deg);
+  transform-origin:right center;
+  box-shadow:0 10px 0 rgba(10,10,10,.08);
+}
+.services-page .service-symbol.search i{
+  position:absolute;
+  display:block;
+  border-radius:999px;
+  background:var(--ink);
+  z-index:2;
+}
+.services-page .service-symbol.search i:nth-child(1){width:52px;height:10px;right:62px;top:55px}
+.services-page .service-symbol.search i:nth-child(2){width:36px;height:10px;right:62px;top:78px;background:var(--acid)}
+.services-page .service-symbol.search i:nth-child(3){width:22px;height:22px;left:8px;top:10px;background:var(--coral);border-radius:50%;box-shadow:28px 15px 0 var(--acid)}
+.services-page .service-detail:hover .service-symbol.search:before{transform:scale(1.04)}
+.services-page .service-detail:hover .service-symbol.search:after{transform:rotate(-42deg) translateX(-5px)}
+.services-page .service-symbol.search:before,.services-page .service-symbol.search:after{transition:.35s ease}
+
+.services-page .service-symbol.document{
+  position:relative;
+  width:210px;
+  height:250px;
+  align-self:center;
+  justify-self:center;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:16px 18px 0 var(--blue);
+  overflow:hidden;
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.services-page .service-symbol.document:before{
+  content:"CV";
+  position:absolute;
+  right:20px;
+  top:18px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:var(--acid);
+  color:var(--ink);
+  font:900 17px Arial;
+}
+.services-page .service-symbol.document:after{
+  content:"ATS";
+  position:absolute;
+  left:18px;
+  top:30px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:var(--ink);
+  color:#fff;
+  font:800 10px Arial;
+  letter-spacing:.08em;
+}
+.services-page .service-symbol.document i{
+  position:absolute;
+  right:20px;
+  height:10px;
+  border-radius:999px;
+  background:#d8dbe3;
+}
+.services-page .service-symbol.document i:nth-child(1){left:20px;top:105px;background:var(--blue)}
+.services-page .service-symbol.document i:nth-child(2){left:54px;top:140px}
+.services-page .service-symbol.document i:nth-child(3){left:34px;top:175px;box-shadow:0 34px 0 #d8dbe3}
+.services-page .service-detail:hover .service-symbol.document{transform:translateY(-6px) rotate(-1deg);box-shadow:22px 25px 0 var(--blue)}
+
+@media(max-width:900px){
+  .services-page .service-symbol.search{width:180px;height:150px}
+  .services-page .service-symbol.document{width:170px;height:205px}
+}
