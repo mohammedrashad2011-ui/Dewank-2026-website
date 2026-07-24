@@ -47,3 +47,21 @@
 .work-final .button{margin-top:20px}
 @media(max-width:900px){.work-hero{padding:90px 0 60px}.work-hero h1{font-size:clamp(40px,10vw,58px);line-height:1.45}.work-trust{grid-template-columns:1fr 1fr}.work-trust div:nth-child(2){border-left:0}.work-trust div:nth-child(-n+2){border-bottom:1px solid var(--line)}.real-case-grid,.concepts-head,.work-final{grid-template-columns:1fr}.case-facts,.concept-grid{grid-template-columns:1fr}.work-method-grid{grid-template-columns:1fr 1fr}.work-final{margin-inline:18px;padding:42px 24px}.concept-card h3{font-size:30px}}
 @media(max-width:520px){.work-trust,.work-method-grid{grid-template-columns:1fr}.work-trust div,.work-trust div:nth-child(2){border-left:0;border-bottom:1px solid var(--line)}.work-method-grid div{border-left:0;border-bottom:1px solid var(--line)}.case-facts{grid-template-columns:1fr}.real-case,.concepts-section,.work-method{padding-block:80px}.work-final h2,.real-case-copy h2,.concepts-head h2,.work-method h2{font-size:34px;line-height:1.5}}
+
+/* Selected real identity work */
+.identity-work{padding:120px 0}
+.identity-work-head{display:grid;grid-template-columns:1.35fr .65fr;gap:70px;align-items:end;margin-bottom:52px}
+.identity-work-head h2{font-size:clamp(46px,5.5vw,78px);line-height:1.18;letter-spacing:-.055em;margin:22px 0 0}
+.identity-work-head p{color:var(--muted);font-size:14px;line-height:1.9;margin:0}
+.identity-work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;direction:ltr}
+.identity-work-card{grid-column:span 6;min-height:440px;border:1px solid var(--line);border-radius:30px;padding:24px;background:#fff;display:flex;flex-direction:column;overflow:hidden}
+.identity-work-card.clinika{grid-column:span 7}.identity-work-card.reachway{grid-column:span 5;background:#1e2733;color:#fff}
+.identity-work-card.arab-sun{grid-column:span 5;background:#f2f3f3}.identity-work-card.dar-safa{grid-column:span 7;background:#101112;color:#f1d79f}
+.identity-work-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;font:700 10px Arial;letter-spacing:.08em;text-transform:uppercase}
+.identity-work-meta span{opacity:.65}.identity-work-meta b{font-size:14px}
+.identity-work-image{flex:1;min-height:320px;margin-top:20px;border-radius:20px;overflow:hidden;background:#fff}
+.identity-work-image img{width:100%;height:100%;display:block;object-fit:contain;transition:transform .5s ease}
+.identity-work-card:hover img{transform:scale(1.03)}.identity-work-card.dar-safa .identity-work-image{background:#101112}.identity-work-card.dar-safa img{object-fit:cover}
+.identity-work-cta{display:inline-flex;margin-top:30px}
+@media(max-width:900px){.identity-work-head{grid-template-columns:1fr;gap:25px}.identity-work-card.clinika,.identity-work-card.reachway,.identity-work-card.arab-sun,.identity-work-card.dar-safa{grid-column:span 12}}
+@media(max-width:640px){.identity-work{padding:85px 0}.identity-work-head{margin-bottom:34px}.identity-work-head h2{font-size:42px}.identity-work-grid{grid-template-columns:1fr}.identity-work-card.clinika,.identity-work-card.reachway,.identity-work-card.arab-sun,.identity-work-card.dar-safa{grid-column:1;min-height:380px;padding:18px}.identity-work-image{min-height:280px}}
