@@ -3,7 +3,8 @@ import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import AutomationFlow from "../components/automation-flow";
-import ConnectedSystem from "../components/connected-system";\nimport WhatsAppHeroDemo from "../components/whatsapp-hero-demo";
+import ConnectedSystem from "../components/connected-system";
+import WhatsAppHeroDemo from "../components/whatsapp-hero-demo";
 
 export const metadata: Metadata = createMetadata({
   title: "أتمتة واتساب مع CRM للشركات | ديوانك",
