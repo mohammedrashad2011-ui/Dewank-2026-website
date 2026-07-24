@@ -2,49 +2,94 @@
 
 import { useState } from "react";
 
-const nodes = [
-  { key: "input", label: "البيانات" },
-  { key: "logic", label: "القرار" },
-  { key: "action", label: "التنفيذ" },
-  { key: "report", label: "القياس" },
+const stages = ["Manual", "Structured", "Automated", "Measured"];
+
+const inputs = [
+  { label: "رسائل متفرقة", tone: "chaos-a" },
+  { label: "ملفات Excel", tone: "chaos-b" },
+  { label: "مهام يدوية", tone: "chaos-c" },
+  { label: "Leads بلا متابعة", tone: "chaos-d" },
+];
+
+const outputs = [
+  { label: "Qualified Lead", tone: "result-a" },
+  { label: "CRM Updated", tone: "result-b" },
+  { label: "Follow-up Sent", tone: "result-c" },
+  { label: "Report Ready", tone: "result-d" },
 ];
 
 export default function AiWorkflowVisual() {
-  const [active, setActive] = useState(1);
+  const [stage, setStage] = useState(0);
+  const [running, setRunning] = useState(false);
+
+  function runFlow() {
+    if (running) return;
+    setRunning(true);
+    setStage(0);
+
+    [1, 2, 3].forEach((nextStage, index) => {
+      window.setTimeout(() => setStage(nextStage), 650 * (index + 1));
+    });
+
+    window.setTimeout(() => setRunning(false), 2900);
+  }
 
   return (
-    <div className="ai-workflow" aria-label="مخطط تفاعلي يوضح دورة أتمتة الذكاء الاصطناعي">
-      <div className="ai-flow-lines" aria-hidden="true">
-        <span className="line line-1" />
-        <span className="line line-2" />
-        <span className="line line-3" />
-        <span className="line line-4" />
+    <div className={`ai-control-room stage-${stage}${running ? " is-running" : ""}`} aria-label="لوحة تحكم تفاعلية توضّح تحويل الفوضى إلى عملية مؤتمتة">
+      <div className="ai-room-top">
+        <span>AI CONTROL ROOM</span>
+        <b>{stages[stage]}</b>
       </div>
 
-      <button
-        type="button"
-        className="ai-core"
-        onClick={() => setActive((active + 1) % nodes.length)}
-        aria-label="انتقل إلى المرحلة التالية"
-      >
-        <span>AI</span>
-        <small>{nodes[active].label}</small>
-      </button>
+      <div className="ai-room-grid">
+        <div className="ai-side ai-inputs" aria-label="قبل التنظيم">
+          <small>BEFORE</small>
+          {inputs.map((item, index) => (
+            <button
+              key={item.label}
+              type="button"
+              className={`ai-ticket ${item.tone}`}
+              onClick={() => setStage(Math.min(index, 3))}
+            >
+              <i aria-hidden="true" />
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
 
-      {nodes.map((node, index) => (
-        <button
-          key={node.key}
-          type="button"
-          className={`ai-node node-${index + 1}${active === index ? " is-active" : ""}`}
-          onClick={() => setActive(index)}
-          aria-pressed={active === index}
-        >
-          <i aria-hidden="true" />
-          <span>{node.label}</span>
+        <button type="button" className="ai-orchestrator" onClick={runFlow} aria-label="شغّل الأتمتة التفاعلية">
+          <span className="ai-ring ring-one" aria-hidden="true">RULES</span>
+          <span className="ai-ring ring-two" aria-hidden="true">DATA</span>
+          <span className="ai-ring ring-three" aria-hidden="true">ACTIONS</span>
+          <strong>AI</strong>
+          <small>ORCHESTRATION</small>
         </button>
-      ))}
 
-      <p className="ai-hint">اضغط على أي مرحلة</p>
+        <div className="ai-side ai-outputs" aria-label="بعد الأتمتة">
+          <small>AFTER</small>
+          {outputs.map((item, index) => (
+            <button
+              key={item.label}
+              type="button"
+              className={`ai-ticket ${item.tone}${stage === index ? " is-active" : ""}`}
+              onClick={() => setStage(index)}
+            >
+              <i aria-hidden="true" />
+              <span>{item.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="ai-flow-track" aria-hidden="true">
+        <span className="flow-before" />
+        <span className="flow-after" />
+        <i />
+      </div>
+
+      <button type="button" className="ai-run" onClick={runFlow} disabled={running}>
+        {running ? "جاري التنظيم..." : "شغّل المنظومة"}
+      </button>
     </div>
   );
 }
