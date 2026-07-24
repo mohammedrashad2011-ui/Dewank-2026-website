@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
+import { IdentityShowcase } from "./identity-showcase";
 import "./work-page.css";
 
 export const metadata: Metadata = createMetadata({
@@ -12,10 +13,10 @@ export const metadata: Metadata = createMetadata({
 });
 
 const identityProjects = [
-  { name: "Clinika", sector: "الجمال والعناية", image: "/work/clinika.png", className: "clinika" },
-  { name: "ReachwayAD", sector: "التسويق والإعلان", image: "/work/reachwayad.png", className: "reachway" },
-  { name: "Arab Sun", sector: "السفر والسياحة", image: "/work/arab-sun.png", className: "arab-sun" },
-  { name: "دار الصفاء", sector: "الرعاية الصحية", image: "/work/dar-al-safa.jpg", className: "dar-safa" },
+  { name: "ReachwayAD", sector: "التسويق والإعلان", image: "/work/reachwayad-remastered.webp", className: "reachway featured", summary: "هوية مؤسسية تجمع بين الثقة والحركة، مطبقة عبر القرطاسية ونقاط الحضور الرقمية." },
+  { name: "Clinika", sector: "الجمال والعناية", image: "/work/clinika-remastered.webp", className: "clinika", summary: "هوية راقية لقطاع الجمال بملامح تحريرية هادئة وتطبيقات تعزز الثقة والانطباع الأول." },
+  { name: "Arab Sun", sector: "السفر والسياحة", image: "/work/arab-sun-remastered.webp", className: "arab-sun", summary: "نظام بصري يستلهم الشمس والحركة العربية، مطبق على التغليف والمواد المطبوعة." },
+  { name: "دار الصفاء", sector: "الرعاية الصحية", image: "/work/dar-al-safa-remastered.webp", className: "dar-safa wide", summary: "هوية طبية دافئة تجمع بين الرعاية والاحتراف عبر اللافتات والقرطاسية ونقاط الاستقبال." },
 ];
 
 const concepts = [
@@ -116,19 +117,7 @@ export default function WorkPage() {
           </div>
           <p>نماذج من أعمال ديوانك الفعلية في تصميم وتطوير الهوية البصرية لقطاعات متنوعة.</p>
         </div>
-        <div className="identity-work-grid">
-          {identityProjects.map((project) => (
-            <article className={`identity-work-card ${project.className}`} key={project.name}>
-              <div className="identity-work-meta">
-                <span>{project.sector}</span>
-                <b>{project.name}</b>
-              </div>
-              <div className="identity-work-image">
-                <img src={project.image} alt={`مشروع الهوية البصرية لعلامة ${project.name} من ديوانك`} loading="lazy" />
-              </div>
-            </article>
-          ))}
-        </div>
+        <IdentityShowcase projects={identityProjects} />
         <Link className="button secondary identity-work-cta" href="/branding">اكتشف خدمة الهوية البصرية <span>←</span></Link>
       </section>
 
