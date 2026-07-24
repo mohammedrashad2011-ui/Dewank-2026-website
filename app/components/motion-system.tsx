@@ -11,27 +11,28 @@ const services = [
 
 export default function MotionSystem() {
   return (
-    <div className="hero-system planet-system" aria-label="منظومة خدمات ديوانك">
-      <div className="space-glow" aria-hidden="true" />
-      <div className="service-ring ring-a" aria-hidden="true" />
-      <div className="service-ring ring-b" aria-hidden="true" />
-      <div className="service-ring ring-c" aria-hidden="true" />
+    <>
+      <div className="hero-system planet-system" aria-label="منظومة خدمات ديوانك">
+        <div className="space-glow" aria-hidden="true" />
+        <div className="service-ring ring-a" aria-hidden="true" />
+        <div className="service-ring ring-b" aria-hidden="true" />
+        <div className="service-ring ring-c" aria-hidden="true" />
 
-      <a className="dewank-sun" href="/services" aria-label="استكشف خدمات ديوانك">
-        <span>ديوانك</span>
-      </a>
+        <a className="dewank-sun" href="/services" aria-label="استكشف خدمات ديوانك">
+          <span>ديوانك</span>
+        </a>
 
-      {services.map((service) => (
-        <div className={`satellite-track ${service.position}`} key={service.name}>
-          <a className="service-satellite" href={service.href}>
-            <i aria-hidden="true" />
-            <span>{service.name}</span>
-          </a>
-        </div>
-      ))}
+        {services.map((service) => (
+          <div className={`satellite-track ${service.position}`} key={service.name}>
+            <a className="service-satellite" href={service.href}>
+              <i aria-hidden="true" />
+              <span>{service.name}</span>
+            </a>
+          </div>
+        ))}
 
-      <div className="system-caption"><i /> ONE CONNECTED SYSTEM</div>
-    </div>
+        <div className="system-caption"><i /> ONE CONNECTED SYSTEM</div>
+      </div>
 
       <style>{`
         @media (max-width: 640px) {
@@ -71,5 +72,6 @@ export default function MotionSystem() {
           }
         }
       `}</style>
+    </>
   );
 }
