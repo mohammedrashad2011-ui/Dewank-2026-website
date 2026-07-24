@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Alexandria, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import "./service-pages-fix.css";
+import "./services/service-icons.css";
 import { defaultDescription, siteName, siteUrl } from "./lib/seo";
 
 const alexandria = Alexandria({ variable: "--font-arabic", subsets: ["arabic", "latin"] });

@@ -1,31 +1,156 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { createMetadata } from "../lib/seo";
+import { Footer, Header } from "../components/site-shell";
+import "./work-page.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "Dewank Portfolio | Brand Strategy and Visual Identity Work",
-  description: "استكشف أعمال ديوانك المفاهيمية في استراتيجية البراند، التسمية، الهوية البصرية والتجارب الرقمية للعلامات الطموحة.",
+  title: "أعمال ديوانك | دراسات حالة في البراندينج والتسويق والأتمتة",
+  description: "استكشف دراسات حالة ومشروعات ديوانك في استراتيجية البراند، تصميم الهوية، المواقع، التسويق وأتمتة واتساب وCRM.",
   path: "/work",
-  keywords: ["أعمال براندينج", "تصميم هوية بصرية", "Brand Identity Portfolio", "استراتيجية العلامة"],
+  keywords: ["أعمال ديوانك", "دراسات حالة تسويق", "تصميم هوية بصرية", "أتمتة واتساب CRM", "Brand Strategy Portfolio"],
 });
-import Link from "next/link";
-import { Footer, Header } from "../components/site-shell";
 
-const cases=[
- {no:'01',id:'nomai',name:'NOMAÏ',type:'ضيافة فاخرة',place:'العلا · السعودية',year:'2026',statement:'إقامة تتجاوز الزمن',about:'هوية لوجهة فندقية تستمد هدوءها من الصمت والحجر الرملي وإيقاع الصحراء البطيء.',scope:['استراتيجية البراند','الهوية البصرية','تجربة الضيف']},
- {no:'02',id:'kova',name:'KOVA',type:'عمارة وتصميم منتجات',place:'كوبنهاغن · الدنمارك',year:'2026',statement:'الشكل يتبع الإحساس',about:'نظام بصري منضبط تتحول فيه الهندسة إلى لغة موحدة للمساحات والمنتجات والأفكار.',scope:['التموضع','نظام الهوية','الاتجاه الرقمي']},
- {no:'03',id:'lume',name:'LUME',type:'عناية متقدمة بالبشرة',place:'باريس · فرنسا',year:'2026',statement:'الدليل قبل الوعود',about:'دقة علمية تلتقي بجمال تحريري داخل علامة عناية بالبشرة مبنية على الثقة الذكية.',scope:['التسمية','التغليف','نظام الحملات']},
+const concepts = [
+  {
+    name: "NOMAÏ",
+    type: "ضيافة فاخرة · مشروع مفاهيمي",
+    challenge: "تمييز وجهة صحراوية فاخرة عن الصور النمطية المتكررة في قطاع الضيافة.",
+    decision: "بناء العلامة حول الصمت والبطء وإيقاع المكان بدل الفخامة التقليدية.",
+    scope: "التموضع، التسمية، الهوية البصرية، واتجاه تجربة الضيف.",
+    impact: "أثر مستهدف: علامة أسهل تذكّرًا وأكثر قدرة على تبرير تجربة وسعر أعلى.",
+  },
+  {
+    name: "KOVA",
+    type: "عمارة ومنتجات · مشروع مفاهيمي",
+    challenge: "توحيد العمارة والمنتجات والمحتوى داخل علامة واحدة دون فقدان الدقة.",
+    decision: "تحويل الهندسة من شكل بصري إلى لغة ثابتة تُستخدم عبر كل نقطة تواصل.",
+    scope: "التموضع، نظام الهوية، واتجاه التجربة الرقمية.",
+    impact: "أثر مستهدف: وضوح أكبر وتناسق أسرع عند إطلاق منتجات ومشروعات جديدة.",
+  },
+  {
+    name: "LUME",
+    type: "عناية بالبشرة · مشروع مفاهيمي",
+    challenge: "سوق مزدحم بوعود جمالية متشابهة وضعف واضح في الثقة.",
+    decision: "تقديم الدليل العلمي قبل الوعد الجمالي داخل تجربة تحريرية راقية.",
+    scope: "التسمية، التغليف، ونظام الحملات.",
+    impact: "أثر مستهدف: رفع المصداقية وتسهيل فهم القيمة قبل قرار الشراء.",
+  },
 ];
 
-function Nomai(){return <div className="identity-stage nomai-stage"><div className="nomai-sky"><span>DESERT<br/>HOUSE</span></div><div className="nomai-door"><b>N</b></div><div className="nomai-paper"><small>WELCOME TO</small><strong>NOMAÏ</strong><i>23°08′N<br/>37°06′E</i></div><div className="nomai-mark">N</div></div>}
-function Kova(){return <div className="identity-stage kova-stage"><div className="kova-board"><small>KOVA / OBJECTS</small><b>FORM<br/>FOLLOWS<br/><i>FEELING</i></b><span>COLLECTION 01—26</span></div><div className="kova-cube"><span>K</span></div><div className="kova-book"><b>KO<br/>VA</b><small>ARCHITECTURE<br/>AND OBJECTS</small></div><div className="kova-ruler">01 02 03 04 05 06 07 08</div></div>}
-function Lume(){return <div className="identity-stage lume-stage"><div className="lume-title">LUME</div><div className="lume-tube"><small>LUME / 01</small><b>C+</b><span>BRIGHTENING<br/>CONCENTRATE</span><i>30 ML</i></div><div className="lume-carton"><small>CLINICALLY<br/>CONSIDERED</small><b>LUME</b><span>PROOF<br/>OVER<br/><i>PROMISES</i></span></div><div className="lume-sphere"/></div>}
-function Visual({id}:{id:string}){return id==='nomai'?<Nomai/>:id==='kova'?<Kova/>:<Lume/>}
+export default function WorkPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Dewank Work and Case Studies",
+    url: "https://dewank.com/work",
+    description: "دراسات حالة ومشروعات في البراندينج والتسويق والمواقع والأتمتة.",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Clinic WhatsApp Automation and CRM Case Study" },
+        ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + 2, name: item.name })),
+      ],
+    },
+  };
 
-export default function WorkPage(){return <main className="global-portfolio" dir="rtl"><Header/>
- <section className="pf-hero"><div className="pf-edition">ديوانك / عوالم مختارة / 2026</div><h1>نصنع للعلامة<br/><i>عالمًا متكاملًا.</i></h1><div className="pf-hero-foot"><p>استراتيجية وهوية وتجارب لعلامات تطمح إلى المنافسة عالميًا.</p><span>اكتشف المشاريع ↓</span></div></section>
- <section id="work" className="pf-cases">{cases.map(c=><article className={`pf-case ${c.id}`} key={c.id}><div className="pf-meta"><span>{c.no}</span><span>{c.type}</span><span>{c.place}</span><span>{c.year}</span></div><div dir="ltr"><Visual id={c.id}/></div><div className="pf-info"><div><span className="pf-name" dir="ltr">{c.name}</span><h2>{c.statement}</h2></div><div><p>{c.about}</p><div className="pf-tags">{c.scope.map(s=><span key={s}>{s}</span>)}</div></div></div></article>)}</section>
- <section className="pf-disclaimer"><span>مشروعات مفاهيمية مستقلة</span><p>هويات أصلية ابتكرناها لعرض مستوى ديوانك الاستراتيجي والإبداعي. لا توحي هذه النماذج بوجود علاقة تعاقدية مع علامات أو جهات خارجية.</p></section>
- <section className="seo-content shell" aria-labelledby="portfolio-process-title"><span className="section-label">[ HOW WE BUILD BRANDS ]</span><h2 id="portfolio-process-title">الأعمال القوية تبدأ بقرار استراتيجي.</h2><div className="seo-content-grid"><p>كل مشروع هوية يبدأ بفهم الجمهور والسوق والفرصة التنافسية، وليس باختيار شكل جميل فقط. نحدد الفكرة المركزية للعلامة، نختبر قدرتها على التميّز، ثم نحوّلها إلى نظام بصري ولغوي قابل للتطبيق.</p><p>تشمل عملية البراندينج عند الحاجة استراتيجية العلامة، التسمية، الرسائل، الشعار، الألوان، الخطوط، قواعد الاستخدام، واتجاهات التطبيق على الموقع والمحتوى والحملات.</p><p>المشروعات المعروضة هنا مفاهيم أصلية تشرح طريقة التفكير ومستوى التنفيذ. عند العمل مع عميل حقيقي، يتم بناء الحل وفق بياناته وسوقه وأهدافه بدل إعادة استخدام قالب جاهز.</p></div></section>
- <section className="pf-close"><small>قد تكون علامتك هي التالية</small><h2>اجعلها<br/><i>مستحيلة التجاهل.</i></h2><Link href="/contact">ابدأ مشروعك <span>↙</span></Link></section>
- <Footer/>
- </main>}
+  return (
+    <main className="work-page" dir="rtl">
+      <Header />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+
+      <section className="work-hero shell">
+        <span className="section-label">[ أعمال ديوانك ]</span>
+        <h1>لا نعرض تصاميم جميلة فقط.<br/><em>نعرض قرارات تبني علامة أقوى.</em></h1>
+        <p>كل مشروع يبدأ بتحدٍ تجاري، ثم نترجمه إلى استراتيجية وهوية وتجربة أو نظام يساعد العلامة على أن تُفهم، تُتذكر، وتتحرك نحو نتيجة واضحة.</p>
+        <div className="work-hero-actions">
+          <Link className="button primary" href="/contact">ابدأ مشروعك <span>←</span></Link>
+          <a className="button secondary" href="#case-studies">استكشف دراسات الحالة</a>
+        </div>
+      </section>
+
+      <section className="work-trust shell" aria-label="ما يميز طريقة عمل ديوانك">
+        <div>استراتيجية قبل التصميم</div>
+        <div>خبرة عملية في أسواق الخليج</div>
+        <div>براند وموقع ومحتوى في منظومة واحدة</div>
+        <div>تنفيذ مخصص، لا قوالب جاهزة</div>
+      </section>
+
+      <section className="real-case shell" id="case-studies">
+        <div className="real-case-grid">
+          <div className="real-case-copy">
+            <span className="section-label">[ دراسة حالة حقيقية · البحرين ]</span>
+            <h2>من رسائل متفرقة<br/>إلى رحلة متابعة قابلة للقياس.</h2>
+            <p>عيادة تجميل كانت تعتمد على الرد والمتابعة اليدوية عبر واتساب، ما تسبب في بطء الاستجابة وضياع فرص وعدم انتظام التذكير بالمواعيد.</p>
+            <div className="case-facts">
+              <div><b>التحدي</b><span>عملاء يصلون من الحملات، لكن الرحلة بعد الرسالة لم تكن موحدة أو قابلة للمتابعة.</span></div>
+              <div><b>القرار</b><span>ربط المحادثة بالتأهيل والحجز والتذكير والمتابعة داخل CRM واحد.</span></div>
+              <div><b>ما نفذناه</b><span>ردود ذكية، تصنيف العملاء، مسارات حجز، تذكيرات، وإعادة تواصل مع العملاء غير المكتملين.</span></div>
+              <div><b>الأثر التجاري</b><span>تحسين التحويل وتقليل العبء اليدوي مع رؤية أوضح لحالة كل عميل.</span></div>
+            </div>
+            <Link className="button primary case-cta" href="/whatsapp-automation">اكتشف خدمة أتمتة واتساب <span>←</span></Link>
+          </div>
+
+          <div className="metrics-panel" aria-label="نتائج دراسة الحالة">
+            <div className="metric"><strong>+25</strong><span>نقطة تقريبًا في معدل الحضور</span></div>
+            <div className="metric"><strong>+30%</strong><span>تحسن تقريبي في التحويل من العميل إلى الحجز</span></div>
+            <div className="metric"><strong>-40%</strong><span>انخفاض تقريبي في ضغط العمل على الاستقبال</span></div>
+            <p className="metric-note">النتائج مستندة إلى التشغيل الفعلي للمشروع، وقد تختلف حسب حجم الرسائل وجودة العرض وسرعة استجابة الفريق.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="concepts-section">
+        <div className="shell">
+          <div className="concepts-head">
+            <div>
+              <span className="section-label">[ مشروعات مفاهيمية أصلية ]</span>
+              <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط.</h2>
+            </div>
+            <p>هذه المشروعات ليست أعمالًا تعاقدية مع علامات خارجية. أنشأناها لعرض كيف نحول التحدي إلى قرار استراتيجي ثم إلى نظام بصري وتجربة متماسكة.</p>
+          </div>
+
+          <div className="concept-grid">
+            {concepts.map((item) => (
+              <article className="concept-card" key={item.name}>
+                <span className="concept-label">{item.type}</span>
+                <h3 dir="ltr">{item.name}</h3>
+                <dl>
+                  <div><dt>التحدي</dt><dd>{item.challenge}</dd></div>
+                  <div><dt>القرار الاستراتيجي</dt><dd>{item.decision}</dd></div>
+                  <div><dt>ما صممناه</dt><dd>{item.scope}</dd></div>
+                  <div><dt>الأثر المستهدف</dt><dd>{item.impact}</dd></div>
+                </dl>
+                <Link href="/branding">هل تواجه تحديًا مشابهًا؟ <span>←</span></Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="work-method shell">
+        <span className="section-label">[ كيف نعمل ]</span>
+        <h2>من التحدي إلى نظام<br/>يمكن تنفيذه وقياسه.</h2>
+        <div className="work-method-grid">
+          <div><span>01</span><h3>نفهم التحدي</h3><p>نحدد أين يتوقف النمو وما الذي يحتاجه العميل فعلًا.</p></div>
+          <div><span>02</span><h3>نختار القرار</h3><p>نحدد التموضع والرسالة والأولوية قبل الدخول في التنفيذ.</p></div>
+          <div><span>03</span><h3>نبني النظام</h3><p>نحوّل القرار إلى هوية أو موقع أو محتوى أو أتمتة مترابطة.</p></div>
+          <div><span>04</span><h3>نقيس ونحسّن</h3><p>نراجع الأداء ونطوّر ما يرفع الوضوح والتحويل والكفاءة.</p></div>
+        </div>
+      </section>
+
+      <section className="work-final">
+        <div>
+          <span className="section-label">[ الخطوة التالية ]</span>
+          <h2>مشروعك لا يحتاج تصميمًا أكثر.<br/><em>يحتاج قرارًا أوضح.</em></h2>
+        </div>
+        <div>
+          <p>أخبرنا أين يتوقف النمو، وسنقترح عليك أقصر مسار عملي بدل إضافة خدمات لا تحتاجها.</p>
+          <Link className="button primary" href="/contact">ناقش مشروعك معنا <span>←</span></Link>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}

@@ -1,0 +1,66 @@
+.demo{
+  position:relative;min-height:610px;padding:22px;overflow:hidden;isolation:isolate;
+  display:grid;grid-template-columns:132px minmax(0,1fr);grid-template-rows:1fr auto;
+  gap:18px;direction:ltr;border:1px solid rgba(255,255,255,.28);border-radius:42px;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    radial-gradient(circle at 72% 25%,rgba(217,255,67,.15),transparent 32%),
+    rgba(6,16,48,.72);
+  background-size:34px 34px,34px 34px,auto,auto;
+  box-shadow:0 42px 100px rgba(0,4,28,.46),inset 0 1px rgba(255,255,255,.2);
+  -webkit-backdrop-filter:blur(24px) saturate(135%);backdrop-filter:blur(24px) saturate(135%)
+}
+.glow{position:absolute;width:220px;height:220px;right:-70px;top:-70px;border-radius:50%;background:rgba(217,255,67,.16);filter:blur(45px);z-index:-1;animation:glowPulse 4.5s ease-in-out infinite alternate}
+.pipeline{align-self:center;direction:rtl;padding:18px 4px;color:#fff}
+.pipeline>small{display:block;margin-bottom:26px;color:#92a1dc;font:700 8px Arial;letter-spacing:.15em;direction:ltr}
+.pipeline ol{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.pipeline li{position:relative;display:flex;align-items:center;gap:9px;min-height:59px;color:#6e789e;font-size:10px;font-weight:700;transition:.35s}
+.pipeline li:not(:last-child):after{content:"";position:absolute;width:1px;height:25px;background:#ffffff22;right:13px;top:47px}
+.pipeline li i{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;border:1px solid #ffffff25;color:#7f89ad;font:700 9px Arial;font-style:normal;transition:.35s}
+.pipeline li.doneStage{color:#dbe1ff}.pipeline li.doneStage i{background:rgba(40,210,125,.13);border-color:#29d27f;color:#62eca7}
+.pipeline li.activeStage{color:#fff}.pipeline li.activeStage i{background:#d9ff43;border-color:#d9ff43;color:#09142f;box-shadow:0 0 0 6px rgba(217,255,67,.09)}
+.phone{
+  position:relative;align-self:stretch;min-height:510px;direction:rtl;overflow:hidden;
+  display:flex;flex-direction:column;padding:17px;border-radius:31px;color:#15211c;
+  background:linear-gradient(180deg,#f7f4ec,#ecebe5);
+  border:6px solid #12233d;box-shadow:16px 18px 0 rgba(217,255,67,.92),0 26px 65px rgba(0,5,35,.42);
+  transform:rotate(-1.2deg);transition:transform .45s ease,box-shadow .45s ease
+}
+.demo:hover .phone{transform:rotate(0) translateY(-4px);box-shadow:10px 14px 0 rgba(217,255,67,.92),0 34px 76px rgba(0,5,35,.52)}
+.phoneHead{display:grid;grid-template-columns:40px 1fr 32px;gap:10px;align-items:center;padding:2px 2px 14px;border-bottom:1px solid rgba(18,35,61,.12)}
+.brandMark{width:38px!important;height:38px!important;flex-basis:38px!important}
+.phoneHead>span:nth-child(2){display:flex;flex-direction:column;align-items:flex-start}
+.phoneHead strong{font-size:12px;line-height:1.3}.phoneHead small{display:flex;align-items:center;gap:5px;margin-top:3px;color:#47705e;font-size:8px}
+.phoneHead small i{width:6px;height:6px;border-radius:50%;background:#22c875;box-shadow:0 0 0 4px rgba(34,200,117,.11)}
+.phoneHead>b{direction:ltr;width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#23c86f;color:#fff;font:800 8px Arial;letter-spacing:-.03em}
+.chat{flex:1;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:15px 1px 12px;background-image:radial-gradient(rgba(17,50,38,.055) 1px,transparent 1px);background-size:16px 16px}
+.chat p{max-width:87%;margin:0;padding:10px 12px 7px;border-radius:15px;font-size:10px;line-height:1.65;box-shadow:0 5px 14px rgba(25,40,34,.06);opacity:0;animation:messageIn .48s cubic-bezier(.2,.8,.2,1) forwards}
+.chat time{display:block;margin-top:4px;color:#849087;font:600 7px Arial;text-align:left}
+.bot{align-self:flex-end;background:#fff;border-top-right-radius:4px}
+.user{align-self:flex-start;background:#d8f7c8;border-top-left-radius:4px}
+.user time{color:#3192a8}
+.crmCard{display:grid;gap:5px;padding:11px 12px;border-radius:13px;background:#10243c;color:#fff;border:1px solid #274361;box-shadow:0 8px 22px rgba(16,36,60,.18)}
+.crmCard span{display:flex;align-items:center;gap:6px;color:#88a4c8;font:700 7px Arial;letter-spacing:.12em;direction:ltr}
+.crmCard span i{width:6px;height:6px;border-radius:50%;background:#d9ff43;box-shadow:0 0 10px rgba(217,255,67,.65)}
+.crmCard strong{font-size:9px;font-weight:700;color:#eef3ff}
+.controls{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:7px;direction:rtl;padding-top:2px}
+.controls button{appearance:none;border:1px solid rgba(255,255,255,.17);border-radius:999px;background:rgba(255,255,255,.07);color:#aeb9dc;min-height:41px;padding:8px 10px;font:700 9px var(--font-arabic);cursor:pointer;transition:.25s;white-space:nowrap}
+.controls button span{font:700 7px Arial;margin-left:6px;color:#7886b6}
+.controls button:hover,.controls button:focus-visible{border-color:#d9ff43;color:#fff;outline:none;transform:translateY(-2px)}
+.controls button.activeControl{background:#d9ff43;color:#0a1730;border-color:#d9ff43}
+.controls button.activeControl span{color:#28405a}
+@keyframes messageIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes glowPulse{to{opacity:.55;transform:scale(1.12)}}
+@media(max-width:1000px){.demo{width:min(640px,100%);margin:auto}}
+@media(max-width:540px){
+  .demo{min-height:auto;padding:13px;border-radius:29px;grid-template-columns:1fr;grid-template-rows:auto auto auto;gap:12px}
+  .pipeline{padding:4px 2px}.pipeline>small{margin:0 0 8px}
+  .pipeline ol{grid-template-columns:repeat(4,1fr);gap:4px}.pipeline li{min-height:40px;gap:5px;font-size:8px}
+  .pipeline li:not(:last-child):after{width:22px;height:1px;right:auto;left:-12px;top:20px}
+  .pipeline li i{width:22px;height:22px;font-size:7px}
+  .phone{min-height:480px;border-radius:25px;border-width:5px;box-shadow:8px 10px 0 rgba(217,255,67,.92),0 22px 55px rgba(0,5,35,.42);transform:none}
+  .demo:hover .phone{transform:none;box-shadow:8px 10px 0 rgba(217,255,67,.92),0 22px 55px rgba(0,5,35,.42)}
+  .controls{grid-column:1;gap:5px}.controls button{min-height:38px;padding:7px 5px;font-size:8px}.controls button span{display:none}
+}
+@media(prefers-reduced-motion:reduce){.glow,.chat p{animation:none}.chat p{opacity:1}.phone,.controls button{transition:none}}
