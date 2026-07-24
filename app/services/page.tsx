@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header, PageHero } from "../components/site-shell";
 import AiWorkflowVisual from "./ai-workflow-visual";
+import "./ai-control-room.css";
 
 export const metadata: Metadata = createMetadata({
   title: "خدمات ديوانك | براندينج، تسويق، مواقع وأتمتة AI",
