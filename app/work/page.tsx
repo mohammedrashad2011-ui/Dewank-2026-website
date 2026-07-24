@@ -11,6 +11,13 @@ export const metadata: Metadata = createMetadata({
   keywords: ["أعمال ديوانك", "دراسات حالة تسويق", "تصميم هوية بصرية", "أتمتة واتساب CRM", "Brand Strategy Portfolio"],
 });
 
+const identityProjects = [
+  { name: "Clinika", sector: "الجمال والعناية", image: "/work/clinika.png", className: "clinika" },
+  { name: "ReachwayAD", sector: "التسويق والإعلان", image: "/work/reachwayad.png", className: "reachway" },
+  { name: "Arab Sun", sector: "السفر والسياحة", image: "/work/arab-sun.png", className: "arab-sun" },
+  { name: "دار الصفاء", sector: "الرعاية الصحية", image: "/work/dar-al-safa.jpg", className: "dar-safa" },
+];
+
 const concepts = [
   {
     name: "NOMAÏ",
@@ -49,7 +56,8 @@ export default function WorkPage() {
       "@type": "ItemList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Clinic WhatsApp Automation and CRM Case Study" },
-        ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + 2, name: item.name })),
+        ...identityProjects.map((item, index) => ({ "@type": "ListItem", position: index + 2, name: `${item.name} Brand Identity` })),
+        ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + identityProjects.length + 2, name: item.name })),
       ],
     },
   };
@@ -98,6 +106,30 @@ export default function WorkPage() {
             <p className="metric-note">النتائج مستندة إلى التشغيل الفعلي للمشروع، وقد تختلف حسب حجم الرسائل وجودة العرض وسرعة استجابة الفريق.</p>
           </div>
         </div>
+      </section>
+
+      <section className="identity-work shell" id="brand-identities" aria-labelledby="identity-work-title">
+        <div className="identity-work-head">
+          <div>
+            <span className="section-label">[ أعمال هوية بصرية مختارة ]</span>
+            <h2 id="identity-work-title">علامات بنينا لها<br/>حضورًا يمكن تذكّره.</h2>
+          </div>
+          <p>نماذج من أعمال ديوانك الفعلية في تصميم وتطوير الهوية البصرية لقطاعات متنوعة.</p>
+        </div>
+        <div className="identity-work-grid">
+          {identityProjects.map((project) => (
+            <article className={`identity-work-card ${project.className}`} key={project.name}>
+              <div className="identity-work-meta">
+                <span>{project.sector}</span>
+                <b>{project.name}</b>
+              </div>
+              <div className="identity-work-image">
+                <img src={project.image} alt={`مشروع الهوية البصرية لعلامة ${project.name} من ديوانك`} loading="lazy" />
+              </div>
+            </article>
+          ))}
+        </div>
+        <Link className="button secondary identity-work-cta" href="/branding">اكتشف خدمة الهوية البصرية <span>←</span></Link>
       </section>
 
       <section className="concepts-section">
