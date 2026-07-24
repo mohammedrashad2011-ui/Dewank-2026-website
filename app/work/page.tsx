@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
+import { IdentityShowcase } from "./identity-showcase";
 import "./work-page.css";
 
 export const metadata: Metadata = createMetadata({
@@ -10,6 +11,13 @@ export const metadata: Metadata = createMetadata({
   path: "/work",
   keywords: ["أعمال ديوانك", "دراسات حالة تسويق", "تصميم هوية بصرية", "أتمتة واتساب CRM", "Brand Strategy Portfolio"],
 });
+
+const identityProjects = [
+  { name: "ReachwayAD", sector: "التسويق والإعلان", image: "/work/reachwayad-remastered.webp", className: "reachway featured", summary: "هوية مؤسسية تجمع بين الثقة والحركة، مطبقة عبر القرطاسية ونقاط الحضور الرقمية." },
+  { name: "Clinika", sector: "الجمال والعناية", image: "/work/clinika-remastered.webp", className: "clinika", summary: "هوية راقية لقطاع الجمال بملامح تحريرية هادئة وتطبيقات تعزز الثقة والانطباع الأول." },
+  { name: "Arab Sun", sector: "السفر والسياحة", image: "/work/arab-sun-remastered.webp", className: "arab-sun", summary: "نظام بصري يستلهم الشمس والحركة العربية، مطبق على التغليف والمواد المطبوعة." },
+  { name: "دار الصفاء", sector: "الرعاية الصحية", image: "/work/dar-al-safa-remastered.webp", className: "dar-safa wide", summary: "هوية طبية دافئة تجمع بين الرعاية والاحتراف عبر اللافتات والقرطاسية ونقاط الاستقبال." },
+];
 
 const concepts = [
   {
@@ -49,7 +57,8 @@ export default function WorkPage() {
       "@type": "ItemList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Clinic WhatsApp Automation and CRM Case Study" },
-        ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + 2, name: item.name })),
+        ...identityProjects.map((item, index) => ({ "@type": "ListItem", position: index + 2, name: `${item.name} Brand Identity` })),
+        ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + identityProjects.length + 2, name: item.name })),
       ],
     },
   };
@@ -98,6 +107,18 @@ export default function WorkPage() {
             <p className="metric-note">النتائج مستندة إلى التشغيل الفعلي للمشروع، وقد تختلف حسب حجم الرسائل وجودة العرض وسرعة استجابة الفريق.</p>
           </div>
         </div>
+      </section>
+
+      <section className="identity-work shell" id="brand-identities" aria-labelledby="identity-work-title">
+        <div className="identity-work-head">
+          <div>
+            <span className="section-label">[ أعمال هوية بصرية مختارة ]</span>
+            <h2 id="identity-work-title">علامات بنينا لها<br/>حضورًا يمكن تذكّره.</h2>
+          </div>
+          <p>نماذج من أعمال ديوانك الفعلية في تصميم وتطوير الهوية البصرية لقطاعات متنوعة.</p>
+        </div>
+        <IdentityShowcase projects={identityProjects} />
+        <Link className="button secondary identity-work-cta" href="/branding">اكتشف خدمة الهوية البصرية <span>←</span></Link>
       </section>
 
       <section className="concepts-section">
