@@ -3,7 +3,7 @@ import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import AutomationFlow from "../components/automation-flow";
-import ConnectedSystem from "../components/connected-system";
+import ConnectedSystem from "../components/connected-system";\nimport WhatsAppHeroDemo from "../components/whatsapp-hero-demo";
 
 export const metadata: Metadata = createMetadata({
   title: "أتمتة واتساب مع CRM للشركات | ديوانك",
@@ -46,13 +46,7 @@ export default function WhatsAppAutomation() {
             <p>منظومة واتساب أوتوميشن مع CRM تربط التسويق بالمبيعات وخدمة العملاء، وتحوّل كل رسالة إلى خطوة واضحة بدل أن تظل مجرد إشعار.</p>
             <Link className="button primary" href="/contact">صمّم منظومتك <span>↙</span></Link>
           </div>
-          <div className="phone-demo" tabIndex={0}>
-            <div className="phone-head"><b>ديوانك AI</b><span>متصل الآن ●</span></div>
-            <div className="bubble bot">أهلًا 👋 كيف نقدر نساعد مشروعك اليوم؟</div>
-            <div className="bubble user">أريد أتمتة واتساب للمبيعات</div>
-            <div className="bubble bot">ممتاز. هل هدفك زيادة التحويل أم تقليل وقت الرد؟</div>
-            <div className="typing">•••</div>
-          </div>
+          <WhatsAppHeroDemo />
         </div>
       </section>
 
