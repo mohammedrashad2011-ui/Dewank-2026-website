@@ -1,11 +1,11 @@
 const services = [
-  { name: "استراتيجية البراند", href: "/services#brand", position: "s1" },
-  { name: "الهوية البصرية", href: "/services#brand", position: "s2" },
-  { name: "صناعة المحتوى", href: "/services#growth", position: "s3" },
-  { name: "التسويق الرقمي", href: "/services#growth", position: "s4" },
-  { name: "الحملات الإعلانية", href: "/services#growth", position: "s5" },
-  { name: "SEO & AEO", href: "/services#growth", position: "s6" },
-  { name: "أتمتة الذكاء الاصطناعي", href: "/services#automation", position: "s7" },
+  { name: "استراتيجية البراند", href: "/branding", position: "s1" },
+  { name: "الهوية البصرية", href: "/branding", position: "s2" },
+  { name: "صناعة المحتوى", href: "/digital-marketing", position: "s3" },
+  { name: "التسويق الرقمي", href: "/digital-marketing", position: "s4" },
+  { name: "الحملات الإعلانية", href: "/paid-ads", position: "s5" },
+  { name: "SEO & AEO", href: "/seo-aeo", position: "s6" },
+  { name: "أتمتة الذكاء الاصطناعي", href: "/ai-automation", position: "s7" },
   { name: "أتمتة واتساب", href: "/whatsapp-automation", position: "s8" },
 ] as const;
 
@@ -24,7 +24,7 @@ export default function MotionSystem() {
 
         {services.map((service) => (
           <div className={`satellite-track ${service.position}`} key={service.name}>
-            <a className="service-satellite" href={service.href}>
+            <a className="service-satellite" href={service.href} aria-label={`انتقل إلى خدمة ${service.name}`}>
               <i aria-hidden="true" />
               <span>{service.name}</span>
             </a>
