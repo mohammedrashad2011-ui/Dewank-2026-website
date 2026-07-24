@@ -8,7 +8,7 @@ export function Header() {
         <nav aria-label="التنقل الرئيسي">
           <Link href="/services">الخدمات</Link><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link><Link href="/contact">تواصل</Link>
         </nav>
-        <Link className="nav-cta" href="/contact">ابدأ مشروعك <span>←</span></Link>
+        <Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link>
       </div>
     </header>
   );

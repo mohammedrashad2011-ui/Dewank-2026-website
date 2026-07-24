@@ -19,6 +19,7 @@ const services = [
     text: "استراتيجية وتموضع وهوية تجعل مشروعك واضحًا، متماسكًا، وصعب التقليد.",
     tags: ["Strategy", "Naming", "Identity"],
     tone: "brand",
+    href: "/branding",
   },
   {
     n: "02",
@@ -27,6 +28,7 @@ const services = [
     text: "محتوى وحملات وتجارب رقمية تنقل العميل من الانتباه إلى القرار.",
     tags: ["Content", "Campaigns", "SEO + AEO"],
     tone: "growth",
+    href: "/digital-marketing",
   },
   {
     n: "03",
@@ -35,6 +37,7 @@ const services = [
     text: "أنظمة ذكية تربط التسويق والمبيعات والتشغيل وتستعيد وقت فريقك.",
     tags: ["WhatsApp", "CRM", "AI Agents"],
     tone: "automation",
+    href: "/whatsapp-automation",
   },
   {
     n: "04",
@@ -43,6 +46,7 @@ const services = [
     text: "مواقع سريعة ومتجاوبة تجمع الرسالة والتجربة وSEO وAEO لتقود الزائر نحو إجراء واضح.",
     tags: ["Web Design", "UX / CRO", "SEO + AEO"],
     tone: "web",
+    href: "/website-design",
   },
 ];
 
@@ -63,9 +67,11 @@ export default function Home() {
           <h1><span>نصنع العلامة.</span><span>نحرّك الطلب.</span><span><em>ونؤتمت النمو.</em></span></h1>
           <p>ديوانك يجمع البراندينج والتسويق والذكاء الاصطناعي في منظومة واحدة، لأن النمو لا يحتاج خدمات متفرقة—بل قرارات تعمل معًا.</p>
           <div className="hero-actions">
-            <Link className="button primary" href="/contact">ابدأ مشروعك <span>←</span></Link>
+            <Link className="button primary" href="/contact">ناقش مشروعك معنا <span>←</span></Link>
+            <a className="button whatsapp" href="https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A%20%D9%85%D8%B9%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%D9%83" target="_blank" rel="noopener noreferrer">تواصل عبر واتساب <span>↗</span></a>
             <Link className="text-link" href="/work">استكشف الأعمال <span>↙</span></Link>
           </div>
+          <p className="cta-expectation">محادثة قصيرة لفهم مشروعك وتحديد أفضل نقطة بداية—بدون التزام.</p>
         </div>
 
         <MotionSystem />
@@ -78,12 +84,30 @@ export default function Home() {
         <p>لهذا لا نفصل الهوية عن التسويق، ولا نضيف الذكاء الاصطناعي كزينة. نبني رحلة واحدة من الفكرة إلى النتيجة.</p>
       </section>
 
+      <section className="trust-strip shell" aria-label="منهج ديوانك">
+        {["استراتيجية", "تنفيذ", "قياس", "أتمتة"].map((item, index) => <span key={item}><b>0{index + 1}</b>{item}</span>)}
+      </section>
+
+      <section className="proof-section shell" aria-labelledby="proof-title">
+        <div className="proof-copy">
+          <span className="section-label">[ نتائج من مشروع فعلي ]</span>
+          <h2 id="proof-title">النمو لا يُقاس<br/><em>بالانطباع وحده.</em></h2>
+          <p>نتائج تحققت بعد ربط التسويق والحجز والمتابعة الآلية في مشروع بالقطاع الطبي.</p>
+        </div>
+        <div className="proof-grid">
+          <article><strong>+30%</strong><h3>تحسّن التحويل إلى حجز</h3><p>رحلة أسرع من الاستفسار إلى الموعد.</p></article>
+          <article><strong>+25</strong><h3>نقطة تحسّن في الحضور</h3><p>بفضل التذكير والمتابعة المنظمة.</p></article>
+          <article><strong>−40%</strong><h3>ضغط أقل على الاستقبال</h3><p>عبر أتمتة الردود والمهام المتكررة.</p></article>
+        </div>
+        <p className="proof-note">هذه نتائج مشروع سابق وليست ضمانًا لنتائج مماثلة؛ تختلف النتيجة حسب النشاط والبيانات والتنفيذ.</p>
+      </section>
+
       <section className="bento-section">
         <div className="shell">
           <div className="section-head"><div><span className="section-label">[ ماذا نصنع ]</span><h2>أربع قدرات.<br/><em>منظومة واحدة.</em></h2></div><Link className="text-link" href="/services">كل الخدمات <span>↙</span></Link></div>
           <div className="service-bento">
             {services.map((service) => (
-              <Link id={`home-${service.tone}`} href={service.tone === "automation" ? "/whatsapp-automation" : service.tone === "web" ? "/services#web" : "/services"} className={`service-card ${service.tone}`} key={service.n}>
+              <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
                 <div className="card-top"><span>{service.n}</span><small>{service.en}</small><b>↗</b></div>
                 <div className={`service-symbol ${service.tone}`} aria-hidden="true"><i/><i/><i/></div>
                 <div className="card-copy"><h3>{service.title}</h3><p>{service.text}</p><div className="tag-row">{service.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div>
@@ -105,6 +129,24 @@ export default function Home() {
           ))}
         </div>
         <p className="concept-line">الأعمال المعروضة مشروعات مفاهيمية أصلية توضح مستوى التفكير والتنفيذ الإبداعي في ديوانك.</p>
+      </section>
+
+      <section className="case-study shell" aria-labelledby="case-study-title">
+        <div className="case-study-head">
+          <span className="section-label">[ دراسة حالة مختصرة ]</span>
+          <span className="case-sector">HEALTHCARE / GCC</span>
+        </div>
+        <div className="case-study-grid">
+          <div>
+            <h2 id="case-study-title">من رسائل متفرقة<br/>إلى <em>رحلة حجز مترابطة.</em></h2>
+          </div>
+          <div className="case-story">
+            <article><b>01</b><h3>التحدي</h3><p>استفسارات كثيرة، متابعة يدوية، وضغط مستمر على فريق الاستقبال.</p></article>
+            <article><b>02</b><h3>ما نفذناه</h3><p>ربط الردود والتأهيل والحجز والتذكير والمتابعة في نظام واحد.</p></article>
+            <article><b>03</b><h3>الأثر</h3><p>تحويل أعلى، حضور أفضل، ووقت أكبر للفريق للتركيز على الحالات المهمة.</p></article>
+          </div>
+        </div>
+        <Link className="text-link case-link" href="/whatsapp-automation">اكتشف نظام أتمتة واتساب <span>↙</span></Link>
       </section>
 
       <section className="method-section">
@@ -138,7 +180,7 @@ export default function Home() {
 
       <section className="final-cta shell">
         <div><span className="section-label">[ مشروعك التالي ]</span><h2>لنصنع شيئًا<br/><em>يستحق الانتباه.</em></h2></div>
-        <div><p>إذا كانت علامتك مستعدة لمرحلة أوضح وأذكى، فلنبدأ من التحدي الحقيقي.</p><Link className="button primary" href="/contact">ابدأ المحادثة <span>←</span></Link></div>
+        <div><p>إذا كانت علامتك مستعدة لمرحلة أوضح وأذكى، فلنبدأ من التحدي الحقيقي.</p><div className="final-actions"><Link className="button primary" href="/contact">ناقش مشروعك معنا <span>←</span></Link><a className="button whatsapp" href="https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A%20%D9%85%D8%B9%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%D9%83" target="_blank" rel="noopener noreferrer">واتساب <span>↗</span></a></div><small className="cta-expectation">محادثة قصيرة لفهم المشروع وتحديد نقطة البداية المناسبة.</small></div>
       </section>
       <Footer />
     </main>
