@@ -19,6 +19,7 @@ const services = [
     text: "استراتيجية وتموضع وهوية تجعل مشروعك واضحًا، متماسكًا، وصعب التقليد.",
     tags: ["Strategy", "Naming", "Identity"],
     tone: "brand",
+    href: "/services#brand",
   },
   {
     n: "02",
@@ -27,6 +28,7 @@ const services = [
     text: "محتوى وحملات وتجارب رقمية تنقل العميل من الانتباه إلى القرار.",
     tags: ["Content", "Campaigns", "SEO + AEO"],
     tone: "growth",
+    href: "/services#growth",
   },
   {
     n: "03",
@@ -35,6 +37,7 @@ const services = [
     text: "أنظمة ذكية تربط التسويق والمبيعات والتشغيل وتستعيد وقت فريقك.",
     tags: ["WhatsApp", "CRM", "AI Agents"],
     tone: "automation",
+    href: "/whatsapp-automation",
   },
   {
     n: "04",
@@ -43,6 +46,7 @@ const services = [
     text: "مواقع سريعة ومتجاوبة تجمع الرسالة والتجربة وSEO وAEO لتقود الزائر نحو إجراء واضح.",
     tags: ["Web Design", "UX / CRO", "SEO + AEO"],
     tone: "web",
+    href: "/services#web",
   },
 ];
 
@@ -63,7 +67,7 @@ export default function Home() {
           <h1><span>نصنع العلامة.</span><span>نحرّك الطلب.</span><span><em>ونؤتمت النمو.</em></span></h1>
           <p>ديوانك يجمع البراندينج والتسويق والذكاء الاصطناعي في منظومة واحدة، لأن النمو لا يحتاج خدمات متفرقة—بل قرارات تعمل معًا.</p>
           <div className="hero-actions">
-            <Link className="button primary" href="/contact">ابدأ مشروعك <span>←</span></Link>
+            <Link className="button primary" href="/contact">ناقش مشروعك معنا <span>←</span></Link>
             <Link className="text-link" href="/work">استكشف الأعمال <span>↙</span></Link>
           </div>
         </div>
@@ -83,7 +87,7 @@ export default function Home() {
           <div className="section-head"><div><span className="section-label">[ ماذا نصنع ]</span><h2>أربع قدرات.<br/><em>منظومة واحدة.</em></h2></div><Link className="text-link" href="/services">كل الخدمات <span>↙</span></Link></div>
           <div className="service-bento">
             {services.map((service) => (
-              <Link id={`home-${service.tone}`} href={service.tone === "automation" ? "/whatsapp-automation" : service.tone === "web" ? "/services#web" : "/services"} className={`service-card ${service.tone}`} key={service.n}>
+              <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
                 <div className="card-top"><span>{service.n}</span><small>{service.en}</small><b>↗</b></div>
                 <div className={`service-symbol ${service.tone}`} aria-hidden="true"><i/><i/><i/></div>
                 <div className="card-copy"><h3>{service.title}</h3><p>{service.text}</p><div className="tag-row">{service.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div>
@@ -138,7 +142,7 @@ export default function Home() {
 
       <section className="final-cta shell">
         <div><span className="section-label">[ مشروعك التالي ]</span><h2>لنصنع شيئًا<br/><em>يستحق الانتباه.</em></h2></div>
-        <div><p>إذا كانت علامتك مستعدة لمرحلة أوضح وأذكى، فلنبدأ من التحدي الحقيقي.</p><Link className="button primary" href="/contact">ابدأ المحادثة <span>←</span></Link></div>
+        <div><p>إذا كانت علامتك مستعدة لمرحلة أوضح وأذكى، فلنبدأ من التحدي الحقيقي.</p><Link className="button primary" href="/contact">ناقش مشروعك معنا <span>←</span></Link></div>
       </section>
       <Footer />
     </main>
