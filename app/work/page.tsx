@@ -46,6 +46,24 @@ const concepts = [
   },
 ];
 
+const testimonials = [
+  {
+    quote: "كان رشاد مبادرًا ومنتبهًا جدًا لاحتياجاتي، وصمّم شعارًا يعكس قيم شركتي بشكل مثالي.",
+    name: "صوفيا فلوريس",
+    country: "الولايات المتحدة",
+  },
+  {
+    quote: "قدرته على تحليل البيانات وعرضها كانت ممتازة. سرعة التنفيذ وجودة العمل جعلتاه مميزًا في أبحاث السوق.",
+    name: "مات موناكو",
+    country: "الولايات المتحدة",
+  },
+  {
+    quote: "كانت عملية اختيار الاسم مدروسة واحترافية ومنظمة. تواصل ممتاز، وأفكار مبتكرة، والنتيجة النهائية أسعدتني فعلًا.",
+    name: "Loukastaki25",
+    country: "قبرص",
+  },
+];
+
 export default function WorkPage() {
   const schema = {
     "@context": "https://schema.org",
@@ -119,6 +137,28 @@ export default function WorkPage() {
         </div>
         <IdentityShowcase projects={identityProjects} />
         <Link className="button secondary identity-work-cta" href="/branding">اكتشف خدمة الهوية البصرية <span>←</span></Link>
+      </section>
+
+      <section className="testimonials-section" aria-labelledby="testimonials-title">
+        <div className="shell">
+          <div className="testimonials-head">
+            <span className="section-label">[ آراء العملاء ]</span>
+            <h2 id="testimonials-title">الثقة لا نصممها.<br/><em>نبنيها مع كل مشروع.</em></h2>
+          </div>
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <figure className={`testimonial-card${index === 0 ? " featured" : ""}`} key={testimonial.name}>
+                <div className="testimonial-stars" aria-label="5 من 5 نجوم">★★★★★</div>
+                <blockquote>«{testimonial.quote}»</blockquote>
+                <figcaption>
+                  <span>{testimonial.name}</span>
+                  <small>{testimonial.country}</small>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <p className="testimonials-note">تُرجمت الآراء من لغتها الأصلية مع الحفاظ على معناها.</p>
+        </div>
       </section>
 
       <section className="concepts-section">
