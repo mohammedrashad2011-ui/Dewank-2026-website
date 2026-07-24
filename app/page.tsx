@@ -10,6 +10,7 @@ export const metadata: Metadata = createMetadata({
 import Link from "next/link";
 import { Footer, Header } from "./components/site-shell";
 import MotionSystem from "./components/motion-system";
+import HomeTestimonials from "./components/home-testimonials";
 
 const services = [
   {
@@ -48,12 +49,6 @@ const services = [
     tone: "web",
     href: "/website-design",
   },
-];
-
-const projects = [
-  { n: "01", sector: "LUXURY HOSPITALITY / ALULA", title: "NOMAÏ", subtitle: "Stay beyond time", tone: "nomai" },
-  { n: "02", sector: "ARCHITECTURE / COPENHAGEN", title: "KOVA", subtitle: "Form follows feeling", tone: "kova" },
-  { n: "03", sector: "SKINCARE / PARIS", title: "LUME", subtitle: "Proof over promises", tone: "lume" },
 ];
 
 export default function Home() {
@@ -117,19 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="work-section shell">
-        <div className="section-head"><div><span className="section-label">[ أعمال مختارة ]</span><h2>هويات لها عالم.<br/><em>لا مجرد شعار.</em></h2></div><Link className="text-link" href="/work">شاهد كل الأعمال <span>↙</span></Link></div>
-        <div className="project-bento">
-          {projects.map((project) => (
-            <Link href="/work" className={`project-card ${project.tone}`} key={project.n} dir="ltr">
-              <div className="project-meta"><span>{project.n}</span><small>{project.sector}</small><b>↗</b></div>
-              <div className="project-art" aria-hidden="true"><span>{project.title.charAt(0)}</span><i>{project.title}</i></div>
-              <div className="project-name"><h3>{project.title}</h3><p>{project.subtitle}</p></div>
-            </Link>
-          ))}
-        </div>
-        <p className="concept-line">الأعمال المعروضة مشروعات مفاهيمية أصلية توضح مستوى التفكير والتنفيذ الإبداعي في ديوانك.</p>
-      </section>
+      <div className="work-section shell"><HomeTestimonials /></div>
 
       <section className="case-study shell" aria-labelledby="case-study-title">
         <div className="case-study-head">
