@@ -15,6 +15,7 @@ const services = [
     no: "01",
     en: "BRAND STRATEGY & IDENTITY",
     tone: "brand",
+    visual: "brand",
     title: "علامتك لا تحتاج شعارًا آخر.",
     hook: "تحتاج سببًا يجعلها الاختيار.",
     text: "استراتيجية براند، تموضع، تسمية وهوية بصرية تجعل مشروعك أوضح وأسهل تذكّرًا وأكثر اتساقًا عبر كل نقطة تواصل.",
@@ -25,6 +26,7 @@ const services = [
     no: "02",
     en: "DIGITAL MARKETING",
     tone: "growth",
+    visual: "growth",
     title: "المحتوى يلفت النظر.",
     hook: "الاستراتيجية تحرّك القرار.",
     text: "نربط الرسالة بالقناة ورحلة العميل لبناء حضور رقمي يصنع طلبًا حقيقيًا بدل نشر محتوى جميل بلا أثر تجاري واضح.",
@@ -35,6 +37,7 @@ const services = [
     no: "03",
     en: "META & GOOGLE ADS",
     tone: "growth",
+    visual: "growth",
     title: "الإعلان لا يصلح رحلة مكسورة.",
     hook: "نصلح المنظومة كلها.",
     text: "إدارة إعلانات Meta وGoogle بمنطق يربط الجمهور والإبداع والصفحة والتتبع والمتابعة لتقليل الهدر وزيادة التحويل.",
@@ -45,6 +48,7 @@ const services = [
     no: "04",
     en: "WEBSITE DESIGN & CRO",
     tone: "web",
+    visual: "web",
     title: "موقعك ليس كتالوجًا.",
     hook: "هو موظف مبيعات لا ينام.",
     text: "مواقع سريعة ومتجاوبة تجمع الرسالة وتجربة المستخدم وSEO وAEO لتقود الزائر نحو تواصل أو حجز أو شراء واضح.",
@@ -55,6 +59,7 @@ const services = [
     no: "05",
     en: "SEO & AEO",
     tone: "web",
+    visual: "search",
     title: "لا يكفي أن تكون موجودًا.",
     hook: "كن الإجابة الأفضل.",
     text: "تحسين تقني ومحتوى وهيكلة وSchema تساعد Google ومحركات الإجابة والذكاء الاصطناعي على فهم خبرتك وإظهارها للجمهور المناسب.",
@@ -65,6 +70,7 @@ const services = [
     no: "06",
     en: "WHATSAPP AUTOMATION & CRM",
     tone: "automation",
+    visual: "automation",
     title: "واتساب لا يرد فقط.",
     hook: "يفهم، يؤهّل، ويتابع.",
     text: "منظومة واتساب ذكية للرد والتأهيل والحجز والتذكير والمتابعة وربط المحادثات بنظام CRM واضح وقابل للقياس.",
@@ -75,6 +81,7 @@ const services = [
     no: "07",
     en: "AI AUTOMATION",
     tone: "automation",
+    visual: "automation",
     title: "لا تضف AI إلى الفوضى.",
     hook: "نظّم العملية ثم أتمتها.",
     text: "حلول أتمتة وذكاء اصطناعي تربط التسويق والمبيعات وخدمة العملاء والتشغيل لتقليل العمل اليدوي وتسريع القرار.",
@@ -88,6 +95,7 @@ const careerServices = [
     no: "C01",
     en: "ATS CV & CAREER BRANDING",
     tone: "web",
+    visual: "document",
     title: "سيرتك ليست ورقة.",
     hook: "هي أول قرار قبل المقابلة.",
     text: "كتابة وتطوير سيرة ذاتية متوافقة مع ATS، مخصصة للوظيفة المستهدفة، مع تحسين الإنجازات والكلمات المفتاحية وLinkedIn.",
@@ -113,7 +121,7 @@ export default function ServicesPage() {
   const renderCard = (service: (typeof allServices)[number]) => (
     <article className={`service-detail ${service.tone}`} key={service.href}>
       <div className="detail-top"><span>{service.no}</span><small>{service.en}</small></div>
-      <div className={`service-symbol ${service.tone}`} aria-hidden="true"><i/><i/><i/></div>
+      <div className={`service-symbol ${service.visual}`} aria-hidden="true"><i/><i/><i/></div>
       <div className="detail-copy">
         <h2>{service.title}<br/><em>{service.hook}</em></h2>
         <p>{service.text}</p>
