@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteUrl = "https://dewank.com";
 export const siteName = "Dewank | ديوانك";
 export const defaultDescription =
-  "Dewank is a Saudi-focused creative growth studio combining brand strategy, digital marketing, website design, SEO, and AI automation for ambitious businesses across the GCC.";
+  "ديوانك شريك نمو رقمي للشركات في السعودية والخليج، يجمع البراندينج والتسويق وتصميم المواقع وأتمتة المبيعات في منظومة واحدة تحقق نتائج أوضح.";
 
 export function createMetadata({
   title,
