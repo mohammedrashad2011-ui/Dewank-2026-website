@@ -17,6 +17,8 @@ export function createMetadata({
   keywords?: string[];
 }): Metadata {
   const canonical = new URL(path, siteUrl).toString();
+  const socialTitle = title.split("|")[0].trim();
+  const socialImage = `${siteUrl}/api/og?title=${encodeURIComponent(socialTitle)}`;
 
   return {
     title: { absolute: title },
@@ -37,10 +39,10 @@ export function createMetadata({
       description,
       images: [
         {
-          url: `${siteUrl}/dewank-logo.png`,
+          url: socialImage,
           width: 1200,
           height: 630,
-          alt: "Dewank creative growth studio",
+          alt: `${socialTitle} — ديوانك`,
         },
       ],
     },
@@ -48,7 +50,7 @@ export function createMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [`${siteUrl}/dewank-logo.png`],
+      images: [socialImage],
     },
   };
 }
