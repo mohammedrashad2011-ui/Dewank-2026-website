@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "./lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "Dewank Saudi Creative Growth Studio | Branding, Web & AI",
+  title: "ديوانك | حلول نمو ذكية للشركات",
   description: "ديوانك استوديو نمو إبداعي يخدم الشركات في السعودية والخليج عبر استراتيجية البراند، التسويق الرقمي، تصميم المواقع، SEO وأتمتة الذكاء الاصطناعي.",
   path: "/",
   keywords: ["شركة تسويق في السعودية", "براندينج", "تصميم مواقع", "أتمتة الذكاء الاصطناعي", "ديوانك"],
