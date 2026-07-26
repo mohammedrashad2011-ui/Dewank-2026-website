@@ -3,11 +3,12 @@ import type { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
-const fallbackTitle = "حلول نمو ذكية للشركات";
+const fallbackTitle = "ديوانك";
 
 export async function GET(request: NextRequest) {
   const rawTitle = request.nextUrl.searchParams.get("title")?.trim() || fallbackTitle;
-  const title = rawTitle.slice(0, 72);
+  const isHomepage = rawTitle === "ديوانك";
+  const title = rawTitle.slice(0, 52);
 
   return new ImageResponse(
     (
@@ -18,7 +19,7 @@ export async function GET(request: NextRequest) {
           display: "flex",
           position: "relative",
           overflow: "hidden",
-          background: "#071A33",
+          background: "#06182F",
           color: "#FFF9EF",
           fontFamily: "Arial, sans-serif",
         }}
@@ -26,28 +27,30 @@ export async function GET(request: NextRequest) {
         <div
           style={{
             position: "absolute",
-            inset: 28,
-            border: "2px solid #D2A84E",
+            inset: 30,
+            border: "2px solid rgba(215,170,75,.72)",
             borderRadius: 30,
             display: "flex",
           }}
         />
+
         <div
           style={{
             position: "absolute",
-            width: 460,
-            height: 460,
-            left: -160,
-            bottom: -220,
-            border: "74px solid rgba(210,168,78,.16)",
+            width: 520,
+            height: 520,
+            left: -250,
+            bottom: -300,
+            border: "82px solid rgba(215,170,75,.10)",
             borderRadius: "50%",
             display: "flex",
           }}
         />
+
         <div
           style={{
             width: "100%",
-            padding: "82px 92px",
+            padding: "78px 86px 70px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -65,21 +68,21 @@ export async function GET(request: NextRequest) {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 20,
-                color: "#D2A84E",
-                fontSize: 26,
+                gap: 18,
+                color: "#D7AA4B",
+                fontSize: 23,
                 letterSpacing: 5,
               }}
             >
               DEWANK
-              <div style={{ width: 70, height: 2, background: "#D2A84E", display: "flex" }} />
+              <div style={{ width: 74, height: 2, background: "#D7AA4B", display: "flex" }} />
             </div>
             <img
               src="https://dewank.com/favicon.svg"
-              width="86"
-              height="86"
+              width="112"
+              height="112"
               alt=""
-              style={{ borderRadius: 14 }}
+              style={{ borderRadius: 22 }}
             />
           </div>
 
@@ -89,23 +92,42 @@ export async function GET(request: NextRequest) {
               flexDirection: "column",
               alignItems: "flex-end",
               direction: "rtl",
-              maxWidth: 960,
+              maxWidth: 940,
               marginLeft: "auto",
             }}
           >
-            <div style={{ color: "#D2A84E", fontSize: 25, marginBottom: 22, display: "flex" }}>
-              نمو بذكاء
-            </div>
             <div
               style={{
-                fontSize: title.length > 38 ? 58 : 72,
+                color: "#D7AA4B",
+                fontSize: isHomepage ? 84 : title.length > 30 ? 58 : 70,
                 fontWeight: 700,
-                lineHeight: 1.2,
+                lineHeight: 1.15,
                 textAlign: "right",
                 display: "flex",
               }}
             >
               {title}
+            </div>
+            <div
+              style={{
+                width: 96,
+                height: 4,
+                background: "#D7AA4B",
+                marginTop: 24,
+                marginBottom: 22,
+                display: "flex",
+              }}
+            />
+            <div
+              style={{
+                color: "#FFF9EF",
+                fontSize: 34,
+                lineHeight: 1.3,
+                textAlign: "right",
+                display: "flex",
+              }}
+            >
+              {isHomepage ? "حلول نمو ذكية للشركات" : "نحوّل الخدمة إلى نظام نمو أوضح"}
             </div>
           </div>
 
@@ -115,12 +137,13 @@ export async function GET(request: NextRequest) {
               justifyContent: "space-between",
               alignItems: "center",
               direction: "ltr",
-              color: "#D2A84E",
-              fontSize: 21,
+              color: "#D7AA4B",
+              fontSize: 20,
+              letterSpacing: 1,
             }}
           >
             <span>DEWANK.COM</span>
-            <span style={{ color: "#FFF9EF", opacity: 0.74 }}>BRAND · GROWTH · AUTOMATION</span>
+            <span style={{ color: "#FFF9EF", opacity: 0.68 }}>BRAND · GROWTH · AUTOMATION</span>
           </div>
         </div>
       </div>
