@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { createMetadata } from "../lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "Contact Dewank | Start Your Branding, Web or Automation Project",
-  description: "تواصل مع ديوانك لمناقشة مشروع البراندينج أو التسويق أو تصميم الموقع أو أتمتة واتساب والذكاء الاصطناعي.",
+  title: "تواصل مع ديوانك | ابدأ مشروعك الرقمي",
+  description: "تواصل مع ديوانك لمناقشة مشروع البراندينج أو التسويق الرقمي أو تصميم المواقع أو أتمتة واتساب والذكاء الاصطناعي للشركات.",
   path: "/contact",
-  keywords: ["تواصل مع ديوانك", "شركة براندينج السعودية", "طلب تصميم موقع", "استشارة تسويق"],
+  keywords: ["تواصل مع ديوانك", "شركة تسويق في السعودية", "طلب تصميم موقع", "استشارة تسويق", "أتمتة واتساب"],
 });
 import { Footer, Header } from "../components/site-shell";
 import ContactForm from "./contact-form";
