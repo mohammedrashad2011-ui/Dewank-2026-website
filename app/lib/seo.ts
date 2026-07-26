@@ -5,7 +5,7 @@ export const siteName = "ديوانك | Dewank";
 export const defaultDescription =
   "ديوانك شريك نمو رقمي للشركات في السعودية والخليج، يجمع البراندينج والتسويق وتصميم المواقع وأتمتة المبيعات في منظومة واحدة تحقق نتائج أوضح.";
 
-const socialImageVersion = "2026-07-26-2";
+const socialImage = `${siteUrl}/dewank-social-preview-2026-07.png`;
 
 export function createMetadata({
   title,
@@ -20,7 +20,6 @@ export function createMetadata({
 }): Metadata {
   const canonical = new URL(path, siteUrl).toString();
   const socialTitle = title.split("|")[0].trim();
-  const socialImage = `${siteUrl}/api/og?title=${encodeURIComponent(socialTitle)}&v=${socialImageVersion}`;
 
   return {
     title: { absolute: title },
