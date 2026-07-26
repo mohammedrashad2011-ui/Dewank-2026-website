@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteUrl = "https://dewank.com";
-export const siteName = "Dewank | ديوانك";
+export const siteName = "ديوانك | Dewank";
 export const defaultDescription =
   "ديوانك شريك نمو رقمي للشركات في السعودية والخليج، يجمع البراندينج والتسويق وتصميم المواقع وأتمتة المبيعات في منظومة واحدة تحقق نتائج أوضح.";
 
