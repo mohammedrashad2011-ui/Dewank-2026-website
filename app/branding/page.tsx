@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
+import BrandSignal from "./brand-signal";
 import "./branding-page.css";
 
 export const metadata: Metadata = createMetadata({
@@ -90,16 +91,13 @@ export default function BrandingPage() {
             <a className="button whatsapp" href="https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A8%D9%86%D8%A7%D8%A1%20%D8%A7%D8%B3%D8%AA%D8%B1%D8%A7%D8%AA%D9%8A%D8%AC%D9%8A%D8%A9%20%D9%88%D9%87%D9%88%D9%8A%D8%A9%20%D9%84%D8%B9%D9%84%D8%A7%D9%85%D8%AA%D9%8A" target="_blank" rel="noopener noreferrer">تواصل عبر واتساب <span>↗</span></a>
           </div>
         </div>
-        <div className="brand-signal" aria-hidden="true">
-          <div className="brand-signal-core">D</div>
-          <span>POSITIONING</span><span>IDENTITY</span><span>VOICE</span>
-        </div>
+        <BrandSignal />
       </section>
 
       <section className="shell brand-diagnosis">
         <div><span className="section-label">[ المشكلة التي نحلها ]</span><h2>السوق يراك.<br/><em>لكن هل يفهمك؟</em></h2></div>
         <div className="brand-diagnosis-copy">
-          <p>عندما لا تمتلك العلامة تموضعًا ورسالة وهوية متماسكة، تبدو مثل غيرها—even لو كانت خدمتها أفضل. النتيجة عادةً محتوى متغير، حملات أغلى، وفريق يشرح المشروع كل مرة من الصفر.</p>
+          <p>عندما لا تمتلك العلامة تموضعًا ورسالة وهوية متماسكة، تبدو مثل غيرها، حتى لو كانت خدمتها أفضل. النتيجة عادةً محتوى متغير، حملات أغلى، وفريق يشرح المشروع كل مرة من الصفر.</p>
           <div className="brand-symptoms">
             <p>العملاء يقارنونك بالسعر فقط</p><p>الهوية لا تعكس مستوى الخدمة</p>
             <p>الرسائل تختلف من قناة لأخرى</p><p>المحتوى يبدأ كل مرة من الصفر</p>
@@ -111,9 +109,9 @@ export default function BrandingPage() {
         <div className="shell">
           <div className="brand-section-head">
             <div><span className="section-label">[ النتيجة ]</span><h2>لا نسلمك شعارًا.<br/><em>نبني نظام علامة.</em></h2></div>
-            <p>كل عنصر مرتبط بقرار استراتيجي، حتى تعمل الهوية في التسويق والمبيعات وتجربة العميل—not في ملف العرض فقط.</p>
+            <p>كل عنصر مرتبط بقرار استراتيجي، حتى تعمل الهوية في التسويق والمبيعات وتجربة العميل، وليس في ملف العرض فقط.</p>
           </div>
-          <div className="brand-system-grid">{outcomes.map(([title,text],i)=><article className="brand-system-card" key={title}><b>0{i+1} / OUTCOME</b><h3>{title}</h3><p>{text}</p></article>)}</div>
+          <div className="brand-system-grid">{outcomes.map(([title,text],i)=><article className="brand-system-card" key={title}><b>0{i+1}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
         </div>
       </section>
 
@@ -124,7 +122,8 @@ export default function BrandingPage() {
 
       <section className="brand-process">
         <div className="shell">
-          <div className="brand-section-head"><div><span className="section-label">[ مراحل بناء الهوية ]</span><h2>استراتيجية أولًا.<br/><em>تصميم له سبب.</em></h2></div><p>نقاط اعتماد واضحة تقلل التخمين والتعديلات العشوائية، وتضمن أن كل مرحلة مبنية على قرار سابق.</p></div>
+          <div className="brand-section-head brand-process-head"><div><span className="section-label">[ مراحل بناء الهوية ]</span><h2>استراتيجية أولًا.<br/><em>تصميم له سبب.</em></h2></div></div>
+          <p className="brand-process-intro">نقاط اعتماد واضحة تقلل التخمين والتعديلات العشوائية، وتضمن أن كل مرحلة مبنية على قرار سابق.</p>
           <div className="brand-process-list">{process.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
         </div>
       </section>
