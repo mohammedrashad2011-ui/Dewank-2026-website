@@ -12,13 +12,18 @@ export function createMetadata({
   description,
   path = "/",
   keywords = [],
+  socialImagePath,
 }: {
   title: string;
   description: string;
   path?: string;
   keywords?: string[];
+  socialImagePath?: string;
 }): Metadata {
   const canonical = new URL(path, siteUrl).toString();
+  const pageSocialImage = socialImagePath
+    ? new URL(socialImagePath, siteUrl).toString()
+    : socialImage;
   const socialTitle = title.split("|")[0].trim();
 
   return {
@@ -40,8 +45,8 @@ export function createMetadata({
       description,
       images: [
         {
-          url: socialImage,
-          secureUrl: socialImage,
+          url: pageSocialImage,
+          secureUrl: pageSocialImage,
           width: 1200,
           height: 630,
           type: "image/png",
@@ -53,7 +58,7 @@ export function createMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [socialImage],
+      images: [pageSocialImage],
     },
   };
 }
