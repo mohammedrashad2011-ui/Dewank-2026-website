@@ -41,19 +41,46 @@ const serviceGroups = [
 export function ServicesMenu() {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelScheduledClose = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const openMenu = () => {
+    cancelScheduledClose();
+    setOpen(true);
+  };
+
+  const scheduleClose = () => {
+    cancelScheduledClose();
+    closeTimerRef.current = setTimeout(() => {
+      setOpen(false);
+      closeTimerRef.current = null;
+    }, 220);
+  };
+
+  const closeMenu = () => {
+    cancelScheduledClose();
+    setOpen(false);
+  };
 
   useEffect(() => {
     const closeOnOutsideClick = (event: MouseEvent) => {
-      if (!rootRef.current?.contains(event.target as Node)) setOpen(false);
+      if (!rootRef.current?.contains(event.target as Node)) closeMenu();
     };
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") closeMenu();
     };
     document.addEventListener("mousedown", closeOnOutsideClick);
     document.addEventListener("keydown", closeOnEscape);
     return () => {
       document.removeEventListener("mousedown", closeOnOutsideClick);
       document.removeEventListener("keydown", closeOnEscape);
+      cancelScheduledClose();
     };
   }, []);
 
@@ -61,8 +88,8 @@ export function ServicesMenu() {
     <div
       className={`services-menu ${open ? "is-open" : ""}`}
       ref={rootRef}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={openMenu}
+      onMouseLeave={scheduleClose}
     >
       <div className="services-trigger">
         <Link href="/services">الخدمات</Link>
@@ -71,24 +98,33 @@ export function ServicesMenu() {
           aria-label="عرض قائمة الخدمات"
           aria-expanded={open}
           aria-controls="services-mega-menu"
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => {
+            cancelScheduledClose();
+            setOpen((value) => !value);
+          }}
         >
           <span aria-hidden="true">⌄</span>
         </button>
       </div>
 
-      <div className="services-mega" id="services-mega-menu" aria-hidden={!open}>
+      <div
+        className="services-mega"
+        id="services-mega-menu"
+        aria-hidden={!open}
+        onMouseEnter={openMenu}
+        onMouseLeave={scheduleClose}
+      >
         <div className="mega-intro">
           <small>DEWANK SERVICES</small>
           <strong>ابدأ من المشكلة.<br />نربط لك الحل.</strong>
-          <Link href="/services" onClick={() => setOpen(false)}>عرض جميع الخدمات <span>←</span></Link>
+          <Link href="/services" onClick={closeMenu}>عرض جميع الخدمات <span>←</span></Link>
         </div>
         <div className="mega-groups">
           {serviceGroups.map((group) => (
             <section key={group.label}>
               <div className="mega-group-title"><small>{group.label}</small><h2>{group.title}</h2></div>
               {group.links.map((item) => (
-                <Link href={item.href} key={item.href} onClick={() => setOpen(false)}>
+                <Link href={item.href} key={item.href} onClick={closeMenu}>
                   <strong>{item.title}</strong>
                   <span>{item.text}</span>
                 </Link>
