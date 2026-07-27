@@ -99,9 +99,9 @@ export async function GET(request: NextRequest) {
             <div
               style={{
                 color: "#D7AA4B",
-                fontSize: isHomepage ? 84 : title.length > 30 ? 58 : 70,
+                fontSize: isHomepage ? 84 : title.length > 30 ? 48 : 66,
                 fontWeight: 700,
-                lineHeight: 1.15,
+                lineHeight: 1.18,
                 textAlign: "right",
                 display: "flex",
               }}
