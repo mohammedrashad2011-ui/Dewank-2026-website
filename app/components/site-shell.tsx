@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ServicesMenu } from "./services-menu";
 
 export function Header() {
   return (
@@ -6,9 +7,9 @@ export function Header() {
       <div className="shell nav-wrap">
         <Link className="brand-logo" href="/" aria-label="ديوانك - الرئيسية"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link>
         <nav aria-label="التنقل الرئيسي">
-          <Link href="/services">الخدمات</Link><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link><Link href="/contact">تواصل</Link>
+          <ServicesMenu /><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link><Link href="/contact">تواصل</Link>
         </nav>
-        <Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link>
+        <div className="nav-actions"><Link className="mobile-services-link" href="/services">الخدمات</Link><Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link></div>
       </div>
     </header>
   );
