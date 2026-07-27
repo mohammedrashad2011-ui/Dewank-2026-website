@@ -9,7 +9,7 @@ export const metadata: Metadata = createMetadata({
   title: "تصميم الهوية البصرية في السعودية | استراتيجية براند متكاملة",
   description: "تصميم هوية بصرية واستراتيجية براند متكاملة للشركات في السعودية؛ من التموضع والرسائل إلى الشعار والألوان ودليل الهوية. ناقش مشروعك مع ديوانك.",
   path: "/branding",
-  socialImagePath: "/branding/opengraph-image",
+  socialImagePath: "/branding-social-preview.png",
 });
 
 const outcomes = [
