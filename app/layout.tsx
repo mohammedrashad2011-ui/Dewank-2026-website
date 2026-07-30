@@ -4,7 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import "./service-pages-fix.css";
 import "./services/service-icons.css";
-import { defaultDescription, siteName, siteUrl } from "./lib/seo";
+import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
 
 const alexandria = Alexandria({ variable: "--font-arabic", subsets: ["arabic", "latin"] });
 const cormorant = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700"] });
@@ -14,7 +14,7 @@ const metaPixelId = "2274266710087331";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ديوانك | حلول نمو ذكية للشركات",
+    default: "شركة تسويق رقمي ونمو في السعودية | ديوانك",
     template: "%s | ديوانك",
   },
   description: defaultDescription,
@@ -87,21 +87,34 @@ export default function RootLayout({
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
+            "@id": organizationId,
             name: siteName,
             alternateName: "Dewank",
             url: siteUrl,
             logo: `${siteUrl}/dewank-logo.png`,
+            image: `${siteUrl}/dewank-social-preview-2026-07.png`,
             description: defaultDescription,
             email: "hello@dewank.com",
             telephone: "+97339066649",
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+97339066649",
+              contactType: "sales",
+              availableLanguage: ["Arabic", "English"],
+              areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+            },
             areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
+            priceRange: "$$",
             sameAs: ["https://www.instagram.com/dewank_marketing"],
             serviceType: [
               "Brand Strategy",
               "Digital Marketing",
               "Website Design",
+              "SEO and AEO",
+              "Paid Advertising",
               "AI Automation",
               "WhatsApp Automation",
+              "CRM Automation",
             ],
           })}
         </Script>
