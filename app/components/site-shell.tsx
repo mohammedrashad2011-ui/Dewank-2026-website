@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { MobileNavigation } from "./mobile-navigation";
 import { ServicesMenu } from "./services-menu";
 
 const footerServices = [
@@ -26,7 +27,7 @@ export function Header() {
         <nav aria-label="التنقل الرئيسي">
           <ServicesMenu /><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link><Link href="/contact">تواصل</Link>
         </nav>
-        <div className="nav-actions"><Link className="mobile-services-link" href="/services">الخدمات</Link><Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link></div>
+        <div className="nav-actions"><MobileNavigation /><Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link></div>
       </div>
     </header>
   );
@@ -39,10 +40,10 @@ export function Footer() {
         <div className="footer-intro"><Link className="brand-logo footer-brand" href="/"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link><p>نصنع العلامة. نحرّك الطلب. ونؤتمت النمو.</p></div>
         <div className="footer-services"><b>الخدمات</b><div className="footer-service-links">{footerServices.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}</div></div>
         <div><b>استكشف</b><Link href="/services">جميع الخدمات</Link><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/contact">ابدأ مشروعًا</Link></div>
-        <div className="footer-contact"><b>تواصل</b><div className="footer-social-icons"><a href="mailto:hello@dewank.com" aria-label="البريد الإلكتروني" title="البريد الإلكتروني"><ContactIcon type="email" /></a><a href="https://www.instagram.com/dewank_marketing" target="_blank" rel="noreferrer" aria-label="إنستجرام" title="إنستجرام"><ContactIcon type="instagram" /></a><a href="https://wa.me/97339066649" target="_blank" rel="noreferrer" aria-label="واتساب" title="واتساب"><ContactIcon type="whatsapp" /></a></div><span>البراندينج · التسويق · AI</span></div>
+        <div className="footer-contact"><b>تواصل</b><div className="footer-social-icons"><a href="https://wa.me/97339066649" target="_blank" rel="noreferrer" aria-label="واتساب" title="واتساب"><ContactIcon type="whatsapp" /></a><a href="mailto:hello@dewank.com" aria-label="البريد الإلكتروني" title="البريد الإلكتروني"><ContactIcon type="email" /></a><a href="https://www.instagram.com/dewank_marketing" target="_blank" rel="noreferrer" aria-label="إنستجرام" title="إنستجرام"><ContactIcon type="instagram" /></a></div><span>البراندينج · التسويق · AI</span></div>
       </div>
       <div className="shell footer-bottom"><span>© {new Date().getFullYear()} DEWANK STUDIO</span><span>BRAND × GROWTH × AI</span></div>
-      <style>{`.unified-footer-grid{grid-template-columns:1.55fr 1.45fr .8fr .7fr;gap:clamp(36px,5vw,78px)}.unified-footer-grid b{font-size:15px;line-height:1.4;letter-spacing:.06em;margin-bottom:16px}.footer-services{min-width:0}.footer-service-links{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}.footer-service-links a{line-height:1.55}.footer-social-icons{display:flex;gap:10px;margin:4px 0 12px}.footer-social-icons a{width:42px;height:42px;border:1px solid rgba(242,239,231,.38);border-radius:50%;display:grid;place-items:center;transition:.2s}.footer-social-icons a:hover{background:var(--acid);color:var(--ink);border-color:var(--acid);transform:translateY(-3px)}.footer-social-icons svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.footer-social-icons svg .fill{fill:currentColor;stroke:none}@media(max-width:1050px){.unified-footer-grid{grid-template-columns:1fr 1fr}.footer-intro{grid-column:1/-1}.footer-service-links{grid-template-columns:1fr 1fr}}@media(max-width:620px){.unified-footer-grid{grid-template-columns:1fr}.footer-intro{grid-column:auto}.footer-service-links{grid-template-columns:1fr 1fr}.footer-social-icons a{width:46px;height:46px}.unified-footer-grid b{font-size:16px}}`}</style>
+      <style>{`.unified-footer-grid{grid-template-columns:1.55fr 1.45fr .8fr .7fr;gap:clamp(36px,5vw,78px)}.unified-footer-grid b{font-size:15px;line-height:1.4;letter-spacing:.06em;margin-bottom:16px}.footer-services{min-width:0}.footer-service-links{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}.footer-service-links a{line-height:1.55}.footer-social-icons{display:flex;gap:10px;margin:4px 0 12px}.footer-social-icons a{width:42px;height:42px;border:1px solid rgba(242,239,231,.38);border-radius:50%;display:grid;place-items:center;transition:.2s}.footer-social-icons a:hover{background:var(--acid);color:var(--ink);border-color:var(--acid);transform:translateY(-3px)}.footer-social-icons svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}.footer-social-icons svg .fill{fill:currentColor;stroke:none}@media(max-width:1050px){.unified-footer-grid{grid-template-columns:1fr 1fr}.footer-intro{grid-column:1/-1}.footer-service-links{grid-template-columns:1fr 1fr}}@media(max-width:620px){.unified-footer-grid{grid-template-columns:1fr}.footer-intro{grid-column:auto}.footer-service-links{grid-template-columns:1fr 1fr}.footer-social-icons a{width:48px;height:48px}.unified-footer-grid b{font-size:16px}}@media(max-width:380px){.footer-service-links{grid-template-columns:1fr}}`}</style>
     </footer>
   );
 }

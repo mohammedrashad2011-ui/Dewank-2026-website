@@ -38,30 +38,92 @@ export default function MotionSystem() {
         @media (max-width: 640px) {
           .planet-system .space-glow,
           .planet-system .ring-b,
-          .planet-system .ring-c,
+          .planet-system .ring-c {
+            display: block;
+          }
+          .planet-system .space-glow { opacity: .72; }
+          .planet-system .ring-b { opacity: .42; }
+          .planet-system .ring-c { opacity: .28; }
+
+          .planet-system .satellite-track {
+            --orbit-size: 292px;
+            animation-name: mobile-orbit !important;
+            animation-duration: 32s !important;
+            animation-timing-function: linear !important;
+            animation-iteration-count: infinite !important;
+            animation-direction: normal !important;
+            transform-origin: 50% 50%;
+            will-change: transform;
+          }
           .planet-system .s2,
           .planet-system .s4,
           .planet-system .s6,
           .planet-system .s8 {
-            display: none;
+            --orbit-size: 392px;
+            animation-duration: 40s !important;
           }
-          .planet-system .service-ring,
-          .planet-system .satellite-track,
+
           .planet-system .service-satellite {
-            animation: none !important;
+            animation-name: mobile-counter-orbit !important;
+            animation-duration: inherit !important;
+            animation-timing-function: linear !important;
+            animation-iteration-count: infinite !important;
+            animation-direction: normal !important;
+            min-height: 44px;
+            max-width: 150px;
+            touch-action: manipulation;
+            will-change: transform;
           }
-          .planet-system .satellite-track {
-            --orbit-size: 280px;
+          .planet-system .service-satellite span {
+            white-space: nowrap;
+            font-size: 11px;
           }
-          .planet-system .s1 { transform: rotate(0deg); }
-          .planet-system .s3 { transform: rotate(90deg); }
-          .planet-system .s5 { transform: rotate(180deg); }
-          .planet-system .s7 { transform: rotate(270deg); }
-          .planet-system .s1 .service-satellite { transform: rotate(0deg); }
-          .planet-system .s3 .service-satellite { transform: rotate(-90deg); }
-          .planet-system .s5 .service-satellite { transform: rotate(-180deg); }
-          .planet-system .s7 .service-satellite { transform: rotate(-270deg); }
+
+          .planet-system .s1 { animation-delay: 0s !important; }
+          .planet-system .s3 { animation-delay: -8s !important; }
+          .planet-system .s5 { animation-delay: -16s !important; }
+          .planet-system .s7 { animation-delay: -24s !important; }
+          .planet-system .s2 { animation-delay: 0s !important; }
+          .planet-system .s4 { animation-delay: -10s !important; }
+          .planet-system .s6 { animation-delay: -20s !important; }
+          .planet-system .s8 { animation-delay: -30s !important; }
+
+          .planet-system .s1 .service-satellite { animation-delay: 0s !important; }
+          .planet-system .s3 .service-satellite { animation-delay: -8s !important; }
+          .planet-system .s5 .service-satellite { animation-delay: -16s !important; }
+          .planet-system .s7 .service-satellite { animation-delay: -24s !important; }
+          .planet-system .s2 .service-satellite { animation-delay: 0s !important; }
+          .planet-system .s4 .service-satellite { animation-delay: -10s !important; }
+          .planet-system .s6 .service-satellite { animation-delay: -20s !important; }
+          .planet-system .s8 .service-satellite { animation-delay: -30s !important; }
+
+          .planet-system:active .satellite-track,
+          .planet-system:active .service-satellite,
+          .planet-system:focus-within .satellite-track,
+          .planet-system:focus-within .service-satellite {
+            animation-play-state: paused !important;
+          }
         }
+
+        @keyframes mobile-orbit {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @keyframes mobile-counter-orbit {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(-360deg); }
+        }
+
+        @media (max-width: 380px) {
+          .planet-system .satellite-track { --orbit-size: 270px; }
+          .planet-system .s2,
+          .planet-system .s4,
+          .planet-system .s6,
+          .planet-system .s8 { --orbit-size: 352px; }
+          .planet-system .service-satellite { max-width: 138px; }
+          .planet-system .service-satellite span { font-size: 10px; }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .planet-system *,
           .planet-system *::before,
