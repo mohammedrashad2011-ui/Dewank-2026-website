@@ -126,10 +126,10 @@ export default function WebsiteDesignPage() {
         .wd-truth-secondary {
           grid-column: 1;
           direction: rtl;
-          align-self: center;
+          align-self: start;
           display: grid;
           gap: 1.25rem;
-          padding-top: .5rem;
+          padding-top: 0;
         }
         .wd-truth-secondary > p { max-width: 50ch; margin: 0; }
         @media (max-width: 760px) {
