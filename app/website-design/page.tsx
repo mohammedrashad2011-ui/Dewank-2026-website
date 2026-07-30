@@ -109,6 +109,18 @@ export default function WebsiteDesignPage() {
     <main className="wd-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <style>{`
+        .wd-truth-label { display: block; margin-bottom: 1.5rem; }
+        .wd-truth-grid-revised { align-items: end; }
+        .wd-truth-primary h2 { margin-bottom: 2rem; }
+        .wd-truth-primary > p { max-width: 46ch; }
+        .wd-truth-secondary { align-self: end; padding-bottom: .1rem; }
+        .wd-truth-secondary > p { max-width: 50ch; }
+        @media (max-width: 760px) {
+          .wd-truth-primary h2 { margin-bottom: 1.5rem; }
+          .wd-truth-secondary { padding-top: .5rem; }
+        }
+      `}</style>
 
       <section className="wd-hero shell">
         <div className="wd-hero-copy">
@@ -133,7 +145,20 @@ export default function WebsiteDesignPage() {
         </div>
       </section>
 
-      <section className="wd-truth"><div className="shell wd-truth-grid"><div className="wd-truth-title"><span className="wd-label">[ الفكرة الأساسية ]</span><h2>الموقع الجميل قد يجذب النظر.<br/><em>الموقع المدروس يحرّك القرار.</em></h2></div><div className="wd-truth-copy"><p>عندما لا يفهم الزائر ما تقدمه، أو لا يثق، أو لا يعرف الخطوة التالية، تصبح الزيارة رقمًا بلا قيمة.</p><p>لذلك نربط التصميم بالمحتوى وتجربة المستخدم وسرعة الموقع والتتبع؛ ليعمل الموقع مع التسويق والمبيعات بدل أن يبقى كتالوجًا جامدًا.</p></div></div></section>
+      <section className="wd-truth">
+        <div className="shell">
+          <span className="wd-label wd-truth-label">[ الفكرة الأساسية ]</span>
+          <div className="wd-truth-grid wd-truth-grid-revised">
+            <div className="wd-truth-primary">
+              <h2>الموقع الجميل قد يجذب النظر.<br/><em>الموقع المدروس يحرّك القرار.</em></h2>
+              <p>عندما لا يفهم الزائر ما تقدمه، أو لا يثق، أو لا يعرف الخطوة التالية، تصبح الزيارة رقمًا بلا قيمة.</p>
+            </div>
+            <div className="wd-truth-secondary">
+              <p>لذلك نربط التصميم بالمحتوى وتجربة المستخدم وسرعة الموقع والتتبع؛ ليعمل الموقع مع التسويق والمبيعات بدل أن يبقى كتالوجًا جامدًا.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="wd-journey"><div className="shell"><div className="wd-section-head"><div><span className="wd-label">[ من الزيارة إلى النتيجة ]</span><h2>كل صفحة لها وظيفة.<br/><em>وكل خطوة تقلل التردد.</em></h2></div><p>نبني الرحلة من السؤال الأول في ذهن الزائر إلى الإجراء الذي يخدم هدف النشاط.</p></div><div className="wd-journey-list">{stages.map((stage) => <article key={stage.n}><div className="wd-stage-id"><span>{stage.n}</span><small>{stage.en}</small></div><h3>{stage.title}</h3><p>{stage.text}</p></article>)}</div></div></section>
 
