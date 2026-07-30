@@ -66,36 +66,12 @@ const fitFor = [
 ];
 
 const faqs = [
-  {
-    question: "كم يستغرق تصميم وتطوير الموقع؟",
-    answer:
-      "تعتمد المدة على عدد الصفحات والتكاملات وجاهزية المحتوى. المواقع التعريفية المركزة قد تحتاج عدة أسابيع، بينما المشاريع الأكبر أو متعددة الأنظمة تحتاج وقتًا أطول وخطة مراحل.",
-  },
-  {
-    question: "هل تشمل الخدمة كتابة محتوى الموقع؟",
-    answer:
-      "يمكن أن تشمل كتابة الرسائل والعناوين والمحتوى الكامل حسب النطاق. نفضل بناء المحتوى والتصميم معًا لأن بنية الصفحة والرسالة تؤثران مباشرة في التحويل.",
-  },
-  {
-    question: "هل سيكون الموقع مناسبًا للجوال؟",
-    answer:
-      "نعم. نصمم ونختبر الصفحات لتعمل على الجوال والتابلت والكمبيوتر، مع إعطاء أولوية لسهولة القراءة وسرعة الوصول إلى الإجراء الأساسي.",
-  },
-  {
-    question: "هل يشمل الموقع SEO؟",
-    answer:
-      "يشمل الأساس التقني للصفحات مثل العناوين والوصف والروابط القانونية والسكيما وخريطة الموقع. أما المنافسة على كلمات واسعة فتحتاج استراتيجية محتوى وروابط وتحسينًا مستمرًا.",
-  },
-  {
-    question: "هل يمكن تطوير موقعي الحالي بدل بنائه من جديد؟",
-    answer:
-      "نعم بعد تقييم البنية والأداء والتقنية الحالية. أحيانًا يكون التطوير التدريجي أفضل، وأحيانًا تكون إعادة البناء أقل تكلفة وأكثر أمانًا على المدى الطويل.",
-  },
-  {
-    question: "هل تربطون الموقع بواتساب أو CRM؟",
-    answer:
-      "نعم. يمكن ربط النماذج وواتساب والحجز وCRM وأدوات التحليل والأتمتة حسب رحلة العميل والأنظمة المستخدمة في النشاط.",
-  },
+  { question: "كم يستغرق تصميم وتطوير الموقع؟", answer: "تعتمد المدة على عدد الصفحات والتكاملات وجاهزية المحتوى. المواقع التعريفية المركزة قد تحتاج عدة أسابيع، بينما المشاريع الأكبر أو متعددة الأنظمة تحتاج وقتًا أطول وخطة مراحل." },
+  { question: "هل تشمل الخدمة كتابة محتوى الموقع؟", answer: "يمكن أن تشمل كتابة الرسائل والعناوين والمحتوى الكامل حسب النطاق. نفضل بناء المحتوى والتصميم معًا لأن بنية الصفحة والرسالة تؤثران مباشرة في التحويل." },
+  { question: "هل سيكون الموقع مناسبًا للجوال؟", answer: "نعم. نصمم ونختبر الصفحات لتعمل على الجوال والتابلت والكمبيوتر، مع إعطاء أولوية لسهولة القراءة وسرعة الوصول إلى الإجراء الأساسي." },
+  { question: "هل يشمل الموقع SEO؟", answer: "يشمل الأساس التقني للصفحات مثل العناوين والوصف والروابط القانونية والسكيما وخريطة الموقع. أما المنافسة على كلمات واسعة فتحتاج استراتيجية محتوى وروابط وتحسينًا مستمرًا." },
+  { question: "هل يمكن تطوير موقعي الحالي بدل بنائه من جديد؟", answer: "نعم بعد تقييم البنية والأداء والتقنية الحالية. أحيانًا يكون التطوير التدريجي أفضل، وأحيانًا تكون إعادة البناء أقل تكلفة وأكثر أمانًا على المدى الطويل." },
+  { question: "هل تربطون الموقع بواتساب أو CRM؟", answer: "نعم. يمكن ربط النماذج وواتساب والحجز وCRM وأدوات التحليل والأتمتة حسب رحلة العميل والأنظمة المستخدمة في النشاط." },
 ];
 
 export default function WebsiteDesignPage() {
@@ -107,17 +83,8 @@ export default function WebsiteDesignPage() {
         "@id": `${siteUrl}/website-design#service`,
         name: "خدمات تصميم وتطوير المواقع",
         alternateName: "Website Design and Development Services",
-        description:
-          "تصميم وتطوير مواقع وصفحات هبوط وتجارب رقمية سريعة ومتجاوبة للشركات في السعودية والخليج.",
-        serviceType: [
-          "Website Design",
-          "Web Development",
-          "UX Design",
-          "UI Design",
-          "Landing Page Design",
-          "Conversion Rate Optimization",
-          "Technical SEO",
-        ],
+        description: "تصميم وتطوير مواقع وصفحات هبوط وتجارب رقمية سريعة ومتجاوبة للشركات في السعودية والخليج.",
+        serviceType: ["Website Design", "Web Development", "UX Design", "UI Design", "Landing Page Design", "Conversion Rate Optimization", "Technical SEO"],
         provider: { "@id": organizationId },
         areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
         url: `${siteUrl}/website-design`,
@@ -125,11 +92,7 @@ export default function WebsiteDesignPage() {
       {
         "@type": "FAQPage",
         "@id": `${siteUrl}/website-design#faq`,
-        mainEntity: faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: { "@type": "Answer", text: faq.answer },
-        })),
+        mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })),
       },
       {
         "@type": "BreadcrumbList",
@@ -146,6 +109,44 @@ export default function WebsiteDesignPage() {
     <main className="wd-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <style>{`
+        .wd-truth-label { display: block; margin-bottom: 1.5rem; }
+        .wd-truth-grid-revised {
+          display: grid;
+          grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+          column-gap: clamp(2rem, 7vw, 7rem);
+          align-items: start;
+          direction: ltr;
+        }
+        .wd-truth-primary {
+          grid-column: 2;
+          grid-row: 1;
+          direction: rtl;
+        }
+        .wd-truth-primary h2 { margin: 0; }
+        .wd-truth-secondary {
+          grid-column: 1;
+          grid-row: 1;
+          direction: rtl;
+          align-self: start;
+          display: grid;
+          gap: 1.25rem;
+          padding-top: 0;
+        }
+        .wd-truth-secondary > p { max-width: 50ch; margin: 0; }
+        @media (max-width: 760px) {
+          .wd-truth-grid-revised {
+            grid-template-columns: 1fr;
+            row-gap: 1.5rem;
+          }
+          .wd-truth-primary,
+          .wd-truth-secondary {
+            grid-column: 1;
+            grid-row: auto;
+          }
+          .wd-truth-secondary { align-self: start; padding-top: 0; }
+        }
+      `}</style>
 
       <section className="wd-hero shell">
         <div className="wd-hero-copy">
@@ -154,15 +155,38 @@ export default function WebsiteDesignPage() {
           <p>نصمم ونطوّر مواقع للشركات في السعودية والخليج تشرح القيمة، تبني الثقة، وتحوّل الزيارة إلى خطوة واضحة — مع سرعة، تجربة مستخدم، SEO، وتحليلات من البداية.</p>
           <div className="wd-actions"><Link className="button primary" href="/contact">ناقش مشروع موقعك <span>←</span></Link><a className="wd-text-link" href="#process">استعرض طريقة العمل</a></div>
         </div>
-        <div className="wd-browser" aria-label="تصور بصري لموقع احترافي">
-          <div className="wd-browser-bar"><i></i><i></i><i></i><span>dewank.com</span></div>
-          <div className="wd-screen"><div className="wd-screen-nav"><b>D</b><span>MENU</span></div><div className="wd-screen-hero"><small>01 / CLARITY</small><strong>القيمة<br/><em>قبل الزخرفة.</em></strong><p>رسالة ومسار وإجراء.</p></div><div className="wd-screen-grid"><span></span><span></span><span></span></div></div>
+
+        <div className="wd-browser" aria-label="تصور تفاعلي لواجهة موقع احترافي">
+          <div className="wd-browser-top"><div><i></i><i></i><i></i></div><span>dewank.com</span></div>
+          <div className="wd-browser-nav"><b>D</b><div><span>الخدمات</span><span>الأعمال</span><span>عن ديوانك</span></div><button type="button">ابدأ مشروعك</button></div>
+          <div className="wd-browser-grid">
+            <div className="wd-screen-copy"><small>01 / CLARITY</small><strong>القيمة<br/><em>قبل الزخرفة.</em></strong><p>رسالة واضحة، دليل ثقة، ومسار يقود إلى الإجراء.</p><span className="wd-demo-cta">اكتشف الحل ←</span></div>
+            <div className="wd-screen-cards">
+              <article><b>وضوح الرسالة</b><span>ما الذي تقدمه؟</span></article>
+              <article><b>دليل الثقة</b><span>لماذا يختارك العميل؟</span></article>
+              <article><b>خطوة تالية</b><span>ماذا يفعل الآن؟</span></article>
+            </div>
+          </div>
+          <div className="wd-browser-foot"><span>UX STRATEGY</span><span>RESPONSIVE</span><span>CONVERSION</span></div>
         </div>
       </section>
 
-      <section className="wd-truth"><div className="shell wd-truth-grid"><div><span className="wd-label">[ الفكرة الأساسية ]</span><h2>الموقع الجميل قد يجذب النظر.<br/><em>الموقع المدروس يحرّك القرار.</em></h2></div><div><p>عندما لا يفهم الزائر ما تقدمه، أو لا يثق، أو لا يعرف الخطوة التالية، تصبح الزيارة رقمًا بلا قيمة.</p><p>لذلك نربط التصميم بالمحتوى وتجربة المستخدم وسرعة الموقع والتتبع؛ ليعمل الموقع مع التسويق والمبيعات بدل أن يبقى كتالوجًا جامدًا.</p></div></div></section>
+      <section className="wd-truth">
+        <div className="shell">
+          <span className="wd-label wd-truth-label">[ الفكرة الأساسية ]</span>
+          <div className="wd-truth-grid wd-truth-grid-revised">
+            <div className="wd-truth-primary">
+              <h2>الموقع الجميل قد يجذب النظر.<br/><em>الموقع المدروس يحرّك القرار.</em></h2>
+            </div>
+            <div className="wd-truth-secondary">
+              <p>عندما لا يفهم الزائر ما تقدمه، أو لا يثق، أو لا يعرف الخطوة التالية، تصبح الزيارة رقمًا بلا قيمة.</p>
+              <p>لذلك نربط التصميم بالمحتوى وتجربة المستخدم وسرعة الموقع والتتبع؛ ليعمل الموقع مع التسويق والمبيعات بدل أن يبقى كتالوجًا جامدًا.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section className="wd-stages"><div className="shell"><div className="wd-section-head"><div><span className="wd-label">[ من الزيارة إلى النتيجة ]</span><h2>كل صفحة لها وظيفة.<br/><em>وكل خطوة تقلل التردد.</em></h2></div><p>نبني الرحلة من السؤال الأول في ذهن الزائر إلى الإجراء الذي يخدم هدف النشاط.</p></div><div className="wd-stage-grid">{stages.map((stage) => <article key={stage.n}><div><span>{stage.n}</span><small>{stage.en}</small></div><h3>{stage.title}</h3><p>{stage.text}</p></article>)}</div></div></section>
+      <section className="wd-journey"><div className="shell"><div className="wd-section-head"><div><span className="wd-label">[ من الزيارة إلى النتيجة ]</span><h2>كل صفحة لها وظيفة.<br/><em>وكل خطوة تقلل التردد.</em></h2></div><p>نبني الرحلة من السؤال الأول في ذهن الزائر إلى الإجراء الذي يخدم هدف النشاط.</p></div><div className="wd-journey-list">{stages.map((stage) => <article key={stage.n}><div className="wd-stage-id"><span>{stage.n}</span><small>{stage.en}</small></div><h3>{stage.title}</h3><p>{stage.text}</p></article>)}</div></div></section>
 
       <section className="wd-capabilities shell"><div className="wd-section-head"><div><span className="wd-label">[ نطاق الخدمة ]</span><h2>تصميم، تطوير،<br/><em>وتحويل في منظومة واحدة.</em></h2></div><p>نحدد النطاق حسب حاجة المشروع بدل إضافة خصائص لا تخدم المستخدم أو النتيجة.</p></div><div className="wd-capability-grid">{capabilities.map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
 
