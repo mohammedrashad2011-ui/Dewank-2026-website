@@ -64,12 +64,12 @@
 .dm-section-head { display: grid; grid-template-columns: 1fr .62fr; gap: 3rem; align-items: end; margin-bottom: 3rem; }
 .dm-journey .dm-section-head > p { color: rgba(255,255,255,.65); }
 .dm-journey-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid rgba(255,255,255,.18); border-bottom: 1px solid rgba(255,255,255,.18); }
-.dm-journey-grid article { min-height: 300px; padding: 1.5rem; border-inline-start: 1px solid rgba(255,255,255,.18); display: flex; flex-direction: column; }
+.dm-journey-grid article { min-height: 300px; padding: 1.5rem; border-inline-start: 1px solid rgba(255,255,255,.18); display: grid; grid-template-rows: auto 1fr auto; }
 .dm-journey-grid article:first-child { border-inline-start: 0; }
 .dm-journey-grid article > div { display: flex; justify-content: space-between; gap: .5rem; color: rgba(255,255,255,.5); }
 .dm-journey-grid small { font-size: .62rem; letter-spacing: .12em; }
-.dm-journey-grid h3 { font-size: 2rem; margin: auto 0 1rem; line-height: 1.35; }
-.dm-journey-grid p { color: rgba(255,255,255,.68); line-height: 1.75; margin: 0; }
+.dm-journey-grid h3 { align-self: end; min-height: 2.7rem; font-size: 2rem; margin: 0 0 1rem; line-height: 1.35; display: flex; align-items: flex-end; }
+.dm-journey-grid p { min-height: 5.4rem; color: rgba(255,255,255,.68); line-height: 1.75; margin: 0; }
 
 .dm-capabilities { padding: clamp(5rem, 9vw, 9rem) 0; }
 .dm-capability-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--dm-line); border-inline-start: 1px solid var(--dm-line); }
@@ -131,6 +131,7 @@
   .dm-truth-grid, .dm-section-head, .dm-deliverables-layout, .dm-fit-layout, .dm-faq-head, .dm-final { grid-template-columns: 1fr; }
   .dm-journey-grid, .dm-capability-grid, .dm-faq-grid { grid-template-columns: 1fr; }
   .dm-journey-grid article { min-height: 240px; border-inline-start: 0; }
+  .dm-journey-grid h3, .dm-journey-grid p { min-height: 0; }
   .dm-capability-grid { border-inline-start: 0; }
   .dm-capability-grid article { border-inline-start: 1px solid var(--dm-line); }
   .dm-sticky-copy { position: static; }
