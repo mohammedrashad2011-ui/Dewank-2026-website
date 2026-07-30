@@ -36,32 +36,43 @@ export default function MotionSystem() {
 
       <style>{`
         @media (max-width: 640px) {
+          .planet-system .space-glow,
           .planet-system .ring-b,
-          .planet-system .ring-c,
+          .planet-system .ring-c {
+            display: block;
+          }
+          .planet-system .space-glow {
+            opacity: .72;
+          }
+          .planet-system .ring-b { opacity: .42; }
+          .planet-system .ring-c { opacity: .28; }
+          .planet-system .satellite-track {
+            --orbit-size: 292px;
+            animation-duration: 30s !important;
+            animation-timing-function: linear !important;
+            animation-iteration-count: infinite !important;
+            will-change: transform;
+          }
           .planet-system .s2,
           .planet-system .s4,
           .planet-system .s6,
           .planet-system .s8 {
-            display: none;
-          }
-          .planet-system .space-glow {
-            display: block;
-            opacity: .72;
-          }
-          .planet-system .satellite-track {
-            --orbit-size: 280px;
-            animation-duration: 24s !important;
-            animation-timing-function: linear !important;
-            animation-iteration-count: infinite !important;
-            will-change: transform;
+            --orbit-size: 390px;
+            animation-duration: 38s !important;
+            animation-direction: reverse;
           }
           .planet-system .service-satellite {
-            animation-duration: 24s !important;
+            animation-duration: inherit !important;
             animation-timing-function: linear !important;
             animation-iteration-count: infinite !important;
             will-change: transform;
             min-height: 44px;
+            max-width: 154px;
             touch-action: manipulation;
+          }
+          .planet-system .service-satellite span {
+            white-space: nowrap;
+            font-size: 11px;
           }
           .planet-system:active .satellite-track,
           .planet-system:active .service-satellite,
@@ -70,13 +81,29 @@ export default function MotionSystem() {
             animation-play-state: paused !important;
           }
           .planet-system .s1 { transform: rotate(0deg); }
+          .planet-system .s2 { transform: rotate(45deg); }
           .planet-system .s3 { transform: rotate(90deg); }
+          .planet-system .s4 { transform: rotate(135deg); }
           .planet-system .s5 { transform: rotate(180deg); }
+          .planet-system .s6 { transform: rotate(225deg); }
           .planet-system .s7 { transform: rotate(270deg); }
+          .planet-system .s8 { transform: rotate(315deg); }
           .planet-system .s1 .service-satellite { transform: rotate(0deg); }
+          .planet-system .s2 .service-satellite { transform: rotate(-45deg); }
           .planet-system .s3 .service-satellite { transform: rotate(-90deg); }
+          .planet-system .s4 .service-satellite { transform: rotate(-135deg); }
           .planet-system .s5 .service-satellite { transform: rotate(-180deg); }
+          .planet-system .s6 .service-satellite { transform: rotate(-225deg); }
           .planet-system .s7 .service-satellite { transform: rotate(-270deg); }
+          .planet-system .s8 .service-satellite { transform: rotate(-315deg); }
+        }
+        @media (max-width: 380px) {
+          .planet-system .satellite-track { --orbit-size: 270px; }
+          .planet-system .s2,
+          .planet-system .s4,
+          .planet-system .s6,
+          .planet-system .s8 { --orbit-size: 352px; }
+          .planet-system .service-satellite span { font-size: 10px; }
         }
         @media (prefers-reduced-motion: reduce) {
           .planet-system *,
