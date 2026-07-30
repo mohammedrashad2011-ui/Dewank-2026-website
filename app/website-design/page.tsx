@@ -120,11 +120,13 @@ export default function WebsiteDesignPage() {
         }
         .wd-truth-primary {
           grid-column: 2;
+          grid-row: 1;
           direction: rtl;
         }
         .wd-truth-primary h2 { margin: 0; }
         .wd-truth-secondary {
           grid-column: 1;
+          grid-row: 1;
           direction: rtl;
           align-self: start;
           display: grid;
@@ -138,7 +140,10 @@ export default function WebsiteDesignPage() {
             row-gap: 1.5rem;
           }
           .wd-truth-primary,
-          .wd-truth-secondary { grid-column: 1; }
+          .wd-truth-secondary {
+            grid-column: 1;
+            grid-row: auto;
+          }
           .wd-truth-secondary { align-self: start; padding-top: 0; }
         }
       `}</style>
