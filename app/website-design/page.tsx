@@ -114,11 +114,11 @@ export default function WebsiteDesignPage() {
         .wd-truth-grid-revised { align-items: start; }
         .wd-truth-primary h2 { margin-bottom: 2rem; }
         .wd-truth-primary > p { max-width: 46ch; }
-        .wd-truth-secondary { align-self: center; padding-block: clamp(1.5rem, 4vw, 5rem); }
+        .wd-truth-secondary { align-self: start; padding-top: clamp(.4rem, .8vw, 1rem); }
         .wd-truth-secondary > p { max-width: 50ch; margin: 0; }
         @media (max-width: 760px) {
           .wd-truth-primary h2 { margin-bottom: 1.5rem; }
-          .wd-truth-secondary { align-self: start; padding-block: .5rem 0; }
+          .wd-truth-secondary { padding-top: .5rem; }
         }
       `}</style>
 
