@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 
 export const siteUrl = "https://dewank.com";
 export const siteName = "ديوانك | Dewank";
+export const organizationId = `${siteUrl}/#organization`;
 export const defaultDescription =
-  "ديوانك شريك نمو رقمي للشركات في السعودية والخليج، يجمع البراندينج والتسويق وتصميم المواقع وأتمتة المبيعات في منظومة واحدة تحقق نتائج أوضح.";
+  "ديوانك شركة تسويق رقمي واستوديو نمو للشركات في السعودية والخليج، يجمع استراتيجية البراند وتصميم المواقع والحملات وأتمتة واتساب وCRM في منظومة واحدة.";
 
 const socialImage = `${siteUrl}/dewank-social-preview-2026-07.png`;
 
@@ -33,7 +34,8 @@ export function createMetadata({
     alternates: {
       canonical,
       languages: {
-        "ar-SA": canonical,
+        ar: canonical,
+        "x-default": canonical,
       },
     },
     openGraph: {
