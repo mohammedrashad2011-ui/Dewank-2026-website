@@ -114,39 +114,32 @@ export default function WebsiteDesignPage() {
         .wd-truth-grid-revised {
           display: grid;
           grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-          grid-template-areas:
-            ". heading"
-            "secondary primary";
           column-gap: clamp(2rem, 7vw, 7rem);
-          row-gap: 1.5rem;
           align-items: start;
           direction: ltr;
         }
-        .wd-truth-primary { display: contents; }
-        .wd-truth-primary h2 {
-          grid-area: heading;
+        .wd-truth-primary {
+          grid-column: 2;
           direction: rtl;
-          margin: 0;
         }
-        .wd-truth-primary > p {
-          grid-area: primary;
-          direction: rtl;
-          max-width: 46ch;
-          margin: 0;
-        }
+        .wd-truth-primary h2 { margin: 0; }
         .wd-truth-secondary {
-          grid-area: secondary;
+          grid-column: 1;
           direction: rtl;
-          align-self: start;
-          padding: 0;
+          align-self: center;
+          display: grid;
+          gap: 1.25rem;
+          padding-top: .5rem;
         }
         .wd-truth-secondary > p { max-width: 50ch; margin: 0; }
         @media (max-width: 760px) {
           .wd-truth-grid-revised {
             grid-template-columns: 1fr;
-            grid-template-areas: "heading" "primary" "secondary";
-            row-gap: 1.25rem;
+            row-gap: 1.5rem;
           }
+          .wd-truth-primary,
+          .wd-truth-secondary { grid-column: 1; }
+          .wd-truth-secondary { align-self: start; padding-top: 0; }
         }
       `}</style>
 
@@ -179,9 +172,9 @@ export default function WebsiteDesignPage() {
           <div className="wd-truth-grid wd-truth-grid-revised">
             <div className="wd-truth-primary">
               <h2>الموقع الجميل قد يجذب النظر.<br/><em>الموقع المدروس يحرّك القرار.</em></h2>
-              <p>عندما لا يفهم الزائر ما تقدمه، أو لا يثق، أو لا يعرف الخطوة التالية، تصبح الزيارة رقمًا بلا قيمة.</p>
             </div>
             <div className="wd-truth-secondary">
+              <p>عندما لا يفهم الزائر ما تقدمه، أو لا يثق، أو لا يعرف الخطوة التالية، تصبح الزيارة رقمًا بلا قيمة.</p>
               <p>لذلك نربط التصميم بالمحتوى وتجربة المستخدم وسرعة الموقع والتتبع؛ ليعمل الموقع مع التسويق والمبيعات بدل أن يبقى كتالوجًا جامدًا.</p>
             </div>
           </div>
