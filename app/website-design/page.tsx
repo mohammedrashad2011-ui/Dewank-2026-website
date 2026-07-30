@@ -111,14 +111,42 @@ export default function WebsiteDesignPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <style>{`
         .wd-truth-label { display: block; margin-bottom: 1.5rem; }
-        .wd-truth-grid-revised { align-items: start; }
-        .wd-truth-primary h2 { margin-bottom: 2rem; }
-        .wd-truth-primary > p { max-width: 46ch; }
-        .wd-truth-secondary { align-self: start; padding-top: clamp(.4rem, .8vw, 1rem); }
+        .wd-truth-grid-revised {
+          display: grid;
+          grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+          grid-template-areas:
+            ". heading"
+            "secondary primary";
+          column-gap: clamp(2rem, 7vw, 7rem);
+          row-gap: 1.5rem;
+          align-items: start;
+          direction: ltr;
+        }
+        .wd-truth-primary { display: contents; }
+        .wd-truth-primary h2 {
+          grid-area: heading;
+          direction: rtl;
+          margin: 0;
+        }
+        .wd-truth-primary > p {
+          grid-area: primary;
+          direction: rtl;
+          max-width: 46ch;
+          margin: 0;
+        }
+        .wd-truth-secondary {
+          grid-area: secondary;
+          direction: rtl;
+          align-self: start;
+          padding: 0;
+        }
         .wd-truth-secondary > p { max-width: 50ch; margin: 0; }
         @media (max-width: 760px) {
-          .wd-truth-primary h2 { margin-bottom: 1.5rem; }
-          .wd-truth-secondary { padding-top: .5rem; }
+          .wd-truth-grid-revised {
+            grid-template-columns: 1fr;
+            grid-template-areas: "heading" "primary" "secondary";
+            row-gap: 1.25rem;
+          }
         }
       `}</style>
 
