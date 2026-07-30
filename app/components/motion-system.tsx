@@ -36,7 +36,6 @@ export default function MotionSystem() {
 
       <style>{`
         @media (max-width: 640px) {
-          .planet-system .space-glow,
           .planet-system .ring-b,
           .planet-system .ring-c,
           .planet-system .s2,
@@ -45,13 +44,30 @@ export default function MotionSystem() {
           .planet-system .s8 {
             display: none;
           }
-          .planet-system .service-ring,
-          .planet-system .satellite-track,
-          .planet-system .service-satellite {
-            animation: none !important;
+          .planet-system .space-glow {
+            display: block;
+            opacity: .72;
           }
           .planet-system .satellite-track {
             --orbit-size: 280px;
+            animation-duration: 24s !important;
+            animation-timing-function: linear !important;
+            animation-iteration-count: infinite !important;
+            will-change: transform;
+          }
+          .planet-system .service-satellite {
+            animation-duration: 24s !important;
+            animation-timing-function: linear !important;
+            animation-iteration-count: infinite !important;
+            will-change: transform;
+            min-height: 44px;
+            touch-action: manipulation;
+          }
+          .planet-system:active .satellite-track,
+          .planet-system:active .service-satellite,
+          .planet-system:focus-within .satellite-track,
+          .planet-system:focus-within .service-satellite {
+            animation-play-state: paused !important;
           }
           .planet-system .s1 { transform: rotate(0deg); }
           .planet-system .s3 { transform: rotate(90deg); }
