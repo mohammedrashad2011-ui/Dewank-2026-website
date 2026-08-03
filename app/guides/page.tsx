@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "WHATSAPP AUTOMATION + CRM · GCC",
+    title: "كيف تعمل أتمتة واتساب مع CRM لتقليل ضياع العملاء؟",
+    description: "رحلة عملية من الرسالة إلى التأهيل والحجز والمتابعة، مع الفرق بين القواعد وAI ومؤشرات قياس أثر النظام.",
+    href: "/guides/whatsapp-crm-automation",
+  },
+  {
     category: "SEO + AEO · GCC",
     title: "الفرق بين SEO وAEO: كيف تظهر في Google وإجابات الذكاء الاصطناعي؟",
     description: "شرح عملي للتكامل بين تحسين محركات البحث ومحركات الإجابة، وخطوات تهيئة المحتوى للظهور دون وعود مضللة.",
