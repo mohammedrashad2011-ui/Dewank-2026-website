@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "CRM + WHATSAPP · SAUDI ARABIA",
+    title: "أفضل CRM لربطه بواتساب في السعودية: كيف تختار؟",
+    description: "معايير اختيار عملية حسب رحلة العميل والفريق والتكامل والتقارير والملكية، مع اختبار واضح قبل التعاقد.",
+    href: "/guides/best-crm-whatsapp-saudi-arabia",
+  },
+  {
     category: "WHATSAPP AUTOMATION COST · SAUDI ARABIA",
     title: "كم تكلفة أتمتة واتساب مع CRM في السعودية؟",
     description: "نطاقات تكلفة إرشادية، والفرق بين التأسيس والتشغيل ورسوم القناة والتراخيص، وكيف تقارن العروض.",
