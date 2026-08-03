@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guides/social-media-not-generating-leads", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/guides/seo-vs-aeo", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/guides/whatsapp-crm-automation", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/guides/whatsapp-crm-automation-cost-saudi-arabia", priority: 0.8, changeFrequency: "monthly" as const },
   ];
 
   return pages.map(({ path, priority, changeFrequency }) => ({
