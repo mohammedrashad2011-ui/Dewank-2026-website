@@ -299,12 +299,12 @@ body{
 .hero-foot span:before{content:"●";color:var(--blue);font-size:8px;margin-left:10px}
 
 .belief{padding:150px 0 170px;display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.48fr);gap:clamp(56px,8vw,140px);align-items:end}
-.belief-heading{grid-column:2}
+.belief-heading{grid-column:1}
 .belief h2{
   max-width:980px;margin:24px 0 0;font-size:clamp(48px,5.7vw,80px);
   line-height:1.25;letter-spacing:-.06em;font-weight:750
 }
-.belief>p{grid-column:1;grid-row:1;max-width:520px;margin:0;font-size:18px;line-height:1.95;color:#4d4f55}
+.belief>p{grid-column:2;grid-row:1;max-width:520px;margin:0;font-size:18px;line-height:1.95;color:#4d4f55}
 
 /* Bento is used for scanability, not decoration. */
 .bento-section{padding:120px 0 130px;background:var(--ink);color:#f7f5ef}
@@ -625,9 +625,9 @@ body{
 .trust-strip span{display:flex;align-items:center;gap:16px;padding:22px;border-left:1px solid var(--line);font-weight:800}
 .trust-strip span:last-child{border-left:0}.trust-strip b{font:700 10px Arial;color:var(--blue)}
 .proof-section{padding:130px 0}.proof-copy{display:grid;grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);gap:clamp(56px,8vw,140px);align-items:end;margin-bottom:58px}
-.proof-heading{grid-column:2}
+.proof-heading{grid-column:1}
 .proof-copy h2{font-size:clamp(48px,5.3vw,76px);line-height:1.18;letter-spacing:-.055em;margin:24px 0 0}.proof-copy h2 em,.case-study h2 em{font-style:normal;color:var(--blue)}
-.proof-copy>p{grid-column:1;grid-row:1;margin:0;color:var(--muted);font-size:15px;line-height:1.9;max-width:480px}
+.proof-copy>p{grid-column:2;grid-row:1;margin:0;color:var(--muted);font-size:15px;line-height:1.9;max-width:480px}
 .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .proof-grid article{min-height:330px;border:1px solid var(--line);border-radius:30px;padding:30px;background:#fff;display:flex;flex-direction:column}
 .proof-grid strong{font:900 clamp(64px,7vw,100px)/1 Arial;letter-spacing:-.08em;color:var(--blue)}
