@@ -74,7 +74,7 @@ export default function Home() {
       </section>
 
       <section className="belief shell">
-        <span className="section-label">[ ما نؤمن به ]</span>
+        <span className="section-label home-section-label">[ ما نؤمن به ]</span>
         <h2>لا تحتاج إلى مزيد من الضجيج.<br/>تحتاج إلى علامة <em>تُفهم، تُذكر، وتتحرك.</em></h2>
         <p>لهذا لا نفصل الهوية عن التسويق، ولا نضيف الذكاء الاصطناعي كزينة. نبني رحلة واحدة من الفكرة إلى النتيجة.</p>
       </section>
@@ -99,7 +99,7 @@ export default function Home() {
 
       <section className="bento-section">
         <div className="shell">
-          <div className="section-head"><div><span className="section-label">[ ماذا نصنع ]</span><h2>أربع قدرات.<br/><em>منظومة واحدة.</em></h2></div><Link className="text-link" href="/services">كل الخدمات <span>↙</span></Link></div>
+          <div className="section-head"><div><span className="section-label home-section-label">[ ماذا نصنع ]</span><h2>أربع قدرات.<br/><em>منظومة واحدة.</em></h2></div><Link className="text-link" href="/services">كل الخدمات <span>↙</span></Link></div>
           <div className="service-bento">
             {services.map((service) => (
               <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
@@ -116,7 +116,7 @@ export default function Home() {
 
       <section className="case-study shell" aria-labelledby="case-study-title">
         <div className="case-study-head">
-          <span className="section-label">[ دراسة حالة مختصرة ]</span>
+          <span className="section-label home-section-label">[ دراسة حالة مختصرة ]</span>
           <span className="case-sector">HEALTHCARE / GCC</span>
         </div>
         <div className="case-study-grid">
@@ -134,7 +134,7 @@ export default function Home() {
 
       <section className="method-section">
         <div className="shell method-layout">
-          <div className="method-intro"><span className="section-label">[ كيف نعمل ]</span><h2>أقل خطوات.<br/><em>قرارات أوضح.</em></h2><p>لا طبقات إدارية، ولا حلول جاهزة. كل مرحلة تجيب عن سؤال حقيقي قبل الانتقال لما بعدها.</p></div>
+          <div className="method-intro"><span className="section-label home-section-label">[ كيف نعمل ]</span><h2>أقل خطوات.<br/><em>قرارات أوضح.</em></h2><p>لا طبقات إدارية، ولا حلول جاهزة. كل مرحلة تجيب عن سؤال حقيقي قبل الانتقال لما بعدها.</p></div>
           <div className="method-list">
             {[["01","نكتشف","السياق والجمهور والمشكلة الحقيقية."],["02","نحدّد","الفرصة والرسالة والأولوية التجارية."],["03","نصنع","نظامًا إبداعيًا قابلًا للتطبيق والنمو."],["04","نُحسّن","نقيس ونتعلم ونضاعف ما يصنع النتيجة."]].map(([n,t,p]) => <div key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p></div>)}
           </div>
@@ -142,7 +142,7 @@ export default function Home() {
       </section>
 
       <section className="seo-content shell" aria-labelledby="dewank-growth-title">
-        <span className="section-label">[ DEWANK GROWTH SYSTEM ]</span>
+        <span className="section-label home-section-label">[ نظام ديوانك للنمو ]</span>
         <h2 id="dewank-growth-title">من استراتيجية البراند إلى نظام نمو يعمل.</h2>
         <div className="seo-content-grid">
           <p>نساعد الشركات في السعودية والخليج على توضيح تموضعها، بناء هوية متماسكة، وتطوير حضور رقمي يحوّل الاهتمام إلى طلبات حقيقية. يبدأ العمل بفهم السوق والجمهور والعرض، ثم نربط الرسالة بالتصميم والمحتوى وتجربة الموقع.</p>
@@ -152,7 +152,7 @@ export default function Home() {
       </section>
 
       <section className="faq-section shell" aria-labelledby="home-faq-title">
-        <span className="section-label">[ أسئلة شائعة ]</span>
+        <span className="section-label home-section-label">[ أسئلة شائعة ]</span>
         <h2 id="home-faq-title">قبل أن نبدأ.</h2>
         <div className="faq-grid">
           <details><summary>هل تعملون مع الشركات داخل السعودية فقط؟</summary><p>نركز على السوق السعودي والخليجي، ويمكننا تنفيذ مشروعات عن بُعد لعلامات وشركات في أسواق أخرى عندما يكون نطاق العمل مناسبًا.</p></details>
@@ -162,7 +162,7 @@ export default function Home() {
       </section>
 
       <section className="final-cta shell">
-        <div><span className="section-label">[ مشروعك التالي ]</span><h2>لنصنع شيئًا<br/><em>يستحق الانتباه.</em></h2></div>
+        <div><span className="section-label home-section-label">[ مشروعك التالي ]</span><h2>لنصنع شيئًا<br/><em>يستحق الانتباه.</em></h2></div>
         <div><p>إذا كانت علامتك مستعدة لمرحلة أوضح وأذكى، فلنبدأ من التحدي الحقيقي.</p><div className="final-actions"><Link className="button primary" href="/contact">ناقش مشروعك معنا <span>←</span></Link><a className="button whatsapp" href="https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A%20%D9%85%D8%B9%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%D9%83" target="_blank" rel="noopener noreferrer">واتساب <span>↗</span></a></div><small className="cta-expectation">محادثة قصيرة لفهم المشروع وتحديد نقطة البداية المناسبة.</small></div>
       </section>
       <Footer />
