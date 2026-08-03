@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "DIGITAL MARKETING COST · SAUDI ARABIA",
+    title: "أسعار التسويق الرقمي في السعودية: ماذا تشمل؟",
+    description: "نطاقات إرشادية للميزانية، وما يجب أن تتضمنه الباقة، والفرق بين أتعاب الإدارة والإنفاق الإعلاني وكيف تقارن العروض.",
+    href: "/guides/digital-marketing-cost-saudi-arabia",
+  },
+  {
     category: "DIGITAL MARKETING · SAUDI ARABIA",
     title: "كيف تختار شركة تسويق رقمي في السعودية؟",
     description: "معايير عملية لتقييم الاستراتيجية والخبرة والقياس والعقد، مع أسئلة تكشف الفرق بين شريك نمو حقيقي وبائع وعود.",
