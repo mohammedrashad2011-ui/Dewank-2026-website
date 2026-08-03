@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "SEO + AEO · GCC",
+    title: "الفرق بين SEO وAEO: كيف تظهر في Google وإجابات الذكاء الاصطناعي؟",
+    description: "شرح عملي للتكامل بين تحسين محركات البحث ومحركات الإجابة، وخطوات تهيئة المحتوى للظهور دون وعود مضللة.",
+    href: "/guides/seo-vs-aeo",
+  },
+  {
     category: "SOCIAL MEDIA CONVERSION · GCC",
     title: "حسابك جميل لكنه لا يجلب عملاء: أين المشكلة؟",
     description: "تشخيص الفجوة بين الوصول والبيع: الرسالة والعرض والثقة والدعوة للإجراء ومسار متابعة العملاء.",
