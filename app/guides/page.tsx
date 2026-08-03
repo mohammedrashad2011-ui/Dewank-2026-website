@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "DIGITAL MARKETING · SAUDI ARABIA",
+    title: "كيف تختار شركة تسويق رقمي في السعودية؟",
+    description: "معايير عملية لتقييم الاستراتيجية والخبرة والقياس والعقد، مع أسئلة تكشف الفرق بين شريك نمو حقيقي وبائع وعود.",
+    href: "/guides/choose-digital-marketing-company-saudi-arabia",
+  },
+  {
     category: "WEBSITE CONVERSION · GCC",
     title: "لماذا موقعك لا يجلب عملاء؟",
     description: "تشخيص عملي لأكثر نقاط التسرب شيوعًا: الرسالة، الثقة، تجربة الجوال، الدعوة للإجراء والقياس، مع خطة إصلاح مرتبة حسب الأولوية.",
