@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "WEBSITE CONVERSION · GCC",
+    title: "لماذا موقعك لا يجلب عملاء؟",
+    description: "تشخيص عملي لأكثر نقاط التسرب شيوعًا: الرسالة، الثقة، تجربة الجوال، الدعوة للإجراء والقياس، مع خطة إصلاح مرتبة حسب الأولوية.",
+    href: "/guides/why-website-does-not-generate-leads",
+  },
+  {
     category: "WEBSITE DESIGN · SAUDI ARABIA",
     title: "كم تكلفة تصميم موقع إلكتروني في السعودية؟",
     description: "دليل لفهم نطاقات التكلفة، وما الذي يرفع السعر، وكيف تقارن بين العروض من دون أن تدفع مقابل شكل لا يخدم المبيعات.",
