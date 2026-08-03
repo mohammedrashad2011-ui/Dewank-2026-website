@@ -18,17 +18,17 @@
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
-    "next": "16.2.11",
-    "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "next": "16.2.12",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "overrides": {
     "@babel/core": "7.29.6",
-    "brace-expansion@1": "1.1.16",
-    "brace-expansion@5": "5.0.7",
+    "brace-expansion@1": "1.1.17",
+    "brace-expansion@5": "5.0.8",
     "fast-uri": "3.1.4",
     "js-yaml": "4.3.0",
-    "postcss": "8.5.12",
+    "postcss": "8.5.18",
     "sharp": "0.35.0",
     "undici": "7.28.0",
     "ws": "8.21.0"
@@ -43,8 +43,8 @@
     "@vitejs/plugin-rsc": "0.5.26",
     "drizzle-kit": "0.31.10",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.11",
-    "react-server-dom-webpack": "19.2.6",
+    "eslint-config-next": "16.2.12",
+    "react-server-dom-webpack": "19.2.8",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vinext": "0.0.50",
@@ -52,5 +52,5 @@
     "wrangler": "4.92.0"
   },
   "type": "module",
-  "displayName": "\u062f\u064a\u0648\u0627\u0646\u0643 | \u0627\u0644\u0628\u0631\u0627\u0646\u062f\u064a\u0646\u062c \u0648\u0627\u0644\u062a\u0633\u0648\u064a\u0642 \u0648\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064a"
+  "displayName": "ديوانك | البراندينج والتسويق والذكاء الاصطناعي"
 }
