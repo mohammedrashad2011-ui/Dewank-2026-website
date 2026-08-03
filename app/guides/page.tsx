@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "BRANDING & IDENTITY · SAUDI ARABIA",
+    title: "تكلفة تصميم الهوية البصرية في السعودية: ماذا تشمل؟",
+    description: "نطاقات الأسعار، والفرق بين الشعار والهوية والبراند، وما يجب استلامه وامتلاكه قبل التعاقد.",
+    href: "/guides/branding-identity-cost-saudi-arabia",
+  },
+  {
     category: "ADS → WHATSAPP → BOOKING · GCC",
     title: "كيف تبني رحلة عميل من الإعلان إلى واتساب ثم الحجز؟",
     description: "خريطة عملية تربط الإعلان بالمحادثة والتأهيل وCRM والحجز والحضور، مع مؤشرات تكشف أين تضيع الفرص.",
