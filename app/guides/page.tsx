@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "BRAND NAMING · SAUDI ARABIA",
+    title: "كيف تختار اسمًا تجاريًا مميزًا وقابلًا للتسجيل في السعودية؟",
+    description: "منهج عملي للتسمية، والفحص اللغوي والثقافي، والبحث المبدئي عن العلامات المشابهة، والتحقق من الدومين قبل القرار.",
+    href: "/guides/how-to-choose-brand-name-saudi-arabia",
+  },
+  {
     category: "BRANDING & IDENTITY · SAUDI ARABIA",
     title: "تكلفة تصميم الهوية البصرية في السعودية: ماذا تشمل؟",
     description: "نطاقات الأسعار، والفرق بين الشعار والهوية والبراند، وما يجب استلامه وامتلاكه قبل التعاقد.",

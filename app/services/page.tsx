@@ -26,6 +26,17 @@ const services = [
   },
   {
     no: "02",
+    en: "BRAND NAMING & AVAILABILITY RESEARCH",
+    tone: "brand",
+    visual: "brand",
+    title: "الاسم ليس مجرد كلمة.",
+    hook: "هو أول قرار في العلامة.",
+    text: "نطوّر أسماء مبنية على النشاط والجمهور والسوق، مع فحص لغوي وثقافي وبحث مبدئي عن العلامات المشابهة وتوفر الدومين وحسابات التواصل.",
+    tags: ["Naming", "Trademark Search", "Domain"],
+    href: "/services/brand-naming",
+  },
+  {
+    no: "03",
     en: "DIGITAL MARKETING",
     tone: "growth",
     visual: "growth",
@@ -36,7 +47,7 @@ const services = [
     href: "/digital-marketing",
   },
   {
-    no: "03",
+    no: "04",
     en: "META & GOOGLE ADS",
     tone: "growth",
     visual: "growth",
@@ -47,7 +58,7 @@ const services = [
     href: "/paid-ads",
   },
   {
-    no: "04",
+    no: "05",
     en: "WEBSITE DESIGN & CRO",
     tone: "web",
     visual: "web",
@@ -58,7 +69,7 @@ const services = [
     href: "/website-design",
   },
   {
-    no: "05",
+    no: "06",
     en: "SEO & AEO",
     tone: "web",
     visual: "search",
@@ -69,7 +80,7 @@ const services = [
     href: "/seo-aeo",
   },
   {
-    no: "06",
+    no: "07",
     en: "WHATSAPP AUTOMATION & CRM",
     tone: "automation",
     visual: "automation",
@@ -80,7 +91,7 @@ const services = [
     href: "/whatsapp-automation",
   },
   {
-    no: "07",
+    no: "08",
     en: "AI AUTOMATION",
     tone: "automation",
     visual: "ai",
