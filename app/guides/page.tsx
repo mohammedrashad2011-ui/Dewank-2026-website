@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "BRANDING AGENCY · SAUDI ARABIA",
+    title: "كيف تختار شركة تصميم هوية بصرية في السعودية؟",
+    description: "بطاقة تقييم عملية للاستراتيجية والبورتفوليو والعرض والعقد والملكية، مع أسئلة تكشف الشريك المناسب.",
+    href: "/guides/choose-branding-agency-saudi-arabia",
+  },
+  {
     category: "BRANDING & IDENTITY · SAUDI ARABIA",
     title: "تكلفة تصميم الهوية البصرية في السعودية: ماذا تشمل؟",
     description: "نطاقات الأسعار، والفرق بين الشعار والهوية والبراند، وما يجب استلامه وامتلاكه قبل التعاقد.",
