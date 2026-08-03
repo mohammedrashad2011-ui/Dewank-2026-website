@@ -66,6 +66,7 @@ export default function WebsiteDesignCostGuide() {
 
           <h2 id="brief">ما الذي ترسله قبل طلب السعر؟</h2>
           <p>أرسل نوع النشاط، السوق، الهدف الرئيسي، الصفحات المتوقعة، اللغات، الوظائف المطلوبة، أمثلة تعجبك، والموعد المستهدف. هذه المعلومات تجعل العرض أدق وتكشف مبكرًا ما إذا كان مقدم الخدمة يفهم هدفك أم يبيع قالبًا ثابتًا.</p>
+          <p>وإذا كان لديك موقع بالفعل لكن الزيارات لا تتحول إلى استفسارات، ابدأ بدليل <Link href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link> قبل التفكير في إعادة بنائه بالكامل.</p>
 
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تحتاج تقديرًا واقعيًا لموقعك؟</h2><p>أرسل لنا نوع النشاط والهدف والوظائف المطلوبة، وسنحدد النطاق المناسب قبل الحديث عن السعر.</p><Link className="button primary" href="/website-design">استعرض خدمة تصميم المواقع <span>←</span></Link></section>
