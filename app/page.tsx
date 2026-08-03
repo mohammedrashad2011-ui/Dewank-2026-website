@@ -74,8 +74,10 @@ export default function Home() {
       </section>
 
       <section className="belief shell">
-        <span className="section-label home-section-label">[ ما نؤمن به ]</span>
-        <h2>لا تحتاج إلى مزيد من الضجيج.<br/>تحتاج إلى علامة <em>تُفهم، تُذكر، وتتحرك.</em></h2>
+        <div className="belief-heading">
+          <span className="section-label home-section-label">[ ما نؤمن به ]</span>
+          <h2>لا تحتاج إلى مزيد من الضجيج.<br/>تحتاج إلى علامة <em>تُفهم، تُذكر، وتتحرك.</em></h2>
+        </div>
         <p>لهذا لا نفصل الهوية عن التسويق، ولا نضيف الذكاء الاصطناعي كزينة. نبني رحلة واحدة من الفكرة إلى النتيجة.</p>
       </section>
 
@@ -85,8 +87,10 @@ export default function Home() {
 
       <section className="proof-section shell" aria-labelledby="proof-title">
         <div className="proof-copy">
-          <span className="section-label">[ نتائج من مشروع فعلي ]</span>
-          <h2 id="proof-title">النمو لا يُقاس<br/><em>بالانطباع وحده.</em></h2>
+          <div className="proof-heading">
+            <span className="section-label home-section-label">[ نتائج من مشروع فعلي ]</span>
+            <h2 id="proof-title">النمو لا يُقاس<br/><em>بالانطباع وحده.</em></h2>
+          </div>
           <p>نتائج تحققت بعد ربط التسويق والحجز والمتابعة الآلية في مشروع بالقطاع الطبي.</p>
         </div>
         <div className="proof-grid">
