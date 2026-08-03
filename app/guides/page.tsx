@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "SOCIAL MEDIA MANAGEMENT · SAUDI ARABIA",
+    title: "أسعار إدارة حسابات التواصل الاجتماعي في السعودية",
+    description: "نطاقات الأسعار، وما الذي يجب أن تتضمنه الباقة، والفرق بين الإدارة وصناعة المحتوى والتصوير والإعلانات.",
+    href: "/guides/social-media-management-cost-saudi-arabia",
+  },
+  {
     category: "DIGITAL MARKETING COST · SAUDI ARABIA",
     title: "أسعار التسويق الرقمي في السعودية: ماذا تشمل؟",
     description: "نطاقات إرشادية للميزانية، وما يجب أن تتضمنه الباقة، والفرق بين أتعاب الإدارة والإنفاق الإعلاني وكيف تقارن العروض.",
