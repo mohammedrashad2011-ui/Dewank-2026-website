@@ -25,7 +25,7 @@ export function Header() {
       <div className="shell nav-wrap">
         <Link className="brand-logo" href="/" aria-label="ديوانك - الرئيسية"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link>
         <nav aria-label="التنقل الرئيسي">
-          <ServicesMenu /><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link><Link href="/contact">تواصل</Link>
+          <ServicesMenu /><Link className="offers-nav-link" href="/offers" aria-label="العروض الجديدة"><span className="offers-new-badge">جديد</span><span className="offers-nav-label"><span aria-hidden="true">✦</span> العروض</span></Link><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link><Link href="/contact">تواصل</Link>
         </nav>
         <div className="nav-actions"><MobileNavigation /><Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link></div>
       </div>
@@ -39,7 +39,7 @@ export function Footer() {
       <div className="shell footer-grid unified-footer-grid">
         <div className="footer-intro"><Link className="brand-logo footer-brand" href="/"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link><p>نصنع العلامة. نحرّك الطلب. ونؤتمت النمو.</p></div>
         <div className="footer-services"><b>الخدمات</b><div className="footer-service-links">{footerServices.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}</div></div>
-        <div><b>استكشف</b><Link href="/services">جميع الخدمات</Link><Link href="/work">أعمالنا</Link><Link href="/guides">أدلة النمو</Link><Link href="/about">عن ديوانك</Link><Link href="/contact">ابدأ مشروعًا</Link></div>
+        <div><b>استكشف</b><Link href="/services">جميع الخدمات</Link><Link href="/offers">العروض</Link><Link href="/work">أعمالنا</Link><Link href="/guides">أدلة النمو</Link><Link href="/about">عن ديوانك</Link><Link href="/contact">ابدأ مشروعًا</Link></div>
         <div className="footer-contact"><b>تواصل</b><div className="footer-social-icons"><a href="https://wa.me/97339066649" target="_blank" rel="noreferrer" aria-label="واتساب" title="واتساب"><ContactIcon type="whatsapp" /></a><a href="mailto:hello@dewank.com" aria-label="البريد الإلكتروني" title="البريد الإلكتروني"><ContactIcon type="email" /></a><a href="https://www.instagram.com/dewank_marketing" target="_blank" rel="noreferrer" aria-label="إنستجرام" title="إنستجرام"><ContactIcon type="instagram" /></a></div><span>البراندينج · التسويق · AI</span></div>
       </div>
       <div className="shell footer-bottom"><span>© {new Date().getFullYear()} DEWANK STUDIO</span><span>BRAND × GROWTH × AI</span></div>

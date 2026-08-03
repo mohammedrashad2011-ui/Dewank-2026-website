@@ -661,3 +661,95 @@ body{
   .instagram-card-mark{width:48px;height:48px;border-radius:15px}.instagram-card-copy strong{font-size:11px}.instagram-card-copy span{display:none}.instagram-card-action{min-height:36px;padding:8px 12px;font-size:10px}.instagram-card-close{left:5px;top:3px}
 }
 @media(prefers-reduced-motion:reduce){.instagram-follow-card{animation:none}}
+/* Offers navigation: polished gold CTA with a periodic, accessible sheen. */
+.site-header nav .offers-nav-link {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 92px;
+  padding: .62rem 1.05rem;
+  border: 1px solid #d9a83f;
+  border-radius: 999px;
+  color: #071a33;
+  background: linear-gradient(115deg,#b87918 0%,#f3ce6b 28%,#fff0a8 48%,#d59d32 72%,#a96610 100%);
+  background-size: 180% 180%;
+  box-shadow: 0 7px 18px rgba(190,132,25,.28),inset 0 1px 0 rgba(255,255,255,.72),inset 0 -1px 0 rgba(104,58,3,.2);
+  text-shadow: 0 1px 0 rgba(255,255,255,.42);
+  transform: translateZ(0);
+  transition: transform .24s ease,box-shadow .24s ease,filter .24s ease;
+}
+
+.site-header nav .offers-nav-link::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: -75%;
+  width: 42%;
+  border-radius: inherit;
+  transform: skewX(-20deg);
+  background: linear-gradient(90deg,transparent,rgba(255,255,255,.92),transparent);
+  filter: blur(.2px);
+  pointer-events: none;
+  animation: offer-nav-sheen 3.8s ease-in-out infinite;
+}
+
+.offers-nav-label {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  font-weight: 900;
+}
+
+.offers-nav-label > span {
+  color: #704100;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,.65));
+}
+
+.offers-new-badge {
+  position: absolute;
+  z-index: 3;
+  top: -11px;
+  right: -7px;
+  padding: 2px 7px 3px;
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 999px;
+  color: #fff;
+  background: #071a33;
+  box-shadow: 0 3px 9px rgba(7,26,51,.25);
+  font-size: 8px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.site-header nav .offers-nav-link:hover,
+.site-header nav .offers-nav-link:focus-visible {
+  color: #071a33;
+  background-position: 100% 50%;
+  border-color: #f0ce79;
+  box-shadow: 0 11px 25px rgba(190,132,25,.42),0 0 0 3px rgba(230,184,86,.18),inset 0 1px 0 rgba(255,255,255,.8);
+  transform: translateY(-2px) scale(1.035);
+  filter: saturate(1.08);
+  outline: none;
+}
+
+.site-header nav .offers-nav-link:hover::before { width: 0; }
+
+@keyframes offer-nav-sheen {
+  0%, 58% { left: -75%; opacity: 0; }
+  62% { opacity: 1; }
+  80% { left: 135%; opacity: 1; }
+  100% { left: 135%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header nav .offers-nav-link::after { animation: none; }
+  .site-header nav .offers-nav-link { transition: none; }
+}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const mobileLinks = [
+  ["/offers", "العروض"],
   ["/services", "جميع الخدمات"],
   ["/branding", "البراند والهوية"],
   ["/digital-marketing", "التسويق الرقمي"],
