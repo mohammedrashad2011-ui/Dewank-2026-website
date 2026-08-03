@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "SOCIAL MEDIA CONVERSION · GCC",
+    title: "حسابك جميل لكنه لا يجلب عملاء: أين المشكلة؟",
+    description: "تشخيص الفجوة بين الوصول والبيع: الرسالة والعرض والثقة والدعوة للإجراء ومسار متابعة العملاء.",
+    href: "/guides/social-media-not-generating-leads",
+  },
+  {
     category: "SOCIAL MEDIA MANAGEMENT · SAUDI ARABIA",
     title: "أسعار إدارة حسابات التواصل الاجتماعي في السعودية",
     description: "نطاقات الأسعار، وما الذي يجب أن تتضمنه الباقة، والفرق بين الإدارة وصناعة المحتوى والتصوير والإعلانات.",
