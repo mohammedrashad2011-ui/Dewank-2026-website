@@ -4,8 +4,7 @@ import { Footer, Header } from "../components/site-shell";
 import { createMetadata, siteUrl } from "../lib/seo";
 import "./offers-page.css";
 
-const launchCapacity = 7;
-const remainingSpots = 5;
+const availableSpots = 7;
 
 export const metadata: Metadata = createMetadata({
   title: "عروض ديوانك | باقات تسويق ومحتوى بأسعار تأسيسية",
@@ -40,9 +39,8 @@ export default function OffersPage() {
 
       <section className="shell offers-grid" aria-label="عروض ديوانك الحالية">
         <article className="offer-card">
-          <div className="offer-availability" aria-label={`متاح لأول ${launchCapacity} مشاريع، باقي ${remainingSpots}`}>
-            <span className="offer-card-badge">متاح لأول {launchCapacity} مشاريع</span>
-            <span className="offer-spots-left"><i aria-hidden="true" />باقي {remainingSpots}</span>
+          <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}>
+            <span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span>
           </div>
           <h2>محتوى شهر كامل.<br/><em>جاهز للنشر.</em></h2>
           <p>12 بوستًا، 3 ستوري، ريل واحد، أفكار وكابشنات وخطة نشر—ليظهر حسابك بصورة متناسقة بدل النشر العشوائي.</p>
