@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guides/website-design-cost-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/why-website-does-not-generate-leads", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/choose-digital-marketing-company-saudi-arabia", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/guides/digital-marketing-cost-saudi-arabia", priority: 0.8, changeFrequency: "monthly" as const },
   ];
 
   return pages.map(({ path, priority, changeFrequency }) => ({
