@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/contact", priority: 0.6, changeFrequency: "yearly" as const },
     { path: "/guides", priority: 0.7, changeFrequency: "weekly" as const },
     { path: "/guides/branding-identity-cost-saudi-arabia", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/guides/choose-branding-agency-saudi-arabia", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/guides/website-design-cost-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/why-website-does-not-generate-leads", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/choose-digital-marketing-company-saudi-arabia", priority: 0.8, changeFrequency: "monthly" as const },
