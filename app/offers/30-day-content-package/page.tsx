@@ -13,8 +13,7 @@ export const metadata: Metadata = createMetadata({
 
 const whatsappUrl = "https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%D9%83%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%B9%D8%B1%D8%B6%20%D8%AD%D8%B6%D9%88%D8%B1%20%D8%A7%D9%84%D8%B4%D9%87%D8%B1%20%D8%A8%D9%80%20790%20%D8%B1%D9%8A%D8%A7%D9%84";
 
-const launchCapacity = 7;
-const remainingSpots = 5;
+const availableSpots = 7;
 
 const deliverables = [
   ["12 بوستًا مخصصًا", "تصميمات متناسقة مع نشاطك وليست قوالب جاهزة مكررة."],
@@ -50,15 +49,14 @@ export default function ContentOfferPage() {
 
       <section className="shell offer-detail-hero">
         <div>
-          <div className="offer-availability" aria-label={`متاح لأول ${launchCapacity} مشاريع، باقي ${remainingSpots}`}>
-            <span className="offer-kicker">متاح لأول {launchCapacity} مشاريع</span>
-            <span className="offer-spots-left"><i aria-hidden="true" />باقي {remainingSpots}</span>
+          <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}>
+            <span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span>
           </div>
           <h1>شهر محتوى كامل.<br/><em>بدون حيرة كل يوم.</em></h1>
           <p>نحوّل خدماتك وأفكارك إلى 16 قطعة محتوى متناسقة وجاهزة للنشر، حتى يظهر حسابك بصورة احترافية ويصبح عندك ما تقوله خلال الشهر.</p>
         </div>
         <aside className="offer-price-panel">
-          <small>السعر التأسيسي لأول {launchCapacity} مشاريع</small>
+          <small>السعر التأسيسي لفترة محدودة</small>
           <div className="offer-price"><strong>790</strong><span>ريال سعودي</span></div>
           <p>50% لبدء العمل، و50% بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية.</p>
           <a className="button primary" href={whatsappUrl} target="_blank" rel="noreferrer">احجز العرض عبر واتساب <span>←</span></a>
