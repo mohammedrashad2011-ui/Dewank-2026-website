@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Footer, Header, PageHero } from "../components/site-shell";
+import { Footer, Header } from "../components/site-shell";
 import { createMetadata, siteUrl } from "../lib/seo";
 import "./offers-page.css";
 
@@ -28,8 +28,12 @@ export default function OffersPage() {
     <main className="inner-page offers-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <PageHero eyebrow="عروض ديوانك" title={<>قيمة أكبر.<br/><em>وبداية أسهل.</em></>} text="عروض محدودة صممناها لتأخذ خطوة واضحة الآن، بنطاق وتسليم وسعر معروفين من البداية." />
-      <p className="shell offers-intro">كل عرض هنا له نتيجة محددة وحدود واضحة. لا اشتراك طويل ولا خدمات غامضة؛ اختر العرض المناسب، راجع تفاصيله، ثم ابدأ مباشرة عبر واتساب.</p>
+
+      <section className="shell offers-hero">
+        <span className="offers-hero-eyebrow">عروض ديوانك</span>
+        <h1>عروض واضحة.<br/><em>تساعدك تبدأ الآن.</em></h1>
+        <p>اختر العرض المناسب لنشاطك بنطاق عمل محدد وسعر معروف من البداية. راجع التفاصيل وابدأ مباشرة عبر واتساب—من دون اشتراكات طويلة أو خدمات غامضة.</p>
+      </section>
 
       <section className="shell offers-grid" aria-label="عروض ديوانك الحالية">
         <article className="offer-card">
