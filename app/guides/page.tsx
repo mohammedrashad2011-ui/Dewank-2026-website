@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "WHATSAPP AUTOMATION COST · SAUDI ARABIA",
+    title: "كم تكلفة أتمتة واتساب مع CRM في السعودية؟",
+    description: "نطاقات تكلفة إرشادية، والفرق بين التأسيس والتشغيل ورسوم القناة والتراخيص، وكيف تقارن العروض.",
+    href: "/guides/whatsapp-crm-automation-cost-saudi-arabia",
+  },
+  {
     category: "WHATSAPP AUTOMATION + CRM · GCC",
     title: "كيف تعمل أتمتة واتساب مع CRM لتقليل ضياع العملاء؟",
     description: "رحلة عملية من الرسالة إلى التأهيل والحجز والمتابعة، مع الفرق بين القواعد وAI ومؤشرات قياس أثر النظام.",
