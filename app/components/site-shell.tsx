@@ -25,7 +25,7 @@ export function Header() {
       <div className="shell nav-wrap">
         <Link className="brand-logo" href="/" aria-label="ديوانك - الرئيسية"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link>
         <nav aria-label="التنقل الرئيسي">
-          <ServicesMenu /><Link className="offers-nav-link" href="/offers"><span aria-hidden="true">✦</span> العروض</Link><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link><Link href="/contact">تواصل</Link>
+          <ServicesMenu /><Link className="offers-nav-link" href="/offers" aria-label="العروض الجديدة"><span className="offers-new-badge">جديد</span><span className="offers-nav-label"><span aria-hidden="true">✦</span> العروض</span></Link><Link href="/work">أعمالنا</Link><Link href="/about">عن ديوانك</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link><Link href="/contact">تواصل</Link>
         </nav>
         <div className="nav-actions"><MobileNavigation /><Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link></div>
       </div>
