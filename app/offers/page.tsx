@@ -4,6 +4,9 @@ import { Footer, Header } from "../components/site-shell";
 import { createMetadata, siteUrl } from "../lib/seo";
 import "./offers-page.css";
 
+const launchCapacity = 7;
+const remainingSpots = 5;
+
 export const metadata: Metadata = createMetadata({
   title: "عروض ديوانك | باقات تسويق ومحتوى بأسعار تأسيسية",
   description: "اكتشف عروض ديوانك المحدودة للبراندينج والمحتوى والتسويق والأتمتة. ابدأ بعرض حضور الشهر: 16 قطعة محتوى جاهزة للنشر بسعر 790 ريال.",
@@ -37,7 +40,10 @@ export default function OffersPage() {
 
       <section className="shell offers-grid" aria-label="عروض ديوانك الحالية">
         <article className="offer-card">
-          <span className="offer-card-badge">عرض التأسيس · 5 مشاريع فقط</span>
+          <div className="offer-availability" aria-label={`متاح لأول ${launchCapacity} مشاريع، باقي ${remainingSpots}`}>
+            <span className="offer-card-badge">متاح لأول {launchCapacity} مشاريع</span>
+            <span className="offer-spots-left"><i aria-hidden="true" />باقي {remainingSpots}</span>
+          </div>
           <h2>محتوى شهر كامل.<br/><em>جاهز للنشر.</em></h2>
           <p>12 بوستًا، 3 ستوري، ريل واحد، أفكار وكابشنات وخطة نشر—ليظهر حسابك بصورة متناسقة بدل النشر العشوائي.</p>
           <div className="offer-card-meta">
