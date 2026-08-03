@@ -661,3 +661,45 @@ body{
   .instagram-card-mark{width:48px;height:48px;border-radius:15px}.instagram-card-copy strong{font-size:11px}.instagram-card-copy span{display:none}.instagram-card-action{min-height:36px;padding:8px 12px;font-size:10px}.instagram-card-close{left:5px;top:3px}
 }
 @media(prefers-reduced-motion:reduce){.instagram-follow-card{animation:none}}
+/* Offers navigation: a calm periodic sheen, not a flashing interruption. */
+.site-header nav .offers-nav-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: .38rem;
+  padding: .52rem .82rem;
+  border: 1px solid rgba(204, 159, 70, .56);
+  border-radius: 999px;
+  color: #f4cf79;
+  background: rgba(204, 159, 70, .09);
+}
+
+.site-header nav .offers-nav-link::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -40% auto -40% -55%;
+  width: 35%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  animation: offer-nav-sheen 6s ease-in-out infinite;
+}
+
+.site-header nav .offers-nav-link:hover {
+  color: #071a33;
+  background: #e2b85d;
+  border-color: #e2b85d;
+}
+
+@keyframes offer-nav-sheen {
+  0%, 68% { left: -55%; opacity: 0; }
+  72% { opacity: 1; }
+  86% { left: 125%; opacity: 1; }
+  100% { left: 125%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header nav .offers-nav-link::after { animation: none; }
+}
