@@ -660,3 +660,7 @@ body{
   .instagram-card-mark{width:48px;height:48px;border-radius:15px}.instagram-card-copy strong{font-size:11px}.instagram-card-copy span{display:none}.instagram-card-action{min-height:36px;padding:8px 12px;font-size:10px}.instagram-card-close{left:5px;top:3px}
 }
 @media(prefers-reduced-motion:reduce){.instagram-follow-card{animation:none}}
+
+
+/* Homepage section labels: 18% larger for clearer hierarchy. */
+.studio-home .home-section-label{font-size:13px}
