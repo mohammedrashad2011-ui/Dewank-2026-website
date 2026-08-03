@@ -6,6 +6,7 @@ import "./service-pages-fix.css";
 import "./services/service-icons.css";
 import "./mobile-refinement.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
+import InstagramFollowCard from "./components/instagram-follow-card";
 
 const alexandria = Alexandria({ variable: "--font-arabic", subsets: ["arabic", "latin"] });
 const cormorant = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700"] });
@@ -129,6 +130,7 @@ export default function RootLayout({
           />
         </noscript>
         {children}
+        <InstagramFollowCard />
       </body>
     </html>
   );
