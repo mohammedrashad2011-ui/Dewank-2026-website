@@ -13,6 +13,12 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "ADS → WHATSAPP → BOOKING · GCC",
+    title: "كيف تبني رحلة عميل من الإعلان إلى واتساب ثم الحجز؟",
+    description: "خريطة عملية تربط الإعلان بالمحادثة والتأهيل وCRM والحجز والحضور، مع مؤشرات تكشف أين تضيع الفرص.",
+    href: "/guides/ad-to-whatsapp-booking-journey",
+  },
+  {
     category: "CRM + WHATSAPP · SAUDI ARABIA",
     title: "أفضل CRM لربطه بواتساب في السعودية: كيف تختار؟",
     description: "معايير اختيار عملية حسب رحلة العميل والفريق والتكامل والتقارير والملكية، مع اختبار واضح قبل التعاقد.",
