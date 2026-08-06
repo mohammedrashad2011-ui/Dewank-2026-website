@@ -43,7 +43,7 @@ const services: Service[] = [
     no: "01",
     en: "BRAND STRATEGY & IDENTITY",
     tone: "brand",
-    visual: "brand",
+    visual: "brand-orbit",
     title: "علامتك لا تحتاج شعارًا آخر.",
     hook: "تحتاج سببًا يجعلها الاختيار.",
     text: "استراتيجية براند، تموضع، تسمية وهوية بصرية تجعل مشروعك أوضح وأسهل تذكّرًا وأكثر اتساقًا عبر كل نقطة تواصل.",
@@ -54,7 +54,7 @@ const services: Service[] = [
     no: "02",
     en: "BRAND NAMING & AVAILABILITY RESEARCH",
     tone: "brand",
-    visual: "brand",
+    visual: "name-monogram",
     title: "الاسم ليس مجرد كلمة.",
     hook: "هو أول قرار في العلامة.",
     text: "نطوّر أسماء مبنية على النشاط والجمهور والسوق، مع فحص لغوي وثقافي وبحث مبدئي عن العلامات المشابهة وتوفر الدومين وحسابات التواصل.",
@@ -65,7 +65,7 @@ const services: Service[] = [
     no: "03",
     en: "SOCIAL MEDIA & CONTENT",
     tone: "growth",
-    visual: "growth",
+    visual: "content-stack",
     title: "النشر المنتظم لا يكفي.",
     hook: "المحتوى يجب أن يبني طلبًا.",
     text: "إدارة محتوى السوشيال ميديا من الاستراتيجية والأفكار إلى التصميم والكابشنات وخطة النشر، ليظهر حسابك بصورة متناسقة ويقود العميل للخطوة التالية.",
@@ -77,7 +77,7 @@ const services: Service[] = [
     no: "04",
     en: "DIGITAL MARKETING STRATEGY",
     tone: "growth",
-    visual: "growth",
+    visual: "strategy-compass",
     title: "القنوات كثيرة.",
     hook: "لكن رحلة العميل واحدة.",
     text: "نبني استراتيجية تسويق رقمي تربط الرسالة والجمهور والقنوات والعرض والمتابعة، حتى تعمل الأنشطة المختلفة كمنظومة نمو واحدة.",
@@ -88,7 +88,7 @@ const services: Service[] = [
     no: "05",
     en: "META & GOOGLE ADS",
     tone: "growth",
-    visual: "growth",
+    visual: "ad-signal",
     title: "الإعلان لا يصلح رحلة مكسورة.",
     hook: "نصلح المنظومة كلها.",
     text: "إدارة إعلانات Meta وGoogle بمنطق يربط الجمهور والإبداع والصفحة والتتبع والمتابعة لتقليل الهدر وزيادة التحويل.",
@@ -99,7 +99,7 @@ const services: Service[] = [
     no: "06",
     en: "WEBSITE DESIGN & CRO",
     tone: "web",
-    visual: "web",
+    visual: "web-window",
     title: "موقعك ليس كتالوجًا.",
     hook: "هو موظف مبيعات لا ينام.",
     text: "مواقع سريعة ومتجاوبة تجمع الرسالة وتجربة المستخدم وSEO وAEO لتقود الزائر نحو تواصل أو حجز أو شراء واضح.",
@@ -110,7 +110,7 @@ const services: Service[] = [
     no: "07",
     en: "LANDING PAGES & SALES PAGES",
     tone: "web",
-    visual: "web",
+    visual: "conversion-funnel",
     title: "صفحة واحدة.",
     hook: "هدف واحد واضح.",
     text: "صفحات هبوط ومبيعات مخصصة للحملات والخدمات، تجمع النص التسويقي والتصميم والنموذج وواتساب والتتبع لتحويل الزيارة إلى استفسار.",
@@ -122,7 +122,7 @@ const services: Service[] = [
     no: "08",
     en: "SEO & AEO",
     tone: "web",
-    visual: "search",
+    visual: "search-lens",
     title: "لا يكفي أن تكون موجودًا.",
     hook: "كن الإجابة الأفضل.",
     text: "تحسين تقني ومحتوى وهيكلة وSchema تساعد Google ومحركات الإجابة والذكاء الاصطناعي على فهم خبرتك وإظهارها للجمهور المناسب.",
@@ -133,7 +133,7 @@ const services: Service[] = [
     no: "09",
     en: "ANALYTICS & CONVERSION TRACKING",
     tone: "web",
-    visual: "search",
+    visual: "analytics-bars",
     title: "الأرقام لا تعني شيئًا وحدها.",
     hook: "اربطها بالقرار.",
     text: "إعداد GA4 وGoogle Tag Manager والتحويلات ولوحات القياس لتحليل رحلة العميل، معرفة مصادر النتائج، وقياس العائد بدل الاكتفاء بالنقرات والوصول.",
@@ -145,7 +145,7 @@ const services: Service[] = [
     no: "10",
     en: "WHATSAPP AUTOMATION & CRM",
     tone: "automation",
-    visual: "automation",
+    visual: "whatsapp-flow",
     title: "واتساب لا يرد فقط.",
     hook: "يفهم، يؤهّل، ويتابع.",
     text: "منظومة واتساب ذكية للرد والتأهيل والحجز والتذكير والمتابعة وربط المحادثات بنظام CRM واضح وقابل للقياس.",
@@ -163,14 +163,11 @@ const services: Service[] = [
     tags: ["AI Agents", "Workflows", "Integrations"],
     href: "/ai-automation",
   },
-];
-
-const careerServices: Service[] = [
   {
     no: "12",
     en: "ATS CV & CAREER BRANDING",
     tone: "web career-card",
-    visual: "document",
+    visual: "career-document",
     title: "سيرتك ليست ورقة.",
     hook: "هي أول قرار قبل المقابلة.",
     text: "كتابة وتطوير سيرة ذاتية متوافقة مع ATS، مخصصة للوظيفة المستهدفة، مع تحسين الإنجازات والكلمات المفتاحية وLinkedIn.",
@@ -184,16 +181,15 @@ const faqItems = [
   ["هل يمكن البدء بخدمة واحدة فقط؟", "نعم. نحدد نقطة الاختناق الحالية ونقترح أصغر نطاق عملي يحقق نتيجة واضحة، ثم يمكن توسيع المنظومة لاحقًا."],
   ["هل تقدم ديوانك إدارة السوشيال ميديا وصناعة المحتوى؟", "نعم، وتشمل الاستراتيجية والأفكار والتصميم والكابشنات وخطة النشر، مع إمكانية البدء بباقة محتوى محددة لمدة شهر."],
   ["هل تشمل خدمات المواقع صفحات الهبوط؟", "نعم. نقدم مواقع متكاملة وصفحات هبوط مستقلة للحملات والخدمات، مع ربط واتساب والنماذج والتحليلات وتتبع التحويلات."],
-  ["هل خدمات السيرة الذاتية جزء من خدمات الشركات؟", "لا. خدمة ATS CV خدمة مهنية مستقلة للأفراد، وتظهر في نهاية الصفحة حتى تبقى منفصلة بوضوح عن منظومة خدمات الشركات."],
+  ["هل خدمات السيرة الذاتية جزء من خدمات الشركات؟", "لا. خدمة ATS CV خدمة مهنية مستقلة للأفراد، وتظهر كآخر خدمة في قائمة الخدمات مع فصل بصري واضح."],
 ];
 
 export default function ServicesPage() {
-  const allServices = [...services, ...careerServices];
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "خدمات ديوانك",
-    itemListElement: allServices.map((service, index) => ({
+    itemListElement: services.map((service, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: `${service.title} ${service.hook}`,
@@ -264,7 +260,12 @@ export default function ServicesPage() {
 
       <section id="automation-services" className="shell service-group" aria-labelledby="automation-title">
         <div className="service-group-head"><span className="section-label">[ الأتمتة والذكاء ]</span><h2 id="automation-title">لا تترك العميل ينتظر النظام اليدوي.</h2><p>نربط الرد والتأهيل والمتابعة والبيانات لتعمل العمليات بسرعة واتساق.</p></div>
-        <div className="services-detail-bento services-grid-refined">{services.slice(9).map(renderCard)}</div>
+        <div className="services-detail-bento services-grid-refined">{services.slice(9, 11).map(renderCard)}</div>
+      </section>
+
+      <section className="shell service-group career-service-group" aria-labelledby="career-services-title">
+        <div className="service-group-head"><span className="section-label">[ خدمة مهنية مستقلة ]</span><h2 id="career-services-title">خبرتك قوية. يجب أن تظهر كذلك.</h2><p>خدمة منفصلة للأفراد، لكنها تظل آخر خدمة في القائمة وليست نهاية الصفحة.</p></div>
+        <div className="services-detail-bento services-grid-refined career-service-last">{services.slice(11).map(renderCard)}</div>
       </section>
 
       <section className="shell problem-chooser" aria-labelledby="problem-chooser-title">
@@ -281,15 +282,6 @@ export default function ServicesPage() {
         <span className="section-label">[ أسئلة شائعة ]</span>
         <h2 id="services-faq-title">صورة أوضح قبل أن تبدأ.</h2>
         <div className="services-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
-      </section>
-
-      <section className="seo-content shell career-intro" aria-labelledby="career-services-title">
-        <span className="section-label">[ خدمة مهنية مستقلة للأفراد ]</span>
-        <h2 id="career-services-title">خبرتك قوية.<br/><em>يجب أن تظهر كذلك.</em></h2>
-        <p>هذه الخدمة منفصلة عن خدمات الشركات، ومخصصة للباحثين عن عمل والمحترفين الذين يحتاجون سيرة أوضح لأنظمة التوظيف ومديري الموارد البشرية.</p>
-      </section>
-      <section className="shell services-detail-bento services-grid-refined career-service-last" aria-label="خدمة السيرة الذاتية والتوظيف">
-        {careerServices.map(renderCard)}
       </section>
 
       <section className="fit-section shell services-final-cta">
