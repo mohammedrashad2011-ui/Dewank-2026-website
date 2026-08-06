@@ -15,13 +15,13 @@
 
   .services-mega .mega-intro strong {
     font-size: clamp(25px, 2.05vw, 34px) !important;
-    line-height: 1.22 !important;
+    line-height: 1.42 !important;
   }
 
   .services-mega .mega-intro strong br {
     display: block;
     content: "";
-    margin-top: .18em;
+    margin-top: .32em;
   }
 
   .services-mega .mega-groups {
