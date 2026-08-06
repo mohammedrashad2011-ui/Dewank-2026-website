@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createMetadata } from "../../lib/seo";
 import { Footer, Header } from "../../components/site-shell";
 import "./social-media-content.css";
+import "./content-spacing-fix.css";
 
 export const metadata: Metadata = createMetadata({
   title: "إدارة السوشيال ميديا وصناعة المحتوى | ديوانك",
