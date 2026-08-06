@@ -9,33 +9,31 @@ import "../offer-trust.css";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = createMetadata({
-  title: "باقة محتوى إنستجرام لشهر كامل | سعر محلي حسب بلدك",
-  description: "احصل على 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة نشر وتحسين البايو، مع عرض السعر تلقائيًا بعملة بلدك.",
+  title: "أسعار إدارة محتوى إنستقرام | باقة شهر كامل من ديوانك",
+  description: "باقة محتوى إنستقرام لمدة 30 يومًا تشمل 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر. سعر واضح، دفعتان، وحجز مباشر عبر واتساب.",
   path: "/offers/30-day-content-package",
-  keywords: ["باقة محتوى انستقرام", "تصميم 12 بوست", "تصميم سوشيال ميديا السعودية", "إدارة محتوى انستقرام"],
+  keywords: ["أسعار إدارة محتوى إنستقرام", "باقة محتوى انستقرام", "تكلفة إدارة حساب انستقرام", "أسعار إدارة السوشيال ميديا", "تصميم 12 بوست"],
 });
 
 type LocalPrice = {
   amount: number;
   currencyCode: string;
   currencyLabel: string;
-  countryLabel: string;
 };
 
 const pricesByCountry: Record<string, LocalPrice> = {
-  SA: { amount: 790, currencyCode: "SAR", currencyLabel: "ريال سعودي", countryLabel: "السعودية" },
-  AE: { amount: 790, currencyCode: "AED", currencyLabel: "درهم إماراتي", countryLabel: "الإمارات" },
-  BH: { amount: 79, currencyCode: "BHD", currencyLabel: "دينار بحريني", countryLabel: "البحرين" },
-  KW: { amount: 65, currencyCode: "KWD", currencyLabel: "دينار كويتي", countryLabel: "الكويت" },
-  QA: { amount: 790, currencyCode: "QAR", currencyLabel: "ريال قطري", countryLabel: "قطر" },
-  OM: { amount: 79, currencyCode: "OMR", currencyLabel: "ريال عُماني", countryLabel: "عُمان" },
+  SA: { amount: 790, currencyCode: "SAR", currencyLabel: "ريال سعودي" },
+  AE: { amount: 790, currencyCode: "AED", currencyLabel: "درهم إماراتي" },
+  BH: { amount: 79, currencyCode: "BHD", currencyLabel: "دينار بحريني" },
+  KW: { amount: 65, currencyCode: "KWD", currencyLabel: "دينار كويتي" },
+  QA: { amount: 790, currencyCode: "QAR", currencyLabel: "ريال قطري" },
+  OM: { amount: 79, currencyCode: "OMR", currencyLabel: "ريال عُماني" },
 };
 
 const fallbackPrice: LocalPrice = {
   amount: 210,
   currencyCode: "USD",
   currencyLabel: "دولار أمريكي",
-  countryLabel: "دولتك",
 };
 
 const availableSpots = 7;
@@ -47,6 +45,14 @@ const deliverables = [
   ["الأفكار والكابشنات", "فكرة واضحة ونص جاهز للنشر لكل قطعة محتوى."],
   ["خطة نشر 30 يومًا", "ترتيب مقترح للنشر حتى تعرف ماذا تنشر ومتى."],
   ["تحسين البايو وCTA", "مراجعة الرسالة الأساسية وطريقة توجيه الزائر للخطوة التالية."],
+];
+
+const faqItems = [
+  ["كم سعر إدارة محتوى إنستقرام لمدة شهر؟", "يظهر السعر المناسب تلقائيًا حسب بلد الزائر. تشمل الباقة 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر."],
+  ["ماذا تشمل باقة إدارة السوشيال ميديا؟", "تشمل صناعة المحتوى والتصميم والكابشنات وخطة النشر وتحسين البايو، ولا تشمل النشر اليومي أو إدارة الرسائل أو الحملات الإعلانية."],
+  ["كم مدة تسليم تصاميم السوشيال ميديا؟", "يتم التسليم عادة خلال 10 إلى 14 يوم عمل بعد استلام المعلومات والمواد المطلوبة واعتماد الاتجاه."],
+  ["هل يمكن الدفع على دفعتين؟", "نعم، 50% لبدء العمل و50% بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية."],
+  ["هل يمكن استرجاع المبلغ؟", "يمكن استرداد المبلغ كاملًا قبل بدء التنفيذ. بعد بدء العمل يُخصم فقط مقابل الجزء المنفذ."],
 ];
 
 function normalizeCountryCode(value: string | null) {
@@ -68,37 +74,48 @@ async function getVisitorPrice() {
 export default async function ContentOfferPage() {
   const localPrice = await getVisitorPrice();
   const formattedAmount = new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(localPrice.amount);
-  const whatsappText = `مرحبًا ديوانك، أريد حجز عرض حضور الشهر بسعر ${formattedAmount} ${localPrice.currencyLabel}.`;
+  const whatsappText = `مرحبًا ديوانك، أريد حجز باقة محتوى إنستقرام لمدة شهر بسعر ${formattedAmount} ${localPrice.currencyLabel}.`;
   const whatsappUrl = `https://wa.me/97339066649?text=${encodeURIComponent(whatsappText)}`;
 
-  const schema = {
+  const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "باقة حضور الشهر",
+    name: "باقة محتوى إنستقرام لمدة شهر",
     description: "16 قطعة محتوى لإنستجرام تشمل 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر.",
     url: `${siteUrl}/offers/30-day-content-package`,
     provider: { "@id": organizationId },
     areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
     offers: {
       "@type": "Offer",
-      price: String(localPrice.amount),
-      priceCurrency: localPrice.currencyCode,
+      price: "790",
+      priceCurrency: "SAR",
       availability: "https://schema.org/LimitedAvailability",
       url: `${siteUrl}/offers/30-day-content-package`,
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: { "@type": "Answer", text: answer },
+    })),
+  };
+
   return (
     <main className="inner-page offers-page">
       <Header />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section className="shell offer-detail-hero">
         <div>
           <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}>
             <span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span>
           </div>
-          <h1>شهر محتوى كامل.<br/><em>بدون حيرة كل يوم.</em></h1>
+          <h1>باقة محتوى إنستقرام لشهر كامل.<br/><em>بدون حيرة كل يوم.</em></h1>
           <p>نحوّل خدماتك وأفكارك إلى 16 قطعة محتوى متناسقة وجاهزة للنشر، حتى يظهر حسابك بصورة احترافية ويصبح عندك ما تقوله خلال الشهر.</p>
         </div>
         <aside className="offer-price-panel">
@@ -142,6 +159,13 @@ export default async function ContentOfferPage() {
           <summary>سياسة الحماية والاسترجاع</summary>
           <p>استرداد كامل قبل بدء التنفيذ. بعد بدء العمل يُخصم فقط مقابل الجزء المنفذ، ويشمل العرض جولتي تعديل ولا يعتمد الاتجاه النهائي قبل موافقتك.</p>
         </details>
+      </section>
+
+      <section className="shell offer-faq" aria-labelledby="offer-faq-title">
+        <div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2 id="offer-faq-title">قبل ما تحجز.</h2></div>
+        <div className="offer-faq-list">
+          {faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}
+        </div>
       </section>
 
       <section className="shell offer-final-cta">
