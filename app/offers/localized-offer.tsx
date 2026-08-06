@@ -17,11 +17,16 @@ const pricesByCountry: Record<string, LocalPrice> = {
   OM: { amount: 79, currencyCode: "OMR", currencyLabel: "ريال عُماني" },
 };
 
-const saudiFallback = pricesByCountry.SA;
+const defaultFallback: LocalPrice = {
+  amount: 210,
+  currencyCode: "USD",
+  currencyLabel: "دولار أمريكي",
+};
+
 const storageKey = "dewank_offer_country";
 
 function useLocalizedPrice() {
-  const [price, setPrice] = useState<LocalPrice>(saudiFallback);
+  const [price, setPrice] = useState<LocalPrice>(defaultFallback);
 
   useEffect(() => {
     const savedCountry = window.localStorage.getItem(storageKey)?.toUpperCase();
@@ -44,10 +49,10 @@ function useLocalizedPrice() {
         if (!country) return;
 
         window.localStorage.setItem(storageKey, country);
-        setPrice(pricesByCountry[country] ?? { amount: 210, currencyCode: "USD", currencyLabel: "دولار أمريكي" });
+        setPrice(pricesByCountry[country] ?? defaultFallback);
       })
       .catch(() => {
-        // Keep the Saudi fallback when the lookup service is blocked or unavailable.
+        // Keep the USD fallback when the lookup service is blocked or unavailable.
       });
 
     return () => controller.abort();
