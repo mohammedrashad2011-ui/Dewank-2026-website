@@ -5,6 +5,7 @@ import { createMetadata, siteUrl } from "../lib/seo";
 import { LocalizedOfferPrice } from "./localized-offer";
 import { LandingOfferPrice } from "./landing-page-package/localized-landing-offer";
 import "./offers-page.css";
+import "./landing-offer.css";
 
 const availableSpots = 7;
 
