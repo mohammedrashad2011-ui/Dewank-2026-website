@@ -5,6 +5,7 @@ import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import { LandingOfferPrice, LandingOfferWhatsApp } from "./localized-landing-offer";
 import "../offers-page.css";
 import "../offer-trust.css";
+import "../landing-offer.css";
 
 export const metadata: Metadata = createMetadata({
   title: "تصميم صفحة هبوط احترافية | عرض صفحة تبيع خدمتك",
