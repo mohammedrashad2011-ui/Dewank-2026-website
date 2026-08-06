@@ -91,8 +91,47 @@
   line-height: 1.8;
 }
 
+.offer-faq {
+  display: grid;
+  grid-template-columns: .62fr 1.38fr;
+  gap: clamp(24px, 5vw, 64px);
+  align-items: start;
+  margin-bottom: clamp(58px, 7vw, 90px);
+}
+
+.offer-faq-head h2 {
+  margin: 12px 0 0;
+  font-size: clamp(28px, 3.6vw, 46px);
+  line-height: 1.2;
+}
+
+.offer-faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.offer-faq-list details {
+  border-bottom: 1px solid var(--line);
+}
+
+.offer-faq-list summary {
+  padding: 15px 2px;
+  cursor: pointer;
+  color: var(--offer-navy);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.offer-faq-list p {
+  margin: 0;
+  padding: 0 2px 15px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
 @media (max-width: 860px) {
-  .offer-confidence { grid-template-columns: 1fr; }
+  .offer-confidence,
+  .offer-faq { grid-template-columns: 1fr; }
   .offer-policy { grid-column: 1; }
 }
 
