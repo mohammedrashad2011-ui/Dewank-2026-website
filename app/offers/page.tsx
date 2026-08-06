@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
 import { createMetadata, siteUrl } from "../lib/seo";
+import { LocalizedOfferPrice } from "./localized-offer";
 import "./offers-page.css";
-
-export const dynamic = "force-dynamic";
 
 const availableSpots = 7;
 
@@ -16,47 +14,7 @@ export const metadata: Metadata = createMetadata({
   keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "أسعار إدارة السوشيال ميديا", "تصميم بوستات انستقرام", "باقات سوشيال ميديا السعودية"],
 });
 
-type LocalPrice = {
-  amount: number;
-  currencyCode: string;
-  currencyLabel: string;
-};
-
-const pricesByCountry: Record<string, LocalPrice> = {
-  SA: { amount: 790, currencyCode: "SAR", currencyLabel: "ريال سعودي" },
-  AE: { amount: 790, currencyCode: "AED", currencyLabel: "درهم إماراتي" },
-  BH: { amount: 79, currencyCode: "BHD", currencyLabel: "دينار بحريني" },
-  KW: { amount: 65, currencyCode: "KWD", currencyLabel: "دينار كويتي" },
-  QA: { amount: 790, currencyCode: "QAR", currencyLabel: "ريال قطري" },
-  OM: { amount: 79, currencyCode: "OMR", currencyLabel: "ريال عُماني" },
-};
-
-const fallbackPrice: LocalPrice = {
-  amount: 210,
-  currencyCode: "USD",
-  currencyLabel: "دولار أمريكي",
-};
-
-function normalizeCountryCode(value: string | null) {
-  return value?.trim().toUpperCase().slice(0, 2) || "";
-}
-
-async function getVisitorPrice() {
-  const requestHeaders = await headers();
-  const countryCode = normalizeCountryCode(
-    requestHeaders.get("cf-ipcountry") ||
-      requestHeaders.get("x-vercel-ip-country") ||
-      requestHeaders.get("cloudfront-viewer-country") ||
-      requestHeaders.get("x-country-code"),
-  );
-
-  return pricesByCountry[countryCode] || fallbackPrice;
-}
-
-export default async function OffersPage() {
-  const localPrice = await getVisitorPrice();
-  const formattedAmount = new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(localPrice.amount);
-
+export default function OffersPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -88,7 +46,7 @@ export default async function OffersPage() {
           <h2>محتوى شهر كامل.<br/><em>جاهز للنشر.</em></h2>
           <p>12 بوستًا، 3 ستوري، ريل واحد، أفكار وكابشنات وخطة نشر—ليظهر حسابك بصورة متناسقة بدل النشر العشوائي.</p>
           <div className="offer-card-meta">
-            <div><small>السعر التأسيسي</small><div className="offer-price"><strong>{formattedAmount}</strong><span>{localPrice.currencyLabel}</span></div></div>
+            <div><small>السعر التأسيسي</small><LocalizedOfferPrice /></div>
             <Link className="button primary" href="/offers/30-day-content-package">شاهد تفاصيل العرض <span>←</span></Link>
           </div>
         </article>
