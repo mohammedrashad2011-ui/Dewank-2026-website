@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { LocalizedOfferKicker, LocalizedOfferPrice, LocalizedWhatsAppLink } from "../localized-offer";
 import "../offers-page.css";
 import "../offer-trust.css";
-
-export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = createMetadata({
   title: "أسعار إدارة محتوى إنستقرام | باقة شهر كامل من ديوانك",
@@ -14,27 +12,6 @@ export const metadata: Metadata = createMetadata({
   path: "/offers/30-day-content-package",
   keywords: ["أسعار إدارة محتوى إنستقرام", "باقة محتوى انستقرام", "تكلفة إدارة حساب انستقرام", "أسعار إدارة السوشيال ميديا", "تصميم 12 بوست"],
 });
-
-type LocalPrice = {
-  amount: number;
-  currencyCode: string;
-  currencyLabel: string;
-};
-
-const pricesByCountry: Record<string, LocalPrice> = {
-  SA: { amount: 790, currencyCode: "SAR", currencyLabel: "ريال سعودي" },
-  AE: { amount: 790, currencyCode: "AED", currencyLabel: "درهم إماراتي" },
-  BH: { amount: 79, currencyCode: "BHD", currencyLabel: "دينار بحريني" },
-  KW: { amount: 65, currencyCode: "KWD", currencyLabel: "دينار كويتي" },
-  QA: { amount: 790, currencyCode: "QAR", currencyLabel: "ريال قطري" },
-  OM: { amount: 79, currencyCode: "OMR", currencyLabel: "ريال عُماني" },
-};
-
-const fallbackPrice: LocalPrice = {
-  amount: 210,
-  currencyCode: "USD",
-  currencyLabel: "دولار أمريكي",
-};
 
 const availableSpots = 7;
 
@@ -55,28 +32,7 @@ const faqItems = [
   ["هل يمكن استرجاع المبلغ؟", "يمكن استرداد المبلغ كاملًا قبل بدء التنفيذ. بعد بدء العمل يُخصم فقط مقابل الجزء المنفذ."],
 ];
 
-function normalizeCountryCode(value: string | null) {
-  return value?.trim().toUpperCase().slice(0, 2) || "";
-}
-
-async function getVisitorPrice() {
-  const requestHeaders = await headers();
-  const countryCode = normalizeCountryCode(
-    requestHeaders.get("cf-ipcountry") ||
-      requestHeaders.get("x-vercel-ip-country") ||
-      requestHeaders.get("cloudfront-viewer-country") ||
-      requestHeaders.get("x-country-code"),
-  );
-
-  return pricesByCountry[countryCode] || fallbackPrice;
-}
-
-export default async function ContentOfferPage() {
-  const localPrice = await getVisitorPrice();
-  const formattedAmount = new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(localPrice.amount);
-  const whatsappText = `مرحبًا ديوانك، أريد حجز باقة محتوى إنستقرام لمدة شهر بسعر ${formattedAmount} ${localPrice.currencyLabel}.`;
-  const whatsappUrl = `https://wa.me/97339066649?text=${encodeURIComponent(whatsappText)}`;
-
+export default function ContentOfferPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -120,12 +76,12 @@ export default async function ContentOfferPage() {
         </div>
         <aside className="offer-price-panel">
           <small>السعر التأسيسي لفترة محدودة</small>
-          <div className="offer-price"><strong>{formattedAmount}</strong><span>{localPrice.currencyLabel}</span></div>
+          <LocalizedOfferPrice />
           <div className="offer-trust-inline" aria-label="مزايا الأمان والثقة">
             <span>رابط دفع رسمي</span><span>50% لبدء العمل</span><span>موافقتك قبل التنفيذ</span>
           </div>
           <p>50% لبدء العمل، و50% بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية.</p>
-          <a className="button primary" href={whatsappUrl} target="_blank" rel="noreferrer">احجز العرض عبر واتساب <span>←</span></a>
+          <LocalizedWhatsAppLink className="button primary" label="احجز العرض عبر واتساب" />
         </aside>
       </section>
 
@@ -169,10 +125,10 @@ export default async function ContentOfferPage() {
       </section>
 
       <section className="shell offer-final-cta">
-        <span className="offer-kicker">16 قطعة محتوى · {formattedAmount} {localPrice.currencyLabel}</span>
+        <LocalizedOfferKicker />
         <h2>أعطِ حسابك شهرًا يستحق أن يراه عملاؤك.</h2>
         <p>أرسل كلمة «شهر» وسنسألك عن نشاطك ثم نؤكد ملاءمة العرض قبل الدفع.</p>
-        <a className="button primary" href={whatsappUrl} target="_blank" rel="noreferrer">أرسل «شهر» على واتساب <span>←</span></a>
+        <LocalizedWhatsAppLink className="button primary" label="أرسل «شهر» على واتساب" />
         <div><Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
       <Footer />
