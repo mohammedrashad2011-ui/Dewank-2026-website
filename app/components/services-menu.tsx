@@ -9,7 +9,8 @@ const serviceGroups = [
     label: "BRAND",
     links: [
       { href: "/branding", title: "استراتيجية البراند والهوية", text: "تموضع، تسمية وهوية بصرية متماسكة." },
-      { href: "/digital-marketing", title: "التسويق الرقمي والمحتوى", text: "حضور رقمي مرتبط برحلة العميل والنمو." },
+      { href: "/services/social-media-content", title: "إدارة السوشيال ميديا", text: "استراتيجية محتوى، تصميم، كابشنات وخطة نشر." },
+      { href: "/digital-marketing", title: "التسويق الرقمي", text: "رحلة عميل مترابطة تدعم النمو والتحويل." },
     ],
   },
   {
@@ -25,7 +26,6 @@ const serviceGroups = [
     label: "WEB",
     links: [
       { href: "/website-design", title: "تصميم وتطوير المواقع", text: "مواقع سريعة تقود الزائر نحو قرار واضح." },
-      { href: "/ats-cv", title: "السيرة الذاتية ATS", text: "خدمة مستقلة للمحترفين والباحثين عن عمل." },
     ],
   },
   {
@@ -34,6 +34,13 @@ const serviceGroups = [
     links: [
       { href: "/whatsapp-automation", title: "أتمتة واتساب وCRM", text: "رد، تأهيل، حجز ومتابعة على مدار الساعة." },
       { href: "/ai-automation", title: "حلول الذكاء الاصطناعي", text: "ربط العمليات وتقليل المهام اليدوية المتكررة." },
+    ],
+  },
+  {
+    title: "خدمة مهنية مستقلة",
+    label: "CAREER",
+    links: [
+      { href: "/ats-cv", title: "السيرة الذاتية ATS", text: "خدمة مستقلة للمحترفين والباحثين عن عمل." },
     ],
   },
 ];
@@ -121,7 +128,7 @@ export function ServicesMenu() {
         </div>
         <div className="mega-groups">
           {serviceGroups.map((group) => (
-            <section key={group.label}>
+            <section className={group.label === "CAREER" ? "mega-career-group" : undefined} key={group.label}>
               <div className="mega-group-title"><small>{group.label}</small><h2>{group.title}</h2></div>
               {group.links.map((item) => (
                 <Link href={item.href} key={item.href} onClick={closeMenu}>
@@ -132,6 +139,21 @@ export function ServicesMenu() {
             </section>
           ))}
         </div>
+        <style jsx>{`
+          .mega-career-group {
+            grid-column: 1 / -1;
+          }
+
+          .mega-career-group > a {
+            max-width: calc(50% - 8px);
+          }
+
+          @media (max-width: 900px) {
+            .mega-career-group > a {
+              max-width: none;
+            }
+          }
+        `}</style>
       </div>
     </div>
   );
