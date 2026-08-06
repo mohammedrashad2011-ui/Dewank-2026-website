@@ -91,7 +91,6 @@
   font-size: 13px;
 }
 
-
 .offer-availability {
   display: flex;
   align-items: center;
@@ -193,7 +192,13 @@
   padding-bottom: clamp(70px, 9vw, 125px);
 }
 
-.offer-detail-hero h1 { margin: 24px 0; font-size: clamp(41px, 6.9vw, 95px); line-height: 1.06; letter-spacing: -.055em; }
+.offer-detail-hero h1 {
+  margin: 24px 0;
+  max-width: 940px;
+  font-size: clamp(36px, 6vw, 84px);
+  line-height: 1.16;
+  letter-spacing: -.035em;
+}
 .offer-detail-hero p { max-width: 680px; color: var(--muted); line-height: 1.9; font-size: clamp(17px, 1.7vw, 21px); }
 .offer-price-panel { padding: 32px; border-radius: 28px; background: var(--offer-navy); color: var(--offer-ivory); border: 1px solid rgba(213,168,67,.55); }
 .offer-price-panel small { color: var(--offer-gold-soft); }
@@ -240,4 +245,3 @@
   .offer-card-meta .button { width: 100%; text-align: center; }
   .deliverable-list, .offer-fit-grid { grid-template-columns: 1fr; }
 }
-
