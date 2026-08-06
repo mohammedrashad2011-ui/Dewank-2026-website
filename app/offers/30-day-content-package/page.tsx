@@ -103,6 +103,9 @@ export default async function ContentOfferPage() {
         <aside className="offer-price-panel">
           <small>السعر التأسيسي لفترة محدودة</small>
           <div className="offer-price"><strong>{formattedAmount}</strong><span>{localPrice.currencyLabel}</span></div>
+          <div className="offer-trust-inline" aria-label="مزايا الأمان والثقة">
+            <span>رابط دفع رسمي</span><span>50% لبدء العمل</span><span>موافقتك قبل التنفيذ</span>
+          </div>
           <p>50% لبدء العمل، و50% بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية.</p>
           <a className="button primary" href={whatsappUrl} target="_blank" rel="noreferrer">احجز العرض عبر واتساب <span>←</span></a>
         </aside>
@@ -122,6 +125,22 @@ export default async function ContentOfferPage() {
           <article className="offer-fit-card good"><h3>العرض مناسب لك إذا</h3><ul><li>لديك مشروع أو خدمة واضحة وتحتاج حضورًا أكثر احترافية.</li><li>تتأخر في النشر لأن الأفكار والتصميم غير جاهزين.</li><li>تريد تجربة جودة ديوانك قبل الانتقال إلى إدارة شهرية.</li><li>يمكنك تزويدنا بصور أو فيديوهات مناسبة للريل.</li></ul></article>
           <article className="offer-fit-card limits"><h3>حدود العرض</h3><ul><li>يشمل منصة واحدة ولغة واحدة.</li><li>يشمل جولتي تعديل على الاتجاه المتفق عليه.</li><li>لا يشمل التصوير أو النشر أو إدارة الرسائل.</li><li>لا يشمل إدارة الحملات أو ميزانية الإعلان.</li><li>لا يشمل بناء هوية بصرية جديدة.</li></ul></article>
         </div>
+      </section>
+
+      <section className="shell offer-confidence" aria-labelledby="offer-confidence-title">
+        <div className="offer-confidence-head">
+          <span className="section-label">[ خطوات واضحة ]</span>
+          <h2 id="offer-confidence-title">احجز وأنت عارف كل خطوة.</h2>
+        </div>
+        <div className="offer-confidence-grid">
+          <article><b>01</b><span>نراجع نشاطك ونؤكد ملاءمة العرض.</span></article>
+          <article><b>02</b><span>نرسل رابط دفع رسمي عبر Payoneer.</span></article>
+          <article><b>03</b><span>نبدأ بعد الدفعة الأولى واعتماد الاتجاه.</span></article>
+        </div>
+        <details className="offer-policy">
+          <summary>سياسة الحماية والاسترجاع</summary>
+          <p>استرداد كامل قبل بدء التنفيذ. بعد بدء العمل يُخصم فقط مقابل الجزء المنفذ، ويشمل العرض جولتي تعديل ولا يعتمد الاتجاه النهائي قبل موافقتك.</p>
+        </details>
       </section>
 
       <section className="shell offer-final-cta">
