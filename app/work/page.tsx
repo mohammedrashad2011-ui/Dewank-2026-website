@@ -15,35 +15,11 @@ export const metadata: Metadata = createMetadata({
 const identityProjects = [
   { name: "ReachwayAD", sector: "التسويق والإعلان", image: "/work/reachwayad-remastered.webp", className: "reachway featured", summary: "هوية مؤسسية تجمع بين الثقة والحركة، مطبقة عبر القرطاسية ونقاط الحضور الرقمية." },
   { name: "Clinika", sector: "الجمال والعناية", image: "/work/clinika-remastered.webp", className: "clinika", summary: "هوية راقية لقطاع الجمال بملامح تحريرية هادئة وتطبيقات تعزز الثقة والانطباع الأول." },
+  { name: "LUME", sector: "العناية بالبشرة", image: "/work/lume-showcase.svg", className: "lume", summary: "هوية هادئة وموثوقة لعلامة عناية بالبشرة، تجمع بين الطابع العلمي واللمسة الراقية عبر التغليف والمنتجات ونقاط البيع." },
+  { name: "KOVA", sector: "العمارة والمنتجات", image: "/work/kova-showcase.svg", className: "kova wide", summary: "نظام بصري هندسي يوحّد العمارة والمنتجات والمواد داخل علامة معاصرة واضحة وقابلة للتطبيق." },
   { name: "Arab Sun", sector: "السفر والسياحة", image: "/work/arab-sun-remastered.webp", className: "arab-sun", summary: "نظام بصري يستلهم الشمس والحركة العربية، مطبق على التغليف والمواد المطبوعة." },
+  { name: "NOMAI", sector: "الضيافة الفاخرة", image: "/work/nomai-showcase.svg", className: "nomai", summary: "هوية ضيافة راقية مستلهمة من الصحراء والهدوء وإحساس المكان، مطبقة على تجربة الإقامة والمواد الفندقية." },
   { name: "دار الصفاء", sector: "الرعاية الصحية", image: "/work/dar-al-safa-remastered.webp", className: "dar-safa wide", summary: "هوية طبية دافئة تجمع بين الرعاية والاحتراف عبر اللافتات والقرطاسية ونقاط الاستقبال." },
-];
-
-const concepts = [
-  {
-    name: "NOMAÏ",
-    type: "ضيافة فاخرة · مشروع مفاهيمي",
-    challenge: "تمييز وجهة صحراوية فاخرة عن الصور النمطية المتكررة في قطاع الضيافة.",
-    decision: "بناء العلامة حول الصمت والبطء وإيقاع المكان بدل الفخامة التقليدية.",
-    scope: "التموضع، التسمية، الهوية البصرية، واتجاه تجربة الضيف.",
-    impact: "أثر مستهدف: علامة أسهل تذكّرًا وأكثر قدرة على تبرير تجربة وسعر أعلى.",
-  },
-  {
-    name: "KOVA",
-    type: "عمارة ومنتجات · مشروع مفاهيمي",
-    challenge: "توحيد العمارة والمنتجات والمحتوى داخل علامة واحدة دون فقدان الدقة.",
-    decision: "تحويل الهندسة من شكل بصري إلى لغة ثابتة تُستخدم عبر كل نقطة تواصل.",
-    scope: "التموضع، نظام الهوية، واتجاه التجربة الرقمية.",
-    impact: "أثر مستهدف: وضوح أكبر وتناسق أسرع عند إطلاق منتجات ومشروعات جديدة.",
-  },
-  {
-    name: "LUME",
-    type: "عناية بالبشرة · مشروع مفاهيمي",
-    challenge: "سوق مزدحم بوعود جمالية متشابهة وضعف واضح في الثقة.",
-    decision: "تقديم الدليل العلمي قبل الوعد الجمالي داخل تجربة تحريرية راقية.",
-    scope: "التسمية، التغليف، ونظام الحملات.",
-    impact: "أثر مستهدف: رفع المصداقية وتسهيل فهم القيمة قبل قرار الشراء.",
-  },
 ];
 
 const testimonials = [
@@ -76,7 +52,6 @@ export default function WorkPage() {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Clinic WhatsApp Automation and CRM Case Study" },
         ...identityProjects.map((item, index) => ({ "@type": "ListItem", position: index + 2, name: `${item.name} Brand Identity` })),
-        ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + identityProjects.length + 2, name: item.name })),
       ],
     },
   };
@@ -133,7 +108,7 @@ export default function WorkPage() {
             <span className="section-label">[ أعمال هوية بصرية مختارة ]</span>
             <h2 id="identity-work-title">علامات بنينا لها<br/>حضورًا يمكن تذكّره.</h2>
           </div>
-          <p>نماذج من أعمال ديوانك الفعلية في تصميم وتطوير الهوية البصرية لقطاعات متنوعة.</p>
+          <p>نماذج مختارة من تصميم وتطوير الهوية البصرية لقطاعات متنوعة، من الجمال والضيافة إلى العمارة والرعاية الصحية.</p>
         </div>
         <IdentityShowcase projects={identityProjects} />
         <Link className="button secondary identity-work-cta" href="/branding">اكتشف خدمة الهوية البصرية <span>←</span></Link>
@@ -158,34 +133,6 @@ export default function WorkPage() {
             ))}
           </div>
           <p className="testimonials-note">تُرجمت الآراء من لغتها الأصلية مع الحفاظ على معناها.</p>
-        </div>
-      </section>
-
-      <section className="concepts-section">
-        <div className="shell">
-          <div className="concepts-head">
-            <div>
-              <span className="section-label">[ مشروعات مفاهيمية أصلية ]</span>
-              <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط.</h2>
-            </div>
-            <p>هذه المشروعات ليست أعمالًا تعاقدية مع علامات خارجية. أنشأناها لعرض كيف نحول التحدي إلى قرار استراتيجي ثم إلى نظام بصري وتجربة متماسكة.</p>
-          </div>
-
-          <div className="concept-grid">
-            {concepts.map((item) => (
-              <article className="concept-card" key={item.name}>
-                <span className="concept-label">{item.type}</span>
-                <h3 dir="ltr">{item.name}</h3>
-                <dl>
-                  <div><dt>التحدي</dt><dd>{item.challenge}</dd></div>
-                  <div><dt>القرار الاستراتيجي</dt><dd>{item.decision}</dd></div>
-                  <div><dt>ما صممناه</dt><dd>{item.scope}</dd></div>
-                  <div><dt>الأثر المستهدف</dt><dd>{item.impact}</dd></div>
-                </dl>
-                <Link href="/branding">هل تواجه تحديًا مشابهًا؟ <span>←</span></Link>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
