@@ -1,19 +1,62 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
 import { createMetadata, siteUrl } from "../lib/seo";
 import "./offers-page.css";
 
+export const dynamic = "force-dynamic";
+
 const availableSpots = 7;
 
 export const metadata: Metadata = createMetadata({
-  title: "عروض ديوانك | باقات تسويق ومحتوى بأسعار تأسيسية",
-  description: "اكتشف عروض ديوانك المحدودة للبراندينج والمحتوى والتسويق والأتمتة. ابدأ بعرض حضور الشهر: 16 قطعة محتوى جاهزة للنشر بسعر 790 ريال.",
+  title: "عروض ديوانك | باقات تسويق ومحتوى بأسعار واضحة",
+  description: "اكتشف عروض ديوانك للبراندينج والمحتوى والتسويق والأتمتة، ومنها باقة محتوى إنستقرام لمدة شهر مع سعر واضح وحجز مباشر عبر واتساب.",
   path: "/offers",
-  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تصميم بوستات انستقرام", "باقات سوشيال ميديا السعودية"],
+  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "أسعار إدارة السوشيال ميديا", "تصميم بوستات انستقرام", "باقات سوشيال ميديا السعودية"],
 });
 
-export default function OffersPage() {
+type LocalPrice = {
+  amount: number;
+  currencyCode: string;
+  currencyLabel: string;
+};
+
+const pricesByCountry: Record<string, LocalPrice> = {
+  SA: { amount: 790, currencyCode: "SAR", currencyLabel: "ريال سعودي" },
+  AE: { amount: 790, currencyCode: "AED", currencyLabel: "درهم إماراتي" },
+  BH: { amount: 79, currencyCode: "BHD", currencyLabel: "دينار بحريني" },
+  KW: { amount: 65, currencyCode: "KWD", currencyLabel: "دينار كويتي" },
+  QA: { amount: 790, currencyCode: "QAR", currencyLabel: "ريال قطري" },
+  OM: { amount: 79, currencyCode: "OMR", currencyLabel: "ريال عُماني" },
+};
+
+const fallbackPrice: LocalPrice = {
+  amount: 210,
+  currencyCode: "USD",
+  currencyLabel: "دولار أمريكي",
+};
+
+function normalizeCountryCode(value: string | null) {
+  return value?.trim().toUpperCase().slice(0, 2) || "";
+}
+
+async function getVisitorPrice() {
+  const requestHeaders = await headers();
+  const countryCode = normalizeCountryCode(
+    requestHeaders.get("cf-ipcountry") ||
+      requestHeaders.get("x-vercel-ip-country") ||
+      requestHeaders.get("cloudfront-viewer-country") ||
+      requestHeaders.get("x-country-code"),
+  );
+
+  return pricesByCountry[countryCode] || fallbackPrice;
+}
+
+export default async function OffersPage() {
+  const localPrice = await getVisitorPrice();
+  const formattedAmount = new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(localPrice.amount);
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -21,7 +64,7 @@ export default function OffersPage() {
     itemListElement: [{
       "@type": "ListItem",
       position: 1,
-      name: "باقة حضور الشهر",
+      name: "باقة محتوى إنستقرام لمدة شهر",
       url: `${siteUrl}/offers/30-day-content-package`,
     }],
   };
@@ -45,7 +88,7 @@ export default function OffersPage() {
           <h2>محتوى شهر كامل.<br/><em>جاهز للنشر.</em></h2>
           <p>12 بوستًا، 3 ستوري، ريل واحد، أفكار وكابشنات وخطة نشر—ليظهر حسابك بصورة متناسقة بدل النشر العشوائي.</p>
           <div className="offer-card-meta">
-            <div><small>السعر التأسيسي</small><div className="offer-price"><strong>790</strong><span>ريال سعودي</span></div></div>
+            <div><small>السعر التأسيسي</small><div className="offer-price"><strong>{formattedAmount}</strong><span>{localPrice.currencyLabel}</span></div></div>
             <Link className="button primary" href="/offers/30-day-content-package">شاهد تفاصيل العرض <span>←</span></Link>
           </div>
         </article>
