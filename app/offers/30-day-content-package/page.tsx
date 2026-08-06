@@ -103,7 +103,6 @@ export default async function ContentOfferPage() {
         <aside className="offer-price-panel">
           <small>السعر التأسيسي لفترة محدودة</small>
           <div className="offer-price"><strong>{formattedAmount}</strong><span>{localPrice.currencyLabel}</span></div>
-          <p className="offer-local-price-note">تم عرض السعر تلقائيًا بعملة السوق الأقرب لموقعك.</p>
           <p>50% لبدء العمل، و50% بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية.</p>
           <a className="button primary" href={whatsappUrl} target="_blank" rel="noreferrer">احجز العرض عبر واتساب <span>←</span></a>
         </aside>
