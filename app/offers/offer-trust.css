@@ -1,0 +1,103 @@
+.offer-trust-inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 2px 0 14px;
+}
+
+.offer-trust-inline span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid rgba(244, 217, 145, .22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .05);
+  color: rgba(245, 240, 231, .82);
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.offer-trust-inline span::before {
+  content: "✓";
+  color: #79c987;
+  font-weight: 900;
+}
+
+.offer-confidence {
+  display: grid;
+  grid-template-columns: .75fr 1.25fr;
+  gap: clamp(24px, 5vw, 64px);
+  align-items: start;
+  margin-bottom: clamp(58px, 7vw, 90px);
+  padding: clamp(24px, 3.5vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, .46);
+}
+
+.offer-confidence-head h2 {
+  margin: 12px 0 0;
+  font-size: clamp(27px, 3.3vw, 44px);
+  line-height: 1.2;
+}
+
+.offer-confidence-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.offer-confidence-grid article {
+  min-height: 112px;
+  padding: 16px;
+  border-radius: 17px;
+  background: var(--offer-ivory);
+  border: 1px solid rgba(6, 26, 51, .08);
+}
+
+.offer-confidence-grid b {
+  display: block;
+  margin-bottom: 10px;
+  color: #b98524;
+  font-size: 12px;
+}
+
+.offer-confidence-grid span {
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.offer-policy {
+  grid-column: 2;
+  margin-top: -2px;
+  border-top: 1px solid var(--line);
+}
+
+.offer-policy summary {
+  padding: 14px 2px 8px;
+  cursor: pointer;
+  color: var(--offer-navy);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.offer-policy p {
+  margin: 0;
+  padding: 0 2px 5px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+@media (max-width: 860px) {
+  .offer-confidence { grid-template-columns: 1fr; }
+  .offer-policy { grid-column: 1; }
+}
+
+@media (max-width: 620px) {
+  .offer-confidence-grid { grid-template-columns: 1fr; }
+  .offer-confidence-grid article { min-height: 0; }
+  .offer-trust-inline span { font-size: 10px; }
+}

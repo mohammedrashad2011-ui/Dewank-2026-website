@@ -1,17 +1,42 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../offers-page.css";
+import "../offer-trust.css";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = createMetadata({
-  title: "باقة محتوى إنستجرام لشهر كامل بـ790 ريال",
-  description: "احصل على 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة نشر وتحسين البايو بسعر تأسيسي 790 ريال سعودي.",
+  title: "باقة محتوى إنستجرام لشهر كامل | سعر محلي حسب بلدك",
+  description: "احصل على 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة نشر وتحسين البايو، مع عرض السعر تلقائيًا بعملة بلدك.",
   path: "/offers/30-day-content-package",
   keywords: ["باقة محتوى انستقرام", "تصميم 12 بوست", "تصميم سوشيال ميديا السعودية", "إدارة محتوى انستقرام"],
 });
 
-const whatsappUrl = "https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%D9%83%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%B9%D8%B1%D8%B6%20%D8%AD%D8%B6%D9%88%D8%B1%20%D8%A7%D9%84%D8%B4%D9%87%D8%B1%20%D8%A8%D9%80%20790%20%D8%B1%D9%8A%D8%A7%D9%84";
+type LocalPrice = {
+  amount: number;
+  currencyCode: string;
+  currencyLabel: string;
+  countryLabel: string;
+};
+
+const pricesByCountry: Record<string, LocalPrice> = {
+  SA: { amount: 790, currencyCode: "SAR", currencyLabel: "ريال سعودي", countryLabel: "السعودية" },
+  AE: { amount: 790, currencyCode: "AED", currencyLabel: "درهم إماراتي", countryLabel: "الإمارات" },
+  BH: { amount: 79, currencyCode: "BHD", currencyLabel: "دينار بحريني", countryLabel: "البحرين" },
+  KW: { amount: 65, currencyCode: "KWD", currencyLabel: "دينار كويتي", countryLabel: "الكويت" },
+  QA: { amount: 790, currencyCode: "QAR", currencyLabel: "ريال قطري", countryLabel: "قطر" },
+  OM: { amount: 79, currencyCode: "OMR", currencyLabel: "ريال عُماني", countryLabel: "عُمان" },
+};
+
+const fallbackPrice: LocalPrice = {
+  amount: 210,
+  currencyCode: "USD",
+  currencyLabel: "دولار أمريكي",
+  countryLabel: "دولتك",
+};
 
 const availableSpots = 7;
 
@@ -24,7 +49,28 @@ const deliverables = [
   ["تحسين البايو وCTA", "مراجعة الرسالة الأساسية وطريقة توجيه الزائر للخطوة التالية."],
 ];
 
-export default function ContentOfferPage() {
+function normalizeCountryCode(value: string | null) {
+  return value?.trim().toUpperCase().slice(0, 2) || "";
+}
+
+async function getVisitorPrice() {
+  const requestHeaders = await headers();
+  const countryCode = normalizeCountryCode(
+    requestHeaders.get("cf-ipcountry") ||
+      requestHeaders.get("x-vercel-ip-country") ||
+      requestHeaders.get("cloudfront-viewer-country") ||
+      requestHeaders.get("x-country-code"),
+  );
+
+  return pricesByCountry[countryCode] || fallbackPrice;
+}
+
+export default async function ContentOfferPage() {
+  const localPrice = await getVisitorPrice();
+  const formattedAmount = new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(localPrice.amount);
+  const whatsappText = `مرحبًا ديوانك، أريد حجز عرض حضور الشهر بسعر ${formattedAmount} ${localPrice.currencyLabel}.`;
+  const whatsappUrl = `https://wa.me/97339066649?text=${encodeURIComponent(whatsappText)}`;
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -35,8 +81,8 @@ export default function ContentOfferPage() {
     areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
     offers: {
       "@type": "Offer",
-      price: "790",
-      priceCurrency: "SAR",
+      price: String(localPrice.amount),
+      priceCurrency: localPrice.currencyCode,
       availability: "https://schema.org/LimitedAvailability",
       url: `${siteUrl}/offers/30-day-content-package`,
     },
@@ -57,7 +103,10 @@ export default function ContentOfferPage() {
         </div>
         <aside className="offer-price-panel">
           <small>السعر التأسيسي لفترة محدودة</small>
-          <div className="offer-price"><strong>790</strong><span>ريال سعودي</span></div>
+          <div className="offer-price"><strong>{formattedAmount}</strong><span>{localPrice.currencyLabel}</span></div>
+          <div className="offer-trust-inline" aria-label="مزايا الأمان والثقة">
+            <span>رابط دفع رسمي</span><span>50% لبدء العمل</span><span>موافقتك قبل التنفيذ</span>
+          </div>
           <p>50% لبدء العمل، و50% بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية.</p>
           <a className="button primary" href={whatsappUrl} target="_blank" rel="noreferrer">احجز العرض عبر واتساب <span>←</span></a>
         </aside>
@@ -79,8 +128,24 @@ export default function ContentOfferPage() {
         </div>
       </section>
 
+      <section className="shell offer-confidence" aria-labelledby="offer-confidence-title">
+        <div className="offer-confidence-head">
+          <span className="section-label">[ خطوات واضحة ]</span>
+          <h2 id="offer-confidence-title">احجز وأنت عارف كل خطوة.</h2>
+        </div>
+        <div className="offer-confidence-grid">
+          <article><b>01</b><span>نراجع نشاطك ونؤكد ملاءمة العرض.</span></article>
+          <article><b>02</b><span>نرسل رابط دفع رسمي عبر Payoneer.</span></article>
+          <article><b>03</b><span>نبدأ بعد الدفعة الأولى واعتماد الاتجاه.</span></article>
+        </div>
+        <details className="offer-policy">
+          <summary>سياسة الحماية والاسترجاع</summary>
+          <p>استرداد كامل قبل بدء التنفيذ. بعد بدء العمل يُخصم فقط مقابل الجزء المنفذ، ويشمل العرض جولتي تعديل ولا يعتمد الاتجاه النهائي قبل موافقتك.</p>
+        </details>
+      </section>
+
       <section className="shell offer-final-cta">
-        <span className="offer-kicker">16 قطعة محتوى · 790 ريال</span>
+        <span className="offer-kicker">16 قطعة محتوى · {formattedAmount} {localPrice.currencyLabel}</span>
         <h2>أعطِ حسابك شهرًا يستحق أن يراه عملاؤك.</h2>
         <p>أرسل كلمة «شهر» وسنسألك عن نشاطك ثم نؤكد ملاءمة العرض قبل الدفع.</p>
         <a className="button primary" href={whatsappUrl} target="_blank" rel="noreferrer">أرسل «شهر» على واتساب <span>←</span></a>
