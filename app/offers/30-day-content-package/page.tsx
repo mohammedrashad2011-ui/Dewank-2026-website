@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../offers-page.css";
+import "../offer-trust.css";
 
 export const dynamic = "force-dynamic";
 
