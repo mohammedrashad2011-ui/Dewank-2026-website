@@ -3,14 +3,25 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import { LocalizedOfferKicker, LocalizedOfferPrice, LocalizedWhatsAppLink } from "../localized-offer";
+import OfferVisualProof from "./offer-visual-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
+import "./offer-visual-proof.css";
 
 export const metadata: Metadata = createMetadata({
   title: "أسعار إدارة محتوى إنستقرام | باقة شهر كامل من ديوانك",
-  description: "باقة محتوى إنستقرام لمدة 30 يومًا تشمل 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر. سعر واضح، دفعتان، وحجز مباشر عبر واتساب.",
+  description: "باقة محتوى إنستقرام لمدة 30 يومًا تشمل 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر، مع نماذج تصميم سوشيال ميديا توضح مستوى التنفيذ قبل الحجز.",
   path: "/offers/30-day-content-package",
-  keywords: ["أسعار إدارة محتوى إنستقرام", "باقة محتوى انستقرام", "تكلفة إدارة حساب انستقرام", "أسعار إدارة السوشيال ميديا", "تصميم 12 بوست"],
+  keywords: [
+    "أسعار إدارة محتوى إنستقرام",
+    "باقة محتوى انستقرام",
+    "تكلفة إدارة حساب انستقرام",
+    "أسعار إدارة السوشيال ميديا",
+    "تصميم 12 بوست",
+    "نماذج تصميم سوشيال ميديا",
+    "تصميم محتوى انستقرام",
+    "تصميم بوستات احترافية",
+  ],
 });
 
 const availableSpots = 7;
@@ -30,6 +41,16 @@ const faqItems = [
   ["كم مدة تسليم تصاميم السوشيال ميديا؟", "يتم التسليم عادة خلال 10 إلى 14 يوم عمل بعد استلام المعلومات والمواد المطلوبة واعتماد الاتجاه."],
   ["هل يمكن الدفع على دفعتين؟", "نعم، 50% لبدء العمل و50% بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية."],
   ["هل يمكن استرجاع المبلغ؟", "يمكن استرداد المبلغ كاملًا قبل بدء التنفيذ. بعد بدء العمل يُخصم فقط مقابل الجزء المنفذ."],
+];
+
+const showcaseSchemaItems = [
+  ["تصميم محتوى لتطبيق ترفيهي", "نموذج تصميم سوشيال ميديا لتطبيق ترفيهي بإخراج بصري حديث.", "/showcase/content/nova-play.png"],
+  ["تصميم محتوى لمقهى", "نموذج محتوى إنستقرام لمقهى عربي يعرض المنتج بأسلوب دافئ واحترافي.", "/showcase/content/bunnah.png"],
+  ["تصميم محتوى للسفر والسياحة", "نموذج تصميم سوشيال ميديا لعلامة سفر وسياحة وتجربة حجز.", "/showcase/content/rihla.png"],
+  ["تصميم إعلان لمطعم", "نموذج إعلان سوشيال ميديا لمطعم مع تكوين بصري قوي ودعوة واضحة للطلب.", "/showcase/content/qrmsha.png"],
+  ["تصميم محتوى لمخبز", "نموذج تصميم محتوى إنستقرام لمخبز وكروسان بهوية مرحة وعرض منتج احترافي.", "/showcase/content/buno.png"],
+  ["تصميم محتوى لخدمات احترافية", "نموذج تصميم سوشيال ميديا لخدمات واستراتيجية أعمال موجهة للسوق الخليجي.", "/showcase/content/madar.png"],
+  ["تصميم محتوى لمنتجات عناية", "نموذج تصميم إعلان سوشيال ميديا لمنتجات عناية شخصية بهوية نظيفة وواضحة.", "/showcase/content/calm-root.png"],
 ];
 
 export default function ContentOfferPage() {
@@ -60,11 +81,29 @@ export default function ContentOfferPage() {
     })),
   };
 
+  const showcaseSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "نماذج تصميم سوشيال ميديا من ديوانك",
+    itemListElement: showcaseSchemaItems.map(([name, description, image], index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "CreativeWork",
+        name,
+        description,
+        image: `${siteUrl}${image}`,
+        creator: { "@id": organizationId },
+      },
+    })),
+  };
+
   return (
     <main className="inner-page offers-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(showcaseSchema) }} />
 
       <section className="shell offer-detail-hero">
         <div>
@@ -84,6 +123,8 @@ export default function ContentOfferPage() {
           <LocalizedWhatsAppLink className="button primary" label="احجز العرض عبر واتساب" />
         </aside>
       </section>
+
+      <OfferVisualProof />
 
       <section className="shell offer-deliverables">
         <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>كل ما تحتاجه لتبدأ النشر.</h2><p>التسليم خلال 10–14 يوم عمل بعد استلام المعلومات والمواد المطلوبة.</p></div>
