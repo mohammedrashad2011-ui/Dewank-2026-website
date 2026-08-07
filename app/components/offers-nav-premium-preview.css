@@ -3,44 +3,63 @@
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
-  padding:0!important;
-  border:0!important;
-  border-radius:0!important;
-  background:transparent!important;
-  color:#b98b27!important;
-  box-shadow:none!important;
-  font-weight:700!important;
-  transition:color .2s ease!important;
+  min-height:42px!important;
+  padding:9px 15px!important;
+  border:1px solid rgba(185,139,39,.28)!important;
+  border-radius:14px!important;
+  background:rgba(242,239,231,.68)!important;
+  color:#10244b!important;
+  box-shadow:0 6px 18px rgba(16,36,75,.06)!important;
+  -webkit-backdrop-filter:blur(10px) saturate(115%);
+  backdrop-filter:blur(10px) saturate(115%);
+  transition:background .2s ease,color .2s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease!important;
+}
+
+.offers-nav-link:before{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius:12px;
+  background:linear-gradient(135deg,rgba(255,255,255,.46),rgba(255,255,255,.08));
+  pointer-events:none;
 }
 
 .offers-nav-link:after{
-  content:""!important;
-  position:absolute!important;
-  right:0!important;
-  bottom:-8px!important;
-  width:24px!important;
-  height:2px!important;
-  background:#b98b27!important;
-  transform:scaleX(.38)!important;
-  transform-origin:right center!important;
-  opacity:.72!important;
-  transition:transform .22s ease,opacity .22s ease,width .22s ease!important;
+  display:none!important;
 }
 
 .offers-nav-link .offers-nav-label{
-  display:inline-flex!important;
-  align-items:center!important;
-  line-height:1!important;
+  position:relative;
+  z-index:1;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-weight:700;
+  line-height:1;
+}
+
+.offers-nav-link .offers-nav-spark{
+  font-size:11px;
+  line-height:1;
+  color:#b98b27;
+  transition:color .2s ease,transform .2s ease;
+}
+
+.offers-nav-link .offers-nav-arrow{
+  display:none;
 }
 
 .offers-nav-link:hover{
+  background:rgba(255,255,255,.78)!important;
+  border-color:rgba(185,139,39,.48)!important;
   color:#10244b!important;
-  background:transparent!important;
-  transform:none!important;
+  box-shadow:0 9px 24px rgba(16,36,75,.1)!important;
+  transform:translateY(-1px);
+  -webkit-backdrop-filter:blur(13px) saturate(125%);
+  backdrop-filter:blur(13px) saturate(125%);
 }
 
-.offers-nav-link:hover:after{
-  width:100%!important;
-  transform:scaleX(1)!important;
-  opacity:1!important;
+.offers-nav-link:hover .offers-nav-spark{
+  color:#9d7318;
+  transform:rotate(12deg) scale(1.06);
 }
