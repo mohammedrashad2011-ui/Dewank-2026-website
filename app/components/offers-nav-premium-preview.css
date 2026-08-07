@@ -1,0 +1,56 @@
+.offers-nav-link{
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:42px!important;
+  padding:9px 15px!important;
+  border:1px solid #10244b!important;
+  border-radius:14px!important;
+  background:#f2efe7!important;
+  color:#10244b!important;
+  box-shadow:none!important;
+  transition:background .2s ease,color .2s ease,transform .2s ease,border-color .2s ease!important;
+}
+
+.offers-nav-link:after{
+  display:none!important;
+}
+
+.offers-nav-link .offers-nav-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-weight:700;
+  line-height:1;
+}
+
+.offers-nav-link .offers-nav-spark{
+  font-size:11px;
+  line-height:1;
+  color:#b98b27;
+  transition:color .2s ease,transform .2s ease;
+}
+
+.offers-nav-link .offers-nav-arrow{
+  font-size:13px;
+  line-height:1;
+  opacity:.72;
+  transition:transform .2s ease,opacity .2s ease;
+}
+
+.offers-nav-link:hover{
+  background:#10244b!important;
+  color:#f2efe7!important;
+  transform:translateY(-1px);
+}
+
+.offers-nav-link:hover .offers-nav-spark{
+  color:#e2bb62;
+  transform:rotate(14deg) scale(1.08);
+}
+
+.offers-nav-link:hover .offers-nav-arrow{
+  opacity:1;
+  transform:translateX(-2px);
+}
