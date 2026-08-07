@@ -1,12 +1,12 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { novaImage } from "./showcase-data-hq/nova";
-import { coffeeImage } from "./showcase-data-hq/coffee";
+import { novaImage } from "./showcase-data-hq2/nova";
+import { coffeeImage } from "./showcase-data-hq2/coffee";
 import { travelImage } from "./showcase-data/travel";
 import { chickenImage } from "./showcase-data/chicken";
 import { bakeryImage } from "./showcase-data/bakery";
-import { madarImage } from "./showcase-data-hq/madar";
+import { madarImage } from "./showcase-data/madar";
 import { skincareImage } from "./showcase-data/skincare";
 
 const showcaseItems = [
@@ -14,43 +14,43 @@ const showcaseItems = [
     label: "ترفيه",
     brand: "Nova Play",
     image: novaImage,
-    alt: "نموذج تصميم سوشيال ميديا احترافي لتطبيق ترفيهي بألوان زرقاء وإخراج بصري حديث",
+    alt: "تصميم سوشيال ميديا احترافي لتطبيق ترفيهي بألوان زرقاء وإخراج بصري حديث من ديوانك",
   },
   {
     label: "مقهى",
     brand: "بُنّة",
     image: coffeeImage,
-    alt: "نموذج تصميم محتوى إنستقرام لمقهى عربي يعرض القهوة والحلوى بأسلوب دافئ واحترافي",
+    alt: "تصميم محتوى إنستقرام لمقهى عربي يعرض القهوة والحلوى بأسلوب دافئ واحترافي من ديوانك",
   },
   {
     label: "سفر",
     brand: "رحلة",
     image: travelImage,
-    alt: "نموذج تصميم سوشيال ميديا لعلامة سفر وسياحة مع واجهة حجز وتجربة بصرية مستوحاة من الطبيعة",
+    alt: "تصميم سوشيال ميديا للسفر والسياحة مع واجهة حجز وتجربة بصرية مستوحاة من الطبيعة",
   },
   {
     label: "مطعم",
     brand: "قرمشة",
     image: chickenImage,
-    alt: "نموذج إعلان سوشيال ميديا لمطعم دجاج مقرمش بتكوين إعلاني قوي ودعوة واضحة للطلب",
+    alt: "تصميم إعلان سوشيال ميديا لمطعم دجاج مقرمش بتكوين إعلاني قوي ودعوة واضحة للطلب",
   },
   {
     label: "مخبوزات",
     brand: "Buno",
     image: bakeryImage,
-    alt: "نموذج تصميم محتوى إنستقرام لمخبز وكروسان بهوية مرحة وتغليف وعرض منتج احترافي",
+    alt: "تصميم محتوى إنستقرام لمخبز وكروسان بهوية مرحة وتغليف وعرض منتج احترافي",
   },
   {
     label: "خدمات احترافية",
     brand: "Madar",
     image: madarImage,
-    alt: "نموذج تصميم سوشيال ميديا لخدمات احترافية واستراتيجية أعمال موجهة للسوق الخليجي",
+    alt: "تصميم سوشيال ميديا لخدمات احترافية واستراتيجية أعمال موجهة للسوق الخليجي",
   },
   {
     label: "عناية ومنتجات",
     brand: "Calm Root",
     image: skincareImage,
-    alt: "نموذج تصميم إعلان سوشيال ميديا لمنتجات عناية شخصية بهوية زرقاء نظيفة وعرض منتج احترافي",
+    alt: "تصميم إعلان سوشيال ميديا لمنتجات عناية شخصية بهوية زرقاء نظيفة وعرض منتج احترافي",
   },
 ] as const;
 
@@ -86,9 +86,9 @@ export default function OfferVisualProof() {
                 <img
                   src={item.image}
                   alt={item.alt}
-                  width="720"
-                  height="900"
-                  loading={index === 0 ? "eager" : "lazy"}
+                  width="960"
+                  height="1200"
+                  loading={index < 2 ? "eager" : "lazy"}
                   decoding="async"
                   itemProp="image"
                 />
