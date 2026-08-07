@@ -2,20 +2,36 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import "./mobile-site-structure-preview.css";
 
-const mobileLinks = [
-  ["/offers", "العروض"],
-  ["/services", "جميع الخدمات"],
-  ["/branding", "البراند والهوية"],
-  ["/digital-marketing", "التسويق الرقمي"],
-  ["/paid-ads", "إعلانات Meta وGoogle"],
-  ["/seo-aeo", "تحسين SEO وAEO"],
-  ["/website-design", "تصميم المواقع"],
-  ["/whatsapp-automation", "أتمتة واتساب وCRM"],
-  ["/ai-automation", "حلول الذكاء الاصطناعي"],
-  ["/ats-cv", "السيرة الذاتية ATS"],
-  ["/work", "أعمالنا"],
-  ["/about", "عن ديوانك"],
+const mobileGroups = [
+  {
+    title: "الخدمات",
+    href: "/services",
+    links: [
+      ["/branding", "البراند والهوية"],
+      ["/services/social-media-content", "إدارة السوشيال والمحتوى"],
+      ["/digital-marketing", "التسويق الرقمي"],
+      ["/paid-ads", "إعلانات Meta وGoogle"],
+      ["/website-design", "تصميم المواقع"],
+      ["/seo-aeo", "تحسين SEO وAEO"],
+      ["/whatsapp-automation", "أتمتة واتساب وCRM"],
+      ["/ai-automation", "حلول الذكاء الاصطناعي"],
+    ],
+  },
+  {
+    title: "استكشف",
+    links: [
+      ["/offers", "العروض"],
+      ["/work", "أعمالنا"],
+      ["/guides", "أدلة النمو"],
+      ["/about", "عن ديوانك"],
+    ],
+  },
+  {
+    title: "للأفراد",
+    links: [["/ats-cv", "السيرة الذاتية ATS"]],
+  },
 ] as const;
 
 export function MobileNavigation() {
@@ -55,18 +71,31 @@ export function MobileNavigation() {
           <small>DEWANK MENU</small>
           <button type="button" onClick={() => setOpen(false)} aria-label="إغلاق القائمة">×</button>
         </div>
-        <nav aria-label="قائمة الموبايل">
-          {mobileLinks.map(([href, label], index) => (
-            <Link href={href} key={href} onClick={() => setOpen(false)}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{label}</strong>
-              <b aria-hidden="true">←</b>
-            </Link>
+        <nav aria-label="قائمة الموبايل" className="mobile-menu-groups">
+          {mobileGroups.map((group) => (
+            <section className="mobile-menu-group" key={group.title}>
+              <div className="mobile-menu-group-head">
+                {"href" in group && group.href ? (
+                  <Link href={group.href} onClick={() => setOpen(false)}>{group.title}<span>عرض الكل ←</span></Link>
+                ) : (
+                  <strong>{group.title}</strong>
+                )}
+              </div>
+              <div className="mobile-menu-group-links">
+                {group.links.map(([href, label], index) => (
+                  <Link href={href} key={href} onClick={() => setOpen(false)}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <strong>{label}</strong>
+                    <b aria-hidden="true">←</b>
+                  </Link>
+                ))}
+              </div>
+            </section>
           ))}
         </nav>
         <div className="mobile-menu-actions">
-          <Link className="button primary" href="/contact" onClick={() => setOpen(false)}>ابدأ مشروعك</Link>
-          <a className="button mobile-whatsapp" href="https://wa.me/97339066649" target="_blank" rel="noreferrer">تواصل واتساب</a>
+          <Link className="button primary" href="/contact" onClick={() => setOpen(false)}>تواصل معنا</Link>
+          <a className="button mobile-whatsapp" href="https://wa.me/97339066649" target="_blank" rel="noreferrer">واتساب</a>
         </div>
       </aside>
     </div>
