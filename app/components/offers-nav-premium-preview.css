@@ -3,54 +3,44 @@
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
-  min-height:42px!important;
-  padding:9px 15px!important;
-  border:1px solid #10244b!important;
-  border-radius:14px!important;
-  background:#f2efe7!important;
-  color:#10244b!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#b98b27!important;
   box-shadow:none!important;
-  transition:background .2s ease,color .2s ease,transform .2s ease,border-color .2s ease!important;
+  font-weight:700!important;
+  transition:color .2s ease!important;
 }
 
 .offers-nav-link:after{
-  display:none!important;
+  content:""!important;
+  position:absolute!important;
+  right:0!important;
+  bottom:-8px!important;
+  width:24px!important;
+  height:2px!important;
+  background:#b98b27!important;
+  transform:scaleX(.38)!important;
+  transform-origin:right center!important;
+  opacity:.72!important;
+  transition:transform .22s ease,opacity .22s ease,width .22s ease!important;
 }
 
 .offers-nav-link .offers-nav-label{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  font-weight:700;
-  line-height:1;
-}
-
-.offers-nav-link .offers-nav-spark{
-  font-size:11px;
-  line-height:1;
-  color:#b98b27;
-  transition:color .2s ease,transform .2s ease;
-}
-
-.offers-nav-link .offers-nav-arrow{
-  font-size:13px;
-  line-height:1;
-  opacity:.72;
-  transition:transform .2s ease,opacity .2s ease;
+  display:inline-flex!important;
+  align-items:center!important;
+  line-height:1!important;
 }
 
 .offers-nav-link:hover{
-  background:#10244b!important;
-  color:#f2efe7!important;
-  transform:translateY(-1px);
+  color:#10244b!important;
+  background:transparent!important;
+  transform:none!important;
 }
 
-.offers-nav-link:hover .offers-nav-spark{
-  color:#e2bb62;
-  transform:rotate(14deg) scale(1.08);
-}
-
-.offers-nav-link:hover .offers-nav-arrow{
-  opacity:1;
-  transform:translateX(-2px);
+.offers-nav-link:hover:after{
+  width:100%!important;
+  transform:scaleX(1)!important;
+  opacity:1!important;
 }
