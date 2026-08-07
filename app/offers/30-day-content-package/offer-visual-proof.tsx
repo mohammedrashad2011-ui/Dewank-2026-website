@@ -1,15 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { novaImage } from "./showcase-data/nova";
+import { coffeeImage } from "./showcase-data/coffee";
+import { travelImage } from "./showcase-data/travel";
+import { chickenImage } from "./showcase-data/chicken";
+import { bakeryImage } from "./showcase-data/bakery";
+import { madarImage } from "./showcase-data/madar";
+import { skincareImage } from "./showcase-data/skincare";
 
 const showcaseItems = [
-  { label: "ترفيه", brand: "Nova Play", image: "/showcase/content/nova-play.webp" },
-  { label: "مقهى", brand: "بُنّة", image: "/showcase/content/bunnah-coffee.webp" },
-  { label: "سفر", brand: "رحلة", image: "/showcase/content/rihla-travel.webp" },
-  { label: "مطعم", brand: "قرمشة", image: "/showcase/content/qarmasha-food.webp" },
-  { label: "مخبوزات", brand: "Buno", image: "/showcase/content/buno-bakery.webp" },
-  { label: "خدمات احترافية", brand: "Madar", image: "/showcase/content/madar-business.webp" },
-  { label: "عناية ومنتجات", brand: "Calm Root", image: "/showcase/content/calm-root.webp" },
+  { label: "ترفيه", brand: "Nova Play", image: novaImage },
+  { label: "مقهى", brand: "بُنّة", image: coffeeImage },
+  { label: "سفر", brand: "رحلة", image: travelImage },
+  { label: "مطعم", brand: "قرمشة", image: chickenImage },
+  { label: "مخبوزات", brand: "Buno", image: bakeryImage },
+  { label: "خدمات احترافية", brand: "Madar", image: madarImage },
+  { label: "عناية ومنتجات", brand: "Calm Root", image: skincareImage },
 ] as const;
 
 export default function OfferVisualProof() {
