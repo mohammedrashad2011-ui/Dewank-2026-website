@@ -34,10 +34,23 @@ export default function MotionSystem() {
           </div>
         ))}
 
-        <div className="system-caption"><i /> ONE CONNECTED SYSTEM</div>
+        <div className="system-caption"><i /> اختر الخدمة التي تحتاجها</div>
       </div>
 
       <style>{`
+        .planet-system .satellite-track {
+          animation-duration: 46s !important;
+        }
+        .planet-system .service-satellite {
+          animation-duration: 46s !important;
+        }
+        .planet-system .system-caption {
+          direction: rtl;
+          font-family: var(--font-arabic), Arial, sans-serif;
+          letter-spacing: 0;
+          font-weight: 700;
+        }
+
         .planet-system .s9 {
           --orbit-size: 338px;
           animation-delay: -5.5s !important;
@@ -67,7 +80,7 @@ export default function MotionSystem() {
           .planet-system .satellite-track {
             --orbit-size: 292px;
             animation-name: mobile-orbit !important;
-            animation-duration: 32s !important;
+            animation-duration: 40s !important;
             animation-timing-function: linear !important;
             animation-iteration-count: infinite !important;
             animation-direction: normal !important;
@@ -80,12 +93,12 @@ export default function MotionSystem() {
           .planet-system .s8,
           .planet-system .s10 {
             --orbit-size: 392px;
-            animation-duration: 40s !important;
+            animation-duration: 50s !important;
           }
           .planet-system .s9,
           .planet-system .s11 {
             --orbit-size: 338px;
-            animation-duration: 36s !important;
+            animation-duration: 45s !important;
           }
 
           .planet-system .service-satellite {
