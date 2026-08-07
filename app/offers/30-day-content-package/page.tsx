@@ -3,8 +3,10 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import { LocalizedOfferKicker, LocalizedOfferPrice, LocalizedWhatsAppLink } from "../localized-offer";
+import OfferVisualProof from "./offer-visual-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
+import "./offer-visual-proof.css";
 
 export const metadata: Metadata = createMetadata({
   title: "أسعار إدارة محتوى إنستقرام | باقة شهر كامل من ديوانك",
@@ -84,6 +86,8 @@ export default function ContentOfferPage() {
           <LocalizedWhatsAppLink className="button primary" label="احجز العرض عبر واتساب" />
         </aside>
       </section>
+
+      <OfferVisualProof />
 
       <section className="shell offer-deliverables">
         <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>كل ما تحتاجه لتبدأ النشر.</h2><p>التسليم خلال 10–14 يوم عمل بعد استلام المعلومات والمواد المطلوبة.</p></div>
