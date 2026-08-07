@@ -38,21 +38,6 @@ export default function MotionSystem() {
       </div>
 
       <style>{`
-        .planet-system .satellite-track,
-        .planet-system .service-satellite { animation-duration:72s!important; }
-
-        .planet-system .s1,.planet-system .s1 .service-satellite{animation-duration:68s!important}
-        .planet-system .s2,.planet-system .s2 .service-satellite{animation-duration:78s!important}
-        .planet-system .s3,.planet-system .s3 .service-satellite{animation-duration:72s!important}
-        .planet-system .s4,.planet-system .s4 .service-satellite{animation-duration:82s!important}
-        .planet-system .s5,.planet-system .s5 .service-satellite{animation-duration:70s!important}
-        .planet-system .s6,.planet-system .s6 .service-satellite{animation-duration:80s!important}
-        .planet-system .s7,.planet-system .s7 .service-satellite{animation-duration:74s!important}
-        .planet-system .s8,.planet-system .s8 .service-satellite{animation-duration:84s!important}
-        .planet-system .s9,.planet-system .s9 .service-satellite{animation-duration:76s!important}
-        .planet-system .s10,.planet-system .s10 .service-satellite{animation-duration:81s!important}
-        .planet-system .s11,.planet-system .s11 .service-satellite{animation-duration:79s!important}
-
         .planet-system .system-caption {
           direction: rtl;
           font-family: var(--font-arabic), Arial, sans-serif;
@@ -60,26 +45,41 @@ export default function MotionSystem() {
           font-weight: 700;
         }
 
-        /* Four gently separated orbital bands. Labels sharing a band start far apart. */
-        .planet-system .s1,.planet-system .s5,.planet-system .s9{--orbit-size:326px}
-        .planet-system .s2,.planet-system .s6,.planet-system .s10{--orbit-size:404px}
-        .planet-system .s3,.planet-system .s7,.planet-system .s11{--orbit-size:482px}
-        .planet-system .s4,.planet-system .s8{--orbit-size:560px}
+        /* Three stable orbital bands. Items on the same band share one speed,
+           so their spacing stays fixed instead of slowly catching each other. */
+        .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 {
+          --orbit-size: 330px;
+          animation-duration: 78s !important;
+        }
+        .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 {
+          --orbit-size: 432px;
+          animation-duration: 88s !important;
+        }
+        .planet-system .s2,.planet-system .s5,.planet-system .s7 {
+          --orbit-size: 542px;
+          animation-duration: 98s !important;
+        }
 
-        .planet-system .s1,.planet-system .s1 .service-satellite{animation-delay:0s!important}
-        .planet-system .s5,.planet-system .s5 .service-satellite{animation-delay:-23s!important}
-        .planet-system .s9,.planet-system .s9 .service-satellite{animation-delay:-50s!important}
+        .planet-system .s6 .service-satellite,.planet-system .s8 .service-satellite,.planet-system .s9 .service-satellite,.planet-system .s10 .service-satellite { animation-duration: 78s !important; }
+        .planet-system .s1 .service-satellite,.planet-system .s3 .service-satellite,.planet-system .s4 .service-satellite,.planet-system .s11 .service-satellite { animation-duration: 88s !important; }
+        .planet-system .s2 .service-satellite,.planet-system .s5 .service-satellite,.planet-system .s7 .service-satellite { animation-duration: 98s !important; }
 
-        .planet-system .s2,.planet-system .s2 .service-satellite{animation-delay:0s!important}
-        .planet-system .s6,.planet-system .s6 .service-satellite{animation-delay:-27s!important}
-        .planet-system .s10,.planet-system .s10 .service-satellite{animation-delay:-54s!important}
+        /* Inner band: four equal 90-degree starting positions. */
+        .planet-system .s6,.planet-system .s6 .service-satellite { animation-delay: 0s !important; }
+        .planet-system .s8,.planet-system .s8 .service-satellite { animation-delay: -19.5s !important; }
+        .planet-system .s9,.planet-system .s9 .service-satellite { animation-delay: -39s !important; }
+        .planet-system .s10,.planet-system .s10 .service-satellite { animation-delay: -58.5s !important; }
 
-        .planet-system .s3,.planet-system .s3 .service-satellite{animation-delay:0s!important}
-        .planet-system .s7,.planet-system .s7 .service-satellite{animation-delay:-25s!important}
-        .planet-system .s11,.planet-system .s11 .service-satellite{animation-delay:-53s!important}
+        /* Middle band: four equal 90-degree starting positions, offset from inner. */
+        .planet-system .s1,.planet-system .s1 .service-satellite { animation-delay: -11s !important; }
+        .planet-system .s3,.planet-system .s3 .service-satellite { animation-delay: -33s !important; }
+        .planet-system .s4,.planet-system .s4 .service-satellite { animation-delay: -55s !important; }
+        .planet-system .s11,.planet-system .s11 .service-satellite { animation-delay: -77s !important; }
 
-        .planet-system .s4,.planet-system .s4 .service-satellite{animation-delay:0s!important}
-        .planet-system .s8,.planet-system .s8 .service-satellite{animation-delay:-42s!important}
+        /* Outer band: three equal 120-degree starting positions. */
+        .planet-system .s2,.planet-system .s2 .service-satellite { animation-delay: -8s !important; }
+        .planet-system .s5,.planet-system .s5 .service-satellite { animation-delay: -40.67s !important; }
+        .planet-system .s7,.planet-system .s7 .service-satellite { animation-delay: -73.33s !important; }
 
         @media (max-width: 640px) {
           .planet-system .space-glow,
@@ -93,7 +93,6 @@ export default function MotionSystem() {
 
           .planet-system .satellite-track {
             animation-name: mobile-orbit !important;
-            animation-duration: 68s !important;
             animation-timing-function: linear !important;
             animation-iteration-count: infinite !important;
             animation-direction: normal !important;
@@ -101,26 +100,39 @@ export default function MotionSystem() {
             will-change: transform;
           }
 
-          .planet-system .s1,.planet-system .s5,.planet-system .s9{--orbit-size:278px}
-          .planet-system .s2,.planet-system .s6,.planet-system .s10{--orbit-size:340px}
-          .planet-system .s3,.planet-system .s7,.planet-system .s11{--orbit-size:402px}
-          .planet-system .s4,.planet-system .s8{--orbit-size:458px}
+          .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 {
+            --orbit-size: 282px;
+            animation-duration: 82s !important;
+          }
+          .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 {
+            --orbit-size: 354px;
+            animation-duration: 92s !important;
+          }
+          .planet-system .s2,.planet-system .s5,.planet-system .s7 {
+            --orbit-size: 428px;
+            animation-duration: 102s !important;
+          }
 
-          .planet-system .s1{animation-duration:68s!important}
-          .planet-system .s5{animation-duration:70s!important}
-          .planet-system .s9{animation-duration:76s!important}
-          .planet-system .s2{animation-duration:78s!important}
-          .planet-system .s6{animation-duration:80s!important}
-          .planet-system .s10{animation-duration:82s!important}
-          .planet-system .s3{animation-duration:72s!important}
-          .planet-system .s7{animation-duration:74s!important}
-          .planet-system .s11{animation-duration:79s!important}
-          .planet-system .s4{animation-duration:84s!important}
-          .planet-system .s8{animation-duration:86s!important}
+          .planet-system .s6 .service-satellite,.planet-system .s8 .service-satellite,.planet-system .s9 .service-satellite,.planet-system .s10 .service-satellite { animation-duration: 82s !important; }
+          .planet-system .s1 .service-satellite,.planet-system .s3 .service-satellite,.planet-system .s4 .service-satellite,.planet-system .s11 .service-satellite { animation-duration: 92s !important; }
+          .planet-system .s2 .service-satellite,.planet-system .s5 .service-satellite,.planet-system .s7 .service-satellite { animation-duration: 102s !important; }
+
+          .planet-system .s6,.planet-system .s6 .service-satellite { animation-delay: 0s !important; }
+          .planet-system .s8,.planet-system .s8 .service-satellite { animation-delay: -20.5s !important; }
+          .planet-system .s9,.planet-system .s9 .service-satellite { animation-delay: -41s !important; }
+          .planet-system .s10,.planet-system .s10 .service-satellite { animation-delay: -61.5s !important; }
+
+          .planet-system .s1,.planet-system .s1 .service-satellite { animation-delay: -11.5s !important; }
+          .planet-system .s3,.planet-system .s3 .service-satellite { animation-delay: -34.5s !important; }
+          .planet-system .s4,.planet-system .s4 .service-satellite { animation-delay: -57.5s !important; }
+          .planet-system .s11,.planet-system .s11 .service-satellite { animation-delay: -80.5s !important; }
+
+          .planet-system .s2,.planet-system .s2 .service-satellite { animation-delay: -8s !important; }
+          .planet-system .s5,.planet-system .s5 .service-satellite { animation-delay: -42s !important; }
+          .planet-system .s7,.planet-system .s7 .service-satellite { animation-delay: -76s !important; }
 
           .planet-system .service-satellite {
             animation-name: mobile-counter-orbit !important;
-            animation-duration: inherit !important;
             animation-timing-function: linear !important;
             animation-iteration-count: infinite !important;
             animation-direction: normal !important;
@@ -152,10 +164,9 @@ export default function MotionSystem() {
         }
 
         @media (max-width: 380px) {
-          .planet-system .s1,.planet-system .s5,.planet-system .s9{--orbit-size:256px}
-          .planet-system .s2,.planet-system .s6,.planet-system .s10{--orbit-size:310px}
-          .planet-system .s3,.planet-system .s7,.planet-system .s11{--orbit-size:358px}
-          .planet-system .s4,.planet-system .s8{--orbit-size:400px}
+          .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 { --orbit-size: 258px; }
+          .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 { --orbit-size: 320px; }
+          .planet-system .s2,.planet-system .s5,.planet-system .s7 { --orbit-size: 382px; }
           .planet-system .service-satellite { max-width: 138px; }
           .planet-system .service-satellite span { font-size: 10px; }
         }
