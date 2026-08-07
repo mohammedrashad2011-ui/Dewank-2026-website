@@ -7,6 +7,9 @@ const services = [
   { name: "SEO & AEO", href: "/seo-aeo", position: "s6" },
   { name: "أتمتة الذكاء الاصطناعي", href: "/ai-automation", position: "s7" },
   { name: "أتمتة واتساب", href: "/whatsapp-automation", position: "s8" },
+  { name: "المواقع", href: "/website-design", position: "s9" },
+  { name: "السوشيال", href: "/services/social-media-content", position: "s10" },
+  { name: "أسماء البراند", href: "/services/brand-naming", position: "s11" },
 ] as const;
 
 export default function MotionSystem() {
@@ -35,6 +38,22 @@ export default function MotionSystem() {
       </div>
 
       <style>{`
+        .planet-system .s9 {
+          --orbit-size: 338px;
+          animation-delay: -5.5s !important;
+        }
+        .planet-system .s10 {
+          --orbit-size: 438px;
+          animation-delay: -15.5s !important;
+        }
+        .planet-system .s11 {
+          --orbit-size: 548px;
+          animation-delay: -24.5s !important;
+        }
+        .planet-system .s9 .service-satellite { animation-delay: -5.5s !important; }
+        .planet-system .s10 .service-satellite { animation-delay: -15.5s !important; }
+        .planet-system .s11 .service-satellite { animation-delay: -24.5s !important; }
+
         @media (max-width: 640px) {
           .planet-system .space-glow,
           .planet-system .ring-b,
@@ -58,9 +77,15 @@ export default function MotionSystem() {
           .planet-system .s2,
           .planet-system .s4,
           .planet-system .s6,
-          .planet-system .s8 {
+          .planet-system .s8,
+          .planet-system .s10 {
             --orbit-size: 392px;
             animation-duration: 40s !important;
+          }
+          .planet-system .s9,
+          .planet-system .s11 {
+            --orbit-size: 338px;
+            animation-duration: 36s !important;
           }
 
           .planet-system .service-satellite {
@@ -83,19 +108,25 @@ export default function MotionSystem() {
           .planet-system .s3 { animation-delay: -8s !important; }
           .planet-system .s5 { animation-delay: -16s !important; }
           .planet-system .s7 { animation-delay: -24s !important; }
+          .planet-system .s9 { animation-delay: -6s !important; }
+          .planet-system .s11 { animation-delay: -18s !important; }
           .planet-system .s2 { animation-delay: 0s !important; }
           .planet-system .s4 { animation-delay: -10s !important; }
           .planet-system .s6 { animation-delay: -20s !important; }
           .planet-system .s8 { animation-delay: -30s !important; }
+          .planet-system .s10 { animation-delay: -5s !important; }
 
           .planet-system .s1 .service-satellite { animation-delay: 0s !important; }
           .planet-system .s3 .service-satellite { animation-delay: -8s !important; }
           .planet-system .s5 .service-satellite { animation-delay: -16s !important; }
           .planet-system .s7 .service-satellite { animation-delay: -24s !important; }
+          .planet-system .s9 .service-satellite { animation-delay: -6s !important; }
+          .planet-system .s11 .service-satellite { animation-delay: -18s !important; }
           .planet-system .s2 .service-satellite { animation-delay: 0s !important; }
           .planet-system .s4 .service-satellite { animation-delay: -10s !important; }
           .planet-system .s6 .service-satellite { animation-delay: -20s !important; }
           .planet-system .s8 .service-satellite { animation-delay: -30s !important; }
+          .planet-system .s10 .service-satellite { animation-delay: -5s !important; }
 
           .planet-system:active .satellite-track,
           .planet-system:active .service-satellite,
@@ -119,7 +150,10 @@ export default function MotionSystem() {
           .planet-system .s2,
           .planet-system .s4,
           .planet-system .s6,
-          .planet-system .s8 { --orbit-size: 352px; }
+          .planet-system .s8,
+          .planet-system .s10 { --orbit-size: 352px; }
+          .planet-system .s9,
+          .planet-system .s11 { --orbit-size: 310px; }
           .planet-system .service-satellite { max-width: 138px; }
           .planet-system .service-satellite span { font-size: 10px; }
         }
