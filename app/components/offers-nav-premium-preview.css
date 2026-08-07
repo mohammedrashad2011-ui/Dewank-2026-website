@@ -3,63 +3,118 @@
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
-  min-height:42px!important;
-  padding:9px 15px!important;
-  border:1px solid rgba(185,139,39,.28)!important;
-  border-radius:14px!important;
-  background:rgba(242,239,231,.68)!important;
-  color:#10244b!important;
-  box-shadow:0 6px 18px rgba(16,36,75,.06)!important;
-  -webkit-backdrop-filter:blur(10px) saturate(115%);
-  backdrop-filter:blur(10px) saturate(115%);
-  transition:background .2s ease,color .2s ease,transform .2s ease,border-color .2s ease,box-shadow .2s ease!important;
-}
-
-.offers-nav-link:before{
-  content:"";
-  position:absolute;
-  inset:1px;
-  border-radius:12px;
-  background:linear-gradient(135deg,rgba(255,255,255,.46),rgba(255,255,255,.08));
-  pointer-events:none;
+  min-height:auto!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:inherit!important;
+  box-shadow:none!important;
+  overflow:visible;
+  isolation:isolate;
 }
 
 .offers-nav-link:after{
-  display:none!important;
+  content:""!important;
+  position:absolute!important;
+  right:0!important;
+  bottom:-8px!important;
+  width:100%!important;
+  height:3px!important;
+  background:linear-gradient(90deg,transparent 0%,rgba(226,187,98,.35) 18%,rgba(226,187,98,.95) 50%,rgba(226,187,98,.35) 82%,transparent 100%)!important;
+  transform:scaleX(.18);
+  transform-origin:center;
+  opacity:.55;
+  animation:offersUnderlinePulse 2.8s ease-in-out infinite;
 }
 
 .offers-nav-link .offers-nav-label{
   position:relative;
+  z-index:2;
+  display:inline-block;
+  font:inherit;
+  font-weight:inherit;
+  line-height:inherit;
+  color:inherit;
+  text-shadow:0 0 0 rgba(226,187,98,0);
+  animation:offersSoftGlow 2.8s ease-in-out infinite;
+}
+
+.offers-nav-shimmer{
+  position:absolute;
   z-index:1;
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  font-weight:700;
-  line-height:1;
+  top:50%;
+  left:-16%;
+  width:34%;
+  height:145%;
+  transform:translate(-140%,-50%) skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.76),rgba(226,187,98,.42),transparent);
+  filter:blur(.2px);
+  opacity:0;
+  pointer-events:none;
+  animation:offersSweep 3.4s ease-in-out infinite;
 }
 
-.offers-nav-link .offers-nav-spark{
-  font-size:11px;
-  line-height:1;
-  color:#b98b27;
-  transition:color .2s ease,transform .2s ease;
+.offers-nav-confetti{
+  position:absolute;
+  z-index:3;
+  top:50%;
+  left:50%;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#d8a93b;
+  opacity:0;
+  pointer-events:none;
+  box-shadow:
+    -18px -13px 0 -1px #1647ff,
+    18px -15px 0 -1px #ff5438,
+    -24px 4px 0 -1px #d8a93b,
+    24px 2px 0 -1px #1647ff,
+    -12px 15px 0 -1px #ff5438,
+    13px 16px 0 -1px #d8a93b;
+  animation:offersConfettiPop 4.6s ease-out infinite;
 }
 
-.offers-nav-link .offers-nav-arrow{
-  display:none;
+.offers-nav-link:hover .offers-nav-label{
+  color:#10244b;
 }
 
-.offers-nav-link:hover{
-  background:rgba(255,255,255,.78)!important;
-  border-color:rgba(185,139,39,.48)!important;
-  color:#10244b!important;
-  box-shadow:0 9px 24px rgba(16,36,75,.1)!important;
-  transform:translateY(-1px);
-  -webkit-backdrop-filter:blur(13px) saturate(125%);
-  backdrop-filter:blur(13px) saturate(125%);
+.offers-nav-link:hover:after{
+  transform:scaleX(1);
+  opacity:1;
 }
 
-.offers-nav-link:hover .offers-nav-spark{
-  color:#9d7318;
-  transform:rotate(12deg) scale(1.06);
+@keyframes offersSoftGlow{
+  0%,100%{text-shadow:0 0 0 rgba(226,187,98,0)}
+  48%{text-shadow:0 0 8px rgba(226,187,98,.28)}
+  58%{text-shadow:0 0 13px rgba(226,187,98,.5)}
+  70%{text-shadow:0 0 5px rgba(226,187,98,.2)}
+}
+
+@keyframes offersUnderlinePulse{
+  0%,100%{transform:scaleX(.18);opacity:.38}
+  50%{transform:scaleX(.54);opacity:.72}
+  64%{transform:scaleX(.28);opacity:.48}
+}
+
+@keyframes offersSweep{
+  0%,48%{transform:translate(-140%,-50%) skewX(-18deg);opacity:0}
+  54%{opacity:.72}
+  69%{transform:translate(420%,-50%) skewX(-18deg);opacity:0}
+  100%{transform:translate(420%,-50%) skewX(-18deg);opacity:0}
+}
+
+@keyframes offersConfettiPop{
+  0%,66%,100%{transform:translate(-50%,-50%) scale(.35) rotate(0deg);opacity:0}
+  68%{opacity:.9}
+  75%{transform:translate(-50%,-50%) scale(1.08) rotate(12deg);opacity:.75}
+  84%{transform:translate(-50%,-50%) scale(1.42) rotate(22deg);opacity:0}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .offers-nav-link:after,
+  .offers-nav-link .offers-nav-label,
+  .offers-nav-shimmer,
+  .offers-nav-confetti{animation:none!important}
 }
