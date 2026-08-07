@@ -7,6 +7,9 @@ const services = [
   { name: "SEO & AEO", href: "/seo-aeo", position: "s6" },
   { name: "أتمتة الذكاء الاصطناعي", href: "/ai-automation", position: "s7" },
   { name: "أتمتة واتساب", href: "/whatsapp-automation", position: "s8" },
+  { name: "المواقع", href: "/website-design", position: "s9" },
+  { name: "السوشيال", href: "/services/social-media-content", position: "s10" },
+  { name: "أسماء البراند", href: "/services/brand-naming", position: "s11" },
 ] as const;
 
 export default function MotionSystem() {
@@ -31,10 +34,53 @@ export default function MotionSystem() {
           </div>
         ))}
 
-        <div className="system-caption"><i /> ONE CONNECTED SYSTEM</div>
+        <div className="system-caption"><i /> اختر الخدمة التي تحتاجها</div>
       </div>
 
       <style>{`
+        .planet-system .system-caption {
+          direction: rtl;
+          font-family: var(--font-arabic), Arial, sans-serif;
+          letter-spacing: 0;
+          font-weight: 700;
+        }
+
+        /* Three stable orbital bands. Items on the same band share one speed,
+           so their spacing stays fixed instead of slowly catching each other. */
+        .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 {
+          --orbit-size: 330px;
+          animation-duration: 78s !important;
+        }
+        .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 {
+          --orbit-size: 432px;
+          animation-duration: 88s !important;
+        }
+        .planet-system .s2,.planet-system .s5,.planet-system .s7 {
+          --orbit-size: 542px;
+          animation-duration: 98s !important;
+        }
+
+        .planet-system .s6 .service-satellite,.planet-system .s8 .service-satellite,.planet-system .s9 .service-satellite,.planet-system .s10 .service-satellite { animation-duration: 78s !important; }
+        .planet-system .s1 .service-satellite,.planet-system .s3 .service-satellite,.planet-system .s4 .service-satellite,.planet-system .s11 .service-satellite { animation-duration: 88s !important; }
+        .planet-system .s2 .service-satellite,.planet-system .s5 .service-satellite,.planet-system .s7 .service-satellite { animation-duration: 98s !important; }
+
+        /* Inner band: four equal 90-degree starting positions. */
+        .planet-system .s6,.planet-system .s6 .service-satellite { animation-delay: 0s !important; }
+        .planet-system .s8,.planet-system .s8 .service-satellite { animation-delay: -19.5s !important; }
+        .planet-system .s9,.planet-system .s9 .service-satellite { animation-delay: -39s !important; }
+        .planet-system .s10,.planet-system .s10 .service-satellite { animation-delay: -58.5s !important; }
+
+        /* Middle band: four equal 90-degree starting positions, offset from inner. */
+        .planet-system .s1,.planet-system .s1 .service-satellite { animation-delay: -11s !important; }
+        .planet-system .s3,.planet-system .s3 .service-satellite { animation-delay: -33s !important; }
+        .planet-system .s4,.planet-system .s4 .service-satellite { animation-delay: -55s !important; }
+        .planet-system .s11,.planet-system .s11 .service-satellite { animation-delay: -77s !important; }
+
+        /* Outer band: three equal 120-degree starting positions. */
+        .planet-system .s2,.planet-system .s2 .service-satellite { animation-delay: -8s !important; }
+        .planet-system .s5,.planet-system .s5 .service-satellite { animation-delay: -40.67s !important; }
+        .planet-system .s7,.planet-system .s7 .service-satellite { animation-delay: -73.33s !important; }
+
         @media (max-width: 640px) {
           .planet-system .space-glow,
           .planet-system .ring-b,
@@ -46,26 +92,47 @@ export default function MotionSystem() {
           .planet-system .ring-c { opacity: .28; }
 
           .planet-system .satellite-track {
-            --orbit-size: 292px;
             animation-name: mobile-orbit !important;
-            animation-duration: 32s !important;
             animation-timing-function: linear !important;
             animation-iteration-count: infinite !important;
             animation-direction: normal !important;
             transform-origin: 50% 50%;
             will-change: transform;
           }
-          .planet-system .s2,
-          .planet-system .s4,
-          .planet-system .s6,
-          .planet-system .s8 {
-            --orbit-size: 392px;
-            animation-duration: 40s !important;
+
+          .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 {
+            --orbit-size: 282px;
+            animation-duration: 82s !important;
           }
+          .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 {
+            --orbit-size: 354px;
+            animation-duration: 92s !important;
+          }
+          .planet-system .s2,.planet-system .s5,.planet-system .s7 {
+            --orbit-size: 428px;
+            animation-duration: 102s !important;
+          }
+
+          .planet-system .s6 .service-satellite,.planet-system .s8 .service-satellite,.planet-system .s9 .service-satellite,.planet-system .s10 .service-satellite { animation-duration: 82s !important; }
+          .planet-system .s1 .service-satellite,.planet-system .s3 .service-satellite,.planet-system .s4 .service-satellite,.planet-system .s11 .service-satellite { animation-duration: 92s !important; }
+          .planet-system .s2 .service-satellite,.planet-system .s5 .service-satellite,.planet-system .s7 .service-satellite { animation-duration: 102s !important; }
+
+          .planet-system .s6,.planet-system .s6 .service-satellite { animation-delay: 0s !important; }
+          .planet-system .s8,.planet-system .s8 .service-satellite { animation-delay: -20.5s !important; }
+          .planet-system .s9,.planet-system .s9 .service-satellite { animation-delay: -41s !important; }
+          .planet-system .s10,.planet-system .s10 .service-satellite { animation-delay: -61.5s !important; }
+
+          .planet-system .s1,.planet-system .s1 .service-satellite { animation-delay: -11.5s !important; }
+          .planet-system .s3,.planet-system .s3 .service-satellite { animation-delay: -34.5s !important; }
+          .planet-system .s4,.planet-system .s4 .service-satellite { animation-delay: -57.5s !important; }
+          .planet-system .s11,.planet-system .s11 .service-satellite { animation-delay: -80.5s !important; }
+
+          .planet-system .s2,.planet-system .s2 .service-satellite { animation-delay: -8s !important; }
+          .planet-system .s5,.planet-system .s5 .service-satellite { animation-delay: -42s !important; }
+          .planet-system .s7,.planet-system .s7 .service-satellite { animation-delay: -76s !important; }
 
           .planet-system .service-satellite {
             animation-name: mobile-counter-orbit !important;
-            animation-duration: inherit !important;
             animation-timing-function: linear !important;
             animation-iteration-count: infinite !important;
             animation-direction: normal !important;
@@ -78,24 +145,6 @@ export default function MotionSystem() {
             white-space: nowrap;
             font-size: 11px;
           }
-
-          .planet-system .s1 { animation-delay: 0s !important; }
-          .planet-system .s3 { animation-delay: -8s !important; }
-          .planet-system .s5 { animation-delay: -16s !important; }
-          .planet-system .s7 { animation-delay: -24s !important; }
-          .planet-system .s2 { animation-delay: 0s !important; }
-          .planet-system .s4 { animation-delay: -10s !important; }
-          .planet-system .s6 { animation-delay: -20s !important; }
-          .planet-system .s8 { animation-delay: -30s !important; }
-
-          .planet-system .s1 .service-satellite { animation-delay: 0s !important; }
-          .planet-system .s3 .service-satellite { animation-delay: -8s !important; }
-          .planet-system .s5 .service-satellite { animation-delay: -16s !important; }
-          .planet-system .s7 .service-satellite { animation-delay: -24s !important; }
-          .planet-system .s2 .service-satellite { animation-delay: 0s !important; }
-          .planet-system .s4 .service-satellite { animation-delay: -10s !important; }
-          .planet-system .s6 .service-satellite { animation-delay: -20s !important; }
-          .planet-system .s8 .service-satellite { animation-delay: -30s !important; }
 
           .planet-system:active .satellite-track,
           .planet-system:active .service-satellite,
@@ -115,11 +164,9 @@ export default function MotionSystem() {
         }
 
         @media (max-width: 380px) {
-          .planet-system .satellite-track { --orbit-size: 270px; }
-          .planet-system .s2,
-          .planet-system .s4,
-          .planet-system .s6,
-          .planet-system .s8 { --orbit-size: 352px; }
+          .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 { --orbit-size: 258px; }
+          .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 { --orbit-size: 320px; }
+          .planet-system .s2,.planet-system .s5,.planet-system .s7 { --orbit-size: 382px; }
           .planet-system .service-satellite { max-width: 138px; }
           .planet-system .service-satellite span { font-size: 10px; }
         }
