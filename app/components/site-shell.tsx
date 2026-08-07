@@ -27,7 +27,11 @@ export function Header() {
         <Link className="brand-logo" href="/" aria-label="ديوانك - الرئيسية"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link>
         <nav aria-label="التنقل الرئيسي">
           <ServicesMenu />
-          <Link className="offers-nav-link" href="/offers" aria-label="العروض"><span className="offers-nav-label">العروض</span></Link>
+          <Link className="offers-nav-link" href="/offers" aria-label="العروض">
+            <span className="offers-nav-shimmer" aria-hidden="true" />
+            <span className="offers-nav-confetti" aria-hidden="true" />
+            <span className="offers-nav-label">العروض</span>
+          </Link>
           <Link href="/work">أعمالنا</Link>
           <Link href="/guides">أدلة النمو</Link>
           <Link href="/about">عن ديوانك</Link>
