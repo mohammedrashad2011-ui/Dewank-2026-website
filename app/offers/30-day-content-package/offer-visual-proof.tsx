@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { novaImage } from "./showcase-data/nova";
+import { novaImage } from "./showcase-data-hq/nova";
 import { coffeeImage } from "./showcase-data/coffee";
 import { travelImage } from "./showcase-data/travel";
 import { chickenImage } from "./showcase-data/chicken";
 import { bakeryImage } from "./showcase-data/bakery";
-import { madarImage } from "./showcase-data/madar";
+import { madarImage } from "./showcase-data-hq/madar";
 import { skincareImage } from "./showcase-data/skincare";
 
 const showcaseItems = [
