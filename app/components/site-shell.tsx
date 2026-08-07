@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MobileNavigation } from "./mobile-navigation";
 import { ServicesMenu } from "./services-menu";
+import "./offers-nav-premium-preview.css";
 
 const footerServices = [
   ["/branding", "البراند والهوية"],
@@ -26,7 +27,9 @@ export function Header() {
         <Link className="brand-logo" href="/" aria-label="ديوانك - الرئيسية"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link>
         <nav aria-label="التنقل الرئيسي">
           <ServicesMenu />
-          <Link className="offers-nav-link" href="/offers" aria-label="العروض الجديدة"><span className="offers-new-badge">جديد</span><span className="offers-nav-label"><span aria-hidden="true">✦</span> العروض</span></Link>
+          <Link className="offers-nav-link" href="/offers" aria-label="العروض">
+            <span className="offers-nav-label"><span className="offers-nav-spark" aria-hidden="true">✦</span><span>العروض</span><span className="offers-nav-arrow" aria-hidden="true">←</span></span>
+          </Link>
           <Link href="/work">أعمالنا</Link>
           <Link href="/guides">أدلة النمو</Link>
           <Link href="/about">عن ديوانك</Link>
