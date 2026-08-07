@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import "./mobile-site-structure-preview.css";
 
 const mobileGroups = [
   {
