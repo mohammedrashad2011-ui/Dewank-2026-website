@@ -27,7 +27,6 @@ export default function OfferVisualProof() {
       <div className="offer-visual-proof-head">
         <span className="section-label">[ مستوى التنفيذ ]</span>
         <h2 id="offer-visual-proof-title">شوف مستوى المحتوى قبل ما تحجز.</h2>
-        <p>نماذج توضيحية لاتجاهات بصرية مختلفة، لأن كل نشاط له شخصية مختلفة. الهدف أن تتخيّل مستوى الظهور الذي يمكن أن يصل إليه حسابك.</p>
       </div>
 
       <div className="offer-showcase-grid">
