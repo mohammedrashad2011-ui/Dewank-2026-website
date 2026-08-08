@@ -231,6 +231,16 @@
 .offer-final-cta h2 { max-width: 850px; margin: 18px auto 14px; font-size: clamp(39px, 6vw, 76px); line-height: 1.16; }
 .offer-final-cta p { color: rgba(245,240,231,.68); margin-bottom: 28px; }
 
+.offer-visual-proof,
+.offer-deliverables,
+.offer-fit,
+.offer-confidence,
+.offer-faq,
+.offer-final-cta {
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
+}
+
 @media (max-width: 860px) {
   .offer-card, .offers-note { grid-column: 1 / -1; }
   .offer-detail-hero, .offer-deliverables { grid-template-columns: 1fr; }
