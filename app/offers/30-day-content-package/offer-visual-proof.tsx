@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const showcaseItems = [
-  { label: "ترفيه", brand: "Nova Play", image: "/showcase/content/nova-play.png", alt: "تصميم سوشيال ميديا احترافي لتطبيق ترفيهي بألوان زرقاء وإخراج بصري حديث من ديوانك" },
-  { label: "مقهى", brand: "بُنّة", image: "/showcase/content/bunnah.png", alt: "تصميم محتوى إنستقرام لمقهى عربي يعرض القهوة والحلوى بأسلوب دافئ واحترافي من ديوانك" },
-  { label: "سفر", brand: "رحلة", image: "/showcase/content/rihla.png", alt: "تصميم سوشيال ميديا للسفر والسياحة مع واجهة حجز وتجربة بصرية مستوحاة من الطبيعة" },
-  { label: "مطعم", brand: "قرمشة", image: "/showcase/content/qrmsha.png", alt: "تصميم إعلان سوشيال ميديا لمطعم دجاج مقرمش بتكوين إعلاني قوي ودعوة واضحة للطلب" },
-  { label: "مخبوزات", brand: "Buno", image: "/showcase/content/buno.png", alt: "تصميم محتوى إنستقرام لمخبز وكروسان بهوية مرحة وتغليف وعرض منتج احترافي" },
-  { label: "خدمات احترافية", brand: "Madar", image: "/showcase/content/madar.png", alt: "تصميم سوشيال ميديا لخدمات احترافية واستراتيجية أعمال موجهة للسوق الخليجي" },
-  { label: "عناية ومنتجات", brand: "Calm Root", image: "/showcase/content/calm-root.png", alt: "تصميم إعلان سوشيال ميديا لمنتجات عناية شخصية بهوية زرقاء نظيفة وعرض منتج احترافي" },
+  { label: "ترفيه", brand: "Nova Play", image: "/showcase/content/nova-play.webp", alt: "تصميم سوشيال ميديا احترافي لتطبيق ترفيهي بألوان زرقاء وإخراج بصري حديث من ديوانك" },
+  { label: "مقهى", brand: "بُنّة", image: "/showcase/content/bunnah.webp", alt: "تصميم محتوى إنستقرام لمقهى عربي يعرض القهوة والحلوى بأسلوب دافئ واحترافي من ديوانك" },
+  { label: "سفر", brand: "رحلة", image: "/showcase/content/rihla.webp", alt: "تصميم سوشيال ميديا للسفر والسياحة مع واجهة حجز وتجربة بصرية مستوحاة من الطبيعة" },
+  { label: "مطعم", brand: "قرمشة", image: "/showcase/content/qrmsha.webp", alt: "تصميم إعلان سوشيال ميديا لمطعم دجاج مقرمش بتكوين إعلاني قوي ودعوة واضحة للطلب" },
+  { label: "مخبوزات", brand: "Buno", image: "/showcase/content/buno.webp", alt: "تصميم محتوى إنستقرام لمخبز وكروسان بهوية مرحة وتغليف وعرض منتج احترافي" },
+  { label: "خدمات احترافية", brand: "Madar", image: "/showcase/content/madar.webp", alt: "تصميم سوشيال ميديا لخدمات احترافية واستراتيجية أعمال موجهة للسوق الخليجي" },
+  { label: "عناية ومنتجات", brand: "Calm Root", image: "/showcase/content/calm-root.webp", alt: "تصميم إعلان سوشيال ميديا لمنتجات عناية شخصية بهوية زرقاء نظيفة وعرض منتج احترافي" },
 ] as const;
 
 export default function OfferVisualProof() {
@@ -79,7 +79,7 @@ export default function OfferVisualProof() {
                       alt={item.alt}
                       width={1122}
                       height={1402}
-                      quality={75}
+                      quality={85}
                       sizes="(max-width: 520px) 78vw, (max-width: 820px) 360px, 400px"
                       loading="lazy"
                       fetchPriority="low"
