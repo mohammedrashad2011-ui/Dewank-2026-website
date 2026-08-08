@@ -1,6 +1,36 @@
 import type { ReactNode } from "react";
-import "./services-compact-preview.css";
+
+const compactServicesCss = `
+@media (min-width: 901px) {
+  .services-page-refined .service-group { padding-top: clamp(44px, 4.8vw, 66px); }
+  .services-page-refined .service-group-head { gap: 8px; margin-bottom: 18px; padding-bottom: 14px; }
+  .services-page-refined .service-group-head .section-label { font-size: 18px; font-weight: 900; letter-spacing: .02em; transform: translateY(-9px); }
+  .services-page-refined .service-group-head h2 { font-size: clamp(34px, 3.45vw, 48px); }
+  .services-page-refined .service-group-head p { max-width: 720px; font-size: 14px; line-height: 1.65; }
+  .services-page-refined .services-grid-refined { gap: 16px; }
+  .services-page-refined .services-grid-refined .service-detail { min-height: 405px; border-radius: 24px; grid-template-columns: minmax(170px, 32%) minmax(0, 68%); column-gap: clamp(28px, 3.2vw, 48px); padding-top: 24px; padding-bottom: 24px; }
+  .services-page-refined .services-grid-refined .service-detail:nth-child(3):last-child { min-height: 360px; }
+  .services-page-refined .career-service-last .service-detail { min-height: 345px; }
+  .services-page-refined .services-grid-refined .detail-copy h2 { font-size: clamp(26px, 2.85vw, 41px); line-height: 1.15; margin-bottom: 14px; }
+  .services-page-refined .services-grid-refined .detail-copy p { line-height: 1.72; margin-top: 0; margin-bottom: 16px; }
+  .services-page-refined .services-grid-refined .tag-row { margin-top: 12px; }
+  .services-page-refined .services-grid-refined .detail-link { margin-top: 6px; }
+  .services-page-refined .services-grid-refined .service-symbol,
+  .services-page-refined .services-grid-refined .ai-control-room { transform: scale(.9); transform-origin: center; }
+  .services-page-refined .service-detail:hover .service-symbol.name-monogram,
+  .services-page-refined .service-detail:hover .service-symbol.strategy-compass,
+  .services-page-refined .service-detail:hover .service-symbol.ad-signal,
+  .services-page-refined .service-detail:hover .service-symbol.conversion-funnel,
+  .services-page-refined .service-detail:hover .service-symbol.analytics-bars { transform: scale(.9) translateY(-5px); }
+}
+@media (min-width: 621px) and (max-width: 900px) {
+  .services-page-refined .service-group-head .section-label { font-size: 17px; font-weight: 900; transform: translateY(-7px); }
+  .services-page-refined .services-grid-refined .service-detail { min-height: 390px; padding-top: 22px; padding-bottom: 22px; }
+  .services-page-refined .services-grid-refined .service-symbol,
+  .services-page-refined .services-grid-refined .ai-control-room { transform: scale(.92); transform-origin: center; }
+}
+`;
 
 export default function ServicesLayout({ children }: { children: ReactNode }) {
-  return children;
+  return <><style>{compactServicesCss}</style>{children}</>;
 }
