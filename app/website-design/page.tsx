@@ -198,7 +198,7 @@ export default function WebsiteDesignPage() {
 
       <section className="wd-faq shell"><div className="wd-faq-head"><div><span className="wd-label">[ أسئلة شائعة ]</span><h2>قبل أن نبدأ.</h2></div><p>إجابات مباشرة عن النطاق والمدة والمحتوى والتطوير والربط.</p></div><div className="wd-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></section>
 
-      <section className="wd-final shell"><div><span className="wd-label">[ الخطوة التالية ]</span><h2>لنَبْنِ موقعًا<br/><em>يستحق الزيارة.</em></h2></div><div className="wd-final-actions"><p>أرسل لنا رابط موقعك الحالي أو وصف المشروع، وسنناقش الأولوية والنطاق الأنسب.</p><Link className="button primary" href="/contact">ابدأ المحادثة <span>←</span></Link><div className="wd-related"><Link href="/branding">استراتيجية البراند</Link><Link href="/digital-marketing">التسويق والمحتوى</Link><Link href="/seo-aeo">SEO وAEO</Link></div></div></section>
+      <section className="wd-final shell"><div><span className="wd-label">[ الخطوة التالية ]</span><h2>لنَبْنِ موقعًا<br/><em>يستحق الزيارة.</em></h2></div><div className="wd-final-actions"><p>أرسل لنا رابط موقعك الحالي أو وصف المشروع، وسنناقش الأولوية والنطاق الأنسب.</p><Link className="button primary" href="/contact">ابدأ المحادثة <span>←</span></Link><div className="wd-related"><Link href="/guides/website-design-cost-saudi-arabia">اعرف تكلفة تصميم المواقع في السعودية</Link><Link href="/branding">استراتيجية البراند</Link><Link href="/digital-marketing">التسويق والمحتوى</Link><Link href="/seo-aeo">SEO وAEO</Link></div></div></section>
       <Footer />
     </main>
   );
