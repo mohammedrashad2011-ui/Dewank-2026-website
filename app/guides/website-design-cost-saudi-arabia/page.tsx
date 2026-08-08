@@ -22,7 +22,7 @@ const faqs = [
 export default function WebsiteDesignCostGuide() {
   const url = `${siteUrl}/guides/website-design-cost-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar-SA", datePublished: "2026-08-03", dateModified: "2026-08-03", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تصميم المواقع", "تكلفة المواقع الإلكترونية", "السوق السعودي"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar-SA", datePublished: "2026-08-03", dateModified: "2026-08-08", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تصميم المواقع", "تكلفة المواقع الإلكترونية", "السوق السعودي"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -33,13 +33,14 @@ export default function WebsiteDesignCostGuide() {
       <header className="article-hero shell">
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>تصميم المواقع</span></nav>
         <h1>{title}</h1><p>السؤال الصحيح ليس: «كم سعر الموقع؟» فقط. السؤال الأدق: ما الموقع الذي يحتاجه نشاطك، وما الذي يجب أن يحققه حتى يكون استثمارًا بدل أن يصبح مجرد واجهة جميلة؟</p>
-        <div className="article-meta"><span>آخر تحديث: 3 أغسطس 2026</span><span>وقت القراءة: 7 دقائق</span><span>السوق: السعودية</span></div>
+        <div className="article-meta"><span>آخر تحديث: 8 أغسطس 2026</span><span>وقت القراءة: 7 دقائق</span><span>السوق: السعودية</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
           <h2 id="short-answer">الإجابة المختصرة</h2>
           <div className="article-answer"><p>تكلفة تصميم الموقع في السعودية تتحدد حسب النوع والنطاق والوظائف، لا حسب عدد الصفحات وحده. ابدأ بتحديد الهدف، ثم اطلب عرضًا يفصل التصميم والتطوير والمحتوى والتهيئة التقنية والدعم.</p></div>
           <p>قد تتلقى عرضين يبدوان متشابهين في العنوان ويختلفان جذريًا في القيمة. أحدهما قد يشمل استراتيجية المحتوى وتجربة الجوال وربط التحليلات وتحسين السرعة، بينما الآخر يسلّم قالبًا مع تعديلات محدودة. لذلك المقارنة بالسعر النهائي وحده مضللة.</p>
+          <p>إذا كنت تجاوزت مرحلة مقارنة الأسعار وتريد معرفة ما الذي يشمله التنفيذ فعليًا، راجع <Link href="/website-design">خدمة تصميم وتطوير المواقع في السعودية</Link> لتفهم نطاق العمل من الاستراتيجية وUX حتى التطوير والقياس.</p>
 
           <h2 id="types">نوع الموقع يغيّر التكلفة</h2>
           <div className="article-table"><table><thead><tr><th>نوع المشروع</th><th>ما يتضمنه عادةً</th><th>سبب اختلاف التكلفة</th></tr></thead><tbody>
