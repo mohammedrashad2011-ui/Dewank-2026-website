@@ -38,6 +38,39 @@ export default function MotionSystem() {
       </div>
 
       <style>{`
+        /* Keep the homepage LCP copy immediately paintable. */
+        .studio-home .hybrid-hero,
+        .studio-home .hero-copy,
+        .studio-home .hero-copy h1,
+        .studio-home .hero-copy > p {
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: none !important;
+          animation: none !important;
+          transition: none !important;
+        }
+
+        /* Skip layout/paint work for sections that are well below the first viewport. */
+        .studio-home .belief,
+        .studio-home .trust-strip,
+        .studio-home .proof-section,
+        .studio-home .bento-section,
+        .studio-home .work-section,
+        .studio-home .case-study,
+        .studio-home .method-section,
+        .studio-home .seo-content,
+        .studio-home .faq-section,
+        .studio-home .final-cta {
+          content-visibility: auto;
+          contain-intrinsic-size: auto 820px;
+        }
+
+        /* Lighthouse contrast fix for the method section labels and step numbers. */
+        .studio-home .method-section .section-label,
+        .studio-home .method-list > div > span {
+          color: #4a4d55 !important;
+        }
+
         .planet-system .system-caption {
           direction: rtl;
           font-family: var(--font-arabic), Arial, sans-serif;
@@ -82,6 +115,12 @@ export default function MotionSystem() {
         .planet-system .s7,.planet-system .s7 .service-satellite { animation-delay: -73.33s !important; }
 
         @media (max-width: 640px) {
+          /* The orbital art starts after the LCP copy on mobile. Defer its paint until needed. */
+          .studio-home .hero-system {
+            content-visibility: auto;
+            contain-intrinsic-size: 470px;
+          }
+
           .planet-system .space-glow,
           .planet-system .ring-b,
           .planet-system .ring-c {
