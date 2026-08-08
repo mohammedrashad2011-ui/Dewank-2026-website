@@ -18,6 +18,7 @@ export default function OfferVisualProof() {
   const [sectionReady, setSectionReady] = useState(false);
   const [requested, setRequested] = useState<Set<number>>(new Set());
   const sectionRef = useRef<HTMLElement | null>(null);
+  const sliderRef = useRef<HTMLDivElement | null>(null);
   const slideRefs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
@@ -38,6 +39,52 @@ export default function OfferVisualProof() {
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!sectionReady) return;
+
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length) {
+          const visibleIndex = Number((visible[0].target as HTMLElement).dataset.slideIndex);
+          if (Number.isInteger(visibleIndex)) setActive(visibleIndex);
+        }
+
+        setRequested((current) => {
+          const updated = new Set(current);
+          let changed = false;
+
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const index = Number((entry.target as HTMLElement).dataset.slideIndex);
+            if (!Number.isInteger(index) || updated.has(index)) return;
+            updated.add(index);
+            changed = true;
+          });
+
+          return changed ? updated : current;
+        });
+      },
+      {
+        root: slider,
+        rootMargin: "0px 120px",
+        threshold: [0.01, 0.55],
+      },
+    );
+
+    slideRefs.current.forEach((slide) => {
+      if (slide) observer.observe(slide);
+    });
+
+    return () => observer.disconnect();
+  }, [sectionReady]);
 
   const goTo = (index: number) => {
     const next = (index + showcaseItems.length) % showcaseItems.length;
@@ -61,7 +108,7 @@ export default function OfferVisualProof() {
 
       <div className="offer-slider-shell" dir="rtl">
         <button className="offer-slider-arrow prev" type="button" onClick={() => goTo(active - 1)} aria-label="التصميم السابق">‹</button>
-        <div className="offer-showcase-slider" aria-label="نماذج تصميم سوشيال ميديا" role="region">
+        <div ref={sliderRef} className="offer-showcase-slider" aria-label="نماذج تصميم سوشيال ميديا" role="region">
           {showcaseItems.map((item, index) => {
             const shouldLoad = sectionReady && requested.has(index);
             return (
@@ -69,6 +116,7 @@ export default function OfferVisualProof() {
                 className={`offer-showcase-slide ${index === active ? "active" : ""}`}
                 key={`${item.brand}-${item.label}`}
                 ref={(node) => { slideRefs.current[index] = node; }}
+                data-slide-index={index}
                 itemScope
                 itemType="https://schema.org/CreativeWork"
               >
