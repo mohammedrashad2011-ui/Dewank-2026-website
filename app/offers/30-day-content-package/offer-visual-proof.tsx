@@ -82,10 +82,10 @@ export default function OfferVisualProof() {
                   alt={item.alt}
                   width={1122}
                   height={1402}
-                  quality={100}
+                  quality={88}
                   sizes="(max-width: 520px) 82vw, (max-width: 820px) 400px, 420px"
-                  priority={index === 0}
-                  loading={index === 0 ? undefined : "lazy"}
+                  loading="lazy"
+                  fetchPriority="low"
                   itemProp="image"
                 />
               </div>
