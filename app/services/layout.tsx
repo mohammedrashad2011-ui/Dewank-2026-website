@@ -1,6 +1,24 @@
 import type { ReactNode } from "react";
 
 const compactServicesCss = `
+.services-page-refined > .page-hero,
+.services-page-refined > .page-hero .eyebrow,
+.services-page-refined > .page-hero h1,
+.services-page-refined > .page-hero p {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+.services-page-refined > .page-hero p { content-visibility: visible; }
+.services-page-refined .service-group,
+.services-page-refined .problem-chooser,
+.services-page-refined .services-faq,
+.services-page-refined .services-final-cta {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
 @media (min-width: 901px) {
   .services-page-refined .service-group { padding-top: clamp(44px, 4.8vw, 66px); }
   .services-page-refined .service-group-head { gap: 8px; margin-bottom: 18px; padding-bottom: 14px; }
