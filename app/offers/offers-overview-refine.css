@@ -1,0 +1,179 @@
+.offers-filter-shell > input[type="radio"] {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.offers-filter-bar {
+  display: grid;
+  grid-template-columns: .42fr 1.58fr;
+  gap: 22px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255,255,255,.58);
+}
+
+.offers-filter-copy small {
+  display: block;
+  margin-bottom: 4px;
+  color: #9b711e;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.offers-filter-copy strong {
+  color: var(--offer-navy);
+  font-size: 16px;
+}
+
+.offers-filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.offers-filter-controls label {
+  cursor: pointer;
+  padding: 8px 11px;
+  border: 1px solid rgba(6,26,51,.12);
+  border-radius: 999px;
+  color: var(--offer-navy);
+  background: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.3;
+  transition: border-color .18s ease, background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.offers-filter-controls label:hover {
+  transform: translateY(-1px);
+  border-color: rgba(213,168,67,.62);
+  background: #fffaf0;
+}
+
+.offers-filter-shell:has(#offers-all:checked) label[for="offers-all"],
+.offers-filter-shell:has(#offers-content:checked) label[for="offers-content"],
+.offers-filter-shell:has(#offers-ads:checked) label[for="offers-ads"],
+.offers-filter-shell:has(#offers-web:checked) label[for="offers-web"],
+.offers-filter-shell:has(#offers-brand:checked) label[for="offers-brand"],
+.offers-filter-shell:has(#offers-automation:checked) label[for="offers-automation"] {
+  border-color: rgba(213,168,67,.72);
+  color: #7a5817;
+  background: #fff5d9;
+  box-shadow: inset 0 0 0 1px rgba(213,168,67,.16);
+}
+
+.offers-filter-shell:has(#offers-content:checked) .offers-overview-grid > article:not([data-filter="content"]),
+.offers-filter-shell:has(#offers-ads:checked) .offers-overview-grid > article:not([data-filter="ads"]),
+.offers-filter-shell:has(#offers-web:checked) .offers-overview-grid > article:not([data-filter="web"]),
+.offers-filter-shell:has(#offers-brand:checked) .offers-overview-grid > article:not([data-filter="brand"]),
+.offers-filter-shell:has(#offers-automation:checked) .offers-overview-grid > article:not([data-filter="automation"]) {
+  display: none !important;
+}
+
+.offers-overview-grid > .compact-offer-card {
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.offers-overview-grid > .compact-offer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 52px rgba(2,15,30,.2) !important;
+}
+
+.offer-card-hit {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  border-radius: inherit;
+}
+
+.offer-card-hit:focus-visible {
+  outline: 3px solid var(--offer-gold-soft);
+  outline-offset: -5px;
+}
+
+.offers-overview-grid > .compact-offer-card > *:not(.offer-card-hit) {
+  position: relative;
+  z-index: 2;
+}
+
+.offers-overview-grid .compact-offer-card > p,
+.offers-overview-grid .small-website-offer-card > p,
+.offers-overview-grid .google-ads-offer-card > p,
+.offers-overview-grid .instagram-upgrade-offer-card > p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  min-height: 4.95em;
+}
+
+.offers-overview-grid .offer-card-meta {
+  width: 100%;
+  margin-top: auto !important;
+  padding-top: 22px;
+  align-items: flex-end;
+}
+
+.offers-overview-grid .offer-card-meta > div {
+  min-width: 0;
+}
+
+.offers-overview-grid .offer-card-meta .button {
+  flex: 0 0 auto;
+}
+
+.offers-overview-grid > .compact-offer-card::after {
+  pointer-events: none;
+}
+
+@media (max-width: 980px) {
+  .offers-filter-bar {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .offers-filter-bar {
+    margin-bottom: 16px;
+    padding: 14px;
+    border-radius: 17px;
+  }
+
+  .offers-filter-controls {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .offers-filter-controls label {
+    text-align: center;
+  }
+
+  .offers-overview-grid .compact-offer-card > p,
+  .offers-overview-grid .small-website-offer-card > p,
+  .offers-overview-grid .google-ads-offer-card > p,
+  .offers-overview-grid .instagram-upgrade-offer-card > p {
+    min-height: 0;
+    -webkit-line-clamp: 3;
+  }
+}
+
+@media (max-width: 520px) {
+  .offers-filter-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .offers-filter-controls label:first-child {
+    grid-column: 1 / -1;
+  }
+}
