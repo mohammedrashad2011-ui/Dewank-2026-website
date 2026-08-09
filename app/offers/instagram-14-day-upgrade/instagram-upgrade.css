@@ -1,0 +1,192 @@
+.instagram-upgrade-offer-card {
+  background:
+    radial-gradient(circle at 86% 12%, rgba(203, 78, 180, .18), transparent 28%),
+    radial-gradient(circle at 14% 86%, rgba(244, 145, 54, .14), transparent 25%),
+    linear-gradient(145deg, #2a1d3a, #07192d 70%);
+}
+
+.instagram-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.instagram-platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(203,78,180,.28), rgba(244,145,54,.2));
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.instagram-platform-icon {
+  position: relative;
+  width: 19px;
+  height: 19px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.instagram-platform-icon::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.instagram-platform-icon::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  top: 3px;
+  right: 3px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.instagram-upgrade-page {
+  --instagram-pink: #cb4eb4;
+  --instagram-orange: #f49136;
+}
+
+.instagram-upgrade-hero { align-items: center; }
+.instagram-upgrade-answer {
+  display: grid;
+  gap: 7px;
+  max-width: 740px;
+  margin-top: 24px;
+  padding: 16px 18px;
+  border: 1px solid rgba(6, 26, 51, .1);
+  border-radius: 18px;
+  background: rgba(255,255,255,.52);
+}
+.instagram-upgrade-answer b { color: #9f397f; font-size: 12px; }
+.instagram-upgrade-answer span { color: var(--ink); font-size: 14px; line-height: 1.75; }
+.instagram-upgrade-price-panel { box-shadow: 0 28px 72px rgba(2,15,30,.2); }
+.instagram-upgrade-price-panel .button { width: 100%; margin-top: 8px; text-align: center; }
+
+.instagram-upgrade-proof {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: clamp(30px, 6vw, 86px);
+  align-items: center;
+  padding-bottom: clamp(90px, 12vw, 150px);
+  content-visibility: auto;
+  contain-intrinsic-size: 720px;
+}
+
+.instagram-upgrade-proof-copy h2,
+.instagram-upgrade-process-head h2,
+.instagram-upgrade-fit-head h2 {
+  margin: 14px 0 18px;
+  color: var(--offer-navy);
+  font-size: clamp(36px, 4.8vw, 64px);
+  line-height: 1.18;
+}
+.instagram-upgrade-proof-copy p { max-width: 560px; color: var(--muted); line-height: 1.9; }
+
+.instagram-profile-card {
+  overflow: hidden;
+  padding: clamp(24px, 4vw, 40px);
+  border: 1px solid rgba(203,78,180,.28);
+  border-radius: 30px;
+  color: var(--offer-ivory);
+  background:
+    radial-gradient(circle at 86% 9%, rgba(203,78,180,.16), transparent 30%),
+    linear-gradient(150deg, #2d2440, #07192d 72%);
+  box-shadow: 0 32px 82px rgba(2,15,30,.22);
+}
+.instagram-profile-top { display: flex; justify-content: space-between; gap: 14px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.1); font-size: 11px; color: rgba(245,240,231,.58); }
+.instagram-profile-head { display: grid; grid-template-columns: 58px 1fr; gap: 15px; align-items: center; margin: 24px 0 18px; }
+.instagram-profile-head i { display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; font-style: normal; font-weight: 800; background: linear-gradient(145deg, rgba(203,78,180,.72), rgba(244,145,54,.75)); }
+.instagram-profile-head div { display: grid; gap: 5px; }
+.instagram-profile-head b { font-size: 15px; }
+.instagram-profile-head span { color: rgba(245,240,231,.62); font-size: 11px; line-height: 1.6; }
+.instagram-profile-highlights { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
+.instagram-profile-highlights span { padding: 10px 6px; border: 1px solid rgba(255,255,255,.08); border-radius: 999px; text-align: center; color: rgba(245,240,231,.74); font-size: 10px; background: rgba(255,255,255,.04); }
+.instagram-profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.instagram-profile-grid i { aspect-ratio: 1; border-radius: 12px; background: linear-gradient(145deg, rgba(255,255,255,.08), rgba(203,78,180,.13)); border: 1px solid rgba(255,255,255,.08); }
+.instagram-profile-grid i:nth-child(2),
+.instagram-profile-grid i:nth-child(5) { background: linear-gradient(145deg, rgba(244,145,54,.18), rgba(255,255,255,.05)); }
+
+.instagram-upgrade-deliverables .deliverable-list { grid-template-columns: 1fr; }
+.instagram-upgrade-process,
+.instagram-upgrade-fit { padding-bottom: clamp(90px, 12vw, 150px); content-visibility: auto; contain-intrinsic-size: 700px; }
+.instagram-upgrade-process-head,
+.instagram-upgrade-fit-head { max-width: 840px; margin-bottom: 34px; }
+.instagram-upgrade-process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.instagram-upgrade-process-grid article { padding: clamp(20px, 2.6vw, 28px); border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,.48); }
+.instagram-upgrade-process-grid article:nth-child(2) { background: #f4ebf3; }
+.instagram-upgrade-process-grid article:nth-child(3) { background: #f7efe5; }
+.instagram-upgrade-process-grid b { display: block; margin-bottom: 22px; color: #9f397f; font-size: 12px; }
+.instagram-upgrade-process-grid h3 { margin: 0 0 10px; color: var(--offer-navy); font-size: 19px; }
+.instagram-upgrade-process-grid p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.instagram-upgrade-confidence { content-visibility: auto; contain-intrinsic-size: 520px; }
+.instagram-upgrade-final .button { min-width: 230px; }
+.instagram-upgrade-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 24px; font-size: 12px; }
+.instagram-upgrade-links a { color: rgba(245,240,231,.68); text-decoration: underline; text-underline-offset: 4px; }
+
+@media (min-width: 861px) {
+  .offers-grid-eight .compact-offer-card { grid-column: span 6; min-height: 520px; }
+  .offers-grid-eight .compact-offer-card h2 { font-size: clamp(34px, 4.1vw, 54px); }
+  .offers-grid-eight .offers-note { grid-column: 1 / -1; min-height: 220px; }
+
+  .instagram-upgrade-offer-card h2 {
+    line-height: 1.3;
+    letter-spacing: -.025em;
+  }
+
+  .instagram-upgrade-offer-card h2 em {
+    display: block;
+    margin-top: .18em;
+    line-height: 1.32;
+  }
+
+  .instagram-upgrade-hero h1 { font-size: clamp(56px, 5.6vw, 84px); line-height: 1.22; }
+  .instagram-upgrade-hero h1 em { display: block; margin-top: .14em; line-height: 1.28; }
+}
+
+@media (max-width: 980px) {
+  .instagram-upgrade-process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .offers-grid-eight .compact-offer-card,
+  .offers-grid-eight .offers-note { grid-column: 1 / -1; }
+  .instagram-upgrade-proof { grid-template-columns: 1fr; }
+  .instagram-profile-card { max-width: 680px; }
+}
+
+@media (max-width: 620px) {
+  .instagram-card-topline { align-items: flex-start; }
+  .instagram-platform-badge { font-size: 11px; }
+  .instagram-upgrade-offer-card h2 {
+    line-height: 1.34;
+    letter-spacing: -.015em;
+  }
+  .instagram-upgrade-offer-card h2 em {
+    display: block;
+    margin-top: .16em;
+    line-height: 1.38;
+  }
+  .instagram-upgrade-hero { padding-top: 58px; padding-bottom: 74px; }
+  .instagram-upgrade-hero h1 { font-size: clamp(36px, 10.8vw, 50px); line-height: 1.36; margin-block: 22px 20px; }
+  .instagram-upgrade-hero h1 em { display: block; margin-top: .14em; line-height: 1.42; }
+  .instagram-upgrade-answer { margin-top: 18px; padding: 14px; }
+  .instagram-upgrade-proof { gap: 26px; padding-bottom: 92px; }
+  .instagram-profile-card { padding: 18px; border-radius: 24px; }
+  .instagram-profile-highlights { grid-template-columns: repeat(2, 1fr); }
+  .instagram-upgrade-process-grid { grid-template-columns: 1fr; }
+  .instagram-upgrade-final .button { width: 100%; min-width: 0; }
+  .instagram-upgrade-links { display: grid; gap: 12px; }
+}
