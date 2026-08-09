@@ -8,20 +8,22 @@ import { SeoAuditOfferPrice } from "./seo-audit/localized-seo-audit-offer";
 import { BrandNamingOfferPrice } from "./brand-naming/localized-brand-naming-offer";
 import { WhatsAppStarterPrice } from "./whatsapp-automation-starter/localized-whatsapp-starter";
 import { MiniIdentityPrice } from "./mini-visual-identity/localized-mini-identity";
+import { GoogleAdsLaunchPrice } from "./google-ads-launch/localized-google-ads-launch";
 import "./offers-page.css";
 import "./landing-offer.css";
 import "./seo-audit/seo-audit-offer.css";
 import "./brand-naming/brand-naming-offer.css";
 import "./whatsapp-automation-starter/whatsapp-starter.css";
 import "./mini-visual-identity/mini-visual-identity.css";
+import "./google-ads-launch/google-ads-launch.css";
 
 const availableSpots = 7;
 
 export const metadata: Metadata = createMetadata({
-  title: "عروض ديوانك | محتوى وصفحات هبوط وSEO وهوية وأتمتة واتساب",
-  description: "اكتشف عروض ديوانك الجاهزة: محتوى شهري، صفحة هبوط، فحص SEO، اختيار اسم تجاري، واتساب أوتوميشن، وهوية بصرية مصغرة للشركات والمشاريع.",
+  title: "عروض ديوانك | محتوى وصفحات هبوط وSEO وهوية وأتمتة وإعلانات Google",
+  description: "اكتشف عروض ديوانك الجاهزة: محتوى شهري، صفحة هبوط، فحص SEO، اختيار اسم تجاري، واتساب أوتوميشن، هوية بصرية مصغرة، وإطلاق حملة Google Ads.",
   path: "/offers",
-  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تصميم صفحة هبوط", "فحص SEO للموقع", "اختيار اسم تجاري", "واتساب أوتوميشن", "هوية بصرية مصغرة", "تصميم هوية بصرية", "أسعار إدارة السوشيال ميديا"],
+  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تصميم صفحة هبوط", "فحص SEO للموقع", "اختيار اسم تجاري", "واتساب أوتوميشن", "هوية بصرية مصغرة", "إعداد حملة Google Ads", "إعلانات جوجل للشركات", "أسعار إدارة السوشيال ميديا"],
 });
 
 export default function OffersPage() {
@@ -36,6 +38,7 @@ export default function OffersPage() {
       { "@type": "ListItem", position: 4, name: "اختيار اسم تجاري + توجه أولي للعلامة", url: `${siteUrl}/offers/brand-naming` },
       { "@type": "ListItem", position: 5, name: "باقة واتساب أوتوميشن Starter", url: `${siteUrl}/offers/whatsapp-automation-starter` },
       { "@type": "ListItem", position: 6, name: "باقة هوية بصرية مصغرة", url: `${siteUrl}/offers/mini-visual-identity` },
+      { "@type": "ListItem", position: 7, name: "باقة إطلاق Google Ads", url: `${siteUrl}/offers/google-ads-launch` },
     ],
   };
 
@@ -50,7 +53,7 @@ export default function OffersPage() {
         <p>اختر العرض المناسب لنشاطك بنطاق عمل محدد وسعر معروف من البداية. راجع التفاصيل وابدأ مباشرة عبر واتساب، من دون اشتراكات طويلة أو خدمات غامضة.</p>
       </section>
 
-      <section className="shell offers-grid offers-grid-six" aria-label="عروض ديوانك الحالية">
+      <section className="shell offers-grid offers-grid-seven" aria-label="عروض ديوانك الحالية">
         <article className="offer-card compact-offer-card">
           <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}>
             <span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span>
@@ -110,6 +113,16 @@ export default function OffersPage() {
           <div className="offer-card-meta">
             <div><small>الباقة المصغرة من</small><MiniIdentityPrice /></div>
             <Link className="button primary" href="/offers/mini-visual-identity">شاهد تفاصيل الهوية <span>←</span></Link>
+          </div>
+        </article>
+
+        <article className="offer-card compact-offer-card google-ads-offer-card">
+          <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> أيام عمل</span></div>
+          <h2>ابدأ Google Ads.<br/><em>بإعداد محسوب.</em></h2>
+          <p>حملة Search واحدة، بحث كلمات بنية شراء، كتابة الإعلانات، كلمات سلبية، تتبع تحويل أساسي وفحص قبل الإطلاق. باقة تأسيس وليست إدارة شهرية.</p>
+          <div className="offer-card-meta">
+            <div><small>باقة الإطلاق من</small><GoogleAdsLaunchPrice /></div>
+            <Link className="button primary" href="/offers/google-ads-launch">شاهد تفاصيل الباقة <span>←</span></Link>
           </div>
         </article>
 
