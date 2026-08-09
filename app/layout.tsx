@@ -3,7 +3,6 @@ import { Alexandria, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import "./service-pages-fix.css";
-import "./services/service-icons.css";
 import "./mobile-refinement.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
 import InstagramFollowCard from "./components/instagram-follow-card";
