@@ -141,14 +141,15 @@
   .offers-grid-five .offers-note { grid-column: span 5; }
 
   .whatsapp-starter-hero h1 {
-    font-size: clamp(58px, 6vw, 88px);
-    line-height: 1.16;
+    font-size: clamp(54px, 5.6vw, 82px);
+    line-height: 1.28;
+    margin-block: 28px 24px;
   }
 
   .whatsapp-starter-hero h1 em {
     display: block;
-    margin-top: .16em;
-    line-height: 1.2;
+    margin-top: .30em;
+    line-height: 1.34;
   }
 }
 
@@ -169,8 +170,8 @@
   }
   .whatsapp-starter-hero h1 em {
     display: block;
-    margin-top: .14em;
-    line-height: 1.42;
+    margin-top: .18em;
+    line-height: 1.44;
   }
   .whatsapp-starter-answer { margin-top: 18px; padding: 14px; }
   .whatsapp-starter-proof { gap: 26px; padding-bottom: 92px; }
