@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/offers/landing-page-package", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/seo-audit", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/brand-naming", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/offers/whatsapp-automation-starter", priority: 0.85, changeFrequency: "weekly" as const },
 
     // Trust and company pages
     { path: "/work", priority: 0.8, changeFrequency: "monthly" as const },
