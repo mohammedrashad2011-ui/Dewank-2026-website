@@ -27,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/offers/mini-visual-identity", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/google-ads-launch", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/instagram-14-day-upgrade", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/offers/small-business-website", priority: 0.85, changeFrequency: "weekly" as const },
 
     // Trust and company pages
     { path: "/work", priority: 0.8, changeFrequency: "monthly" as const },
