@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/offers", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/offers/30-day-content-package", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/landing-page-package", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/offers/seo-audit", priority: 0.85, changeFrequency: "weekly" as const },
 
     // Trust and company pages
     { path: "/work", priority: 0.8, changeFrequency: "monthly" as const },
