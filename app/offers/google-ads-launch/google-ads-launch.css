@@ -78,9 +78,82 @@
 .google-ads-process-grid b { display: block; margin-bottom: 22px; color: #2d66bd; font-size: 12px; }
 .google-ads-process-grid h3 { margin: 0 0 10px; color: var(--offer-navy); font-size: 19px; }
 .google-ads-process-grid p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+.google-ads-faq {
+  display: grid;
+  grid-template-columns: .7fr 1.3fr;
+  gap: clamp(36px, 7vw, 100px);
+  align-items: start;
+  padding-bottom: clamp(90px, 12vw, 150px);
+}
+.google-ads-faq > div:first-child {
+  position: sticky;
+  top: 120px;
+}
+.google-ads-faq > div:first-child h2 {
+  margin: 14px 0 0;
+  color: var(--offer-navy);
+  font-size: clamp(38px, 4.8vw, 64px);
+  line-height: 1.2;
+}
+.google-ads-faq .offer-faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.google-ads-faq details {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,255,255,.5);
+}
+.google-ads-faq summary {
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  min-height: 76px;
+  padding: 20px 50px 20px 18px;
+  color: var(--offer-navy);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.55;
+}
+.google-ads-faq summary::-webkit-details-marker { display: none; }
+.google-ads-faq summary::before {
+  content: "+";
+  position: absolute;
+  inset-inline-start: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #2d66bd;
+  font-size: 22px;
+  font-weight: 800;
+}
+.google-ads-faq details[open] summary::before { content: "−"; }
+.google-ads-faq details p {
+  margin: 0;
+  padding: 0 18px 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.google-ads-final {
+  margin-bottom: clamp(80px, 10vw, 140px);
+}
+.google-ads-final > div:first-child { margin-inline: auto; }
+.google-ads-final h2 {
+  line-height: 1.24;
+  letter-spacing: -.02em;
+}
+.google-ads-final p {
+  max-width: 760px;
+  margin-inline: auto;
+  line-height: 1.85;
+}
 .google-ads-final .button { min-width: 230px; }
 .google-ads-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 24px; font-size: 12px; }
-.google-ads-links a { color: rgba(245,240,231,.68); text-decoration: underline; text-underline-offset: 4px; }
+.google-ads-links a { color: rgba(245,240,231,.72); text-decoration: underline; text-underline-offset: 4px; }
 
 @media (min-width: 861px) {
   .offers-grid-seven .compact-offer-card { grid-column: span 6; min-height: 520px; }
@@ -94,8 +167,14 @@
   .google-ads-hero h1 em { display: block; margin-top: .12em; line-height: 1.24; }
 }
 
+@media (max-width: 1080px) {
+  .google-ads-faq { grid-template-columns: 1fr; gap: 28px; }
+  .google-ads-faq > div:first-child { position: static; }
+}
+
 @media (max-width: 980px) {
   .google-ads-process-grid { grid-template-columns: repeat(2, 1fr); }
+  .google-ads-faq .offer-faq-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 860px) {
@@ -114,6 +193,12 @@
   .google-search-card { padding: 18px; border-radius: 24px; }
   .google-search-path { grid-template-columns: repeat(2, 1fr); }
   .google-ads-process-grid { grid-template-columns: 1fr; }
+  .google-ads-faq { padding-bottom: 92px; }
+  .google-ads-faq > div:first-child h2 { font-size: clamp(34px, 10vw, 48px); }
+  .google-ads-faq summary { min-height: 0; padding: 18px 46px 18px 16px; font-size: 15px; }
+  .google-ads-faq summary::before { inset-inline-start: 16px; }
+  .google-ads-faq details p { padding: 0 16px 18px; }
+  .google-ads-final h2 { line-height: 1.32; }
   .google-ads-final .button { width: 100%; min-width: 0; }
   .google-ads-links { display: grid; gap: 12px; }
 }
