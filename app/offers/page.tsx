@@ -109,10 +109,13 @@ export default function OffersPage() {
         </article>
 
         <article className="offer-card compact-offer-card instagram-upgrade-offer-card">
-          <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span></div>
-          <h2>حسابك موجود.<br/><em>خلّيه يقنع العميل.</em></h2>
+          <div className="instagram-card-topline">
+            <span className="instagram-platform-badge"><span className="instagram-platform-icon" aria-hidden="true" />Instagram</span>
+            <span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span>
+          </div>
+          <h2>طوّر حساب إنستجرام.<br/><em>وخلّيه يقنع العميل.</em></h2>
           <p>مراجعة شاملة، تحسين البايو والـCTA والهايلايتس، محاور محتوى وتوجه بصري، 6 تصميمات وخطة تنفيذ لمدة 14 يومًا.</p>
-          <div className="offer-card-meta"><div><small>باقة التطوير من</small><InstagramUpgradePrice /></div><Link className="button primary" href="/offers/instagram-14-day-upgrade">شاهد تفاصيل الباقة <span>←</span></Link></div>
+          <div className="offer-card-meta"><div><small>باقة تطوير إنستجرام من</small><InstagramUpgradePrice /></div><Link className="button primary" href="/offers/instagram-14-day-upgrade">شاهد تفاصيل الباقة <span>←</span></Link></div>
         </article>
 
         <aside className="offers-note">
