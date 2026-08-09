@@ -10,6 +10,7 @@ import { WhatsAppStarterPrice } from "./whatsapp-automation-starter/localized-wh
 import { MiniIdentityPrice } from "./mini-visual-identity/localized-mini-identity";
 import { GoogleAdsLaunchPrice } from "./google-ads-launch/localized-google-ads-launch";
 import { InstagramUpgradePrice } from "./instagram-14-day-upgrade/localized-instagram-upgrade";
+import { SmallWebsitePrice } from "./small-business-website/localized-small-website";
 import "./offers-page.css";
 import "./landing-offer.css";
 import "./seo-audit/seo-audit-offer.css";
@@ -18,14 +19,15 @@ import "./whatsapp-automation-starter/whatsapp-starter.css";
 import "./mini-visual-identity/mini-visual-identity.css";
 import "./google-ads-launch/google-ads-launch.css";
 import "./instagram-14-day-upgrade/instagram-upgrade.css";
+import "./small-business-website/small-business-website.css";
 
 const availableSpots = 7;
 
 export const metadata: Metadata = createMetadata({
-  title: "عروض ديوانك | محتوى وصفحات هبوط وSEO وهوية وأتمتة وإعلانات وتطوير إنستجرام",
-  description: "اكتشف عروض ديوانك الجاهزة: محتوى شهري، صفحة هبوط، فحص SEO، اختيار اسم تجاري، واتساب أوتوميشن، هوية بصرية، إطلاق Google Ads، وتطوير حساب إنستجرام خلال 14 يومًا.",
+  title: "عروض ديوانك | محتوى ومواقع وSEO وهوية وأتمتة وإعلانات",
+  description: "اكتشف عروض ديوانك الجاهزة: محتوى شهري، صفحات هبوط، SEO، اختيار اسم، واتساب أوتوميشن، هوية بصرية، Google Ads، تطوير إنستجرام، وموقع صغير جاهز للإطلاق.",
   path: "/offers",
-  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تطوير حساب انستقرام", "تصميم صفحة هبوط", "فحص SEO للموقع", "اختيار اسم تجاري", "واتساب أوتوميشن", "هوية بصرية مصغرة", "إعداد حملة Google Ads", "أسعار إدارة السوشيال ميديا"],
+  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تطوير حساب انستقرام", "تصميم موقع شركة", "موقع صغير للشركات", "تصميم صفحة هبوط", "فحص SEO للموقع", "واتساب أوتوميشن", "إعداد حملة Google Ads"],
 });
 
 export default function OffersPage() {
@@ -42,6 +44,7 @@ export default function OffersPage() {
       { "@type": "ListItem", position: 6, name: "باقة هوية بصرية مصغرة", url: `${siteUrl}/offers/mini-visual-identity` },
       { "@type": "ListItem", position: 7, name: "باقة إطلاق Google Ads", url: `${siteUrl}/offers/google-ads-launch` },
       { "@type": "ListItem", position: 8, name: "تطوير حساب إنستجرام خلال 14 يوم", url: `${siteUrl}/offers/instagram-14-day-upgrade` },
+      { "@type": "ListItem", position: 9, name: "موقع صغير جاهز للإطلاق", url: `${siteUrl}/offers/small-business-website` },
     ],
   };
 
@@ -56,11 +59,9 @@ export default function OffersPage() {
         <p>اختر العرض المناسب لنشاطك بنطاق عمل محدد وسعر معروف من البداية. راجع التفاصيل وابدأ مباشرة عبر واتساب، من دون اشتراكات طويلة أو خدمات غامضة.</p>
       </section>
 
-      <section className="shell offers-grid offers-grid-eight" aria-label="عروض ديوانك الحالية">
+      <section className="shell offers-grid offers-grid-nine" aria-label="عروض ديوانك الحالية">
         <article className="offer-card compact-offer-card">
-          <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}>
-            <span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span>
-          </div>
+          <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}><span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span></div>
           <h2>محتوى شهر كامل.<br/><em>جاهز للنشر.</em></h2>
           <p>12 بوستًا، 3 ستوري، ريل واحد، أفكار وكابشنات وخطة نشر ليظهر حسابك بصورة متناسقة بدل النشر العشوائي.</p>
           <div className="offer-card-meta"><div><small>السعر التأسيسي</small><LocalizedOfferPrice /></div><Link className="button primary" href="/offers/30-day-content-package">شاهد تفاصيل العرض <span>←</span></Link></div>
@@ -109,19 +110,20 @@ export default function OffersPage() {
         </article>
 
         <article className="offer-card compact-offer-card instagram-upgrade-offer-card">
-          <div className="instagram-card-topline">
-            <span className="instagram-platform-badge"><span className="instagram-platform-icon" aria-hidden="true" />إنستجرام</span>
-            <span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span>
-          </div>
+          <div className="instagram-card-topline"><span className="instagram-platform-badge"><span className="instagram-platform-icon" aria-hidden="true" />إنستجرام</span><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span></div>
           <h2>طوّر حساب إنستجرام.<br/><em>وخلّيه يقنع العميل.</em></h2>
           <p>مراجعة شاملة، تحسين البايو والـCTA والهايلايتس، محاور محتوى وتوجه بصري، 6 تصميمات وخطة تنفيذ لمدة 14 يومًا.</p>
           <div className="offer-card-meta"><div><small>باقة تطوير إنستجرام من</small><InstagramUpgradePrice /></div><Link className="button primary" href="/offers/instagram-14-day-upgrade">شاهد تفاصيل الباقة <span>←</span></Link></div>
         </article>
 
-        <aside className="offers-note">
-          <div><small>DEWANK OFFERS</small><h2>خدمات محددة. نتيجة مفهومة.</h2><p>كل عرض مبني حول احتياج واضح لدى أصحاب المشاريع، بنطاق تنفيذ وسعر وتسليم معروفين من البداية.</p></div>
-          <span>ستُضاف عروض جديدة هنا تباعًا.</span>
-        </aside>
+        <article className="offer-card compact-offer-card small-website-offer-card">
+          <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>حتى 5</strong> صفحات</span></div>
+          <h2>موقع صغير.<br/><em>جاهز للإطلاق.</em></h2>
+          <p>حتى 5 صفحات، تصميم وتطوير متجاوب، واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق.</p>
+          <div className="offer-card-meta"><div><small>باقة الموقع من</small><SmallWebsitePrice /></div><Link className="button primary" href="/offers/small-business-website">شاهد تفاصيل الموقع <span>←</span></Link></div>
+        </article>
+
+        <aside className="offers-note"><div><small>DEWANK OFFERS</small><h2>خدمات محددة. نتيجة مفهومة.</h2><p>كل عرض مبني حول احتياج واضح لدى أصحاب المشاريع، بنطاق تنفيذ وسعر وتسليم معروفين من البداية.</p></div><span>ستُضاف عروض جديدة هنا تباعًا.</span></aside>
       </section>
       <Footer />
     </main>
