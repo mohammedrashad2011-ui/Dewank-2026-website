@@ -148,12 +148,12 @@ export default function GoogleAdsLaunchOffer() {
         </div>
       </section>
 
-      <section className="shell offer-faq" id="faq">
+      <section className="shell offer-faq google-ads-faq" id="faq">
         <div><span className="section-label">[ أسئلة سريعة ]</span><h2>قبل ما تبدأ.</h2></div>
         <div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final google-ads-final">
+      <section className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">[ جاهز للإطلاق؟ ]</span><h2>خلّي أول صرف على Google<br/>يبدأ بإعداد محسوب.</h2><p>أرسل لنا نشاطك، السوق المستهدف، ورابط الصفحة الحالية ونراجع ملاءمتها قبل بدء الحملة.</p></div>
         <GoogleAdsLaunchLink className="button primary" label="ابدأ عبر واتساب" />
         <div className="google-ads-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link><Link href="/services">شاهد خدمات التسويق الأخرى</Link></div>
