@@ -26,7 +26,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["كم سعر خدمة اقتراح الأسماء التجارية؟", "تبدأ الخدمة من 500 ريال سعودي لنطاق أساسي يشمل 10–15 اسمًا مع المعاني والفحص المبدئي والدومين وأفضل الترشيحات. يتغير السعر عند تعدد الأسواق أو اللغات أو الحاجة إلى بحث أوسع."],
+  ["كم سعر خدمة اقتراح الأسماء التجارية؟", "تبدأ الباقة الجاهزة من 490 ريال سعودي وتشمل 10–15 اسمًا مع المعاني والفحص المبدئي والدومين وأفضل الترشيحات وBrand Direction أولي. يتغير السعر عند تعدد الأسواق أو اللغات أو الحاجة إلى بحث أوسع."],
   ["هل تضمنون قبول الاسم أو تسجيل العلامة؟", "لا. نجري بحثًا مبدئيًا لتقليل احتمالات التعارض أو الرفض، لكن القبول النهائي من اختصاص الجهة الرسمية ولا يمكن ضمانه قبل تقديم الطلب وفحصه رسميًا."],
   ["هل تشمل الخدمة حجز الدومين أو تسجيل العلامة؟", "تشمل التحقق من التوفر وقت البحث. شراء الدومين وإجراءات تسجيل العلامة والرسوم الرسمية ليست ضمن السعر الأساسي إلا إذا ذُكرت صراحة في عرض مستقل."],
   ["ماذا لو لم يناسبني أي اسم؟", "تشمل الخدمة جولة تطوير واحدة بناءً على ملاحظات واضحة حول الاتجاهات المقدمة. لذلك نعتمد معايير القرار قبل البدء لتجنب التفضيلات المتغيرة بلا مرجعية."],
@@ -35,7 +35,7 @@ const faqs = [
 export default function BrandNamingPage() {
   const url = `${siteUrl}/services/brand-naming`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Service", "@id": `${url}#service`, name: title, description, serviceType: ["Brand Naming", "Preliminary Trademark Search", "Domain Availability Research"], provider: { "@id": organizationId }, areaServed: ["Saudi Arabia", "Bahrain", "GCC"], offers: { "@type": "Offer", priceCurrency: "SAR", price: "500", description: "سعر بداية إرشادي للنطاق الأساسي" }, url },
+    { "@type": "Service", "@id": `${url}#service`, name: title, description, serviceType: ["Brand Naming", "Preliminary Trademark Search", "Domain Availability Research"], provider: { "@id": organizationId }, areaServed: ["Saudi Arabia", "Bahrain", "GCC"], offers: { "@type": "Offer", priceCurrency: "SAR", price: "490", description: "سعر الباقة الجاهزة الأساسية" }, url },
     { "@type": "FAQPage", mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "الخدمات", item: `${siteUrl}/services` }, { "@type": "ListItem", position: 3, name: "تسمية العلامة التجارية", item: url }] },
   ] };
@@ -47,8 +47,8 @@ export default function BrandNamingPage() {
       <span className="section-label">[ BRAND NAMING &amp; RESEARCH ]</span>
       <h1>اسم علامتك ليس كلمة جميلة.<em>هو أصل تجاري يجب أن يتحمل النمو.</em></h1>
       <p>نطوّر أسماء علامات تجارية مبنية على فهم النشاط والجمهور والسوق، ثم نفحصها لغويًا وثقافيًا ونبحث مبدئيًا عن التشابه وتوفر الدومين قبل أن تستثمر في الهوية والإطلاق.</p>
-      <div className="brand-hero-actions"><a className="button whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer">ابدأ اختيار الاسم <span>↗</span></a><Link className="button primary" href="/guides/how-to-choose-brand-name-saudi-arabia">اقرأ دليل اختيار الاسم <span>←</span></Link></div>
-    </div><div className="brand-diagnosis-copy"><span className="section-label">[ سعر البداية ]</span><h2>تبدأ من<br/><em>500 ريال سعودي</em></h2><p>للنطاق الأساسي. نحدد السعر النهائي بعد معرفة السوق واللغات وطبيعة البحث المطلوبة.</p></div></section>
+      <div className="brand-hero-actions"><Link className="button whatsapp" href="/offers/brand-naming">شاهد باقة 490 ريال <span>←</span></Link><Link className="button primary" href="/guides/how-to-choose-brand-name-saudi-arabia">اقرأ دليل اختيار الاسم <span>←</span></Link></div>
+    </div><div className="brand-diagnosis-copy"><span className="section-label">[ الباقة الجاهزة ]</span><h2>تبدأ من<br/><em>490 ريال سعودي</em></h2><p>يشمل السعر الأساسي التسمية والفحص المبدئي وBrand Direction أولي. يتغير السعر النهائي إذا توسع نطاق الأسواق أو اللغات.</p></div></section>
 
     <section className="shell brand-diagnosis"><div><span className="section-label">[ المشكلة ]</span><h2>الاسم الضعيف<br/><em>تكلفته تظهر لاحقًا.</em></h2></div><div className="brand-diagnosis-copy"><p>اسم يصعب نطقه، أو يشبه منافسًا، أو لا يملك نطاقًا مناسبًا قد يستهلك ميزانية الهوية والتسويق ثم يجبرك على التغيير. لذلك نعامل التسمية كقرار بحث واستراتيجية، لا جلسة عصف ذهني فقط.</p><div className="brand-symptoms"><p>اسم عام يصعب امتلاكه</p><p>تشابه يربك العميل</p><p>معنى سلبي في سوق آخر</p><p>دومين وحسابات غير متاحة</p></div></div></section>
 
