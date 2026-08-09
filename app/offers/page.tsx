@@ -41,7 +41,7 @@ export default function OffersPage() {
         <p>اختر العرض المناسب لنشاطك بنطاق عمل محدد وسعر معروف من البداية. راجع التفاصيل وابدأ مباشرة عبر واتساب، من دون اشتراكات طويلة أو خدمات غامضة.</p>
       </section>
 
-      <section className="shell offers-grid" aria-label="عروض ديوانك الحالية">
+      <section className="shell offers-grid offers-grid-three" aria-label="عروض ديوانك الحالية">
         <article className="offer-card compact-offer-card">
           <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}>
             <span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span>
