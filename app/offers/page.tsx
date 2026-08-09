@@ -21,6 +21,7 @@ import "./google-ads-launch/google-ads-launch.css";
 import "./instagram-14-day-upgrade/instagram-upgrade.css";
 import "./small-business-website/small-business-website.css";
 import "./offers-overview.css";
+import "./offers-overview-refine.css";
 
 const availableSpots = 7;
 
