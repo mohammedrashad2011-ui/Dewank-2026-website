@@ -110,7 +110,7 @@ export default function OffersPage() {
 
         <article className="offer-card compact-offer-card instagram-upgrade-offer-card">
           <div className="instagram-card-topline">
-            <span className="instagram-platform-badge"><span className="instagram-platform-icon" aria-hidden="true" />Instagram</span>
+            <span className="instagram-platform-badge"><span className="instagram-platform-icon" aria-hidden="true" />إنستجرام</span>
             <span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span>
           </div>
           <h2>طوّر حساب إنستجرام.<br/><em>وخلّيه يقنع العميل.</em></h2>
