@@ -10,7 +10,7 @@ export const metadata: Metadata = createMetadata({
 import Link from "next/link";
 import { Footer, Header } from "./components/site-shell";
 import MotionSystem from "./components/motion-system";
-import HomeTestimonials from "./components/home-testimonials";
+import LazyHomeTestimonials from "./components/lazy-home-testimonials";
 
 const services = [
   {
@@ -114,7 +114,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="work-section shell"><HomeTestimonials /></div>
+      <div className="work-section shell"><LazyHomeTestimonials /></div>
 
       <section className="case-study shell" aria-labelledby="case-study-title">
         <div className="case-study-head">
