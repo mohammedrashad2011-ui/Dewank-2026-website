@@ -5,17 +5,19 @@ import { createMetadata, siteUrl } from "../lib/seo";
 import { LocalizedOfferPrice } from "./localized-offer";
 import { LandingOfferPrice } from "./landing-page-package/localized-landing-offer";
 import { SeoAuditOfferPrice } from "./seo-audit/localized-seo-audit-offer";
+import { BrandNamingOfferPrice } from "./brand-naming/localized-brand-naming-offer";
 import "./offers-page.css";
 import "./landing-offer.css";
 import "./seo-audit/seo-audit-offer.css";
+import "./brand-naming/brand-naming-offer.css";
 
 const availableSpots = 7;
 
 export const metadata: Metadata = createMetadata({
-  title: "عروض ديوانك | باقات تسويق ومحتوى وصفحات هبوط وSEO",
-  description: "اكتشف عروض ديوانك الجاهزة: باقة محتوى شهرية، صفحة هبوط احترافية، وفحص SEO شامل للموقع مع تقرير وخطة تحسين واضحة.",
+  title: "عروض ديوانك | محتوى وصفحات هبوط وSEO واختيار اسم تجاري",
+  description: "اكتشف عروض ديوانك الجاهزة: باقة محتوى شهرية، صفحة هبوط احترافية، فحص SEO شامل، وباقة اختيار اسم تجاري مع Brand Direction.",
   path: "/offers",
-  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تصميم صفحة هبوط", "فحص SEO للموقع", "أسعار إدارة السوشيال ميديا", "landing page السعودية"],
+  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تصميم صفحة هبوط", "فحص SEO للموقع", "اختيار اسم تجاري", "Brand Direction", "أسعار إدارة السوشيال ميديا"],
 });
 
 export default function OffersPage() {
@@ -27,6 +29,7 @@ export default function OffersPage() {
       { "@type": "ListItem", position: 1, name: "باقة محتوى إنستقرام لمدة شهر", url: `${siteUrl}/offers/30-day-content-package` },
       { "@type": "ListItem", position: 2, name: "باقة تصميم صفحة هبوط احترافية", url: `${siteUrl}/offers/landing-page-package` },
       { "@type": "ListItem", position: 3, name: "فحص SEO شامل للموقع", url: `${siteUrl}/offers/seo-audit` },
+      { "@type": "ListItem", position: 4, name: "اختيار اسم تجاري + Brand Direction", url: `${siteUrl}/offers/brand-naming` },
     ],
   };
 
@@ -41,7 +44,7 @@ export default function OffersPage() {
         <p>اختر العرض المناسب لنشاطك بنطاق عمل محدد وسعر معروف من البداية. راجع التفاصيل وابدأ مباشرة عبر واتساب، من دون اشتراكات طويلة أو خدمات غامضة.</p>
       </section>
 
-      <section className="shell offers-grid offers-grid-three" aria-label="عروض ديوانك الحالية">
+      <section className="shell offers-grid offers-grid-four" aria-label="عروض ديوانك الحالية">
         <article className="offer-card compact-offer-card">
           <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}>
             <span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span>
@@ -71,6 +74,16 @@ export default function OffersPage() {
           <div className="offer-card-meta">
             <div><small>فحص شامل من</small><SeoAuditOfferPrice /></div>
             <Link className="button primary" href="/offers/seo-audit">شاهد تفاصيل الفحص <span>←</span></Link>
+          </div>
+        </article>
+
+        <article className="offer-card compact-offer-card brand-naming-offer-card">
+          <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
+          <h2>اسم يعلق.<br/><em>واتجاه يبني العلامة.</em></h2>
+          <p>10–15 اسمًا مدروسًا، فحص مبدئي للمعنى والتشابه والدومين، أفضل 3 ترشيحات، وBrand Direction أولي للاسم المختار.</p>
+          <div className="offer-card-meta">
+            <div><small>الباقة الجاهزة من</small><BrandNamingOfferPrice /></div>
+            <Link className="button primary" href="/offers/brand-naming">شاهد تفاصيل الباقة <span>←</span></Link>
           </div>
         </article>
 
