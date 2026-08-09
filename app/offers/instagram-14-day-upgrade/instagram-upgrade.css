@@ -5,6 +5,56 @@
     linear-gradient(145deg, #2a1d3a, #07192d 70%);
 }
 
+.instagram-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.instagram-platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(203,78,180,.28), rgba(244,145,54,.2));
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.instagram-platform-icon {
+  position: relative;
+  width: 19px;
+  height: 19px;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.instagram-platform-icon::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.instagram-platform-icon::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  top: 3px;
+  right: 3px;
+  border-radius: 50%;
+  background: #fff;
+}
+
 .instagram-upgrade-page {
   --instagram-pink: #cb4eb4;
   --instagram-orange: #f49136;
@@ -108,6 +158,8 @@
 }
 
 @media (max-width: 620px) {
+  .instagram-card-topline { align-items: flex-start; }
+  .instagram-platform-badge { font-size: 11px; }
   .instagram-upgrade-hero { padding-top: 58px; padding-bottom: 74px; }
   .instagram-upgrade-hero h1 { font-size: clamp(36px, 10.8vw, 50px); line-height: 1.36; margin-block: 22px 20px; }
   .instagram-upgrade-hero h1 em { display: block; margin-top: .14em; line-height: 1.42; }
