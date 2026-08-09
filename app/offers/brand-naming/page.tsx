@@ -7,8 +7,8 @@ import "../offers-page.css";
 import "../offer-trust.css";
 import "./brand-naming-offer.css";
 
-const title = "اختيار اسم تجاري + Brand Direction | باقة جاهزة";
-const description = "باقة اختيار اسم تجاري للعلامات الجديدة تشمل 10–15 اسمًا مدروسًا، فحصًا لغويًا وثقافيًا، توفر الدومين، أفضل 3 ترشيحات واتجاهًا أوليًا للعلامة. تبدأ من 490 ريال.";
+const title = "اختيار اسم تجاري + توجه أولي للعلامة | باقة جاهزة";
+const description = "باقة اختيار اسم تجاري للعلامات الجديدة تشمل 10–15 اسمًا مدروسًا، فحصًا لغويًا وثقافيًا، توفر الدومين، أفضل 3 ترشيحات وتوجهًا أوليًا للعلامة. تبدأ من 490 ريال.";
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
@@ -23,15 +23,15 @@ const deliverables = [
   ["فحص لغوي وثقافي", "مراجعة أولية للمعنى والنطق والانطباعات المحتملة بالعربية والإنجليزية حسب السوق."],
   ["فحص مبدئي للتشابه", "بحث أولي عن أسماء وعلامات مشابهة لتقليل احتمالات التعارض، دون ضمان التسجيل الرسمي."],
   ["الدومين والحسابات", "التحقق وقت البحث من توفر نطاقات وأسماء مستخدمين مناسبة واقتراح بدائل عملية عند الحاجة."],
-  ["أفضل 3 ترشيحات", "Shortlist نهائية مع مقارنة مختصرة حسب التميز والوضوح وقابلية التوسع والاستخدام."],
-  ["Brand Direction أولي", "توجه مبدئي للشخصية والنبرة والمزاج البصري والكلمات المفتاحية التي تناسب الاسم المختار."],
+  ["أفضل 3 ترشيحات", "قائمة نهائية مختصرة تضم أفضل 3 أسماء، مع مقارنة حسب التميز والوضوح وقابلية التوسع والاستخدام."],
+  ["توجه أولي للعلامة", "توجه مبدئي للشخصية ونبرة التواصل والمزاج البصري والكلمات المفتاحية التي تناسب الاسم المختار."],
   ["جولة تطوير واحدة", "تطوير اتجاه واحد بناءً على ملاحظات محددة إذا لم يُحسم الاختيار من الجولة الأولى."],
 ];
 
 const faqs = [
-  ["كم سعر اختيار اسم تجاري؟", "الباقة الجاهزة تبدأ من 490 ريال سعودي، ويظهر السعر المحلي تلقائيًا لعدد من دول الخليج. السعر يشمل البحث والتسمية والـShortlist والـBrand Direction الأولي، ولا يشمل الرسوم الحكومية أو تسجيل العلامة."],
+  ["كم سعر اختيار اسم تجاري؟", "الباقة الجاهزة تبدأ من 490 ريال سعودي. السعر يشمل البحث والتسمية والقائمة النهائية المختصرة والتوجه الأولي للعلامة، ولا يشمل الرسوم الحكومية أو تسجيل العلامة."],
   ["كم اسمًا سأستلم؟", "تستلم عادة 10–15 اسمًا مدروسًا، ثم نرشح أفضل 3 خيارات بناءً على معايير واضحة تساعدك على اتخاذ القرار."],
-  ["ما المقصود بـ Brand Direction؟", "هو اتجاه أولي للعلامة بعد اختيار الاسم، يحدد الشخصية والنبرة والمزاج البصري والكلمات التي يجب أن تعكسها الهوية لاحقًا. لا يشمل تصميم شعار أو هوية بصرية كاملة."],
+  ["ما المقصود بالتوجه الأولي للعلامة؟", "هو تصور مبدئي للعلامة بعد اختيار الاسم، يحدد الشخصية ونبرة التواصل والمزاج البصري والكلمات التي يجب أن تعكسها الهوية لاحقًا. لا يشمل تصميم شعار أو هوية بصرية كاملة."],
   ["هل تضمنون قبول الاسم أو تسجيل العلامة؟", "لا. نقدم فحصًا أوليًا للتشابه والمعنى والتوفر لتقليل المخاطر، لكن قرار القبول والتسجيل النهائي للجهة الرسمية المختصة."],
   ["هل تشمل الخدمة حجز الدومين؟", "تشمل التحقق من توفر الدومين وقت البحث. شراء الدومين ورسومه ليست ضمن الباقة، لأن التوفر قد يتغير حتى لحظة الحجز."],
   ["كم مدة التسليم؟", "التسليم عادة خلال 3–5 أيام عمل بعد استلام معلومات النشاط والسوق والجمهور والاتجاهات المفضلة."],
@@ -45,7 +45,7 @@ export default function BrandNamingOfferPage() {
       {
         "@type": "Service",
         "@id": `${url}#service`,
-        name: "باقة اختيار اسم تجاري + Brand Direction",
+        name: "باقة اختيار اسم تجاري + توجه أولي للعلامة",
         description,
         serviceType: ["Brand Naming", "Brand Direction", "Domain Availability Research"],
         provider: { "@id": organizationId },
@@ -82,17 +82,17 @@ export default function BrandNamingOfferPage() {
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
           <h1>اسم لا يملأ خانة.<br/><em>بل يفتح مساحة للنمو.</em></h1>
-          <p>نطوّر لك اسمًا تجاريًا يمكن فهمه وتذكره واستخدامه، ثم نمنحك اتجاهًا أوليًا للعلامة حتى لا تبدأ الهوية من فراغ.</p>
+          <p>نطوّر لك اسمًا تجاريًا يمكن فهمه وتذكره واستخدامه، ثم نمنحك توجهًا أوليًا للعلامة حتى لا تبدأ الهوية من فراغ.</p>
           <div className="brand-naming-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
-            <span>تحصل على 10–15 اسمًا مدروسًا، أفضل 3 ترشيحات، فحصًا مبدئيًا للمعنى والتشابه والدومين، وBrand Direction أولي للاسم المختار.</span>
+            <span>تحصل على 10–15 اسمًا مدروسًا، أفضل 3 ترشيحات، فحصًا مبدئيًا للمعنى والتشابه والدومين، وتوجهًا أوليًا للعلامة للاسم المختار.</span>
           </div>
         </div>
         <aside className="offer-price-panel brand-naming-price-panel">
           <small>الباقة الجاهزة</small>
           <BrandNamingOfferPrice />
-          <div className="offer-trust-inline"><span>10–15 اسمًا</span><span>Shortlist من 3</span><span>Brand Direction</span></div>
-          <p>السعر يتغير تلقائيًا حسب البلد. لا تشمل الباقة تسجيل العلامة أو شراء الدومين أو تصميم الهوية الكاملة.</p>
+          <div className="offer-trust-inline"><span>10–15 اسمًا</span><span>أفضل 3 ترشيحات</span><span>توجه أولي للعلامة</span></div>
+          <p>لا تشمل الباقة تسجيل العلامة أو شراء الدومين أو تصميم الهوية البصرية الكاملة.</p>
           <BrandNamingWhatsApp className="button primary" label="ابدأ اختيار الاسم" />
         </aside>
       </section>
@@ -104,10 +104,10 @@ export default function BrandNamingOfferPage() {
           <p>نقارن الخيارات وفق التميز، سهولة النطق، قابلية التذكر، ملاءمة السوق، المرونة المستقبلية، والتوفر الرقمي. الهدف ليس اسمًا يعجبنا فقط، بل اسمًا يمكن بناء علامة حوله.</p>
         </div>
         <div className="brand-direction-board" aria-label="نموذج توضيحي لاتجاه العلامة">
-          <div className="brand-direction-top"><span>BRAND DIRECTION / SAMPLE</span><small>بعد اختيار الاسم</small></div>
+          <div className="brand-direction-top"><span>نموذج التوجه الأولي للعلامة</span><small>بعد اختيار الاسم</small></div>
           <div className="brand-direction-name">NOVA<span>FIELD</span></div>
           <div className="brand-direction-tags"><span>واضح</span><span>واثق</span><span>حديث</span><span>قابل للتوسع</span></div>
-          <div className="brand-direction-grid"><article><small>VOICE</small><b>مباشر · ذكي · هادئ</b></article><article><small>VISUAL MOOD</small><b>Minimal · Editorial · Bold</b></article><article><small>POSITION</small><b>علامة مرنة تنمو مع النشاط</b></article></div>
+          <div className="brand-direction-grid"><article><small>نبرة التواصل</small><b>مباشر · ذكي · هادئ</b></article><article><small>المزاج البصري</small><b>بسيط · تحريري · جريء</b></article><article><small>التموضع</small><b>علامة مرنة تنمو مع النشاط</b></article></div>
         </div>
       </section>
 
@@ -117,11 +117,11 @@ export default function BrandNamingOfferPage() {
       </section>
 
       <section className="shell brand-naming-process">
-        <div className="brand-naming-process-head"><span className="section-label">[ 3 خطوات ]</span><h2>Brief صغير. بحث عميق. قرار واضح.</h2></div>
+        <div className="brand-naming-process-head"><span className="section-label">[ 3 خطوات ]</span><h2>ملخص صغير. بحث عميق. قرار واضح.</h2></div>
         <div className="brand-naming-process-grid">
           <article><b>01</b><h3>نفهم المشروع</h3><p>النشاط، السوق، الجمهور، المنافسون، طبيعة الاسم المطلوبة وطموح التوسع.</p></article>
           <article><b>02</b><h3>نبحث ونبني</h3><p>ننشئ اتجاهات تسمية مختلفة ثم نفلترها بالمعنى والنطق والتشابه والتوفر الرقمي.</p></article>
-          <article><b>03</b><h3>نحسم الاتجاه</h3><p>تستلم القائمة والـShortlist ثم Brand Direction أولي للاسم الذي تختاره.</p></article>
+          <article><b>03</b><h3>نحسم الاتجاه</h3><p>تستلم قائمة الأسماء، ثم أفضل 3 ترشيحات، وبعد اختيار الاسم نجهز لك التوجه الأولي للعلامة.</p></article>
         </div>
       </section>
 
@@ -134,9 +134,9 @@ export default function BrandNamingOfferPage() {
       <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل ما تختار اسمك.</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta brand-naming-final">
-        <span className="offer-kicker">اختيار اسم تجاري · Brand Direction</span>
+        <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
         <h2>قبل ما تصمم الشعار، اختر اسمًا يستحق أن يوضع عليه.</h2>
-        <p>أرسل نوع النشاط والسوق المستهدف، وسنبدأ بالـBrief المختصر قبل البحث.</p>
+        <p>أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
         <BrandNamingWhatsApp className="button primary" label="ابدأ اختيار اسم علامتك" />
         <div className="brand-naming-links"><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
