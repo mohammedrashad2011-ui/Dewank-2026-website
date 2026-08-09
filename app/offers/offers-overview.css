@@ -1,0 +1,284 @@
+.offers-overview-hero {
+  padding-top: clamp(54px, 6vw, 82px);
+  padding-bottom: 28px;
+}
+
+.offers-overview-hero h1 {
+  max-width: 760px;
+  font-size: clamp(42px, 5.6vw, 72px);
+  line-height: 1.12;
+}
+
+.offers-overview-hero p {
+  max-width: 760px;
+  margin-top: 18px;
+  font-size: clamp(15px, 1.3vw, 18px);
+}
+
+.offers-goal-nav {
+  display: grid;
+  grid-template-columns: .34fr 1.66fr;
+  gap: 26px;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255,255,255,.52);
+}
+
+.offers-goal-copy small {
+  display: block;
+  margin-bottom: 5px;
+  color: #9b711e;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.offers-goal-copy strong {
+  color: var(--offer-navy);
+  font-size: 18px;
+}
+
+.offers-goal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.offers-goal-links a {
+  padding: 9px 12px;
+  border: 1px solid rgba(6,26,51,.12);
+  border-radius: 999px;
+  color: var(--offer-navy);
+  background: #fff;
+  font-size: 12px;
+  font-weight: 750;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.offers-goal-links a:hover {
+  transform: translateY(-1px);
+  border-color: rgba(213,168,67,.62);
+  background: #fffaf0;
+}
+
+.offers-overview-grid {
+  gap: 16px;
+  padding-bottom: clamp(70px, 9vw, 120px);
+}
+
+.offers-overview-grid > .compact-offer-card {
+  grid-column: span 4 !important;
+  min-height: 390px !important;
+  padding: 26px !important;
+  border-radius: 24px !important;
+  box-shadow: 0 18px 42px rgba(2,15,30,.16) !important;
+}
+
+.offers-overview-grid > .compact-offer-card::after {
+  content: attr(data-category);
+  position: absolute;
+  inset-inline-end: 22px;
+  top: 22px;
+  z-index: 2;
+  color: rgba(245,240,231,.54);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+.offers-overview-grid > .offer-priority {
+  border-color: rgba(244,217,145,.72) !important;
+}
+
+.offers-overview-grid .offer-availability,
+.offers-overview-grid .instagram-card-topline {
+  padding-inline-end: 58px;
+}
+
+.offers-overview-grid .offer-spots-available,
+.offers-overview-grid .instagram-platform-badge {
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
+.offers-overview-grid .offer-spots-available strong {
+  font-size: 12px;
+}
+
+.offers-overview-grid .compact-offer-card h2,
+.offers-overview-grid .small-website-offer-card h2,
+.offers-overview-grid .google-ads-offer-card h2,
+.offers-overview-grid .instagram-upgrade-offer-card h2 {
+  max-width: 100% !important;
+  margin: 22px 0 11px !important;
+  font-size: clamp(30px, 2.7vw, 40px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.025em !important;
+}
+
+.offers-overview-grid .compact-offer-card > p,
+.offers-overview-grid .small-website-offer-card > p,
+.offers-overview-grid .google-ads-offer-card > p {
+  max-width: 100% !important;
+  margin: 0 !important;
+  color: rgba(245,240,231,.72);
+  font-size: 13px;
+  line-height: 1.72;
+}
+
+.offers-overview-grid .offer-card-meta {
+  margin-top: 26px;
+  gap: 14px;
+}
+
+.offers-overview-grid .offer-card-meta small {
+  font-size: 10px;
+}
+
+.offers-overview-grid .offer-price {
+  gap: 6px;
+}
+
+.offers-overview-grid .offer-price strong {
+  font-size: clamp(38px, 3.7vw, 52px);
+}
+
+.offers-overview-grid .offer-price span {
+  font-size: 12px;
+}
+
+.offers-overview-grid .button {
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 12px;
+}
+
+.offers-overview-note {
+  grid-column: 1 / -1 !important;
+  min-height: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 28px 32px !important;
+  border-radius: 24px !important;
+}
+
+.offers-overview-note h2 {
+  max-width: 620px;
+  margin: 10px 0;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.22;
+}
+
+.offers-overview-note p {
+  max-width: 720px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.offers-overview-note .button {
+  white-space: nowrap;
+}
+
+@media (max-width: 1180px) {
+  .offers-overview-grid > .compact-offer-card {
+    grid-column: span 6 !important;
+    min-height: 380px !important;
+  }
+
+  .offers-goal-nav {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 760px) {
+  .offers-overview-hero {
+    padding-top: 48px;
+    padding-bottom: 22px;
+  }
+
+  .offers-overview-hero h1 {
+    font-size: clamp(38px, 11vw, 56px);
+    line-height: 1.18;
+  }
+
+  .offers-goal-nav {
+    margin-bottom: 20px;
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .offers-goal-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .offers-goal-links a {
+    text-align: center;
+    line-height: 1.45;
+  }
+
+  .offers-overview-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  .offers-overview-grid > .compact-offer-card {
+    grid-column: 1 / -1 !important;
+    min-height: 0 !important;
+    padding: 22px !important;
+  }
+
+  .offers-overview-grid .compact-offer-card h2,
+  .offers-overview-grid .small-website-offer-card h2,
+  .offers-overview-grid .google-ads-offer-card h2,
+  .offers-overview-grid .instagram-upgrade-offer-card h2 {
+    font-size: clamp(29px, 8.4vw, 38px) !important;
+  }
+
+  .offers-overview-grid .offer-card-meta {
+    margin-top: 22px;
+  }
+
+  .offers-overview-note {
+    grid-template-columns: 1fr;
+    padding: 24px !important;
+  }
+
+  .offers-overview-note .button {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 520px) {
+  .offers-goal-links {
+    grid-template-columns: 1fr;
+  }
+
+  .offers-overview-grid > .compact-offer-card::after {
+    inset-inline-end: 18px;
+    top: 18px;
+  }
+
+  .offers-overview-grid .offer-availability,
+  .offers-overview-grid .instagram-card-topline {
+    padding-inline-end: 50px;
+  }
+
+  .offers-overview-grid .offer-card-meta {
+    align-items: stretch;
+  }
+
+  .offers-overview-grid .offer-card-meta .button,
+  .offers-overview-note .button {
+    width: 100%;
+    text-align: center;
+  }
+}
