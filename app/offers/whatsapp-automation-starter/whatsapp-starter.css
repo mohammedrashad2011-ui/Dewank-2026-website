@@ -150,7 +150,17 @@
 
 @media (max-width: 620px) {
   .whatsapp-starter-hero { padding-top: 58px; padding-bottom: 74px; }
-  .whatsapp-starter-hero h1 { font-size: clamp(38px, 12vw, 56px); }
+  .whatsapp-starter-hero h1 {
+    font-size: clamp(36px, 10.8vw, 50px);
+    line-height: 1.38;
+    letter-spacing: -.025em;
+    margin-block: 22px 20px;
+  }
+  .whatsapp-starter-hero h1 em {
+    display: block;
+    margin-top: .14em;
+    line-height: 1.42;
+  }
   .whatsapp-starter-answer { margin-top: 18px; padding: 14px; }
   .whatsapp-starter-proof { gap: 26px; padding-bottom: 92px; }
   .whatsapp-flow-card { padding: 18px; border-radius: 24px; }
