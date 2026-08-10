@@ -13,6 +13,24 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "GOOGLE ADS · CONVERSION",
+    title: "لماذا Google Ads تجلب زيارات ولا تجلب عملاء؟",
+    description: "تشخيص رحلة الإعلان من Search Terms والإعلان إلى صفحة الهبوط والتتبع وجودة الاستفسارات والمتابعة.",
+    href: "/guides/google-ads-clicks-no-leads",
+  },
+  {
+    category: "GOOGLE ADS VS META ADS · GCC",
+    title: "Google Ads أم Meta Ads: أيهما أفضل لنشاطك؟",
+    description: "مقارنة عملية حسب نية العميل ونوع العرض والصفحة والميزانية ومرحلة القرار، بدل اختيار المنصة بالشهرة.",
+    href: "/guides/google-ads-vs-meta-ads",
+  },
+  {
+    category: "GOOGLE ADS COST · SAUDI ARABIA",
+    title: "كم تكلفة إعلانات Google في السعودية؟",
+    description: "افهم ميزانية المنصة والإعداد والإدارة وصفحة الوصول والتتبع، وكيف تبني اختبارًا قابلًا للقياس.",
+    href: "/guides/google-ads-cost-saudi-arabia",
+  },
+  {
     category: "BRAND NAMING · SAUDI ARABIA",
     title: "كيف تختار اسمًا تجاريًا مميزًا وقابلًا للتسجيل في السعودية؟",
     description: "منهج عملي للتسمية، والفحص اللغوي والثقافي، والبحث المبدئي عن العلامات المشابهة، والتحقق من الدومين قبل القرار.",
