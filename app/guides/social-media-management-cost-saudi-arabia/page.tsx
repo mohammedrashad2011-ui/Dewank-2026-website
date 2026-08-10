@@ -32,7 +32,7 @@ const scope = [
 export default function SocialMediaManagementCostGuide() {
   const url = `${siteUrl}/guides/social-media-management-cost-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-03", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["إدارة حسابات التواصل الاجتماعي", "أسعار السوشيال ميديا في السعودية", "صناعة المحتوى"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["إدارة حسابات التواصل الاجتماعي", "أسعار السوشيال ميديا في السعودية", "صناعة المحتوى"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -44,7 +44,7 @@ export default function SocialMediaManagementCostGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>السوشيال ميديا</span></nav>
         <h1>{title}</h1>
         <p>السعر وحده لا يخبرك إن كانت الباقة مناسبة؛ ما يحدد القيمة هو جودة الفكرة والتنفيذ، وما إذا كان المحتوى يبني حضورًا يقود العميل إلى خطوة واضحة.</p>
-        <div className="article-meta"><span>آخر تحديث: 3 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: النطاق والقيمة</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: النطاق والقيمة</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -72,8 +72,9 @@ export default function SocialMediaManagementCostGuide() {
           <p>قارن الهدف والاستراتيجية ونوع المخرجات لا العدد فقط. اطلب نموذج تقويم محتوى، وحدد من يكتب ويصمم وينشر ويرد، وما الذي ستملكه عند انتهاء العقد. ولرؤية الصورة الأوسع، راجع دليل <Link href="/guides/digital-marketing-cost-saudi-arabia">أسعار التسويق الرقمي في السعودية</Link>.</p>
           <h2 id="decision">متى تكون الإدارة الشهرية استثمارًا سيئًا؟</h2>
           <p>عندما لا يوجد عرض واضح أو طريقة سهلة للطلب أو قدرة على متابعة العملاء. المحتوى لا يعوض ضعف المنتج أو تأخر الرد. قبل زيادة عدد المنشورات، أصلح الرسالة ومسار التحويل وحدد كيف ستقيس الاستفسارات والطلبات.</p>
+          <p><strong>مهم:</strong> النطاقات أعلاه تتحدث عن إدارة شهرية قد تشمل التخطيط والنشر والمتابعة، وليست نفس نطاق باقات المحتوى الجاهزة. لفهم الخدمة الكاملة راجع <Link href="/services/social-media-content">إدارة السوشيال ميديا وصناعة المحتوى</Link>. وإذا كنت تريد شهر محتوى محدد المخرجات كبداية، راجع <Link href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تريد محتوى يبني حضورًا ويخدم هدفًا؟</h2><p>نحدد ما يحتاجه حسابك فعلًا، ثم نبني خطة واضحة في المحتوى والتصميم والنشر والقياس من دون حشو الباقة بمخرجات لا تخدمك.</p><Link className="button primary" href="/digital-marketing">استعرض حلول التسويق الرقمي <span>←</span></Link></section>
+          <section className="article-cta"><h2>تريد محتوى يبني حضورًا ويخدم هدفًا؟</h2><p>نحدد ما يحتاجه حسابك فعلًا، ثم نبني خطة واضحة في المحتوى والتصميم والنشر والقياس من دون حشو الباقة بمخرجات لا تخدمك.</p><Link className="button primary" href="/services/social-media-content">استعرض خدمة السوشيال ميديا <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#ranges">نطاقات الأسعار</a><a href="#included">مكونات الباقة</a><a href="#separate">الخدمات المنفصلة</a><a href="#drivers">عوامل التكلفة</a><a href="#compare">مقارنة الباقات</a><a href="#decision">قبل التعاقد</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">اطلب عرضًا مناسبًا</Link></aside>
       </div>
