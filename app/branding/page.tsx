@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
+import { BrandNamingOfferPrice } from "../offers/brand-naming/localized-brand-naming-offer";
+import { MiniIdentityPrice } from "../offers/mini-visual-identity/localized-mini-identity";
 import BrandSignal from "./brand-signal";
 import "./branding-page.css";
 import "./branding-guides.css";
@@ -65,14 +67,14 @@ const brandOffers = [
     label: "للمشروع قبل الهوية",
     title: "تسمية العلامة + اتجاه أولي",
     text: "10–15 اسمًا مدروسًا مع الفحص المبدئي والدومين واتجاه أولي للبراند.",
-    price: "490 ريال",
+    priceType: "naming" as const,
   },
   {
     href: "/offers/mini-visual-identity",
     label: "لبداية بصرية محددة",
     title: "Mini Visual Identity",
     text: "بداية أصغر لمن يحتاج نظامًا بصريًا واضحًا دون الدخول مباشرة في مشروع هوية متكامل.",
-    price: "1,190 ريال",
+    priceType: "identity" as const,
   },
 ];
 
@@ -211,7 +213,10 @@ export default function BrandingPage() {
               <small>{offer.label}</small>
               <strong>{offer.title}</strong>
               <p>{offer.text}</p>
-              <span className="brand-offer-price"><b>{offer.price}</b><span>شاهد العرض ↗</span></span>
+              <span className="brand-offer-price">
+                {offer.priceType === "naming" ? <BrandNamingOfferPrice /> : <MiniIdentityPrice />}
+                <span className="brand-offer-link">شاهد العرض ↗</span>
+              </span>
             </Link>
           ))}
         </div>
