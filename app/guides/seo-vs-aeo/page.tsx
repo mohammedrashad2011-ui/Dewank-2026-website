@@ -32,7 +32,7 @@ const comparison = [
 export default function SeoVsAeoGuide() {
   const url = `${siteUrl}/guides/seo-vs-aeo`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-03", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["SEO", "AEO", "محركات الإجابة", "الظهور في الذكاء الاصطناعي"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["SEO", "AEO", "محركات الإجابة", "الظهور في الذكاء الاصطناعي"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -44,7 +44,7 @@ export default function SeoVsAeoGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>SEO وAEO</span></nav>
         <h1>{title}</h1>
         <p>SEO يساعد الناس والأنظمة على اكتشاف صفحتك. AEO يساعدها على فهم الإجابة داخلها. المنافسة الجديدة لا تلغي البحث؛ بل ترفع معيار الوضوح والثقة.</p>
-        <div className="article-meta"><span>آخر تحديث: 3 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: SEO + AEO</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: SEO + AEO</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -64,6 +64,7 @@ export default function SeoVsAeoGuide() {
             <li><strong>أصلح الأساس التقني:</strong> الفهرسة والروابط الداخلية والـCanonical والسرعة وتجربة الجوال وSitemap.</li>
             <li><strong>استخدم Schema بدقة:</strong> Article وBreadcrumb وFAQ عند انطباقها، مع تطابقها مع المحتوى المرئي.</li>
           </ol>
+          <p>لو تريد معرفة المشكلة على موقعك قبل الدخول في تنفيذ مستمر، ابدأ بـ<Link href="/offers/seo-audit">فحص SEO وAEO</Link>. أما إذا كان المطلوب خطة تحسين وتنفيذ أوسع، راجع <Link href="/seo-aeo">خدمة SEO وAEO</Link>.</p>
           <h2 id="mistakes">أخطاء تضعف فرص الظهور</h2>
           <ul>
             <li>إنشاء عشرات الصفحات المتشابهة بتغيير اسم المدينة أو الكلمة فقط.</li>
@@ -76,11 +77,11 @@ export default function SeoVsAeoGuide() {
           <p>ابدأ بـGoogle Search Console لقياس الفهرسة والانطباعات والاستعلامات والنقرات، واربطها في GA4 بالاستفسارات والحجوزات. ولـAEO، كوّن قائمة ثابتة من الأسئلة التجارية المهمة وافحص دوريًا ظهور علامتك أو صفحاتك في الإجابات، مع تسجيل الأداة والسؤال والتاريخ والرابط. لا تعتبر اختبارًا واحدًا دليلًا دائمًا لأن النتائج تتغير حسب الوقت والسياق والمستخدم.</p>
           <h2 id="priority">أيهما تنفذ أولًا؟</h2>
           <p>إذا كان الموقع لا يُفهرس جيدًا أو صفحاته ضعيفة ومكررة، فالأولوية لـSEO. إذا كان الأساس سليمًا لكن المحتوى لا يجيب بوضوح ولا يثبت خبرة العلامة، أضف AEO. في أغلب المشاريع الصحيحة يُنفذ الاثنان ضمن خطة واحدة، لا كباقتين منفصلتين تتنافسان على الميزانية.</p>
-          <p>إذا كان موقعك موجودًا لكن لا يحول الزيارات إلى طلبات، راجع أيضًا دليل <Link href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link>.</p>
+          <p>إذا كان موقعك موجودًا لكن لا يحول الزيارات إلى طلبات، راجع أيضًا دليل <Link href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link>. ولو المشكلة في البنية والتجربة نفسها، انتقل إلى <Link href="/website-design">خدمة تصميم وتطوير المواقع</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد بناء ظهور يمكن قياسه؟</h2><p>نراجع الأساس التقني، خريطة الصفحات، نية البحث، وضوح الإجابات والقياس، ثم نرتب التنفيذ حسب أثره التجاري.</p><Link className="button primary" href="/seo-aeo">استعرض خدمة SEO وAEO <span>←</span></Link></section>
         </div>
-        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#comparison">الفرق بينهما</a><a href="#how-engines-answer">اختيار المصادر</a><a href="#implementation">خطوات التنفيذ</a><a href="#mistakes">أخطاء شائعة</a><a href="#measurement">قياس النتائج</a><a href="#priority">ترتيب الأولويات</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">اطلب مراجعة موقعك</Link></aside>
+        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#comparison">الفرق بينهما</a><a href="#how-engines-answer">اختيار المصادر</a><a href="#implementation">خطوات التنفيذ</a><a href="#mistakes">أخطاء شائعة</a><a href="#measurement">قياس النتائج</a><a href="#priority">ترتيب الأولويات</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/seo-aeo">اطلب مراجعة موقعك</Link></aside>
       </div>
     </article><Footer />
   </main>;
