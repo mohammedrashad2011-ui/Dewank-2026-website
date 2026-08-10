@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { GoogleAdsLaunchPrice } from "../offers/google-ads-launch/localized-google-ads-launch";
 import "./paid-ads-page.css";
+import "./paid-ads-cluster.css";
 
 export const metadata: Metadata = createMetadata({
   title: "إدارة إعلانات Google وMeta في السعودية | ديوانك",
@@ -44,6 +46,12 @@ const faqs = [
   { question: "هل توفرون التصاميم والنسخ الإعلانية؟", answer: "نعم، يمكن أن يشمل النطاق كتابة الإعلانات وتوجيه أو تنفيذ التصميمات والفيديوهات المطلوبة للاختبار." },
   { question: "هل نحتاج صفحة هبوط؟", answer: "عندما تكون الصفحة الحالية بطيئة أو مشتتة أو لا تدعم هدف الحملة، تصبح صفحة الهبوط ضرورية لحماية الميزانية ورفع التحويل." },
   { question: "هل يمكنكم إدارة حساب إعلاني قائم؟", answer: "نعم. نبدأ بمراجعة الهيكل والتتبع والجماهير والنتائج السابقة، ثم نقرر ما يجب إصلاحه أو إعادة بنائه." },
+];
+
+const paidAdsGuides = [
+  { href: "/guides/google-ads-cost-saudi-arabia", label: "التكلفة والميزانية", title: "كم تكلفة إعلانات Google في السعودية؟", text: "افهم ميزانية المنصة والتأسيس والصفحة والقياس قبل تحديد رقم الاختبار." },
+  { href: "/guides/google-ads-vs-meta-ads", label: "اختيار القناة", title: "Google Ads أم Meta Ads؟", text: "اختَر حسب نية العميل ومرحلة القرار بدل تشغيل القناة الأشهر بشكل تلقائي." },
+  { href: "/guides/google-ads-clicks-no-leads", label: "تشخيص التحويل", title: "نقرات كثيرة ولا يوجد عملاء؟", text: "شخّص Search Terms والإعلان والصفحة والتتبع والمتابعة قبل زيادة الميزانية." },
 ];
 
 export default function PaidAdsPage() {
@@ -89,6 +97,12 @@ export default function PaidAdsPage() {
       <section className="pa-deliverables shell"><div className="pa-section-head"><div><span className="pa-label">[ ما الذي تستلمه ]</span><h2>إدارة كاملة.<br/><em>ورؤية أوضح.</em></h2></div><p>تعرف أين تذهب الميزانية، وما الذي يتم اختباره، وما القرار التالي.</p></div><div className="pa-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2,"0")}</b><p>{item}</p></div>)}</div></section>
 
       <section className="pa-fit"><div className="shell pa-fit-grid"><div><span className="pa-label">[ لمن تناسب الخدمة ]</span><h2>عندما تصبح الإعلانات<br/><em>استثمارًا يحتاج إدارة.</em></h2></div><div>{fitFor.map((item) => <p key={item}>{item}</p>)}</div></div></section>
+
+      <section className="pa-cluster shell" aria-labelledby="pa-cluster-title">
+        <div className="pa-cluster-head"><div><span className="pa-label">[ قبل تشغيل الميزانية ]</span><h2 id="pa-cluster-title">اختر القناة وافهم التكلفة.<em>ثم شخّص التحويل.</em></h2></div><p>ثلاثة أدلة تربط قرار الإعلان بالميزانية والقناة والصفحة، بدل التعامل مع كل جزء بمعزل عن الآخر.</p></div>
+        <div className="pa-guide-grid">{paidAdsGuides.map((guide) => <Link className="pa-guide-card" href={guide.href} key={guide.href}><small>{guide.label}</small><h3>{guide.title}</h3><p>{guide.text}</p><span>اقرأ الدليل ↗</span></Link>)}</div>
+        <div className="pa-offer-row"><div className="pa-offer-copy"><small>لو تحتاج بداية محددة</small><h3>باقة إطلاق Google Ads</h3><p>حملة Search واحدة بنطاق واضح، بحث كلمات وإعلانات وكلمات سلبية وتتبع تحويل أساسي، بدون خلطها بإدارة شهرية كاملة.</p></div><Link className="pa-offer-price-card" href="/offers/google-ads-launch"><GoogleAdsLaunchPrice /><b>شاهد العرض ↗</b></Link></div>
+      </section>
 
       <section className="pa-faq shell"><div className="pa-section-head"><div><span className="pa-label">[ أسئلة شائعة ]</span><h2>قبل إطلاق الميزانية.</h2></div><p>إجابات مباشرة عن الميزانية والمدة والتصميم والتتبع.</p></div><div className="pa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></section>
 
