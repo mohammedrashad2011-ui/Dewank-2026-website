@@ -32,7 +32,7 @@ const inclusions = [
 export default function DigitalMarketingCostGuide() {
   const url = `${siteUrl}/guides/digital-marketing-cost-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-03", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["أسعار التسويق الرقمي في السعودية", "ميزانية التسويق", "باقات التسويق الرقمي"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["أسعار التسويق الرقمي في السعودية", "ميزانية التسويق", "باقات التسويق الرقمي"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -44,7 +44,7 @@ export default function DigitalMarketingCostGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>التسويق الرقمي</span></nav>
         <h1>{title}</h1>
         <p>السؤال الصحيح ليس «كم سعر الباقة؟» فقط، بل: ما المشكلة التي ستحلها، من سينفذها، وكيف سنعرف أن الاستثمار عاد بنتيجة؟</p>
-        <div className="article-meta"><span>آخر تحديث: 3 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: الميزانية ونطاق العمل</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: الميزانية ونطاق العمل</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -71,6 +71,7 @@ export default function DigitalMarketingCostGuide() {
           <p>وحّد المطلوب أولًا، ثم قارن الهدف والنطاق والفريق والملكية والقياس والمدة والسعر. افصل البنود الأساسية عن الاختيارية، واسأل عما يحدث عند ضعف النتائج. راجع أيضًا دليل <Link href="/guides/choose-digital-marketing-company-saudi-arabia">كيف تختار شركة تسويق رقمي في السعودية؟</Link> قبل توقيع عقد طويل.</p>
           <h2 id="budget">كيف تحدد ميزانية مناسبة لنشاطك؟</h2>
           <p>ابدأ من قيمة العميل وهوامش الربح والطاقة التشغيلية، لا من متوسط السوق وحده. إذا كان فريق المبيعات لا يتابع بسرعة أو الموقع لا يحول، أصلح التسرب أولًا. ميزانية إعلانية أكبر لا تصلح عرضًا ضعيفًا أو متابعة متأخرة.</p>
+          <p>إذا كان احتياجك أوسع من المحتوى وحده، راجع <Link href="/digital-marketing">خدمة التسويق الرقمي وصناعة المحتوى</Link>. أما إذا كان هدفك بداية تنفيذية محددة في المحتوى، فـ<Link href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> نطاق أصغر وواضح ولا تمثل إدارة تسويق شهرية متكاملة.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد نطاقًا يناسب هدفك لا باقة مزدحمة؟</h2><p>نراجع وضعك ونحدد الأولوية والقنوات والقياس، ثم نبني نطاق عمل واضحًا يمكن تقييمه قبل زيادة الإنفاق.</p><Link className="button primary" href="/digital-marketing">استعرض خدمة التسويق الرقمي <span>←</span></Link></section>
         </div>

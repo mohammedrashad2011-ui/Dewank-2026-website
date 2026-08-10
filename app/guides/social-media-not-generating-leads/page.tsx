@@ -35,7 +35,7 @@ const problems = [
 export default function SocialMediaNotGeneratingLeadsGuide() {
   const url = `${siteUrl}/guides/social-media-not-generating-leads`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-03", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تحويل المتابعين إلى عملاء", "التسويق عبر التواصل الاجتماعي", "تحسين التحويل"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تحويل المتابعين إلى عملاء", "التسويق عبر التواصل الاجتماعي", "تحسين التحويل"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -47,7 +47,7 @@ export default function SocialMediaNotGeneratingLeadsGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>السوشيال ميديا</span></nav>
         <h1>{title}</h1>
         <p>المشكلة ليست دائمًا في التصميم أو الخوارزمية. غالبًا توجد فجوة بين ما يراه العميل، وما يفهمه، وما يثق به، والخطوة التي تطلبها منه.</p>
-        <div className="article-meta"><span>آخر تحديث: 3 أغسطس 2026</span><span>وقت القراءة: 8 دقائق</span><span>التركيز: التحويل</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 8 دقائق</span><span>التركيز: التحويل</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -75,6 +75,7 @@ export default function SocialMediaNotGeneratingLeadsGuide() {
           <h2 id="ads">هل الإعلانات هي الحل؟</h2>
           <p>إذا كان الحساب لا يحوّل الزيارة إلى رسالة، فالإعلان سيشتري لك زيارات أكثر إلى نفس التسرب. أصلح العرض والمسار أولًا، ثم استخدم الإعلان لاختبار الرسالة وتوسيع ما ثبت نجاحه.</p>
           <p>وإذا كنت تقارن نطاق التنفيذ والتكلفة، راجع دليل <Link href="/guides/social-media-management-cost-saudi-arabia">أسعار إدارة حسابات التواصل الاجتماعي في السعودية</Link>.</p>
+          <p>إذا كانت المشكلة في الرسالة والمحتوى نفسه، راجع <Link href="/services/social-media-content">خدمة إدارة السوشيال ميديا وصناعة المحتوى</Link>. وإذا كان الحساب يحتاج إصلاحًا مركزًا قبل إدارة شهرية كاملة، يمكنك الاطلاع على <Link href="/offers/instagram-14-day-upgrade">عرض تحسين حساب إنستجرام خلال 14 يومًا</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد معرفة أين يتسرب عملاؤك؟</h2><p>نراجع الرسالة والمحتوى والعرض ومسار الطلب، ثم نرتب التحسينات حسب أثرها بدل زيادة النشر بلا تشخيص.</p><Link className="button primary" href="/digital-marketing">استعرض حلول التسويق الرقمي <span>←</span></Link></section>
         </div>
