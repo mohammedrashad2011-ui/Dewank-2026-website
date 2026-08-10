@@ -4,6 +4,7 @@ import { createMetadata } from "../../lib/seo";
 import { Footer, Header } from "../../components/site-shell";
 import "./social-media-content.css";
 import "./content-spacing-fix.css";
+import "./content-guides.css";
 
 export const metadata: Metadata = createMetadata({
   title: "إدارة السوشيال ميديا وصناعة المحتوى | ديوانك",
@@ -24,6 +25,24 @@ const deliverables = [
   ["الأفكار والتخطيط", "نحوّل أهدافك إلى تقويم محتوى منظم يجمع التوعية والثقة والطلب بدل النشر العشوائي."],
   ["التصميم والكابشن", "تصميمات متناسقة مع الهوية، ونصوص واضحة تقود المتابع إلى خطوة مفهومة."],
   ["النشر والتطوير", "تنظيم النشر، مراجعة النتائج، وتطوير الاتجاهات بناءً على التفاعل والاستفسارات والنتائج."],
+];
+
+const guideLinks = [
+  {
+    href: "/guides/social-media-not-generating-leads",
+    title: "حسابك جميل لكنه لا يجلب عملاء: أين المشكلة؟",
+    text: "اعرف هل الخلل في الرسالة أو العرض أو الثقة أو الـCTA قبل أن تزيد عدد المنشورات.",
+  },
+  {
+    href: "/guides/social-media-management-cost-saudi-arabia",
+    title: "أسعار إدارة حسابات التواصل الاجتماعي في السعودية",
+    text: "قارن الباقات على النطاق والهدف وما يدخل في التنفيذ، لا على عدد المنشورات فقط.",
+  },
+  {
+    href: "/guides/digital-marketing-cost-saudi-arabia",
+    title: "أسعار التسويق الرقمي في السعودية: ماذا تشمل؟",
+    text: "افصل بين إدارة المحتوى والحملات والإنفاق الإعلاني والإنتاج قبل تحديد ميزانيتك.",
+  },
 ];
 
 const faqItems = [
@@ -86,6 +105,25 @@ export default function SocialMediaContentPage() {
       <section className="content-offer shell">
         <div><span className="section-label">[ بداية جاهزة ]</span><h2>تحتاج شهرًا كاملًا<br/><em>بنطاق واضح؟</em></h2></div>
         <div className="content-offer-card"><strong>باقة محتوى 30 يومًا</strong><p>خيار جاهز لمن يريد بدء التنفيذ سريعًا بسعر وتسليمات محددة، من دون أن تختصر الخدمة الكاملة في عرض واحد.</p><Link className="button primary" href="/offers/30-day-content-package">اكتشف العرض <span>←</span></Link></div>
+      </section>
+
+      <section className="content-guides shell" aria-labelledby="content-guides-title">
+        <div className="content-guides-head">
+          <div>
+            <span className="section-label">[ أدلة قبل القرار ]</span>
+            <h2 id="content-guides-title">افهم المشكلة أولًا.<br/><em>ثم اختر نطاق المحتوى المناسب.</em></h2>
+          </div>
+          <p>ثلاثة أدلة عملية تساعدك على فهم التحويل والتكلفة والفرق بين إدارة الحساب وصناعة المحتوى قبل التعاقد.</p>
+        </div>
+        <div className="content-guides-grid">
+          {guideLinks.map((guide, index) => (
+            <Link className="content-guide-card" href={guide.href} key={guide.href}>
+              <div className="content-guide-top"><span>دليل 0{index + 1}</span><span className="content-guide-arrow" aria-hidden="true">↗</span></div>
+              <h3>{guide.title}</h3>
+              <p>{guide.text}</p>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="content-faq shell">
