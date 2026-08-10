@@ -5,6 +5,7 @@ import { Footer, Header } from "../components/site-shell";
 import BrandSignal from "./brand-signal";
 import "./branding-page.css";
 import "./branding-guides.css";
+import "./branding-conversion-fixes.css";
 
 export const metadata: Metadata = createMetadata({
   title: "تصميم الهوية البصرية في السعودية | استراتيجية براند متكاملة",
@@ -55,6 +56,23 @@ const brandGuides = [
     href: "/guides/how-to-choose-brand-name-saudi-arabia",
     title: "كيف تختار اسمًا تجاريًا قويًا وقابلًا للاستخدام؟",
     text: "معايير عملية للاسم، والفحص اللغوي والثقافي، والتشابه، والدومين قبل الإطلاق.",
+  },
+];
+
+const brandOffers = [
+  {
+    href: "/offers/brand-naming",
+    label: "للمشروع قبل الهوية",
+    title: "تسمية العلامة + اتجاه أولي",
+    text: "10–15 اسمًا مدروسًا مع الفحص المبدئي والدومين واتجاه أولي للبراند.",
+    price: "490 ريال",
+  },
+  {
+    href: "/offers/mini-visual-identity",
+    label: "لبداية بصرية محددة",
+    title: "Mini Visual Identity",
+    text: "بداية أصغر لمن يحتاج نظامًا بصريًا واضحًا دون الدخول مباشرة في مشروع هوية متكامل.",
+    price: "1,190 ريال",
   },
 ];
 
@@ -175,7 +193,28 @@ export default function BrandingPage() {
         <span className="section-label">[ أسئلة شائعة ]</span>
         <div className="brand-section-head"><div><h2 id="branding-faq-title">إجابات واضحة<br/><em>قبل أن نبدأ.</em></h2></div></div>
         {faqs.map(([q,a])=><details key={q}><summary>{q}</summary><p>{a}</p></details>)}
-        <div className="brand-related"><Link href="/website-design">تصميم مواقع الشركات ←</Link><Link href="/digital-marketing">استراتيجية التسويق الرقمي ←</Link><Link href="/services">عرض جميع الخدمات ←</Link></div>
+        <div className="brand-related">
+          <Link href="/website-design">تصميم مواقع الشركات</Link>
+          <Link href="/digital-marketing">استراتيجية التسويق الرقمي</Link>
+          <Link href="/services">عرض جميع الخدمات</Link>
+        </div>
+      </section>
+
+      <section className="shell brand-offers" aria-labelledby="brand-offers-title">
+        <div className="brand-offers-head">
+          <div><span className="section-label">[ بدايات جاهزة ]</span><h2 id="brand-offers-title">لو لا تحتاج المشروع الكامل،<br/><em>ابدأ بالنطاق المناسب.</em></h2></div>
+          <p>اختيارات أصغر بنطاق وسعر واضحين، تساعدك تبدأ من المرحلة التي تحتاجها فعلًا بدل شراء خدمة أكبر من احتياجك.</p>
+        </div>
+        <div className="brand-offers-grid">
+          {brandOffers.map((offer) => (
+            <Link className="brand-offer-card" href={offer.href} key={offer.href}>
+              <small>{offer.label}</small>
+              <strong>{offer.title}</strong>
+              <p>{offer.text}</p>
+              <span className="brand-offer-price"><b>{offer.price}</b><span>شاهد العرض ↗</span></span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="shell brand-cta">
