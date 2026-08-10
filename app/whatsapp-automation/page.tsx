@@ -102,6 +102,16 @@ export default function WhatsAppAutomation() {
         </div>
       </section>
 
+      <section className="seo-content shell" aria-labelledby="wa-guides-title">
+        <span className="section-label">[ أدلة قبل القرار ]</span>
+        <h2 id="wa-guides-title">افهم الرحلة أولًا.<br/><em>ثم اختر النطاق المناسب.</em></h2>
+        <div className="seo-content-grid">
+          <p><Link href="/guides/whatsapp-crm-automation"><strong>كيف تعمل أتمتة واتساب مع CRM؟</strong></Link><br/>شرح عملي للرحلة من الرسالة إلى التأهيل والحجز والمتابعة والقياس.</p>
+          <p><Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia"><strong>كم تكلفة أتمتة واتساب مع CRM في السعودية؟</strong></Link><br/>لفهم بنود التكلفة والفرق بين نظام متكامل وبداية محدودة.</p>
+          <p><Link href="/guides/best-crm-whatsapp-saudi-arabia"><strong>كيف تختار CRM مناسبًا لواتساب؟</strong></Link><br/>معايير عملية لاختيار النظام حسب الفريق والرحلة والتكاملات.</p>
+        </div>
+      </section>
+
       <section className="faq-section shell">
         <span className="section-label">[ أسئلة شائعة ]</span>
         <h2>قبل أن تؤتمت واتساب.</h2>
