@@ -34,7 +34,7 @@ const journey = [
 export default function WhatsappCrmAutomationGuide() {
   const url = `${siteUrl}/guides/whatsapp-crm-automation`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-04", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["أتمتة واتساب", "CRM", "متابعة العملاء", "تحسين التحويل"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["أتمتة واتساب", "CRM", "متابعة العملاء", "تحسين التحويل"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -45,8 +45,8 @@ export default function WhatsappCrmAutomationGuide() {
       <header className="article-hero shell">
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>واتساب وCRM</span></nav>
         <h1>{title}</h1>
-        <p>الرد السريع وحده لا يمنع ضياع العميل. النظام الحقيقي يعرف من تواصل، ماذا يريد، من يتابعه، وما الخطوة التالية—ثم يقيس أين توقفت الفرصة.</p>
-        <div className="article-meta"><span>آخر تحديث: 4 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: الأتمتة والتحويل</span></div>
+        <p>الرد السريع وحده لا يمنع ضياع العميل. النظام الحقيقي يعرف من تواصل، ماذا يريد، من يتابعه، وما الخطوة التالية، ثم يقيس أين توقفت الفرصة.</p>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: الأتمتة والتحويل</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -89,6 +89,7 @@ export default function WhatsappCrmAutomationGuide() {
             <li>شغّل Pilot محدودًا، راجع المحادثات والنتائج، ثم وسّع النظام.</li>
           </ol>
           <p>إذا كان التسرب يبدأ من الحساب قبل وصول العميل إلى واتساب، راجع دليل <Link href="/guides/social-media-not-generating-leads">حسابك جميل لكنه لا يجلب عملاء</Link>.</p>
+          <p>إذا وصلت لمرحلة التنفيذ، راجع <Link href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link> لفهم النطاق الكامل. وإذا كنت تريد بداية أصغر ومحددة، يمكنك الاطلاع على <Link href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد تحويل واتساب إلى نظام متابعة؟</h2><p>نراجع رحلة العميل، نقاط التسرب، CRM والحجز، ثم نبني تدفقًا يناسب فريقك ويقيس النتيجة التجارية.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
         </div>
