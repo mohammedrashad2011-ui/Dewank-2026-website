@@ -57,9 +57,11 @@ export default function WhatsAppAutomation() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <style>{`
-        .wa-guides{padding-block:clamp(76px,8vw,112px);border-top:1px solid var(--line)}
-        .wa-guides-head{display:grid;grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);gap:clamp(36px,6vw,92px);align-items:end;margin-bottom:36px}
-        .wa-guides-head h2{margin:14px 0 0;font-size:clamp(38px,4.7vw,62px);line-height:1.22;letter-spacing:-.045em;max-width:760px}
+        .seo-content h2,.method-intro h2{font-size:clamp(36px,4.15vw,56px);line-height:1.34;letter-spacing:-.035em}
+        .method-intro h2{margin-top:18px;margin-bottom:22px}
+        .wa-guides{padding-block:clamp(70px,7vw,100px);border-top:1px solid var(--line)}
+        .wa-guides-head{display:grid;grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);gap:clamp(36px,6vw,92px);align-items:end;margin-bottom:34px}
+        .wa-guides-head h2{margin:16px 0 0;font-size:clamp(34px,4vw,54px);line-height:1.36;letter-spacing:-.035em;max-width:720px}
         .wa-guides-head h2 em{font-style:normal;color:var(--blue)}
         .wa-guides-intro{margin:0;max-width:430px;color:var(--muted);font-size:15px;line-height:1.9}
         .wa-guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -72,8 +74,8 @@ export default function WhatsAppAutomation() {
         .wa-guide-card:hover .wa-guide-arrow{background:var(--ink);color:#fff;border-color:var(--ink)}
         .wa-guide-card h3{margin:0 0 12px;font-size:clamp(18px,1.5vw,23px);line-height:1.55;letter-spacing:-.02em}
         .wa-guide-card p{margin:auto 0 0;color:var(--muted);font-size:14px;line-height:1.85}
-        @media(max-width:900px){.wa-guides-head{grid-template-columns:1fr;gap:18px}.wa-guide-grid{grid-template-columns:1fr 1fr}.wa-guide-card:last-child{grid-column:1/-1}.wa-guides-head h2{max-width:680px}}
-        @media(max-width:640px){.wa-guides{padding-block:72px}.wa-guides-head h2{font-size:38px;line-height:1.28}.wa-guide-grid{grid-template-columns:1fr}.wa-guide-card:last-child{grid-column:auto}.wa-guide-card{min-height:190px;padding:21px}.wa-guide-card h3{font-size:19px}.wa-guides-intro{font-size:14px}}
+        @media(max-width:900px){.wa-guides-head{grid-template-columns:1fr;gap:18px}.wa-guide-grid{grid-template-columns:1fr 1fr}.wa-guide-card:last-child{grid-column:1/-1}.wa-guides-head h2{max-width:680px}.seo-content h2,.method-intro h2{font-size:clamp(34px,6vw,48px);line-height:1.36}}
+        @media(max-width:640px){.wa-guides{padding-block:64px}.wa-guides-head h2{font-size:32px;line-height:1.42}.wa-guide-grid{grid-template-columns:1fr}.wa-guide-card:last-child{grid-column:auto}.wa-guide-card{min-height:190px;padding:21px}.wa-guide-card h3{font-size:19px}.wa-guides-intro{font-size:14px}.seo-content h2,.method-intro h2{font-size:34px;line-height:1.42;letter-spacing:-.025em}}
         @media(prefers-reduced-motion:reduce){.wa-guide-card,.wa-guide-arrow{transition:none}}
       `}</style>
 
