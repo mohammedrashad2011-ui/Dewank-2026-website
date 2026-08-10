@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../lib/seo";
 import "./digital-marketing-page.css";
+import "./digital-marketing-guides.css";
 
 export const metadata: Metadata = createMetadata({
   title: "التسويق الرقمي وصناعة المحتوى في السعودية | ديوانك",
@@ -63,6 +64,24 @@ const fitFor = [
   "فريق محتوى لديه تنفيذ جيد لكن لا يعمل من استراتيجية واحدة.",
   "نشاط يعتمد على الإعلانات لأن المحتوى العضوي لا يبني طلبًا أو ثقة.",
   "شركة تقدم خدمة قوية لكن جمهورها لا يفهم الفرق بينها وبين البدائل.",
+];
+
+const guideLinks = [
+  {
+    href: "/guides/social-media-not-generating-leads",
+    title: "حسابك جميل لكنه لا يجلب عملاء: أين المشكلة؟",
+    text: "تشخيص عملي للرسالة والعرض والثقة والـCTA ومسار التحويل قبل زيادة النشر.",
+  },
+  {
+    href: "/guides/social-media-management-cost-saudi-arabia",
+    title: "أسعار إدارة حسابات التواصل الاجتماعي في السعودية",
+    text: "افهم نطاق الإدارة الشهرية، ما يدخل في الباقة، وما يجب تسعيره بشكل منفصل.",
+  },
+  {
+    href: "/guides/digital-marketing-cost-saudi-arabia",
+    title: "أسعار التسويق الرقمي في السعودية: ماذا تشمل؟",
+    text: "فرّق بين أتعاب الإدارة والإنفاق الإعلاني والإنتاج قبل مقارنة أي عرض تسويقي.",
+  },
 ];
 
 const faqs = [
@@ -243,6 +262,25 @@ export default function DigitalMarketingPage() {
           <div className="dm-fit-list">
             {fitFor.map((item) => <p key={item}><span>↙</span>{item}</p>)}
           </div>
+        </div>
+      </section>
+
+      <section className="dm-guides shell" aria-labelledby="dm-guides-title">
+        <div className="dm-guides-head">
+          <div>
+            <span className="dm-label">[ أدلة قبل القرار ]</span>
+            <h2 id="dm-guides-title">افهم أين المشكلة.<br/><em>ثم اختر نطاق التسويق المناسب.</em></h2>
+          </div>
+          <p>ثلاثة أدلة تساعدك على تشخيص ضعف التحويل، فهم تكلفة إدارة الحسابات، ومقارنة نطاقات التسويق قبل التعاقد.</p>
+        </div>
+        <div className="dm-guides-grid">
+          {guideLinks.map((guide, index) => (
+            <Link className="dm-guide-card" href={guide.href} key={guide.href}>
+              <div className="dm-guide-card-top"><span>دليل 0{index + 1}</span><span className="dm-guide-arrow" aria-hidden="true">↗</span></div>
+              <h3>{guide.title}</h3>
+              <p>{guide.text}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
