@@ -22,7 +22,7 @@ const faqs = [
 export default function WebsiteDesignCostGuide() {
   const url = `${siteUrl}/guides/website-design-cost-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar-SA", datePublished: "2026-08-03", dateModified: "2026-08-08", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تصميم المواقع", "تكلفة المواقع الإلكترونية", "السوق السعودي"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar-SA", datePublished: "2026-08-03", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تصميم المواقع", "تكلفة المواقع الإلكترونية", "السوق السعودي"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -33,7 +33,7 @@ export default function WebsiteDesignCostGuide() {
       <header className="article-hero shell">
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>تصميم المواقع</span></nav>
         <h1>{title}</h1><p>السؤال الصحيح ليس: «كم سعر الموقع؟» فقط. السؤال الأدق: ما الموقع الذي يحتاجه نشاطك، وما الذي يجب أن يحققه حتى يكون استثمارًا بدل أن يصبح مجرد واجهة جميلة؟</p>
-        <div className="article-meta"><span>آخر تحديث: 8 أغسطس 2026</span><span>وقت القراءة: 7 دقائق</span><span>السوق: السعودية</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 7 دقائق</span><span>السوق: السعودية</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -49,13 +49,14 @@ export default function WebsiteDesignCostGuide() {
             <tr><td><strong>متجر إلكتروني</strong></td><td>منتجات، دفع، شحن، طلبات</td><td>حجم الكتالوج والتكاملات وإدارة العمليات</td></tr>
             <tr><td><strong>منصة مخصصة</strong></td><td>حسابات، صلاحيات، حجوزات أو عمليات</td><td>المنطق البرمجي والأمان والاختبارات</td></tr>
           </tbody></table></div>
+          <p>لو احتياجك محدد، يمكنك مقارنة نطاقين جاهزين بدل مشروع مفتوح: <Link href="/offers/landing-page-package">عرض صفحة الهبوط</Link> لحملة أو خدمة واحدة، أو <Link href="/offers/small-business-website">عرض الموقع الصغير حتى 5 صفحات</Link> لمشروع يحتاج حضورًا تعريفيًا متكاملًا.</p>
 
           <h2 id="factors">7 عوامل تحدد السعر الحقيقي</h2>
           <h3>1. الهدف التجاري</h3><p>موقع هدفه إثبات الوجود يختلف عن موقع مطلوب منه توليد استفسارات أو حجوزات أو مبيعات. كلما كان القرار التجاري أوضح، أمكن حذف خصائص لا تخدمه وتوجيه الميزانية لما يؤثر فعلًا.</p>
           <h3>2. التصميم المخصص أم القالب</h3><p>القالب يقلل وقت التنفيذ، لكنه قد يفرض قيودًا على الهوية وتجربة الاستخدام. التصميم المخصص يحتاج بحثًا وقرارات أكثر، لكنه يصبح منطقيًا عندما يكون التميز والثقة والتحويل جزءًا من قيمة المشروع.</p>
           <h3>3. المحتوى واللغة</h3><p>كتابة النصوص، تنظيم الرسائل، تجهيز الصور، والترجمة ليست تفاصيل جانبية. الموقع ثنائي اللغة ليس مجرد نسخة مترجمة؛ بل يحتاج مراجعة اتجاه العرض والكلمات التي يستخدمها كل سوق.</p>
           <h3>4. الوظائف والتكاملات</h3><p>الدفع، الشحن، الحجز، CRM، واتساب، البريد، والتحليلات تضيف وقتًا للاختبار والمتابعة. اطلب تحديد كل تكامل بالاسم وما إذا كانت رسوم الأداة الخارجية ضمن العرض أم منفصلة.</p>
-          <h3>5. SEO والسرعة</h3><p>تهيئة العناوين والبنية والروابط وبيانات Schema وتجربة الجوال ليست بديلًا عن خدمة SEO مستمرة، لكنها أساس يجب ألا يُترك لما بعد الإطلاق.</p>
+          <h3>5. SEO والسرعة</h3><p>تهيئة العناوين والبنية والروابط وبيانات Schema وتجربة الجوال ليست بديلًا عن خدمة SEO مستمرة، لكنها أساس يجب ألا يُترك لما بعد الإطلاق. لو عندك موقع قائم وتريد معرفة مستوى الظهور قبل الاستثمار في تطوير أكبر، راجع <Link href="/offers/seo-audit">عرض فحص SEO وAEO</Link>.</p>
           <h3>6. لوحة الإدارة</h3><p>اسأل من سيضيف الخدمات أو المنتجات بعد التسليم. سهولة الإدارة والتدريب والتوثيق تقلل اعتمادك المستمر على المطور في التعديلات الصغيرة.</p>
           <h3>7. الدعم والملكية</h3><p>يجب أن يوضح العقد ملكية الدومين والاستضافة والشفرة والحسابات، وفترة إصلاح الأخطاء، وما يُعد تعديلًا جديدًا برسوم إضافية.</p>
 
@@ -72,7 +73,7 @@ export default function WebsiteDesignCostGuide() {
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تحتاج تقديرًا واقعيًا لموقعك؟</h2><p>أرسل لنا نوع النشاط والهدف والوظائف المطلوبة، وسنحدد النطاق المناسب قبل الحديث عن السعر.</p><Link className="button primary" href="/website-design">استعرض خدمة تصميم المواقع <span>←</span></Link></section>
         </div>
-        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#types">أنواع المواقع</a><a href="#factors">عوامل تحديد السعر</a><a href="#compare">مقارنة العروض</a><a href="#mistakes">الأخطاء المكلفة</a><a href="#brief">تجهيز طلب السعر</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">ناقش موقعك معنا</Link></aside>
+        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#types">أنواع المواقع</a><a href="#factors">عوامل تحديد السعر</a><a href="#compare">مقارنة العروض</a><a href="#mistakes">الأخطاء المكلفة</a><a href="#brief">تجهيز طلب السعر</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/website-design">ناقش موقعك معنا</Link></aside>
       </div>
     </article><Footer />
   </main>;
