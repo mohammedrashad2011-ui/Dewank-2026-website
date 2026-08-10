@@ -39,6 +39,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Growth guides hub and articles
     { path: "/guides", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/guides/google-ads-cost-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
+    { path: "/guides/google-ads-vs-meta-ads", priority: 0.75, changeFrequency: "monthly" as const },
+    { path: "/guides/google-ads-clicks-no-leads", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/branding-identity-cost-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/how-to-choose-brand-name-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/website-design-cost-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
