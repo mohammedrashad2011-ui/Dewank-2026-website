@@ -25,7 +25,7 @@ const fit = [
 export default function BestCrmWhatsappGuide() {
   const url = `${siteUrl}/guides/best-crm-whatsapp-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-04", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["CRM", "WhatsApp", "السعودية"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["CRM", "WhatsApp", "السعودية"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -37,7 +37,7 @@ export default function BestCrmWhatsappGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>اختيار CRM لواتساب</span></nav>
         <h1>{title}</h1>
         <p>لا يوجد CRM هو الأفضل للجميع. الأفضل هو الذي يمنع ضياع العميل داخل رحلتك الفعلية ويستطيع فريقك تشغيله كل يوم.</p>
-        <div className="article-meta"><span>آخر تحديث: 4 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: الاختيار والتشغيل</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: الاختيار والتشغيل</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -68,6 +68,7 @@ export default function BestCrmWhatsappGuide() {
           <h2 id="decision">طريقة قرار من 4 خطوات</h2>
           <ol><li>ارسم الرحلة الحالية ونقاط التسرب.</li><li>حوّلها إلى متطلبات أساسية وأخرى مؤجلة.</li><li>اختبر خيارين أو ثلاثة بنفس السيناريو والبيانات.</li><li>ابدأ Pilot قصيرًا بمؤشرات نجاح ومسؤول تشغيل محدد.</li></ol>
           <p>لفهم البنية كاملة اقرأ <Link href="/guides/whatsapp-crm-automation">دليل أتمتة واتساب مع CRM</Link>، ولتقدير الاستثمار راجع <Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">دليل التكلفة في السعودية</Link>.</p>
+          <p>إذا أصبح قرارك هو التنفيذ وليس مقارنة الأنظمة، انتقل إلى <Link href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>. وللمشروعات التي تحتاج بداية محدودة قبل نظام أكبر، راجع <Link href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد اختيار النظام قبل دفع تكلفته؟</h2><p>أرسل حجم الرسائل، عدد المستخدمين، مراحل البيع والأنظمة الحالية؛ نحدد المتطلبات ونقترح بنية تناسب التشغيل الحقيقي.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
         </div>

@@ -29,7 +29,7 @@ const ranges = [
 export default function WhatsappCrmCostGuide() {
   const url = `${siteUrl}/guides/whatsapp-crm-automation-cost-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-04", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تكلفة أتمتة واتساب", "CRM", "السعودية"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تكلفة أتمتة واتساب", "CRM", "السعودية"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -41,7 +41,7 @@ export default function WhatsappCrmCostGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>تكلفة واتساب وCRM</span></nav>
         <h1>{title}</h1>
         <p>السؤال الصحيح ليس: كم سعر البوت؟ بل: ما الرحلة التي سيشغّلها، وما الأنظمة التي سيربطها، ومن سيتابعها بعد الإطلاق؟</p>
-        <div className="article-meta"><span>آخر تحديث: 4 أغسطس 2026</span><span>وقت القراءة: 8 دقائق</span><span>التركيز: التكلفة والعائد</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 8 دقائق</span><span>التركيز: التكلفة والعائد</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -70,6 +70,7 @@ export default function WhatsappCrmCostGuide() {
           <h2 id="bad-investment">متى يصبح المشروع استثمارًا سيئًا؟</h2>
           <p>إذا لم توجد رسائل كافية أو رحلة واضحة أو شخص مسؤول عن المبيعات، فقد تكون إعادة تنظيم الرد اليدوي أولًا أكثر عقلانية. الأتمتة لا تصلح عرضًا ضعيفًا ولا فريقًا لا يتابع العملاء.</p>
           <p>لفهم البنية قبل التسعير، اقرأ دليل <Link href="/guides/whatsapp-crm-automation">كيف تعمل أتمتة واتساب مع CRM؟</Link>.</p>
+          <p><strong>مهم:</strong> النطاقات أعلاه تتحدث عن أنظمة CRM وأتمتة قد تكون أوسع من الباقات الجاهزة. لفهم التنفيذ الكامل راجع <Link href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>، أما إذا كنت تريد بداية محدودة بنطاق واضح فراجع <Link href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد تقديرًا يناسب رحلتك؟</h2><p>أرسل حجم الرسائل، عدد الموظفين، نظام الحجز أو CRM، والخطوات المطلوب تشغيلها؛ نحدد نطاقًا واضحًا قبل أي تنفيذ.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
         </div>
