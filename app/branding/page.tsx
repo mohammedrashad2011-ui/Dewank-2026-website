@@ -4,6 +4,7 @@ import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import BrandSignal from "./brand-signal";
 import "./branding-page.css";
+import "./branding-guides.css";
 
 export const metadata: Metadata = createMetadata({
   title: "تصميم الهوية البصرية في السعودية | استراتيجية براند متكاملة",
@@ -42,6 +43,19 @@ const faqs = [
   ["كم يستغرق بناء استراتيجية وهوية البراند؟", "تعتمد المدة على نطاق البحث وعدد صناع القرار والمخرجات. بعد جلسة الاكتشاف نقدم جدولًا واضحًا بالمراحل ونقاط الاعتماد."],
   ["كم تكلفة تصميم الهوية البصرية؟", "تتحدد التكلفة حسب ما إذا كان المطلوب هوية بصرية فقط أم استراتيجية متكاملة تشمل البحث والتموضع والتسمية ودليل الاستخدام. نتفق على نطاق واضح قبل البدء دون رسوم مبهمة."],
   ["هل تخدمون الشركات خارج السعودية؟", "نعم. نخدم الشركات والمشروعات في السعودية والبحرين ودول الخليج، ويمكن تنفيذ كامل مراحل المشروع عن بُعد."],
+];
+
+const brandGuides = [
+  {
+    href: "/guides/branding-identity-cost-saudi-arabia",
+    title: "كم تكلفة تصميم الهوية البصرية في السعودية؟",
+    text: "اعرف الفرق بين الشعار والهوية والاستراتيجية وما الذي يجب أن تستلمه قبل التعاقد.",
+  },
+  {
+    href: "/guides/how-to-choose-brand-name-saudi-arabia",
+    title: "كيف تختار اسمًا تجاريًا قويًا وقابلًا للاستخدام؟",
+    text: "معايير عملية للاسم، والفحص اللغوي والثقافي، والتشابه، والدومين قبل الإطلاق.",
+  },
 ];
 
 export default function BrandingPage() {
@@ -135,6 +149,25 @@ export default function BrandingPage() {
           <p>شركة نمت لكن صورتها لم تعد تعكس حجمها أو سعرها.</p>
           <p>علامة تتوسع إلى السعودية أو سوق خليجي جديد.</p>
           <p>فريق يعاني من اختلاف الرسائل والتصاميم بين القنوات.</p>
+        </div>
+      </section>
+
+      <section className="shell brand-guides" aria-labelledby="brand-guides-title">
+        <div className="brand-guides-head">
+          <div>
+            <span className="section-label">[ أدلة قبل القرار ]</span>
+            <h2 id="brand-guides-title">افهم ما تحتاجه أولًا.<em>ثم اختر النطاق المناسب.</em></h2>
+          </div>
+          <p className="brand-guides-intro">دليلان يساعدانك على فهم تكلفة الهوية واتخاذ قرار الاسم قبل الاستثمار في التصميم والإطلاق.</p>
+        </div>
+        <div className="brand-guides-grid">
+          {brandGuides.map((guide, index) => (
+            <Link className="brand-guide-card" href={guide.href} key={guide.href}>
+              <div className="brand-guide-top"><span>دليل 0{index + 1}</span><span className="brand-guide-arrow" aria-hidden="true">↗</span></div>
+              <h3>{guide.title}</h3>
+              <p>{guide.text}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
