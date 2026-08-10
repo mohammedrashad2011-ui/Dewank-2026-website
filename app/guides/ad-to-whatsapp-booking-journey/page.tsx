@@ -34,7 +34,7 @@ const stages = [
 export default function AdToWhatsappBookingJourneyGuide() {
   const url = `${siteUrl}/guides/ad-to-whatsapp-booking-journey`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-04", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["رحلة العميل", "إعلانات واتساب", "CRM", "الحجز", "تحسين التحويل"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["رحلة العميل", "إعلانات واتساب", "CRM", "الحجز", "تحسين التحويل"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -46,7 +46,7 @@ export default function AdToWhatsappBookingJourneyGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>الإعلان إلى الحجز</span></nav>
         <h1>{title}</h1>
         <p>نجاح الحملة لا ينتهي عند وصول الرسالة. الرحلة الناجحة تحافظ على سياق الإعلان، تؤهل العميل، تنقله إلى موعد واضح، ثم تقيس الحضور والبيع.</p>
-        <div className="article-meta"><span>آخر تحديث: 4 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: التحويل والحجز</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: التحويل والحجز</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -79,8 +79,9 @@ export default function AdToWhatsappBookingJourneyGuide() {
             <li>اختبر أسبوعين أو حجمًا كافيًا، ثم قارن الحجز والحضور والعائد بخط الأساس.</li>
           </ol>
           <p>لفهم البنية التقنية والمتابعة اقرأ دليل <Link href="/guides/whatsapp-crm-automation">أتمتة واتساب مع CRM</Link>، وإذا كنت تختار النظام المناسب راجع <Link href="/guides/best-crm-whatsapp-saudi-arabia">دليل اختيار CRM لواتساب</Link>.</p>
+          <p>إذا كان الخلل بعد وصول الرسالة وليس في الإعلان نفسه، راجع <Link href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>. ولتجربة نطاق بداية واضح قبل بناء منظومة أوسع، يمكنك الاطلاع على <Link href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تريد معرفة أين تضيع حجوزاتك؟</h2><p>نراجع الإعلان ورسائل واتساب والحجز والمتابعة والقياس، ثم نحدد نقطة التسرب ذات الأولوية ونبني مسارًا يناسب فريقك.</p><Link className="button primary" href="/contact">اطلب مراجعة رحلة العميل <span>←</span></Link></section>
+          <section className="article-cta"><h2>تريد معرفة أين تضيع حجوزاتك؟</h2><p>نراجع الإعلان ورسائل واتساب والحجز والمتابعة والقياس، ثم نحدد نقطة التسرب ذات الأولوية ونبني مسارًا يناسب فريقك.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#stages">مراحل الرحلة</a><a href="#leaks">نقاط التسرب</a><a href="#metrics">مؤشرات القياس</a><a href="#example">مثال تشخيصي</a><a href="#implementation">خطة التنفيذ</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">راجع رحلتك</Link></aside>
       </div>
