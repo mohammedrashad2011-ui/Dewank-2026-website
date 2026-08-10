@@ -1,0 +1,17 @@
+.brand-guides{padding-block:clamp(64px,7vw,92px);border-top:1px solid var(--line)}
+.brand-guides-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(240px,.85fr);gap:clamp(28px,5vw,72px);align-items:end;margin-bottom:30px}
+.brand-guides-head h2{margin:12px 0 0;font-size:clamp(32px,4vw,50px);line-height:1.32;letter-spacing:-.035em;max-width:720px}
+.brand-guides-head h2 em{display:block;font-style:normal;color:var(--blue);margin-top:4px}
+.brand-guides-intro{margin:0;max-width:420px;color:var(--muted);font-size:14px;line-height:1.9}
+.brand-guides-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.brand-guide-card{display:flex;flex-direction:column;min-height:164px;padding:20px 22px;border:1px solid var(--line);border-radius:20px;background:#fff;color:inherit;text-decoration:none;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.brand-guide-card:hover{transform:translateY(-2px);border-color:rgba(0,77,255,.28);box-shadow:0 14px 32px rgba(10,20,45,.055)}
+.brand-guide-card:focus-visible{outline:3px solid rgba(0,77,255,.2);outline-offset:3px}
+.brand-guide-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.brand-guide-top span:first-child{font:700 10px/1 Arial,sans-serif;letter-spacing:.08em;color:var(--blue)}
+.brand-guide-arrow{width:32px;height:32px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:17px;flex:0 0 auto;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.brand-guide-card:hover .brand-guide-arrow{background:var(--ink);color:#fff;border-color:var(--ink)}
+.brand-guide-card h3{margin:0 0 10px;font-size:clamp(18px,1.55vw,22px);line-height:1.55;letter-spacing:-.015em}
+.brand-guide-card p{margin:auto 0 0;color:var(--muted);font-size:13.5px;line-height:1.85}
+@media(max-width:760px){.brand-guides{padding-block:60px}.brand-guides-head{grid-template-columns:1fr;gap:16px;margin-bottom:24px}.brand-guides-head h2{font-size:34px;line-height:1.36}.brand-guides-grid{grid-template-columns:1fr;gap:14px}.brand-guide-card{min-height:150px;padding:19px 20px}}
+@media(prefers-reduced-motion:reduce){.brand-guide-card,.brand-guide-arrow{transition:none}}

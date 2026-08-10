@@ -32,7 +32,7 @@ const deliverables = [
 export default function BrandingIdentityCostGuide() {
   const url = `${siteUrl}/guides/branding-identity-cost-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-04", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تصميم الهوية البصرية", "أسعار البراندنج في السعودية", "بناء العلامة التجارية"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تصميم الهوية البصرية", "أسعار البراندنج في السعودية", "بناء العلامة التجارية"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -44,7 +44,7 @@ export default function BrandingIdentityCostGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>البراندنج</span></nav>
         <h1>{title}</h1>
         <p>العرض الأرخص قد يعطيك شعارًا، لكنه لا يضمن نظامًا تستطيع علامتك استخدامه بثبات. السعر العادل يتحدد بما يُبنى قبل الرسم وما ستستطيع تشغيله بعد التسليم.</p>
-        <div className="article-meta"><span>آخر تحديث: 4 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: النطاق والملكية</span></div>
+        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: النطاق والملكية</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -63,7 +63,7 @@ export default function BrandingIdentityCostGuide() {
           <h2 id="included">ماذا يجب أن تشمل باقة الهوية؟</h2>
           {deliverables.map(([heading, body]) => <section key={heading}><h3>{heading}</h3><p>{body}</p></section>)}
           <h2 id="drivers">ما الذي يرفع التكلفة؟</h2>
-          <p>عمق البحث، عدد الأسواق واللغات، الحاجة إلى تسمية، تعدد أصحاب القرار، عدد الاتجاهات والتعديلات، حجم دليل الهوية، عدد التطبيقات، وسرعة التسليم. كل تطبيق إضافي ليس مجرد وضع الشعار؛ يجب اختباره داخل سياق حقيقي.</p>
+          <p>عمق البحث، عدد الأسواق واللغات، الحاجة إلى تسمية، تعدد أصحاب القرار، عدد الاتجاهات والتعديلات، حجم دليل الهوية، عدد التطبيقات، وسرعة التسليم. كل تطبيق إضافي ليس مجرد وضع الشعار؛ يجب اختباره داخل سياق حقيقي. وإذا لم يُحسم الاسم بعد، راجع <Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار اسم العلامة التجارية</Link> قبل الاستثمار في التصميم.</p>
           <h2 id="red-flags">إشارات خطر قبل التعاقد</h2>
           <ul>
             <li>البدء بالرسم قبل سؤال واضح عن السوق والجمهور والهدف.</li>
@@ -76,6 +76,7 @@ export default function BrandingIdentityCostGuide() {
           <p>اطلب نطاقًا مكتوبًا يحدد مراحل البحث والتصميم، المسؤول عن القرار، عدد الاتجاهات والمراجعات، التطبيقات، الملفات، الملكية والمدة. ثم قيّم قدرة الفريق على شرح قراراته، لا جمال العرض وحده. ولرؤية كيف تتحول الهوية إلى حضور وتسويق، راجع <Link href="/guides/choose-digital-marketing-company-saudi-arabia">دليل اختيار شركة تسويق رقمي</Link>.</p>
           <h2 id="decision">متى لا تحتاج إعادة هوية كاملة؟</h2>
           <p>إذا كانت المشكلة في ضعف العرض أو المبيعات أو الاتساق التنفيذي، فقد يكفي ضبط النظام الحالي أو تحديث بعض العناصر. إعادة بناء الهوية قرار مكلف إذا لم يكن هناك تغير حقيقي في الجمهور أو التموضع أو طموح العلامة.</p>
+          <p>لو احتياجك بداية بصرية صغيرة ومحددة وليست مشروع هوية متكاملًا، يمكنك مراجعة <Link href="/offers/mini-visual-identity">عرض الهوية البصرية المصغرة</Link>. هذا العرض نطاقه أصغر من مشاريع الهوية الكاملة المذكورة في نطاقات الأسعار أعلاه، لذلك لا تُقارن الأرقام كأنها الخدمة نفسها.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد هوية تبدو جيدة وتعمل جيدًا؟</h2><p>نبني الهوية من فهم النشاط والسوق، ثم نحوّلها إلى نظام واضح يمكن تطبيقه بثبات عبر نقاط التواصل المختلفة.</p><Link className="button primary" href="/branding">استعرض خدمة بناء الهوية <span>←</span></Link></section>
         </div>

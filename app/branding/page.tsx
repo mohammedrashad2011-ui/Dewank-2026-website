@@ -4,6 +4,8 @@ import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import BrandSignal from "./brand-signal";
 import "./branding-page.css";
+import "./branding-guides.css";
+import "./branding-conversion-fixes.css";
 
 export const metadata: Metadata = createMetadata({
   title: "تصميم الهوية البصرية في السعودية | استراتيجية براند متكاملة",
@@ -42,6 +44,36 @@ const faqs = [
   ["كم يستغرق بناء استراتيجية وهوية البراند؟", "تعتمد المدة على نطاق البحث وعدد صناع القرار والمخرجات. بعد جلسة الاكتشاف نقدم جدولًا واضحًا بالمراحل ونقاط الاعتماد."],
   ["كم تكلفة تصميم الهوية البصرية؟", "تتحدد التكلفة حسب ما إذا كان المطلوب هوية بصرية فقط أم استراتيجية متكاملة تشمل البحث والتموضع والتسمية ودليل الاستخدام. نتفق على نطاق واضح قبل البدء دون رسوم مبهمة."],
   ["هل تخدمون الشركات خارج السعودية؟", "نعم. نخدم الشركات والمشروعات في السعودية والبحرين ودول الخليج، ويمكن تنفيذ كامل مراحل المشروع عن بُعد."],
+];
+
+const brandGuides = [
+  {
+    href: "/guides/branding-identity-cost-saudi-arabia",
+    title: "كم تكلفة تصميم الهوية البصرية في السعودية؟",
+    text: "اعرف الفرق بين الشعار والهوية والاستراتيجية وما الذي يجب أن تستلمه قبل التعاقد.",
+  },
+  {
+    href: "/guides/how-to-choose-brand-name-saudi-arabia",
+    title: "كيف تختار اسمًا تجاريًا قويًا وقابلًا للاستخدام؟",
+    text: "معايير عملية للاسم، والفحص اللغوي والثقافي، والتشابه، والدومين قبل الإطلاق.",
+  },
+];
+
+const brandOffers = [
+  {
+    href: "/offers/brand-naming",
+    label: "للمشروع قبل الهوية",
+    title: "تسمية العلامة + اتجاه أولي",
+    text: "10–15 اسمًا مدروسًا مع الفحص المبدئي والدومين واتجاه أولي للبراند.",
+    price: "490 ريال",
+  },
+  {
+    href: "/offers/mini-visual-identity",
+    label: "لبداية بصرية محددة",
+    title: "Mini Visual Identity",
+    text: "بداية أصغر لمن يحتاج نظامًا بصريًا واضحًا دون الدخول مباشرة في مشروع هوية متكامل.",
+    price: "1,190 ريال",
+  },
 ];
 
 export default function BrandingPage() {
@@ -138,11 +170,51 @@ export default function BrandingPage() {
         </div>
       </section>
 
+      <section className="shell brand-guides" aria-labelledby="brand-guides-title">
+        <div className="brand-guides-head">
+          <div>
+            <span className="section-label">[ أدلة قبل القرار ]</span>
+            <h2 id="brand-guides-title">افهم ما تحتاجه أولًا.<em>ثم اختر النطاق المناسب.</em></h2>
+          </div>
+          <p className="brand-guides-intro">دليلان يساعدانك على فهم تكلفة الهوية واتخاذ قرار الاسم قبل الاستثمار في التصميم والإطلاق.</p>
+        </div>
+        <div className="brand-guides-grid">
+          {brandGuides.map((guide, index) => (
+            <Link className="brand-guide-card" href={guide.href} key={guide.href}>
+              <div className="brand-guide-top"><span>دليل 0{index + 1}</span><span className="brand-guide-arrow" aria-hidden="true">↗</span></div>
+              <h3>{guide.title}</h3>
+              <p>{guide.text}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="shell brand-faq" aria-labelledby="branding-faq-title">
         <span className="section-label">[ أسئلة شائعة ]</span>
         <div className="brand-section-head"><div><h2 id="branding-faq-title">إجابات واضحة<br/><em>قبل أن نبدأ.</em></h2></div></div>
         {faqs.map(([q,a])=><details key={q}><summary>{q}</summary><p>{a}</p></details>)}
-        <div className="brand-related"><Link href="/website-design">تصميم مواقع الشركات ←</Link><Link href="/digital-marketing">استراتيجية التسويق الرقمي ←</Link><Link href="/services">عرض جميع الخدمات ←</Link></div>
+        <div className="brand-related">
+          <Link href="/website-design">تصميم مواقع الشركات</Link>
+          <Link href="/digital-marketing">استراتيجية التسويق الرقمي</Link>
+          <Link href="/services">عرض جميع الخدمات</Link>
+        </div>
+      </section>
+
+      <section className="shell brand-offers" aria-labelledby="brand-offers-title">
+        <div className="brand-offers-head">
+          <div><span className="section-label">[ بدايات جاهزة ]</span><h2 id="brand-offers-title">لو لا تحتاج المشروع الكامل،<br/><em>ابدأ بالنطاق المناسب.</em></h2></div>
+          <p>اختيارات أصغر بنطاق وسعر واضحين، تساعدك تبدأ من المرحلة التي تحتاجها فعلًا بدل شراء خدمة أكبر من احتياجك.</p>
+        </div>
+        <div className="brand-offers-grid">
+          {brandOffers.map((offer) => (
+            <Link className="brand-offer-card" href={offer.href} key={offer.href}>
+              <small>{offer.label}</small>
+              <strong>{offer.title}</strong>
+              <p>{offer.text}</p>
+              <span className="brand-offer-price"><b>{offer.price}</b><span>شاهد العرض ↗</span></span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="shell brand-cta">
