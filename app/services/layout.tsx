@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import ServiceInterestTracker from "../components/service-interest-tracker";
 
 const compactServicesCss = `
 .services-page-refined > .page-hero,
@@ -50,5 +51,5 @@ const compactServicesCss = `
 `;
 
 export default function ServicesLayout({ children }: { children: ReactNode }) {
-  return <><style>{compactServicesCss}</style>{children}</>;
+  return <><style>{compactServicesCss}</style><ServiceInterestTracker />{children}</>;
 }
