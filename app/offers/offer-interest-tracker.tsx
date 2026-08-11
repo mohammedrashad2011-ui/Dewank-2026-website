@@ -19,6 +19,8 @@ const storagePrefix = "dewank_offer_interest_";
 
 export default function OfferInterestTracker() {
   useEffect(() => {
+    if (window.location.pathname !== "/offers") return;
+
     const onClick = (event: MouseEvent) => {
       const target = event.target as Element | null;
       const link = target?.closest<HTMLAnchorElement>('a.offer-card-hit[href^="/offers/"]');
