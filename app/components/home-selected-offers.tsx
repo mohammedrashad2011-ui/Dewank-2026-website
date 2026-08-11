@@ -3,150 +3,89 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-type CountryCode = "SA" | "AE" | "BH" | "KW" | "QA" | "OM";
-type OfferKey = "google" | "seo" | "whatsapp";
-type LocalPrice = { amount: number; currencyLabel: string };
-type InterestMap = Record<OfferKey, number>;
-
-const prices: Record<OfferKey, Record<CountryCode, LocalPrice>> = {
-  google: {
-    SA: { amount: 790, currencyLabel: "ريال سعودي" },
-    AE: { amount: 790, currencyLabel: "درهم إماراتي" },
-    BH: { amount: 79, currencyLabel: "دينار بحريني" },
-    KW: { amount: 65, currencyLabel: "دينار كويتي" },
-    QA: { amount: 790, currencyLabel: "ريال قطري" },
-    OM: { amount: 79, currencyLabel: "ريال عُماني" },
-  },
-  seo: {
-    SA: { amount: 490, currencyLabel: "ريال سعودي" },
-    AE: { amount: 490, currencyLabel: "درهم إماراتي" },
-    BH: { amount: 49, currencyLabel: "دينار بحريني" },
-    KW: { amount: 39, currencyLabel: "دينار كويتي" },
-    QA: { amount: 490, currencyLabel: "ريال قطري" },
-    OM: { amount: 49, currencyLabel: "ريال عُماني" },
-  },
-  whatsapp: {
-    SA: { amount: 890, currencyLabel: "ريال سعودي" },
-    AE: { amount: 890, currencyLabel: "درهم إماراتي" },
-    BH: { amount: 89, currencyLabel: "دينار بحريني" },
-    KW: { amount: 73, currencyLabel: "دينار كويتي" },
-    QA: { amount: 890, currencyLabel: "ريال قطري" },
-    OM: { amount: 89, currencyLabel: "ريال عُماني" },
-  },
+type ServiceCard = {
+  key: string;
+  label: string;
+  title: string;
+  text: string;
+  href: string;
+  tags: string[];
 };
 
-const fallbacks: Record<OfferKey, LocalPrice> = {
-  google: { amount: 211, currencyLabel: "دولار أمريكي" },
-  seo: { amount: 130, currencyLabel: "دولار أمريكي" },
-  whatsapp: { amount: 235, currencyLabel: "دولار أمريكي" },
+type PopularityResponse = {
+  ranking?: Array<{ key: string; clicks: number }>;
+  enoughData?: boolean;
 };
 
-const offers = [
-  { key: "google" as const, label: "GOOGLE ADS", title: "إطلاق Google Ads", text: "حملة Search منظمة، كلمات بنية شراء، إعلانات، كلمات سلبية وتتبع تحويل أساسي.", href: "/offers/google-ads-launch" },
-  { key: "seo" as const, label: "SEO AUDIT", title: "فحص SEO شامل", text: "تشخيص واضح للظهور، التقنية، المحتوى والفرص قبل الدخول في تنفيذ أكبر.", href: "/offers/seo-audit" },
-  { key: "whatsapp" as const, label: "WHATSAPP AUTOMATION", title: "واتساب أوتوميشن Starter", text: "رد وتأهيل وجمع بيانات وتحويل للموظف في مسار تأسيسي واضح.", href: "/offers/whatsapp-automation-starter" },
+const services: ServiceCard[] = [
+  { key: "branding", label: "BRAND STRATEGY", title: "استراتيجية البراند والهوية", text: "وضوح في التموضع والرسالة والهوية حتى تصبح العلامة أسهل في الفهم والتذكّر والاختيار.", href: "/branding", tags: ["Strategy", "Identity"] },
+  { key: "brand-naming", label: "BRAND NAMING", title: "تسمية العلامة", text: "أسماء مبنية على النشاط والجمهور والسوق مع فحص لغوي وثقافي وبحث مبدئي للتوفر.", href: "/services/brand-naming", tags: ["Naming", "Research"] },
+  { key: "social-media-content", label: "SOCIAL MEDIA", title: "السوشيال ميديا وصناعة المحتوى", text: "استراتيجية وأفكار وتصميم وكابشنات وخطة نشر تجعل الحضور أكثر اتساقًا وقابلية للتحويل.", href: "/services/social-media-content", tags: ["Content", "Design"] },
+  { key: "digital-marketing", label: "DIGITAL STRATEGY", title: "استراتيجية التسويق الرقمي", text: "ربط الرسالة والجمهور والقنوات والعرض والمتابعة في رحلة واحدة بدل أن تعمل كل قناة منفردة.", href: "/digital-marketing", tags: ["Journey", "Growth"] },
+  { key: "paid-ads", label: "PAID ADS", title: "إعلانات Meta وGoogle", text: "حملات مدفوعة مرتبطة بالصفحة والتتبع والمتابعة لتقليل الهدر وتحسين جودة التحويل.", href: "/paid-ads", tags: ["Google Ads", "Meta Ads"] },
+  { key: "website-design", label: "WEB & CRO", title: "تصميم المواقع وتحسين التحويل", text: "مواقع سريعة ومتجاوبة تجمع الرسالة وتجربة المستخدم وSEO لتقود الزائر نحو إجراء واضح.", href: "/website-design", tags: ["UX/UI", "CRO"] },
+  { key: "landing-page", label: "LANDING PAGES", title: "صفحات الهبوط والمبيعات", text: "صفحات مخصصة للحملات تجمع النص والتصميم والتتبع وواتساب لتحويل الزيارة إلى استفسار.", href: "/offers/landing-page-package", tags: ["Landing Page", "Leads"] },
+  { key: "seo-aeo", label: "SEO & AEO", title: "SEO وAEO", text: "تحسين تقني ومحتوى وهيكلة تساعد محركات البحث والإجابة على فهم خبرتك وإظهارها للجمهور المناسب.", href: "/seo-aeo", tags: ["SEO", "Schema"] },
+  { key: "analytics", label: "ANALYTICS", title: "التحليلات وتتبع التحويلات", text: "ربط GA4 وGTM والتحويلات حتى تعرف من أين تأتي النتيجة وما الذي يستحق المزيد من الاستثمار.", href: "/contact", tags: ["GA4", "GTM"] },
+  { key: "whatsapp-automation", label: "WHATSAPP & CRM", title: "أتمتة واتساب وCRM", text: "رد وتأهيل وحجز وتذكير ومتابعة في مسار منظم يقلل العمل اليدوي ويحافظ على سرعة الاستجابة.", href: "/whatsapp-automation", tags: ["WhatsApp", "CRM"] },
+  { key: "ai-automation", label: "AI AUTOMATION", title: "أتمتة الذكاء الاصطناعي", text: "ربط التسويق والمبيعات وخدمة العملاء في Workflows تقلل التكرار وتسرّع القرار.", href: "/ai-automation", tags: ["AI Agents", "Workflows"] },
+  { key: "ats-cv", label: "CAREER BRANDING", title: "ATS CV وCareer Branding", text: "سيرة ذاتية وLinkedIn أوضح للأفراد مع تحسين الإنجازات والكلمات المفتاحية للفرصة المستهدفة.", href: "/ats-cv", tags: ["ATS CV", "LinkedIn"] },
 ];
 
-const countryStorageKey = "dewank_offer_country";
-const interestStorageKey = "dewank_home_offer_interest_v1";
-const zeroInterest: InterestMap = { google: 0, seo: 0, whatsapp: 0 };
-const defaultPopularity: InterestMap = { google: 3, seo: 2, whatsapp: 1 };
-
-function inferInterestFromReferrer(): OfferKey | null {
-  if (!document.referrer) return null;
-  try {
-    const referrer = new URL(document.referrer);
-    if (referrer.origin !== window.location.origin) return null;
-    const path = referrer.pathname.toLowerCase();
-    if (path.includes("paid-ads") || path.includes("google-ads")) return "google";
-    if (path.includes("seo-aeo") || path.includes("seo-audit") || path.includes("/guides/seo")) return "seo";
-    if (path.includes("whatsapp") || path.includes("automation") || path.includes("crm")) return "whatsapp";
-  } catch {}
-  return null;
-}
+const serviceByKey = new Map(services.map((service) => [service.key, service]));
+const fallbackKeys = ["paid-ads", "social-media-content", "whatsapp-automation"];
 
 export default function HomeSelectedOffers() {
-  const [country, setCountry] = useState<CountryCode | null>(null);
-  const [interest, setInterest] = useState<InterestMap>(zeroInterest);
-  const [hasPersonalSignal, setHasPersonalSignal] = useState(false);
+  const [rankedKeys, setRankedKeys] = useState<string[]>(fallbackKeys);
+  const [isDataDriven, setIsDataDriven] = useState(false);
 
   useEffect(() => {
-    const savedCountry = window.localStorage.getItem(countryStorageKey)?.toUpperCase() as CountryCode | undefined;
-    if (savedCountry && ["SA", "AE", "BH", "KW", "QA", "OM"].includes(savedCountry)) setCountry(savedCountry);
+    const controller = new AbortController();
+    const load = () => {
+      fetch("/api/service-popularity", { signal: controller.signal, cache: "force-cache" })
+        .then((response) => response.ok ? response.json() as Promise<PopularityResponse> : null)
+        .then((data) => {
+          if (!data?.enoughData || !data.ranking?.length) return;
+          const valid = data.ranking.map((row) => row.key).filter((key) => serviceByKey.has(key));
+          const completed = [...valid, ...fallbackKeys.filter((key) => !valid.includes(key))].slice(0, 3);
+          if (completed.length === 3) {
+            setRankedKeys(completed);
+            setIsDataDriven(true);
+          }
+        })
+        .catch(() => {});
+    };
 
-    try {
-      const savedInterest = JSON.parse(window.localStorage.getItem(interestStorageKey) || "{}") as Partial<InterestMap>;
-      const nextInterest: InterestMap = {
-        google: Number(savedInterest.google || 0),
-        seo: Number(savedInterest.seo || 0),
-        whatsapp: Number(savedInterest.whatsapp || 0),
-      };
-      const inferred = inferInterestFromReferrer();
-      if (inferred) nextInterest[inferred] += 3;
-      if (inferred || Object.values(nextInterest).some((value) => value > 0)) setHasPersonalSignal(true);
-      setInterest(nextInterest);
-    } catch {
-      setInterest(zeroInterest);
+    if ("requestIdleCallback" in window) {
+      const idleId = window.requestIdleCallback(load, { timeout: 1200 });
+      return () => { controller.abort(); window.cancelIdleCallback(idleId); };
     }
 
-    const controller = new AbortController();
-    fetch("https://api.country.is/", { cache: "no-store", signal: controller.signal })
-      .then((response) => {
-        if (!response.ok) throw new Error("Country lookup failed");
-        return response.json() as Promise<{ country?: string }>;
-      })
-      .then((data) => {
-        const next = data.country?.toUpperCase() as CountryCode | undefined;
-        if (!next || !["SA", "AE", "BH", "KW", "QA", "OM"].includes(next)) return;
-        window.localStorage.setItem(countryStorageKey, next);
-        setCountry(next);
-      })
-      .catch(() => {});
-
-    return () => controller.abort();
+    const timer = window.setTimeout(load, 350);
+    return () => { controller.abort(); window.clearTimeout(timer); };
   }, []);
 
-  const resolved = useMemo(() => offers
-    .map((offer) => ({
-      ...offer,
-      price: country ? prices[offer.key][country] : fallbacks[offer.key],
-      score: defaultPopularity[offer.key] + interest[offer.key] * 4,
-    }))
-    .sort((a, b) => b.score - a.score), [country, interest]);
-
-  const recordInterest = (key: OfferKey) => {
-    const next = { ...interest, [key]: interest[key] + 1 };
-    setInterest(next);
-    setHasPersonalSignal(true);
-    window.localStorage.setItem(interestStorageKey, JSON.stringify(next));
-    (window as Window & { dataLayer?: Array<Record<string, unknown>> }).dataLayer?.push({
-      event: "home_offer_select",
-      offer_key: key,
-      offer_rank: resolved.findIndex((offer) => offer.key === key) + 1,
-    });
-  };
+  const resolved = useMemo(() => rankedKeys.map((key) => serviceByKey.get(key)).filter(Boolean) as ServiceCard[], [rankedKeys]);
 
   return (
-    <div className="home-offer-grid">
-      {resolved.map((offer, index) => (
-        <Link
-          className={`home-offer-card${index === 0 ? " is-recommended" : ""}`}
-          href={offer.href}
-          key={offer.key}
-          onClick={() => recordInterest(offer.key)}
-        >
-          <div className="home-offer-top">
-            <small>{offer.label}</small>
-            <div className="home-offer-signals">{index === 0 && <b>{hasPersonalSignal ? "مقترح لك" : "الأكثر طلبًا"}</b>}<span>↗</span></div>
-          </div>
-          <h3>{offer.title}</h3>
-          <p>{offer.text}</p>
-          <div className="home-offer-bottom">
-            <div className="home-offer-price"><strong>{new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(offer.price.amount)}</strong><span>{offer.price.currencyLabel}</span></div>
-            <b>شاهد العرض</b>
-          </div>
-        </Link>
-      ))}
-    </div>
+    <>
+      <div className="home-offer-grid" data-ranking-source={isDataDriven ? "30d-clicks" : "editorial-fallback"}>
+        {resolved.map((service, index) => (
+          <Link className={`home-offer-card${index === 0 ? " is-recommended" : ""}`} href={service.href} key={service.key}>
+            <div className="home-offer-top">
+              <small>{service.label}</small>
+              <div className="home-offer-signals">{index === 0 && <b>{isDataDriven ? "الأكثر طلبًا" : "اختيار بارز"}</b>}<span>↗</span></div>
+            </div>
+            <h3>{service.title}</h3>
+            <p>{service.text}</p>
+            <div className="home-offer-bottom">
+              <div className="home-service-tags" aria-label="مجالات الخدمة">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              <b>اكتشف الخدمة</b>
+            </div>
+          </Link>
+        ))}
+      </div>
+      <div className="home-selected-services-all"><Link href="/services">استعرض كل الخدمات <span>←</span></Link></div>
+    </>
   );
 }
