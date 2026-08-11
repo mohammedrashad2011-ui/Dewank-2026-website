@@ -62,13 +62,13 @@ export default function Home() {
         <div className="hero-copy">
           <div className="hero-meta"><span>DEWANK® CREATIVE GROWTH STUDIO</span><span>2026 / MENA</span></div>
           <h1><span>نصنع العلامة.</span><span>نحرّك الطلب.</span><span><em>ونؤتمت النمو.</em></span></h1>
-          <p>ديوانك يجمع البراندينج والتسويق والذكاء الاصطناعي في منظومة واحدة، لأن النمو لا يحتاج خدمات متفرقة—بل قرارات تعمل معًا.</p>
+          <p>ديوانك يجمع البراندينج والتسويق والذكاء الاصطناعي في منظومة واحدة، لأن النمو لا يحتاج خدمات متفرقة، بل قرارات تعمل معًا.</p>
           <div className="hero-actions">
             <Link className="button primary" href="/contact">ناقش مشروعك معنا <span>←</span></Link>
             <a className="button whatsapp" href="https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A%20%D9%85%D8%B9%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%D9%83" target="_blank" rel="noopener noreferrer">تواصل عبر واتساب <span>↗</span></a>
             <Link className="text-link" href="/work">استكشف الأعمال <span>↙</span></Link>
           </div>
-          <p className="cta-expectation">محادثة قصيرة لفهم مشروعك وتحديد أفضل نقطة بداية—بدون التزام.</p>
+          <p className="cta-expectation">محادثة قصيرة لفهم مشروعك وتحديد أفضل نقطة بداية، بدون التزام.</p>
         </div>
 
         <MotionSystem />
@@ -169,12 +169,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-selected-offers shell" aria-labelledby="home-offers-title">
+      <section className="home-selected-offers shell" aria-labelledby="home-services-title">
         <div className="home-selected-offers-head">
-          <div><span className="section-label">[ الأكثر طلبًا ]</span><h2 id="home-offers-title">اختيارات تبدأ من احتياج واضح.<br/><em>والأقرب لك يظهر أولًا.</em></h2></div>
+          <div><span className="section-label">[ الأكثر طلبًا ]</span><h2 id="home-services-title">الخدمات التي تجذب الاهتمام أكثر.<br/><em>تتغير تلقائيًا مع سلوك الزوار.</em></h2></div>
         </div>
         <HomeSelectedOffers />
-        <div className="home-selected-offers-all"><Link href="/offers">استعرض كل العروض <span>←</span></Link></div>
       </section>
 
       <section className="final-cta shell">
