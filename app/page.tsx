@@ -171,8 +171,8 @@ export default function Home() {
 
       <section className="home-selected-offers shell" aria-labelledby="home-offers-title">
         <div className="home-selected-offers-head">
-          <div><span className="section-label">[ بداية أصغر ]</span><h2 id="home-offers-title">مش محتاج تبدأ بمشروع كامل.<br/><em>ابدأ بخطوة واضحة.</em></h2></div>
-          <p>ثلاث نقاط بداية بنطاق محدد وسعر واضح، مناسبة لو تريد اختبار التعاون أو حل أولوية واحدة قبل مشروع أكبر.</p>
+          <div><span className="section-label">[ الأكثر طلبًا ]</span><h2 id="home-offers-title">اختيارات تبدأ من احتياج واضح.<br/><em>والأقرب لك يظهر أولًا.</em></h2></div>
+          <p>نعرض ثلاث خدمات بداية قوية، ويعيد الموقع ترتيبها تلقائيًا وفق اهتمامك داخل ديوانك وتفاعلك السابق، مع الحفاظ على الأسعار المحلية المناسبة لبلدك.</p>
         </div>
         <HomeSelectedOffers />
         <div className="home-selected-offers-all"><Link href="/offers">استعرض كل العروض <span>←</span></Link></div>
