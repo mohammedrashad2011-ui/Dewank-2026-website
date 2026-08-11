@@ -11,6 +11,8 @@ import Link from "next/link";
 import { Footer, Header } from "./components/site-shell";
 import MotionSystem from "./components/motion-system";
 import HomeTestimonials from "./components/home-testimonials";
+import HomeSelectedOffers from "./components/home-selected-offers";
+import "./home-growth-upgrade.css";
 
 const services = [
   {
@@ -26,8 +28,8 @@ const services = [
     n: "02",
     title: "نصنع الطلب",
     en: "DIGITAL GROWTH",
-    text: "محتوى وحملات وتجارب رقمية تنقل العميل من الانتباه إلى القرار.",
-    tags: ["Content", "Campaigns", "SEO + AEO"],
+    text: "محتوى وGoogle وMeta وSEO تنقل العميل من الانتباه والبحث إلى قرار يمكن قياسه.",
+    tags: ["Content", "Paid Ads", "SEO + AEO"],
     tone: "growth",
     href: "/digital-marketing",
   },
@@ -111,6 +113,10 @@ export default function Home() {
               </Link>
             ))}
           </div>
+          <nav className="growth-shortcuts" aria-label="مسارات النمو المدفوع والعضوي">
+            <Link href="/paid-ads">إعلانات Google وMeta <span>↗</span></Link>
+            <Link href="/seo-aeo">SEO وAEO <span>↗</span></Link>
+          </nav>
         </div>
       </section>
 
@@ -146,10 +152,10 @@ export default function Home() {
       <section className="seo-content shell" aria-labelledby="dewank-growth-title">
         <span className="section-label">[ DEWANK GROWTH SYSTEM ]</span>
         <h2 id="dewank-growth-title">من استراتيجية البراند إلى نظام نمو يعمل.</h2>
-        <div className="seo-content-grid">
-          <p>نساعد الشركات في السعودية والخليج على توضيح تموضعها، بناء هوية متماسكة، وتطوير حضور رقمي يحوّل الاهتمام إلى طلبات حقيقية. يبدأ العمل بفهم السوق والجمهور والعرض، ثم نربط الرسالة بالتصميم والمحتوى وتجربة الموقع.</p>
-          <p>لا نتعامل مع التسويق والموقع والأتمتة كخدمات منفصلة. نبني بينها رحلة واحدة: إعلان أو محتوى يجذب العميل، صفحة توضّح القيمة، ونظام واتساب أو CRM يتابع المحادثة بسرعة ويقودها إلى الحجز أو البيع.</p>
-          <p>تشمل خدمات ديوانك استراتيجية العلامة والتسمية والهوية البصرية، التسويق الرقمي، تصميم وتطوير المواقع، تحسين الظهور في محركات البحث، وأتمتة خدمة العملاء والمبيعات باستخدام الذكاء الاصطناعي.</p>
+        <div className="seo-content-grid growth-system-cards">
+          <article className="growth-system-card"><small>01 / BRAND</small><h3>علامة تُفهم وتُذكر</h3><p>نساعد الشركات في السعودية والخليج على توضيح تموضعها، بناء هوية متماسكة، وتطوير حضور رقمي يحوّل الاهتمام إلى طلبات حقيقية. يبدأ العمل بفهم السوق والجمهور والعرض، ثم نربط الرسالة بالتصميم والمحتوى وتجربة الموقع.</p></article>
+          <article className="growth-system-card"><small>02 / DEMAND</small><h3>طلب يقود إلى قرار</h3><p>لا نتعامل مع التسويق والموقع والأتمتة كخدمات منفصلة. نبني بينها رحلة واحدة: إعلان أو محتوى يجذب العميل، صفحة توضّح القيمة، ونظام واتساب أو CRM يتابع المحادثة بسرعة ويقودها إلى الحجز أو البيع.</p></article>
+          <article className="growth-system-card"><small>03 / AUTOMATION</small><h3>نظام يكمل الرحلة</h3><p>تشمل خدمات ديوانك استراتيجية العلامة والتسمية والهوية البصرية، التسويق الرقمي، تصميم وتطوير المواقع، تحسين الظهور في محركات البحث، وأتمتة خدمة العملاء والمبيعات باستخدام الذكاء الاصطناعي.</p></article>
         </div>
       </section>
 
@@ -161,6 +167,15 @@ export default function Home() {
           <details><summary>هل يمكن البدء بخدمة واحدة؟</summary><p>نعم، بالتأكيد. يمكنك البدء بخدمة واحدة حسب أولويتك وميزانيتك، مثل الهوية البصرية أو الموقع أو الأتمتة، ثم إضافة الخدمات الأخرى لاحقًا مع نمو مشروعك. وسنساعدك في اختيار أفضل نقطة بداية لتحقيق نتيجة واضحة من أول خطوة.</p></details>
           <details><summary>كيف يتم تحديد التكلفة؟</summary><p>تعتمد التكلفة على الهدف، حجم النطاق، عدد الصفحات أو الأنظمة المطلوبة، ومدة التنفيذ. بعد مراجعة المشروع نقدم نطاقًا واضحًا ومخرجات وجدولًا زمنيًا.</p></details>
         </div>
+      </section>
+
+      <section className="home-selected-offers shell" aria-labelledby="home-offers-title">
+        <div className="home-selected-offers-head">
+          <div><span className="section-label">[ الأكثر طلبًا ]</span><h2 id="home-offers-title">اختيارات تبدأ من احتياج واضح.<br/><em>والأقرب لك يظهر أولًا.</em></h2></div>
+          <p>نعرض ثلاث خدمات بداية قوية، ويعيد الموقع ترتيبها تلقائيًا وفق اهتمامك داخل ديوانك وتفاعلك السابق، مع الحفاظ على الأسعار المحلية المناسبة لبلدك.</p>
+        </div>
+        <HomeSelectedOffers />
+        <div className="home-selected-offers-all"><Link href="/offers">استعرض كل العروض <span>←</span></Link></div>
       </section>
 
       <section className="final-cta shell">
