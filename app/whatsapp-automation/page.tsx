@@ -78,6 +78,7 @@ export default function WhatsAppAutomation() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <style>{`
+        .section-label{font-family:inherit!important;font-size:clamp(14px,1.05vw,17px)!important;line-height:1.4!important;font-weight:800!important;letter-spacing:.01em!important;text-transform:none!important}
         .seo-content h2,.method-intro h2{font-size:clamp(36px,4.15vw,56px);line-height:1.4;letter-spacing:-.035em}
         .method-intro h2{margin-top:18px;margin-bottom:22px}
         .wa-commercial{padding-block:clamp(64px,7vw,100px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -109,14 +110,14 @@ export default function WhatsAppAutomation() {
         .wa-guide-card h3{margin:0 0 12px;font-size:clamp(18px,1.5vw,23px);line-height:1.55;letter-spacing:-.02em}
         .wa-guide-card p{margin:auto 0 0;color:var(--muted);font-size:14px;line-height:1.85}
         @media(max-width:900px){.wa-commercial-head,.wa-guides-head{grid-template-columns:1fr;gap:18px}.wa-commercial-head>p,.wa-guides-intro{margin-top:0}.wa-choice-grid,.wa-guide-grid{grid-template-columns:1fr 1fr}.wa-guide-card:last-child{grid-column:1/-1}.wa-guides-head h2{max-width:680px}.seo-content h2,.method-intro h2{font-size:clamp(34px,6vw,48px);line-height:1.42}}
-        @media(max-width:640px){.wa-commercial,.wa-guides{padding-block:64px}.wa-commercial-head h2,.wa-guides-head h2{font-size:32px;line-height:1.46}.wa-choice-grid,.wa-guide-grid{grid-template-columns:1fr}.wa-guide-card:last-child{grid-column:auto}.wa-choice,.wa-guide-card{min-height:auto;padding:21px}.wa-guide-card h3{font-size:19px}.wa-guides-intro{font-size:14px}.seo-content h2,.method-intro h2{font-size:34px;line-height:1.46;letter-spacing:-.025em}}
+        @media(max-width:640px){.section-label{font-size:14px!important}.wa-commercial,.wa-guides{padding-block:64px}.wa-commercial-head h2,.wa-guides-head h2{font-size:32px;line-height:1.46}.wa-choice-grid,.wa-guide-grid{grid-template-columns:1fr}.wa-guide-card:last-child{grid-column:auto}.wa-choice,.wa-guide-card{min-height:auto;padding:21px}.wa-guide-card h3{font-size:19px}.wa-guides-intro{font-size:14px}.seo-content h2,.method-intro h2{font-size:34px;line-height:1.46;letter-spacing:-.025em}}
         @media(prefers-reduced-motion:reduce){.wa-guide-card,.wa-guide-arrow{transition:none}}
       `}</style>
 
       <section className="wa-hero">
         <div className="shell wa-hero-grid">
           <div>
-            <span className="eyebrow">[ WHATSAPP AUTOMATION + CRM ]</span>
+            <span className="eyebrow">WHATSAPP AUTOMATION + CRM</span>
             <h1>أتمتة واتساب للشركات.<br/><em>من الرسالة إلى فرصة بيع.</em></h1>
             <p>نبني نظام WhatsApp Automation يرد ويؤهّل العميل ويجمع بياناته ويربط المحادثة بالحجز أو CRM والمتابعة، مع تحويل واضح للموظف عندما تحتاج المحادثة تدخلًا بشريًا.</p>
             <Link className="button primary" href="/contact">ناقش نظامك <span>↙</span></Link>
@@ -126,14 +127,14 @@ export default function WhatsAppAutomation() {
       </section>
 
       <section className="shell flow-section">
-        <span className="section-label">[ رحلة العميل ]</span>
+        <span className="section-label">رحلة العميل</span>
         <h2>من أول «مرحبًا»<br/>إلى <mark>إجراء قابل للقياس.</mark></h2>
         <AutomationFlow />
       </section>
 
       <section className="automation-core">
         <div className="shell core-grid">
-          <div className="core-copy"><span className="section-label">[ نظام واحد متصل ]</span><h2>المحادثة في المنتصف.<br/><mark>وكل خطوة حولها متصلة.</mark></h2></div>
+          <div className="core-copy"><span className="section-label">نظام واحد متصل</span><h2>المحادثة في المنتصف.<br/><mark>وكل خطوة حولها متصلة.</mark></h2></div>
           <ConnectedSystem />
         </div>
       </section>
@@ -145,7 +146,7 @@ export default function WhatsAppAutomation() {
       </section>
 
       <section className="seo-content shell" aria-labelledby="wa-capabilities-title">
-        <span className="section-label">[ ماذا يفعل النظام ]</span>
+        <span className="section-label">ماذا يفعل النظام</span>
         <h2 id="wa-capabilities-title">من الرد الآلي على واتساب<br/><em>إلى رحلة مبيعات منظمة.</em></h2>
         <div className="seo-content-grid">
           <p>يستقبل النظام استفسارات العملاء ويحدد نيتهم، ثم يعرض الخدمة أو المعلومات المناسبة ويجمع البيانات الأساسية قبل توجيه العميل إلى الحجز أو الموظف المختص.</p>
@@ -156,7 +157,7 @@ export default function WhatsAppAutomation() {
 
       <section className="shell wa-commercial" aria-labelledby="wa-commercial-title">
         <div className="wa-commercial-head">
-          <div><span className="section-label">[ اختر نقطة البداية ]</span><h2 id="wa-commercial-title">تحتاج بداية محدودة؟<br/><em>أم نظامًا متكاملًا مع CRM؟</em></h2></div>
+          <div><span className="section-label">اختر نقطة البداية</span><h2 id="wa-commercial-title">تحتاج بداية محدودة؟<br/><em>أم نظامًا متكاملًا مع CRM؟</em></h2></div>
           <p>نفصل بين نية العميل الذي يريد أتمتة أساسية سريعة وبين الشركة التي تحتاج حجزًا وCRM وتكاملات ومتابعة أوسع، حتى لا تدفع مقابل تعقيد لا تحتاجه.</p>
         </div>
         <div className="wa-choice-grid">
@@ -178,7 +179,7 @@ export default function WhatsAppAutomation() {
 
       <section className="method-section">
         <div className="shell method-layout">
-          <div className="method-intro"><span className="section-label">[ طريقة التنفيذ ]</span><h2>لا نبدأ بالبوت.<br/><em>نبدأ برحلة العميل.</em></h2><p>نراجع ما يحدث اليوم، ثم نحدد أين تستحق الأتمتة وأين يجب أن يتدخل الإنسان.</p></div>
+          <div className="method-intro"><span className="section-label">طريقة التنفيذ</span><h2>لا نبدأ بالبوت.<br/><em>نبدأ برحلة العميل.</em></h2><p>نراجع ما يحدث اليوم، ثم نحدد أين تستحق الأتمتة وأين يجب أن يتدخل الإنسان.</p></div>
           <div className="method-list">
             <div><span>01</span><h3>تحليل المحادثات</h3><p>الأسئلة المتكررة، نقاط التعطّل، ونوايا العملاء الأساسية.</p></div>
             <div><span>02</span><h3>تصميم المسارات</h3><p>الرد والتأهيل والحجز والمتابعة والتحويل للموظف.</p></div>
@@ -189,7 +190,7 @@ export default function WhatsAppAutomation() {
       </section>
 
       <section className="seo-content shell">
-        <span className="section-label">[ حالات الاستخدام ]</span>
+        <span className="section-label">حالات الاستخدام</span>
         <h2>مناسب للأعمال التي<br/><em>تعيش داخل المحادثات.</em></h2>
         <div className="seo-content-grid">
           <p>العيادات والمراكز الطبية: شرح الخدمات، جمع البيانات الأولية، توجيه الحجز، التذكير والمتابعة مع الحفاظ على التصعيد البشري للحالات الحساسة.</p>
@@ -201,7 +202,7 @@ export default function WhatsAppAutomation() {
       <section className="shell wa-guides" aria-labelledby="wa-guides-title">
         <div className="wa-guides-head">
           <div>
-            <span className="section-label">[ أدلة قبل القرار ]</span>
+            <span className="section-label">أدلة قبل القرار</span>
             <h2 id="wa-guides-title">ابحث عن التكلفة أو CRM؟<br/><em>ابدأ بالدليل المناسب.</em></h2>
           </div>
           <p className="wa-guides-intro">المقالات هنا تخدم نوايا البحث المعلوماتية والتجارية، ثم تنقلك إلى باقة Starter أو النظام الكامل حسب احتياجك.</p>
@@ -218,7 +219,7 @@ export default function WhatsAppAutomation() {
       </section>
 
       <section className="faq-section shell">
-        <span className="section-label">[ أسئلة شائعة ]</span>
+        <span className="section-label">أسئلة شائعة</span>
         <h2>قبل أن تؤتمت واتساب.</h2>
         <div className="faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
       </section>
