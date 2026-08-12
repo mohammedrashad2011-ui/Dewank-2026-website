@@ -1,45 +1,20 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { offerPricing, type LocalPrice } from "./offer-pricing";
 
-type LocalPrice = {
-  amount: number;
-  currencyCode: string;
-  currencyLabel: string;
-};
-
-const pricesByCountry: Record<string, LocalPrice> = {
-  SA: { amount: 790, currencyCode: "SAR", currencyLabel: "ريال سعودي" },
-  AE: { amount: 790, currencyCode: "AED", currencyLabel: "درهم إماراتي" },
-  BH: { amount: 79, currencyCode: "BHD", currencyLabel: "دينار بحريني" },
-  KW: { amount: 65, currencyCode: "KWD", currencyLabel: "دينار كويتي" },
-  QA: { amount: 790, currencyCode: "QAR", currencyLabel: "ريال قطري" },
-  OM: { amount: 79, currencyCode: "OMR", currencyLabel: "ريال عُماني" },
-};
-
-const defaultFallback: LocalPrice = {
-  amount: 210,
-  currencyCode: "USD",
-  currencyLabel: "دولار أمريكي",
-};
-
+const config = offerPricing["30-day-content-package"];
 const storageKey = "dewank_offer_country";
 
 function useLocalizedPrice() {
-  const [price, setPrice] = useState<LocalPrice>(defaultFallback);
+  const [price, setPrice] = useState<LocalPrice>(config.fallback);
 
   useEffect(() => {
     const savedCountry = window.localStorage.getItem(storageKey)?.toUpperCase();
-    if (savedCountry && pricesByCountry[savedCountry]) {
-      setPrice(pricesByCountry[savedCountry]);
-    }
+    if (savedCountry && config.prices[savedCountry]) setPrice(config.prices[savedCountry]);
 
     const controller = new AbortController();
-
-    fetch("https://api.country.is/", {
-      cache: "no-store",
-      signal: controller.signal,
-    })
+    fetch("https://api.country.is/", { cache: "no-store", signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error("Country lookup failed");
         return response.json() as Promise<{ country?: string }>;
@@ -47,35 +22,23 @@ function useLocalizedPrice() {
       .then((data) => {
         const country = data.country?.toUpperCase();
         if (!country) return;
-
         window.localStorage.setItem(storageKey, country);
-        setPrice(pricesByCountry[country] ?? defaultFallback);
+        setPrice(config.prices[country] ?? config.fallback);
       })
-      .catch(() => {
-        // Keep the USD fallback when the lookup service is blocked or unavailable.
-      });
+      .catch(() => {});
 
     return () => controller.abort();
   }, []);
 
-  return useMemo(
-    () => ({
-      ...price,
-      formattedAmount: new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount),
-    }),
-    [price],
-  );
+  return useMemo(() => ({
+    ...price,
+    formattedAmount: new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount),
+  }), [price]);
 }
 
 export function LocalizedOfferPrice() {
   const price = useLocalizedPrice();
-
-  return (
-    <div className="offer-price" data-currency={price.currencyCode}>
-      <strong>{price.formattedAmount}</strong>
-      <span>{price.currencyLabel}</span>
-    </div>
-  );
+  return <div className="offer-price"><strong>{price.formattedAmount}</strong><span>{price.currencyLabel}</span></div>;
 }
 
 export function LocalizedOfferKicker() {
@@ -87,10 +50,5 @@ export function LocalizedWhatsAppLink({ className, label }: { className: string;
   const price = useLocalizedPrice();
   const text = `مرحبًا ديوانك، أريد حجز باقة محتوى إنستقرام لمدة شهر بسعر ${price.formattedAmount} ${price.currencyLabel}.`;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
-
-  return (
-    <a className={className} href={href} target="_blank" rel="noreferrer">
-      {label} <span>←</span>
-    </a>
-  );
+  return <a className={className} href={href} target="_blank" rel="noreferrer">{label} <span>←</span></a>;
 }
