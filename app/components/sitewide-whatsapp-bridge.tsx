@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 
 const whatsappNumber = "97339066649";
+const SESSION_KEY = "dewank-whatsapp-intent-clicked";
 
 type Intent = {
   key: string;
@@ -14,25 +15,25 @@ function resolveIntent(pathname: string): Intent {
   const path = pathname.toLowerCase();
 
   if (path.includes("google-ads") || path.includes("paid-ads")) {
-    return { key: "google_ads", label: "اسأل عن Google Ads", message: "مرحبًا ديوانك، وصلت من صفحة Google Ads وأريد معرفة الخطوة الأنسب لحملتي." };
+    return { key: "google_ads", label: "اسألنا عن Google Ads", message: "مرحبًا ديوانك، وصلت من صفحة Google Ads وأريد معرفة الخطوة الأنسب لحملتي." };
   }
   if (path.includes("whatsapp") || path.includes("ai-automation")) {
-    return { key: "automation", label: "اسأل عن الأتمتة", message: "مرحبًا ديوانك، وصلت من صفحة الأتمتة وأريد معرفة الحل الأنسب لنشاطي." };
+    return { key: "automation", label: "اسألنا عن الأتمتة", message: "مرحبًا ديوانك، وصلت من صفحة الأتمتة وأريد معرفة الحل الأنسب لنشاطي." };
   }
   if (path.includes("social-media") || path.includes("30-day-content") || path.includes("instagram")) {
-    return { key: "social_media", label: "اسأل عن السوشيال", message: "مرحبًا ديوانك، وصلت من صفحة السوشيال ميديا وأريد معرفة الباقة أو نطاق الإدارة الأنسب لنشاطي." };
+    return { key: "social_media", label: "اسألنا عن السوشيال ميديا", message: "مرحبًا ديوانك، وصلت من صفحة السوشيال ميديا وأريد معرفة الباقة أو نطاق الإدارة الأنسب لنشاطي." };
   }
   if (path.includes("website") || path.includes("landing-page")) {
-    return { key: "website", label: "اسأل عن الموقع", message: "مرحبًا ديوانك، وصلت من صفحة تصميم المواقع وأريد معرفة الخيار الأنسب لمشروعي." };
+    return { key: "website", label: "اسألنا عن الموقع", message: "مرحبًا ديوانك، وصلت من صفحة تصميم المواقع وأريد معرفة الخيار الأنسب لمشروعي." };
   }
   if (path.includes("seo") || path.includes("aeo")) {
-    return { key: "seo", label: "اسأل عن SEO", message: "مرحبًا ديوانك، وصلت من صفحة SEO وأريد معرفة الخطوة الأنسب لتحسين ظهور موقعي." };
+    return { key: "seo", label: "اسألنا عن SEO", message: "مرحبًا ديوانك، وصلت من صفحة SEO وأريد معرفة الخطوة الأنسب لتحسين ظهور موقعي." };
   }
   if (path.includes("brand") || path.includes("branding")) {
-    return { key: "branding", label: "اسأل عن البراند", message: "مرحبًا ديوانك، وصلت من صفحة البراندينج وأريد معرفة الخدمة الأنسب لعلامتي." };
+    return { key: "branding", label: "اسألنا عن البراند", message: "مرحبًا ديوانك، وصلت من صفحة البراندينج وأريد معرفة الخدمة الأنسب لعلامتي." };
   }
 
-  return { key: "general", label: "اسأل ديوانك على واتساب", message: "مرحبًا ديوانك، وصلت من الموقع وأريد معرفة الخدمة الأنسب لاحتياجي." };
+  return { key: "general", label: "اسألنا عن الخدمة الأنسب", message: "مرحبًا ديوانك، وصلت من الموقع وأريد معرفة الخدمة الأنسب لاحتياجي." };
 }
 
 declare global {
@@ -51,6 +52,8 @@ export default function SitewideWhatsAppBridge() {
   const href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   function trackClick() {
+    window.sessionStorage.setItem(SESSION_KEY, "1");
+    window.dispatchEvent(new Event("dewank:whatsapp-intent"));
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "sitewide_whatsapp_click",
@@ -69,9 +72,16 @@ export default function SitewideWhatsAppBridge() {
       onClick={trackClick}
       aria-label={`${intent.label} عبر واتساب`}
     >
-      <span className="sitewide-whatsapp-dot" aria-hidden="true">●</span>
-      <span>{intent.label}</span>
-      <small>رد مباشر</small>
+      <span className="sitewide-whatsapp-icon" aria-hidden="true">
+        <svg viewBox="0 0 32 32" role="img">
+          <path d="M16 4.2A11.6 11.6 0 0 0 6.1 21.9L4.5 27.6l5.9-1.5A11.6 11.6 0 1 0 16 4.2Zm0 20.9c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-3.5.9.9-3.4-.2-.4A9.3 9.3 0 1 1 16 25.1Zm5.1-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.7-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.9 5.2 2.2.9 3 .9 4.1.8 1.3-.2 1.7-.8 1.9-1.6.2-.8.2-1.4.1-1.6-.1-.2-.4-.3-.7-.4Z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span className="sitewide-whatsapp-copy">
+        <strong>تحتاج مساعدة في اختيار الخدمة؟</strong>
+        <small>{intent.label}</small>
+      </span>
+      <span className="sitewide-whatsapp-live" aria-hidden="true"><i /> واتساب</span>
     </a>
   );
 }
