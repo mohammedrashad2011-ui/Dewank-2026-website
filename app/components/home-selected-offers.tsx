@@ -123,29 +123,32 @@ export default function HomeSelectedOffers() {
   };
 
   return (
-    <div className="home-offer-grid">
-      {resolved.map((offer, index) => {
-        const price = country && offer.prices[country] ? offer.prices[country] : offer.fallback;
-        return (
-          <Link
-            className={`home-offer-card${index === 0 ? " is-recommended" : ""}`}
-            href={offer.href}
-            key={offer.key}
-            onClick={() => recordHomeClick(offer.key, index + 1)}
-          >
-            <div className="home-offer-top">
-              <small>{offer.label}</small>
-              <div className="home-offer-signals">{index === 0 && <b>الأكثر طلبًا</b>}<span>↗</span></div>
-            </div>
-            <h3>{offer.title}</h3>
-            <p>{offer.text}</p>
-            <div className="home-offer-bottom">
-              <div className="home-offer-price"><strong>{new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount)}</strong><span>{price.currencyLabel}</span></div>
-              <b>شاهد العرض</b>
-            </div>
-          </Link>
-        );
-      })}
-    </div>
+    <>
+      <style>{`.home-selected-offers .section-label{font-size:14px;font-weight:900;letter-spacing:.02em}@media(max-width:640px){.home-selected-offers .section-label{font-size:13px}}`}</style>
+      <div className="home-offer-grid">
+        {resolved.map((offer, index) => {
+          const price = country && offer.prices[country] ? offer.prices[country] : offer.fallback;
+          return (
+            <Link
+              className={`home-offer-card${index === 0 ? " is-recommended" : ""}`}
+              href={offer.href}
+              key={offer.key}
+              onClick={() => recordHomeClick(offer.key, index + 1)}
+            >
+              <div className="home-offer-top">
+                <small>{offer.label}</small>
+                <div className="home-offer-signals">{index === 0 && <b>الأكثر طلبًا</b>}<span>↗</span></div>
+              </div>
+              <h3>{offer.title}</h3>
+              <p>{offer.text}</p>
+              <div className="home-offer-bottom">
+                <div className="home-offer-price"><strong>{new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount)}</strong><span>{price.currencyLabel}</span></div>
+                <b>شاهد العرض</b>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </>
   );
 }
