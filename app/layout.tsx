@@ -5,8 +5,10 @@ import "./globals.css";
 import "./service-pages-fix.css";
 import "./services/service-icons.css";
 import "./mobile-refinement.css";
+import "./sitewide-whatsapp-cro.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
 import InstagramFollowCard from "./components/instagram-follow-card";
+import SitewideWhatsAppBridge from "./components/sitewide-whatsapp-bridge";
 
 const alexandria = Alexandria({ variable: "--font-arabic", subsets: ["arabic", "latin"] });
 const cormorant = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700"] });
@@ -87,7 +89,7 @@ export default function RootLayout({
           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
           if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
           n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
+          t.src=v;s=d.getElementsByTagName(e)[0];
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '${metaPixelId}');
@@ -150,6 +152,7 @@ export default function RootLayout({
           />
         </noscript>
         {children}
+        <SitewideWhatsAppBridge />
         <InstagramFollowCard />
       </body>
     </html>
