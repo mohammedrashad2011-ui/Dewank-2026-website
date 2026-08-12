@@ -13,6 +13,25 @@ const showcaseItems = [
   { label: "عناية ومنتجات", brand: "Calm Root", image: "/showcase/content/calm-root.webp", alt: "تصميم إعلان سوشيال ميديا لمنتجات عناية شخصية بهوية زرقاء نظيفة وعرض منتج احترافي" },
 ] as const;
 
+const feedbackThemes = [
+  {
+    title: "محتوى أقرب للنشاط",
+    text: "من أكثر الملاحظات التي تتكرر: المحتوى ما يكون عامًا، بل يعكس طبيعة النشاط وطريقة ظهوره.",
+  },
+  {
+    title: "خطة أوضح للشهر",
+    text: "بدل سؤال: وش ننشر؟ يكون عندك اتجاه واضح ومحتوى مرتب يغطي الشهر بشكل عملي.",
+  },
+  {
+    title: "تواصل منظم",
+    text: "وضوح المطلوب، مراحل التنفيذ، وما الذي ستستلمه قبل بدء العمل يقلل التردد ويوفر الوقت.",
+  },
+  {
+    title: "فهم للجمهور قبل التصميم",
+    text: "القيمة مو في الشكل وحده؛ الأهم أن يكون وراء كل قطعة فكرة تخاطب الجمهور المناسب.",
+  },
+] as const;
+
 export default function OfferVisualProof() {
   const [active, setActive] = useState(0);
   const [sectionReady, setSectionReady] = useState(false);
@@ -102,8 +121,14 @@ export default function OfferVisualProof() {
   return (
     <section ref={sectionRef} className="shell offer-visual-proof" aria-labelledby="offer-visual-proof-title">
       <div className="offer-visual-proof-head">
-        <span className="section-label">[ مستوى التنفيذ ]</span>
-        <h2 id="offer-visual-proof-title">شوف مستوى المحتوى قبل ما تحجز.</h2>
+        <span className="section-label">مستوى التنفيذ</span>
+        <h2 id="offer-visual-proof-title">شاهد مستوى المحتوى<br/>قبل ما تقرر.</h2>
+        <p className="offer-proof-intro">نماذج من قطاعات مختلفة توضح مستوى التصميم وتنوع الأسلوب حسب طبيعة النشاط.</p>
+        <div className="offer-proof-signals" aria-label="مؤشرات الثقة في التنفيذ">
+          <span><b>7</b><small>نماذج</small></span>
+          <span><b>7</b><small>قطاعات</small></span>
+          <span><b>مخصص</b><small>حسب نشاطك</small></span>
+        </div>
       </div>
 
       <div className="offer-slider-shell" dir="rtl">
@@ -166,8 +191,37 @@ export default function OfferVisualProof() {
       </div>
 
       <div className="offer-visual-proof-cta">
-        <div><b>عايز حسابك يبقى النموذج الجاي؟</b><span>نبدأ من نشاطك، جمهورك، وطريقة ظهورك. مش من قالب جاهز.</span></div>
-        <a className="button primary" href="https://wa.me/97339066649?text=%D8%B4%D9%87%D8%B1" target="_blank" rel="noreferrer">احجز العرض عبر واتساب</a>
+        <div>
+          <b>تبي حسابك يكون النموذج الجاي؟</b>
+          <span>نبدأ من نشاطك وجمهورك وطريقة ظهورك، مو من قالب جاهز.</span>
+        </div>
+        <a className="button primary" href="https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%D9%83%D8%8C%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%A8%D8%A7%D9%82%D8%A9%20%D9%85%D8%AD%D8%AA%D9%88%D9%89%2030%20%D9%8A%D9%88%D9%85%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%A3%D9%83%D8%AF%20%D9%87%D9%84%20%D9%87%D9%8A%20%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%A9%20%D9%84%D9%86%D8%B4%D8%A7%D8%B7%D9%8A." target="_blank" rel="noreferrer">تأكد أن الباقة مناسبة لنشاطك</a>
+      </div>
+
+      <div className="offer-feedback" aria-labelledby="offer-feedback-title">
+        <div className="offer-feedback-head">
+          <span className="section-label">تجربة العملاء</span>
+          <h2 id="offer-feedback-title">أشياء تتكرر في تقييمات عملائنا.</h2>
+          <p>بدل عرض أسماء أو تقييمات غير موثقة، جمعنا أكثر الملاحظات التي تتكرر في التجربة نفسها.</p>
+        </div>
+
+        <div className="offer-feedback-grid">
+          {feedbackThemes.map((item) => (
+            <article key={item.title}>
+              <div className="offer-feedback-stars" aria-hidden="true">★★★★★</div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="offer-feedback-sectors" aria-label="نماذج من القطاعات التي نخدمها">
+          <span>متاجر إلكترونية</span>
+          <span>علامات ناشئة</span>
+          <span>خدمات أعمال</span>
+          <span>عيادات</span>
+          <span>مقاولات</span>
+        </div>
       </div>
     </section>
   );
