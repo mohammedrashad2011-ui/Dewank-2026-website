@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { offerPricing, type LocalPrice } from "./offer-pricing";
+import { offerPricing, type LocalPrice, type OfferPriceKey } from "./offer-pricing";
 
-const config = offerPricing["30-day-content-package"];
 const storageKey = "dewank_offer_country";
 
-function useLocalizedPrice() {
+export function useOfferPrice(key: OfferPriceKey) {
+  const config = offerPricing[key];
   const [price, setPrice] = useState<LocalPrice>(config.fallback);
 
   useEffect(() => {
@@ -28,27 +28,10 @@ function useLocalizedPrice() {
       .catch(() => {});
 
     return () => controller.abort();
-  }, []);
+  }, [config]);
 
   return useMemo(() => ({
     ...price,
     formattedAmount: new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount),
   }), [price]);
-}
-
-export function LocalizedOfferPrice() {
-  const price = useLocalizedPrice();
-  return <div className="offer-price"><strong>{price.formattedAmount}</strong><span>{price.currencyLabel}</span></div>;
-}
-
-export function LocalizedOfferKicker() {
-  const price = useLocalizedPrice();
-  return <span className="offer-kicker">16 قطعة محتوى · {price.formattedAmount} {price.currencyLabel}</span>;
-}
-
-export function LocalizedWhatsAppLink({ className, label }: { className: string; label: string }) {
-  const price = useLocalizedPrice();
-  const text = `مرحبًا ديوانك، أريد حجز باقة محتوى إنستقرام لمدة شهر بسعر ${price.formattedAmount} ${price.currencyLabel}.`;
-  const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
-  return <a className={className} href={href} target="_blank" rel="noreferrer">{label} <span>←</span></a>;
 }
