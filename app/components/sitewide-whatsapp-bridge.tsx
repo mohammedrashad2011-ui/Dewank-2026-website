@@ -60,7 +60,7 @@ export default function SitewideWhatsAppBridge() {
     setCollapsed(window.localStorage.getItem(COLLAPSE_KEY) === "1");
   }, []);
 
-  if (pathname === "/contact") return null;
+  if (pathname === "/contact" || pathname.startsWith("/guides/")) return null;
 
   const intent = resolveIntent(pathname);
   const message = `${intent.message}\n\nالصفحة: ${pathname}`;
