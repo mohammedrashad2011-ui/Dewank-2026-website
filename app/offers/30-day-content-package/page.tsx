@@ -7,6 +7,7 @@ import "../offers-page.css";
 import "../offer-trust.css";
 import "./offer-visual-proof.css";
 import "./sales-machine.css";
+import "./sales-machine-arabic-polish.css";
 
 export const metadata: Metadata = createMetadata({
   title: "إدارة محتوى السوشيال ميديا لمدة 30 يوم | باقة ديوانك",
@@ -34,21 +35,21 @@ const deliverables = [
 ];
 
 const painToOutcome = [
-  ["كل مرة تسأل: ننشر إيه؟", "نجهز لك أفكار الشهر والكابشنات قبل ما تبدأ دوامة البحث اليومية."],
-  ["الحساب شكله متقطع", "نبني اتجاهًا بصريًا متماسكًا يخلي المحتوى يبدو جزءًا من علامة واحدة."],
-  ["النشر بيتوقف مع ضغط الشغل", "تستلم خطة 30 يومًا ومواد جاهزة بدل الاعتماد على المزاج والوقت الفاضي."],
+  ["كل مرة تحتار: وش ننشر؟", "نجهز لك أفكار الشهر والكابشنات قبل ما تبدأ دوامة البحث اليومية."],
+  ["الحساب يطلع بشكل متقطع", "نبني اتجاهًا بصريًا متماسكًا يخلي المحتوى يظهر كجزء من علامة واحدة."],
+  ["النشر يتوقف مع ضغط الشغل", "تستلم خطة 30 يومًا ومواد جاهزة بدل ما تعتمد على الوقت المتاح كل أسبوع."],
 ];
 
 const afterDelivery = [
   ["بنك محتوى جاهز", "16 قطعة محتوى مخططة ومصممة بدل البدء من الصفر كل أسبوع."],
   ["رسالة أوضح", "محتوى يشرح خدمتك ويعطي الزائر سببًا يفهم به نشاطك بسرعة."],
-  ["شكل أكثر ثباتًا", "اتجاه بصري متناسق يرفع الإحساس بالاحتراف والثقة."],
-  ["خطة تنقذك من العشوائية", "تعرف ماذا تنشر ومتى، مع مساحة كافية للتعديل حسب نشاطك."],
+  ["حضور أكثر ثباتًا", "اتجاه بصري متناسق يرفع الإحساس بالاحتراف والثقة."],
+  ["خطة تبعدك عن العشوائية", "تعرف وش تنشر ومتى، مع مساحة كافية للتعديل حسب نشاطك."],
 ];
 
 const faqItems = [
   ["هل هذه إدارة كاملة لحساب السوشيال ميديا؟", "لا. هذه باقة إنتاج وإدارة محتوى لمدة 30 يومًا: أفكار وتصميم وكابشنات وخطة نشر وتحسين البايو. لا تشمل النشر اليومي أو إدارة الرسائل أو الحملات الإعلانية."],
-  ["كيف أعرف أن الباقة مناسبة لنشاطي قبل الدفع؟", "أرسل لنا نشاطك على واتساب أولًا. نراجع احتياجك ونخبرك بوضوح إذا كانت هذه الباقة مناسبة أو إذا كنت تحتاج نطاقًا مختلفًا. لا تحتاج للدفع قبل هذه الخطوة."],
+  ["كيف أعرف أن الباقة مناسبة لنشاطي قبل الدفع؟", "أرسل لنا نشاطك على واتساب أولًا. نراجع احتياجك ونوضح لك إذا كانت هذه الباقة مناسبة أو إذا كنت تحتاج نطاقًا مختلفًا. ما تحتاج تدفع قبل هذه الخطوة."],
   ["كم سعر إدارة المحتوى لمدة شهر؟", "السعر المعروض في الصفحة هو سعر الباقة الكامل حسب دولتك، ويشمل 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر."],
   ["كم مدة التسليم؟", "عادة خلال 10 إلى 14 يوم عمل بعد استلام المعلومات والمواد المطلوبة واعتماد الاتجاه."],
   ["هل يمكن الدفع على دفعتين؟", "نعم. 50% لبدء العمل و50% بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية."],
@@ -120,8 +121,8 @@ export default function ContentOfferPage() {
       <section className="shell offer-detail-hero sales-hero">
         <div className="sales-hero-copy">
           <span className="sales-eyebrow">[ باقة إدارة محتوى السوشيال ميديا ]</span>
-          <h1>شهر كامل من المحتوى.<br/><em>جاهز قبل ما تسأل: ننشر إيه النهارده؟</em></h1>
-          <p className="sales-hero-lead">نحوّل نشاطك إلى 16 قطعة محتوى جاهزة للنشر: أفكار، تصميم، كابشنات وخطة 30 يومًا. حل عملي لو احتياجك الأساسي هو المحتوى، بدون عقد إدارة شهري طويل.</p>
+          <h1>إدارة محتوى السوشيال ميديا لمدة 30 يومًا.<br/><em>جاهز قبل ما تحتار: وش ننشر اليوم؟</em></h1>
+          <p className="sales-hero-lead">نحوّل نشاطك إلى 16 قطعة محتوى جاهزة للنشر: أفكار، تصميم، كابشنات وخطة 30 يومًا. حل عملي إذا كان احتياجك الأساسي هو المحتوى، بدون عقد إدارة شهري طويل.</p>
           <div className="sales-proof-strip" aria-label="ملخص الباقة">
             <span>12 بوست</span><span>3 ستوري</span><span>1 ريل</span><span>خطة 30 يومًا</span>
           </div>
@@ -131,12 +132,12 @@ export default function ContentOfferPage() {
         <aside className="offer-price-panel sales-price-panel">
           <small>سعر الباقة الكامل</small>
           <LocalizedOfferPrice />
-          <p className="sales-price-promise">ابدأ بـ50% فقط بعد أن نراجع نشاطك ونؤكد أن الباقة مناسبة لك.</p>
+          <p className="sales-price-promise">ابدأ بـ50% فقط بعد ما نراجع نشاطك ونتأكد أن الباقة مناسبة لك.</p>
           <div className="offer-trust-inline" aria-label="مزايا الأمان والثقة">
             <span>لا عقد شهري</span><span>اتجاه معتمد أولًا</span><span>رابط دفع رسمي</span>
           </div>
           <LocalizedWhatsAppLink className="button primary sales-primary-cta" label="تأكد أن الباقة مناسبة لنشاطك" />
-          <small className="sales-cta-note">واتساب مباشر · لا تحتاج للدفع قبل مراجعة نشاطك</small>
+          <small className="sales-cta-note">واتساب مباشر · ما تحتاج تدفع قبل مراجعة نشاطك</small>
         </aside>
       </section>
 
@@ -144,9 +145,9 @@ export default function ContentOfferPage() {
 
       <section className="shell sales-problem-solution" aria-labelledby="sales-problem-title">
         <div className="sales-section-head">
-          <span className="section-label">[ لو ده بيحصل عندك ]</span>
-          <h2 id="sales-problem-title">المشكلة مش إنك ما عندكش خدمة.<br/>المشكلة إن حسابك ما بيعرفش يقولها باستمرار.</h2>
-          <p>الباقة مبنية عشان تشيل 3 أسباب بتخلي الحسابات تتوقف أو تظهر بصورة أقل من قيمة المشروع.</p>
+          <span className="section-label">[ إذا هذا يصير عندك ]</span>
+          <h2 id="sales-problem-title">المشكلة مو في خدمتك.<br/>المشكلة إن حسابك ما يوضح قيمتها باستمرار.</h2>
+          <p>الباقة مصممة لمعالجة 3 أسباب تخلي الحساب يتوقف أو يظهر بصورة أقل من قيمة مشروعك.</p>
         </div>
         <div className="sales-three-grid">
           {painToOutcome.map(([title, text], index) => (
@@ -161,8 +162,8 @@ export default function ContentOfferPage() {
 
       <section className="shell sales-outcomes" aria-labelledby="sales-outcomes-title">
         <div className="sales-section-head compact">
-          <span className="section-label">[ اللي تشتريه فعلًا ]</span>
-          <h2 id="sales-outcomes-title">مش 16 تصميمًا وبس.<br/>أنت تشتري شهرًا جاهزًا للحضور.</h2>
+          <span className="section-label">[ القيمة اللي تحصل عليها ]</span>
+          <h2 id="sales-outcomes-title">مو 16 تصميمًا وبس.<br/>أنت تحصل على شهر جاهز للحضور.</h2>
         </div>
         <div className="sales-outcome-grid">
           {afterDelivery.map(([title, text]) => (
@@ -170,7 +171,7 @@ export default function ContentOfferPage() {
           ))}
         </div>
         <div className="sales-mid-cta">
-          <p>لو ده هو اللي ناقص حسابك، خلينا نتأكد من الملاءمة قبل ما تدفع أي شيء.</p>
+          <p>إذا هذا اللي ناقص حسابك، خلّنا نتأكد من ملاءمة الباقة قبل ما تدفع أي شيء.</p>
           <LocalizedWhatsAppLink className="button primary" label="راجع الباقة معي على واتساب" />
         </div>
       </section>
@@ -178,7 +179,7 @@ export default function ContentOfferPage() {
       <section className="shell offer-deliverables sales-deliverables">
         <div>
           <span className="section-label">[ ماذا تستلم؟ ]</span>
-          <h2>كل قطعة لها وظيفة.<br/>مش مجرد ملء للجدول.</h2>
+          <h2>كل قطعة لها وظيفة.<br/>مو مجرد تعبئة للجدول.</h2>
           <p>التسليم عادة خلال 10–14 يوم عمل بعد استلام المعلومات والمواد المطلوبة واعتماد الاتجاه.</p>
         </div>
         <div className="deliverable-list">
@@ -191,12 +192,12 @@ export default function ContentOfferPage() {
       <section className="shell sales-risk-reversal" aria-labelledby="sales-risk-title">
         <div>
           <span className="section-label">[ قرار أسهل ]</span>
-          <h2 id="sales-risk-title">ما نطلبش منك تثق في وعود كبيرة.</h2>
-          <p>نشيل أكبر قدر ممكن من المخاطرة من القرار: نراجع نشاطك أولًا، نحدد الاتجاه، وتبدأ بنصف قيمة الباقة فقط.</p>
+          <h2 id="sales-risk-title">ما نطلب منك تثق بوعود كبيرة.</h2>
+          <p>نقلل قدر الإمكان من مخاطرة القرار: نراجع نشاطك أولًا، نحدد الاتجاه، وتبدأ بنصف قيمة الباقة فقط.</p>
         </div>
         <div className="sales-risk-grid">
-          <article><strong>01</strong><h3>نتأكد من الملاءمة</h3><p>لو احتياجك خارج نطاق الباقة، نقول لك قبل الدفع.</p></article>
-          <article><strong>02</strong><h3>توافق على الاتجاه</h3><p>لا نتوسع في التنفيذ قبل ما يكون الاتجاه واضحًا ومقبولًا بالنسبة لك.</p></article>
+          <article><strong>01</strong><h3>نتأكد من الملاءمة</h3><p>إذا احتياجك خارج نطاق الباقة، نقول لك قبل الدفع.</p></article>
+          <article><strong>02</strong><h3>تعتمد الاتجاه</h3><p>ما نتوسع في التنفيذ قبل ما يكون الاتجاه واضحًا ومناسبًا لك.</p></article>
           <article><strong>03</strong><h3>50% للبدء</h3><p>الدفعة الثانية بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية.</p></article>
           <article><strong>04</strong><h3>سياسة استرجاع واضحة</h3><p>استرداد كامل قبل بدء التنفيذ، وبعد البدء يُخصم فقط مقابل الجزء المنفذ.</p></article>
         </div>
@@ -204,14 +205,14 @@ export default function ContentOfferPage() {
 
       <section className="shell offer-fit sales-fit">
         <span className="section-label">[ قبل الحجز ]</span>
-        <h2>خلّي القرار واضح من البداية.</h2>
+        <h2>خلّ القرار واضح من البداية.</h2>
         <div className="offer-fit-grid">
           <article className="offer-fit-card good">
             <h3>هذه الباقة مناسبة لك إذا</h3>
             <ul>
               <li>لديك مشروع أو خدمة واضحة وتحتاج حضورًا أكثر احترافية.</li>
-              <li>مشكلتك الأساسية هي الأفكار والتصميم والكابشنات واستمرارية المحتوى.</li>
-              <li>تريد شهرًا من المحتوى قبل الالتزام بإدارة شهرية كاملة.</li>
+              <li>احتياجك الأساسي هو الأفكار والتصميم والكابشنات واستمرارية المحتوى.</li>
+              <li>تبي شهرًا من المحتوى قبل الالتزام بإدارة شهرية كاملة.</li>
               <li>يمكنك تزويدنا بصور أو فيديوهات مناسبة للريل عند الحاجة.</li>
             </ul>
           </article>
@@ -234,15 +235,15 @@ export default function ContentOfferPage() {
         </div>
         <div className="offer-confidence-grid">
           <article><b>01</b><span>ترسل نوع نشاطك وهدفك على واتساب.</span></article>
-          <article><b>02</b><span>نؤكد ملاءمة الباقة ونرسل رابط الدفع الرسمي.</span></article>
+          <article><b>02</b><span>نتأكد من ملاءمة الباقة ونرسل رابط الدفع الرسمي.</span></article>
           <article><b>03</b><span>نبدأ بعد 50% واعتماد الاتجاه الأولي.</span></article>
         </div>
       </section>
 
       <section className="shell offer-faq sales-faq" aria-labelledby="offer-faq-title">
         <div className="offer-faq-head">
-          <span className="section-label">[ اعتراضات قبل ما تتحول لقلق ]</span>
-          <h2 id="offer-faq-title">كل اللي غالبًا بتفكر فيه قبل القرار.</h2>
+          <span className="section-label">[ أسئلة قبل القرار ]</span>
+          <h2 id="offer-faq-title">كل اللي غالبًا تفكر فيه قبل القرار.</h2>
         </div>
         <div className="offer-faq-list">
           {faqItems.map(([question, answer]) => (
@@ -253,8 +254,8 @@ export default function ContentOfferPage() {
 
       <section className="shell offer-final-cta sales-final-cta">
         <LocalizedOfferKicker />
-        <h2>خلي الشهر الجاي يبدأ بمحتوى جاهز، مش بس نية للنشر.</h2>
-        <p>أرسل لنا نوع نشاطك. نراجع الملاءمة أولًا، ولو الباقة مناسبة نوضح المطلوب ونبدأ بخطوات بسيطة.</p>
+        <h2>خلّ الشهر الجاي يبدأ بمحتوى جاهز، مو مجرد نية للنشر.</h2>
+        <p>أرسل لنا نوع نشاطك. نراجع الملاءمة أولًا، وإذا الباقة مناسبة نوضح المطلوب ونبدأ بخطوات بسيطة.</p>
         <LocalizedWhatsAppLink className="button primary" label="أرسل نشاطي وأتأكد من الملاءمة" />
         <small>لا التزام قبل المراجعة · 50% فقط عند بدء التنفيذ</small>
       </section>
