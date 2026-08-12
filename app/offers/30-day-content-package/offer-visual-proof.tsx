@@ -103,7 +103,13 @@ export default function OfferVisualProof() {
     <section ref={sectionRef} className="shell offer-visual-proof" aria-labelledby="offer-visual-proof-title">
       <div className="offer-visual-proof-head">
         <span className="section-label">مستوى التنفيذ</span>
-        <h2 id="offer-visual-proof-title">شوف مستوى المحتوى قبل ما تحجز.</h2>
+        <h2 id="offer-visual-proof-title">شاهد مستوى المحتوى قبل ما تقرر.</h2>
+        <p className="offer-proof-intro">نماذج تنفيذ من قطاعات مختلفة توضح مستوى التصميم، تنوع الأسلوب، وكيف نكيّف المحتوى حسب طبيعة كل نشاط.</p>
+        <div className="offer-proof-signals" aria-label="مؤشرات الثقة في التنفيذ">
+          <span><b>7</b> نماذج معروضة</span>
+          <span><b>7</b> قطاعات مختلفة</span>
+          <span>تصميم مخصص حسب النشاط</span>
+        </div>
       </div>
 
       <div className="offer-slider-shell" dir="rtl">
@@ -166,8 +172,11 @@ export default function OfferVisualProof() {
       </div>
 
       <div className="offer-visual-proof-cta">
-        <div><b>عايز حسابك يبقى النموذج الجاي؟</b><span>نبدأ من نشاطك، جمهورك، وطريقة ظهورك. مش من قالب جاهز.</span></div>
-        <a className="button primary" href="https://wa.me/97339066649?text=%D8%B4%D9%87%D8%B1" target="_blank" rel="noreferrer">احجز العرض عبر واتساب</a>
+        <div>
+          <b>تبي حسابك يكون النموذج الجاي؟</b>
+          <span>نبدأ من نشاطك وجمهورك وطريقة ظهورك، مو من قالب جاهز.</span>
+        </div>
+        <a className="button primary" href="https://wa.me/97339066649?text=%D9%85%D8%B1%D8%AD%D8%A8%D9%8B%D8%A7%20%D8%AF%D9%8A%D9%88%D8%A7%D9%86%D9%83%D8%8C%20%D9%85%D9%87%D8%AA%D9%85%20%D8%A8%D8%A8%D8%A7%D9%82%D8%A9%20%D9%85%D8%AD%D8%AA%D9%88%D9%89%2030%20%D9%8A%D9%88%D9%85%20%D9%88%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%AA%D8%A3%D9%83%D8%AF%20%D9%87%D9%84%20%D9%87%D9%8A%20%D9%85%D9%86%D8%A7%D8%B3%D8%A8%D8%A9%20%D9%84%D9%86%D8%B4%D8%A7%D8%B7%D9%8A." target="_blank" rel="noreferrer">تأكد أن الباقة مناسبة لنشاطك</a>
       </div>
     </section>
   );
