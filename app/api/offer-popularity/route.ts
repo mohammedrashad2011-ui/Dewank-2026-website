@@ -10,6 +10,11 @@ const allowedOfferKeys = new Set([
   "small-business-website",
 ]);
 
+type OfferPopularityRow = {
+  offer_key: string;
+  clicks: number;
+};
+
 async function getDatabase() {
   const { env } = await import("cloudflare:workers");
   if (!env.DB) throw new Error("Cloudflare D1 binding `DB` is unavailable.");
@@ -61,12 +66,13 @@ export async function GET() {
       WHERE created_at >= datetime('now', '-30 days')
       GROUP BY offer_key
       ORDER BY clicks DESC, offer_key ASC
-    `).all<{ offer_key: string; clicks: number }>();
+    `).all<OfferPopularityRow>();
 
-    const ranking = (result.results || [])
-      .filter((row) => allowedOfferKeys.has(row.offer_key))
-      .map((row) => ({ key: row.offer_key, clicks: Number(row.clicks || 0) }));
-    const totalClicks = ranking.reduce((sum, row) => sum + row.clicks, 0);
+    const rows: OfferPopularityRow[] = (result.results || []) as OfferPopularityRow[];
+    const ranking = rows
+      .filter((row: OfferPopularityRow) => allowedOfferKeys.has(row.offer_key))
+      .map((row: OfferPopularityRow) => ({ key: row.offer_key, clicks: Number(row.clicks || 0) }));
+    const totalClicks = ranking.reduce((sum: number, row: { key: string; clicks: number }) => sum + row.clicks, 0);
 
     return Response.json(
       { ranking, totalClicks, enoughData: totalClicks >= 5, windowDays: 30 },
