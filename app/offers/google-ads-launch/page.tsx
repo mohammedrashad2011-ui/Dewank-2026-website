@@ -7,14 +7,25 @@ import "../offers-page.css";
 import "../offer-trust.css";
 import "./google-ads-launch.css";
 
-const title = "إطلاق Google Ads بـ 790 ريال | حملة بحث جاهزة";
-const description = "باقة إطلاق Google Ads للشركات والمشاريع: بحث كلمات، إعداد حملة Search، كتابة الإعلانات، الكلمات السلبية، تتبع تحويل أساسي وإطلاق منظم دون إدارة شهرية.";
+const title = "إعداد وتشغيل حملة Google Ads في السعودية | 790 ريال";
+const description = "باقة إعداد وتشغيل حملة Google Ads Search للشركات في السعودية: بحث كلمات، كتابة الإعلانات، كلمات سلبية، تتبع تحويل أساسي وإطلاق منظم بـ790 ريال، دون إدارة شهرية.";
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
   description,
   path: "/offers/google-ads-launch",
-  keywords: ["إعداد حملة جوجل ادز", "إطلاق Google Ads", "سعر إدارة جوجل ادز", "إعلانات بحث جوجل", "Google Ads السعودية", "إعداد حملة بحث جوجل", "إعلانات جوجل للشركات"],
+  keywords: [
+    "إعداد حملة جوجل ادز",
+    "تشغيل حملة Google Ads",
+    "تشغيل حملة جوجل",
+    "سعر إعداد حملة جوجل ادز",
+    "تكلفة تشغيل حملة Google Ads",
+    "إطلاق Google Ads",
+    "إعلانات بحث جوجل",
+    "Google Ads السعودية",
+    "إعداد حملة بحث جوجل",
+    "إعلانات جوجل للشركات",
+  ],
 });
 
 const deliverables = [
@@ -29,9 +40,10 @@ const deliverables = [
 ];
 
 const faqs = [
+  ["كم تكلفة إعداد وتشغيل حملة Google Ads؟", "هذه الباقة مخصصة لإعداد وإطلاق حملة Google Search واحدة بسعر 790 ريال في السعودية. ميزانية الإعلانات نفسها تُدفع مباشرة إلى Google، والإدارة الشهرية المستمرة ليست ضمن الباقة."],
   ["ماذا تشمل باقة إطلاق Google Ads؟", "تشمل إعداد وإطلاق حملة Google Search واحدة حتى مجموعتين إعلانيتين، بحث الكلمات، كتابة الإعلانات، الكلمات السلبية الأساسية، وتتبع تحويل رئيسي واحد عند توفر المتطلبات التقنية."],
   ["هل تشمل الباقة ميزانية الإعلانات؟", "لا. مبلغ 790 ريال هو أجر إعداد وإطلاق الحملة، أما الميزانية الإعلانية فتدفعها مباشرة إلى Google حسب المبلغ الذي تختاره."],
-  ["هل تشمل إدارة الحملة لمدة شهر؟", "لا. الباقة مخصصة للتأسيس والإطلاق مع متابعة تقنية لمدة 7 أيام. الإدارة والتحسين المستمر بعد ذلك خدمة شهرية منفصلة."],
+  ["هل تشمل إدارة الحملة لمدة شهر؟", "لا. الباقة مخصصة للتأسيس والإطلاق مع متابعة تقنية لمدة 7 أيام. إذا كنت تحتاج إدارة وتحسينًا مستمرًا فراجع خدمة إدارة Google Ads والإعلانات المدفوعة."],
   ["هل تشمل تصميم Landing Page؟", "لا. يجب أن يكون لديك موقع أو صفحة مناسبة لاستقبال الزائر. إذا كانت الصفحة الحالية غير مناسبة للتحويل يمكن إضافة خدمة صفحة هبوط بشكل منفصل."],
   ["هل الباقة مناسبة لأي نشاط؟", "هي أنسب للأنشطة التي يبحث العملاء عن خدماتها أو منتجاتها بالفعل على Google. بعض الأنشطة قد تستفيد أكثر من Meta Ads أو من بناء صفحة هبوط أولًا."],
   ["ما المطلوب قبل البدء؟", "حساب Google Ads صالح للدفع، صفحة أو موقع يعمل، وصول مناسب للحساب والقياس، وعرض أو خدمة واضحة نريد الإعلان عنها."],
@@ -46,9 +58,9 @@ export default function GoogleAdsLaunchOffer() {
       {
         "@type": "Service",
         "@id": `${url}#service`,
-        name: "باقة إطلاق Google Ads",
+        name: "إعداد وتشغيل حملة Google Ads Search",
         description,
-        serviceType: ["Google Ads Setup", "Google Search Ads", "Conversion Tracking"],
+        serviceType: ["Google Ads Setup", "Google Ads Campaign Launch", "Google Search Ads", "Conversion Tracking"],
         provider: { "@id": organizationId },
         areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
         offers: { "@type": "Offer", price: "790", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
@@ -68,7 +80,7 @@ export default function GoogleAdsLaunchOffer() {
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl },
           { "@type": "ListItem", position: 2, name: "العروض", item: `${siteUrl}/offers` },
-          { "@type": "ListItem", position: 3, name: "إطلاق Google Ads", item: url },
+          { "@type": "ListItem", position: 3, name: "إعداد وتشغيل حملة Google Ads", item: url },
         ],
       },
     ],
@@ -82,19 +94,19 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell offer-detail-hero google-ads-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> أيام عمل</span></div>
-          <h1>ابدأ Google Ads.<br/><em>من غير ما تحرق الميزانية في البداية.</em></h1>
-          <p>نجهز لك حملة بحث واضحة من الصفر: كلمات بنية شراء، إعلانات مناسبة، كلمات سلبية، إعداد قياس أساسي، وفحص كامل قبل الإطلاق.</p>
+          <h1>إعداد وتشغيل Google Ads.<br/><em>حملة Search تبدأ بشكل محسوب.</em></h1>
+          <p>نجهز لك حملة Google Search من الصفر: كلمات بنية شراء، إعلانات مناسبة، كلمات سلبية، تتبع تحويل أساسي، وفحص كامل قبل تشغيل الميزانية.</p>
           <div className="google-ads-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
-            <span>هذه باقة تأسيس وإطلاق، وليست إدارة شهرية. مناسبة لو عندك صفحة جاهزة وتريد تشغيل Google Search بطريقة منظمة بدل البدء بإعدادات عشوائية.</span>
+            <span>إذا كنت تبحث عن سعر تشغيل حملة Google Ads، فهذه الباقة للتأسيس والإطلاق بسعر واضح، وليست إدارة شهرية. مناسبة لو عندك صفحة جاهزة وتريد بدء Google Search بطريقة منظمة.</span>
           </div>
         </div>
         <aside className="offer-price-panel google-ads-price-panel">
-          <small>باقة الإطلاق</small>
+          <small>إعداد وإطلاق حملة Search</small>
           <GoogleAdsLaunchPrice />
           <div className="offer-trust-inline"><span>حملة Search</span><span>تتبع تحويل</span><span>7 أيام متابعة تقنية</span></div>
           <p>ميزانية الإعلان تُدفع إلى Google مباشرة. لا تشمل الباقة Landing Page جديدة أو إدارة وتحسين شهري مستمر.</p>
-          <GoogleAdsLaunchLink className="button primary" label="ابدأ حملة Google Ads" />
+          <GoogleAdsLaunchLink className="button primary" label="ابدأ تشغيل حملة Google Ads" />
         </aside>
       </section>
 
@@ -144,7 +156,7 @@ export default function GoogleAdsLaunchOffer() {
         <div className="offer-confidence-list">
           <p><b>لا تشمل:</b> ميزانية Google، تصميم Landing Page، إدارة شهرية، تصميمات Display أو فيديو، Merchant Center، أو تكاملات CRM وقياس متقدمة.</p>
           <p><b>المطلوب:</b> حساب Google Ads صالح للدفع، صفحة تعمل، وصول للحساب والقياس، وخدمة أو عرض واضح نعلن عنه.</p>
-          <p><b>بعد الإطلاق:</b> يمكنك إدارة الحملة داخليًا أو طلب خدمة إدارة شهرية منفصلة إذا أردت تحسينًا مستمرًا.</p>
+          <p><b>بعد الإطلاق:</b> يمكنك إدارة الحملة داخليًا أو الانتقال إلى <Link href="/paid-ads">خدمة إدارة Google Ads</Link> إذا أردت تحسينًا مستمرًا.</p>
         </div>
       </section>
 
@@ -156,7 +168,7 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">[ جاهز للإطلاق؟ ]</span><h2>خلّي أول صرف على Google<br/>يبدأ بإعداد محسوب.</h2><p>أرسل لنا نشاطك، السوق المستهدف، ورابط الصفحة الحالية ونراجع ملاءمتها قبل بدء الحملة.</p></div>
         <GoogleAdsLaunchLink className="button primary" label="ابدأ عبر واتساب" />
-        <div className="google-ads-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link><Link href="/services">شاهد خدمات التسويق الأخرى</Link></div>
+        <div className="google-ads-links"><Link href="/guides/google-ads-cost-saudi-arabia">تريد فهم التكلفة والميزانية أولًا؟</Link><Link href="/paid-ads">تحتاج إدارة Google Ads مستمرة؟</Link><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link></div>
       </section>
 
       <Footer />
