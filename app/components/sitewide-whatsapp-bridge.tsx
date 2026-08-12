@@ -1,9 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const whatsappNumber = "97339066649";
 const SESSION_KEY = "dewank-whatsapp-intent-clicked";
+const COLLAPSE_KEY = "dewank-whatsapp-collapsed";
 
 type Intent = {
   key: string;
@@ -42,8 +44,21 @@ declare global {
   }
 }
 
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 32 32" role="img" aria-hidden="true">
+      <path d="M16 4.2A11.6 11.6 0 0 0 6.1 21.9L4.5 27.6l5.9-1.5A11.6 11.6 0 1 0 16 4.2Zm0 20.9c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-3.5.9.9-3.4-.2-.4A9.3 9.3 0 1 1 16 25.1Zm5.1-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.7-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.9 5.2 2.2.9 3 .9 4.1.8 1.3-.2 1.7-.8 1.9-1.6.2-.8.2-1.4.1-1.6-.1-.2-.4-.3-.7-.4Z" fill="currentColor"/>
+    </svg>
+  );
+}
+
 export default function SitewideWhatsAppBridge() {
   const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    setCollapsed(window.localStorage.getItem(COLLAPSE_KEY) === "1");
+  }, []);
 
   if (pathname === "/contact") return null;
 
@@ -59,29 +74,56 @@ export default function SitewideWhatsAppBridge() {
       event: "sitewide_whatsapp_click",
       lead_intent: intent.key,
       source_path: pathname,
-      cta_location: "sitewide_bridge",
+      cta_location: collapsed ? "sitewide_icon" : "sitewide_bridge",
     });
   }
 
+  function minimize() {
+    window.localStorage.setItem(COLLAPSE_KEY, "1");
+    setCollapsed(true);
+  }
+
+  function expand() {
+    window.localStorage.removeItem(COLLAPSE_KEY);
+    setCollapsed(false);
+  }
+
+  if (collapsed) {
+    return (
+      <div className="sitewide-whatsapp-collapsed">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={trackClick}
+          aria-label={`تواصل مع ديوانك عن ${intent.label} عبر واتساب`}
+          className="sitewide-whatsapp-icon-only"
+        >
+          <WhatsAppIcon />
+        </a>
+        <button type="button" onClick={expand} aria-label="توسيع زر واتساب" className="sitewide-whatsapp-expand">＋</button>
+      </div>
+    );
+  }
+
   return (
-    <a
-      className="sitewide-whatsapp-bridge"
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={trackClick}
-      aria-label={`اسأل ديوانك عن ${intent.label} عبر واتساب`}
-    >
-      <span className="sitewide-whatsapp-icon" aria-hidden="true">
-        <svg viewBox="0 0 32 32" role="img">
-          <path d="M16 4.2A11.6 11.6 0 0 0 6.1 21.9L4.5 27.6l5.9-1.5A11.6 11.6 0 1 0 16 4.2Zm0 20.9c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-3.5.9.9-3.4-.2-.4A9.3 9.3 0 1 1 16 25.1Zm5.1-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.8-.9-3-1.6-4.2-3.7-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9 0 1.7 1.2 3.4 1.4 3.6.2.2 2.4 3.7 5.9 5.2 2.2.9 3 .9 4.1.8 1.3-.2 1.7-.8 1.9-1.6.2-.8.2-1.4.1-1.6-.1-.2-.4-.3-.7-.4Z" fill="currentColor"/>
-        </svg>
-      </span>
-      <span className="sitewide-whatsapp-copy">
-        <strong>اسألنا عن الخدمة المناسبة</strong>
-        <small>{intent.label}</small>
-      </span>
-      <span className="sitewide-whatsapp-arrow" aria-hidden="true">↗</span>
-    </a>
+    <div className="sitewide-whatsapp-wrap">
+      <button type="button" className="sitewide-whatsapp-minimize" onClick={minimize} aria-label="تصغير زر واتساب">−</button>
+      <a
+        className="sitewide-whatsapp-bridge"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={trackClick}
+        aria-label={`اسأل ديوانك عن ${intent.label} عبر واتساب`}
+      >
+        <span className="sitewide-whatsapp-icon" aria-hidden="true"><WhatsAppIcon /></span>
+        <span className="sitewide-whatsapp-copy">
+          <strong>اسألنا عن الخدمة المناسبة</strong>
+          <small>{intent.label}</small>
+        </span>
+        <span className="sitewide-whatsapp-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
   );
 }
