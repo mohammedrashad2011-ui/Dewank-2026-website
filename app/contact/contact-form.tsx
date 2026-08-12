@@ -8,6 +8,12 @@ function clean(value: FormDataEntryValue | null) {
   return typeof value === "string" ? value.trim() : "";
 }
 
+declare global {
+  interface Window {
+    dataLayer?: Record<string, unknown>[];
+  }
+}
+
 export default function ContactForm() {
   const [state, setState] = useState<"idle" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -45,6 +51,14 @@ export default function ContactForm() {
       "نبذة عن المشروع:",
       brief,
     ].join("\n");
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "contact_whatsapp_submit",
+      lead_intent: service,
+      source_path: "/contact",
+      cta_location: "qualified_contact_form",
+    });
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");

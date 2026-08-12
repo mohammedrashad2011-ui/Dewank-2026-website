@@ -5,8 +5,10 @@ import "./globals.css";
 import "./service-pages-fix.css";
 import "./services/service-icons.css";
 import "./mobile-refinement.css";
+import "./sitewide-whatsapp-cro.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
 import InstagramFollowCard from "./components/instagram-follow-card";
+import SitewideWhatsAppBridge from "./components/sitewide-whatsapp-bridge";
 
 const alexandria = Alexandria({ variable: "--font-arabic", subsets: ["arabic", "latin"] });
 const cormorant = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700"] });
@@ -150,6 +152,7 @@ export default function RootLayout({
           />
         </noscript>
         {children}
+        <SitewideWhatsAppBridge />
         <InstagramFollowCard />
       </body>
     </html>
