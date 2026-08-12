@@ -102,7 +102,7 @@ export default function OfferVisualProof() {
   return (
     <section ref={sectionRef} className="shell offer-visual-proof" aria-labelledby="offer-visual-proof-title">
       <div className="offer-visual-proof-head">
-        <span className="section-label">[ مستوى التنفيذ ]</span>
+        <span className="section-label">مستوى التنفيذ</span>
         <h2 id="offer-visual-proof-title">شوف مستوى المحتوى قبل ما تحجز.</h2>
       </div>
 
