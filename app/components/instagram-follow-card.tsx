@@ -28,7 +28,7 @@ export default function InstagramFollowCard() {
 
     const main = document.querySelector("main");
     const sections = main?.querySelectorAll(":scope > section");
-    const target = sections && sections.length > 2 ? sections[1] : sections?.[0];
+    const target = sections && sections.length > 3 ? sections[2] : sections?.[sections.length - 1];
     if (!target) return;
 
     const portalHost = document.createElement("div");
@@ -36,21 +36,27 @@ export default function InstagramFollowCard() {
     target.insertAdjacentElement("afterend", portalHost);
     setHost(portalHost);
 
-    const reveal = () => {
-      const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (pageHeight > 0 && window.scrollY / pageHeight >= 0.48) {
-        setVisible(true);
-        window.removeEventListener("scroll", reveal);
-      }
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry?.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
+    );
 
-    const hideForWhatsApp = () => setVisible(false);
-    window.addEventListener("scroll", reveal, { passive: true });
+    observer.observe(portalHost);
+
+    const hideForWhatsApp = () => {
+      setVisible(false);
+      observer.disconnect();
+    };
     window.addEventListener("dewank:whatsapp-intent", hideForWhatsApp);
-    reveal();
 
     return () => {
-      window.removeEventListener("scroll", reveal);
+      observer.disconnect();
       window.removeEventListener("dewank:whatsapp-intent", hideForWhatsApp);
       portalHost.remove();
     };
@@ -71,8 +77,8 @@ export default function InstagramFollowCard() {
       </div>
       <div className="instagram-editorial-copy">
         <small>DEWANK ON INSTAGRAM</small>
-        <strong>تحب تشوف الأفكار دي قبل ما تتحول لخدمة؟</strong>
-        <p>أفكار قصيرة في التسويق والمحتوى والأتمتة تساعدك تشوف فرص النمو بشكل أوضح.</p>
+        <strong>أفكار مفيدة قبل ما تتحول لقرار.</strong>
+        <p>تابع ديوانك على إنستجرام لأفكار قصيرة في التسويق والمحتوى والأتمتة تساعدك تشوف فرص النمو بشكل أوضح.</p>
       </div>
       <div className="instagram-editorial-actions">
         <a
@@ -81,7 +87,7 @@ export default function InstagramFollowCard() {
           rel="noopener noreferrer"
           onClick={dismiss}
         >
-          شوف الأفكار <span aria-hidden="true">↗</span>
+          تابع ديوانك <span aria-hidden="true">↗</span>
         </a>
         <button type="button" onClick={dismiss}>مش الآن</button>
       </div>
