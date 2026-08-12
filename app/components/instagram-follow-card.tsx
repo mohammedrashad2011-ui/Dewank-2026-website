@@ -1,42 +1,58 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "dewank-instagram-card-dismissed";
+const WHATSAPP_SESSION_KEY = "dewank-whatsapp-intent-clicked";
 const DISMISS_FOR_MS = 7 * 24 * 60 * 60 * 1000;
 
 export default function InstagramFollowCard() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+  const [host, setHost] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
-    if (pathname === "/contact") return;
+    setVisible(false);
+    setHost(null);
+
+    if (pathname === "/contact" || pathname.startsWith("/offers")) return;
 
     const dismissedAt = Number(window.localStorage.getItem(STORAGE_KEY) || 0);
     const recentlyDismissed = Date.now() - dismissedAt < DISMISS_FOR_MS;
     const cameFromInstagram = /instagram\.com|l\.instagram\.com/i.test(document.referrer);
+    const whatsappAlreadyClicked = window.sessionStorage.getItem(WHATSAPP_SESSION_KEY) === "1";
 
-    if (recentlyDismissed || cameFromInstagram) return;
+    if (recentlyDismissed || cameFromInstagram || whatsappAlreadyClicked) return;
 
-    let hasShown = false;
+    const main = document.querySelector("main");
+    const sections = main?.querySelectorAll(":scope > section");
+    const target = sections && sections.length > 2 ? sections[1] : sections?.[0];
+    if (!target) return;
+
+    const portalHost = document.createElement("div");
+    portalHost.className = "instagram-editorial-host";
+    target.insertAdjacentElement("afterend", portalHost);
+    setHost(portalHost);
+
     const reveal = () => {
-      if (hasShown) return;
-      hasShown = true;
-      setVisible(true);
-      window.removeEventListener("scroll", handleScroll);
-    };
-    const handleScroll = () => {
       const pageHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (pageHeight > 0 && window.scrollY / pageHeight >= 0.5) reveal();
+      if (pageHeight > 0 && window.scrollY / pageHeight >= 0.48) {
+        setVisible(true);
+        window.removeEventListener("scroll", reveal);
+      }
     };
 
-    const timer = window.setTimeout(reveal, 22000);
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    const hideForWhatsApp = () => setVisible(false);
+    window.addEventListener("scroll", reveal, { passive: true });
+    window.addEventListener("dewank:whatsapp-intent", hideForWhatsApp);
+    reveal();
 
     return () => {
-      window.clearTimeout(timer);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", reveal);
+      window.removeEventListener("dewank:whatsapp-intent", hideForWhatsApp);
+      portalHost.remove();
     };
   }, [pathname]);
 
@@ -45,26 +61,31 @@ export default function InstagramFollowCard() {
     setVisible(false);
   };
 
-  if (!visible) return null;
+  if (!visible || !host) return null;
 
-  return (
-    <aside className="instagram-follow-card" aria-label="تابع ديوانك على إنستجرام">
-      <button className="instagram-card-close" type="button" onClick={dismiss} aria-label="إغلاق">×</button>
-      <div className="instagram-card-mark" aria-hidden="true" />
-      <div className="instagram-card-copy">
-        <small>DEWANK ON INSTAGRAM</small>
-        <strong>أفكار عملية تساعد مشروعك على النمو.</strong>
-        <span>تابع ديوانك للمزيد من الأفكار والتطبيقات.</span>
+  return createPortal(
+    <aside className="instagram-editorial-card shell" aria-label="تابع ديوانك على إنستجرام">
+      <div className="instagram-editorial-visual" aria-hidden="true">
+        <span>DW</span>
+        <i /><i /><i />
       </div>
-      <a
-        className="instagram-card-action"
-        href="https://www.instagram.com/dewank_marketing"
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={dismiss}
-      >
-        تابعنا <span aria-hidden="true">↗</span>
-      </a>
-    </aside>
+      <div className="instagram-editorial-copy">
+        <small>DEWANK ON INSTAGRAM</small>
+        <strong>تحب تشوف الأفكار دي قبل ما تتحول لخدمة؟</strong>
+        <p>أفكار قصيرة في التسويق والمحتوى والأتمتة تساعدك تشوف فرص النمو بشكل أوضح.</p>
+      </div>
+      <div className="instagram-editorial-actions">
+        <a
+          href="https://www.instagram.com/dewank_marketing"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={dismiss}
+        >
+          شوف الأفكار <span aria-hidden="true">↗</span>
+        </a>
+        <button type="button" onClick={dismiss}>مش الآن</button>
+      </div>
+    </aside>,
+    host,
   );
 }
