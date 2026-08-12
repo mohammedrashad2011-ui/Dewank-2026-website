@@ -4,16 +4,35 @@
   text-wrap: balance;
 }
 
+/* Hero typography: tighter visual hierarchy, more breathing room for Arabic */
+.sales-hero-copy {
+  max-width: 700px;
+}
+
 .sales-hero h1 {
+  max-width: 700px;
+  margin-bottom: 24px;
+  font-size: clamp(2.35rem, 4vw, 4.65rem);
   line-height: 1.22;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.014em;
 }
 
 .sales-hero h1 em {
-  display: inline-block;
-  margin-top: 0.16em;
-  line-height: 1.24;
-  font-size: 0.9em;
+  display: block;
+  max-width: 640px;
+  margin-top: 0.34em;
+  color: var(--sales-warm);
+  font-size: 0.72em;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: -0.006em;
+}
+
+.sales-hero-lead {
+  max-width: 640px;
+  font-size: clamp(0.98rem, 1.25vw, 1.14rem);
+  line-height: 2;
 }
 
 .sales-section-head h2,
@@ -38,30 +57,53 @@
   line-height: 1.5;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .sales-hero h1 {
-    font-size: clamp(2.35rem, 7.2vw, 4.4rem);
+    font-size: clamp(2.25rem, 5.2vw, 4rem);
     line-height: 1.24;
   }
 
   .sales-hero h1 em {
-    margin-top: 0.2em;
-    line-height: 1.28;
+    font-size: 0.76em;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 900px) {
+  .sales-hero-copy {
+    max-width: 100%;
+  }
+
+  .sales-hero h1 {
+    max-width: 760px;
+    font-size: clamp(2.2rem, 6.3vw, 3.65rem);
+    line-height: 1.26;
+  }
+
+  .sales-hero h1 em {
+    max-width: 700px;
+    margin-top: 0.3em;
+    font-size: 0.78em;
+    line-height: 1.42;
   }
 }
 
 @media (max-width: 680px) {
   .sales-hero h1 {
-    font-size: clamp(2.15rem, 10.6vw, 3.35rem);
-    line-height: 1.28;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.95rem, 9vw, 2.75rem);
+    line-height: 1.34;
+    letter-spacing: 0;
   }
 
   .sales-hero h1 em {
-    display: block;
-    margin-top: 0.22em;
-    line-height: 1.3;
-    font-size: 0.9em;
+    margin-top: 0.34em;
+    font-size: 0.76em;
+    line-height: 1.5;
+  }
+
+  .sales-hero-lead {
+    font-size: 0.98rem;
+    line-height: 1.9;
   }
 
   .sales-section-head h2,
