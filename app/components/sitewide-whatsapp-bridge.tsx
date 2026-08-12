@@ -15,25 +15,25 @@ function resolveIntent(pathname: string): Intent {
   const path = pathname.toLowerCase();
 
   if (path.includes("google-ads") || path.includes("paid-ads")) {
-    return { key: "google_ads", label: "اسألنا عن Google Ads", message: "مرحبًا ديوانك، وصلت من صفحة Google Ads وأريد معرفة الخطوة الأنسب لحملتي." };
+    return { key: "google_ads", label: "Google Ads", message: "مرحبًا ديوانك، وصلت من صفحة Google Ads وأريد معرفة الخطوة الأنسب لحملتي." };
   }
   if (path.includes("whatsapp") || path.includes("ai-automation")) {
-    return { key: "automation", label: "اسألنا عن الأتمتة", message: "مرحبًا ديوانك، وصلت من صفحة الأتمتة وأريد معرفة الحل الأنسب لنشاطي." };
+    return { key: "automation", label: "الأتمتة", message: "مرحبًا ديوانك، وصلت من صفحة الأتمتة وأريد معرفة الحل الأنسب لنشاطي." };
   }
   if (path.includes("social-media") || path.includes("30-day-content") || path.includes("instagram")) {
-    return { key: "social_media", label: "اسألنا عن السوشيال ميديا", message: "مرحبًا ديوانك، وصلت من صفحة السوشيال ميديا وأريد معرفة الباقة أو نطاق الإدارة الأنسب لنشاطي." };
+    return { key: "social_media", label: "السوشيال ميديا", message: "مرحبًا ديوانك، وصلت من صفحة السوشيال ميديا وأريد معرفة الباقة أو نطاق الإدارة الأنسب لنشاطي." };
   }
   if (path.includes("website") || path.includes("landing-page")) {
-    return { key: "website", label: "اسألنا عن الموقع", message: "مرحبًا ديوانك، وصلت من صفحة تصميم المواقع وأريد معرفة الخيار الأنسب لمشروعي." };
+    return { key: "website", label: "تصميم المواقع", message: "مرحبًا ديوانك، وصلت من صفحة تصميم المواقع وأريد معرفة الخيار الأنسب لمشروعي." };
   }
   if (path.includes("seo") || path.includes("aeo")) {
-    return { key: "seo", label: "اسألنا عن SEO", message: "مرحبًا ديوانك، وصلت من صفحة SEO وأريد معرفة الخطوة الأنسب لتحسين ظهور موقعي." };
+    return { key: "seo", label: "SEO", message: "مرحبًا ديوانك، وصلت من صفحة SEO وأريد معرفة الخطوة الأنسب لتحسين ظهور موقعي." };
   }
   if (path.includes("brand") || path.includes("branding")) {
-    return { key: "branding", label: "اسألنا عن البراند", message: "مرحبًا ديوانك، وصلت من صفحة البراندينج وأريد معرفة الخدمة الأنسب لعلامتي." };
+    return { key: "branding", label: "البراندينج", message: "مرحبًا ديوانك، وصلت من صفحة البراندينج وأريد معرفة الخدمة الأنسب لعلامتي." };
   }
 
-  return { key: "general", label: "اسألنا عن الخدمة الأنسب", message: "مرحبًا ديوانك، وصلت من الموقع وأريد معرفة الخدمة الأنسب لاحتياجي." };
+  return { key: "general", label: "اختيار الخدمة", message: "مرحبًا ديوانك، وصلت من الموقع وأريد معرفة الخدمة الأنسب لاحتياجي." };
 }
 
 declare global {
@@ -70,7 +70,7 @@ export default function SitewideWhatsAppBridge() {
       target="_blank"
       rel="noopener noreferrer"
       onClick={trackClick}
-      aria-label={`${intent.label} عبر واتساب`}
+      aria-label={`اسأل ديوانك عن ${intent.label} عبر واتساب`}
     >
       <span className="sitewide-whatsapp-icon" aria-hidden="true">
         <svg viewBox="0 0 32 32" role="img">
@@ -78,10 +78,10 @@ export default function SitewideWhatsAppBridge() {
         </svg>
       </span>
       <span className="sitewide-whatsapp-copy">
-        <strong>تحتاج مساعدة في اختيار الخدمة؟</strong>
+        <strong>اسألنا عن الخدمة المناسبة</strong>
         <small>{intent.label}</small>
       </span>
-      <span className="sitewide-whatsapp-live" aria-hidden="true"><i /> واتساب</span>
+      <span className="sitewide-whatsapp-arrow" aria-hidden="true">↗</span>
     </a>
   );
 }
