@@ -10,6 +10,14 @@
   --wa-cyan: #22cdd0;
 }
 
+.whatsapp-starter-page .section-label {
+  color: #4d8e5b;
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
 .whatsapp-starter-hero { align-items: center; }
 
 .whatsapp-starter-answer {
@@ -141,15 +149,16 @@
   .offers-grid-five .offers-note { grid-column: span 5; }
 
   .whatsapp-starter-hero h1 {
-    font-size: clamp(54px, 5.6vw, 82px);
-    line-height: 1.28;
-    margin-block: 28px 24px;
+    max-width: 780px;
+    font-size: clamp(46px, 4.6vw, 68px);
+    line-height: 1.3;
+    margin-block: 24px 22px;
   }
 
   .whatsapp-starter-hero h1 em {
     display: block;
-    margin-top: .30em;
-    line-height: 1.34;
+    margin-top: .24em;
+    line-height: 1.36;
   }
 }
 
@@ -161,17 +170,18 @@
 }
 
 @media (max-width: 620px) {
+  .whatsapp-starter-page .section-label { font-size: 14px; }
   .whatsapp-starter-hero { padding-top: 58px; padding-bottom: 74px; }
   .whatsapp-starter-hero h1 {
-    font-size: clamp(36px, 10.8vw, 50px);
-    line-height: 1.38;
+    font-size: clamp(34px, 9.8vw, 46px);
+    line-height: 1.4;
     letter-spacing: -.025em;
     margin-block: 22px 20px;
   }
   .whatsapp-starter-hero h1 em {
     display: block;
     margin-top: .18em;
-    line-height: 1.44;
+    line-height: 1.46;
   }
   .whatsapp-starter-answer { margin-top: 18px; padding: 14px; }
   .whatsapp-starter-proof { gap: 26px; padding-bottom: 92px; }
