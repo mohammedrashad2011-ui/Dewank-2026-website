@@ -12,6 +12,16 @@ declare global {
   }
 }
 
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" strokeWidth="2" />
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="2" />
+      <circle cx="17.25" cy="6.75" r="1.2" fill="currentColor" />
+    </svg>
+  );
+}
+
 export default function InstagramFollowCard() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
@@ -68,7 +78,7 @@ export default function InstagramFollowCard() {
   return (
     <aside className="instagram-guides-popup" aria-label="تابع ديوانك على إنستجرام">
       <button className="instagram-guides-close" type="button" onClick={dismiss} aria-label="إغلاق">×</button>
-      <span className="instagram-guides-mark" aria-hidden="true">◎</span>
+      <span className="instagram-guides-mark" aria-hidden="true"><InstagramIcon /></span>
       <div className="instagram-guides-copy">
         <small>DEWANK / INSTAGRAM</small>
         <strong>استفدت من الدليل؟</strong>
