@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 
-const STORAGE_KEY = "dewank-instagram-card-dismissed";
+const STORAGE_KEY = "dewank-instagram-editorial-dismissed-v2";
 const WHATSAPP_SESSION_KEY = "dewank-whatsapp-intent-clicked";
 const DISMISS_FOR_MS = 7 * 24 * 60 * 60 * 1000;
 
@@ -36,18 +36,32 @@ export default function InstagramFollowCard() {
     target.insertAdjacentElement("afterend", portalHost);
     setHost(portalHost);
 
+    let hasRevealed = false;
+    const reveal = () => {
+      if (hasRevealed) return;
+      hasRevealed = true;
+      setVisible(true);
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const entry = entries[0];
-        if (entry?.isIntersecting) {
-          setVisible(true);
+        if (entries.some((entry) => entry.isIntersecting)) {
+          reveal();
           observer.disconnect();
         }
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
+      { rootMargin: "0px 0px -18% 0px", threshold: 0.18 },
     );
 
-    observer.observe(portalHost);
+    observer.observe(target);
+
+    const targetRect = target.getBoundingClientRect();
+    if (targetRect.top < window.innerHeight * 0.82 && targetRect.bottom > 0) reveal();
+
+    const fallback = window.setTimeout(() => {
+      const rect = target.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) reveal();
+    }, 1200);
 
     const hideForWhatsApp = () => {
       setVisible(false);
@@ -56,6 +70,7 @@ export default function InstagramFollowCard() {
     window.addEventListener("dewank:whatsapp-intent", hideForWhatsApp);
 
     return () => {
+      window.clearTimeout(fallback);
       observer.disconnect();
       window.removeEventListener("dewank:whatsapp-intent", hideForWhatsApp);
       portalHost.remove();
