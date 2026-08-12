@@ -1,28 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
 
-const WHATSAPP_SESSION_KEY = "dewank-whatsapp-intent-clicked";
-
-type InstagramContext = {
-  key: string;
-  label: string;
-};
-
-function resolveContext(pathname: string): InstagramContext {
-  const path = pathname.toLowerCase();
-
-  if (path.includes("google-ads") || path.includes("paid-ads")) return { key: "paid_ads", label: "تكتيكات إعلانية قصيرة على Instagram" };
-  if (path.includes("seo") || path.includes("aeo")) return { key: "seo", label: "أفكار SEO أقصر على Instagram" };
-  if (path.includes("social-media") || path.includes("content")) return { key: "social_media", label: "أفكار محتوى يومية على Instagram" };
-  if (path.includes("whatsapp") || path.includes("automation")) return { key: "automation", label: "أفكار أتمتة عملية على Instagram" };
-  if (path.includes("website") || path.includes("landing-page")) return { key: "website", label: "أفكار مواقع وتحويل على Instagram" };
-  if (path.includes("brand")) return { key: "branding", label: "أفكار براندينج أقصر على Instagram" };
-
-  return { key: "growth", label: "أفكار نمو عملية على Instagram" };
-}
+const STORAGE_KEY = "dewank-instagram-guides-popup-dismissed-v1";
+const DISMISS_FOR_MS = 7 * 24 * 60 * 60 * 1000;
 
 declare global {
   interface Window {
@@ -32,55 +14,65 @@ declare global {
 
 export default function InstagramFollowCard() {
   const pathname = usePathname();
-  const [host, setHost] = useState<HTMLElement | null>(null);
-  const [suppressed, setSuppressed] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setHost(null);
-    setSuppressed(false);
+    setVisible(false);
 
-    if (pathname === "/contact" || pathname.startsWith("/offers")) return;
+    if (!pathname.startsWith("/guides/")) return;
     if (/instagram\.com|l\.instagram\.com/i.test(document.referrer)) return;
-    if (window.sessionStorage.getItem(WHATSAPP_SESSION_KEY) === "1") return;
 
-    const main = document.querySelector("main");
-    const footer = main?.querySelector(".site-footer");
-    if (!main || !footer) return;
+    const dismissedAt = Number(window.localStorage.getItem(STORAGE_KEY) || 0);
+    if (Date.now() - dismissedAt < DISMISS_FOR_MS) return;
 
-    const portalHost = document.createElement("div");
-    portalHost.className = "instagram-micro-rail-host";
-    footer.insertAdjacentElement("beforebegin", portalHost);
-    setHost(portalHost);
+    let shown = false;
+    const reveal = () => {
+      if (shown) return;
+      shown = true;
+      setVisible(true);
+      window.removeEventListener("scroll", onScroll);
+    };
 
-    const hideForWhatsApp = () => setSuppressed(true);
-    window.addEventListener("dewank:whatsapp-intent", hideForWhatsApp);
+    const onScroll = () => {
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      if (available > 0 && window.scrollY / available >= 0.52) reveal();
+    };
+
+    const timer = window.setTimeout(reveal, 16000);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
     return () => {
-      window.removeEventListener("dewank:whatsapp-intent", hideForWhatsApp);
-      portalHost.remove();
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
     };
   }, [pathname]);
 
-  if (!host || suppressed) return null;
+  if (!visible) return null;
 
-  const context = resolveContext(pathname);
+  function dismiss() {
+    window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
+    setVisible(false);
+  }
 
   function trackInstagramClick() {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: "instagram_micro_rail_click",
+      event: "instagram_guides_popup_click",
       source_path: pathname,
-      content_context: context.key,
-      cta_location: "pre_footer_micro_rail",
+      cta_location: "guides_follow_popup",
     });
+    dismiss();
   }
 
-  return createPortal(
-    <aside className="instagram-micro-rail shell" aria-label="تابع ديوانك على إنستجرام">
-      <span className="instagram-micro-mark" aria-hidden="true">◎</span>
-      <div className="instagram-micro-copy">
-        <strong>{context.label}</strong>
-        <small>@dewank_marketing</small>
+  return (
+    <aside className="instagram-guides-popup" aria-label="تابع ديوانك على إنستجرام">
+      <button className="instagram-guides-close" type="button" onClick={dismiss} aria-label="إغلاق">×</button>
+      <span className="instagram-guides-mark" aria-hidden="true">◎</span>
+      <div className="instagram-guides-copy">
+        <small>DEWANK / INSTAGRAM</small>
+        <strong>استفدت من الدليل؟</strong>
+        <span>تابع ديوانك لأفكار أقصر وتطبيقات عملية.</span>
       </div>
       <a
         href="https://www.instagram.com/dewank_marketing"
@@ -88,9 +80,8 @@ export default function InstagramFollowCard() {
         rel="noopener noreferrer"
         onClick={trackInstagramClick}
       >
-        تابع ديوانك <span aria-hidden="true">↗</span>
+        تابعنا <span aria-hidden="true">↗</span>
       </a>
-    </aside>,
-    host,
+    </aside>
   );
 }
