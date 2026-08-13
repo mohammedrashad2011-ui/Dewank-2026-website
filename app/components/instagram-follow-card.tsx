@@ -1,16 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "dewank-instagram-guides-popup-dismissed-v1";
 const DISMISS_FOR_MS = 7 * 24 * 60 * 60 * 1000;
-
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
-}
 
 function InstagramIcon() {
   return (
@@ -22,76 +17,99 @@ function InstagramIcon() {
   );
 }
 
+function offerFor(pathname: string) {
+  const path = pathname.toLowerCase();
+  if (path.includes("google-ads") || path.includes("paid-ads")) return { label: "عرض Google Ads", href: "/offers/google-ads-launch" };
+  if (path.includes("seo") || path.includes("aeo")) return { label: "عرض SEO", href: "/offers/seo-audit" };
+  if (path.includes("social-media") || path.includes("content") || path.includes("instagram")) return { label: "عرض المحتوى", href: "/offers/30-day-content-package" };
+  if (path.includes("whatsapp") || path.includes("automation")) return { label: "عرض أتمتة واتساب", href: "/offers/whatsapp-automation-starter" };
+  if (path.includes("landing-page")) return { label: "عرض صفحة الهبوط", href: "/offers/landing-page-package" };
+  if (path.includes("website")) return { label: "عرض تصميم الموقع", href: "/offers/small-business-website" };
+  if (path.includes("brand")) return { label: "عرض الهوية", href: "/offers/mini-visual-identity" };
+  return { label: "استكشف العروض الحالية", href: "/offers" };
+}
+
 export default function InstagramFollowCard() {
   const pathname = usePathname();
-  const [visible, setVisible] = useState(false);
+  const [instagramVisible, setInstagramVisible] = useState(false);
+  const [offersVisible, setOffersVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(false);
+    setInstagramVisible(false);
+    setOffersVisible(false);
 
-    if (!pathname.startsWith("/guides/")) return;
-    if (/instagram\.com|l\.instagram\.com/i.test(document.referrer)) return;
+    const blocksOffers = pathname === "/contact" || pathname === "/offers" || pathname.startsWith("/offers/");
+    const offerScroll = () => {
+      if (blocksOffers) return;
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      if (available > 0 && window.scrollY / available >= 0.14) setOffersVisible(true);
+    };
+    window.addEventListener("scroll", offerScroll, { passive: true });
+    offerScroll();
+
+    if (!pathname.startsWith("/guides/") || /instagram\.com|l\.instagram\.com/i.test(document.referrer)) {
+      return () => window.removeEventListener("scroll", offerScroll);
+    }
 
     const dismissedAt = Number(window.localStorage.getItem(STORAGE_KEY) || 0);
-    if (Date.now() - dismissedAt < DISMISS_FOR_MS) return;
+    if (Date.now() - dismissedAt < DISMISS_FOR_MS) {
+      return () => window.removeEventListener("scroll", offerScroll);
+    }
 
     let shown = false;
     const reveal = () => {
       if (shown) return;
       shown = true;
-      setVisible(true);
-      window.removeEventListener("scroll", onScroll);
+      setInstagramVisible(true);
     };
-
-    const onScroll = () => {
+    const instagramScroll = () => {
       const available = document.documentElement.scrollHeight - window.innerHeight;
       if (available > 0 && window.scrollY / available >= 0.52) reveal();
     };
-
     const timer = window.setTimeout(reveal, 16000);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    window.addEventListener("scroll", instagramScroll, { passive: true });
+    instagramScroll();
 
     return () => {
       window.clearTimeout(timer);
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", offerScroll);
+      window.removeEventListener("scroll", instagramScroll);
     };
   }, [pathname]);
 
-  if (!visible) return null;
-
   function dismiss() {
     window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
-    setVisible(false);
+    setInstagramVisible(false);
   }
 
-  function trackInstagramClick() {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "instagram_guides_popup_click",
-      source_path: pathname,
-      cta_location: "guides_follow_popup",
-    });
-    dismiss();
-  }
+  const offer = offerFor(pathname);
 
   return (
-    <aside className="instagram-guides-popup" aria-label="تابع ديوانك على إنستجرام">
-      <button className="instagram-guides-close" type="button" onClick={dismiss} aria-label="إغلاق">×</button>
-      <span className="instagram-guides-mark" aria-hidden="true"><InstagramIcon /></span>
-      <div className="instagram-guides-copy">
-        <small>DEWANK / INSTAGRAM</small>
-        <strong>استفدت من الدليل؟</strong>
-        <span>تابع ديوانك لأفكار أقصر وتطبيقات عملية.</span>
-      </div>
-      <a
-        href="https://www.instagram.com/dewank_marketing"
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={trackInstagramClick}
-      >
-        تابعنا <span aria-hidden="true">↗</span>
-      </a>
-    </aside>
+    <>
+      {offersVisible && (
+        <div className="mobile-offers-rail-wrap">
+          <Link className="mobile-offers-rail" href={offer.href}>
+            <span>العروض</span>
+            <strong>{offer.label}</strong>
+            <b aria-hidden="true">←</b>
+          </Link>
+        </div>
+      )}
+
+      {instagramVisible && (
+        <aside className="instagram-guides-popup" aria-label="تابع ديوانك على إنستجرام">
+          <button className="instagram-guides-close" type="button" onClick={dismiss} aria-label="إغلاق">×</button>
+          <span className="instagram-guides-mark" aria-hidden="true"><InstagramIcon /></span>
+          <div className="instagram-guides-copy">
+            <small>DEWANK / INSTAGRAM</small>
+            <strong>استفدت من الدليل؟</strong>
+            <span>تابع ديوانك لأفكار أقصر وتطبيقات عملية.</span>
+          </div>
+          <a href="https://www.instagram.com/dewank_marketing" target="_blank" rel="noopener noreferrer" onClick={dismiss}>
+            تابعنا <span aria-hidden="true">↗</span>
+          </a>
+        </aside>
+      )}
+    </>
   );
 }
