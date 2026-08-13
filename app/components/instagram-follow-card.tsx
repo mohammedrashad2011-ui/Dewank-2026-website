@@ -1,16 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const STORAGE_KEY = "dewank-instagram-guides-popup-dismissed-v1";
 const DISMISS_FOR_MS = 7 * 24 * 60 * 60 * 1000;
-
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
-}
 
 function InstagramIcon() {
   return (
@@ -22,76 +17,97 @@ function InstagramIcon() {
   );
 }
 
+function usesOffersRail(pathname: string) {
+  return pathname === "/" || pathname === "/services" || pathname === "/digital-marketing";
+}
+
+function offerLabel(pathname: string) {
+  if (pathname === "/") return "اكتشف العروض الحالية";
+  return "شوف العروض المناسبة لك";
+}
+
 export default function InstagramFollowCard() {
   const pathname = usePathname();
-  const [visible, setVisible] = useState(false);
+  const [instagramVisible, setInstagramVisible] = useState(false);
+  const [offersVisible, setOffersVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(false);
+    setInstagramVisible(false);
+    setOffersVisible(false);
 
-    if (!pathname.startsWith("/guides/")) return;
-    if (/instagram\.com|l\.instagram\.com/i.test(document.referrer)) return;
+    const shouldShowOffersRail = usesOffersRail(pathname);
+    const offerScroll = () => {
+      if (!shouldShowOffersRail) return;
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      if (available > 0 && window.scrollY / available >= 0.11) setOffersVisible(true);
+    };
+
+    if (shouldShowOffersRail) {
+      window.addEventListener("scroll", offerScroll, { passive: true });
+      offerScroll();
+    }
+
+    if (!pathname.startsWith("/guides/") || /instagram\.com|l\.instagram\.com/i.test(document.referrer)) {
+      return () => window.removeEventListener("scroll", offerScroll);
+    }
 
     const dismissedAt = Number(window.localStorage.getItem(STORAGE_KEY) || 0);
-    if (Date.now() - dismissedAt < DISMISS_FOR_MS) return;
+    if (Date.now() - dismissedAt < DISMISS_FOR_MS) {
+      return () => window.removeEventListener("scroll", offerScroll);
+    }
 
     let shown = false;
     const reveal = () => {
       if (shown) return;
       shown = true;
-      setVisible(true);
-      window.removeEventListener("scroll", onScroll);
+      setInstagramVisible(true);
     };
-
-    const onScroll = () => {
+    const instagramScroll = () => {
       const available = document.documentElement.scrollHeight - window.innerHeight;
       if (available > 0 && window.scrollY / available >= 0.52) reveal();
     };
-
     const timer = window.setTimeout(reveal, 16000);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    window.addEventListener("scroll", instagramScroll, { passive: true });
+    instagramScroll();
 
     return () => {
       window.clearTimeout(timer);
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", offerScroll);
+      window.removeEventListener("scroll", instagramScroll);
     };
   }, [pathname]);
 
-  if (!visible) return null;
-
   function dismiss() {
     window.localStorage.setItem(STORAGE_KEY, String(Date.now()));
-    setVisible(false);
-  }
-
-  function trackInstagramClick() {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "instagram_guides_popup_click",
-      source_path: pathname,
-      cta_location: "guides_follow_popup",
-    });
-    dismiss();
+    setInstagramVisible(false);
   }
 
   return (
-    <aside className="instagram-guides-popup" aria-label="تابع ديوانك على إنستجرام">
-      <button className="instagram-guides-close" type="button" onClick={dismiss} aria-label="إغلاق">×</button>
-      <span className="instagram-guides-mark" aria-hidden="true"><InstagramIcon /></span>
-      <div className="instagram-guides-copy">
-        <small>DEWANK / INSTAGRAM</small>
-        <strong>استفدت من الدليل؟</strong>
-        <span>تابع ديوانك لأفكار أقصر وتطبيقات عملية.</span>
-      </div>
-      <a
-        href="https://www.instagram.com/dewank_marketing"
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={trackInstagramClick}
-      >
-        تابعنا <span aria-hidden="true">↗</span>
-      </a>
-    </aside>
+    <>
+      {offersVisible && (
+        <div className="mobile-offers-rail-wrap">
+          <Link className="mobile-offers-rail" href="/offers">
+            <span>العروض</span>
+            <strong>{offerLabel(pathname)}</strong>
+            <b aria-hidden="true">←</b>
+          </Link>
+        </div>
+      )}
+
+      {instagramVisible && (
+        <aside className="instagram-guides-popup" aria-label="تابع ديوانك على إنستجرام">
+          <button className="instagram-guides-close" type="button" onClick={dismiss} aria-label="إغلاق">×</button>
+          <span className="instagram-guides-mark" aria-hidden="true"><InstagramIcon /></span>
+          <div className="instagram-guides-copy">
+            <small>DEWANK / INSTAGRAM</small>
+            <strong>استفدت من الدليل؟</strong>
+            <span>تابع ديوانك لأفكار أقصر وتطبيقات عملية.</span>
+          </div>
+          <a href="https://www.instagram.com/dewank_marketing" target="_blank" rel="noopener noreferrer" onClick={dismiss}>
+            تابعنا <span aria-hidden="true">↗</span>
+          </a>
+        </aside>
+      )}
+    </>
   );
 }
