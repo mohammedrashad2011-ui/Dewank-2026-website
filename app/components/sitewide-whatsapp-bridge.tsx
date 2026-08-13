@@ -62,6 +62,7 @@ export default function SitewideWhatsAppBridge() {
 
   if (pathname === "/contact" || pathname.startsWith("/guides/")) return null;
 
+  const mobileSuppressed = pathname === "/" || pathname === "/services" || pathname === "/digital-marketing";
   const intent = resolveIntent(pathname);
   const message = `${intent.message}\n\nالصفحة: ${pathname}`;
   const href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -90,7 +91,7 @@ export default function SitewideWhatsAppBridge() {
 
   if (collapsed) {
     return (
-      <div className="sitewide-whatsapp-collapsed">
+      <div className={`sitewide-whatsapp-collapsed${mobileSuppressed ? " mobile-suppress-whatsapp" : ""}`}>
         <a
           href={href}
           target="_blank"
@@ -107,7 +108,7 @@ export default function SitewideWhatsAppBridge() {
   }
 
   return (
-    <div className="sitewide-whatsapp-wrap">
+    <div className={`sitewide-whatsapp-wrap${mobileSuppressed ? " mobile-suppress-whatsapp" : ""}`}>
       <button type="button" className="sitewide-whatsapp-minimize" onClick={minimize} aria-label="تصغير زر واتساب">−</button>
       <a
         className="sitewide-whatsapp-bridge"
