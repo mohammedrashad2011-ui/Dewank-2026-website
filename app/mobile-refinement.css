@@ -1,5 +1,6 @@
 /* Mobile-specific design refinement: shared responsive behavior across the site. */
 .mobile-navigation{display:none}
+.mobile-offers-rail-wrap{display:none}
 
 @media(max-width:900px){
   html{scroll-padding-top:82px}
@@ -59,6 +60,15 @@
   .seo-content-grid{grid-template-columns:1fr}
 }
 
+@media(max-width:720px){
+  .mobile-offers-rail-wrap{position:fixed;right:12px;bottom:72px;z-index:88;display:block;width:min(330px,calc(100vw - 24px));animation:mobile-offers-in .24s ease both}
+  .mobile-offers-rail{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:9px;min-height:46px;padding:7px 11px;border:1px solid rgba(10,27,52,.16);border-radius:15px;background:rgba(250,247,239,.97);color:#0a1b34;text-decoration:none;box-shadow:0 12px 30px rgba(6,26,51,.12);backdrop-filter:blur(12px)}
+  .mobile-offers-rail>span{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;background:rgba(194,86,47,.10);color:#b95531;font-size:9px;font-weight:900;white-space:nowrap}
+  .mobile-offers-rail strong{font-size:10.5px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mobile-offers-rail b{font-size:14px;font-weight:800;color:#3155ff}
+  body:has(.sales-mobile-sticky) .mobile-offers-rail-wrap,body:has(.instagram-guides-popup) .mobile-offers-rail-wrap{display:none!important}
+}
+
 @media(max-width:640px){
   .shell{width:calc(100% - 32px)}
   .brand-logo strong{font-size:22px}
@@ -86,3 +96,6 @@
   .agency-intro h2,.split-heading h2,.method-title h2,.proof-copy h2,.case-study h2,.seo-content h2,.faq-section h2{font-size:36px}
   .trust-strip{grid-template-columns:1fr}.trust-strip span{border-left:0;border-bottom:1px solid var(--line)}
 }
+
+@keyframes mobile-offers-in{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.mobile-offers-rail-wrap{animation:none}}
