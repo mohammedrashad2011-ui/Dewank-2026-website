@@ -5,10 +5,11 @@ import { createMetadata, organizationId, siteUrl } from "../lib/seo";
 import { GoogleAdsLaunchPrice } from "../offers/google-ads-launch/localized-google-ads-launch";
 import "./paid-ads-page.css";
 import "./paid-ads-cluster.css";
+import "./paid-ads-refinement.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "إدارة Google Ads في السعودية | حملات جوجل وMeta | ديوانك",
-  description: "إدارة حملات Google Ads للشركات في السعودية والخليج: بحث كلمات، تشغيل وتحسين الحملات، تتبع التحويل، صفحات الهبوط وقياس تكلفة العميل والعائد. مع إدارة Meta Ads عند ملاءمة القناة.",
+  title: "إدارة Google Ads في السعودية | تحسين الحملات والتحويل | ديوانك",
+  description: "إدارة Google Ads للشركات في السعودية: بحث كلمات، تشغيل وتحسين الحملات، تتبع التحويل، صفحات الهبوط وقياس تكلفة العميل والعائد، مع Meta Ads عندما تناسب رحلة الشراء.",
   path: "/paid-ads",
   keywords: [
     "إدارة Google Ads في السعودية",
@@ -70,6 +71,7 @@ const paidAdsGuides = [
 ];
 
 export default function PaidAdsPage() {
+  const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد مراجعة أو إدارة حملات Google Ads. نشاطي هو: ");
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -87,15 +89,15 @@ export default function PaidAdsPage() {
       <section className="pa-hero shell">
         <div className="pa-hero-copy">
           <div className="pa-kicker"><span>GOOGLE ADS</span><span>META ADS</span><span>PERFORMANCE</span></div>
-          <h1>إدارة Google Ads في السعودية.<br/><em>من البحث إلى عميل قابل للقياس.</em></h1>
-          <p>ندير ونحسن حملات Google Ads للشركات من بحث الكلمات وهيكلة الحملة إلى التتبع وصفحة الهبوط وقياس تكلفة العميل. وعندما تكون Meta أنسب لمرحلة الطلب، نبني المزيج الإعلاني على الهدف لا على اسم المنصة.</p>
-          <div className="pa-actions"><Link className="button primary" href="/contact">ناقش إدارة حملتك <span>←</span></Link><Link href="/offers/google-ads-launch">تحتاج تشغيل حملة فقط؟</Link><a href="#journey">استعرض النظام</a></div>
+          <h1>إدارة Google Ads في السعودية.<br/><em>ميزانية أوضح. وعميل قابل للقياس.</em></h1>
+          <p>ندير الحملات من الكلمة والإعلان إلى الصفحة والتتبع والمتابعة، عشان تعرف أي إنفاق يصنع عميلًا فعلًا، وأين تحتاج الحملة إصلاحًا قبل زيادة الميزانية.</p>
+          <div className="pa-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">راجع حملتك على واتساب <span>↗</span></a><Link href="/offers/google-ads-launch">تحتاج تشغيل حملة فقط؟</Link><a href="#journey">استعرض النظام</a></div>
         </div>
-        <div className="pa-dashboard" aria-label="لوحة تصور أداء الحملات">
-          <div className="pa-dashboard-top"><b>PAID MEDIA CONTROL</b><span>LIVE VIEW</span></div>
+        <div className="pa-dashboard" aria-label="لوحة تصور عناصر قياس الحملات">
+          <div className="pa-dashboard-top"><b>PAID MEDIA CONTROL</b><span>MEASUREMENT VIEW</span></div>
           <div className="pa-score"><small>PRIMARY GOAL</small><strong>Qualified Leads</strong><span>النتيجة قبل النقرات</span></div>
           <div className="pa-bars"><i style={{height:"42%"}}></i><i style={{height:"62%"}}></i><i style={{height:"54%"}}></i><i style={{height:"80%"}}></i><i style={{height:"72%"}}></i><i style={{height:"94%"}}></i></div>
-          <div className="pa-metrics"><div><small>CPL</small><b>↓ 18%</b></div><div><small>CVR</small><b>↑ 31%</b></div><div><small>ROAS</small><b>4.2x</b></div></div>
+          <div className="pa-metrics"><div><small>CPL</small><b>تكلفة العميل</b></div><div><small>CVR</small><b>معدل التحويل</b></div><div><small>ROAS</small><b>العائد</b></div></div>
         </div>
       </section>
 
@@ -104,6 +106,8 @@ export default function PaidAdsPage() {
       <section className="pa-channels shell"><div className="pa-section-head"><div><span className="pa-label">[ اختيار القناة ]</span><h2>Google يلتقط الطلب.<br/><em>Meta يصنع الاهتمام.</em></h2></div><p>لا نختار المنصة لأنها الأكثر انتشارًا، بل لأنها تناسب نية العميل ومرحلة القرار.</p></div><div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
 
       <section className="pa-scope"><div className="shell"><div className="pa-section-head"><div><span className="pa-label">[ نطاق الإدارة ]</span><h2>حملات تخدم الهدف.<br/><em>لا قائمة منصات.</em></h2></div><p>نحدد المزيج حسب البيانات والميزانية والسوق، ونبني الاختبارات بالتدريج.</p></div><div className="pa-scope-grid">{scope.map((item, index) => <article key={item[0]}><b>{String(index + 1).padStart(2,"0")}</b><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></div></section>
+
+      <section className="pa-conversion-bridge shell"><div><span className="pa-label">[ قبل زيادة الميزانية ]</span><h2>الإعلان يوصل الزيارة.<br/><em>الصفحة والتتبع يحسموا النتيجة.</em></h2><p>لو Search Terms كويسة والإعلان بيجيب نقرات لكن التحويل ضعيف، المشكلة غالبًا بعد النقرة. لذلك نراجع صفحة الهبوط، سرعة القرار، CTA والتتبع قبل ما نطلب من المنصة ميزانية أكبر.</p></div><div className="pa-conversion-links"><Link href="/offers/landing-page-package">راجع باقة صفحة الهبوط <span>↗</span></Link><Link href="/website-design">راجع تصميم المواقع <span>↗</span></Link></div></section>
 
       <section className="pa-journey shell" id="journey"><div className="pa-section-head"><div><span className="pa-label">[ من الإنفاق إلى النتيجة ]</span><h2>كل خطوة تحمي الميزانية.<br/><em>وكل رقم يقود إلى قرار.</em></h2></div><p>نحوّل إدارة الإعلانات من رد فعل يومي إلى نظام اختبار وقياس وتحسين.</p></div><div className="pa-journey-list">{journey.map((item) => <article key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div></section>
 
@@ -121,7 +125,7 @@ export default function PaidAdsPage() {
 
       <section className="pa-faq shell"><div className="pa-section-head"><div><span className="pa-label">[ أسئلة شائعة ]</span><h2>إدارة Google Ads بدون غموض.</h2></div><p>إجابات مباشرة عن التكلفة والميزانية والإطلاق والإدارة والتتبع.</p></div><div className="pa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></section>
 
-      <section className="pa-final shell"><div><span className="pa-label">[ الخطوة التالية ]</span><h2>أرسل حسابك الحالي<br/><em>أو تفاصيل النشاط.</em></h2></div><div><p>سنحدد هل تحتاج إدارة Google Ads مستمرة، تأسيس حملة Search فقط، أو إصلاح الصفحة والتتبع قبل زيادة الميزانية.</p><Link className="button primary" href="/contact">ابدأ مراجعة حملتك <span>←</span></Link></div></section>
+      <section className="pa-final shell"><div><span className="pa-label">[ الخطوة التالية ]</span><h2>أرسل حسابك الحالي<br/><em>أو تفاصيل النشاط.</em></h2></div><div><p>سنحدد هل تحتاج إدارة Google Ads مستمرة، تأسيس حملة Search فقط، أو إصلاح الصفحة والتتبع قبل زيادة الميزانية.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ابدأ مراجعة حملتك <span>↗</span></a></div></section>
       <Footer />
     </main>
   );
