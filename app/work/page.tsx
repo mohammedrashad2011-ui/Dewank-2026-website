@@ -190,10 +190,9 @@ export default function WorkPage() {
         <div className="shell">
           <div className="concepts-head">
             <div>
-              <span className="section-label">مشروعات مفاهيمية أصلية</span>
+              <span className="section-label">استراتيجية التفكير</span>
               <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط.</h2>
             </div>
-            <p>هذه المشروعات ليست أعمالًا تعاقدية مع علامات خارجية. أنشأناها لعرض كيف نحول التحدي إلى قرار استراتيجي ثم إلى نظام بصري وتجربة متماسكة.</p>
           </div>
 
           <div className="concept-grid">
