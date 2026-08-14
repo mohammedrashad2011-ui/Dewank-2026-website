@@ -1,0 +1,149 @@
+/* Mobile-only refinement for the homepage service cards. Desktop/tablet remain unchanged. */
+@media (max-width: 640px) {
+  .home-conversion-page .home-core-paths {
+    padding-top: 68px !important;
+    padding-bottom: 62px !important;
+  }
+
+  .home-conversion-page .home-core-paths .section-head {
+    margin-bottom: 28px !important;
+    gap: 14px !important;
+  }
+
+  .home-conversion-page .home-core-paths .section-head h2 {
+    font-size: 34px !important;
+    line-height: 1.4 !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-bento {
+    gap: 12px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card,
+  .home-conversion-page .home-core-paths .service-card.brand,
+  .home-conversion-page .home-core-paths .service-card.growth,
+  .home-conversion-page .home-core-paths .service-card.automation,
+  .home-conversion-page .home-core-paths .service-card.web {
+    min-height: 292px !important;
+    height: 292px !important;
+    padding: 19px 20px 18px !important;
+    border-radius: 22px !important;
+    justify-content: flex-start !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-top {
+    min-height: 30px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-top > span,
+  .home-conversion-page .home-core-paths .service-card .card-top b {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  /* Reserve a clean visual band for the artwork so it never competes with copy. */
+  .home-conversion-page .home-core-paths .service-card .service-symbol,
+  .home-conversion-page .home-core-paths .service-card:hover .service-symbol {
+    z-index: 1 !important;
+    pointer-events: none !important;
+    opacity: .105 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card.growth .service-symbol.growth,
+  .home-conversion-page .home-core-paths .service-card.automation .service-symbol.automation {
+    width: 112px !important;
+    height: 82px !important;
+    left: 18px !important;
+    top: 74px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card.web .service-symbol.web {
+    width: 132px !important;
+    height: 82px !important;
+    left: 16px !important;
+    top: 72px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card.brand .service-symbol.brand {
+    width: 118px !important;
+    height: 118px !important;
+    left: 12px !important;
+    top: 62px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-copy {
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding-top: 92px !important;
+    margin-top: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card.brand .card-copy {
+    padding-top: 96px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-copy h3 {
+    display: block !important;
+    min-height: 0 !important;
+    font-size: 28px !important;
+    line-height: 1.32 !important;
+    margin: 0 0 7px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-copy p {
+    max-width: 100% !important;
+    font-size: 12px !important;
+    line-height: 1.72 !important;
+    margin: 0 0 11px !important;
+    opacity: .76 !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .tag-row {
+    margin-top: auto !important;
+    gap: 5px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .tag-row span {
+    padding: 5px 8px !important;
+    font-size: 8px !important;
+  }
+
+  /* Turn the three secondary routes into one quiet, compact navigation block. */
+  .home-conversion-page .home-core-paths .growth-shortcuts {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    margin-top: 18px !important;
+    padding: 0 16px !important;
+    border: 1px solid rgba(255, 255, 255, .11) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, .045) !important;
+    overflow: hidden !important;
+  }
+
+  .home-conversion-page .home-core-paths .growth-shortcuts::before {
+    content: "مسارات إضافية";
+    display: block;
+    padding: 13px 0 8px;
+    color: rgba(255, 255, 255, .48);
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .home-conversion-page .home-core-paths .growth-shortcuts a {
+    width: 100% !important;
+    min-height: 42px !important;
+    padding: 11px 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, .09) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    font-size: 12px !important;
+  }
+}
