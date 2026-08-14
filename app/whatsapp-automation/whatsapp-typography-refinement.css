@@ -11,14 +11,31 @@
 
 .wa-hero h1{
   font-size:clamp(30px,3.75vw,52px);
-  line-height:1.46;
+  line-height:1.34;
   max-width:720px;
 }
 
-.wa-hero h1 em{
+.wa-hero-line{
   display:block;
-  margin-top:.34em;
-  line-height:1.34;
+  line-height:1.5;
+}
+
+.wa-hero-line-accent{
+  margin-top:.42em;
+  line-height:1.46;
+}
+
+.wa-hero-actions .button.secondary{
+  color:var(--ink);
+  background:#fff;
+  border-color:#fff;
+}
+
+.wa-hero-actions .button.secondary:hover,
+.wa-hero-actions .button.secondary:focus-visible{
+  color:var(--ink)!important;
+  background:#f3f0e8!important;
+  border-color:#f3f0e8!important;
 }
 
 .flow-section h2 mark,
@@ -48,16 +65,21 @@
 
   .wa-hero h1{
     font-size:clamp(28px,8vw,36px);
+    line-height:1.38;
+  }
+
+  .wa-hero-line{
+    line-height:1.52;
+  }
+
+  .wa-hero-line-accent{
+    margin-top:.5em;
     line-height:1.5;
   }
 
   .wa-guides-head h2{
     font-size:26px;
     line-height:1.48;
-  }
-
-  .wa-hero h1 em{
-    margin-top:.4em;
   }
 
   .flow-section h2 mark,
