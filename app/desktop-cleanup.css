@@ -1,0 +1,5 @@
+/* Desktop Lighthouse cleanup: accessibility and compositor-safe refinements. */
+@media (min-width:901px){
+  .home-offer-top small{opacity:1!important;color:#3f4652!important}
+  .sitewide-whatsapp-minimize{width:30px!important;height:30px!important;top:-17px!important;left:-17px!important;font-size:16px!important}
+}

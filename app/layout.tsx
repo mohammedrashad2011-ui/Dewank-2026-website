@@ -5,6 +5,7 @@ import "./globals.css";
 import "./service-pages-fix.css";
 import "./mobile-refinement.css";
 import "./sitewide-whatsapp-cro.css";
+import "./desktop-cleanup.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
 import DeferredClientLayer from "./components/deferred-client-layer";
 
@@ -84,6 +85,8 @@ export default function RootLayout({
         {`
           (function(){
             var loaded=false;
+            var desktop=window.matchMedia('(min-width: 901px)').matches;
+            var events=desktop?['pointerdown','keydown','touchstart']:['pointerdown','keydown','scroll','touchstart'];
             function loadPixel(){
               if(loaded) return;
               loaded=true;
@@ -97,14 +100,14 @@ export default function RootLayout({
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '${metaPixelId}');
               fbq('track', 'PageView');
-              ['pointerdown','keydown','scroll','touchstart'].forEach(function(evt){
+              events.forEach(function(evt){
                 window.removeEventListener(evt,loadPixel,{passive:true});
               });
             }
-            ['pointerdown','keydown','scroll','touchstart'].forEach(function(evt){
+            events.forEach(function(evt){
               window.addEventListener(evt,loadPixel,{passive:true,once:true});
             });
-            window.setTimeout(loadPixel,4000);
+            window.setTimeout(loadPixel,desktop?6000:4000);
           })();
         `}
       </Script>

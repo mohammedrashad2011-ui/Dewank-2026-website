@@ -36,8 +36,6 @@
   font-weight:inherit;
   line-height:inherit;
   color:inherit;
-  text-shadow:0 0 0 rgba(226,187,98,0);
-  animation:offersSoftGlow 2.5s ease-in-out infinite;
 }
 
 .offers-nav-shimmer{
@@ -52,7 +50,6 @@
   filter:blur(.2px);
   opacity:0;
   pointer-events:none;
-  animation:offersSweep 3s ease-in-out infinite;
 }
 
 .offers-nav-confetti{
@@ -82,29 +79,21 @@
   color:#10244b;
 }
 
+.offers-nav-link:hover .offers-nav-shimmer{
+  opacity:.75;
+  transform:translate(310%,-50%) skewX(-18deg);
+  transition:transform .55s ease,opacity .2s ease;
+}
+
 .offers-nav-link:hover:after{
   transform:scaleX(1);
   opacity:1;
-}
-
-@keyframes offersSoftGlow{
-  0%,100%{text-shadow:0 0 0 rgba(226,187,98,0)}
-  45%{text-shadow:0 0 9px rgba(226,187,98,.34)}
-  57%{text-shadow:0 0 16px rgba(226,187,98,.62),0 0 3px rgba(255,255,255,.55)}
-  70%{text-shadow:0 0 7px rgba(226,187,98,.26)}
 }
 
 @keyframes offersUnderlinePulse{
   0%,100%{transform:scaleX(.22);opacity:.42}
   50%{transform:scaleX(.68);opacity:.84}
   64%{transform:scaleX(.34);opacity:.56}
-}
-
-@keyframes offersSweep{
-  0%,45%{transform:translate(-140%,-50%) skewX(-18deg);opacity:0}
-  52%{opacity:.86}
-  69%{transform:translate(420%,-50%) skewX(-18deg);opacity:0}
-  100%{transform:translate(420%,-50%) skewX(-18deg);opacity:0}
 }
 
 @keyframes offersConfettiPop{
@@ -116,7 +105,6 @@
 
 @media (prefers-reduced-motion:reduce){
   .offers-nav-link:after,
-  .offers-nav-link .offers-nav-label,
   .offers-nav-shimmer,
-  .offers-nav-confetti{animation:none!important}
+  .offers-nav-confetti{animation:none!important;transition:none!important}
 }
