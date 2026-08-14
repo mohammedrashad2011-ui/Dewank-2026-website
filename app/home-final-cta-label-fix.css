@@ -9,6 +9,13 @@
   letter-spacing:.01em!important;
 }
 
+/* Remove any legacy generated label so only "الخطوة التالية" remains visible. */
+.home-conversion-page .home-final-conversion .section-label::before,
+.home-conversion-page .home-final-conversion .section-label::after{
+  content:none!important;
+  display:none!important;
+}
+
 @media(max-width:640px){
   .home-conversion-page .home-final-conversion .section-label{
     top:-10px;
