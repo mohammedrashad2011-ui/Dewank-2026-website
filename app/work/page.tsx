@@ -4,12 +4,13 @@ import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import { IdentityShowcase } from "./identity-showcase";
 import "./work-page.css";
+import "./work-proof-refinement.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "أعمال ديوانك | دراسات حالة في البراندينج والتسويق والأتمتة",
-  description: "استكشف دراسات حالة ومشروعات ديوانك في استراتيجية البراند، تصميم الهوية، المواقع، التسويق وأتمتة واتساب وCRM.",
+  title: "أعمال ديوانك ودراسات حالة | براندينج، مواقع وأتمتة",
+  description: "شاهد أعمال ودراسات حالة ديوانك في البراندينج والهوية، المواقع وتجربة المستخدم، وأتمتة واتساب وCRM، مع شرح التحدي والقرار والتنفيذ والأثر.",
   path: "/work",
-  keywords: ["أعمال ديوانك", "دراسات حالة تسويق", "تصميم هوية بصرية", "أتمتة واتساب CRM", "Brand Strategy Portfolio"],
+  keywords: ["أعمال ديوانك", "دراسات حالة تسويق", "دراسات حالة براندينج", "تصميم هوية بصرية", "تصميم مواقع للشركات", "أتمتة واتساب CRM", "Brand Strategy Portfolio"],
 });
 
 const identityProjects = [
@@ -19,10 +20,16 @@ const identityProjects = [
   { name: "دار الصفاء", sector: "الرعاية الصحية", image: "/work/dar-al-safa-remastered.webp", className: "dar-safa wide", summary: "هوية طبية دافئة تجمع بين الرعاية والاحتراف عبر اللافتات والقرطاسية ونقاط الاستقبال." },
 ];
 
+const proofPaths = [
+  { no: "01", label: "أتمتة ومتابعة", title: "من المحادثة إلى الحجز", text: "شاهد كيف تحولت المتابعة اليدوية إلى رحلة قابلة للقياس وربط CRM.", href: "#case-studies" },
+  { no: "02", label: "براند وهوية", title: "من الفكرة إلى حضور متماسك", text: "نماذج فعلية لهويات بصرية عبر قطاعات مختلفة، مع تطبيقات واضحة للعلامة.", href: "#brand-identities" },
+  { no: "03", label: "طريقة التفكير", title: "من التحدي إلى قرار استراتيجي", text: "مشروعات مفاهيمية نستخدمها لعرض التفكير وراء التموضع والهوية والتجربة.", href: "#concept-work" },
+];
+
 const concepts = [
   {
     name: "NOMAÏ",
-    type: "ضيافة فاخرة · مشروع مفاهيمي",
+    type: "ضيافة فاخرة",
     challenge: "تمييز وجهة صحراوية فاخرة عن الصور النمطية المتكررة في قطاع الضيافة.",
     decision: "بناء العلامة حول الصمت والبطء وإيقاع المكان بدل الفخامة التقليدية.",
     scope: "التموضع، التسمية، الهوية البصرية، واتجاه تجربة الضيف.",
@@ -30,7 +37,7 @@ const concepts = [
   },
   {
     name: "KOVA",
-    type: "عمارة ومنتجات · مشروع مفاهيمي",
+    type: "عمارة ومنتجات",
     challenge: "توحيد العمارة والمنتجات والمحتوى داخل علامة واحدة دون فقدان الدقة.",
     decision: "تحويل الهندسة من شكل بصري إلى لغة ثابتة تُستخدم عبر كل نقطة تواصل.",
     scope: "التموضع، نظام الهوية، واتجاه التجربة الرقمية.",
@@ -38,7 +45,7 @@ const concepts = [
   },
   {
     name: "LUME",
-    type: "عناية بالبشرة · مشروع مفاهيمي",
+    type: "عناية بالبشرة",
     challenge: "سوق مزدحم بوعود جمالية متشابهة وضعف واضح في الثقة.",
     decision: "تقديم الدليل العلمي قبل الوعد الجمالي داخل تجربة تحريرية راقية.",
     scope: "التسمية، التغليف، ونظام الحملات.",
@@ -65,12 +72,13 @@ const testimonials = [
 ];
 
 export default function WorkPage() {
+  const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، شاهدت صفحة الأعمال وأريد مناقشة مشروع مشابه. نشاطي هو: ");
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Dewank Work and Case Studies",
     url: "https://dewank.com/work",
-    description: "دراسات حالة ومشروعات في البراندينج والتسويق والمواقع والأتمتة.",
+    description: "دراسات حالة ومشروعات في البراندينج والمواقع والأتمتة.",
     mainEntity: {
       "@type": "ItemList",
       itemListElement: [
@@ -82,17 +90,17 @@ export default function WorkPage() {
   };
 
   return (
-    <main className="work-page" dir="rtl">
+    <main className="work-page work-proof-page" dir="rtl">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <section className="work-hero shell">
-        <span className="section-label">[ أعمال ديوانك ]</span>
-        <h1>لا نعرض تصاميم جميلة فقط.<br/><em>نعرض قرارات تبني علامة أقوى.</em></h1>
-        <p>كل مشروع يبدأ بتحدٍ تجاري، ثم نترجمه إلى استراتيجية وهوية وتجربة أو نظام يساعد العلامة على أن تُفهم، تُتذكر، وتتحرك نحو نتيجة واضحة.</p>
+        <span className="section-label">أعمال ديوانك</span>
+        <h1>النتيجة مهمة.<br/><em>لكن القرار الذي صنعها أهم.</em></h1>
+        <p>هنا لا نعرض لقطات جميلة فقط. نوضح التحدي، القرار، ما تم تنفيذه، وما الذي تغيّر أو كان مستهدفًا، حتى ترى طريقة التفكير قبل أن تبدأ مشروعك معنا.</p>
         <div className="work-hero-actions">
-          <Link className="button primary" href="/contact">ابدأ مشروعك <span>←</span></Link>
-          <a className="button secondary" href="#case-studies">استكشف دراسات الحالة</a>
+          <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعًا مشابهًا <span>↗</span></a>
+          <a className="button secondary" href="#case-studies">ابدأ بدراسة الحالة</a>
         </div>
       </section>
 
@@ -103,10 +111,20 @@ export default function WorkPage() {
         <div>تنفيذ مخصص، لا قوالب جاهزة</div>
       </section>
 
+      <section className="proof-paths shell" aria-labelledby="proof-paths-title">
+        <div className="proof-paths-head">
+          <span className="section-label">اختر نوع الدليل</span>
+          <h2 id="proof-paths-title">لا تتصفح كل شيء.<br/><em>اذهب لما يشبه تحديك.</em></h2>
+        </div>
+        <div className="proof-path-grid">
+          {proofPaths.map((item) => <a href={item.href} className="proof-path-card" key={item.no}><small>{item.no} · {item.label}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد القسم ↓</span></a>)}
+        </div>
+      </section>
+
       <section className="real-case shell" id="case-studies">
         <div className="real-case-grid">
           <div className="real-case-copy">
-            <span className="section-label">[ دراسة حالة حقيقية · البحرين ]</span>
+            <span className="section-label">دراسة حالة فعلية · البحرين</span>
             <h2>من رسائل متفرقة<br/>إلى رحلة متابعة قابلة للقياس.</h2>
             <p>عيادة تجميل كانت تعتمد على الرد والمتابعة اليدوية عبر واتساب، ما تسبب في بطء الاستجابة وضياع فرص وعدم انتظام التذكير بالمواعيد.</p>
             <div className="case-facts">
@@ -115,10 +133,14 @@ export default function WorkPage() {
               <div><b>ما نفذناه</b><span>ردود ذكية، تصنيف العملاء، مسارات حجز، تذكيرات، وإعادة تواصل مع العملاء غير المكتملين.</span></div>
               <div><b>الأثر التجاري</b><span>تحسين التحويل وتقليل العبء اليدوي مع رؤية أوضح لحالة كل عميل.</span></div>
             </div>
-            <Link className="button primary case-cta" href="/whatsapp-automation">اكتشف خدمة أتمتة واتساب <span>←</span></Link>
+            <div className="case-service-links">
+              <Link className="button primary case-cta" href="/whatsapp-automation">أتمتة واتساب وCRM <span>←</span></Link>
+              <Link href="/ai-automation">شاهد أتمتة الأعمال بالذكاء الاصطناعي</Link>
+            </div>
           </div>
 
           <div className="metrics-panel" aria-label="نتائج دراسة الحالة">
+            <span className="metric-kicker">نتائج تشغيل فعلية تقريبية</span>
             <div className="metric"><strong>+25</strong><span>نقطة تقريبًا في معدل الحضور</span></div>
             <div className="metric"><strong>+30%</strong><span>تحسن تقريبي في التحويل من العميل إلى الحجز</span></div>
             <div className="metric"><strong>-40%</strong><span>انخفاض تقريبي في ضغط العمل على الاستقبال</span></div>
@@ -130,19 +152,22 @@ export default function WorkPage() {
       <section className="identity-work shell" id="brand-identities" aria-labelledby="identity-work-title">
         <div className="identity-work-head">
           <div>
-            <span className="section-label">[ أعمال هوية بصرية مختارة ]</span>
+            <span className="section-label">أعمال هوية بصرية مختارة</span>
             <h2 id="identity-work-title">علامات بنينا لها<br/>حضورًا يمكن تذكّره.</h2>
           </div>
-          <p>نماذج من أعمال ديوانك الفعلية في تصميم وتطوير الهوية البصرية لقطاعات متنوعة.</p>
+          <p>نماذج من أعمال ديوانك الفعلية في تصميم وتطوير الهوية البصرية لقطاعات متنوعة. اضغط على أي مشروع لعرضه بجودة أكبر.</p>
         </div>
         <IdentityShowcase projects={identityProjects} />
-        <Link className="button secondary identity-work-cta" href="/branding">اكتشف خدمة الهوية البصرية <span>←</span></Link>
+        <div className="identity-actions">
+          <Link className="button secondary identity-work-cta" href="/branding">اكتشف خدمة الهوية البصرية <span>←</span></Link>
+          <Link href="/services/brand-naming">تحتاج اسمًا للعلامة؟</Link>
+        </div>
       </section>
 
       <section className="testimonials-section" aria-labelledby="testimonials-title">
         <div className="shell">
           <div className="testimonials-head">
-            <span className="section-label">[ آراء العملاء ]</span>
+            <span className="section-label">آراء العملاء</span>
             <h2 id="testimonials-title">الثقة لا نصممها.<br/><em>نبنيها مع كل مشروع.</em></h2>
           </div>
           <div className="testimonials-grid">
@@ -161,14 +186,13 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="concepts-section">
+      <section className="concepts-section" id="concept-work">
         <div className="shell">
           <div className="concepts-head">
             <div>
-              <span className="section-label">[ مشروعات مفاهيمية أصلية ]</span>
+              <span className="section-label">استراتيجية التفكير</span>
               <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط.</h2>
             </div>
-            <p>هذه المشروعات ليست أعمالًا تعاقدية مع علامات خارجية. أنشأناها لعرض كيف نحول التحدي إلى قرار استراتيجي ثم إلى نظام بصري وتجربة متماسكة.</p>
           </div>
 
           <div className="concept-grid">
@@ -190,7 +214,7 @@ export default function WorkPage() {
       </section>
 
       <section className="work-method shell">
-        <span className="section-label">[ كيف نعمل ]</span>
+        <span className="section-label">كيف نعمل</span>
         <h2>من التحدي إلى نظام<br/>يمكن تنفيذه وقياسه.</h2>
         <div className="work-method-grid">
           <div><span>01</span><h3>نفهم التحدي</h3><p>نحدد أين يتوقف النمو وما الذي يحتاجه العميل فعلًا.</p></div>
@@ -198,16 +222,17 @@ export default function WorkPage() {
           <div><span>03</span><h3>نبني النظام</h3><p>نحوّل القرار إلى هوية أو موقع أو محتوى أو أتمتة مترابطة.</p></div>
           <div><span>04</span><h3>نقيس ونحسّن</h3><p>نراجع الأداء ونطوّر ما يرفع الوضوح والتحويل والكفاءة.</p></div>
         </div>
+        <div className="work-method-links"><Link href="/services">استكشف كل الخدمات</Link><Link href="/website-design">تصميم المواقع</Link><Link href="/paid-ads">إدارة الإعلانات</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link></div>
       </section>
 
       <section className="work-final">
         <div>
-          <span className="section-label">[ الخطوة التالية ]</span>
-          <h2>مشروعك لا يحتاج تصميمًا أكثر.<br/><em>يحتاج قرارًا أوضح.</em></h2>
+          <span className="section-label">الخطوة التالية</span>
+          <h2>شاهدت الدليل.<br/><em>الآن نحدد ما يناسب مشروعك.</em></h2>
         </div>
         <div>
-          <p>أخبرنا أين يتوقف النمو، وسنقترح عليك أقصر مسار عملي بدل إضافة خدمات لا تحتاجها.</p>
-          <Link className="button primary" href="/contact">ناقش مشروعك معنا <span>←</span></Link>
+          <p>أرسل لنا نشاطك والتحدي الحالي. سنحدد هل تحتاج براند، موقع، إعلانات، أتمتة أو مزيجًا أصغر يخدم النتيجة فعلًا.</p>
+          <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعك على واتساب <span>↗</span></a>
         </div>
       </section>
 
