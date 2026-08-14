@@ -7,6 +7,7 @@ import HomeTestimonials from "./components/home-testimonials";
 import HomeSelectedOffers from "./components/home-selected-offers";
 import "./home-growth-upgrade.css";
 import "./home-conversion-refinement.css";
+import "./home-mobile-service-cards.css";
 
 export const metadata: Metadata = createMetadata({
   title: "ديوانك | براند، تسويق، مواقع وأتمتة للشركات",
