@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import "./service-icons.css";
 
 const compactServicesCss = `
 .services-page-refined > .page-hero,
