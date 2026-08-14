@@ -1,0 +1,28 @@
+.pa-page{direction:rtl}
+.pa-hero-copy,.pa-section-head,.pa-truth-grid,.pa-measure-grid,.pa-fit-grid,.pa-final,.pa-cluster-head{direction:rtl;text-align:right}
+.pa-hero-copy h1{max-width:760px;font-size:clamp(42px,5vw,68px)!important;line-height:1.28!important;letter-spacing:-.04em!important}
+.pa-hero-copy h1 em{display:block;margin-top:.2em}
+.pa-hero-copy>p{max-width:720px;font-size:18px;line-height:1.95}
+.pa-section-head h2,.pa-truth h2,.pa-measure h2,.pa-fit h2,.pa-final h2,.pa-cluster-head h2{font-size:clamp(32px,3.8vw,52px)!important;line-height:1.38!important;letter-spacing:-.03em!important}
+.pa-section-head h2 em,.pa-truth h2 em,.pa-measure h2 em,.pa-fit h2 em,.pa-final h2 em,.pa-cluster-head h2 em{display:block;margin-top:.12em}
+.pa-actions{align-items:center;gap:14px}.pa-actions>a:not(.button){font-weight:800;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px}
+.pa-dashboard .pa-metrics b{font-size:13px;line-height:1.5}
+.pa-label{font-size:0!important}
+.pa-label::after{font-size:12px;line-height:1.4;font-weight:900;letter-spacing:.04em}
+.pa-truth .pa-label::after{content:"الفكرة الأساسية"}
+.pa-channels .pa-label::after{content:"اختيار القناة"}
+.pa-scope .pa-label::after{content:"نطاق الإدارة"}
+.pa-conversion-bridge .pa-label::after{content:"قبل زيادة الميزانية"}
+.pa-journey .pa-label::after{content:"من الإنفاق إلى النتيجة"}
+.pa-measure .pa-label::after{content:"القياس الحقيقي"}
+.pa-deliverables .pa-label::after{content:"ما الذي تستلمه"}
+.pa-fit .pa-label::after{content:"لمن تناسب الخدمة"}
+.pa-cluster .pa-label::after{content:"قبل تشغيل الميزانية"}
+.pa-faq .pa-label::after{content:"أسئلة شائعة"}
+.pa-final .pa-label::after{content:"الخطوة التالية"}
+.pa-conversion-bridge{margin:68px auto;padding:44px 48px;border-radius:30px;background:var(--ink);color:#fff;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:44px;align-items:end;direction:rtl;text-align:right}
+.pa-conversion-bridge .pa-label{color:#9eb0ff}.pa-conversion-bridge h2{font-size:clamp(30px,3.6vw,48px);line-height:1.4;letter-spacing:-.03em;margin:14px 0 0}.pa-conversion-bridge h2 em{display:block;margin-top:.12em;font-style:normal;color:#8ea3ff}.pa-conversion-bridge p{max-width:760px;margin:16px 0 0;color:#d0d1d4;line-height:1.9}.pa-conversion-links{display:grid;gap:12px}.pa-conversion-links a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 18px;border:1px solid rgba(255,255,255,.16);border-radius:16px;color:#fff;text-decoration:none;font-weight:900;background:rgba(255,255,255,.04);transition:.2s ease}.pa-conversion-links a:hover{background:#fff;color:var(--ink);border-color:#fff}
+.pa-final .button.primary:hover{color:var(--ink)!important}
+@media(max-width:900px){.pa-conversion-bridge{grid-template-columns:1fr}.pa-hero-copy h1{font-size:clamp(38px,7vw,56px)!important}.pa-section-head h2,.pa-truth h2,.pa-measure h2,.pa-fit h2,.pa-final h2,.pa-cluster-head h2{font-size:clamp(30px,6vw,44px)!important}}
+@media(max-width:640px){.pa-hero-copy h1{font-size:34px!important;line-height:1.34!important}.pa-hero-copy h1 em{margin-top:.24em}.pa-hero-copy>p{font-size:17px}.pa-section-head h2,.pa-truth h2,.pa-measure h2,.pa-fit h2,.pa-final h2,.pa-cluster-head h2{font-size:30px!important;line-height:1.44!important}.pa-conversion-bridge{margin:48px auto;padding:30px 24px}.pa-conversion-bridge h2{font-size:29px;line-height:1.45}.pa-actions .button{width:100%;justify-content:center}.pa-label::after{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.pa-conversion-links a{transition:none}}
