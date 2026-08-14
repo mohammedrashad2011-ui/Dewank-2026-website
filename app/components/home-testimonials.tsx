@@ -45,7 +45,7 @@ export default function HomeTestimonials() {
     >
       <div className="testimonial-orbit" aria-hidden="true"><i/><i/><i/></div>
       <div className="testimonial-heading">
-        <span className="section-label">[ آراء العملاء ]</span>
+        <span className="section-label">آراء العملاء</span>
         <h2 id="home-testimonials-title">العمل الجيد يُرى.<br/><em>والثقة تُروى.</em></h2>
         <p>تجارب حقيقية مع ديوانك في بناء الأسماء، الهوية، والبحث الاستراتيجي.</p>
       </div>
