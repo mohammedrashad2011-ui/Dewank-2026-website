@@ -5,23 +5,24 @@ import { Footer, Header, PageHero } from "../components/site-shell";
 import AiWorkflowVisual from "./ai-workflow-visual";
 import "./ai-control-room.css";
 import "./services-overview.css";
+import "./services-conversion-hub.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "خدمات ديوانك | براندينج، محتوى، إعلانات، مواقع وأتمتة",
-  description: "خدمات ديوانك للشركات في السعودية والخليج: استراتيجية البراند، إدارة السوشيال ميديا وصناعة المحتوى، الإعلانات، صفحات الهبوط، المواقع، SEO وAEO، التحليلات، أتمتة واتساب وحلول الذكاء الاصطناعي.",
+  title: "خدمات التسويق الرقمي للشركات في السعودية | ديوانك",
+  description: "خدمات ديوانك للشركات في السعودية والخليج: إدارة الإعلانات، تصميم المواقع وSEO، إدارة المحتوى، أتمتة واتساب والذكاء الاصطناعي، البراندينج والتحليلات ضمن منظومة نمو واحدة.",
   path: "/services",
   keywords: [
     "خدمات التسويق الرقمي في السعودية",
+    "شركة تسويق رقمي في السعودية",
     "إدارة السوشيال ميديا",
     "صناعة المحتوى",
-    "تصميم صفحة هبوط",
-    "شركة براندينج",
-    "إدارة إعلانات ميتا وجوجل",
-    "تحليلات التسويق وتتبع التحويلات",
+    "تصميم مواقع في السعودية",
+    "إدارة Google Ads",
+    "إدارة إعلانات ميتا",
     "SEO وAEO",
     "أتمتة واتساب وCRM",
     "حلول الذكاء الاصطناعي",
-    "كتابة سيرة ذاتية ATS",
+    "شركة براندينج",
   ],
 });
 
@@ -53,89 +54,68 @@ const services: Service[] = [
   { no: "12", en: "ATS CV & CAREER BRANDING", tone: "web career-card", visual: "document", title: "سيرتك ليست ورقة.", hook: "هي أول قرار قبل المقابلة.", text: "كتابة وتطوير سيرة ذاتية متوافقة مع ATS، مخصصة للوظيفة المستهدفة، مع تحسين الإنجازات والكلمات المفتاحية وLinkedIn.", tags: ["ATS CV", "LinkedIn", "Career Branding"], href: "/ats-cv" },
 ];
 
+const primaryPaths = [
+  { label: "جذب العملاء", title: "إدارة الإعلانات", text: "Google Ads وMeta Ads مع تتبع وتحسين التحويل بدل شراء نقرات فقط.", href: "/paid-ads", cta: "استكشف الإعلانات" },
+  { label: "تحويل الزيارات", title: "تصميم المواقع", text: "موقع أو Landing Page يربط الرسالة والثقة وSEO والـCTA في رحلة واحدة.", href: "/website-design", cta: "استكشف المواقع" },
+  { label: "إدارة الحضور", title: "المحتوى والسوشيال", text: "استراتيجية وأفكار وتصميم وكابشنات وخطة نشر تجعل الحساب أكثر اتساقًا ووضوحًا.", href: "/services/social-media-content", cta: "استكشف المحتوى" },
+  { label: "تسريع المتابعة", title: "واتساب والأتمتة", text: "رد وتأهيل وحجز ومتابعة وربط CRM، ثم أتمتة أوسع عند الحاجة.", href: "/whatsapp-automation", cta: "استكشف الأتمتة" },
+];
+
 const faqItems = [
   ["ما خدمات ديوانك الأساسية؟", "تجمع ديوانك بين استراتيجية البراند وصناعة المحتوى والإعلانات وتصميم المواقع وصفحات الهبوط وSEO والتحليلات وأتمتة واتساب وحلول الذكاء الاصطناعي."],
+  ["كيف أعرف الخدمة الأنسب لنشاطي؟", "ابدأ بالمشكلة الأقرب للنتيجة: جذب العملاء، تحويل الزيارات، انتظام المحتوى، أو بطء المتابعة. وإذا كانت المشكلة غير واضحة نراجع الرحلة ونقترح أصغر نطاق عملي."],
   ["هل يمكن البدء بخدمة واحدة فقط؟", "نعم. نحدد نقطة الاختناق الحالية ونقترح أصغر نطاق عملي يحقق نتيجة واضحة، ثم يمكن توسيع المنظومة لاحقًا."],
   ["هل تقدم ديوانك إدارة السوشيال ميديا وصناعة المحتوى؟", "نعم، وتشمل الاستراتيجية والأفكار والتصميم والكابشنات وخطة النشر، مع إمكانية البدء بباقة محتوى محددة لمدة شهر."],
   ["هل تشمل خدمات المواقع صفحات الهبوط؟", "نعم. نقدم مواقع متكاملة وصفحات هبوط مستقلة للحملات والخدمات، مع ربط واتساب والنماذج والتحليلات وتتبع التحويلات."],
-  ["هل خدمات السيرة الذاتية جزء من خدمات الشركات؟", "لا. خدمة ATS CV خدمة مهنية مستقلة للأفراد، وتظهر كآخر خدمة في قائمة الخدمات مع فصل بصري واضح."],
 ];
 
 export default function ServicesPage() {
+  const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد تحديد الخدمة الأنسب لنشاطي. النشاط: ");
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "خدمات ديوانك",
     itemListElement: services.map((service, index) => ({ "@type": "ListItem", position: index + 1, name: `${service.title} ${service.hook}`, url: `https://dewank.com${service.href}` })),
   };
-
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
   };
-
   const renderCard = (service: Service) => (
     <article className={`service-detail ${service.tone}`} key={service.no}>
       <div className="detail-top"><span>{service.no}</span><small>{service.en}</small></div>
       {service.visual === "ai" ? <AiWorkflowVisual /> : <div className={`service-symbol ${service.visual}`} aria-hidden="true"><i/><i/><i/></div>}
-      <div className="detail-copy">
-        <h2>{service.title}<br/><em>{service.hook}</em></h2>
-        <p>{service.text}</p>
-        <div className="tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-      </div>
+      <div className="detail-copy"><h2>{service.title}<br/><em>{service.hook}</em></h2><p>{service.text}</p><div className="tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
       <Link className="detail-link" href={service.href}>{service.cta || "اكتشف الخدمة"} <span>←</span></Link>
     </article>
   );
 
   return (
-    <main className="inner-page services-page services-page-refined">
+    <main className="inner-page services-page services-page-refined services-conversion-hub">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <PageHero eyebrow="خدمات ديوانك" title={<>كل ما يحتاجه نموك.<br/><em>في منظومة واحدة.</em></>} text="من وضوح العلامة وصناعة المحتوى إلى جذب العملاء وتحويلهم ومتابعتهم. اختر المشكلة التي تريد حلها، وستجد المسار المناسب دون زحام أو خدمات غامضة." />
+      <PageHero eyebrow="خدمات ديوانك" title={<>لا تبدأ من اسم الخدمة.<br/><em>ابدأ من النتيجة التي تحتاجها.</em></>} text="إعلانات، مواقع، محتوى، براند وأتمتة تعمل كمنظومة واحدة. اختر نقطة الاختناق الحالية، وخذ أقصر طريق للخدمة المناسبة." />
 
-      <nav className="shell service-jump-nav" aria-label="اختر نقطة البداية">
-        <span>ابدأ من احتياجك:</span><a href="#brand-services">أريد علامة أوضح</a><a href="#growth-services">أريد طلبًا وعملاء</a><a href="#web-services">أريد موقعًا يحوّل</a><a href="#automation-services">أريد متابعة وأتمتة</a>
-      </nav>
-
-      <section id="brand-services" className="shell service-group" aria-labelledby="brand-title">
-        <div className="service-group-head"><span className="section-label">[ العلامة ]</span><h2 id="brand-title">ابدأ بما يجعل اختيارك منطقيًا.</h2><p>نوضح من أنت، لمن تقدم القيمة، ولماذا يجب أن يتذكرك العميل.</p></div>
-        <div className="services-detail-bento services-grid-refined">{services.slice(0, 2).map(renderCard)}</div>
+      <section className="shell primary-service-paths" aria-labelledby="primary-paths-title">
+        <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">أربع بوابات لمعظم مشاكل النمو.</h2><p>بدل استعراض قائمة طويلة، ابدأ بالنتيجة الأقرب لما تريد إصلاحه الآن.</p></div>
+        <div className="primary-path-grid">{primaryPaths.map((path,index)=><Link href={path.href} className="primary-path-card" key={path.href}><small>0{index+1} · {path.label}</small><h3>{path.title}</h3><p>{path.text}</p><span>{path.cta} ↗</span></Link>)}</div>
       </section>
 
-      <section id="growth-services" className="shell service-group" aria-labelledby="growth-title">
-        <div className="service-group-head"><span className="section-label">[ المحتوى والنمو ]</span><h2 id="growth-title">حوّل الحضور إلى طلب حقيقي.</h2><p>نربط المحتوى والاستراتيجية والإعلانات حتى لا تعمل كل قناة في جزيرة منفصلة.</p></div>
-        <div className="services-detail-bento services-grid-refined">{services.slice(2, 5).map(renderCard)}</div>
-      </section>
+      <nav className="shell service-jump-nav" aria-label="كل مسارات الخدمات"><span>كل المسارات:</span><a href="#brand-services">العلامة</a><a href="#growth-services">المحتوى والنمو</a><a href="#web-services">الويب والقياس</a><a href="#automation-services">الأتمتة والذكاء</a></nav>
 
-      <section id="web-services" className="shell service-group" aria-labelledby="web-title">
-        <div className="service-group-head"><span className="section-label">[ الويب والقياس ]</span><h2 id="web-title">اجعل كل زيارة قابلة للفهم والتحويل.</h2><p>نبني التجربة، نحسن الظهور، ونربط الأرقام بالنتيجة التجارية.</p></div>
-        <div className="services-detail-bento services-grid-refined">{services.slice(5, 9).map(renderCard)}</div>
-      </section>
+      <section id="brand-services" className="shell service-group" aria-labelledby="brand-title"><div className="service-group-head"><span className="section-label">العلامة</span><h2 id="brand-title">ابدأ بما يجعل اختيارك منطقيًا.</h2><p>نوضح من أنت، لمن تقدم القيمة، ولماذا يجب أن يتذكرك العميل.</p></div><div className="services-detail-bento services-grid-refined">{services.slice(0, 2).map(renderCard)}</div></section>
+      <section id="growth-services" className="shell service-group" aria-labelledby="growth-title"><div className="service-group-head"><span className="section-label">المحتوى والنمو</span><h2 id="growth-title">حوّل الحضور إلى طلب حقيقي.</h2><p>نربط المحتوى والاستراتيجية والإعلانات حتى لا تعمل كل قناة في جزيرة منفصلة.</p></div><div className="services-detail-bento services-grid-refined">{services.slice(2, 5).map(renderCard)}</div></section>
+      <section id="web-services" className="shell service-group" aria-labelledby="web-title"><div className="service-group-head"><span className="section-label">الويب والقياس</span><h2 id="web-title">اجعل كل زيارة قابلة للفهم والتحويل.</h2><p>نبني التجربة، نحسن الظهور، ونربط الأرقام بالنتيجة التجارية.</p></div><div className="services-detail-bento services-grid-refined">{services.slice(5, 9).map(renderCard)}</div></section>
+      <section id="automation-services" className="shell service-group" aria-labelledby="automation-title"><div className="service-group-head"><span className="section-label">الأتمتة والذكاء</span><h2 id="automation-title">لا تترك العميل ينتظر النظام اليدوي.</h2><p>نربط الرد والتأهيل والمتابعة والبيانات لتعمل العمليات بسرعة واتساق.</p></div><div className="services-detail-bento services-grid-refined">{services.slice(9, 11).map(renderCard)}</div></section>
+      <section className="shell service-group career-service-group" aria-labelledby="career-services-title"><div className="service-group-head"><span className="section-label">خدمة مهنية مستقلة</span><h2 id="career-services-title">خبرتك قوية. يجب أن تظهر كذلك.</h2></div><div className="services-detail-bento services-grid-refined career-service-last">{services.slice(11).map(renderCard)}</div></section>
 
-      <section id="automation-services" className="shell service-group" aria-labelledby="automation-title">
-        <div className="service-group-head"><span className="section-label">[ الأتمتة والذكاء ]</span><h2 id="automation-title">لا تترك العميل ينتظر النظام اليدوي.</h2><p>نربط الرد والتأهيل والمتابعة والبيانات لتعمل العمليات بسرعة واتساق.</p></div>
-        <div className="services-detail-bento services-grid-refined">{services.slice(9, 11).map(renderCard)}</div>
-      </section>
+      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title"><div><span className="section-label">لو المشكلة لسه مش واضحة</span><h2 id="problem-chooser-title">قل لنا أين يتعطل العميل.<br/><em>ونبدأ من هناك.</em></h2></div><div className="problem-options"><Link href="/branding"><b>العلامة غير واضحة</b><span>استراتيجية البراند والهوية ←</span></Link><Link href="/paid-ads"><b>أحتاج عملاء أكثر</b><span>الإعلانات واكتساب العملاء ←</span></Link><Link href="/website-design"><b>الزيارات لا تتحول</b><span>الموقع وCRO والقياس ←</span></Link><Link href="/whatsapp-automation"><b>المتابعة بطيئة أو تضيع</b><span>واتساب وCRM والأتمتة ←</span></Link></div></section>
 
-      <section className="shell service-group career-service-group" aria-labelledby="career-services-title">
-        <div className="service-group-head"><span className="section-label">[ خدمة مهنية مستقلة ]</span><h2 id="career-services-title">خبرتك قوية. يجب أن تظهر كذلك.</h2></div>
-        <div className="services-detail-bento services-grid-refined career-service-last">{services.slice(11).map(renderCard)}</div>
-      </section>
+      <section className="seo-content shell services-faq" aria-labelledby="services-faq-title"><span className="section-label">أسئلة شائعة</span><h2 id="services-faq-title">صورة أوضح قبل أن تبدأ.</h2><div className="services-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title">
-        <div><span className="section-label">[ لا تعرف من أين تبدأ؟ ]</span><h2 id="problem-chooser-title">اختر المشكلة.<br/><em>نقترح أصغر حل مفيد.</em></h2></div>
-        <div className="problem-options"><Link href="/branding"><b>العلامة غير واضحة</b><span>استراتيجية البراند والهوية ←</span></Link><Link href="/services/social-media-content"><b>الحساب لا ينشر باستمرار</b><span>صناعة المحتوى والسوشيال ←</span></Link><Link href="/offers/landing-page-package"><b>الزيارات لا تتحول</b><span>صفحة هبوط وتحسين التحويل ←</span></Link><Link href="/whatsapp-automation"><b>المتابعة بطيئة أو تضيع</b><span>واتساب وCRM والأتمتة ←</span></Link></div>
-      </section>
-
-      <section className="seo-content shell services-faq" aria-labelledby="services-faq-title">
-        <span className="section-label">[ أسئلة شائعة ]</span><h2 id="services-faq-title">صورة أوضح قبل أن تبدأ.</h2><div className="services-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
-      </section>
-
-      <section className="fit-section shell services-final-cta">
-        <div><span className="section-label">[ الخطوة التالية ]</span><h2>لا تشترِ خدمة أكبر.<br/><em>حل الاختناق أولًا.</em></h2></div><div className="fit-card"><p>في جلسة اكتشاف قصيرة نحدد المشكلة والنتيجة المطلوبة وأصغر نطاق يصنع فرقًا حقيقيًا، ثم نقترح المسار المناسب دون تضخيم غير ضروري.</p><Link className="button primary" href="/contact">ناقش مشروعك <span>←</span></Link></div>
-      </section>
+      <section className="fit-section shell services-final-cta"><div><span className="section-label">الخطوة التالية</span><h2>مش عارف تختار؟<br/><em>ابعت النشاط والمشكلة فقط.</em></h2></div><div className="fit-card"><p>نراجع أين توجد نقطة الاختناق ونرشح أصغر نطاق منطقي بدل تحميلك بخدمات أكبر من احتياجك الحالي.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">حدد الخدمة على واتساب <span>↗</span></a></div></section>
       <Footer />
     </main>
   );
