@@ -1,4 +1,5 @@
 /* Mobile-only refinement for the homepage service cards. Desktop/tablet remain unchanged. */
+/* Preview retry: keep decorative graphics isolated from all copy on small screens. */
 @media (max-width: 640px) {
   .home-conversion-page .home-core-paths {
     padding-top: 68px !important;
@@ -41,7 +42,6 @@
     height: 30px !important;
   }
 
-  /* Reserve a clean visual band for the artwork so it never competes with copy. */
   .home-conversion-page .home-core-paths .service-card .service-symbol,
   .home-conversion-page .home-core-paths .service-card:hover .service-symbol {
     z-index: 1 !important;
@@ -114,7 +114,6 @@
     font-size: 8px !important;
   }
 
-  /* Turn the three secondary routes into one quiet, compact navigation block. */
   .home-conversion-page .home-core-paths .growth-shortcuts {
     display: grid !important;
     grid-template-columns: 1fr !important;
