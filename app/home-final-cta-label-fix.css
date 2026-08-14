@@ -1,0 +1,17 @@
+.home-conversion-page .home-final-conversion .section-label{
+  color:#f2d06b!important;
+  font-size:clamp(16px,1.15vw,19px)!important;
+  font-weight:900!important;
+  opacity:1!important;
+  position:relative;
+  top:-14px;
+  display:inline-block;
+  letter-spacing:.01em!important;
+}
+
+@media(max-width:640px){
+  .home-conversion-page .home-final-conversion .section-label{
+    top:-10px;
+    font-size:15px!important;
+  }
+}
