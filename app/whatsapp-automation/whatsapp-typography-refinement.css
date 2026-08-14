@@ -4,25 +4,53 @@
 .method-intro h2,
 .seo-content h2,
 .wa-guides-head h2{
-  font-size:clamp(36px,4.6vw,66px);
-  line-height:1.34;
-  letter-spacing:-.04em;
+  font-size:clamp(27px,3.45vw,50px);
+  line-height:1.42;
+  letter-spacing:-.03em;
 }
 
-.wa-hero h1 em,
+.wa-hero h1{
+  font-size:clamp(30px,3.75vw,52px);
+  line-height:1.34;
+  max-width:720px;
+}
+
+.wa-hero-line{
+  display:block;
+  line-height:1.5;
+}
+
+.wa-hero-line-accent{
+  margin-top:.42em;
+  line-height:1.46;
+}
+
+.wa-hero-actions .button.secondary{
+  color:var(--ink);
+  background:#fff;
+  border-color:#fff;
+}
+
+.wa-hero-actions .button.secondary:hover,
+.wa-hero-actions .button.secondary:focus-visible{
+  color:var(--ink)!important;
+  background:#f3f0e8!important;
+  border-color:#f3f0e8!important;
+}
+
 .flow-section h2 mark,
 .core-copy h2 mark,
 .method-intro h2 em,
 .seo-content h2 em,
 .wa-guides-head h2 em{
   display:inline-block;
-  margin-top:.12em;
-  line-height:1.28;
+  margin-top:.16em;
+  line-height:1.34;
 }
 
 .wa-guides-head h2{
-  font-size:clamp(34px,4vw,54px);
-  line-height:1.38;
+  font-size:clamp(26px,3vw,41px);
+  line-height:1.44;
 }
 
 @media(max-width:640px){
@@ -31,21 +59,34 @@
   .core-copy h2,
   .method-intro h2,
   .seo-content h2{
-    font-size:clamp(34px,10.2vw,46px);
+    font-size:clamp(26px,7.6vw,35px);
+    line-height:1.46;
+  }
+
+  .wa-hero h1{
+    font-size:clamp(28px,8vw,36px);
     line-height:1.38;
   }
 
-  .wa-guides-head h2{
-    font-size:34px;
-    line-height:1.42;
+  .wa-hero-line{
+    line-height:1.52;
   }
 
-  .wa-hero h1 em,
+  .wa-hero-line-accent{
+    margin-top:.5em;
+    line-height:1.5;
+  }
+
+  .wa-guides-head h2{
+    font-size:26px;
+    line-height:1.48;
+  }
+
   .flow-section h2 mark,
   .core-copy h2 mark,
   .method-intro h2 em,
   .seo-content h2 em,
   .wa-guides-head h2 em{
-    margin-top:.16em;
+    margin-top:.2em;
   }
 }
