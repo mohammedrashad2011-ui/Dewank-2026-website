@@ -7,7 +7,6 @@ import "./mobile-refinement.css";
 import "./sitewide-whatsapp-cro.css";
 import "./desktop-cleanup.css";
 import "./home-final-cta-label-fix.css";
-import "./home-mobile-service-cards.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
 import DeferredClientLayer from "./components/deferred-client-layer";
 
