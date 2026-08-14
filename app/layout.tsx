@@ -3,16 +3,13 @@ import { Alexandria, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import "./service-pages-fix.css";
-import "./services/service-icons.css";
 import "./mobile-refinement.css";
 import "./sitewide-whatsapp-cro.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
-import InstagramFollowCard from "./components/instagram-follow-card";
-import SitewideWhatsAppBridge from "./components/sitewide-whatsapp-bridge";
+import DeferredClientLayer from "./components/deferred-client-layer";
 
 const alexandria = Alexandria({ variable: "--font-arabic", subsets: ["arabic", "latin"] });
 const cormorant = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700"] });
-const gaId = "G-5SKKT1NBHB";
 const gtmId = "GTM-PG525ZFN";
 const metaPixelId = "2274266710087331";
 
@@ -62,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ar" dir="rtl">
-      <Script id="google-tag-manager" strategy="beforeInteractive">
+      <Script id="google-tag-manager" strategy="lazyOnload">
         {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -72,28 +69,32 @@ export default function RootLayout({
         `}
       </Script>
 
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="meta-pixel-loader" strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${gaId}');
-        `}
-      </Script>
-
-      <Script id="meta-pixel" strategy="lazyOnload">
-        {`
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-          fbq('init', '${metaPixelId}');
-          fbq('track', 'PageView');
+          (function(){
+            var loaded=false;
+            function loadPixel(){
+              if(loaded) return;
+              loaded=true;
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '${metaPixelId}');
+              fbq('track', 'PageView');
+              ['pointerdown','keydown','scroll','touchstart'].forEach(function(evt){
+                window.removeEventListener(evt,loadPixel,{passive:true});
+              });
+            }
+            ['pointerdown','keydown','scroll','touchstart'].forEach(function(evt){
+              window.addEventListener(evt,loadPixel,{passive:true,once:true});
+            });
+            window.setTimeout(loadPixel,4000);
+          })();
         `}
       </Script>
 
@@ -152,8 +153,7 @@ export default function RootLayout({
           />
         </noscript>
         {children}
-        <SitewideWhatsAppBridge />
-        <InstagramFollowCard />
+        <DeferredClientLayer />
       </body>
     </html>
   );
