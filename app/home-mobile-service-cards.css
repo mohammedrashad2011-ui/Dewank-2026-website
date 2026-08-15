@@ -1,0 +1,153 @@
+/* Mobile-only refinement for the homepage service cards. Desktop/tablet remain unchanged. */
+@media (max-width: 640px) {
+  .home-conversion-page .home-core-paths {
+    padding-top: 68px !important;
+    padding-bottom: 62px !important;
+  }
+
+  .home-conversion-page .home-core-paths .section-head {
+    margin-bottom: 28px !important;
+    gap: 14px !important;
+  }
+
+  .home-conversion-page .home-core-paths .section-head h2 {
+    font-size: 34px !important;
+    line-height: 1.4 !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-bento {
+    gap: 12px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card,
+  .home-conversion-page .home-core-paths .service-card.brand,
+  .home-conversion-page .home-core-paths .service-card.growth,
+  .home-conversion-page .home-core-paths .service-card.automation,
+  .home-conversion-page .home-core-paths .service-card.web {
+    min-height: 252px !important;
+    height: 252px !important;
+    padding: 18px 18px 16px !important;
+    border-radius: 22px !important;
+    justify-content: flex-start !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-top {
+    min-height: 28px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-top > span,
+  .home-conversion-page .home-core-paths .service-card .card-top b {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-top small {
+    font-size: 9px !important;
+    letter-spacing: .09em !important;
+  }
+
+  /* Decorative graphics are confined to a small top-left accent zone. */
+  .home-conversion-page .home-core-paths .service-card .service-symbol,
+  .home-conversion-page .home-core-paths .service-card:hover .service-symbol {
+    z-index: 1 !important;
+    pointer-events: none !important;
+    opacity: .075 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card.growth .service-symbol.growth,
+  .home-conversion-page .home-core-paths .service-card.automation .service-symbol.automation {
+    width: 76px !important;
+    height: 54px !important;
+    left: 16px !important;
+    top: 58px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card.web .service-symbol.web {
+    width: 88px !important;
+    height: 56px !important;
+    left: 14px !important;
+    top: 56px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card.brand .service-symbol.brand {
+    width: 82px !important;
+    height: 82px !important;
+    left: 12px !important;
+    top: 52px !important;
+  }
+
+  /* Copy owns a separate vertical lane, fully clear of artwork. */
+  .home-conversion-page .home-core-paths .service-card .card-copy,
+  .home-conversion-page .home-core-paths .service-card.brand .card-copy {
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    padding-top: 48px !important;
+    margin-top: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-copy h3 {
+    display: block !important;
+    min-height: 0 !important;
+    font-size: 26px !important;
+    line-height: 1.3 !important;
+    margin: 0 0 6px !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .card-copy p {
+    max-width: 94% !important;
+    font-size: 11.5px !important;
+    line-height: 1.68 !important;
+    margin: 0 0 10px !important;
+    opacity: .8 !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .tag-row {
+    margin-top: auto !important;
+    gap: 5px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .home-conversion-page .home-core-paths .service-card .tag-row span {
+    padding: 5px 7px !important;
+    font-size: 7.5px !important;
+    white-space: nowrap !important;
+  }
+
+  .home-conversion-page .home-core-paths .growth-shortcuts {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    margin-top: 18px !important;
+    padding: 0 16px !important;
+    border: 1px solid rgba(255, 255, 255, .11) !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, .045) !important;
+    overflow: hidden !important;
+  }
+
+  .home-conversion-page .home-core-paths .growth-shortcuts::before {
+    content: "مسارات إضافية";
+    display: block;
+    padding: 13px 0 8px;
+    color: rgba(255, 255, 255, .48);
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .home-conversion-page .home-core-paths .growth-shortcuts a {
+    width: 100% !important;
+    min-height: 42px !important;
+    padding: 11px 0 !important;
+    border: 0 !important;
+    border-top: 1px solid rgba(255, 255, 255, .09) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    font-size: 12px !important;
+  }
+}
