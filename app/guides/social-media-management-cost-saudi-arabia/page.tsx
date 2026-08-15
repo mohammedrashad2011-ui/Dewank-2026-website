@@ -4,6 +4,7 @@ import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../guides.css";
 import "./cost-guide-upgrade.css";
+import "./decision-upgrade.css";
 
 const title = "أسعار إدارة السوشيال ميديا في السعودية: الباقات والتكلفة";
 const description = "دليل أسعار إدارة السوشيال ميديا في السعودية: نطاقات التكلفة، الفرق بين الإدارة الشهرية وباقات المحتوى، وما الذي يدخل في السعر قبل التعاقد.";
@@ -52,10 +53,17 @@ const servicePaths = [
   { label: "إعلانات", title: "هدفك الأساسي Leads أو مبيعات من الحملات", text: "إدارة الإعلانات وميزانية المنصة مسار مستقل عن إدارة المحتوى والحسابات.", href: "/paid-ads", cta: "راجع الإعلانات المدفوعة" },
 ];
 
+const providerPaths = [
+  { label: "FREELANCER", title: "فريلانسر", text: "مناسب عندما يكون النطاق صغيرًا ومحددًا وتحتاج مرونة وتكلفة أقل.", bullets: ["تكلفة أقل غالبًا", "تواصل مباشر", "قد يعتمد التنفيذ على شخص واحد"] },
+  { label: "AGENCY / STUDIO", title: "وكالة أو استوديو", text: "مناسب عندما تحتاج أكثر من تخصص ومسار واضح للاستراتيجية والتنفيذ والمتابعة.", bullets: ["تخصصات متعددة", "استمرارية وتنظيم أكبر", "تكلفة أعلى من الفرد غالبًا"] },
+  { label: "IN-HOUSE", title: "موظف داخلي", text: "مناسب عندما يكون لديك حجم محتوى مستمر ويحتاج النشاط وجودًا يوميًا داخل الفريق.", bullets: ["معرفة يومية بالنشاط", "سرعة تنسيق داخلية", "تكلفة ثابتة وتحتاج إدارة وتخصصات مساندة"] },
+];
+
 export default function SocialMediaManagementCostGuide() {
   const url = `${siteUrl}/guides/social-media-management-cost-saudi-arabia`;
+  const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد تحديد النطاق المناسب لإدارة السوشيال ميديا. النشاط: ");
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-14", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["إدارة السوشيال ميديا", "أسعار إدارة حسابات التواصل الاجتماعي", "باقات السوشيال ميديا", "صناعة المحتوى", "تكلفة إدارة إنستقرام"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-16", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["إدارة السوشيال ميديا", "أسعار إدارة حسابات التواصل الاجتماعي", "باقات السوشيال ميديا", "صناعة المحتوى", "تكلفة إدارة إنستقرام"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -68,7 +76,7 @@ export default function SocialMediaManagementCostGuide() {
         <span className="article-intent-label">دليل أسعار · السعودية</span>
         <h1>{title}</h1>
         <p>إذا تبحث عن السعر، خذ الرقم أولًا ثم قارن النطاق. الفرق الحقيقي في التكلفة ليس عدد البوستات فقط، بل هل تحتاج محتوى فقط أم إدارة حساب كاملة أم حملات إعلانية مستقلة.</p>
-        <div className="article-meta"><span>آخر تحديث: 14 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: السعر واختيار النطاق</span></div>
+        <div className="article-meta"><span>آخر تحديث: 16 أغسطس 2026</span><span>وقت القراءة: 10 دقائق</span><span>التركيز: السعر واختيار النطاق</span></div>
       </header>
 
       <section className="shell cost-price-snapshot" aria-labelledby="price-snapshot-title">
@@ -131,20 +139,38 @@ export default function SocialMediaManagementCostGuide() {
           <h2 id="compare">كيف تقارن بين الباقات؟</h2>
           <p>قارن الهدف والاستراتيجية ونوع المخرجات لا العدد فقط. اسأل بوضوح: من يكتب؟ من يصمم؟ من ينشر؟ من يرد؟ هل توجد تقارير؟ وهل التصوير والإعلانات داخل السعر أم خارجه؟ وإذا كان احتياجك الأساسي هو المحتوى فقط، لا تدفع تلقائيًا مقابل إدارة شهرية كاملة.</p>
 
+          <section className="cost-provider-compare" id="provider-compare" aria-labelledby="provider-compare-title">
+            <h2 id="provider-compare-title">فريلانسر أم وكالة أم موظف داخلي؟</h2>
+            <p>لا يوجد خيار أفضل دائمًا. القرار يعتمد على حجم العمل، عدد التخصصات المطلوبة، وكم تحتاج من متابعة يومية داخل نشاطك.</p>
+            <div className="cost-provider-grid">{providerPaths.map((item) => <article className="cost-provider-card" key={item.title}><small>{item.label}</small><h3>{item.title}</h3><p>{item.text}</p><ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul></article>)}</div>
+          </section>
+
           <h2 id="methodology">كيف بنينا نطاقات الأسعار في هذا الدليل؟</h2>
           <div className="cost-methodology">
             <p>الأرقام هنا ليست عرض سعر من ديوانك. هي نطاقات إرشادية مبنية على حجم النطاق الذي يغيّر تكلفة التنفيذ، وأهم عناصر المقارنة هي:</p>
             <ul><li>عدد المنصات المطلوب إدارتها.</li><li>كمية التصميم والفيديو والتصوير.</li><li>هل الخدمة تشمل النشر وإدارة المجتمع.</li><li>عدد اللغات وجولات المراجعة وسرعة التنفيذ.</li><li>مستوى التقارير والتحليل والمتابعة المطلوبة.</li></ul>
+            <p><strong>قاعدة المقارنة:</strong> لا تقارن السعر قبل توحيد عدد المنصات، عدد ونوع المخرجات، مستوى الفيديو والتصوير، وحجم إدارة المجتمع. غير ذلك قد يجعلك تقارن خدمتين مختلفتين كأنهما نفس الباقة.</p>
           </div>
+
+          <section className="cost-decision-block" id="right-package" aria-labelledby="right-package-title">
+            <span>اختيار سريع</span>
+            <h2 id="right-package-title">كيف تعرف النطاق المناسب لك؟</h2>
+            <div className="cost-decision-grid">
+              <article><b>تحتاج المحتوى فقط؟</b><p>ابدأ بباقة محتوى محددة بدل عقد إدارة كامل.</p></article>
+              <article><b>تحتاج نشرًا ومتابعة؟</b><p>الإدارة الشهرية أنسب لأنها تشمل تشغيل الحساب ومراجعته.</p></article>
+              <article><b>تريد Leads ومبيعات؟</b><p>راجع الإعلانات والصفحة والتتبع، لا عدد البوستات فقط.</p></article>
+              <article><b>الرسائل تضيع؟</b><p>المشكلة قد تكون في المتابعة وواتساب وCRM أكثر من المحتوى نفسه.</p></article>
+            </div>
+          </section>
 
           <h2 id="decision">متى تكون الإدارة الشهرية استثمارًا سيئًا؟</h2>
           <p>عندما لا يوجد عرض واضح أو طريقة سهلة للطلب أو قدرة على متابعة العملاء، أو عندما تكون حاجتك الفعلية مجرد تجهيز محتوى الشهر. وقتها قد يكون البدء بنطاق أصغر أكثر عقلانية.</p>
           <p><strong>لو تريد التنفيذ:</strong> راجع <Link href="/services/social-media-content">خدمة إدارة السوشيال ميديا وصناعة المحتوى</Link> للإدارة الأوسع، أو <Link href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> إذا كنت تريد بداية محددة المخرجات ومنخفضة الالتزام.</p>
 
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>مش متأكد تحتاج إدارة كاملة ولا محتوى فقط؟</h2><p>ابدأ بتحديد المشكلة: هل تحتاج من ينتج المحتوى، أم من يدير الحساب يوميًا، أم من يدير الإعلانات؟ لما نفصل النطاق، يصبح السعر والقرار أوضح.</p><div className="guide-lead-actions"><Link className="button primary" href="/offers/30-day-content-package">راجع باقة 30 يومًا <span>←</span></Link><Link className="button secondary" href="/services/social-media-content">قارن خدمة الإدارة</Link></div></section>
+          <section className="article-cta"><h2>مش متأكد تحتاج إدارة كاملة ولا محتوى فقط؟</h2><p>ابدأ بتحديد المشكلة: هل تحتاج من ينتج المحتوى، أم من يدير الحساب يوميًا، أم من يدير الإعلانات؟ لما نفصل النطاق، يصبح السعر والقرار أوضح.</p><div className="guide-lead-actions"><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل حسابك ونحدد النطاق <span>↗</span></a><Link className="button secondary" href="/offers/30-day-content-package">راجع باقة 30 يومًا <span>←</span></Link><Link className="button secondary" href="/services/social-media-content">قارن خدمة الإدارة</Link></div></section>
         </div>
-        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#choose">اختيار نوع الخدمة</a><a href="#ranges">نطاقات الأسعار</a><a href="#instagram-cost">تكلفة إدارة إنستقرام</a><a href="#content-cost">تكلفة صناعة المحتوى</a><a href="#included">مكونات الباقة</a><a href="#separate">الخدمات المنفصلة</a><a href="#drivers">عوامل التكلفة</a><a href="#compare">مقارنة الباقات</a><a href="#methodology">منهجية الأسعار</a><a href="#decision">قبل التعاقد</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/offers/30-day-content-package">ابدأ بباقة 30 يومًا</Link></aside>
+        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#choose">اختيار نوع الخدمة</a><a href="#ranges">نطاقات الأسعار</a><a href="#instagram-cost">تكلفة إدارة إنستقرام</a><a href="#content-cost">تكلفة صناعة المحتوى</a><a href="#included">مكونات الباقة</a><a href="#separate">الخدمات المنفصلة</a><a href="#drivers">عوامل التكلفة</a><a href="#compare">مقارنة الباقات</a><a href="#provider-compare">فريلانسر أم وكالة؟</a><a href="#methodology">منهجية الأسعار</a><a href="#right-package">اختيار النطاق</a><a href="#decision">قبل التعاقد</a><a href="#faq">الأسئلة الشائعة</a><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">اسأل عن حسابك</a></aside>
       </div>
     </article><Footer />
   </main>;
