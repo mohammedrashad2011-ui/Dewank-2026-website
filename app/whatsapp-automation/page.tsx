@@ -7,6 +7,7 @@ import ConnectedSystem from "../components/connected-system";
 import WhatsAppHeroDemo from "../components/whatsapp-hero-demo";
 import { WhatsAppStarterPrice } from "../offers/whatsapp-automation-starter/localized-whatsapp-starter";
 import "./whatsapp-automation.css";
+import "./whatsapp-automation-aeo-upgrade.css";
 
 const title = "أتمتة واتساب للشركات مع CRM في السعودية | ديوانك";
 const description = "خدمة أتمتة واتساب للشركات في السعودية والخليج: رد آلي، تأهيل العملاء، الحجز والمتابعة وربط WhatsApp مع CRM ونظام المبيعات.";
@@ -54,6 +55,7 @@ const useCases = [
 export default function WhatsAppAutomation() {
   const url = `${siteUrl}/whatsapp-automation`;
   const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد مناقشة نظام أتمتة واتساب لنشاطي. نوع النشاط: ");
+  const diagnosticHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد تحديد نظام واتساب المناسب. نوع النشاط: ___ | عدد الرسائل اليومية تقريبًا: ___ | هل يوجد CRM أو حجز حاليًا؟ ___");
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -86,6 +88,19 @@ export default function WhatsAppAutomation() {
         </div>
       </section>
 
+      <section className="shell wa-aeo-answer" aria-labelledby="wa-aeo-title">
+        <small>الإجابة السريعة</small>
+        <h2 id="wa-aeo-title">ماذا تفعل أتمتة واتساب للشركة؟</h2>
+        <p>تختصر الأعمال المتكررة حول المحادثة من أول رد حتى الخطوة التالية، مع إبقاء الموظف داخل الرحلة عندما يحتاج العميل قرارًا أو تفاوضًا أو حالة خاصة.</p>
+        <div className="wa-aeo-grid">
+          <article><b>الرد</b><span>إجابة الأسئلة المتكررة فورًا وبنبرة واضحة.</span></article>
+          <article><b>التأهيل</b><span>جمع الخدمة والاحتياج والبيانات قبل دخول الموظف.</span></article>
+          <article><b>الحجز</b><span>توجيه العميل إلى موعد أو إجراء محدد عند الحاجة.</span></article>
+          <article><b>CRM والمتابعة</b><span>حفظ الحالة والمصدر والخطوة التالية بدل ضياع المحادثة.</span></article>
+          <article><b>التحويل البشري</b><span>تسليم المحادثة للموظف عندما تصبح بحاجة لتدخل فعلي.</span></article>
+        </div>
+      </section>
+
       <section className="shell flow-section wa-flow-section">
         <span className="section-label">رحلة العميل</span>
         <h2>من أول «مرحبًا»<br/>إلى <mark>إجراء قابل للقياس.</mark></h2>
@@ -114,11 +129,35 @@ export default function WhatsAppAutomation() {
         </div>
       </section>
 
+      <section className="shell wa-crm-decision" aria-labelledby="wa-crm-decision-title">
+        <small>أتمتة فقط أم CRM؟</small>
+        <h2 id="wa-crm-decision-title">ابدأ بالمشكلة، وليس باسم الأداة.</h2>
+        <p>لو الهدف فقط الرد السريع وجمع البيانات وتحويل المحادثة، قد يكفي نطاق Starter. لو عندك فريق ومراحل بيع وحجوزات ومتابعات متكررة، فالـCRM يصبح جزءًا من الحل وليس إضافة تجميلية.</p>
+        <div className="wa-crm-grid">
+          <article><h3>Automation فقط</h3><p>أنسب عندما تحتاج ردودًا وتأهيلًا وتسليمًا للموظف بدون إدارة مراحل معقدة أو سجل متابعة موسع.</p></article>
+          <article><h3>Automation + CRM</h3><p>أنسب عندما تحتاج حفظ حالة العميل، توزيع الفرص، الحجز، التذكير، المتابعة والتقارير عبر رحلة أطول.</p></article>
+        </div>
+        <div className="wa-cost-note"><strong>عن التكلفة:</strong> افصل بين تكلفة التأسيس، أي رسوم تشغيل للأدوات أو القنوات، وتكلفة التكاملات مثل CRM أو الحجز. السعر النهائي يتغير حسب عدد المسارات والتكاملات وحجم التشغيل.</div>
+      </section>
+
       <section className="method-section wa-method">
         <div className="shell method-layout">
           <div className="method-intro"><span className="section-label">طريقة التنفيذ</span><h2>لا نبدأ بالبوت.<br/><em>نبدأ برحلة العميل.</em></h2><p>نراجع المحادثات الحالية، ونحدد أين يتكرر الشغل وأين يضيع العميل، ثم نبني المسار الأقل تعقيدًا الذي يحل المشكلة.</p></div>
           <div className="method-list"><div><span>01</span><h3>نحلل المحادثات</h3><p>الأسئلة المتكررة، نقاط التعطّل، ونوايا العملاء الأساسية.</p></div><div><span>02</span><h3>نصمم المسارات</h3><p>الرد، التأهيل، الحجز، المتابعة والتحويل للموظف.</p></div><div><span>03</span><h3>نربط ونختبر</h3><p>واتساب وCRM والحجز والإشعارات حسب النطاق.</p></div><div><span>04</span><h3>نحسن</h3><p>تطوير الردود والقواعد على أساس المحادثات الحقيقية.</p></div></div>
         </div>
+      </section>
+
+      <section className="shell wa-readiness" aria-labelledby="wa-readiness-title">
+        <small>متى تكون الأتمتة مفيدة فعلًا؟</small>
+        <h2 id="wa-readiness-title">لو المشكلة تتكرر يوميًا، غالبًا تستحق الأتمتة.</h2>
+        <p>الأتمتة تكون أكثر قيمة عندما تحذف تكرارًا واضحًا أو تمنع فرصة بيع من الضياع، وليس فقط لأنها تقنية جديدة.</p>
+        <div className="wa-readiness-grid">
+          <article><b>الرد بطيء</b><p>العميل ينتظر، أو السؤال نفسه يتكرر عشرات المرات.</p></article>
+          <article><b>المتابعة تضيع</b><p>لا يوجد تذكير واضح بمن يجب متابعته ومتى.</p></article>
+          <article><b>العميل يصل ناقص البيانات</b><p>الموظف يبدأ كل محادثة من الصفر بدل استلام Lead مؤهل.</p></article>
+          <article><b>الفريق يعمل يدويًا أكثر من اللازم</b><p>الحجز والتأكيد والتذكير وتحديث الحالة كلها خطوات متكررة.</p></article>
+        </div>
+        <div className="wa-diagnostic-cta"><p><strong>مش عارف تبدأ منين؟</strong><br/>أرسل نوع النشاط وعدد الرسائل اليومية وهل عندك CRM أو حجز حاليًا، ونحدد لك أقل نظام مناسب للمشكلة.</p><a className="button primary" href={diagnosticHref} target="_blank" rel="noopener noreferrer">حدد النظام المناسب <span>↗</span></a></div>
       </section>
 
       <section className="shell wa-usecases">
