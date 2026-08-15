@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import "./sitewide-whatsapp-bridge.css";
 
 const whatsappNumber = "97339066649";
 const SESSION_KEY = "dewank-whatsapp-intent-clicked";
