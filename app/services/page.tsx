@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { createMetadata } from "../lib/seo";
+import { createMetadata, organizationId, siteUrl } from "../lib/seo";
 import { Footer, Header, PageHero } from "../components/site-shell";
 import AiWorkflowVisual from "./ai-workflow-visual";
 import "./ai-control-room.css";
 import "./services-overview.css";
 import "./services-conversion-hub.css";
+import "./services-aeo-upgrade.css";
 
 export const metadata: Metadata = createMetadata({
   title: "خدمات التسويق الرقمي للشركات في السعودية | ديوانك",
@@ -73,15 +74,41 @@ export default function ServicesPage() {
   const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد تحديد الخدمة الأنسب لنشاطي. النشاط: ");
   const schema = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "خدمات ديوانك",
-    itemListElement: services.map((service, index) => ({ "@type": "ListItem", position: index + 1, name: `${service.title} ${service.hook}`, url: `https://dewank.com${service.href}` })),
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${siteUrl}/services#webpage`,
+        url: `${siteUrl}/services`,
+        name: "خدمات ديوانك",
+        about: { "@id": organizationId },
+        mainEntity: { "@id": `${siteUrl}/services#catalog` },
+      },
+      {
+        "@type": "OfferCatalog",
+        "@id": `${siteUrl}/services#catalog`,
+        name: "خدمات ديوانك للتسويق والنمو والأتمتة",
+        itemListElement: services.slice(0, 11).map((service) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: `${service.title} ${service.hook}`,
+            url: `${siteUrl}${service.href}`,
+            provider: { "@id": organizationId },
+          },
+        })),
+      },
+      {
+        "@type": "ItemList",
+        name: "كل خدمات ديوانك",
+        itemListElement: services.map((service, index) => ({ "@type": "ListItem", position: index + 1, name: `${service.title} ${service.hook}`, url: `${siteUrl}${service.href}` })),
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+      },
+    ],
   };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
-  };
+
   const renderCard = (service: Service) => (
     <article className={`service-detail ${service.tone}`} key={service.no}>
       <div className="detail-top"><span>{service.no}</span><small>{service.en}</small></div>
@@ -95,12 +122,30 @@ export default function ServicesPage() {
     <main className="inner-page services-page services-page-refined services-conversion-hub">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <PageHero eyebrow="خدمات ديوانك" title={<>لا تبدأ من اسم الخدمة.<br/><em>ابدأ من النتيجة التي تحتاجها.</em></>} text="إعلانات، مواقع، محتوى، براند وأتمتة تعمل كمنظومة واحدة. اختر نقطة الاختناق الحالية، وخذ أقصر طريق للخدمة المناسبة." />
+
+      <section className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
+        <small>الإجابة السريعة</small>
+        <h2 id="services-aeo-title">ماذا تقدم ديوانك للشركات؟</h2>
+        <p>ديوانك تجمع التسويق والويب والقياس والأتمتة في منظومة واحدة، لكن نقطة البداية تتحدد حسب المشكلة التي تمنع النمو الآن.</p>
+        <div className="services-aeo-grid">
+          <article><b>جذب العملاء</b><span>Google Ads وMeta Ads عندما تحتاج طلبًا أو Leads قابلة للقياس.</span></article>
+          <article><b>تحويل الزيارات</b><span>مواقع وصفحات هبوط وCRO عندما يدخل الزائر ولا يتخذ خطوة.</span></article>
+          <article><b>المحتوى والحضور</b><span>استراتيجية ومحتوى وتصميم عندما يكون الظهور غير منتظم أو غير مقنع.</span></article>
+          <article><b>العلامة</b><span>تموضع وهوية وتسمية عندما يحتاج المشروع وضوحًا واتساقًا أكبر.</span></article>
+          <article><b>الأتمتة والمتابعة</b><span>WhatsApp وCRM وAI عندما يتأخر الرد أو تضيع المتابعة والعملاء.</span></article>
+        </div>
+      </section>
 
       <section className="shell primary-service-paths" aria-labelledby="primary-paths-title">
         <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">أربع بوابات لمعظم مشاكل النمو.</h2><p>بدل استعراض قائمة طويلة، ابدأ بالنتيجة الأقرب لما تريد إصلاحه الآن.</p></div>
         <div className="primary-path-grid">{primaryPaths.map((path,index)=><Link href={path.href} className="primary-path-card" key={path.href}><small>0{index+1} · {path.label}</small><h3>{path.title}</h3><p>{path.text}</p><span>{path.cta} ↗</span></Link>)}</div>
+        <p className="services-decision-note">قاعدة سريعة: تحتاج Leads؟ ابدأ بالإعلانات. الزيارات لا تتحول؟ ابدأ بالموقع. الرد والمتابعة يضيعان؟ ابدأ بواتساب وCRM. الحضور نفسه غير واضح؟ ابدأ بالمحتوى أو البراند.</p>
+      </section>
+
+      <section className="shell services-mid-cta" aria-label="تحديد الخدمة المناسبة">
+        <div><small>غير متأكد من نقطة البداية؟</small><h2>أرسل النشاط والمشكلة فقط.</h2><p>نحدد لك أقرب مسار عملي بدل ما تبدأ بخدمة أكبر أو أعقد من احتياجك الحالي.</p></div>
+        <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">حدد الخدمة على واتساب <span>↗</span></a>
       </section>
 
       <nav className="shell service-jump-nav" aria-label="كل مسارات الخدمات"><span>كل المسارات:</span><a href="#brand-services">العلامة</a><a href="#growth-services">المحتوى والنمو</a><a href="#web-services">الويب والقياس</a><a href="#automation-services">الأتمتة والذكاء</a></nav>
