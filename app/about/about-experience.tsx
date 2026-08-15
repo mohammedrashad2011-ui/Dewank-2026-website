@@ -16,7 +16,7 @@ export default function AboutExperience() {
   return (
     <section className="about-system shell" aria-labelledby="about-system-title">
       <div className="about-system-copy">
-        <span className="section-label">[ منظومة واحدة ]</span>
+        <span className="section-label">منظومة واحدة</span>
         <h2 id="about-system-title">النمو لا يتعطل بسبب نقص خدمة.<br/><em>بل بسبب أن الخدمات لا تتحدث معًا.</em></h2>
         <p>اختر كل جزء لترى كيف نربطه بالجزء التالي داخل رحلة واحدة.</p>
       </div>
