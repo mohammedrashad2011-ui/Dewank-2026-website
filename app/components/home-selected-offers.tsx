@@ -42,19 +42,30 @@ export default function HomeSelectedOffers() {
     const savedCountry = window.localStorage.getItem(countryStorageKey)?.toUpperCase();
     if (savedCountry) setCountry(savedCountry);
 
-    const countryController = new AbortController();
-    fetch("https://api.country.is/", { cache: "no-store", signal: countryController.signal })
-      .then((response) => {
-        if (!response.ok) throw new Error("Country lookup failed");
-        return response.json() as Promise<{ country?: string }>;
-      })
-      .then((data) => {
-        const next = data.country?.toUpperCase();
-        if (!next || cancelled) return;
-        window.localStorage.setItem(countryStorageKey, next);
-        setCountry(next);
-      })
-      .catch(() => {});
+    let countryTimer: number | null = null;
+    let countryController: AbortController | null = null;
+
+    // Country pricing is below the fold on the homepage, so do not put the
+    // third-party lookup on the initial mobile critical path. Returning visitors
+    // use the saved country immediately and do not need another network request.
+    if (!savedCountry) {
+      countryTimer = window.setTimeout(() => {
+        if (cancelled) return;
+        countryController = new AbortController();
+        fetch("https://api.country.is/", { cache: "no-store", signal: countryController.signal })
+          .then((response) => {
+            if (!response.ok) throw new Error("Country lookup failed");
+            return response.json() as Promise<{ country?: string }>;
+          })
+          .then((data) => {
+            const next = data.country?.toUpperCase();
+            if (!next || cancelled) return;
+            window.localStorage.setItem(countryStorageKey, next);
+            setCountry(next);
+          })
+          .catch(() => {});
+      }, 6500);
+    }
 
     const loadRanking = () => {
       fetch("/api/offer-popularity", { cache: "force-cache" })
@@ -81,7 +92,8 @@ export default function HomeSelectedOffers() {
 
     return () => {
       cancelled = true;
-      countryController.abort();
+      if (countryTimer !== null) window.clearTimeout(countryTimer);
+      countryController?.abort();
       if (idleId !== null) win.cancelIdleCallback?.(idleId);
       if (timer !== null) window.clearTimeout(timer);
     };
