@@ -6,6 +6,7 @@ import { GoogleAdsLaunchPrice } from "../offers/google-ads-launch/localized-goog
 import "./paid-ads-page.css";
 import "./paid-ads-cluster.css";
 import "./paid-ads-refinement.css";
+import "./paid-ads-aeo-upgrade.css";
 
 export const metadata: Metadata = createMetadata({
   title: "إدارة Google Ads في السعودية | تحسين الحملات والتحويل | ديوانك",
@@ -101,11 +102,31 @@ export default function PaidAdsPage() {
         </div>
       </section>
 
+      <section className="pa-answer-block shell" aria-labelledby="pa-answer-title">
+        <small>الإجابة السريعة</small>
+        <h2 id="pa-answer-title">ماذا تشمل إدارة Google Ads؟ ومتى يكفي الإطلاق فقط؟</h2>
+        <p>الإطلاق يناسبك عندما تحتاج حملة Search واحدة بتأسيس منظم. أما الإدارة الشهرية فتناسب الحسابات التي تحتاج اختبارًا مستمرًا للكلمات والإعلانات والصفحات والميزانية والتتبع وتحسين جودة العملاء.</p>
+        <div className="pa-answer-grid">
+          <article><b>إطلاق فقط</b><span>بحث كلمات، بناء حملة Search، إعلانات، كلمات سلبية وتتبع أساسي، ثم تسليم نطاق واضح.</span></article>
+          <article><b>إدارة شهرية</b><span>مراجعة مستمرة للبحث والإعلانات والميزانية والتحويلات، مع إيقاف الضعيف وتوسيع ما يثبت فعاليته.</span></article>
+        </div>
+      </section>
+
       <section className="pa-truth"><div className="shell pa-truth-grid"><div><span className="pa-label">[ الفكرة الأساسية ]</span><h2>الإعلان ليس حملة منفصلة.<br/><em>إنه جزء من منظومة البيع.</em></h2></div><div><p>عندما يكون العرض ضعيفًا أو التتبع ناقصًا أو صفحة الوصول مربكة، تصبح الزيادة في الإنفاق مجرد زيادة في الهدر.</p><p>لذلك نربط القناة بالرسالة والجمهور والتحويل والمتابعة حتى نعرف ما الذي يعمل ولماذا.</p></div></div></section>
 
-      <section className="pa-channels shell"><div className="pa-section-head"><div><span className="pa-label">[ اختيار القناة ]</span><h2>Google يلتقط الطلب.<br/><em>Meta يصنع الاهتمام.</em></h2></div><p>لا نختار المنصة لأنها الأكثر انتشارًا، بل لأنها تناسب نية العميل ومرحلة القرار.</p></div><div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
+      <section className="pa-channels shell"><div className="pa-section-head"><div><span className="pa-label">[ اختيار القناة ]</span><h2>Google يلتقط الطلب.<br/><em>Meta يصنع الاهتمام.</em></h2></div><p>إذا كان العميل يبحث الآن عن الخدمة أو المنتج، يميل Google لأن يكون البداية المنطقية. وإذا كنت تحتاج خلق اهتمام أو اختبار زوايا ورسائل أو إعادة استهداف، قد تكون Meta أنسب. القرار يعتمد على نية العميل، لا شهرة المنصة.</p></div><div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
 
       <section className="pa-scope"><div className="shell"><div className="pa-section-head"><div><span className="pa-label">[ نطاق الإدارة ]</span><h2>حملات تخدم الهدف.<br/><em>لا قائمة منصات.</em></h2></div><p>نحدد المزيج حسب البيانات والميزانية والسوق، ونبني الاختبارات بالتدريج.</p></div><div className="pa-scope-grid">{scope.map((item, index) => <article key={item[0]}><b>{String(index + 1).padStart(2,"0")}</b><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></div></section>
+
+      <section className="pa-cost-breakdown shell" aria-labelledby="pa-cost-title">
+        <div className="pa-section-head"><div><span className="pa-label">[ أين تذهب التكلفة؟ ]</span><h2 id="pa-cost-title">ميزانية الإعلان ليست هي أتعاب الإدارة.</h2></div><p>افصل البنود قبل المقارنة حتى تعرف ماذا تدفع للمنصة، وماذا تدفع للتأسيس والإدارة والتحويل.</p></div>
+        <div className="pa-cost-breakdown-grid">
+          <article><small>01</small><h3>ميزانية Google</h3><p>المبلغ المدفوع مباشرة للمنصة مقابل النقرات والظهور.</p></article>
+          <article><small>02</small><h3>التأسيس أو الإدارة</h3><p>بناء الحملات أو تحسينها ومتابعة الكلمات والإعلانات والميزانية.</p></article>
+          <article><small>03</small><h3>صفحة الهبوط</h3><p>تُضاف عند الحاجة إذا كانت الصفحة الحالية لا تدعم التحويل بشكل جيد.</p></article>
+          <article><small>04</small><h3>التتبع والقياس</h3><p>GA4 والتحويلات والأحداث المطلوبة لربط الإنفاق بالنتيجة الفعلية.</p></article>
+        </div>
+      </section>
 
       <section className="pa-conversion-bridge shell"><div><span className="pa-label">[ قبل زيادة الميزانية ]</span><h2>الإعلان يوصل الزيارة.<br/><em>الصفحة والتتبع يحسموا النتيجة.</em></h2><p>لو Search Terms كويسة والإعلان بيجيب نقرات لكن التحويل ضعيف، المشكلة غالبًا بعد النقرة. لذلك نراجع صفحة الهبوط، سرعة القرار، CTA والتتبع قبل ما نطلب من المنصة ميزانية أكبر.</p></div><div className="pa-conversion-links"><Link href="/offers/landing-page-package">راجع باقة صفحة الهبوط <span>↗</span></Link><Link href="/website-design">راجع تصميم المواقع <span>↗</span></Link></div></section>
 
@@ -116,6 +137,19 @@ export default function PaidAdsPage() {
       <section className="pa-deliverables shell"><div className="pa-section-head"><div><span className="pa-label">[ ما الذي تستلمه ]</span><h2>إدارة كاملة.<br/><em>ورؤية أوضح.</em></h2></div><p>تعرف أين تذهب الميزانية، وما الذي يتم اختباره، وما القرار التالي.</p></div><div className="pa-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2,"0")}</b><p>{item}</p></div>)}</div></section>
 
       <section className="pa-fit"><div className="shell pa-fit-grid"><div><span className="pa-label">[ لمن تناسب الخدمة ]</span><h2>عندما تصبح الإعلانات<br/><em>استثمارًا يحتاج إدارة.</em></h2></div><div>{fitFor.map((item) => <p key={item}>{item}</p>)}</div></div></section>
+
+      <section className="pa-readiness shell" aria-labelledby="pa-readiness-title">
+        <small>هل حملتك جاهزة للتوسع؟</small>
+        <h2 id="pa-readiness-title">لا تزود الميزانية قبل ما تتأكد من الأربع نقاط دي.</h2>
+        <p>لو واحدة منها مكسورة، زيادة الإنفاق قد تكبر المشكلة بدل ما تكبر النتيجة.</p>
+        <div className="pa-readiness-grid">
+          <article><b>Search Terms</b><span>هل النقرات جاية من نية شراء حقيقية أم بحث غير مناسب؟</span></article>
+          <article><b>Tracking</b><span>هل التحويلات والحجوزات والطلبات مسجلة بشكل صحيح؟</span></article>
+          <article><b>Landing Page</b><span>هل الصفحة سريعة وواضحة وتوصل العميل لخطوة واحدة؟</span></article>
+          <article><b>Lead Quality</b><span>هل العملاء الناتجون مناسبون فعلًا أم مجرد استفسارات ضعيفة؟</span></article>
+        </div>
+        <div className="pa-readiness-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل حسابك ونراجع نقطة التعطّل <span>↗</span></a><Link className="button secondary" href="/guides/google-ads-clicks-no-leads">اقرأ دليل النقرات بلا عملاء</Link></div>
+      </section>
 
       <section className="pa-cluster shell" aria-labelledby="pa-cluster-title">
         <div className="pa-cluster-head"><div><span className="pa-label">[ قبل تشغيل الميزانية ]</span><h2 id="pa-cluster-title">افهم تكلفة Google Ads.<em>ثم اختر بين الإطلاق والإدارة.</em></h2></div><p>إذا كنت ما زلت تحدد الميزانية، ابدأ بدليل التكلفة. وإذا كنت تحتاج حملة Search واحدة فقط فابدأ بباقة الإطلاق، أما الحسابات التي تحتاج تحسينًا مستمرًا فهذه صفحة الإدارة المناسبة لها.</p></div>
