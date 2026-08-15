@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import "./instagram-follow-card.css";
 
 const STORAGE_KEY = "dewank-instagram-guides-popup-dismissed-v1";
 const DISMISS_FOR_MS = 7 * 24 * 60 * 60 * 1000;

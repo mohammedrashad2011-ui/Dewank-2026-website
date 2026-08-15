@@ -1,3 +1,5 @@
+import "../home-hierarchy-refinement.css";
+
 const services = [
   { name: "استراتيجية البراند", href: "/branding", position: "s1" },
   { name: "الهوية البصرية", href: "/branding", position: "s2" },

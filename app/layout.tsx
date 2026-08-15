@@ -4,7 +4,6 @@ import Script from "next/script";
 import "./globals.css";
 import "./service-pages-fix.css";
 import "./mobile-refinement.css";
-import "./sitewide-whatsapp-cro.css";
 import "./desktop-cleanup.css";
 import "./home-final-cta-label-fix.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
