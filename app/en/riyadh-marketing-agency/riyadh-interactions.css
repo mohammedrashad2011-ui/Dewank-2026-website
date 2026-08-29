@@ -1,0 +1,38 @@
+.riyadh-en{--re-progress:0%;--re-glow-x:50%;--re-glow-y:50%}
+
+/* Keep the official logo untouched, without a boxed background treatment. */
+.riyadh-en .re-brand-lockup{background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;line-height:0!important;box-shadow:none!important}
+.riyadh-en .re-brand-lockup img{display:block;height:44px;width:auto;max-width:172px;object-fit:contain}
+
+.re-scroll-progress{position:fixed;left:0;top:0;width:var(--re-progress);height:2px;background:var(--re-accent);z-index:90;pointer-events:none;box-shadow:0 0 18px rgba(215,255,69,.45);transition:width .08s linear}
+
+.re-nav nav a{transition:color .2s ease;position:relative}
+.re-nav nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-9px;height:2px;background:var(--re-accent);transition:right .25s ease}
+.re-nav nav a:hover:after,.re-nav nav a.is-active:after{right:0}
+.re-nav nav a.is-active{color:var(--re-text)}
+
+.re-button,.re-nav-cta{transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.re-button:hover,.re-nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(215,255,69,.16)}
+
+.re-board{--re-tilt-x:0deg;--re-tilt-y:0deg;position:relative;overflow:hidden;transform:perspective(1100px) rotateX(var(--re-tilt-x)) rotateY(var(--re-tilt-y));transform-style:preserve-3d;transition:transform .18s ease-out,border-color .25s ease}
+.re-board:before{content:"";position:absolute;inset:-1px;pointer-events:none;background:radial-gradient(460px circle at var(--re-glow-x) var(--re-glow-y),rgba(215,255,69,.13),transparent 48%);opacity:.9}
+.re-board>*{position:relative;z-index:1}
+.re-board:hover{border-color:rgba(215,255,69,.34)}
+
+.re-service-card,.re-process-grid article{position:relative;overflow:hidden;isolation:isolate}
+.re-service-card:before,.re-process-grid article:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(260px circle at var(--re-mx,50%) var(--re-my,50%),rgba(215,255,69,.09),transparent 62%);opacity:0;transition:opacity .25s ease}
+.re-service-card:hover:before,.re-process-grid article:hover:before{opacity:1}
+.re-service-card b{transition:transform .22s ease,color .22s ease}
+.re-service-card:hover b{transform:translateX(5px);color:var(--re-accent)}
+.re-process-grid article{transition:transform .22s ease,border-color .22s ease}
+.re-process-grid article:hover{transform:translateY(-4px);border-color:rgba(215,255,69,.32)}
+
+.re-faq summary span{transition:transform .2s ease}
+.re-faq details[open] summary span{transform:rotate(45deg)}
+
+.re-reveal{opacity:0;transform:translateY(22px) scale(.992);filter:blur(3px);transition:opacity .62s ease var(--re-delay,0ms),transform .62s cubic-bezier(.2,.75,.2,1) var(--re-delay,0ms),filter .62s ease var(--re-delay,0ms)}
+.re-reveal.is-visible{opacity:1;transform:none;filter:none}
+
+@media(max-width:980px){.re-board{transform:none!important}.re-reveal{transform:translateY(14px)}}
+@media(max-width:640px){.riyadh-en .re-brand-lockup img{height:36px;max-width:148px}.re-scroll-progress{height:2px}}
+@media(prefers-reduced-motion:reduce){.riyadh-en *{scroll-behavior:auto!important}.re-scroll-progress{transition:none}.re-reveal{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}.re-board,.re-service-card,.re-process-grid article,.re-button,.re-nav-cta{transition:none!important;transform:none!important}}

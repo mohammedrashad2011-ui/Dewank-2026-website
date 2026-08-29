@@ -139,6 +139,7 @@ export default function ServicesPage() {
           <article><b>العلامة</b><span>تموضع وهوية وتسمية عندما يحتاج المشروع وضوحًا واتساقًا أكبر.</span></article>
           <article><b>الأتمتة والمتابعة</b><span>WhatsApp وCRM وAI عندما يتأخر الرد أو تضيع المتابعة والعملاء.</span></article>
         </div>
+        <p className="services-decision-note">تبحث عن شريك تسويق باللغة الإنجليزية في الرياض؟ <Link href="/en/riyadh-marketing-agency">Marketing Agency Riyadh ↗</Link></p>
       </section>
 
       <section className="shell primary-service-paths" aria-labelledby="primary-paths-title">
