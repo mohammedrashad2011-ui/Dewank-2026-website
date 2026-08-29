@@ -13,6 +13,18 @@ export const metadata: Metadata = createMetadata({
 
 const guides = [
   {
+    category: "MARKETING PLAN · TEMPLATE",
+    title: "نموذج خطة تسويقية جاهزة للشركات: الخطوات والمكونات",
+    description: "نموذج عملي يحوّل الهدف والجمهور والرسالة والقنوات والميزانية إلى خطة تنفيذ وقياس واضحة.",
+    href: "/guides/marketing-plan-template",
+  },
+  {
+    category: "MARKETING KPIS · MEASUREMENT",
+    title: "مؤشرات الأداء في التسويق: أهم KPIs للشركات",
+    description: "دليل لاختيار مؤشرات تربط التسويق بالفرص والمبيعات والعائد، مع معادلات وأمثلة وأسئلة مراجعة.",
+    href: "/guides/marketing-kpis",
+  },
+  {
     category: "GOOGLE ADS · CONVERSION",
     title: "لماذا Google Ads تجلب زيارات ولا تجلب عملاء؟",
     description: "تشخيص رحلة الإعلان من Search Terms والإعلان إلى صفحة الهبوط والتتبع وجودة الاستفسارات والمتابعة.",

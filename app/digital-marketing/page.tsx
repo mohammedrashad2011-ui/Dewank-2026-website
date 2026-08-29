@@ -6,11 +6,14 @@ import "./digital-marketing-page.css";
 import "./digital-marketing-guides.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "التسويق الرقمي وصناعة المحتوى في السعودية | ديوانك",
+  title: "التسويق الإلكتروني واستراتيجية التسويق الرقمي | ديوانك",
   description:
-    "استراتيجية تسويق رقمي وصناعة محتوى للشركات في السعودية والخليج تربط الرسالة بالقنوات ورحلة العميل والقياس لتحويل الانتباه إلى طلب.",
+    "استراتيجية وخطة تسويق إلكتروني للشركات في السعودية والخليج تربط الهدف والجمهور والرسالة والقنوات والمحتوى والقياس لتحويل الانتباه إلى طلب.",
   path: "/digital-marketing",
   keywords: [
+    "التسويق الإلكتروني",
+    "استراتيجية التسويق",
+    "خطة تسويقية",
     "التسويق الرقمي في السعودية",
     "صناعة المحتوى للشركات",
     "استراتيجية محتوى",
@@ -67,6 +70,16 @@ const fitFor = [
 ];
 
 const guideLinks = [
+  {
+    href: "/guides/marketing-plan-template",
+    title: "نموذج خطة تسويقية جاهزة للشركات",
+    text: "حوّل الهدف والجمهور والرسالة والقنوات والميزانية إلى خطة تنفيذ وقياس واضحة.",
+  },
+  {
+    href: "/guides/marketing-kpis",
+    title: "مؤشرات الأداء في التسويق: أهم KPIs للشركات",
+    text: "اختر مؤشرات تربط نشاط التسويق بالفرص والمبيعات والعائد بدل التوقف عند الوصول والنقرات.",
+  },
   {
     href: "/guides/social-media-not-generating-leads",
     title: "حسابك جميل لكنه لا يجلب عملاء: أين المشكلة؟",
@@ -168,8 +181,8 @@ export default function DigitalMarketingPage() {
       <section className="dm-hero shell">
         <div className="dm-hero-copy">
           <div className="dm-kicker"><span>DIGITAL MARKETING</span><span>CONTENT SYSTEMS</span></div>
-          <h1>محتوى لا يملأ الجدول.<br/><em>بل يحرّك العميل نحو القرار.</em></h1>
-          <p>نبني استراتيجية تسويق رقمي وصناعة محتوى تربط أهداف النشاط، سلوك الجمهور، الرسالة، القنوات، ورحلة التحويل في نظام واحد قابل للقياس.</p>
+          <h1>استراتيجية تسويق إلكتروني<br/><em>تحرّك العميل نحو القرار.</em></h1>
+          <p>نبني استراتيجية وخطة تسويقية تربط أهداف النشاط، سلوك الجمهور، الرسالة، المحتوى، القنوات ورحلة التحويل في نظام واحد قابل للتنفيذ والقياس.</p>
           <div className="dm-actions">
             <Link className="button primary" href="/contact">ناقش استراتيجية التسويق <span>←</span></Link>
             <a className="dm-text-link" href="#dm-method">استعرض طريقة العمل <span>↓</span></a>

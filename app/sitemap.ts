@@ -39,6 +39,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Growth guides hub and articles
     { path: "/guides", priority: 0.8, changeFrequency: "weekly" as const },
+    { path: "/guides/marketing-plan-template", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/guides/marketing-kpis", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/guides/google-ads-cost-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/google-ads-vs-meta-ads", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/google-ads-clicks-no-leads", priority: 0.75, changeFrequency: "monthly" as const },
