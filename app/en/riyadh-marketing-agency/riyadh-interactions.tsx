@@ -5,6 +5,7 @@ import { useEffect } from "react";
 export default function RiyadhInteractions() {
   useEffect(() => {
     const root = document.querySelector<HTMLElement>(".riyadh-en");
+    const progressBar = document.querySelector<HTMLElement>(".re-scroll-progress");
     if (!root) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -44,7 +45,7 @@ export default function RiyadhInteractions() {
       frame = 0;
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-      root.style.setProperty("--re-progress", `${progress * 100}%`);
+      if (progressBar) progressBar.style.width = `${progress * 100}%`;
     };
     const onScroll = () => {
       if (frame) return;
