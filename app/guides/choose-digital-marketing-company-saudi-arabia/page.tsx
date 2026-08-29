@@ -5,13 +5,13 @@ import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../guides.css";
 
 const title = "كيف تختار شركة تسويق رقمي في السعودية؟";
-const description = "دليل عملي لاختيار شركة تسويق رقمي في السعودية: معايير التقييم، الأسئلة المهمة، إشارات الخطر، ومقارنة الوكالة بالمستقل والفريق الداخلي.";
+const description = "كيف تختار شركة تسويق في السعودية؟ دليل عملي لمعايير التقييم والأسئلة المهمة وإشارات الخطر ومقارنة الوكالة بالمستقل والفريق الداخلي.";
 
 export const metadata: Metadata = createMetadata({
   title: `${title} دليل التقييم قبل التعاقد | ديوانك`,
   description,
   path: "/guides/choose-digital-marketing-company-saudi-arabia",
-  keywords: ["شركة تسويق رقمي في السعودية", "أفضل شركة تسويق في السعودية", "اختيار وكالة تسويق", "شركات التسويق الإلكتروني", "وكالة تسويق رقمي", "التسويق الرقمي للشركات"],
+  keywords: ["كيف تختار شركة تسويق", "معايير اختيار وكالة تسويق", "أفضل شركة تسويق في السعودية", "اختيار وكالة تسويق", "تقييم شركة تسويق", "التسويق الرقمي للشركات"],
 });
 
 const faqs = [
@@ -34,7 +34,7 @@ const criteria = [
 export default function ChooseMarketingCompanyGuide() {
   const url = `${siteUrl}/guides/choose-digital-marketing-company-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-03", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["اختيار شركة تسويق رقمي", "التسويق الرقمي في السعودية", "تقييم وكالات التسويق"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-29", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["اختيار شركة تسويق رقمي", "التسويق الرقمي في السعودية", "تقييم وكالات التسويق"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -46,7 +46,7 @@ export default function ChooseMarketingCompanyGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>التسويق الرقمي</span></nav>
         <h1>{title}</h1>
         <p>لا تختَر الشركة من شكل حسابها أو عدد خدماتها. الاختيار الصحيح يبدأ من قدرتها على فهم المشكلة، ربط العمل بنتيجة تجارية، وحماية حساباتك وبياناتك بعقد واضح.</p>
-        <div className="article-meta"><span>آخر تحديث: 3 أغسطس 2026</span><span>وقت القراءة: 10 دقائق</span><span>التركيز: التقييم قبل التعاقد</span></div>
+        <div className="article-meta"><span>آخر تحديث: 29 أغسطس 2026</span><span>وقت القراءة: 10 دقائق</span><span>التركيز: التقييم قبل التعاقد</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -77,7 +77,7 @@ export default function ChooseMarketingCompanyGuide() {
           <h2 id="compare">كيف تقارن بين ثلاثة عروض؟</h2>
           <p>أنشئ جدولًا موحدًا للهدف والنطاق والفريق والقياس والمدة والملكية والسعر. أعطِ الوزن الأكبر للفهم والمنهج وجودة التنفيذ، ثم قارن السعر داخل النطاق نفسه. إذا كان موقعك جزءًا من الخطة، راجع أيضًا دليل <Link href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link> حتى لا تدفع للإعلانات قبل إصلاح التسرب.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تحتاج خطة قبل اختيار القنوات؟</h2><p>ديوانك يربط الاستراتيجية والمحتوى والإعلانات والموقع والأتمتة في مسار نمو واحد، مع نطاق وقياس واضحين قبل التنفيذ.</p><Link className="button primary" href="/digital-marketing">استعرض خدمة التسويق الرقمي <span>←</span></Link></section>
+          <section className="article-cta"><h2>تريد مقارنة الخدمات قبل التعاقد؟</h2><p>راجع صفحة <Link href="/services">خدمات شركة ديوانك للتسويق</Link> لتعرف أي مسار يخدم نقطة الاختناق الحالية، من الاستراتيجية والمحتوى إلى الإعلانات والموقع والأتمتة.</p><Link className="button primary" href="/services">استعرض خدمات شركة التسويق <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#before-search">تحديد الاحتياج</a><a href="#criteria">معايير الاختيار</a><a href="#questions">أسئلة قبل العقد</a><a href="#red-flags">إشارات الخطر</a><a href="#compare">مقارنة العروض</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">ناقش احتياجك</Link></aside>
       </div>
