@@ -1,0 +1,62 @@
+name: Apply commercial SEO page patches
+on:
+  push:
+    branches:
+      - preview/website-seo-commercial-keywords-aug30
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: "github.actor != 'github-actions[bot]'"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview/website-seo-commercial-keywords-aug30
+      - name: Patch website design and SEO service pages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace(path, old, new):
+              p = Path(path)
+              s = p.read_text()
+              if old not in s:
+                  raise SystemExit(f'Pattern not found in {path}: {old[:120]!r}')
+              p.write_text(s.replace(old, new, 1))
+
+          # Website Design page owns commercial company-intent keywords.
+          replace('app/website-design/page.tsx',
+          '  title: "تصميم مواقع للشركات في السعودية | SEO وCRO | ديوانك",\n  description:\n    "تصميم وتطوير مواقع للشركات في السعودية تجمع بين تجربة المستخدم والسرعة وSEO وCRO والتتبع، لتحويل الزيارات من البحث والإعلانات إلى استفسارات وفرص بيع.",',
+          '  title: "شركة تصميم مواقع في السعودية | تصميم مواقع للشركات | ديوانك",\n  description:\n    "ديوانك شركة تصميم مواقع في السعودية تقدم تصميم وتطوير مواقع الشركات وصفحات الهبوط مع UX وSEO وCRO والتتبع، لتحويل الزيارات من البحث والإعلانات إلى استفسارات وفرص بيع.",')
+          replace('app/website-design/page.tsx',
+          '    "تصميم مواقع في السعودية",\n    "تطوير مواقع للشركات",\n    "شركة تصميم مواقع",',
+          '    "شركة تصميم مواقع",\n    "شركة تصميم مواقع في السعودية",\n    "أفضل شركة تصميم مواقع",\n    "شركات تصميم مواقع الكترونية",\n    "تصميم مواقع في السعودية",\n    "تطوير مواقع للشركات",')
+          replace('app/website-design/page.tsx',
+          '        name: "خدمات تصميم وتطوير المواقع",\n        alternateName: "Website Design and Development Services",\n        description: "تصميم وتطوير مواقع وصفحات هبوط وتجارب رقمية سريعة ومتجاوبة للشركات في السعودية والخليج.",',
+          '        name: "شركة تصميم مواقع وخدمات تطوير المواقع في السعودية",\n        alternateName: "Website Design and Development Services",\n        description: "تصميم وتطوير مواقع الشركات وصفحات الهبوط وتجارب رقمية سريعة ومتجاوبة في السعودية والخليج، مع SEO وCRO وقياس التحويل.",')
+          replace('app/website-design/page.tsx',
+          '<p>نصمم ونطوّر مواقع للشركات في السعودية تربط الرسالة بالثقة والسرعة وSEO وCRO والتتبع، عشان الزيارة من Google أو الإعلانات تتحول إلى استفسار أو فرصة بيع أو حجز واضح.</p>',
+          '<p>كديوانك، شركة تصميم مواقع في السعودية، نصمم ونطوّر مواقع للشركات تربط الرسالة بالثقة والسرعة وSEO وCRO والتتبع، عشان الزيارة من Google أو الإعلانات تتحول إلى استفسار أو فرصة بيع أو حجز واضح.</p>')
+
+          # SEO/AEO page owns commercial SEO agency/service terms while keeping AEO differentiation.
+          replace('app/seo-aeo/page.tsx',
+          '  title: "تحسين SEO وAEO للمواقع في السعودية | ديوانك",\n  description: "تحسين ظهور المواقع في Google ومحركات الإجابة عبر Technical SEO وتهيئة المحتوى وSchema وبناء السلطة الموضوعية وتحسين التحويل للشركات في السعودية والخليج.",',
+          '  title: "شركة سيو في السعودية | خدمات SEO وAEO | ديوانك",\n  description: "ديوانك شركة سيو في السعودية تقدم خدمات SEO وAEO لتحسين الظهور في Google ومحركات الإجابة عبر Technical SEO والمحتوى وSchema والربط الداخلي والقياس والتحويل.",')
+          replace('app/seo-aeo/page.tsx',
+          '  keywords: ["تحسين SEO في السعودية", "خدمات SEO", "تحسين محركات البحث", "AEO", "تحسين الظهور في جوجل", "Technical SEO", "شركة SEO في السعودية", "Schema Markup"],',
+          '  keywords: ["شركة سيو", "شركة سيو في السعودية", "خدمات سيو", "خدمات SEO", "تحسين SEO في السعودية", "تحسين محركات البحث", "AEO", "تحسين الظهور في جوجل", "Technical SEO", "شركة SEO في السعودية", "Schema Markup"],')
+          replace('app/seo-aeo/page.tsx',
+          '{ "@type": "Service", "@id": `${siteUrl}/seo-aeo#service`, name: "خدمات تحسين SEO وAEO", alternateName: "SEO and Answer Engine Optimization Services", description: "تحسين ظهور المواقع في محركات البحث وأنظمة الإجابة عبر التحسين التقني والمحتوى والبيانات المنظمة.",',
+          '{ "@type": "Service", "@id": `${siteUrl}/seo-aeo#service`, name: "شركة سيو وخدمات SEO وAEO في السعودية", alternateName: "SEO and Answer Engine Optimization Services", description: "خدمات سيو وSEO وAEO لتحسين ظهور المواقع في محركات البحث وأنظمة الإجابة عبر التحسين التقني والمحتوى والبيانات المنظمة.",')
+          replace('app/seo-aeo/page.tsx',
+          '<section className="sa-hero shell"><div className="sa-hero-copy"><div className="sa-kicker"><span>SEO</span><span>AEO</span><span>SEARCH SYSTEMS</span></div><h1>لا نطارد ترتيبًا فقط.<br/><em>نبني حضورًا يُفهم ويُختار.</em></h1><p>نحسّن موقعك ليظهر في Google ويصبح أوضح لمحركات الإجابة والذكاء الاصطناعي، عبر بنية تقنية قوية، محتوى منظم، Schema، وربط بين الظهور والتحويل.</p>',
+          '<section className="sa-hero shell"><div className="sa-hero-copy"><div className="sa-kicker"><span>SEO</span><span>AEO</span><span>SEARCH SYSTEMS</span></div><h1>لا نطارد ترتيبًا فقط.<br/><em>نبني حضورًا يُفهم ويُختار.</em></h1><p>كديوانك، شركة سيو في السعودية، نحسّن موقعك ليظهر في Google ويصبح أوضح لمحركات الإجابة والذكاء الاصطناعي، عبر Technical SEO ومحتوى منظم وSchema وربط داخلي وقياس يربط الظهور بالتحويل.</p>')
+
+          # Validate only intended files changed before committing.
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/website-design/page.tsx app/seo-aeo/page.tsx
+          git commit -m "seo(preview): strengthen commercial website and SEO keywords"
+          git push
