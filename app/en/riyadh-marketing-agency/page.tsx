@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     canonical,
     languages: {
       en: canonical,
-      ar: `${siteUrl}/services`,
       "x-default": canonical,
     },
   },
@@ -103,7 +102,7 @@ const process = [
 const faqs = [
   {
     q: "Are you a marketing agency in Riyadh?",
-    a: "Dewank serves companies in Riyadh and across Saudi Arabia through a remote-first delivery model. We do not present a physical Riyadh office unless one is established; projects are managed through clear milestones, calls and digital collaboration.",
+    a: "Dewank works with businesses in Riyadh and across Saudi Arabia through a remote-first delivery model, with structured calls, clear milestones and digital collaboration from kickoff through delivery.",
   },
   {
     q: "Do you work in both Arabic and English?",
@@ -179,7 +178,7 @@ export default function RiyadhMarketingAgencyPage() {
 
       <header className="re-header">
         <div className="re-shell re-nav">
-          <Link className="re-brand" href="/" aria-label="Dewank home"><span aria-hidden="true" />DEWANK</Link>
+          <Link className="re-brand re-brand-lockup" href="/" aria-label="Dewank home"><img src="/dewank-logo.png" alt="Dewank" /></Link>
           <nav aria-label="English page navigation">
             <a href="#services">Services</a>
             <a href="#fit">When we fit</a>
@@ -199,7 +198,7 @@ export default function RiyadhMarketingAgencyPage() {
             <a className="re-button" href={whatsappHref} target="_blank" rel="noopener noreferrer">Talk about your growth goal <span>↗</span></a>
             <a className="re-text-link" href="#services">Explore capabilities</a>
           </div>
-          <p className="re-location-note">Serving Riyadh and Saudi Arabia through a remote-first delivery model. No false local-office claims.</p>
+          <p className="re-location-note">Serving businesses in Riyadh and across Saudi Arabia through a remote-first delivery model.</p>
         </div>
         <div className="re-board" aria-label="Dewank connected growth system">
           <div className="re-board-head"><span>GROWTH SYSTEM</span><b>01 / 04</b></div>
@@ -228,7 +227,7 @@ export default function RiyadhMarketingAgencyPage() {
         <div className="re-service-grid">
           {capabilities.map((service) => (
             <Link href={service.href} className="re-service-card" key={service.no}>
-              <span>{service.no}</span><h3>{service.title}</h3><p>{service.text}</p><b>Explore capability ↗</b>
+              <span>{service.no}</span><h3>{service.title}</h3><p>{service.text}</p><b>View service details <small>(Arabic page)</small> ↗</b>
             </Link>
           ))}
         </div>
@@ -242,8 +241,8 @@ export default function RiyadhMarketingAgencyPage() {
       </section>
 
       <section className="re-saudi re-shell">
-        <div><span className="re-label">RIYADH / SAUDI ARABIA</span><h2>Built for the market.<br/><em>Without pretending proximity is strategy.</em></h2></div>
-        <div><p>Dewank supports Saudi businesses with Arabic and English customer journeys, local-market messaging, performance acquisition, conversion pages and follow-up systems.</p><p>For Riyadh searches, this page is intentionally commercial: if you are comparing a marketing agency, digital marketing partner or branding agency, you can see the operating model before starting a conversation.</p><Link href="/services">View the full Arabic services hub <span>↗</span></Link></div>
+        <div><span className="re-label">RIYADH / SAUDI ARABIA</span><h2>Built for the market.<br/><em>Designed around the customer journey.</em></h2></div>
+        <div><p>Dewank supports Saudi businesses with Arabic and English customer journeys, local-market messaging, performance acquisition, conversion pages and follow-up systems.</p><p>If you are comparing a marketing agency, digital marketing partner or branding agency in Riyadh, our model is built around one thing: connecting strategy and execution to measurable commercial outcomes.</p><Link href="/services">View the full Arabic services hub <span>↗</span></Link></div>
       </section>
 
       <section id="process" className="re-process re-shell">
@@ -261,7 +260,7 @@ export default function RiyadhMarketingAgencyPage() {
         <div><p>Share your business type, market and current challenge. We will recommend the most focused next step instead of starting with the largest scope.</p><a className="re-button" href={whatsappHref} target="_blank" rel="noopener noreferrer">Start on WhatsApp <span>↗</span></a></div>
       </section>
 
-      <footer className="re-footer"><div className="re-shell"><Link className="re-brand" href="/"><span aria-hidden="true" />DEWANK</Link><div><Link href="/services">Arabic services</Link><Link href="/work">Work</Link><Link href="/contact">Contact</Link><a href="mailto:hello@dewank.com">hello@dewank.com</a></div><p>© {new Date().getFullYear()} Dewank. Brand × Growth × AI.</p></div></footer>
+      <footer className="re-footer"><div className="re-shell"><Link className="re-brand re-brand-lockup" href="/" aria-label="Dewank home"><img src="/dewank-logo.png" alt="Dewank" /></Link><div><Link href="/services">Arabic services</Link><Link href="/work">Work</Link><Link href="/contact">Contact</Link><a href="mailto:hello@dewank.com">hello@dewank.com</a></div><p>© {new Date().getFullYear()} Dewank. Brand × Growth × AI.</p></div></footer>
     </main>
   );
 }
