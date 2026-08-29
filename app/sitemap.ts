@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/seo-aeo", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/whatsapp-automation", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/ai-automation", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/en/riyadh-marketing-agency", priority: 0.85, changeFrequency: "monthly" as const },
 
     // Offers hub and offer landing pages
     { path: "/offers", priority: 0.8, changeFrequency: "weekly" as const },
