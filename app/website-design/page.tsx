@@ -9,14 +9,17 @@ import "./website-cluster.css";
 import "./website-design-refinement.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "تصميم مواقع للشركات في السعودية | SEO وCRO | ديوانك",
+  title: "شركة تصميم مواقع في السعودية | تصميم مواقع للشركات | ديوانك",
   description:
-    "تصميم وتطوير مواقع للشركات في السعودية تجمع بين تجربة المستخدم والسرعة وSEO وCRO والتتبع، لتحويل الزيارات من البحث والإعلانات إلى استفسارات وفرص بيع.",
+    "ديوانك شركة تصميم مواقع في السعودية تقدم تصميم وتطوير مواقع الشركات وصفحات الهبوط مع UX وSEO وCRO والتتبع، لتحويل الزيارات من البحث والإعلانات إلى استفسارات وفرص بيع.",
   path: "/website-design",
   keywords: [
+    "شركة تصميم مواقع",
+    "شركة تصميم مواقع في السعودية",
+    "أفضل شركة تصميم مواقع",
+    "شركات تصميم مواقع الكترونية",
     "تصميم مواقع في السعودية",
     "تطوير مواقع للشركات",
-    "شركة تصميم مواقع",
     "تصميم صفحات هبوط",
     "تحسين تحويل المواقع",
     "تصميم موقع شركة",
@@ -126,9 +129,9 @@ export default function WebsiteDesignPage() {
       {
         "@type": "Service",
         "@id": `${siteUrl}/website-design#service`,
-        name: "خدمات تصميم وتطوير المواقع",
+        name: "شركة تصميم مواقع وخدمات تطوير المواقع في السعودية",
         alternateName: "Website Design and Development Services",
-        description: "تصميم وتطوير مواقع وصفحات هبوط وتجارب رقمية سريعة ومتجاوبة للشركات في السعودية والخليج.",
+        description: "تصميم وتطوير مواقع الشركات وصفحات الهبوط وتجارب رقمية سريعة ومتجاوبة في السعودية والخليج، مع SEO وCRO وقياس التحويل.",
         serviceType: ["Website Design", "Web Development", "UX Design", "UI Design", "Landing Page Design", "Conversion Rate Optimization", "Technical SEO"],
         provider: { "@id": organizationId },
         areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
@@ -159,7 +162,7 @@ export default function WebsiteDesignPage() {
         <div className="wd-hero-copy">
           <div className="wd-kicker"><span>WEBSITE DESIGN</span><span>UX / SEO / CRO</span></div>
           <h1>موقعك مش مجرد واجهة.<br/><em>لازم يساعد العميل ياخد خطوة.</em></h1>
-          <p>نصمم ونطوّر مواقع للشركات في السعودية تربط الرسالة بالثقة والسرعة وSEO وCRO والتتبع، عشان الزيارة من Google أو الإعلانات تتحول إلى استفسار أو فرصة بيع أو حجز واضح.</p>
+          <p>كديوانك، شركة تصميم مواقع في السعودية، نصمم ونطوّر مواقع للشركات تربط الرسالة بالثقة والسرعة وSEO وCRO والتتبع، عشان الزيارة من Google أو الإعلانات تتحول إلى استفسار أو فرصة بيع أو حجز واضح.</p>
           <div className="wd-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعك على واتساب <span>↗</span></a><a className="wd-text-link" href="#choose-path">اختَر نوع الموقع</a></div>
         </div>
         <div className="wd-browser" aria-label="تصور تفاعلي لواجهة موقع احترافي"><div className="wd-browser-top"><div><i></i><i></i><i></i></div><span>dewank.com</span></div><div className="wd-browser-nav"><b>D</b><div><span>الخدمات</span><span>الأعمال</span><span>عن ديوانك</span></div><button type="button">ابدأ مشروعك</button></div><div className="wd-browser-grid"><div className="wd-screen-copy"><small>01 / CLARITY</small><strong>القيمة<br/><em>قبل الزخرفة.</em></strong><p>رسالة واضحة، دليل ثقة، ومسار يقود إلى الإجراء.</p><span className="wd-demo-cta">اكتشف الحل ←</span></div><div className="wd-screen-cards"><article><b>وضوح الرسالة</b><span>ما الذي تقدمه؟</span></article><article><b>دليل الثقة</b><span>لماذا يختارك العميل؟</span></article><article><b>خطوة تالية</b><span>ماذا يفعل الآن؟</span></article></div></div><div className="wd-browser-foot"><span>UX STRATEGY</span><span>RESPONSIVE</span><span>CONVERSION</span></div></div>
