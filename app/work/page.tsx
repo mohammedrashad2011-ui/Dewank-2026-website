@@ -22,7 +22,7 @@ const identityProjects = [
 
 const proofPaths = [
   { no: "01", label: "أتمتة ومتابعة", title: "من المحادثة إلى الحجز", text: "شاهد كيف تحولت المتابعة اليدوية إلى رحلة قابلة للقياس وربط CRM.", href: "#case-studies" },
-  { no: "02", label: "تسمية وبراند", title: "من الاسم إلى هوية متكاملة", text: "BITHAN: مشروع فعلي انتقل من استراتيجية التسمية والاختيار إلى نظام هوية Fine Jewelry متكامل.", href: "/work/bithan" },
+  { no: "02", label: "هوية بصرية", title: "من Sketch إلى نظام هوية", text: "BITHAN: مشروع فعلي يوضح الانتقال من Original Sketch إلى Logo Suite، Palette، Variants وتطبيقات Fine Jewelry.", href: "/work/bithan" },
   { no: "03", label: "طريقة التفكير", title: "من التحدي إلى قرار استراتيجي", text: "مشروعات مفاهيمية نستخدمها لعرض التفكير وراء التموضع والهوية والتجربة.", href: "#concept-work" },
 ];
 
@@ -83,7 +83,7 @@ export default function WorkPage() {
       "@type": "ItemList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Clinic WhatsApp Automation and CRM Case Study" },
-        { "@type": "ListItem", position: 2, name: "BITHAN Fine Jewelry Brand Naming and Identity Case Study", url: "https://dewank.com/work/bithan" },
+        { "@type": "ListItem", position: 2, name: "BITHAN Fine Jewelry Brand Identity Case Study", url: "https://dewank.com/work/bithan" },
         ...identityProjects.map((item, index) => ({ "@type": "ListItem", position: index + 3, name: `${item.name} Brand Identity` })),
         ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + identityProjects.length + 3, name: item.name })),
       ],
@@ -152,10 +152,10 @@ export default function WorkPage() {
 
       <section className="bithan-work-feature shell" aria-labelledby="bithan-work-title">
         <div className="bithan-work-copy">
-          <span className="section-label">دراسة حالة فعلية · قطر · 2026</span>
-          <h2 id="bithan-work-title">من تحدي تسمية<br/><em>إلى علامة Fine Jewelry متكاملة.</em></h2>
-          <p>BITHAN بدأ كمشروع تسمية مبني على التموضع، اتجاهات واضحة، تصفية وفحص مبدئي، ثم تطور بعد اختيار الاسم إلى توقيع بصري ثنائي اللغة ونظام هوية كامل.</p>
-          <div className="bithan-work-journey"><span>Strategy</span><i>→</i><span>Naming</span><i>→</i><span>Selection</span><i>→</i><span>Identity</span></div>
+          <span className="section-label">دراسة حالة فعلية · Fine Jewelry · 2026</span>
+          <h2 id="bithan-work-title">من Original Sketch<br/><em>إلى هوية بصرية نهائية.</em></h2>
+          <p>BITHAN يوضح كيف تطور الاتجاه اليدوي الأصلي إلى Final Logo Suite، لوحة ألوان معتمدة، نسخ للاستخدام على الخلفيات المختلفة وتطبيقات Premium متسقة.</p>
+          <div className="bithan-work-journey"><span>Sketch</span><i>→</i><span>Logo Suite</span><i>→</i><span>Palette</span><i>→</i><span>Applications</span></div>
           <Link className="button primary" href="/work/bithan">شاهد دراسة الحالة كاملة <span>←</span></Link>
         </div>
         <Link className="bithan-work-visual" href="/work/bithan" aria-label="شاهد دراسة حالة BITHAN">
