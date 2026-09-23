@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { BithanTrackedLink } from "./tracked-link";
 import { createMetadata, organizationId, siteName, siteUrl } from "../../lib/seo";
