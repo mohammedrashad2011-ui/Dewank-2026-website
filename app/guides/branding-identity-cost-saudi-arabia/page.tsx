@@ -32,7 +32,7 @@ const deliverables = [
 export default function BrandingIdentityCostGuide() {
   const url = `${siteUrl}/guides/branding-identity-cost-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تصميم الهوية البصرية", "أسعار البراندنج في السعودية", "بناء العلامة التجارية"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-04", dateModified: "2026-09-24", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تصميم الهوية البصرية", "أسعار البراندنج في السعودية", "بناء العلامة التجارية"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -44,7 +44,7 @@ export default function BrandingIdentityCostGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>البراندنج</span></nav>
         <h1>{title}</h1>
         <p>العرض الأرخص قد يعطيك شعارًا، لكنه لا يضمن نظامًا تستطيع علامتك استخدامه بثبات. السعر العادل يتحدد بما يُبنى قبل الرسم وما ستستطيع تشغيله بعد التسليم.</p>
-        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: النطاق والملكية</span></div>
+        <div className="article-meta"><span>آخر تحديث: 24 سبتمبر 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: النطاق والملكية</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -62,6 +62,7 @@ export default function BrandingIdentityCostGuide() {
           <p><strong>الشعار</strong> علامة تعريف. <strong>الهوية البصرية</strong> نظام يحافظ على الاتساق. <strong>البراند</strong> هو المعنى والوعد والانطباع والتجربة. تغيير الشعار لن يصلح عرضًا ضعيفًا أو خدمة سيئة؛ وقد تصبح الهوية الجميلة مجرد تغليف لمشكلة أعمق.</p>
           <h2 id="included">ماذا يجب أن تشمل باقة الهوية؟</h2>
           {deliverables.map(([heading, body]) => <section key={heading}><h3>{heading}</h3><p>{body}</p></section>)}
+          <p>كمثال عملي على الانتقال من الاسم إلى نظام هوية قابل للاستخدام، يمكنك مشاهدة <Link href="/work/bithan">دراسة حالة BITHAN: من تسمية علامة مجوهرات إلى هوية بصرية متكاملة</Link>، وتشمل نظام الشعار والألوان والتطبيقات والملفات النهائية.</p>
           <h2 id="drivers">ما الذي يرفع التكلفة؟</h2>
           <p>عمق البحث، عدد الأسواق واللغات، الحاجة إلى تسمية، تعدد أصحاب القرار، عدد الاتجاهات والتعديلات، حجم دليل الهوية، عدد التطبيقات، وسرعة التسليم. كل تطبيق إضافي ليس مجرد وضع الشعار؛ يجب اختباره داخل سياق حقيقي. وإذا لم يُحسم الاسم بعد، راجع <Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار اسم العلامة التجارية</Link> قبل الاستثمار في التصميم.</p>
           <h2 id="red-flags">إشارات خطر قبل التعاقد</h2>
