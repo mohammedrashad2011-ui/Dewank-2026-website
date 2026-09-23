@@ -7,6 +7,8 @@ import "./bithan-case-study.css";
 const title = "BITHAN Fine Jewelry Brand Naming & Identity Case Study";
 const description = "BITHAN case study for a Qatar fine-jewelry brand: structured naming and screening, client-selected name, Arabic-English identity, logo suite, palette and applications.";
 const socialImagePath = "/work/bithan/opengraph-image";
+const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("Hi Dewank, I saw the BITHAN case study and would like to discuss a brand naming / identity project.");
+const emailHref = "mailto:hello@dewank.com?subject=" + encodeURIComponent("Brand project enquiry — BITHAN case study");
 
 const baseMetadata = createMetadata({
   title: `${title} | Dewank`,
@@ -181,7 +183,7 @@ export default function BithanCaseStudyPage() {
             <p className="bithan-hero-lede">A premium jewelry brand built from the name outward: positioning, structured naming, screening, a client-selected final name, then an Arabic-English visual identity designed for packaging, digital touchpoints and future growth.</p>
             <div className="bithan-hero-actions">
               <a className="button primary" href="#case-overview">Explore the case study <span>↓</span></a>
-              <Link className="button secondary" href="/contact">Discuss a branding project</Link>
+              <a className="button secondary" href={whatsappHref} target="_blank" rel="noopener noreferrer">Discuss a branding project <span>↗</span></a>
             </div>
             <dl className="bithan-facts" aria-label="Project facts">
               <div><dt>Scope</dt><dd>Naming · Strategy · Visual Identity</dd></div>
@@ -409,7 +411,8 @@ export default function BithanCaseStudyPage() {
             <p>BITHAN moved from a naming challenge to a client-selected name and then into a complete identity system with a distinctive Arabic signature, bilingual usage, controlled logo variants, production color specifications and premium applications.</p>
             <p className="bithan-outcome-note">No performance metric is claimed here. The value of this case is the quality and completeness of the strategic-to-visual brand system.</p>
             <div className="bithan-outcome-links">
-              <Link className="button primary" href="/contact">Discuss your brand project <span>↗</span></Link>
+              <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">Discuss your brand project <span>↗</span></a>
+              <a className="button secondary" href={emailHref}>Email Dewank</a>
               <Link className="button secondary" href="/services/brand-naming">Brand naming service</Link>
               <Link className="button secondary" href="/branding">Brand strategy &amp; identity</Link>
             </div>
