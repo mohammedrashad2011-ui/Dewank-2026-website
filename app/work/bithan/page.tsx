@@ -36,6 +36,10 @@ export const metadata: Metadata = {
   category: "دراسة حالة براندينج",
   alternates: {
     canonical: `${siteUrl}/work/bithan`,
+    languages: {
+      ar: `${siteUrl}/work/bithan`,
+      "x-default": `${siteUrl}/work/bithan`,
+    },
   },
   openGraph: {
     ...baseMetadata.openGraph,
