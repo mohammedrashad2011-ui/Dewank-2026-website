@@ -4,8 +4,8 @@ import { BithanTrackedLink } from "./tracked-link";
 import { createMetadata, organizationId, siteName, siteUrl } from "../../lib/seo";
 import "./bithan-case-study.css";
 
-const title = "BITHAN | دراسة حالة تسمية علامة وهوية بصرية للمجوهرات";
-const description = "دراسة حالة BITHAN لعلامة مجوهرات في قطر: استراتيجية تسمية وفحص مبدئي، اختيار الاسم، ثم تصميم شعار عربي وإنجليزي، لوحة ألوان، تطبيقات وهوية بصرية متكاملة.";
+const title = "دراسة حالة تسمية علامة تجارية وهوية بصرية للمجوهرات | BITHAN";
+const description = "دراسة حالة BITHAN لعلامة مجوهرات راقية في قطر: استراتيجية تسمية وفحص مبدئي، اختيار الاسم، ثم شعار عربي وإنجليزي وهوية بصرية متكاملة وتطبيقات جاهزة للاستخدام.";
 const socialImagePath = "/work/bithan/opengraph-image";
 const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، شاهدت دراسة حالة BITHAN وأرغب في مناقشة مشروع تسمية أو هوية لعلامتي.");
 const emailHref = "mailto:hello@dewank.com?subject=" + encodeURIComponent("استفسار مشروع براند — دراسة حالة BITHAN");
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     type: "article",
     locale: "ar_SA",
     publishedTime: "2026-09-23T00:00:00+03:00",
-    modifiedTime: "2026-09-23T00:00:00+03:00",
+    modifiedTime: "2026-09-24T00:00:00+03:00",
   },
   robots: {
     index: true,
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
 const successCriteria = [
   ["فخامة هادئة", "اسم راقٍ وواثق من دون الاعتماد على لغة فخامة مباشرة أو صاخبة."],
   ["سهولة عربية وإنجليزية", "سهل في النطق والقراءة والاستخدام عبر اللغتين."],
-  ["مسافة عن كلمات الفئة", "تميّز من دون الاعتماد على كلمات مباشرة مثل Gold أو Diamond أو Jewels."],
+  ["الابتعاد عن الأسماء الوصفية المباشرة", "اسم مميز من دون الاعتماد على كلمات الفئة المباشرة مثل Gold أو Diamond أو Jewels."],
   ["قابلية للتوسع", "يصلح للنمو إلى مجموعات ومنتجات وقنوات جديدة، لا لمنتج واحد فقط."],
   ["عمق قصصي", "يمتلك طبقة معنى يمكن أن تدعم قصة العلامة واتصالها العاطفي."],
   ["حضور بصري", "قادر على حمل شعار وهوية وتغليف وبناء قيمة للعلامة على المدى الطويل."],
@@ -92,13 +92,13 @@ const firstShortlist = ["TAFAROD", "MAKNOUNAH", "KUNNH", "NAFAYS", "TeLaAD", "AZ
 const refinement = ["ARSINA", "HAMSINA", "ORSINA", "AURSINA", "AUSINA", "KLEOSINA"];
 
 const logoSuite = [
-  ["01", "الشعار الأساسي", "Full color on dark — الاستخدام المفضّل"],
-  ["02", "النسخة الملونة الفاتحة", "للخلفيات الفاتحة"],
-  ["03", "Flat Logo داكن", "نسخة لون واحد للاستخدامات المرنة"],
-  ["04", "Monochrome داكن", "للطباعة والاستخدامات أحادية اللون"],
-  ["05", "Monochrome فاتح", "للخلفيات الداكنة"],
-  ["06", "العلامة العربية فقط", "للتطبيقات الخاصة"],
-  ["07", "Icon / Symbol", "للسوشيال، favicon والمساحات الصغيرة"],
+  ["01", "الشعار الأساسي (Primary Logo)", "نسخة ملونة كاملة على الخلفيات الداكنة — الاستخدام المفضّل"],
+  ["02", "النسخة الملونة للخلفيات الفاتحة (Full Color Light)", "للاستخدام على الخلفيات الفاتحة"],
+  ["03", "الشعار المسطح للخلفيات الداكنة (Flat Logo Dark)", "نسخة بلون واحد للاستخدامات المرنة"],
+  ["04", "النسخة أحادية اللون الداكنة (Monochrome Dark)", "للطباعة والاستخدامات أحادية اللون"],
+  ["05", "النسخة أحادية اللون الفاتحة (Monochrome Light)", "للاستخدام على الخلفيات الداكنة"],
+  ["06", "العلامة العربية فقط (Arabic Mark)", "للتطبيقات التي تحتاج توقيعًا عربيًا مختصرًا"],
+  ["07", "الأيقونة أو الرمز (Icon / Symbol)", "للسوشيال ميديا والأيقونة المصغرة والمساحات الصغيرة"],
 ];
 
 const colors = [
@@ -118,14 +118,14 @@ const applications = [
 ];
 
 const delivery = [
-  ["Primary Metallic Logo", "الشعار المعدني النهائي المعتمد للاستخدامات الـPremium."],
-  ["Flat Logo on Dark", "نسخة مسطحة محسّنة للخلفيات الداكنة والطباعة والرقمي."],
-  ["Flat Logo on Light", "نسخة مسطحة محسّنة للخلفيات الفاتحة والطباعة والرقمي."],
-  ["Monochrome Versions", "نسخ سوداء وبيضاء وأحادية اللون لاستخدامات متعددة."],
-  ["Color Palette & Print Specs", "ألوان معتمدة مع قيم HEX وRGB وCMYK للطباعة والرقمي."],
-  ["Sketch Concept Page", "الاسكتش اليدوي الأصلي الذي بدأ منه اتجاه الهوية."],
-  ["Application Mockups", "تطبيقات مختارة للتغليف وبطاقة الأعمال والحضور الرقمي."],
-  ["Source File Formats", "ملفات عالية الدقة وقابلة للاستخدام: PNG / PDF / SVG / AI / EPS."],
+  ["الشعار المعدني الأساسي (Primary Metallic Logo)", "الشعار المعدني النهائي المعتمد للاستخدامات الفاخرة."],
+  ["الشعار المسطح على الداكن (Flat Logo on Dark)", "نسخة مسطحة محسّنة للخلفيات الداكنة والطباعة والاستخدام الرقمي."],
+  ["الشعار المسطح على الفاتح (Flat Logo on Light)", "نسخة مسطحة محسّنة للخلفيات الفاتحة والطباعة والاستخدام الرقمي."],
+  ["النسخ أحادية اللون (Monochrome Versions)", "نسخ سوداء وبيضاء وأحادية اللون لاستخدامات متعددة."],
+  ["لوحة الألوان ومواصفات الطباعة (Color Palette & Print Specs)", "ألوان معتمدة مع قيم HEX وRGB وCMYK للطباعة والاستخدام الرقمي."],
+  ["صفحة فكرة الاسكتش (Sketch Concept Page)", "الاسكتش اليدوي الأصلي الذي بدأ منه اتجاه الهوية."],
+  ["نماذج تطبيق الهوية (Application Mockups)", "تطبيقات مختارة للتغليف وبطاقة الأعمال والحضور الرقمي."],
+  ["صيغ الملفات المصدرية (Source File Formats)", "ملفات عالية الدقة وقابلة للاستخدام: PNG / PDF / SVG / AI / EPS."],
 ];
 
 const faqs = [
@@ -151,7 +151,7 @@ export default function BithanCaseStudyPage() {
         mainEntityOfPage: url,
         image,
         datePublished: "2026-09-23",
-        dateModified: "2026-09-23",
+        dateModified: "2026-09-24",
         inLanguage: "ar",
         author: { "@id": organizationId },
         publisher: { "@id": organizationId },
@@ -173,7 +173,7 @@ export default function BithanCaseStudyPage() {
         description,
         url,
         image,
-        inLanguage: ["ar", "en"],
+        inLanguage: "ar",
         creator: { "@id": organizationId },
         genre: ["Brand Naming", "Brand Strategy", "Visual Identity"],
         spatialCoverage: { "@type": "Country", name: "Qatar" },
@@ -247,7 +247,7 @@ export default function BithanCaseStudyPage() {
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow" dir="ltr">01 / THE CHALLENGE</span>
             <h2>الهدف لم يكن العثور على اسم جميل.<br/><em>بل بناء أصل يمكن للعلامة أن تكبر داخله.</em></h2>
-            <p>كان المشروع لدار Fine Jewelry تنطلق أونلاين في قطر مع طموح واضح لحضور تجاري ومادي أوسع. لذلك كان الاسم مطلوبًا أن يحمل الهيبة، يعمل لفظيًا وبصريًا، ويظل مناسبًا مع نمو العلامة.</p>
+            <p>كان المشروع لعلامة مجوهرات راقية تنطلق رقميًا في قطر، مع طموح للتوسع إلى حضور تجاري ومادي أوسع. لذلك كان الاسم مطلوبًا أن يحمل الهيبة، يعمل لفظيًا وبصريًا، ويظل مناسبًا مع نمو العلامة.</p>
           </div>
           <div className="bithan-criteria-grid">
             {successCriteria.map(([titleText, text]) => (
@@ -341,7 +341,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-palette-section shell" id="palette">
           <div className="bithan-section-head">
             <div><span className="bithan-eyebrow" dir="ltr">05 / MASTER PALETTE &amp; PRINT SPECS</span><h2>ألوان معتمدة<br/><em>للطباعة والاستخدام الرقمي.</em></h2></div>
-            <p>تعتمد الهوية على Deep Sapphire ودرجات أفتح من الأزرق لتكوين إحساس بارد وبلوري، مع الأسود والأبيض لتحقيق التباين والمرونة في الاستخدام.</p>
+            <p>تعتمد الهوية على الأزرق الياقوتي العميق (Deep Sapphire) ودرجات أفتح من الأزرق لتكوين إحساس بارد وبلوري، مع الأسود والأبيض لتحقيق التباين والمرونة في الاستخدام.</p>
           </div>
           <figure className="bithan-page-visual palette-page">
             <img src="/work/bithan/palette.svg" width={1126} height={1591} alt="صفحة Master Palette & Print Specs المعتمدة لهوية BITHAN" loading="lazy" decoding="async" />
@@ -371,7 +371,7 @@ export default function BithanCaseStudyPage() {
             <div className="bithan-section-copy">
               <span className="bithan-eyebrow" dir="ltr">06 / FINAL FLAT COLOR VARIANTS</span>
               <h2>استخدام معتمد للشعار<br/><em>على الخلفيات الداكنة والفاتحة.</em></h2>
-              <p>النسخة الأساسية المعتمدة Hero Mark هي التي تحتوي على الكسرة في حرف الباء. النسخة من دون الكسرة بديل معتمد عند وجود ضرورة تقنية أو قيود في المساحة.</p>
+              <p>العلامة الأساسية المعتمدة (Hero Mark) هي النسخة التي تحتوي على الكسرة في حرف الباء. أما النسخة من دون الكسرة فهي بديل معتمد عند وجود ضرورة تقنية أو قيود في المساحة.</p>
               <div className="bithan-usage-note">
                 <b>Primary</b><span>بالكسرة — الاستخدام الأساسي والمفضّل</span>
                 <b>Alternate</b><span>من دون الكسرة — عند الضرورة التقنية فقط</span>
@@ -404,7 +404,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-applications" id="applications">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow" dir="ltr">08 / BRAND APPLICATIONS</span><h2>تطبيقات Premium<br/><em>تثبت أن النظام يعمل خارج ملف العرض.</em></h2></div>
+              <div><span className="bithan-eyebrow" dir="ltr">08 / BRAND APPLICATIONS</span><h2>تطبيقات فاخرة (Premium)<br/><em>تثبت أن النظام يعمل خارج ملف العرض.</em></h2></div>
               <p>تم اختبار الهوية على نقاط تواصل أساسية للتأكد من أن العلامة واللون والإحساس الفاخر يظلون متماسكين في الاستخدام الواقعي.</p>
             </div>
             <figure className="bithan-page-visual on-dark">
@@ -421,7 +421,7 @@ export default function BithanCaseStudyPage() {
           <div>
             <span className="bithan-eyebrow">هل تعمل على اسم أو هوية جديدة؟</span>
             <h2>نقدر نبدأ من قرار الاسم، أو من البراند الموجود بالفعل.</h2>
-            <p>لو محتاج تسمية، Brand Strategy أو Visual Identity، ابعت لنا نبذة قصيرة عن المشروع ونحدد أنسب نقطة بداية.</p>
+            <p>إذا كنت تحتاج إلى تسمية، استراتيجية علامة تجارية (Brand Strategy) أو هوية بصرية (Visual Identity)، أرسل لنا نبذة قصيرة عن المشروع لنحدد أنسب نقطة بداية.</p>
           </div>
           <BithanTrackedLink className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="mid_whatsapp">ناقش مشروعك <span>↗</span></BithanTrackedLink>
         </section>
@@ -443,7 +443,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-faq shell" aria-labelledby="bithan-faq-title">
           <div className="bithan-section-head">
             <div><span className="bithan-eyebrow" dir="ltr">10 / CASE STUDY FAQ</span><h2 id="bithan-faq-title">أسئلة مهمة<br/><em>قبل بدء مشروع تسمية أو هوية.</em></h2></div>
-            <p>إجابات مباشرة على أكثر النقاط التي يحتاجها عميل يقارن بين مزودين لخدمات Naming وBrand Strategy وVisual Identity.</p>
+            <p>إجابات مباشرة على أهم النقاط التي يحتاجها عميل يقارن بين خدمات تسمية العلامات (Naming)، استراتيجية العلامة (Brand Strategy) والهوية البصرية (Visual Identity).</p>
           </div>
           <div className="bithan-faq-list">
             {faqs.map(([question, answer]) => (
@@ -461,7 +461,7 @@ export default function BithanCaseStudyPage() {
             <h2>مشروع بدأ من قرار اسم.<br/><em>وانتهى بنظام علامة متكامل.</em></h2>
           </div>
           <div>
-            <p>انتقل BITHAN من تحدي تسمية إلى اسم اختاره العميل، ثم إلى هوية كاملة بتوقيع عربي مميز، استخدام ثنائي اللغة، نسخ شعار مضبوطة، مواصفات ألوان للإنتاج وتطبيقات Premium.</p>
+            <p>انتقل BITHAN من تحدي تسمية إلى اسم اختاره العميل، ثم إلى هوية كاملة بتوقيع عربي مميز، استخدام ثنائي اللغة، نسخ شعار مضبوطة، مواصفات ألوان للإنتاج وتطبيقات فاخرة.</p>
             <p className="bithan-outcome-note">لا ندّعي هنا أرقام أداء أو نتائج تجارية غير موثقة. قيمة دراسة الحالة في اكتمال المنهج من القرار الاستراتيجي إلى النظام البصري القابل للتطبيق.</p>
             <div className="bithan-outcome-links">
               <BithanTrackedLink className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="final_whatsapp">ناقش مشروعك معنا <span>↗</span></BithanTrackedLink>
