@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "BITHAN Fine Jewelry — Brand Naming & Identity Case Study by Dewank";
+export const alt = "BITHAN Fine Jewelry — Brand Naming & Identity Case Study";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -20,7 +20,7 @@ export default function Image() {
           fontFamily: "Arial, sans-serif",
         }}
       >
-        <div style={{ position: "absolute", width: 420, height: 420, borderRadius: 420, right: -90, top: -110, background: "rgba(62,116,174,.30)", filter: "blur(70px)" }} />
+        <div style={{ position: "absolute", width: 420, height: 420, borderRadius: 420, right: -90, top: -110, background: "rgba(62,116,174,.22)" }} />
         <div style={{ position: "absolute", width: 380, height: 2, right: -70, top: 110, background: "linear-gradient(90deg, transparent, #93BFEA, transparent)", transform: "rotate(-42deg)" }} />
         <div style={{ position: "absolute", width: 320, height: 2, left: -80, bottom: 105, background: "linear-gradient(90deg, transparent, #3E74AE, transparent)", transform: "rotate(-42deg)" }} />
 
