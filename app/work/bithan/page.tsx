@@ -4,88 +4,86 @@ import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteName, siteUrl } from "../../lib/seo";
 import "./bithan-case-study.css";
 
-const title = "BITHAN Fine Jewelry Brand Naming & Identity Case Study";
-const description = "BITHAN case study for a Qatar fine-jewelry brand: structured naming and screening, client-selected name, Arabic-English identity, logo suite, palette and applications.";
+const title = "BITHAN | دراسة حالة تسمية علامة وهوية بصرية للمجوهرات";
+const description = "دراسة حالة BITHAN لعلامة مجوهرات في قطر: استراتيجية تسمية وفحص مبدئي، اختيار الاسم، ثم تصميم شعار عربي وإنجليزي، لوحة ألوان، تطبيقات وهوية بصرية متكاملة.";
 const socialImagePath = "/work/bithan/opengraph-image";
-const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("Hi Dewank, I saw the BITHAN case study and would like to discuss a brand naming / identity project.");
-const emailHref = "mailto:hello@dewank.com?subject=" + encodeURIComponent("Brand project enquiry — BITHAN case study");
+const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، شاهدت دراسة حالة BITHAN وأرغب في مناقشة مشروع تسمية أو هوية لعلامتي.");
+const emailHref = "mailto:hello@dewank.com?subject=" + encodeURIComponent("استفسار مشروع براند — دراسة حالة BITHAN");
 
 const baseMetadata = createMetadata({
-  title: `${title} | Dewank`,
+  title: `${title} | ديوانك`,
   description,
   path: "/work/bithan",
   socialImagePath,
   keywords: [
-    "fine jewelry branding",
-    "jewelry brand identity",
-    "brand naming case study",
-    "Arabic logo design",
-    "bilingual brand identity",
-    "luxury branding Qatar",
-    "تصميم هوية مجوهرات",
     "تسمية علامة تجارية",
-    "هوية بصرية عربية",
+    "تصميم هوية بصرية للمجوهرات",
+    "تصميم شعار عربي",
+    "تصميم شعار عربي وانجليزي",
+    "براندينج مجوهرات",
+    "استراتيجية العلامة التجارية",
+    "هوية بصرية قطر",
+    "هوية بصرية السعودية",
+    "Fine Jewelry Branding",
+    "Brand Naming Case Study",
+    "Arabic Logo Design",
     "BITHAN",
   ],
 });
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  category: "Branding Case Study",
+  category: "دراسة حالة براندينج",
   alternates: {
     canonical: `${siteUrl}/work/bithan`,
-    languages: {
-      en: `${siteUrl}/work/bithan`,
-      "x-default": `${siteUrl}/work/bithan`,
-    },
   },
   openGraph: {
     ...baseMetadata.openGraph,
     type: "article",
-    locale: "en_US",
+    locale: "ar_SA",
     publishedTime: "2026-09-23T00:00:00+03:00",
     modifiedTime: "2026-09-23T00:00:00+03:00",
   },
 };
 
 const successCriteria = [
-  ["Quiet luxury", "Premium and quietly confident rather than loud or obviously luxurious."],
-  ["Arabic / English ease", "Comfortable to say, read and use across both languages."],
-  ["Category distance", "Distinctive without relying on direct category words such as Gold, Diamond or Jewels."],
-  ["Scalability", "Strong enough to grow beyond one stone, collection or product type."],
-  ["Story depth", "A name with enough meaning to support a richer brand story and identity."],
-  ["Visual presence", "A name capable of carrying a strong wordmark, packaging system and long-term brand equity."],
+  ["فخامة هادئة", "اسم راقٍ وواثق من دون الاعتماد على لغة فخامة مباشرة أو صاخبة."],
+  ["سهولة عربية وإنجليزية", "سهل في النطق والقراءة والاستخدام عبر اللغتين."],
+  ["مسافة عن كلمات الفئة", "تميّز من دون الاعتماد على كلمات مباشرة مثل Gold أو Diamond أو Jewels."],
+  ["قابلية للتوسع", "يصلح للنمو إلى مجموعات ومنتجات وقنوات جديدة، لا لمنتج واحد فقط."],
+  ["عمق قصصي", "يمتلك طبقة معنى يمكن أن تدعم قصة العلامة واتصالها العاطفي."],
+  ["حضور بصري", "قادر على حمل شعار وهوية وتغليف وبناء قيمة للعلامة على المدى الطويل."],
 ];
 
 const namingTerritories = [
-  ["A", "Arabic Poetic Heritage", "Rare Arabic roots, cultural depth and elegant sound."],
-  ["B", "Quiet Prestige", "Presence, poise and value without obvious luxury language."],
-  ["C", "Invented Arabic-International", "Ownable constructions with credible linguistic logic, not random letter combinations."],
-  ["D", "Symbolic Story Name", "Names built from imagery such as legacy, light, memory, time and enduring value."],
+  ["A", "تراث عربي شاعري", "جذور عربية نادرة، عمق ثقافي وصوت أنيق."],
+  ["B", "هيبة هادئة", "حضور وقيمة من دون استخدام لغة فخامة مباشرة."],
+  ["C", "عربي دولي مبتكر", "تركيبات قابلة للامتلاك بمنطق لغوي وصوتي واضح، وليست حروفًا عشوائية."],
+  ["D", "اسم رمزي قابل للسرد", "أسماء تُبنى حول الإرث والضوء والذاكرة والزمن والقيمة الدائمة."],
 ];
 
 const namingProcess = [
-  "Discovery & strategic brief",
-  "Broad internal generation",
-  "Aggressive filtering",
-  "Shortlist with rationale",
-  "Client feedback & refinement",
-  "Domain and digital checks",
-  "Preliminary conflict screening",
-  "Final recommendation",
+  "Discovery & Strategic Brief",
+  "Broad Internal Generation",
+  "Aggressive Filtering",
+  "Shortlist + Rationale",
+  "Client Feedback & Refinement",
+  "Domain & Digital Checks",
+  "Preliminary Conflict Screening",
+  "Final Recommendation",
 ];
 
 const firstShortlist = ["TAFAROD", "MAKNOUNAH", "KUNNH", "NAFAYS", "TeLaAD", "AZAREON"];
 const refinement = ["ARSINA", "HAMSINA", "ORSINA", "AURSINA", "AUSINA", "KLEOSINA"];
 
 const logoSuite = [
-  ["01", "Primary Logo", "Full color on dark — preferred"],
-  ["02", "Full Color (Light)", "For light backgrounds"],
-  ["03", "Flat Logo (Dark)", "Single color for versatile use"],
-  ["04", "Monochrome (Dark)", "For print and single-color use"],
-  ["05", "Monochrome (Light)", "For dark backgrounds"],
-  ["06", "Arabic Mark Only", "For special applications"],
-  ["07", "Icon / Symbol", "For social media, favicon and compact use"],
+  ["01", "الشعار الأساسي", "Full color on dark — الاستخدام المفضّل"],
+  ["02", "النسخة الملونة الفاتحة", "للخلفيات الفاتحة"],
+  ["03", "Flat Logo داكن", "نسخة لون واحد للاستخدامات المرنة"],
+  ["04", "Monochrome داكن", "للطباعة والاستخدامات أحادية اللون"],
+  ["05", "Monochrome فاتح", "للخلفيات الداكنة"],
+  ["06", "العلامة العربية فقط", "للتطبيقات الخاصة"],
+  ["07", "Icon / Symbol", "للسوشيال، favicon والمساحات الصغيرة"],
 ];
 
 const colors = [
@@ -98,33 +96,34 @@ const colors = [
 ];
 
 const applications = [
-  ["Jewelry Box", "A more precious tomorrow."],
-  ["Shopping Bag", "Elegance carries further."],
-  ["Business Card", "A lasting impression."],
-  ["Social Media Profile", "Beauty in every detail."],
-];
-
-const faqs = [
-  ["What did the BITHAN project include?", "The portfolio case combines brand naming and strategy with the final visual identity: naming territories, shortlist and refinement, preliminary screening, the client-selected BITHAN name, original sketch development, logo suite, palette, variants, applications and final production assets."],
-  ["Was BITHAN selected by the client?", "Yes. The naming case study records BITHAN as the final name selected by the client after structured exploration, shortlists and refinement rounds."],
-  ["Did the naming screening guarantee trademark registration?", "No. Domain, digital and conflict checks were preliminary practical screening only. Final legal trademark clearance should be handled by qualified counsel before launch."],
-  ["What identity files and assets were delivered?", "The approved delivery included the primary metallic logo, flat dark and light versions, monochrome versions, color palette and print specs, sketch concept page, application mockups, and source formats including PNG, PDF, SVG, AI and EPS."],
+  ["علبة المجوهرات", "Jewelry Box"],
+  ["حقيبة التسوق", "Shopping Bag"],
+  ["بطاقة الأعمال", "Business Card"],
+  ["صورة الحساب", "Social Media Profile"],
 ];
 
 const delivery = [
-  ["Primary Metallic Logo", "Final approved full-color metallic logo for premium use across all brand touchpoints."],
-  ["Flat Logo on Dark", "Optimized flat version for dark backgrounds, digital and print."],
-  ["Flat Logo on Light", "Optimized flat version for light backgrounds, digital and print."],
-  ["Monochrome Versions", "Black, white and grayscale variations for flexible use cases."],
-  ["Color Palette & Print Specs", "Approved brand colors with precise RGB, CMYK and HEX values."],
-  ["Sketch Concept Page", "The original hand-drawn concept that inspired the final design."],
-  ["Application Mockups", "Premium packaging, business card and social-profile applications."],
-  ["Source File Formats", "High-resolution, ready-to-use files in PNG / PDF / SVG / AI / EPS."],
+  ["Primary Metallic Logo", "الشعار المعدني النهائي المعتمد للاستخدامات الـPremium."],
+  ["Flat Logo on Dark", "نسخة مسطحة محسّنة للخلفيات الداكنة والطباعة والرقمي."],
+  ["Flat Logo on Light", "نسخة مسطحة محسّنة للخلفيات الفاتحة والطباعة والرقمي."],
+  ["Monochrome Versions", "نسخ سوداء وبيضاء وأحادية اللون لاستخدامات متعددة."],
+  ["Color Palette & Print Specs", "ألوان معتمدة مع قيم HEX وRGB وCMYK للطباعة والرقمي."],
+  ["Sketch Concept Page", "الاسكتش اليدوي الأصلي الذي بدأ منه اتجاه الهوية."],
+  ["Application Mockups", "تطبيقات مختارة للتغليف وبطاقة الأعمال والحضور الرقمي."],
+  ["Source File Formats", "ملفات عالية الدقة وقابلة للاستخدام: PNG / PDF / SVG / AI / EPS."],
+];
+
+const faqs = [
+  ["ما الذي شمله مشروع BITHAN؟", "شمل المشروع استراتيجية التسمية ومسارات الأسماء والقوائم المختصرة والتطوير والفحص المبدئي، ثم الاسم الذي اختاره العميل، وبعده تطوير الهوية البصرية من الاسكتش إلى الشعار النهائي ونظام الألوان والتطبيقات والملفات المصدرية."],
+  ["هل اختار العميل اسم BITHAN فعلًا؟", "نعم. دراسة حالة التسمية توثق أن العميل اختار BITHAN بعد استكشاف استراتيجي لمسارات التسمية والقوائم المختصرة وجولات التطوير."],
+  ["هل الفحص المبدئي يعني ضمان تسجيل العلامة التجارية؟", "لا. فحص الدومين والتواجد الرقمي والتعارضات كان فحصًا عمليًا مبدئيًا، وليس تصريحًا قانونيًا. التحقق القانوني النهائي يجب أن يتم عبر جهة أو مستشار مؤهل قبل التسجيل والإطلاق."],
+  ["ما الذي تم تسليمه في الهوية النهائية؟", "شمل التسليم الشعار المعدني الأساسي، نسخ Flat للخلفيات الداكنة والفاتحة، نسخ Monochrome، لوحة الألوان ومواصفات الطباعة، صفحة الاسكتش، تطبيقات الهوية وملفات المصدر PNG وPDF وSVG وAI وEPS."],
 ];
 
 export default function BithanCaseStudyPage() {
   const url = `${siteUrl}/work/bithan`;
   const image = `${siteUrl}${socialImagePath}`;
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -138,25 +137,25 @@ export default function BithanCaseStudyPage() {
         image,
         datePublished: "2026-09-23",
         dateModified: "2026-09-23",
-        inLanguage: ["en", "ar"],
+        inLanguage: "ar",
         author: { "@id": organizationId },
         publisher: { "@id": organizationId },
         about: [
-          "Brand Naming",
-          "Brand Strategy",
-          "Visual Identity",
-          "Arabic Logo Design",
-          "Fine Jewelry",
+          "تسمية علامة تجارية",
+          "استراتيجية البراند",
+          "تصميم هوية بصرية",
+          "تصميم شعار عربي",
+          "Fine Jewelry Branding",
           "Qatar",
         ],
-        keywords: "fine jewelry branding, brand naming, visual identity, Arabic logo, bilingual brand identity, BITHAN",
+        keywords: "تسمية علامة تجارية، تصميم هوية بصرية للمجوهرات، تصميم شعار عربي، براندينج مجوهرات، BITHAN",
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: siteName, item: siteUrl },
-          { "@type": "ListItem", position: 2, name: "Work", item: `${siteUrl}/work` },
-          { "@type": "ListItem", position: 3, name: "BITHAN Case Study", item: url },
+          { "@type": "ListItem", position: 2, name: "الأعمال", item: `${siteUrl}/work` },
+          { "@type": "ListItem", position: 3, name: "دراسة حالة BITHAN", item: url },
         ],
       },
       {
@@ -175,45 +174,45 @@ export default function BithanCaseStudyPage() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <div className="bithan-case-content" dir="ltr" lang="en">
+      <div className="bithan-case-content" dir="rtl" lang="ar">
         <section className="bithan-hero shell">
           <div className="bithan-hero-copy">
-            <span className="bithan-kicker">FINE JEWELRY · QATAR · 2026</span>
-            <h1>BITHAN Fine Jewelry<br/><em>Brand Naming &amp; Identity Case Study.</em></h1>
-            <p className="bithan-hero-lede">A premium jewelry brand built from the name outward: positioning, structured naming, screening, a client-selected final name, then an Arabic-English visual identity designed for packaging, digital touchpoints and future growth.</p>
+            <span className="bithan-kicker" dir="ltr">FINE JEWELRY · QATAR · 2026</span>
+            <h1>دراسة حالة BITHAN:<br/><em>من تسمية علامة مجوهرات إلى هوية بصرية متكاملة.</em></h1>
+            <p className="bithan-hero-lede">مشروع لدار مجوهرات راقية في قطر بدأ من استراتيجية التسمية والفحص والتطوير، ثم انتقل بعد اختيار الاسم إلى بناء هوية عربية وإنجليزية قابلة للعمل على التغليف والطباعة والحضور الرقمي والتوسع المستقبلي.</p>
             <div className="bithan-hero-actions">
-              <a className="button primary" href="#case-overview">Explore the case study <span>↓</span></a>
-              <a className="button secondary" href={whatsappHref} target="_blank" rel="noopener noreferrer">Discuss a branding project <span>↗</span></a>
+              <a className="button primary" href="#case-overview">شاهد دراسة الحالة <span>↓</span></a>
+              <a className="button secondary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروع براند <span>↗</span></a>
             </div>
-            <dl className="bithan-facts" aria-label="Project facts">
-              <div><dt>Scope</dt><dd>Naming · Strategy · Visual Identity</dd></div>
-              <div><dt>Market</dt><dd>Fine Jewelry · Qatar</dd></div>
-              <div><dt>Outcome</dt><dd>BITHAN selected by the client</dd></div>
-              <div><dt>Identity</dt><dd>Arabic + English brand system</dd></div>
+            <dl className="bithan-facts" aria-label="بيانات المشروع">
+              <div><dt>النطاق</dt><dd>Naming · Strategy · Visual Identity</dd></div>
+              <div><dt>السوق</dt><dd>Fine Jewelry · Qatar</dd></div>
+              <div><dt>النتيجة</dt><dd>اختيار BITHAN من العميل</dd></div>
+              <div><dt>النظام</dt><dd>هوية عربية + إنجليزية</dd></div>
             </dl>
           </div>
           <figure className="bithan-hero-visual">
-            <img src="/work/bithan/hero.svg" alt="BITHAN Fine Jewelry final approved metallic identity" fetchPriority="high" decoding="async" />
-            <figcaption>Final approved direction · September 2026</figcaption>
+            <img src="/work/bithan/hero.svg" alt="الغلاف النهائي المعتمد لهوية BITHAN Fine Jewelry" fetchPriority="high" decoding="async" />
+            <figcaption>Final Approved Direction · September 2026</figcaption>
           </figure>
         </section>
 
-        <nav className="bithan-jump shell" aria-label="Case study sections">
-          <a href="#case-overview">Overview</a>
-          <a href="#naming">Naming</a>
-          <a href="#original-sketch">Original Sketch</a>
-          <a href="#logo-suite">Logo Suite</a>
-          <a href="#palette">Palette</a>
-          <a href="#evolution">Evolution</a>
-          <a href="#applications">Applications</a>
-          <a href="#delivery">Delivery</a>
+        <nav className="bithan-jump shell" aria-label="أقسام دراسة الحالة">
+          <a href="#case-overview">التحدي</a>
+          <a href="#naming">التسمية</a>
+          <a href="#original-sketch">الاسكتش</a>
+          <a href="#logo-suite">نظام الشعار</a>
+          <a href="#palette">الألوان</a>
+          <a href="#evolution">التطوير</a>
+          <a href="#applications">التطبيقات</a>
+          <a href="#delivery">التسليم</a>
         </nav>
 
         <section className="bithan-overview shell" id="case-overview">
           <div className="bithan-section-copy">
-            <span className="bithan-eyebrow">01 / THE CHALLENGE</span>
-            <h2>Build a name that could become a brand asset, <em>not just a nice word.</em></h2>
-            <p>The brand was launching online in Qatar with ambition to grow into a broader physical and commercial presence. The name needed to carry prestige, work visually and verbally, and remain useful as the business expanded.</p>
+            <span className="bithan-eyebrow" dir="ltr">01 / THE CHALLENGE</span>
+            <h2>الهدف لم يكن العثور على اسم جميل.<br/><em>بل بناء أصل يمكن للعلامة أن تكبر داخله.</em></h2>
+            <p>كان المشروع لدار Fine Jewelry تنطلق أونلاين في قطر مع طموح واضح لحضور تجاري ومادي أوسع. لذلك كان الاسم مطلوبًا أن يحمل الهيبة، يعمل لفظيًا وبصريًا، ويظل مناسبًا مع نمو العلامة.</p>
           </div>
           <div className="bithan-criteria-grid">
             {successCriteria.map(([titleText, text]) => (
@@ -225,8 +224,8 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-naming" id="naming">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow">02 / NAMING STRATEGY</span><h2>Four territories <em>before names.</em></h2></div>
-              <p>Instead of jumping straight into name generation, the project first defined the linguistic and emotional spaces worth exploring. That made the work coherent and made feedback more useful.</p>
+              <div><span className="bithan-eyebrow" dir="ltr">02 / NAMING STRATEGY</span><h2>أربع مساحات استراتيجية<br/><em>قبل أن تبدأ الأسماء.</em></h2></div>
+              <p>بدل القفز مباشرة إلى توليد أسماء، حدد المشروع أولًا أنواع المساحات اللغوية والعاطفية التي تستحق الاستكشاف. هذا جعل العمل أكثر تماسكًا، وجعل ملاحظات العميل تغيّر منطق التسمية نفسه لا مجرد ترتيب القائمة.</p>
             </div>
 
             <div className="bithan-territories">
@@ -237,63 +236,63 @@ export default function BithanCaseStudyPage() {
 
             <div className="bithan-process-block">
               <div>
-                <span className="bithan-eyebrow">PROCESS &amp; SCREENING</span>
-                <h3>Generate broadly. Filter aggressively. Present selectively.</h3>
-                <p>Names were removed before presentation when they failed on pronunciation, category fit, scalability, distinctiveness or practical availability.</p>
+                <span className="bithan-eyebrow" dir="ltr">PROCESS &amp; SCREENING</span>
+                <h3>نولّد على نطاق واسع.<br/>نستبعد بقسوة.<br/>ونعرض بانتقائية.</h3>
+                <p>تم استبعاد الأسماء قبل عرضها إذا ضعفت في النطق، ملاءمة الفئة، التوسع، التميز أو التوفر العملي.</p>
               </div>
               <ol>
-                {namingProcess.map((step, index) => <li key={step}><b>{String(index + 1).padStart(2, "0")}</b><span>{step}</span></li>)}
+                {namingProcess.map((step, index) => <li key={step}><b>{String(index + 1).padStart(2, "0")}</b><span dir="ltr">{step}</span></li>)}
               </ol>
             </div>
 
             <details className="bithan-shortlist">
-              <summary>See sample shortlist &amp; refinement directions</summary>
+              <summary>نماذج من القائمة الأولى وجولة التطوير</summary>
               <div>
-                <span>First shortlist</span>
-                <p>{firstShortlist.join(" · ")}</p>
-                <span>Refinement round</span>
-                <p>{refinement.join(" · ")}</p>
+                <span dir="ltr">FIRST SHORTLIST</span>
+                <p dir="ltr">{firstShortlist.join(" · ")}</p>
+                <span dir="ltr">REFINEMENT ROUND</span>
+                <p dir="ltr">{refinement.join(" · ")}</p>
               </div>
             </details>
 
             <div className="bithan-selected-name">
-              <small>FINAL NAME SELECTED BY THE CLIENT</small>
-              <strong>BITHAN</strong>
-              <p>The client ultimately selected BITHAN after the structured exploration of positioning, naming territories, shortlists and refinement rounds.</p>
+              <small dir="ltr">FINAL NAME SELECTED BY THE CLIENT</small>
+              <strong dir="ltr">BITHAN</strong>
+              <p>اختار العميل اسم BITHAN في النهاية بعد الاستكشاف الاستراتيجي لمساحات التسمية والقوائم المختصرة وجولات التطوير.</p>
             </div>
-            <p className="bithan-legal-note">Domain and conflict checks were used as practical preliminary screening, not legal clearance. Final trademark verification should be handled by qualified counsel before launch.</p>
+            <p className="bithan-legal-note">فحوص الدومين والتواجد الرقمي والتعارضات كانت فحوصًا عملية مبدئية فقط وليست تصريحًا قانونيًا. التحقق القانوني النهائي للعلامة التجارية يجب أن يتم عبر جهة أو مستشار مؤهل قبل التسجيل والإطلاق.</p>
           </div>
         </section>
 
         <section className="bithan-sketch shell" id="original-sketch">
-          <figure className="bithan-visual-frame bithan-sketch-image">
-            <img src="/work/bithan/sketch.svg" alt="Original hand-drawn BITHAN Arabic sketch" loading="lazy" decoding="async" />
+          <figure className="bithan-page-visual">
+            <img src="/work/bithan/sketch.svg" alt="صفحة Original Sketch المعتمدة لهوية BITHAN وتطورها إلى الشعار النهائي" loading="lazy" decoding="async" />
           </figure>
           <div className="bithan-section-copy">
-            <span className="bithan-eyebrow">03 / ORIGINAL SKETCH</span>
-            <h2>The first hand-drawn concept <em>behind the final identity.</em></h2>
-            <p>The identity began as a hand-drawn Arabic exploration. The final system preserved that distinctive silhouette and spirit while refining the construction into a more polished, luxurious and contemporary expression.</p>
+            <span className="bithan-eyebrow" dir="ltr">03 / ORIGINAL SKETCH</span>
+            <h2>بدأت الهوية بخط يدوي.<br/><em>وانتهت بنظام أكثر دقة ولمعانًا.</em></h2>
+            <p>حافظت الهوية النهائية على الروح العربية والشكل المميز للاتجاه الأول، ثم تم ضبط البناء والنسب والتفاصيل ليصبح التعبير أكثر معاصرة وملاءمة لعالم المجوهرات الراقية.</p>
             <div className="bithan-principles">
-              <div><b>GEOMETRIC</b><span>Rooted in structure</span></div>
-              <div><b>MODERN</b><span>A contemporary expression</span></div>
-              <div><b>JEWEL-LIKE</b><span>Inspired by brilliance</span></div>
+              <div><b dir="ltr">GEOMETRIC</b><span>بناء منظم ونِسب أوضح</span></div>
+              <div><b dir="ltr">MODERN</b><span>تعبير معاصر دون فقد الروح</span></div>
+              <div><b dir="ltr">JEWEL-LIKE</b><span>تفاصيل مستوحاة من اللمعان والأحجار</span></div>
             </div>
-            <blockquote>Same essence. A brighter tomorrow.</blockquote>
+            <blockquote>نفس الجوهر. بصياغة أكثر نضجًا.</blockquote>
           </div>
         </section>
 
         <section className="bithan-dark-panel" id="logo-suite">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow">04 / FINAL LOGO SUITE</span><h2>One signature. <em>Seven usable forms.</em></h2></div>
-              <p>The approved suite gives the identity enough flexibility to work across premium packaging, print, social, small digital surfaces and light or dark backgrounds without losing recognition.</p>
+              <div><span className="bithan-eyebrow" dir="ltr">04 / FINAL LOGO SUITE</span><h2>توقيع واحد.<br/><em>وسبع صيغ قابلة للاستخدام.</em></h2></div>
+              <p>النظام النهائي يعطي الهوية مرونة للعمل على التغليف الفاخر، الطباعة، السوشيال، المساحات الرقمية الصغيرة والخلفيات الفاتحة أو الداكنة من دون فقد التعرف على العلامة.</p>
             </div>
-            <figure className="bithan-editorial-visual">
-              <img src="/work/bithan/logo-suite.svg" alt="BITHAN final logo suite with primary, light, flat, monochrome, Arabic mark and icon variants" loading="lazy" decoding="async" />
+            <figure className="bithan-page-visual on-dark">
+              <img src="/work/bithan/logo-suite.svg" alt="صفحة Final Logo Suite المعتمدة وتعرض سبع نسخ من شعار BITHAN" loading="lazy" decoding="async" />
             </figure>
             <div className="bithan-signature-note">
-              <span className="bithan-eyebrow">OUR SIGNATURE</span>
-              <p>The BITHAN logo is a harmonious fusion of Arabic heritage and modern luxury. Its refined geometry and jewel-like forms reflect the brilliance, precision and timeless beauty at the heart of the brand. The suite was designed to keep usage consistent and elegant across touchpoints.</p>
+              <span className="bithan-eyebrow" dir="ltr">OUR SIGNATURE</span>
+              <p>الشعار يجمع بين جذور الخط العربي وإحساس حديث بالرفاهية. البنية المصقولة والتفاصيل الشبيهة بالأحجار تعكس الدقة واللمعان، بينما يضمن نظام النسخ المختلفة اتساق العلامة عبر نقاط التواصل.</p>
               <strong>Legacy in every detail.</strong>
             </div>
             <div className="bithan-logo-legend">
@@ -304,15 +303,18 @@ export default function BithanCaseStudyPage() {
 
         <section className="bithan-palette-section shell" id="palette">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow">05 / MASTER PALETTE &amp; PRINT SPECS</span><h2>Approved flat colors <em>for print and digital use.</em></h2></div>
-            <p>The palette uses deep sapphire and progressively lighter blues to create a cool, crystalline luxury register, balanced by rich black and white for contrast and flexibility.</p>
+            <div><span className="bithan-eyebrow" dir="ltr">05 / MASTER PALETTE &amp; PRINT SPECS</span><h2>ألوان معتمدة<br/><em>للطباعة والاستخدام الرقمي.</em></h2></div>
+            <p>تعتمد الهوية على Deep Sapphire ودرجات أفتح من الأزرق لتكوين إحساس بارد وبلوري، مع الأسود والأبيض لتحقيق التباين والمرونة في الاستخدام.</p>
           </div>
+          <figure className="bithan-page-visual palette-page">
+            <img src="/work/bithan/palette.svg" alt="صفحة Master Palette & Print Specs المعتمدة لهوية BITHAN" loading="lazy" decoding="async" />
+          </figure>
           <div className="bithan-palette">
             {colors.map((color) => (
               <article key={color.name}>
                 <span className="bithan-swatch" style={{ background: color.hex }} data-light={color.hex === "#FFFFFF" ? "true" : undefined} />
-                <h3>{color.name}</h3>
-                <dl>
+                <h3 dir="ltr">{color.name}</h3>
+                <dl dir="ltr">
                   <div><dt>HEX</dt><dd>{color.hex}</dd></div>
                   <div><dt>RGB</dt><dd>{color.rgb}</dd></div>
                   <div><dt>CMYK</dt><dd>{color.cmyk}</dd></div>
@@ -321,40 +323,40 @@ export default function BithanCaseStudyPage() {
             ))}
           </div>
           <aside className="bithan-approved-use">
-            <b>Approved use</b>
-            <p>These flat colors are approved for print materials and social media use. Exact color values should be maintained for brand consistency.</p>
+            <b>الاستخدام المعتمد</b>
+            <p>هذه الألوان المسطحة معتمدة لمواد الطباعة والسوشيال ميديا، ويجب الحفاظ على القيم المحددة لضمان اتساق الهوية.</p>
           </aside>
         </section>
 
         <section className="bithan-variants">
           <div className="shell bithan-variants-grid">
             <div className="bithan-section-copy">
-              <span className="bithan-eyebrow">06 / FINAL FLAT COLOR VARIANTS</span>
-              <h2>Approved logo use <em>on dark and light backgrounds.</em></h2>
-              <p>The final approved hero mark uses the version with the kasra on the letter B. The version without the kasra is an approved alternate and should be used only when technical or layout constraints make it necessary.</p>
+              <span className="bithan-eyebrow" dir="ltr">06 / FINAL FLAT COLOR VARIANTS</span>
+              <h2>استخدام معتمد للشعار<br/><em>على الخلفيات الداكنة والفاتحة.</em></h2>
+              <p>النسخة الأساسية المعتمدة Hero Mark هي التي تحتوي على الكسرة في حرف الباء. النسخة من دون الكسرة بديل معتمد عند وجود ضرورة تقنية أو قيود في المساحة.</p>
               <div className="bithan-usage-note">
-                <b>Primary</b><span>With kasra · preferred hero mark</span>
-                <b>Alternate</b><span>Without kasra · technical/layout fallback</span>
+                <b>Primary</b><span>بالكسرة — الاستخدام الأساسي والمفضّل</span>
+                <b>Alternate</b><span>من دون الكسرة — عند الضرورة التقنية فقط</span>
               </div>
             </div>
-            <figure className="bithan-editorial-visual">
-              <img src="/work/bithan/flat-variants.svg" alt="BITHAN approved logo variants with and without kasra on dark and light backgrounds" loading="lazy" decoding="async" />
+            <figure className="bithan-page-visual">
+              <img src="/work/bithan/flat-variants.svg" alt="صفحة Final Flat Color Variants المعتمدة لشعار BITHAN على خلفيات داكنة وفاتحة" loading="lazy" decoding="async" />
             </figure>
           </div>
         </section>
 
         <section className="bithan-evolution shell" id="evolution">
-          <figure className="bithan-editorial-visual">
-            <img src="/work/bithan/evolution.svg" alt="BITHAN sketch to final evolution showing geometric construction, jewel-like facets and refined Arabic wordmark" loading="lazy" decoding="async" />
+          <figure className="bithan-page-visual">
+            <img src="/work/bithan/evolution.svg" alt="صفحة Sketch to Final Evolution توضح تطور شعار BITHAN من الاسكتش إلى العلامة النهائية" loading="lazy" decoding="async" />
           </figure>
           <div className="bithan-section-copy">
-            <span className="bithan-eyebrow">07 / SKETCH TO FINAL EVOLUTION</span>
-            <h2>From original concept <em>to refined brand mark.</em></h2>
+            <span className="bithan-eyebrow" dir="ltr">07 / SKETCH TO FINAL EVOLUTION</span>
+            <h2>من الفكرة الأصلية<br/><em>إلى علامة أكثر دقة وقابلية للاستخدام.</em></h2>
             <div className="bithan-evolution-notes">
-              <article><b>Geometric construction</b><p>Rooted in precise proportions and balanced structure.</p></article>
-              <article><b>Jewel-like facets</b><p>Crystalline details connect the mark to the world of fine jewelry.</p></article>
-              <article><b>Refined Arabic wordmark</b><p>A fluid form with a more contemporary, controlled finish.</p></article>
-              <article><b>Final luxury finish</b><p>A luminous identity designed to make a lasting impression.</p></article>
+              <article><b dir="ltr">GEOMETRIC CONSTRUCTION</b><p>نِسب أكثر دقة وبناء بصري متوازن.</p></article>
+              <article><b dir="ltr">JEWEL-LIKE FACETS</b><p>تفاصيل بلورية تربط العلامة بعالم المجوهرات الراقية.</p></article>
+              <article><b dir="ltr">REFINED ARABIC WORDMARK</b><p>حركة عربية انسيابية بصياغة أكثر تحكمًا وحداثة.</p></article>
+              <article><b dir="ltr">FINAL LUXURY FINISH</b><p>هوية مضيئة ومتماسكة مصممة لانطباع طويل الأمد.</p></article>
             </div>
           </div>
         </section>
@@ -362,35 +364,35 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-applications" id="applications">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow">08 / BRAND APPLICATIONS</span><h2>Selected premium <em>applications.</em></h2></div>
-              <p>The approved identity was tested across key touchpoints to make sure the mark, color and luxury tone stayed coherent beyond the presentation page.</p>
+              <div><span className="bithan-eyebrow" dir="ltr">08 / BRAND APPLICATIONS</span><h2>تطبيقات Premium<br/><em>تثبت أن النظام يعمل خارج ملف العرض.</em></h2></div>
+              <p>تم اختبار الهوية على نقاط تواصل أساسية للتأكد من أن العلامة واللون والإحساس الفاخر يظلون متماسكين في الاستخدام الواقعي.</p>
             </div>
-            <figure className="bithan-editorial-visual bithan-app-visual">
-              <img src="/work/bithan/applications.svg" alt="BITHAN applications on jewelry box, shopping bag, business card and social media profile" loading="lazy" decoding="async" />
+            <figure className="bithan-page-visual on-dark">
+              <img src="/work/bithan/applications.svg" alt="صفحة Brand Applications المعتمدة وتعرض علبة المجوهرات وحقيبة التسوق وبطاقة الأعمال وصورة السوشيال" loading="lazy" decoding="async" />
             </figure>
             <div className="bithan-application-captions">
-              {applications.map(([name, line], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><h3>{name}</h3><p>{line}</p></article>)}
+              {applications.map(([name, en], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><h3>{name}</h3><p dir="ltr">{en}</p></article>)}
             </div>
           </div>
         </section>
 
         <section className="bithan-delivery shell" id="delivery">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow">09 / FINAL DELIVERY</span><h2>Approved brand assets <em>and presentation summary.</em></h2></div>
-            <p>The final system was delivered for real-world use, with metallic, flat and monochrome variants, print specifications, applications and production-ready source formats.</p>
+            <div><span className="bithan-eyebrow" dir="ltr">09 / FINAL DELIVERY</span><h2>أصول العلامة المعتمدة<br/><em>جاهزة للاستخدام الفعلي.</em></h2></div>
+            <p>التسليم النهائي لم يتوقف عند الشعار، بل شمل النسخ المعدنية والمسطحة والأحادية، مواصفات الطباعة، التطبيقات وملفات المصدر.</p>
           </div>
-          <figure className="bithan-delivery-visual">
-            <img src="/work/bithan/delivery-logos.svg" alt="BITHAN final metallic logo on dark and light backgrounds" loading="lazy" decoding="async" />
+          <figure className="bithan-page-visual delivery-page">
+            <img src="/work/bithan/delivery-logos.svg" alt="صفحة Final Delivery المعتمدة لهوية BITHAN وتفاصيل الملفات والتطبيقات" loading="lazy" decoding="async" />
           </figure>
           <div className="bithan-delivery-grid">
-            {delivery.map(([name, text], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{name}</h3><p>{text}</p></div></article>)}
+            {delivery.map(([name, text], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><div><h3 dir="ltr">{name}</h3><p>{text}</p></div></article>)}
           </div>
         </section>
 
         <section className="bithan-faq shell" aria-labelledby="bithan-faq-title">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow">10 / CASE STUDY FAQ</span><h2 id="bithan-faq-title">Clear answers <em>before a brand conversation.</em></h2></div>
-            <p>Key project facts for clients evaluating naming, identity and bilingual brand-system work.</p>
+            <div><span className="bithan-eyebrow" dir="ltr">10 / CASE STUDY FAQ</span><h2 id="bithan-faq-title">أسئلة مهمة<br/><em>قبل بدء مشروع تسمية أو هوية.</em></h2></div>
+            <p>إجابات مباشرة على أكثر النقاط التي يحتاجها عميل يقارن بين مزودين لخدمات Naming وBrand Strategy وVisual Identity.</p>
           </div>
           <div className="bithan-faq-list">
             {faqs.map(([question, answer]) => (
@@ -404,17 +406,17 @@ export default function BithanCaseStudyPage() {
 
         <section className="bithan-outcome shell">
           <div>
-            <span className="bithan-eyebrow">THE RESULT</span>
-            <h2>A brand system designed to be <em>remembered, reproduced and expanded.</em></h2>
+            <span className="bithan-eyebrow" dir="ltr">THE RESULT</span>
+            <h2>مشروع بدأ من قرار اسم.<br/><em>وانتهى بنظام علامة متكامل.</em></h2>
           </div>
           <div>
-            <p>BITHAN moved from a naming challenge to a client-selected name and then into a complete identity system with a distinctive Arabic signature, bilingual usage, controlled logo variants, production color specifications and premium applications.</p>
-            <p className="bithan-outcome-note">No performance metric is claimed here. The value of this case is the quality and completeness of the strategic-to-visual brand system.</p>
+            <p>انتقل BITHAN من تحدي تسمية إلى اسم اختاره العميل، ثم إلى هوية كاملة بتوقيع عربي مميز، استخدام ثنائي اللغة، نسخ شعار مضبوطة، مواصفات ألوان للإنتاج وتطبيقات Premium.</p>
+            <p className="bithan-outcome-note">لا ندّعي هنا أرقام أداء أو نتائج تجارية غير موثقة. قيمة دراسة الحالة في اكتمال المنهج من القرار الاستراتيجي إلى النظام البصري القابل للتطبيق.</p>
             <div className="bithan-outcome-links">
-              <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">Discuss your brand project <span>↗</span></a>
-              <a className="button secondary" href={emailHref}>Email Dewank</a>
-              <Link className="button secondary" href="/services/brand-naming">Brand naming service</Link>
-              <Link className="button secondary" href="/branding">Brand strategy &amp; identity</Link>
+              <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعك معنا <span>↗</span></a>
+              <a className="button secondary" href={emailHref}>راسل ديوانك</a>
+              <Link className="button secondary" href="/services/brand-naming">خدمة تسمية العلامة</Link>
+              <Link className="button secondary" href="/branding">استراتيجية البراند والهوية</Link>
             </div>
           </div>
         </section>
