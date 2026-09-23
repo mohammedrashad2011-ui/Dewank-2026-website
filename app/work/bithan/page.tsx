@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
+import { BithanTrackedLink } from "./tracked-link";
 import { createMetadata, organizationId, siteName, siteUrl } from "../../lib/seo";
 import "./bithan-case-study.css";
 
 const title = "BITHAN | دراسة حالة تسمية علامة وهوية بصرية للمجوهرات";
 const description = "دراسة حالة BITHAN لعلامة مجوهرات في قطر: استراتيجية تسمية وفحص مبدئي، اختيار الاسم، ثم تصميم شعار عربي وإنجليزي، لوحة ألوان، تطبيقات وهوية بصرية متكاملة.";
-const socialImagePath = "/branding-social-preview.png";
+const socialImagePath = "/work/bithan/opengraph-image";
 const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، شاهدت دراسة حالة BITHAN وأرغب في مناقشة مشروع تسمية أو هوية لعلامتي.");
 const emailHref = "mailto:hello@dewank.com?subject=" + encodeURIComponent("استفسار مشروع براند — دراسة حالة BITHAN");
 
@@ -47,6 +47,17 @@ export const metadata: Metadata = {
     locale: "ar_SA",
     publishedTime: "2026-09-23T00:00:00+03:00",
     modifiedTime: "2026-09-23T00:00:00+03:00",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -144,6 +155,7 @@ export default function BithanCaseStudyPage() {
         inLanguage: "ar",
         author: { "@id": organizationId },
         publisher: { "@id": organizationId },
+        mainEntity: { "@id": `${url}#project` },
         about: [
           "تسمية علامة تجارية",
           "استراتيجية البراند",
@@ -153,6 +165,19 @@ export default function BithanCaseStudyPage() {
           "Qatar",
         ],
         keywords: "تسمية علامة تجارية، تصميم هوية بصرية للمجوهرات، تصميم شعار عربي، براندينج مجوهرات، BITHAN",
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": `${url}#project`,
+        name: "BITHAN Fine Jewelry — Naming & Brand Identity",
+        description,
+        url,
+        image,
+        inLanguage: ["ar", "en"],
+        creator: { "@id": organizationId },
+        genre: ["Brand Naming", "Brand Strategy", "Visual Identity"],
+        spatialCoverage: { "@type": "Country", name: "Qatar" },
+        dateCreated: "2026",
       },
       {
         "@type": "BreadcrumbList",
@@ -186,7 +211,7 @@ export default function BithanCaseStudyPage() {
             <p className="bithan-hero-lede">مشروع لدار مجوهرات راقية في قطر بدأ من استراتيجية التسمية والفحص والتطوير، ثم انتقل بعد اختيار الاسم إلى بناء هوية عربية وإنجليزية قابلة للعمل على التغليف والطباعة والحضور الرقمي والتوسع المستقبلي.</p>
             <div className="bithan-hero-actions">
               <a className="button primary" href="#case-overview">شاهد دراسة الحالة <span>↓</span></a>
-              <a className="button secondary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروع براند <span>↗</span></a>
+              <BithanTrackedLink className="button secondary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="hero_whatsapp">ناقش مشروع براند <span>↗</span></BithanTrackedLink>
             </div>
             <dl className="bithan-facts" aria-label="بيانات المشروع">
               <div><dt>النطاق</dt><dd>Naming · Strategy · Visual Identity</dd></div>
@@ -196,10 +221,16 @@ export default function BithanCaseStudyPage() {
             </dl>
           </div>
           <figure className="bithan-hero-visual">
-            <img src="/work/bithan/hero.svg" alt="الغلاف النهائي المعتمد لهوية BITHAN Fine Jewelry" fetchPriority="high" decoding="async" />
+            <img src="/work/bithan/hero.svg" width={1126} height={1591} alt="الغلاف النهائي المعتمد لهوية BITHAN Fine Jewelry" fetchPriority="high" decoding="async" />
             <figcaption>Final Approved Direction · September 2026</figcaption>
           </figure>
         </section>
+
+        <div className="bithan-proof-strip shell" aria-label="إثباتات المشروع">
+          <span>اسم اختاره العميل</span>
+          <span>هوية نهائية معتمدة</span>
+          <span dir="ltr">PNG · PDF · SVG · AI · EPS</span>
+        </div>
 
         <nav className="bithan-jump shell" aria-label="أقسام دراسة الحالة">
           <a href="#case-overview">التحدي</a>
@@ -270,7 +301,8 @@ export default function BithanCaseStudyPage() {
 
         <section className="bithan-sketch shell" id="original-sketch">
           <figure className="bithan-page-visual">
-            <img src="/work/bithan/sketch.svg" alt="صفحة Original Sketch المعتمدة لهوية BITHAN وتطورها إلى الشعار النهائي" loading="lazy" decoding="async" />
+            <img src="/work/bithan/sketch.svg" width={1126} height={1591} alt="صفحة Original Sketch المعتمدة لهوية BITHAN وتطورها إلى الشعار النهائي" loading="lazy" decoding="async" />
+            <a className="bithan-visual-zoom" href="/work/bithan/sketch.svg" target="_blank" rel="noopener noreferrer">عرض التصميم بالحجم الكامل <span>↗</span></a>
           </figure>
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow" dir="ltr">03 / ORIGINAL SKETCH</span>
@@ -292,7 +324,8 @@ export default function BithanCaseStudyPage() {
               <p>النظام النهائي يعطي الهوية مرونة للعمل على التغليف الفاخر، الطباعة، السوشيال، المساحات الرقمية الصغيرة والخلفيات الفاتحة أو الداكنة من دون فقد التعرف على العلامة.</p>
             </div>
             <figure className="bithan-page-visual on-dark">
-              <img src="/work/bithan/logo-suite.svg" alt="صفحة Final Logo Suite المعتمدة وتعرض سبع نسخ من شعار BITHAN" loading="lazy" decoding="async" />
+              <img src="/work/bithan/logo-suite.svg" width={1126} height={1591} alt="صفحة Final Logo Suite المعتمدة وتعرض سبع نسخ من شعار BITHAN" loading="lazy" decoding="async" />
+            <a className="bithan-visual-zoom" href="/work/bithan/logo-suite.svg" target="_blank" rel="noopener noreferrer">عرض التصميم بالحجم الكامل <span>↗</span></a>
             </figure>
             <div className="bithan-signature-note">
               <span className="bithan-eyebrow" dir="ltr">OUR SIGNATURE</span>
@@ -311,7 +344,8 @@ export default function BithanCaseStudyPage() {
             <p>تعتمد الهوية على Deep Sapphire ودرجات أفتح من الأزرق لتكوين إحساس بارد وبلوري، مع الأسود والأبيض لتحقيق التباين والمرونة في الاستخدام.</p>
           </div>
           <figure className="bithan-page-visual palette-page">
-            <img src="/work/bithan/palette.svg" alt="صفحة Master Palette & Print Specs المعتمدة لهوية BITHAN" loading="lazy" decoding="async" />
+            <img src="/work/bithan/palette.svg" width={1126} height={1591} alt="صفحة Master Palette & Print Specs المعتمدة لهوية BITHAN" loading="lazy" decoding="async" />
+            <a className="bithan-visual-zoom" href="/work/bithan/palette.svg" target="_blank" rel="noopener noreferrer">عرض التصميم بالحجم الكامل <span>↗</span></a>
           </figure>
           <div className="bithan-palette">
             {colors.map((color) => (
@@ -344,14 +378,16 @@ export default function BithanCaseStudyPage() {
               </div>
             </div>
             <figure className="bithan-page-visual">
-              <img src="/work/bithan/flat-variants.svg" alt="صفحة Final Flat Color Variants المعتمدة لشعار BITHAN على خلفيات داكنة وفاتحة" loading="lazy" decoding="async" />
+              <img src="/work/bithan/flat-variants.svg" width={1126} height={1591} alt="صفحة Final Flat Color Variants المعتمدة لشعار BITHAN على خلفيات داكنة وفاتحة" loading="lazy" decoding="async" />
+            <a className="bithan-visual-zoom" href="/work/bithan/flat-variants.svg" target="_blank" rel="noopener noreferrer">عرض التصميم بالحجم الكامل <span>↗</span></a>
             </figure>
           </div>
         </section>
 
         <section className="bithan-evolution shell" id="evolution">
           <figure className="bithan-page-visual">
-            <img src="/work/bithan/evolution.svg" alt="صفحة Sketch to Final Evolution توضح تطور شعار BITHAN من الاسكتش إلى العلامة النهائية" loading="lazy" decoding="async" />
+            <img src="/work/bithan/evolution.svg" width={1126} height={1591} alt="صفحة Sketch to Final Evolution توضح تطور شعار BITHAN من الاسكتش إلى العلامة النهائية" loading="lazy" decoding="async" />
+            <a className="bithan-visual-zoom" href="/work/bithan/evolution.svg" target="_blank" rel="noopener noreferrer">عرض التصميم بالحجم الكامل <span>↗</span></a>
           </figure>
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow" dir="ltr">07 / SKETCH TO FINAL EVOLUTION</span>
@@ -372,12 +408,22 @@ export default function BithanCaseStudyPage() {
               <p>تم اختبار الهوية على نقاط تواصل أساسية للتأكد من أن العلامة واللون والإحساس الفاخر يظلون متماسكين في الاستخدام الواقعي.</p>
             </div>
             <figure className="bithan-page-visual on-dark">
-              <img src="/work/bithan/applications.svg" alt="صفحة Brand Applications المعتمدة وتعرض علبة المجوهرات وحقيبة التسوق وبطاقة الأعمال وصورة السوشيال" loading="lazy" decoding="async" />
+              <img src="/work/bithan/applications.svg" width={1126} height={1591} alt="صفحة Brand Applications المعتمدة وتعرض علبة المجوهرات وحقيبة التسوق وبطاقة الأعمال وصورة السوشيال" loading="lazy" decoding="async" />
+            <a className="bithan-visual-zoom" href="/work/bithan/applications.svg" target="_blank" rel="noopener noreferrer">عرض التصميم بالحجم الكامل <span>↗</span></a>
             </figure>
             <div className="bithan-application-captions">
               {applications.map(([name, en], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><h3>{name}</h3><p dir="ltr">{en}</p></article>)}
             </div>
           </div>
+        </section>
+
+        <section className="bithan-mid-cta shell" aria-label="ابدأ مشروعًا مشابهًا">
+          <div>
+            <span className="bithan-eyebrow">هل تعمل على اسم أو هوية جديدة؟</span>
+            <h2>نقدر نبدأ من قرار الاسم، أو من البراند الموجود بالفعل.</h2>
+            <p>لو محتاج تسمية، Brand Strategy أو Visual Identity، ابعت لنا نبذة قصيرة عن المشروع ونحدد أنسب نقطة بداية.</p>
+          </div>
+          <BithanTrackedLink className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="mid_whatsapp">ناقش مشروعك <span>↗</span></BithanTrackedLink>
         </section>
 
         <section className="bithan-delivery shell" id="delivery">
@@ -386,7 +432,8 @@ export default function BithanCaseStudyPage() {
             <p>التسليم النهائي لم يتوقف عند الشعار، بل شمل النسخ المعدنية والمسطحة والأحادية، مواصفات الطباعة، التطبيقات وملفات المصدر.</p>
           </div>
           <figure className="bithan-page-visual delivery-page">
-            <img src="/work/bithan/delivery-logos.svg" alt="صفحة Final Delivery المعتمدة لهوية BITHAN وتفاصيل الملفات والتطبيقات" loading="lazy" decoding="async" />
+            <img src="/work/bithan/delivery-logos.svg" width={1126} height={1591} alt="صفحة Final Delivery المعتمدة لهوية BITHAN وتفاصيل الملفات والتطبيقات" loading="lazy" decoding="async" />
+            <a className="bithan-visual-zoom" href="/work/bithan/delivery-logos.svg" target="_blank" rel="noopener noreferrer">عرض التصميم بالحجم الكامل <span>↗</span></a>
           </figure>
           <div className="bithan-delivery-grid">
             {delivery.map(([name, text], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><div><h3 dir="ltr">{name}</h3><p>{text}</p></div></article>)}
@@ -417,10 +464,10 @@ export default function BithanCaseStudyPage() {
             <p>انتقل BITHAN من تحدي تسمية إلى اسم اختاره العميل، ثم إلى هوية كاملة بتوقيع عربي مميز، استخدام ثنائي اللغة، نسخ شعار مضبوطة، مواصفات ألوان للإنتاج وتطبيقات Premium.</p>
             <p className="bithan-outcome-note">لا ندّعي هنا أرقام أداء أو نتائج تجارية غير موثقة. قيمة دراسة الحالة في اكتمال المنهج من القرار الاستراتيجي إلى النظام البصري القابل للتطبيق.</p>
             <div className="bithan-outcome-links">
-              <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعك معنا <span>↗</span></a>
-              <a className="button secondary" href={emailHref}>راسل ديوانك</a>
-              <Link className="button secondary" href="/services/brand-naming">خدمة تسمية العلامة</Link>
-              <Link className="button secondary" href="/branding">استراتيجية البراند والهوية</Link>
+              <BithanTrackedLink className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="final_whatsapp">ناقش مشروعك معنا <span>↗</span></BithanTrackedLink>
+              <BithanTrackedLink className="button secondary" href={emailHref} eventName="bithan_cta_click" eventLocation="final_email">راسل ديوانك</BithanTrackedLink>
+              <BithanTrackedLink className="button secondary" href="/services/brand-naming" eventName="bithan_service_click" eventLocation="final_naming">خدمة تسمية العلامة</BithanTrackedLink>
+              <BithanTrackedLink className="button secondary" href="/branding" eventName="bithan_service_click" eventLocation="final_branding">استراتيجية البراند والهوية</BithanTrackedLink>
             </div>
           </div>
         </section>
