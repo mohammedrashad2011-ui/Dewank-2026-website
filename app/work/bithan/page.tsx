@@ -30,9 +30,19 @@ const baseMetadata = createMetadata({
 export const metadata: Metadata = {
   ...baseMetadata,
   category: "Branding Case Study",
+  alternates: {
+    canonical: `${siteUrl}/work/bithan`,
+    languages: {
+      en: `${siteUrl}/work/bithan`,
+      ar: `${siteUrl}/work/bithan`,
+      "x-default": `${siteUrl}/work/bithan`,
+    },
+  },
   openGraph: {
     ...baseMetadata.openGraph,
     type: "article",
+    locale: "en_US",
+    alternateLocale: ["ar_SA"],
     publishedTime: "2026-09-23T00:00:00+03:00",
     modifiedTime: "2026-09-23T00:00:00+03:00",
   },
