@@ -155,7 +155,7 @@ export default function BrandingPage() {
         <div className="brand-deliverables-grid">{deliverables.map(([title,text],i)=><article key={title}><span>0{i+1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
       </section>
 
-      <BithanProofCard variant="branding" />
+      <BithanProofCard />
 
       <section className="brand-process">
         <div className="shell">
