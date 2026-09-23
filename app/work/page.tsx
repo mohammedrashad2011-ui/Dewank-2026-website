@@ -158,10 +158,9 @@ export default function WorkPage() {
           <div className="bithan-work-journey"><span>Naming</span><i>→</i><span>Selection</span><i>→</i><span>Identity</span><i>→</i><span>Applications</span></div>
           <Link className="button primary" href="/work/bithan">شاهد دراسة الحالة كاملة <span>←</span></Link>
         </div>
-        <Link className="bithan-work-visual" href="/work/bithan" aria-label="شاهد دراسة حالة BITHAN">
-          <span>BITHAN · FINE JEWELRY</span>
-          <img src="/work/bithan/hero.svg" alt="BITHAN Fine Jewelry final approved identity" />
-          <small>FINAL APPROVED DIRECTION</small>
+        <Link className="bithan-work-visual" href="/work/bithan" aria-label="شاهد دراسة حالة BITHAN الكاملة">
+          <img src="/work/bithan/hero.svg" alt="BITHAN Fine Jewelry final approved identity" loading="lazy" decoding="async" />
+          <small>NAMING → IDENTITY · FINAL APPROVED DIRECTION</small>
         </Link>
       </section>
 
