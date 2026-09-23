@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
+import { BithanTrackedLink } from "./tracked-link";
 import { createMetadata, organizationId, siteName, siteUrl } from "../../lib/seo";
 import "./bithan-case-study.css";
 
@@ -186,7 +187,7 @@ export default function BithanCaseStudyPage() {
             <p className="bithan-hero-lede">مشروع لدار مجوهرات راقية في قطر بدأ من استراتيجية التسمية والفحص والتطوير، ثم انتقل بعد اختيار الاسم إلى بناء هوية عربية وإنجليزية قابلة للعمل على التغليف والطباعة والحضور الرقمي والتوسع المستقبلي.</p>
             <div className="bithan-hero-actions">
               <a className="button primary" href="#case-overview">شاهد دراسة الحالة <span>↓</span></a>
-              <a className="button secondary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروع براند <span>↗</span></a>
+              <BithanTrackedLink className="button secondary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="hero_whatsapp">ناقش مشروع براند <span>↗</span></BithanTrackedLink>
             </div>
             <dl className="bithan-facts" aria-label="بيانات المشروع">
               <div><dt>النطاق</dt><dd>Naming · Strategy · Visual Identity</dd></div>
@@ -398,7 +399,7 @@ export default function BithanCaseStudyPage() {
             <h2>نقدر نبدأ من قرار الاسم، أو من البراند الموجود بالفعل.</h2>
             <p>لو محتاج تسمية، Brand Strategy أو Visual Identity، ابعت لنا نبذة قصيرة عن المشروع ونحدد أنسب نقطة بداية.</p>
           </div>
-          <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعك <span>↗</span></a>
+          <BithanTrackedLink className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="mid_whatsapp">ناقش مشروعك <span>↗</span></BithanTrackedLink>
         </section>
 
         <section className="bithan-delivery shell" id="delivery">
@@ -439,10 +440,10 @@ export default function BithanCaseStudyPage() {
             <p>انتقل BITHAN من تحدي تسمية إلى اسم اختاره العميل، ثم إلى هوية كاملة بتوقيع عربي مميز، استخدام ثنائي اللغة، نسخ شعار مضبوطة، مواصفات ألوان للإنتاج وتطبيقات Premium.</p>
             <p className="bithan-outcome-note">لا ندّعي هنا أرقام أداء أو نتائج تجارية غير موثقة. قيمة دراسة الحالة في اكتمال المنهج من القرار الاستراتيجي إلى النظام البصري القابل للتطبيق.</p>
             <div className="bithan-outcome-links">
-              <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعك معنا <span>↗</span></a>
-              <a className="button secondary" href={emailHref}>راسل ديوانك</a>
-              <Link className="button secondary" href="/services/brand-naming">خدمة تسمية العلامة</Link>
-              <Link className="button secondary" href="/branding">استراتيجية البراند والهوية</Link>
+              <BithanTrackedLink className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="final_whatsapp">ناقش مشروعك معنا <span>↗</span></BithanTrackedLink>
+              <BithanTrackedLink className="button secondary" href={emailHref} eventName="bithan_cta_click" eventLocation="final_email">راسل ديوانك</BithanTrackedLink>
+              <BithanTrackedLink className="button secondary" href="/services/brand-naming" eventName="bithan_service_click" eventLocation="final_naming">خدمة تسمية العلامة</BithanTrackedLink>
+              <BithanTrackedLink className="button secondary" href="/branding" eventName="bithan_service_click" eventLocation="final_branding">استراتيجية البراند والهوية</BithanTrackedLink>
             </div>
           </div>
         </section>
