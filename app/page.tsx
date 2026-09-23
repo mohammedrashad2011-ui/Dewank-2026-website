@@ -59,7 +59,7 @@ const services = [
 
 const selectedWork = [
   { n: "01", label: "AUTOMATION", title: "من رسائل متفرقة إلى رحلة حجز قابلة للقياس", text: "نظام واتساب وCRM يربط الرد والتأهيل والحجز والتذكير والمتابعة.", href: "/work#case-studies" },
-  { n: "02", label: "BRAND", title: "هويات بصرية لقطاعات مختلفة", text: "نماذج فعلية توضّح كيف يتحول التموضع إلى حضور بصري متماسك وقابل للتذكر.", href: "/work#brand-identities" },
+  { n: "02", label: "NAMING → IDENTITY", title: "من قرار التسمية إلى هوية Fine Jewelry متكاملة", text: "BITHAN: تموضع وتسمية وفحص، ثم اسم اختاره العميل وهوية عربية-إنجليزية كاملة بتطبيقات Premium.", href: "/work/bithan" },
   { n: "03", label: "STRATEGY", title: "قرارات استراتيجية قبل التنفيذ", text: "مشروعات تعرض كيف نفكر في التحدي والتموضع والتجربة قبل الوصول للشكل النهائي.", href: "/work#concept-work" },
 ];
 

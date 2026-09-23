@@ -4,6 +4,7 @@ import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import { BrandNamingOfferPrice } from "../offers/brand-naming/localized-brand-naming-offer";
 import { MiniIdentityPrice } from "../offers/mini-visual-identity/localized-mini-identity";
+import { BithanProofCard } from "../components/bithan-proof-card";
 import BrandSignal from "./brand-signal";
 import "./branding-page.css";
 import "./branding-guides.css";
@@ -153,6 +154,8 @@ export default function BrandingPage() {
         <div className="brand-section-head"><div><span className="section-label">[ ما الذي تتضمنه الخدمة ]</span><h2>من الفكرة الغامضة<br/><em>إلى نظام قابل للاستخدام.</em></h2></div></div>
         <div className="brand-deliverables-grid">{deliverables.map(([title,text],i)=><article key={title}><span>0{i+1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
       </section>
+
+      <BithanProofCard />
 
       <section className="brand-process">
         <div className="shell">
