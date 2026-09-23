@@ -160,7 +160,7 @@ export default function WorkPage() {
         </div>
         <Link className="bithan-work-visual" href="/work/bithan" aria-label="شاهد دراسة حالة BITHAN">
           <span>BITHAN · FINE JEWELRY</span>
-          <img src="/work/bithan-logo.svg" alt="شعار BITHAN Fine Jewelry" />
+          <img src="/work/bithan/hero.svg" alt="BITHAN Fine Jewelry final approved identity" />
           <small>FINAL APPROVED DIRECTION</small>
         </Link>
       </section>
