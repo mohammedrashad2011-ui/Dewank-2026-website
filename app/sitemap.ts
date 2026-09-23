@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Trust and company pages
     { path: "/work", priority: 0.8, changeFrequency: "monthly" as const },
+    { path: "/work/bithan", priority: 0.82, changeFrequency: "monthly" as const },
     { path: "/about", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/contact", priority: 0.7, changeFrequency: "yearly" as const },
 
