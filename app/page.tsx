@@ -59,7 +59,7 @@ const services = [
 
 const selectedWork = [
   { n: "01", label: "AUTOMATION", title: "من رسائل متفرقة إلى رحلة حجز قابلة للقياس", text: "نظام واتساب وCRM يربط الرد والتأهيل والحجز والتذكير والمتابعة.", href: "/work#case-studies" },
-  { n: "02", label: "NAMING → BRAND", title: "من اسم إلى علامة مجوهرات متكاملة", text: "BITHAN: استراتيجية تسمية، اختيار، ثم هوية بصرية ثنائية اللغة لعلامة Fine Jewelry في قطر.", href: "/work/bithan" },
+  { n: "02", label: "BRAND IDENTITY", title: "من Sketch يدوي إلى هوية Fine Jewelry متكاملة", text: "BITHAN: تطوير العلامة من Original Sketch إلى Final Logo Suite، Palette، Variants وتطبيقات نهائية.", href: "/work/bithan" },
   { n: "03", label: "STRATEGY", title: "قرارات استراتيجية قبل التنفيذ", text: "مشروعات تعرض كيف نفكر في التحدي والتموضع والتجربة قبل الوصول للشكل النهائي.", href: "/work#concept-work" },
 ];
 
