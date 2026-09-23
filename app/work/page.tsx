@@ -22,7 +22,7 @@ const identityProjects = [
 
 const proofPaths = [
   { no: "01", label: "أتمتة ومتابعة", title: "من المحادثة إلى الحجز", text: "شاهد كيف تحولت المتابعة اليدوية إلى رحلة قابلة للقياس وربط CRM.", href: "#case-studies" },
-  { no: "02", label: "براند وهوية", title: "من الفكرة إلى حضور متماسك", text: "نماذج فعلية لهويات بصرية عبر قطاعات مختلفة، مع تطبيقات واضحة للعلامة.", href: "#brand-identities" },
+  { no: "02", label: "تسمية وبراند", title: "من الاسم إلى هوية متكاملة", text: "BITHAN: مشروع فعلي انتقل من استراتيجية التسمية والاختيار إلى نظام هوية Fine Jewelry متكامل.", href: "/work/bithan" },
   { no: "03", label: "طريقة التفكير", title: "من التحدي إلى قرار استراتيجي", text: "مشروعات مفاهيمية نستخدمها لعرض التفكير وراء التموضع والهوية والتجربة.", href: "#concept-work" },
 ];
 
@@ -83,8 +83,9 @@ export default function WorkPage() {
       "@type": "ItemList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Clinic WhatsApp Automation and CRM Case Study" },
-        ...identityProjects.map((item, index) => ({ "@type": "ListItem", position: index + 2, name: `${item.name} Brand Identity` })),
-        ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + identityProjects.length + 2, name: item.name })),
+        { "@type": "ListItem", position: 2, name: "BITHAN Fine Jewelry Brand Naming and Identity Case Study", url: "https://dewank.com/work/bithan" },
+        ...identityProjects.map((item, index) => ({ "@type": "ListItem", position: index + 3, name: `${item.name} Brand Identity` })),
+        ...concepts.map((item, index) => ({ "@type": "ListItem", position: index + identityProjects.length + 3, name: item.name })),
       ],
     },
   };
@@ -147,6 +148,21 @@ export default function WorkPage() {
             <p className="metric-note">النتائج مستندة إلى التشغيل الفعلي للمشروع، وقد تختلف حسب حجم الرسائل وجودة العرض وسرعة استجابة الفريق.</p>
           </div>
         </div>
+      </section>
+
+      <section className="bithan-work-feature shell" aria-labelledby="bithan-work-title">
+        <div className="bithan-work-copy">
+          <span className="section-label">دراسة حالة فعلية · قطر · 2026</span>
+          <h2 id="bithan-work-title">من تحدي تسمية<br/><em>إلى علامة Fine Jewelry متكاملة.</em></h2>
+          <p>BITHAN بدأ كمشروع تسمية مبني على التموضع، اتجاهات واضحة، تصفية وفحص مبدئي، ثم تطور بعد اختيار الاسم إلى توقيع بصري ثنائي اللغة ونظام هوية كامل.</p>
+          <div className="bithan-work-journey"><span>Strategy</span><i>→</i><span>Naming</span><i>→</i><span>Selection</span><i>→</i><span>Identity</span></div>
+          <Link className="button primary" href="/work/bithan">شاهد دراسة الحالة كاملة <span>←</span></Link>
+        </div>
+        <Link className="bithan-work-visual" href="/work/bithan" aria-label="شاهد دراسة حالة BITHAN">
+          <span>BITHAN · FINE JEWELRY</span>
+          <img src="/work/bithan-logo.svg" alt="شعار BITHAN Fine Jewelry" />
+          <small>FINAL APPROVED DIRECTION</small>
+        </Link>
       </section>
 
       <section className="identity-work shell" id="brand-identities" aria-labelledby="identity-work-title">
