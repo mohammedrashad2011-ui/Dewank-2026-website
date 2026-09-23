@@ -48,6 +48,17 @@ export const metadata: Metadata = {
     publishedTime: "2026-09-23T00:00:00+03:00",
     modifiedTime: "2026-09-23T00:00:00+03:00",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 const successCriteria = [
@@ -144,6 +155,7 @@ export default function BithanCaseStudyPage() {
         inLanguage: "ar",
         author: { "@id": organizationId },
         publisher: { "@id": organizationId },
+        mainEntity: { "@id": `${url}#project` },
         about: [
           "تسمية علامة تجارية",
           "استراتيجية البراند",
@@ -153,6 +165,19 @@ export default function BithanCaseStudyPage() {
           "Qatar",
         ],
         keywords: "تسمية علامة تجارية، تصميم هوية بصرية للمجوهرات، تصميم شعار عربي، براندينج مجوهرات، BITHAN",
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": `${url}#project`,
+        name: "BITHAN Fine Jewelry — Naming & Brand Identity",
+        description,
+        url,
+        image,
+        inLanguage: ["ar", "en"],
+        creator: { "@id": organizationId },
+        genre: ["Brand Naming", "Brand Strategy", "Visual Identity"],
+        spatialCoverage: { "@type": "Country", name: "Qatar" },
+        dateCreated: "2026",
       },
       {
         "@type": "BreadcrumbList",
