@@ -6,7 +6,7 @@ import "./bithan-case-study.css";
 
 const title = "BITHAN | دراسة حالة تسمية علامة وهوية بصرية للمجوهرات";
 const description = "دراسة حالة BITHAN لعلامة مجوهرات في قطر: استراتيجية تسمية وفحص مبدئي، اختيار الاسم، ثم تصميم شعار عربي وإنجليزي، لوحة ألوان، تطبيقات وهوية بصرية متكاملة.";
-const socialImagePath = "/branding-social-preview.png";
+const socialImagePath = "/work/bithan/opengraph-image";
 const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، شاهدت دراسة حالة BITHAN وأرغب في مناقشة مشروع تسمية أو هوية لعلامتي.");
 const emailHref = "mailto:hello@dewank.com?subject=" + encodeURIComponent("استفسار مشروع براند — دراسة حالة BITHAN");
 
