@@ -5,7 +5,7 @@ import { createMetadata, organizationId, siteName, siteUrl } from "../../lib/seo
 import "./bithan-case-study.css";
 
 const title = "BITHAN Fine Jewelry Brand Naming & Identity Case Study";
-const description = "See how Dewank developed BITHAN for a Qatar fine-jewelry brand, from structured naming and screening to an Arabic-English identity, logo suite, palette and applications.";
+const description = "BITHAN case study for a Qatar fine-jewelry brand: structured naming and screening, client-selected name, Arabic-English identity, logo suite, palette and applications.";
 const socialImagePath = "/work/bithan/opengraph-image";
 
 const baseMetadata = createMetadata({
@@ -104,6 +104,13 @@ const applications = [
   ["Social Media Profile", "Beauty in every detail."],
 ];
 
+const faqs = [
+  ["What did the BITHAN project include?", "The portfolio case combines brand naming and strategy with the final visual identity: naming territories, shortlist and refinement, preliminary screening, the client-selected BITHAN name, original sketch development, logo suite, palette, variants, applications and final production assets."],
+  ["Was BITHAN selected by the client?", "Yes. The naming case study records BITHAN as the final name selected by the client after structured exploration, shortlists and refinement rounds."],
+  ["Did the naming screening guarantee trademark registration?", "No. Domain, digital and conflict checks were preliminary practical screening only. Final legal trademark clearance should be handled by qualified counsel before launch."],
+  ["What identity files and assets were delivered?", "The approved delivery included the primary metallic logo, flat dark and light versions, monochrome versions, color palette and print specs, sketch concept page, application mockups, and source formats including PNG, PDF, SVG, AI and EPS."],
+];
+
 const delivery = [
   ["Primary Metallic Logo", "Final approved full-color metallic logo for premium use across all brand touchpoints."],
   ["Flat Logo on Dark", "Optimized flat version for dark backgrounds, digital and print."],
@@ -152,6 +159,14 @@ export default function BithanCaseStudyPage() {
           { "@type": "ListItem", position: 3, name: "BITHAN Case Study", item: url },
         ],
       },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map(([question, answer]) => ({
+          "@type": "Question",
+          name: question,
+          acceptedAnswer: { "@type": "Answer", text: answer },
+        })),
+      },
     ],
   };
 
@@ -160,7 +175,7 @@ export default function BithanCaseStudyPage() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <div className="bithan-case-content" dir="ltr">
+      <div className="bithan-case-content" dir="ltr" lang="en">
         <section className="bithan-hero shell">
           <div className="bithan-hero-copy">
             <span className="bithan-kicker">FINE JEWELRY · QATAR · 2026</span>
@@ -276,6 +291,11 @@ export default function BithanCaseStudyPage() {
             <figure className="bithan-editorial-visual">
               <img src="/work/bithan/logo-suite.svg" alt="BITHAN final logo suite with primary, light, flat, monochrome, Arabic mark and icon variants" loading="lazy" decoding="async" />
             </figure>
+            <div className="bithan-signature-note">
+              <span className="bithan-eyebrow">OUR SIGNATURE</span>
+              <p>The BITHAN logo is a harmonious fusion of Arabic heritage and modern luxury. Its refined geometry and jewel-like forms reflect the brilliance, precision and timeless beauty at the heart of the brand. The suite was designed to keep usage consistent and elegant across touchpoints.</p>
+              <strong>Legacy in every detail.</strong>
+            </div>
             <div className="bithan-logo-legend">
               {logoSuite.map(([n, name, use]) => <article key={n}><span>{n}</span><h3>{name}</h3><p>{use}</p></article>)}
             </div>
@@ -300,6 +320,10 @@ export default function BithanCaseStudyPage() {
               </article>
             ))}
           </div>
+          <aside className="bithan-approved-use">
+            <b>Approved use</b>
+            <p>These flat colors are approved for print materials and social media use. Exact color values should be maintained for brand consistency.</p>
+          </aside>
         </section>
 
         <section className="bithan-variants">
@@ -360,6 +384,21 @@ export default function BithanCaseStudyPage() {
           </figure>
           <div className="bithan-delivery-grid">
             {delivery.map(([name, text], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{name}</h3><p>{text}</p></div></article>)}
+          </div>
+        </section>
+
+        <section className="bithan-faq shell" aria-labelledby="bithan-faq-title">
+          <div className="bithan-section-head">
+            <div><span className="bithan-eyebrow">10 / CASE STUDY FAQ</span><h2 id="bithan-faq-title">Clear answers <em>before a brand conversation.</em></h2></div>
+            <p>Key project facts for clients evaluating naming, identity and bilingual brand-system work.</p>
+          </div>
+          <div className="bithan-faq-list">
+            {faqs.map(([question, answer]) => (
+              <details key={question}>
+                <summary>{question}</summary>
+                <p>{answer}</p>
+              </details>
+            ))}
           </div>
         </section>
 
