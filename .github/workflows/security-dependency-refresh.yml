@@ -1,0 +1,50 @@
+name: Security dependency refresh
+
+on:
+  push:
+    branches:
+      - security/next-critical-2026-09-24
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-lock-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: security/next-critical-2026-09-24
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Refresh package lock
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
+
+      - name: Commit refreshed lockfile if needed
+        run: |
+          if git diff --quiet -- package-lock.json; then
+            echo "package-lock.json already current"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add package-lock.json
+            git commit -m "security: refresh package lock"
+            git push
+          fi
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Production audit
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Full audit summary
+        if: always()
+        run: npm audit || true
+
+      - name: Build
+        run: npm run build
