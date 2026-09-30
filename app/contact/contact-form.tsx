@@ -33,7 +33,10 @@ export default function ContactForm() {
     const service = clean(data.get("service"));
     const brief = clean(data.get("brief"));
 
-    if (name.length < 2 || !/^\S+@\S+\.\S+$/.test(email) || phone.length < 7 || !service || brief.length < 20) {
+    const emailInvalid = email.length > 0 && !/^\S+@\S+\.\S+$/.test(email);
+    const phoneInvalid = phone.length > 0 && phone.length < 7;
+
+    if (name.length < 2 || emailInvalid || phoneInvalid || !service || brief.length < 20) {
       setState("error");
       setMessage("يرجى إكمال البيانات المطلوبة بشكل صحيح.");
       return;
@@ -43,8 +46,8 @@ export default function ContactForm() {
       "طلب جديد من موقع ديوانك",
       "",
       `الاسم: ${name}`,
-      `البريد الإلكتروني: ${email}`,
-      `رقم الواتساب: ${phone}`,
+      `البريد الإلكتروني: ${email || "غير مذكور"}`,
+      `رقم الواتساب: ${phone || "غير مذكور"}`,
       `الشركة / المشروع: ${company || "غير مذكور"}`,
       `الخدمة المطلوبة: ${service}`,
       "",
@@ -58,6 +61,7 @@ export default function ContactForm() {
       lead_intent: service,
       source_path: "/contact",
       cta_location: "qualified_contact_form",
+      form_variant: "email_phone_optional",
     });
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
@@ -74,14 +78,14 @@ export default function ContactForm() {
           <input name="name" required minLength={2} placeholder="اسمك" />
         </label>
         <label>
-          البريد الإلكتروني
-          <input name="email" required type="email" placeholder="name@company.com" dir="ltr" />
+          البريد الإلكتروني <small>(اختياري)</small>
+          <input name="email" type="email" placeholder="name@company.com" dir="ltr" />
         </label>
       </div>
 
       <label>
-        رقم الواتساب
-        <input name="phone" required inputMode="tel" placeholder="مثال: 0097339066649" dir="ltr" />
+        رقم الواتساب <small>(اختياري)</small>
+        <input name="phone" inputMode="tel" placeholder="مثال: 0097339066649" dir="ltr" />
       </label>
 
       <label>
@@ -114,7 +118,7 @@ export default function ContactForm() {
       </label>
 
       <button className="button primary submit" type="submit">
-        إرسال الطلب عبر واتساب <span>↙</span>
+        جهّز رسالتي على واتساب <span>↙</span>
       </button>
 
       {state === "success" && (
