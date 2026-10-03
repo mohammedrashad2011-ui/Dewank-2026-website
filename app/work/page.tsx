@@ -175,7 +175,7 @@ export default function WorkPage() {
         <IdentityShowcase projects={identityProjects} />
         <div className="identity-actions">
           <Link className="button secondary identity-work-cta" href="/branding">اكتشف خدمة الهوية البصرية <span>←</span></Link>
-          <Link href="/services/brand-naming">تحتاج اسمًا للعلامة؟</Link>
+          <Link href="/offers/brand-naming">تحتاج اسمًا للعلامة؟</Link>
         </div>
       </section>
 

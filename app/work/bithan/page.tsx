@@ -466,7 +466,7 @@ export default function BithanCaseStudyPage() {
             <div className="bithan-outcome-links">
               <BithanTrackedLink className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="final_whatsapp">ناقش مشروعك معنا <span>↗</span></BithanTrackedLink>
               <BithanTrackedLink className="button secondary" href={emailHref} eventName="bithan_cta_click" eventLocation="final_email">راسل ديوانك</BithanTrackedLink>
-              <BithanTrackedLink className="button secondary" href="/services/brand-naming" eventName="bithan_service_click" eventLocation="final_naming">خدمة تسمية العلامة</BithanTrackedLink>
+              <BithanTrackedLink className="button secondary" href="/offers/brand-naming" eventName="bithan_service_click" eventLocation="final_naming">باقة اختيار الاسم التجاري · 490 ريال</BithanTrackedLink>
               <BithanTrackedLink className="button secondary" href="/branding" eventName="bithan_service_click" eventLocation="final_branding">استراتيجية البراند والهوية</BithanTrackedLink>
             </div>
           </div>
