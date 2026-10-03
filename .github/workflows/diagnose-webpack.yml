@@ -24,3 +24,18 @@ jobs:
 
       - name: Build with Webpack
         run: npm run build
+
+      - name: Smoke test production server
+        run: |
+          npm run start > /tmp/dewank-next.log 2>&1 &
+          pid=$!
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then
+              kill "$pid" || true
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/dewank-next.log
+          kill "$pid" || true
+          exit 1
