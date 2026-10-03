@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Alexandria, Cormorant_Garamond } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import "./service-pages-fix.css";
@@ -9,11 +8,13 @@ import "./home-final-cta-label-fix.css";
 import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
 import DeferredClientLayer from "./components/deferred-client-layer";
 
-const alexandria = Alexandria({ variable: "--font-arabic", subsets: ["arabic", "latin"] });
-const cormorant = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["600", "700"] });
 const gaId = "G-5SKKT1NBHB";
 const gtmId = "GTM-PG525ZFN";
 const metaPixelId = "2274266710087331";
+const fontVariables = {
+  "--font-arabic": '"Alexandria"',
+  "--font-display": '"Cormorant Garamond"',
+} as React.CSSProperties;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -60,7 +61,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" style={fontVariables}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@600;700&display=swap"
+        />
+      </head>
+
       <Script id="google-tag-manager" strategy="lazyOnload">
         {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -112,7 +122,7 @@ export default function RootLayout({
         `}
       </Script>
 
-      <body className={`${alexandria.variable} ${cormorant.variable}`}>
+      <body>
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
