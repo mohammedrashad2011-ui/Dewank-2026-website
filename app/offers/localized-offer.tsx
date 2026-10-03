@@ -7,7 +7,7 @@ const config = offerPricing["30-day-content-package"];
 const storageKey = "dewank_offer_country";
 
 function useLocalizedPrice() {
-  const [price, setPrice] = useState<LocalPrice>(config.fallback);
+  const [price, setPrice] = useState<LocalPrice>(config.initial);
 
   useEffect(() => {
     const savedCountry = window.localStorage.getItem(storageKey)?.toUpperCase();

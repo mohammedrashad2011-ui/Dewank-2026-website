@@ -5,6 +5,7 @@ export type LocalPrice = {
 
 export type OfferPriceConfig = {
   prices: Record<string, LocalPrice>;
+  initial: LocalPrice;
   fallback: LocalPrice;
 };
 
@@ -17,6 +18,7 @@ const gcc = (sa: number, bh: number, kw: number, fallback: number): OfferPriceCo
     QA: { amount: sa, currencyLabel: "ريال قطري" },
     OM: { amount: bh, currencyLabel: "ريال عُماني" },
   },
+  initial: { amount: sa, currencyLabel: "ريال سعودي" },
   fallback: { amount: fallback, currencyLabel: "دولار أمريكي" },
 });
 
