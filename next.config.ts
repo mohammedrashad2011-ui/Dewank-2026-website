@@ -15,6 +15,7 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  experimental: { turbopackFileSystemCacheForBuild: false },
   async redirects() {
     return [
       {
