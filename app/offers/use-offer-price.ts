@@ -7,7 +7,7 @@ const storageKey = "dewank_offer_country";
 
 export function useOfferPrice(key: OfferPriceKey) {
   const config = offerPricing[key];
-  const [price, setPrice] = useState<LocalPrice>(config.fallback);
+  const [price, setPrice] = useState<LocalPrice>(config.initial);
 
   useEffect(() => {
     const savedCountry = window.localStorage.getItem(storageKey)?.toUpperCase();
