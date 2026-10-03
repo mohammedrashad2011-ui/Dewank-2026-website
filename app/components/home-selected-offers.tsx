@@ -30,7 +30,7 @@ const offers: OfferCard[] = [
 ];
 
 const offerByKey = new Map(offers.map((offer) => [offer.key, offer]));
-const fallbackKeys: OfferPriceKey[] = ["google-ads-launch", "seo-audit", "whatsapp-automation-starter"];
+const fallbackKeys: OfferPriceKey[] = ["brand-naming", "google-ads-launch", "whatsapp-automation-starter"];
 const countryStorageKey = "dewank_offer_country";
 
 export default function HomeSelectedOffers() {
