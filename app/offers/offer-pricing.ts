@@ -17,7 +17,7 @@ const gcc = (sa: number, bh: number, kw: number, fallback: number): OfferPriceCo
     QA: { amount: sa, currencyLabel: "ريال قطري" },
     OM: { amount: bh, currencyLabel: "ريال عُماني" },
   },
-  fallback: { amount: fallback, currencyLabel: "دولار أمريكي" },
+  fallback: { amount: sa, currencyLabel: "ريال سعودي" },
 });
 
 export const offerPricing = {
