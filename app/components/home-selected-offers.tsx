@@ -116,7 +116,7 @@ export default function HomeSelectedOffers() {
     <div className="home-offer-grid">
       {resolved.map((offer, index) => {
         const config = offerPricing[offer.key];
-        const price = country ? (config.prices[country] ?? config.fallback) : config.initial;
+        const price = !country ? config.initial : country && config.prices[country] ? config.prices[country] : config.fallback;
         return (
           <Link
             className={`home-offer-card${index === 0 ? " is-recommended" : ""}`}
