@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import { BithanProofCard } from "../../components/bithan-proof-card";
 import "../../branding/branding-page.css";
 
@@ -36,7 +36,7 @@ const faqs = [
 export default function BrandNamingPage() {
   const url = `${siteUrl}/services/brand-naming`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Service", "@id": `${url}#service`, name: title, description, serviceType: ["Brand Naming", "Preliminary Trademark Search", "Domain Availability Research"], provider: { "@id": organizationId }, areaServed: ["Saudi Arabia", "Bahrain", "GCC"], offers: { "@type": "Offer", priceCurrency: "SAR", price: "490", description: "سعر الباقة الجاهزة الأساسية" }, url },
+    { "@type": "Service", "@id": `${url}#service`, name: title, description, serviceType: ["Brand Naming", "Preliminary Trademark Search", "Domain Availability Research"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", priceCurrency: "SAR", price: "490", description: "سعر الباقة الجاهزة الأساسية" }, url },
     { "@type": "FAQPage", mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "الخدمات", item: `${siteUrl}/services` }, { "@type": "ListItem", position: 3, name: "تسمية العلامة التجارية", item: url }] },
   ] };

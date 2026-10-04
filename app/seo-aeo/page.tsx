@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../lib/seo";
 import { SeoAuditOfferPrice } from "../offers/seo-audit/localized-seo-audit-offer";
 import "./seo-aeo-page.css";
 import "./seo-cluster.css";
@@ -51,7 +51,7 @@ export default function SeoAeoPage() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": `${siteUrl}/seo-aeo#service`, name: "شركة سيو وخدمات SEO وAEO في السعودية", alternateName: "SEO and Answer Engine Optimization Services", description: "خدمات سيو وSEO وAEO لتحسين ظهور المواقع في محركات البحث وأنظمة الإجابة عبر التحسين التقني والمحتوى والبيانات المنظمة.", serviceType: ["SEO", "AEO", "Technical SEO", "Content SEO", "Schema Markup"], provider: { "@id": organizationId }, areaServed: ["Saudi Arabia", "Bahrain", "GCC"], url: `${siteUrl}/seo-aeo` },
+      { "@type": "Service", "@id": `${siteUrl}/seo-aeo#service`, name: "شركة سيو وخدمات SEO وAEO في السعودية", alternateName: "SEO and Answer Engine Optimization Services", description: "خدمات سيو وSEO وAEO لتحسين ظهور المواقع في محركات البحث وأنظمة الإجابة عبر التحسين التقني والمحتوى والبيانات المنظمة.", serviceType: ["SEO", "AEO", "Technical SEO", "Content SEO", "Schema Markup"], provider: { "@id": organizationId }, areaServed: servedMarkets, url: `${siteUrl}/seo-aeo` },
       { "@type": "FAQPage", "@id": `${siteUrl}/seo-aeo#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "الخدمات", item: `${siteUrl}/services` }, { "@type": "ListItem", position: 3, name: "SEO وAEO", item: `${siteUrl}/seo-aeo` }] },
     ],

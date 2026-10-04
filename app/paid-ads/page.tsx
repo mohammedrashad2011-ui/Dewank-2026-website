@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../lib/seo";
 import { GoogleAdsLaunchPrice } from "../offers/google-ads-launch/localized-google-ads-launch";
 import "./paid-ads-page.css";
 import "./paid-ads-cluster.css";
@@ -76,7 +76,7 @@ export default function PaidAdsPage() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": `${siteUrl}/paid-ads#service`, name: "إدارة Google Ads وMeta Ads في السعودية", alternateName: "Google Ads and Meta Ads Management Saudi Arabia", description: "إدارة وتشغيل وتحسين حملات Google Ads وMeta Ads للشركات في السعودية والخليج مع بحث الكلمات والتتبع وصفحات الهبوط وتحسين التحويل.", serviceType: ["Google Ads Management", "Google Search Ads Management", "Meta Ads Management", "Paid Media", "Performance Marketing"], provider: { "@id": organizationId }, areaServed: ["Saudi Arabia", "Bahrain", "GCC"], url: `${siteUrl}/paid-ads` },
+      { "@type": "Service", "@id": `${siteUrl}/paid-ads#service`, name: "إدارة Google Ads وMeta Ads في السعودية", alternateName: "Google Ads and Meta Ads Management Saudi Arabia", description: "إدارة وتشغيل وتحسين حملات Google Ads وMeta Ads للشركات في السعودية والخليج مع بحث الكلمات والتتبع وصفحات الهبوط وتحسين التحويل.", serviceType: ["Google Ads Management", "Google Search Ads Management", "Meta Ads Management", "Paid Media", "Performance Marketing"], provider: { "@id": organizationId }, areaServed: servedMarkets, url: `${siteUrl}/paid-ads` },
       { "@type": "FAQPage", "@id": `${siteUrl}/paid-ads#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "الخدمات", item: `${siteUrl}/services` }, { "@type": "ListItem", position: 3, name: "إدارة Google Ads وMeta", item: `${siteUrl}/paid-ads` }] },
     ],

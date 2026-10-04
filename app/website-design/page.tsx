@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../lib/seo";
 import { LandingOfferPrice } from "../offers/landing-page-package/localized-landing-offer";
 import { SmallWebsitePrice } from "../offers/small-business-website/localized-small-website";
 import "./website-design-page.css";
@@ -134,7 +134,7 @@ export default function WebsiteDesignPage() {
         description: "تصميم وتطوير مواقع الشركات وصفحات الهبوط وتجارب رقمية سريعة ومتجاوبة في السعودية والخليج، مع SEO وCRO وقياس التحويل.",
         serviceType: ["Website Design", "Web Development", "UX Design", "UI Design", "Landing Page Design", "Conversion Rate Optimization", "Technical SEO"],
         provider: { "@id": organizationId },
-        areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
+        areaServed: servedMarkets,
         url: `${siteUrl}/website-design`,
       },
       {

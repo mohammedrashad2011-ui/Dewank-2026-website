@@ -7,7 +7,7 @@ import "./service-pages-fix.css";
 import "./mobile-refinement.css";
 import "./desktop-cleanup.css";
 import "./home-final-cta-label-fix.css";
-import { defaultDescription, organizationId, siteName, siteUrl } from "./lib/seo";
+import { defaultDescription, entityGraph, jsonLd, siteName, siteUrl } from "./lib/seo";
 import DeferredClientLayer from "./components/deferred-client-layer";
 
 const gaId = "G-5SKKT1NBHB";
@@ -129,41 +129,7 @@ export default function RootLayout({
             title="Google Tag Manager"
           />
         </noscript>
-        <Script id="organization-schema" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            "@id": organizationId,
-            name: siteName,
-            alternateName: "Dewank",
-            url: siteUrl,
-            logo: `${siteUrl}/dewank-logo.png`,
-            image: `${siteUrl}/dewank-social-preview-2026-07.png`,
-            description: defaultDescription,
-            email: "hello@dewank.com",
-            telephone: "+97339066649",
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+97339066649",
-              contactType: "sales",
-              availableLanguage: ["Arabic", "English"],
-              areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
-            },
-            areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
-            priceRange: "$$",
-            sameAs: ["https://www.instagram.com/dewank_marketing"],
-            serviceType: [
-              "Brand Strategy",
-              "Digital Marketing",
-              "Website Design",
-              "SEO and AEO",
-              "Paid Advertising",
-              "AI Automation",
-              "WhatsApp Automation",
-              "CRM Automation",
-            ],
-          })}
-        </Script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(entityGraph) }} />
         <noscript>
           <img
             height="1"

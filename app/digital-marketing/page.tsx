@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../lib/seo";
 import "./digital-marketing-page.css";
 import "./digital-marketing-guides.css";
 
@@ -141,7 +141,7 @@ export default function DigitalMarketingPage() {
           "Conversion Strategy",
         ],
         provider: { "@id": organizationId },
-        areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
+        areaServed: servedMarkets,
         url: `${siteUrl}/digital-marketing`,
       },
       {

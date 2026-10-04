@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import { InstagramUpgradePrice, InstagramUpgradeWhatsApp } from "./localized-instagram-upgrade";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -49,7 +49,7 @@ export default function Instagram14DayUpgradeOffer() {
         description,
         serviceType: ["Instagram Profile Optimization", "Social Media Content Strategy", "Social Media Design"],
         provider: { "@id": organizationId },
-        areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+        areaServed: servedMarkets,
         offers: { "@type": "Offer", price: "590", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },

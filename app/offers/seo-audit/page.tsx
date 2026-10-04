@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import { SeoAuditOfferPrice, SeoAuditWhatsApp } from "./localized-seo-audit-offer";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -69,7 +69,7 @@ export default function SeoAuditOfferPage() {
         description: "فحص SEO شامل يشمل التقنية والمحتوى والسرعة والكلمات المفتاحية والتحويل وAEO مع تقرير PDF وخطة تحسين لمدة 30 يومًا.",
         serviceType: ["SEO Audit", "Technical SEO Audit", "On-page SEO Audit", "AEO Audit", "Website Performance Audit"],
         provider: { "@id": organizationId },
-        areaServed: ["Saudi Arabia", "Bahrain", "United Arab Emirates", "GCC"],
+        areaServed: servedMarkets,
         url,
         offers: {
           "@type": "Offer",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import { WhatsAppStarterLink, WhatsAppStarterPrice } from "./localized-whatsapp-starter";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -43,7 +43,7 @@ export default function WhatsAppAutomationStarterOffer() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": `${url}#service`, name: "باقة أتمتة واتساب Starter", alternateName: "WhatsApp Automation Starter", description, serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"], provider: { "@id": organizationId }, areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"], offers: { "@type": "Offer", price: "890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url }, url },
+      { "@type": "Service", "@id": `${url}#service`, name: "باقة أتمتة واتساب Starter", alternateName: "WhatsApp Automation Starter", description, serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", price: "890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url }, url },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "العروض", item: `${siteUrl}/offers` }, { "@type": "ListItem", position: 3, name: "أتمتة واتساب Starter", item: url }] },
     ],

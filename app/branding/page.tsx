@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { createMetadata } from "../lib/seo";
+import { createMetadata, servedMarkets, organizationId } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import { BrandNamingOfferPrice } from "../offers/brand-naming/localized-brand-naming-offer";
 import { MiniIdentityPrice } from "../offers/mini-visual-identity/localized-mini-identity";
@@ -89,8 +89,8 @@ export default function BrandingPage() {
         name: "استراتيجية البراند وتصميم الهوية البصرية",
         description: "خدمات استراتيجية البراند والتموضع والتسمية والهوية البصرية للشركات في السعودية والخليج.",
         serviceType: ["Brand Strategy", "Visual Identity Design", "Brand Naming"],
-        provider: { "@type": "ProfessionalService", name: "Dewank | ديوانك", url: "https://dewank.com" },
-        areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
+        provider: { "@id": organizationId },
+        areaServed: servedMarkets,
         url: "https://dewank.com/branding",
       },
       {

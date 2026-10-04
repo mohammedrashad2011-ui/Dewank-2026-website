@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { canonicalServiceNames, createMetadata, organizationId, serviceId, siteUrl } from "../lib/seo";
 import { Footer, Header, PageHero } from "../components/site-shell";
 import AiWorkflowVisual from "./ai-workflow-visual";
 import "./ai-control-room.css";
@@ -95,7 +95,9 @@ export default function ServicesPage() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: `${service.title} ${service.hook}`,
+            "@id": serviceId(service.href),
+            name: canonicalServiceNames[service.href] ?? `${service.title} ${service.hook}`,
+            description: service.text,
             url: `${siteUrl}${service.href}`,
             provider: { "@id": organizationId },
           },

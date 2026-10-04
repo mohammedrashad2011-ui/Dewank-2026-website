@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets, serviceId } from "../../lib/seo";
 import { LandingOfferPrice, LandingOfferWhatsApp } from "./localized-landing-offer";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -35,11 +35,12 @@ export default function LandingPageOffer() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": serviceId("/offers/landing-page-package"),
     name: "تصميم صفحة هبوط احترافية",
     description: "صفحة هبوط مخصصة تشمل النص التسويقي والتصميم وربط واتساب والنماذج والتحليلات وSEO أساسي.",
     url: `${siteUrl}/offers/landing-page-package`,
     provider: { "@id": organizationId },
-    areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+    areaServed: servedMarkets,
     offers: [
       { "@type": "Offer", name: "باقة صفحة الهبوط", price: "1490", priceCurrency: "SAR" },
       { "@type": "Offer", name: "الباقة الكاملة مع دومين واستضافة", price: "1890", priceCurrency: "SAR" },

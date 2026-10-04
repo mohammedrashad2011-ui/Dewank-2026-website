@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import { GoogleAdsLaunchLink, GoogleAdsLaunchPrice } from "./localized-google-ads-launch";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -62,7 +62,7 @@ export default function GoogleAdsLaunchOffer() {
         description,
         serviceType: ["Google Ads Setup", "Google Ads Campaign Launch", "Google Search Ads", "Conversion Tracking"],
         provider: { "@id": organizationId },
-        areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+        areaServed: servedMarkets,
         offers: { "@type": "Offer", price: "790", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },
