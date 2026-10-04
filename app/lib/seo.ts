@@ -123,16 +123,6 @@ export const organizationSchema = {
   },
   areaServed: servedMarkets,
   sameAs: [instagramUrl],
-  serviceType: [
-    "Brand Strategy",
-    "Digital Marketing",
-    "Website Design",
-    "SEO and AEO",
-    "Paid Advertising",
-    "AI Automation",
-    "WhatsApp Automation",
-    "CRM Automation",
-  ],
 };
 
 export const websiteSchema = {

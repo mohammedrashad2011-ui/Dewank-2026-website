@@ -59,6 +59,12 @@ const services: Service[] = [
   { no: "12", en: "ATS CV & CAREER BRANDING", tone: "web career-card", visual: "document", title: "سيرتك ليست ورقة.", hook: "هي أول قرار قبل المقابلة.", text: "كتابة وتطوير سيرة ذاتية متوافقة مع ATS، مخصصة للوظيفة المستهدفة، مع تحسين الإنجازات والكلمات المفتاحية وLinkedIn.", tags: ["ATS CV", "LinkedIn", "Career Branding"], href: "/ats-cv" },
 ];
 
+// Catalog-only services without their own page: the card CTA points to /contact, but the
+// Service identity must not be bound to the contact page.
+const catalogOnlyServiceIds: Record<string, string> = {
+  "09": `${siteUrl}/services#analytics-conversion-tracking`,
+};
+
 const primaryPaths = [
   { label: "جذب العملاء", title: "إدارة الإعلانات", text: "Google Ads وMeta Ads مع تتبع وتحسين التحويل بدل شراء نقرات فقط.", href: "/paid-ads", cta: "استكشف الإعلانات" },
   { label: "تحويل الزيارات", title: "تصميم المواقع", text: "موقع أو Landing Page يربط الرسالة والثقة وSEO والـCTA في رحلة واحدة.", href: "/website-design", cta: "استكشف المواقع" },
@@ -95,7 +101,7 @@ export default function ServicesPage() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            "@id": serviceId(service.href),
+            "@id": catalogOnlyServiceIds[service.no] ?? serviceId(service.href),
             name: canonicalServiceNames[service.href] ?? `${service.title} ${service.hook}`,
             description: service.text,
             url: `${siteUrl}${service.href}`,
