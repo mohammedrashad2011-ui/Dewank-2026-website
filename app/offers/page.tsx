@@ -82,7 +82,7 @@ export default function OffersPage() {
         <section className="shell offers-grid offers-grid-nine offers-overview-grid" aria-label="عروض ديوانك الحالية">
           <article data-filter="content" data-category="محتوى" className="offer-card compact-offer-card offer-priority">
             <Link className="offer-card-hit" href="/offers/30-day-content-package" aria-label="شاهد تفاصيل باقة محتوى شهر كامل" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>10–14</strong> أيام عمل</span></div>
+            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>10–14</strong> يوم عمل</span></div>
             <h2>محتوى شهر كامل.<br/><em>جاهز للنشر.</em></h2>
             <p>12 بوستًا، 3 ستوري، ريل واحد، أفكار وكابشنات وخطة نشر ليظهر حسابك بصورة متناسقة بدل النشر العشوائي.</p>
             <div className="offer-card-meta"><div><small>السعر التأسيسي</small><LocalizedOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>

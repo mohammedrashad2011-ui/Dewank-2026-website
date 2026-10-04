@@ -64,7 +64,7 @@ export default function LandingPageOffer() {
 
       <section className="shell offer-detail-hero">
         <div>
-          <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>5</strong> أماكن متاحة حاليًا</span></div>
+          <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
           <h1>صفحة واحدة.<br/><em>تحوّل الزائر إلى عميل.</em></h1>
           <p>نصمم لك صفحة هبوط احترافية تعرض خدمتك بوضوح، تبني الثقة، وتوجه العميل مباشرة إلى التواصل أو الحجز.</p>
         </div>
