@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { preload } from "react-dom";
+import "./fonts.css";
 import "./globals.css";
 import "./service-pages-fix.css";
 import "./mobile-refinement.css";
@@ -60,17 +62,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Self-hosted variable fonts (see app/fonts.css). Preload both subsets so text renders
+  // in Alexandria on first paint; preloading only the Arabic file delayed LCP in benchmarks.
+  preload("/fonts/alexandria-arabic.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
+  preload("/fonts/alexandria-latin.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
   return (
     <html lang="ar" dir="rtl" style={fontVariables}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@600;700&display=swap"
-        />
-      </head>
-
       <Script id="google-tag-manager" strategy="lazyOnload">
         {`
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
