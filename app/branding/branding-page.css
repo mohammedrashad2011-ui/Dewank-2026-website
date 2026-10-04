@@ -37,3 +37,5 @@
 @media(prefers-reduced-motion:reduce){.brand-lab-panel{animation:none}.brand-lab-tabs button,.brand-lab-tabs button>span{transition:none}}
 @media(max-width:900px){.brand-lab{max-width:620px;width:100%;margin:auto}}
 @media(max-width:640px){.brand-lab{border-radius:26px}.brand-lab-header{padding:18px}.brand-lab-header b{font-size:12px}.brand-lab-header img{width:52px;height:52px}.brand-lab-tabs{grid-template-columns:1fr}.brand-lab-tabs button{min-height:72px;border-left:0;border-bottom:1px solid rgba(17,18,20,.1);grid-template-columns:35px 1fr auto}.brand-lab-tabs button:last-child{border-bottom:0}.brand-lab-tabs button small{grid-column:auto}.brand-lab-panel{padding:24px 18px;grid-template-columns:1fr;gap:14px}.brand-lab-copy{grid-column:auto}.brand-lab-copy h2{font-size:27px}}
+
+.brand-fit-list h3{font-size:22px;line-height:1.5;margin:0;padding:0 0 14px}.brand-fit-list h3:not(:first-child){margin-top:48px}
