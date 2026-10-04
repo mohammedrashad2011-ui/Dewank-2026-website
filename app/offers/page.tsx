@@ -23,8 +23,6 @@ import "./small-business-website/small-business-website.css";
 import "./offers-overview.css";
 import "./offers-overview-refine.css";
 
-const availableSpots = 7;
-
 export const metadata: Metadata = createMetadata({
   title: "عروض ديوانك | محتوى ومواقع وSEO وهوية وأتمتة وإعلانات",
   description: "اكتشف عروض ديوانك الجاهزة: محتوى شهري، صفحات هبوط، SEO، اختيار اسم، واتساب أوتوميشن، هوية بصرية، Google Ads، تطوير إنستجرام، وموقع صغير جاهز للإطلاق.",
@@ -84,7 +82,7 @@ export default function OffersPage() {
         <section className="shell offers-grid offers-grid-nine offers-overview-grid" aria-label="عروض ديوانك الحالية">
           <article data-filter="content" data-category="محتوى" className="offer-card compact-offer-card offer-priority">
             <Link className="offer-card-hit" href="/offers/30-day-content-package" aria-label="شاهد تفاصيل باقة محتوى شهر كامل" />
-            <div className="offer-availability" aria-label={`${availableSpots} أماكن متاحة حاليًا`}><span className="offer-spots-available"><i aria-hidden="true" /><strong>{availableSpots}</strong> أماكن متاحة حاليًا</span></div>
+            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>10–14</strong> يوم عمل</span></div>
             <h2>محتوى شهر كامل.<br/><em>جاهز للنشر.</em></h2>
             <p>12 بوستًا، 3 ستوري، ريل واحد، أفكار وكابشنات وخطة نشر ليظهر حسابك بصورة متناسقة بدل النشر العشوائي.</p>
             <div className="offer-card-meta"><div><small>السعر التأسيسي</small><LocalizedOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
@@ -92,7 +90,7 @@ export default function OffersPage() {
 
           <article data-filter="web" data-category="ويب وتحويل" className="offer-card compact-offer-card landing-offer-card offer-priority">
             <Link className="offer-card-hit" href="/offers/landing-page-package" aria-label="شاهد تفاصيل باقة صفحة الهبوط" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>5</strong> أماكن متاحة حاليًا</span></div>
+            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
             <h2>صفحة واحدة.<br/><em>تحوّل الزائر إلى عميل.</em></h2>
             <p>صفحة هبوط مخصصة تشمل النص التسويقي والتصميم وربط واتساب والنماذج والتحليلات، مع خيار كامل للدومين والاستضافة.</p>
             <div className="offer-card-meta"><div><small>الباقة الأساسية من</small><LandingOfferPrice kind="base" /></div><span className="button primary">التفاصيل <span>←</span></span></div>
