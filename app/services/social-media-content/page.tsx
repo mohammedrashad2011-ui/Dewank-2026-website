@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { createMetadata } from "../../lib/seo";
+import { createMetadata, servedMarkets, serviceId, organizationId } from "../../lib/seo";
 import { Footer, Header } from "../../components/site-shell";
 import "./social-media-content.css";
 import "./content-spacing-fix.css";
@@ -48,9 +48,10 @@ export default function SocialMediaContentPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": serviceId("/services/social-media-content"),
     name: "إدارة السوشيال ميديا وصناعة المحتوى",
-    provider: { "@type": "Organization", name: "ديوانك", url: "https://dewank.com" },
-    areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+    provider: { "@id": organizationId },
+    areaServed: servedMarkets,
     url: "https://dewank.com/services/social-media-content",
     description: "إدارة حسابات التواصل وصناعة المحتوى للشركات: استراتيجية، أفكار، تصميم، كابشنات، خطة نشر وتقارير تطوير.",
   };

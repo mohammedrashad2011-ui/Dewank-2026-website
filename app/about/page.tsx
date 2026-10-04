@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { canonicalServiceNames, createMetadata, organizationId, servedMarkets, serviceId, siteUrl } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import AboutExperience from "./about-experience";
 import "./about-page.css";
@@ -67,11 +67,13 @@ export default function AboutPage() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: service.title,
+            "@id": serviceId(service.href),
+            name: canonicalServiceNames[service.href] ?? service.title,
+            alternateName: service.title,
             description: service.text,
             url: `${siteUrl}${service.href}`,
             provider: { "@id": organizationId },
-            areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+            areaServed: servedMarkets,
           },
         })),
       },

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import AutomationFlow from "../components/automation-flow";
 import ConnectedSystem from "../components/connected-system";
@@ -59,7 +59,7 @@ export default function WhatsAppAutomation() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": `${url}#service`, name: "أتمتة واتساب مع CRM للشركات", alternateName: "WhatsApp Automation and CRM", description, serviceType: ["WhatsApp Automation", "WhatsApp CRM", "Lead Qualification Automation", "Sales Automation"], provider: { "@id": organizationId }, areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"], url },
+      { "@type": "Service", "@id": `${url}#service`, name: "أتمتة واتساب مع CRM للشركات", alternateName: "WhatsApp Automation and CRM", description, serviceType: ["WhatsApp Automation", "WhatsApp CRM", "Lead Qualification Automation", "Sales Automation"], provider: { "@id": organizationId }, areaServed: servedMarkets, url },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     ],
   };

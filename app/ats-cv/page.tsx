@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../lib/seo";
 import "./ats-cv-page.css";
 
 export const metadata: Metadata = createMetadata({
@@ -75,7 +75,7 @@ export default function AtsCvPage() {
         description: "كتابة وتطوير سيرة ذاتية متوافقة مع ATS وتحسين LinkedIn وCover Letter للباحثين عن عمل في السعودية والخليج.",
         serviceType: ["ATS CV Writing", "Resume Writing", "LinkedIn Optimization", "Cover Letter Writing", "Career Branding"],
         provider: { "@id": organizationId },
-        areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
+        areaServed: servedMarkets,
         url: `${siteUrl}/ats-cv`,
       },
       {

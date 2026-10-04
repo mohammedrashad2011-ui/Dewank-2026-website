@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
-import { createMetadata, siteUrl } from "../../lib/seo";
+import { createMetadata, siteUrl, servedMarkets, serviceId, organizationId } from "../../lib/seo";
 import { SmallWebsitePrice, SmallWebsiteWhatsApp } from "./localized-small-website";
 import "../offers-page.css";
 import "./small-business-website.css";
@@ -70,10 +70,11 @@ export default function SmallBusinessWebsiteOfferPage() {
     "@graph": [
       {
         "@type": "Service",
+        "@id": serviceId("/offers/small-business-website"),
         name: "باقة موقع صغير جاهز للإطلاق",
         description: "تصميم وتطوير موقع تعريفي صغير حتى 5 صفحات مع ربط التواصل والتحليلات وSEO أساسي وتجهيز الإطلاق.",
-        provider: { "@type": "Organization", name: "ديوانك", url: siteUrl },
-        areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+        provider: { "@id": organizationId },
+        areaServed: servedMarkets,
         url: `${siteUrl}/offers/small-business-website`,
         offers: {
           "@type": "Offer",

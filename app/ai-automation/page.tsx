@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets } from "../lib/seo";
 import "./ai-automation.css";
 
 const title = "أتمتة الأعمال بالذكاء الاصطناعي للشركات في السعودية | ديوانك";
@@ -74,7 +74,7 @@ export default function AiAutomationPage() {
         description,
         url,
         provider: { "@id": organizationId },
-        areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+        areaServed: servedMarkets,
         serviceType: ["AI Automation", "Workflow Automation", "CRM Automation", "Customer Service Automation"],
       },
       {

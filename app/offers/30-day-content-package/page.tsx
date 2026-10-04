@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
-import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { createMetadata, organizationId, siteUrl, servedMarkets, serviceId } from "../../lib/seo";
 import { LocalizedOfferKicker, LocalizedOfferPrice, LocalizedWhatsAppLink } from "../localized-offer";
 import OfferVisualProof from "./offer-visual-proof";
 import "../offers-page.css";
@@ -73,11 +73,12 @@ export default function ContentOfferPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": serviceId("/offers/30-day-content-package"),
     name: "باقة صناعة محتوى السوشيال ميديا لمدة 30 يومًا",
     description: "باقة محتوى محددة المخرجات لمدة 30 يومًا تشمل 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر وتحسين البايو، وليست إدارة حساب شهرية كاملة.",
     url: `${siteUrl}/offers/30-day-content-package`,
     provider: { "@id": organizationId },
-    areaServed: ["SA", "BH", "AE", "KW", "QA", "OM"],
+    areaServed: servedMarkets,
     offers: { "@type": "Offer", price: "790", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: `${siteUrl}/offers/30-day-content-package` },
   };
 

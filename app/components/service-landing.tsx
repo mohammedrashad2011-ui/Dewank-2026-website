@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Footer, Header } from "./site-shell";
+import { organizationRef, servedMarkets, serviceId } from "../lib/seo";
 
 export type ServiceLandingProps = {
   eyebrow: string;
@@ -22,14 +23,11 @@ export default function ServiceLanding(props: ServiceLandingProps) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": serviceId(props.path),
     name: props.schemaName,
     description: props.schemaDescription,
-    provider: {
-      "@type": "ProfessionalService",
-      name: "Dewank | ديوانك",
-      url: "https://dewank.com",
-    },
-    areaServed: ["Saudi Arabia", "Bahrain", "GCC"],
+    provider: organizationRef,
+    areaServed: servedMarkets,
     url: `https://dewank.com${props.path}`,
     mainEntity: props.faqs.map((faq) => ({
       "@type": "Question",
