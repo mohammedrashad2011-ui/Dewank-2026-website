@@ -30,6 +30,7 @@ const deliverables = [
 
 const faqs = [
   ["كم سعر الهوية البصرية المصغرة؟", "تبدأ الباقة من 1,190 ريال سعودي وتشمل الشعار الأساسي، لوحة الألوان، الخطوط، التوجه البصري، 3 تطبيقات عملية وملف إرشادي مختصر."],
+  ["هل هذه الباقة شعار فقط؟", "لا. تشمل الشعار الأساسي مع نسخة مبسطة، ولوحة ألوان، وخطوطًا مقترحة، وتوجهًا بصريًا، و3 تطبيقات عملية، وملفًا إرشاديًا مختصرًا. وهي ليست هوية متكاملة، فلا تشمل استراتيجية براند أو اختيار الاسم."],
   ["ما الفرق بينها وبين الهوية البصرية الكاملة؟", "الباقة المصغرة مناسبة لمن يحتاج أساسًا بصريًا احترافيًا وسريعًا. الهوية الكاملة تشمل عادة بحثًا أوسع، استراتيجية البراند، نظام رسائل، تطبيقات أكثر ودليل استخدام تفصيلي."],
   ["هل تشمل اختيار الاسم التجاري؟", "لا. يجب أن يكون الاسم معتمدًا قبل بدء التصميم. إذا لم يتم اختيار الاسم بعد، يمكن استخدام باقة اختيار الاسم التجاري أولًا."],
   ["هل تشمل كتابة المحتوى أو إدارة السوشيال ميديا؟", "لا. الباقة تبني النظام البصري الأساسي، بينما صناعة المحتوى وإدارة الحسابات خدمات مستقلة."],
@@ -81,7 +82,7 @@ export default function MiniVisualIdentityOffer() {
       <section className="shell offer-detail-hero mini-identity-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-          <h1>مش مجرد لوجو.<br/><em>بداية شكل يتعرف عليك.</em></h1>
+          <h1>ليست مجرد شعار.<br/><em>بداية شكل يُعرَف به مشروعك.</em></h1>
           <p>نجهز لك أساسًا بصريًا متماسكًا يجعل علامتك تظهر بصورة احترافية من أول يوم، من الشعار والألوان إلى الخطوط والتطبيقات الأساسية.</p>
           <div className="mini-identity-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
@@ -135,14 +136,14 @@ export default function MiniVisualIdentityOffer() {
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل استراتيجية براند متكاملة، بحث تسمية، كتابة نظام رسائل، دليل هوية تفصيلي، موشن جرافيك، تغليف منتجات، تصميم موقع، إدارة سوشيال ميديا أو عددًا مفتوحًا من التطبيقات والتعديلات.</p></details>
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل ما نرسم أول خط.</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن نرسم أول خط.</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta mini-identity-final">
         <span className="offer-kicker">هوية بصرية مصغرة · 7–10 أيام</span>
-        <h2>خلي مشروعك يبدو كعلامة، مش مجموعة تصميمات منفصلة.</h2>
+        <h2>اجعل مشروعك يبدو كعلامة، لا كمجموعة تصميمات منفصلة.</h2>
         <p>أرسل نوع النشاط والاسم والسوق المستهدف، ونبدأ بتحديد الاتجاه قبل تصميم الشعار.</p>
         <MiniIdentityWhatsApp className="button primary" label="ابدأ الهوية البصرية" />
-        <div className="mini-identity-links"><Link href="/branding">خدمة البراند والهوية الكاملة</Link><Link href="/offers/brand-naming">لم تختر الاسم بعد؟</Link><Link href="/offers">العودة إلى العروض</Link></div>
+        <div className="mini-identity-links"><Link href="/branding">خدمة البراند والهوية الكاملة</Link><Link href="/guides/branding-identity-cost-saudi-arabia">كم تكلفة الهوية الكاملة؟</Link><Link href="/offers/brand-naming">لم تختر الاسم بعد؟</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
       <Footer />
     </main>
