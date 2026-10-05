@@ -72,6 +72,15 @@ const primaryPaths = [
   { label: "تسريع المتابعة", title: "واتساب والأتمتة", text: "رد وتأهيل وحجز ومتابعة وربط CRM، ثم أتمتة أوسع عند الحاجة.", href: "/whatsapp-automation", cta: "استكشف الأتمتة" },
 ];
 
+const decisionGuides = [
+  { label: "العلامة", title: "تكلفة تصميم الهوية البصرية", text: "الفرق بين الشعار والهوية، وما الذي يجب أن تستلمه قبل التعاقد.", href: "/guides/branding-identity-cost-saudi-arabia" },
+  { label: "التسمية", title: "كيف تختار اسمًا تجاريًا", text: "معايير الاسم والفحص اللغوي والتشابه والدومين قبل الإطلاق.", href: "/guides/how-to-choose-brand-name-saudi-arabia" },
+  { label: "السوشيال ميديا", title: "أسعار إدارة السوشيال ميديا", text: "الفرق بين الإدارة الشهرية وباقة المحتوى المحددة وما يشمله السعر.", href: "/guides/social-media-management-cost-saudi-arabia" },
+  { label: "المواقع", title: "تكلفة تصميم موقع إلكتروني", text: "صفحة هبوط أم موقع شركة، وما الذي يرفع التكلفة.", href: "/guides/website-design-cost-saudi-arabia" },
+  { label: "واتساب وCRM", title: "تكلفة أتمتة واتساب مع CRM", text: "عوامل السعر، والفرق بين التأسيس والتشغيل ورسوم القناة.", href: "/guides/whatsapp-crm-automation-cost-saudi-arabia" },
+  { label: "الإعلانات", title: "تكلفة إعلانات Google في السعودية", text: "ما الذي تدفعه فعلًا: أتعاب الإدارة، الميزانية، والصفحة والتتبع.", href: "/guides/google-ads-cost-saudi-arabia" },
+];
+
 const faqItems = [
   ["ما خدمات ديوانك الأساسية؟", "تجمع ديوانك بين استراتيجية البراند وصناعة المحتوى والإعلانات وتصميم المواقع وصفحات الهبوط وSEO والتحليلات وأتمتة واتساب وحلول الذكاء الاصطناعي."],
   ["كيف أعرف الخدمة الأنسب لنشاطي؟", "ابدأ بالمشكلة الأقرب للنتيجة: جذب العملاء، تحويل الزيارات، انتظام المحتوى، أو بطء المتابعة. وإذا كانت المشكلة غير واضحة نراجع الرحلة ونقترح أصغر نطاق عملي."],
@@ -157,7 +166,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="shell services-mid-cta" aria-label="تحديد الخدمة المناسبة">
-        <div><small>غير متأكد من نقطة البداية؟</small><h2>أرسل النشاط والمشكلة فقط.</h2><p>نحدد لك أقرب مسار عملي بدل ما تبدأ بخدمة أكبر أو أعقد من احتياجك الحالي.</p></div>
+        <div><small>غير متأكد من نقطة البداية؟</small><h2>أرسل النشاط والمشكلة فقط.</h2><p>نحدد لك أقرب مسار عملي بدل أن تبدأ بخدمة أكبر أو أعقد من احتياجك الحالي.</p></div>
         <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">حدد الخدمة على واتساب <span>↗</span></a>
       </section>
 
@@ -169,11 +178,16 @@ export default function ServicesPage() {
       <section id="automation-services" className="shell service-group" aria-labelledby="automation-title"><div className="service-group-head"><span className="section-label">الأتمتة والذكاء</span><h2 id="automation-title">لا تترك العميل ينتظر النظام اليدوي.</h2><p>نربط الرد والتأهيل والمتابعة والبيانات لتعمل العمليات بسرعة واتساق.</p></div><div className="services-detail-bento services-grid-refined">{services.slice(9, 11).map(renderCard)}</div></section>
       <section className="shell service-group career-service-group" aria-labelledby="career-services-title"><div className="service-group-head"><span className="section-label">خدمة مهنية مستقلة</span><h2 id="career-services-title">خبرتك قوية. يجب أن تظهر كذلك.</h2></div><div className="services-detail-bento services-grid-refined career-service-last">{services.slice(11).map(renderCard)}</div></section>
 
-      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title"><div><span className="section-label">لو المشكلة لسه مش واضحة</span><h2 id="problem-chooser-title">قل لنا أين يتعطل العميل.<br/><em>ونبدأ من هناك.</em></h2></div><div className="problem-options"><Link href="/branding"><b>العلامة غير واضحة</b><span>استراتيجية البراند والهوية ←</span></Link><Link href="/paid-ads"><b>أحتاج عملاء أكثر</b><span>الإعلانات واكتساب العملاء ←</span></Link><Link href="/website-design"><b>الزيارات لا تتحول</b><span>الموقع وCRO والقياس ←</span></Link><Link href="/whatsapp-automation"><b>المتابعة بطيئة أو تضيع</b><span>واتساب وCRM والأتمتة ←</span></Link></div></section>
+      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title"><div><span className="section-label">إذا لم تتضح المشكلة بعد</span><h2 id="problem-chooser-title">أخبرنا أين يتعطل العميل.<br/><em>ونبدأ من هناك.</em></h2></div><div className="problem-options"><Link href="/branding"><b>العلامة غير واضحة</b><span>استراتيجية البراند والهوية ←</span></Link><Link href="/paid-ads"><b>أحتاج عملاء أكثر</b><span>الإعلانات واكتساب العملاء ←</span></Link><Link href="/website-design"><b>الزيارات لا تتحول</b><span>الموقع وCRO والقياس ←</span></Link><Link href="/whatsapp-automation"><b>المتابعة بطيئة أو تضيع</b><span>واتساب وCRM والأتمتة ←</span></Link></div></section>
+
+      <section className="shell primary-service-paths decision-guides" aria-labelledby="decision-guides-title">
+        <div className="primary-paths-head"><span className="section-label">قبل أن تطلب عرضًا</span><h2 id="decision-guides-title">افهم السعر والنطاق أولًا.</h2><p>أدلة عملية تشرح ما يغيّر التكلفة وما يجب أن يشمله العرض في كل خدمة، قبل أن تقارن بين العروض.</p></div>
+        <div className="primary-path-grid guide-path-grid">{decisionGuides.map((guide) => <Link href={guide.href} className="primary-path-card" key={guide.href}><small>{guide.label}</small><h3>{guide.title}</h3><p>{guide.text}</p><span>اقرأ الدليل ↗</span></Link>)}</div>
+      </section>
 
       <section className="seo-content shell services-faq" aria-labelledby="services-faq-title"><span className="section-label">أسئلة شائعة</span><h2 id="services-faq-title">صورة أوضح قبل أن تبدأ.</h2><div className="services-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="fit-section shell services-final-cta"><div><span className="section-label">الخطوة التالية</span><h2>مش عارف تختار؟<br/><em>ابعت النشاط والمشكلة فقط.</em></h2></div><div className="fit-card"><p>نراجع أين توجد نقطة الاختناق ونرشح أصغر نطاق منطقي بدل تحميلك بخدمات أكبر من احتياجك الحالي.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">حدد الخدمة على واتساب <span>↗</span></a></div></section>
+      <section className="fit-section shell services-final-cta"><div><span className="section-label">الخطوة التالية</span><h2>لم تقرر بعد؟<br/><em>أرسل النشاط والمشكلة فقط.</em></h2></div><div className="fit-card"><p>نراجع أين توجد نقطة الاختناق ونرشح أصغر نطاق منطقي بدل تحميلك بخدمات أكبر من احتياجك الحالي.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">حدد الخدمة على واتساب <span>↗</span></a></div></section>
       <Footer />
     </main>
   );
