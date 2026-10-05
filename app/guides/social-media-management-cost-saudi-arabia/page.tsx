@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
+import { offerPricing } from "../../offers/offer-pricing";
 import "../guides.css";
+import "../whatsapp-family-links.css";
 import "./cost-guide-upgrade.css";
 import "./decision-upgrade.css";
+
+const contentPackagePrice = offerPricing["30-day-content-package"].initial.amount.toLocaleString("en-US");
+const instagramUpgradePrice = offerPricing["instagram-14-day-upgrade"].initial.amount.toLocaleString("en-US");
 
 const title = "أسعار إدارة السوشيال ميديا في السعودية: الباقات والتكلفة";
 const description = "دليل أسعار إدارة السوشيال ميديا في السعودية: نطاقات التكلفة، الفرق بين الإدارة الشهرية وباقات المحتوى، وما الذي يدخل في السعر قبل التعاقد.";
@@ -30,6 +35,9 @@ const faqs = [
   { question: "هل توجد باقة أرخص إذا كنت أحتاج المحتوى فقط؟", answer: "نعم. إذا كنت لا تحتاج إدارة رسائل أو نشرًا يوميًا أو إدارة مجتمع، فقد تكون باقة محتوى محددة لمدة 30 يومًا أنسب وأوضح من التعاقد على إدارة شهرية كاملة." },
   { question: "هل تصوير المنتجات والفيديو ضمن الباقة؟", answer: "ليس دائمًا. التصميم والكتابة قد يكونان ضمن الإدارة الشهرية، لكن جلسات التصوير والموديل والموقع والمونتاج المتقدم غالبًا تسعّر كبند مستقل." },
   { question: "هل إدارة الإعلانات ضمن إدارة الحسابات؟", answer: "غالبًا تكون خدمة منفصلة، كما أن ميزانية الإعلان المدفوعة إلى Meta أو TikTok لا تدخل ضمن أتعاب إدارة السوشيال ميديا." },
+  { question: "كم منشورًا أحتاج شهريًا؟", answer: "لا يوجد رقم واحد يناسب كل نشاط. يعتمد العدد على هدفك والمنصة وقدرتك على الحفاظ على الجودة والمواد المتاحة. ابدأ بعدد تستطيع الالتزام به بانتظام لعدة أسابيع، ثم عدّله بعد مراجعة النتائج. وكمثال على نطاق محدد، تشمل باقة محتوى 30 يومًا لدينا 12 بوستًا و3 ستوري وريلًا واحدًا." },
+  { question: "ما الفرق بين إدارة الحساب وصناعة المحتوى؟", answer: "صناعة المحتوى تنتج المواد: الأفكار والتصميم والنصوص والفيديو. أما إدارة الحساب فتشغّل الحساب: النشر والمتابعة والردود والتقارير والتحسين. لذلك يختلف النطاق والسعر، وقد تحتاج أحدهما دون الآخر." },
+  { question: "هل إدارة السوشيال ميديا تجلب مبيعات؟", answer: "قد تدعم المبيعات، لكنها لا تضمنها. النتيجة تعتمد على وضوح العرض والثقة وسرعة الرد وسهولة الطلب، لا على النشر وحده. لذلك نفضّل قياس الاستفسارات والعملاء المؤهلين لا الإعجابات فقط." },
   { question: "هل زيادة عدد المنشورات تعني باقة أفضل؟", answer: "لا. الباقة الأفضل هي التي تربط المحتوى بهدف تجاري واضح وتحافظ على الجودة والاستمرارية، لا التي تكدّس أكبر عدد من القطع." },
 ];
 
@@ -63,7 +71,7 @@ export default function SocialMediaManagementCostGuide() {
   const url = `${siteUrl}/guides/social-media-management-cost-saudi-arabia`;
   const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد تحديد النطاق المناسب لإدارة السوشيال ميديا. النشاط: ");
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-16", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["إدارة السوشيال ميديا", "أسعار إدارة حسابات التواصل الاجتماعي", "باقات السوشيال ميديا", "صناعة المحتوى", "تكلفة إدارة إنستقرام"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-10-05", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["إدارة السوشيال ميديا", "أسعار إدارة حسابات التواصل الاجتماعي", "باقات السوشيال ميديا", "صناعة المحتوى", "تكلفة إدارة إنستقرام"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -75,8 +83,8 @@ export default function SocialMediaManagementCostGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>أسعار السوشيال ميديا</span></nav>
         <span className="article-intent-label">دليل أسعار · السعودية</span>
         <h1>{title}</h1>
-        <p>إذا تبحث عن السعر، خذ الرقم أولًا ثم قارن النطاق. الفرق الحقيقي في التكلفة ليس عدد البوستات فقط، بل هل تحتاج محتوى فقط أم إدارة حساب كاملة أم حملات إعلانية مستقلة.</p>
-        <div className="article-meta"><span>آخر تحديث: 16 أغسطس 2026</span><span>وقت القراءة: 10 دقائق</span><span>التركيز: السعر واختيار النطاق</span></div>
+        <p>إذا كنت تبحث عن السعر، فخذ الرقم أولًا ثم قارن النطاق. الفرق الحقيقي في التكلفة ليس عدد البوستات فقط، بل هل تحتاج محتوى فقط أم إدارة حساب كاملة أم حملات إعلانية مستقلة.</p>
+        <div className="article-meta"><span>آخر تحديث: 5 أكتوبر 2026</span><span>وقت القراءة: 10 دقائق</span><span>التركيز: السعر واختيار النطاق</span></div>
       </header>
 
       <section className="shell cost-price-snapshot" aria-labelledby="price-snapshot-title">
@@ -94,7 +102,7 @@ export default function SocialMediaManagementCostGuide() {
       <div className="article-layout shell">
         <div className="article-body">
           <h2 id="short-answer">الإجابة المختصرة</h2>
-          <div className="article-answer"><p><strong>الإدارة الشهرية ليست نفس باقة صناعة المحتوى.</strong> في السعودية تبدأ الإدارة المحدودة عادة من 1,500 إلى 3,500 ريال شهريًا، وتتراوح الإدارة المتكاملة غالبًا بين 3,500 و8,000 ريال، وقد تتجاوز ذلك مع تعدد المنصات والفيديو والتصوير. أما إذا كان احتياجك محتوى جاهزًا فقط، فقد تكون <Link href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> أكثر كفاءة وأقل التزامًا.</p></div>
+          <div className="article-answer"><p><strong>الإدارة الشهرية ليست نفس باقة صناعة المحتوى.</strong> في السعودية تبدأ الإدارة المحدودة عادة من 1,500 إلى 3,500 ريال شهريًا، وتتراوح الإدارة المتكاملة غالبًا بين 3,500 و8,000 ريال، وقد تتجاوز ذلك مع تعدد المنصات والفيديو والتصوير. أما إذا كان احتياجك محتوى جاهزًا فقط، فقد تكون <Link className="article-link" href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> أكثر كفاءة وأقل التزامًا، وسعرها لدينا {contentPackagePrice} ريالًا سعوديًا.</p></div>
 
           <h2 id="choose">اختَر نوع الخدمة قبل مقارنة السعر</h2>
           <div className="cost-path-grid">
@@ -109,8 +117,17 @@ export default function SocialMediaManagementCostGuide() {
           </tbody></table></div>
           <p>هذه نطاقات سوقية إرشادية وليست تسعيرة ثابتة من ديوانك. المقارنة الصحيحة تبدأ بتوحيد نطاق العمل أولًا.</p>
 
+          <h2 id="dewank-options">خيارات محددة بسعر معلن قبل الإدارة الشهرية</h2>
+          <p>لا تحتاج كل الأنشطة إلى إدارة شهرية من اليوم الأول. هذه هي الخيارات المحددة النطاق لدينا، وبعدها تأتي الإدارة الشهرية بعرض مخصص:</p>
+          <div className="cost-provider-grid">
+            <article className="cost-provider-card"><small>حساب قائم يحتاج ترتيبًا ووضوحًا</small><h3><Link className="article-link" href="/offers/instagram-14-day-upgrade">تطوير حساب إنستجرام خلال 14 يومًا</Link></h3><p>مراجعة الحساب، البايو والـCTA، الهايلايتس، محاور المحتوى، 6 تصميمات وخطة 14 يومًا. لا يشمل النشر أو التصوير أو الإعلانات.</p><ul><li><strong>{instagramUpgradePrice} ريالًا</strong></li></ul></article>
+            <article className="cost-provider-card"><small>محتوى شهر دون إدارة كاملة</small><h3><Link className="article-link" href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link></h3><p>12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر وتحسين البايو. لا تشمل النشر اليومي أو الرسائل أو الحملات.</p><ul><li><strong>{contentPackagePrice} ريالًا</strong></li></ul></article>
+            <article className="cost-provider-card"><small>نشر ومتابعة وتقارير</small><h3><Link className="article-link" href="/services/social-media-content">إدارة شهرية بنطاق مخصص</Link></h3><p>يُحدَّد النطاق حسب المنصات وحجم المحتوى ومستوى المتابعة.</p><ul><li><strong>عرض بعد مراجعة الحساب</strong></li></ul></article>
+          </div>
+          <p>السعر المعلن للباقتين بالريال السعودي، ويظهر بعملة بلدك داخل صفحة كل باقة. التفاصيل والشروط في صفحة كل خيار.</p>
+
           <section className="cost-mid-cta" aria-label="اختيار النطاق المناسب">
-            <span>قبل ما تختار الباقة</span>
+            <span>قبل أن تختار الباقة</span>
             <h2>لا تدفع لإدارة كاملة إذا كان احتياجك محتوى فقط.</h2>
             <p>قارن النطاق أولًا: محتوى فقط، إدارة شهرية، أو إعلانات. إذا كان هدفك تجهيز شهر كامل من المحتوى، راجع الباقة المحددة قبل التزام شهري أكبر.</p>
             <div><Link className="button primary" href="/offers/30-day-content-package">شاهد باقة 30 يومًا</Link><Link className="cost-text-link" href="/services/social-media-content">أحتاج إدارة شهرية كاملة</Link></div>
@@ -120,7 +137,7 @@ export default function SocialMediaManagementCostGuide() {
           <p>تكلفة إدارة إنستقرام لا يحددها اسم المنصة وحده. اسأل أولًا: هل المطلوب أفكار وتصميم وكابشنات فقط، أم نشر ومتابعة وتعليقات وتقارير؟ إذا كان النطاق محتوى فقط، لا تقارن سعره بعقد إدارة شهرية كاملة. وإذا كان الحساب يحتاج تصويرًا وفيديو وإدارة مجتمع، ترتفع التكلفة لأن التنفيذ صار أوسع من مجرد تصميم المنشورات.</p>
 
           <h2 id="content-cost">كم تكلفة صناعة المحتوى شهريًا؟</h2>
-          <p>صناعة المحتوى قد تكون خدمة مستقلة عن إدارة الحساب. السعر يتأثر بعدد القطع، مستوى التصميم، كمية الريلز، الحاجة إلى تصوير، وعدد جولات المراجعة. لذلك الأفضل مقارنة <strong>المخرجات الفعلية</strong> لا اسم الباقة فقط. لو كان احتياجك شهرًا جاهزًا من الأفكار والتصميم والكابشنات وخطة النشر، راجع <Link href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> كمثال على نطاق محدد وواضح.</p>
+          <p>صناعة المحتوى قد تكون خدمة مستقلة عن إدارة الحساب. السعر يتأثر بعدد القطع، مستوى التصميم، كمية الريلز، الحاجة إلى تصوير، وعدد جولات المراجعة. لذلك الأفضل مقارنة <strong>المخرجات الفعلية</strong> لا اسم الباقة فقط. لو كان احتياجك شهرًا جاهزًا من الأفكار والتصميم والكابشنات وخطة النشر، راجع <Link className="article-link" href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> كمثال على نطاق محدد وواضح.</p>
 
           <h2 id="included">ما الذي يجب أن تتضمنه باقة الإدارة؟</h2>
           {scope.map(([heading, body]) => <section key={heading}><h3>{heading}</h3><p>{body}</p></section>)}
@@ -139,6 +156,26 @@ export default function SocialMediaManagementCostGuide() {
           <h2 id="compare">كيف تقارن بين الباقات؟</h2>
           <p>قارن الهدف والاستراتيجية ونوع المخرجات لا العدد فقط. اسأل بوضوح: من يكتب؟ من يصمم؟ من ينشر؟ من يرد؟ هل توجد تقارير؟ وهل التصوير والإعلانات داخل السعر أم خارجه؟ وإذا كان احتياجك الأساسي هو المحتوى فقط، لا تدفع تلقائيًا مقابل إدارة شهرية كاملة.</p>
 
+          <h2 id="posts-per-month">كم منشورًا تحتاج شهريًا؟</h2>
+          <p><strong>لا يوجد عدد يناسب كل نشاط.</strong> المهم أن يكون العدد قابلًا للاستمرار بجودة ثابتة، وأن يخدم هدفًا واضحًا. منشور ضعيف يُنشر كل يوم أقل قيمة من عدد أقل بمحتوى أوضح وعرض قوي.</p>
+          <ul>
+            <li>ابدأ بعدد تستطيع الحفاظ عليه عدة أسابيع، ثم عدّله بعد مراجعة التفاعل والاستفسارات.</li>
+            <li>اسأل المزود ماذا يُحسب منشورًا: تصميم واحد، أم كاروسيل، أم ستوري، أم ريل؟</li>
+            <li>اسأل من يكتب النص ومن يصمم ومن ينشر، وكم جولة تعديل مشمولة.</li>
+            <li>كمثال على نطاق محدد: باقة محتوى 30 يومًا لدينا تتضمن 12 بوستًا و3 ستوري وريلًا واحدًا، أي ما يقارب 3 منشورات أسبوعيًا.</li>
+          </ul>
+
+          <h2 id="before-contract">أسئلة اطرحها قبل التعاقد</h2>
+          <p>بعض صفحات الباقات المعلنة تذكر السعر وعدد المنشورات دون أن توضح الضريبة أو مدة العقد أو المستثنيات. اطلب الإجابة مكتوبة عن:</p>
+          <ul>
+            <li>هل السعر شامل ضريبة القيمة المضافة؟</li>
+            <li>ما مدة العقد وطريقة الإلغاء أو التجديد؟</li>
+            <li>ما المنصات المشمولة وعدد القطع على كل منصة؟</li>
+            <li>هل التصوير والإعلانات وميزانية المنصة داخل السعر أم خارجه؟</li>
+            <li>من يملك الحسابات والملفات المصممة عند انتهاء التعاون؟</li>
+            <li>ما التقارير التي ستستلمها، وما المؤشر الذي سيُقاس: التفاعل أم الاستفسارات؟</li>
+          </ul>
+
           <section className="cost-provider-compare" id="provider-compare" aria-labelledby="provider-compare-title">
             <h2 id="provider-compare-title">فريلانسر أم وكالة أم موظف داخلي؟</h2>
             <p>لا يوجد خيار أفضل دائمًا. القرار يعتمد على حجم العمل، عدد التخصصات المطلوبة، وكم تحتاج من متابعة يومية داخل نشاطك.</p>
@@ -149,6 +186,7 @@ export default function SocialMediaManagementCostGuide() {
           <div className="cost-methodology">
             <p>الأرقام هنا ليست عرض سعر من ديوانك. هي نطاقات إرشادية مبنية على حجم النطاق الذي يغيّر تكلفة التنفيذ، وأهم عناصر المقارنة هي:</p>
             <ul><li>عدد المنصات المطلوب إدارتها.</li><li>كمية التصميم والفيديو والتصوير.</li><li>هل الخدمة تشمل النشر وإدارة المجتمع.</li><li>عدد اللغات وجولات المراجعة وسرعة التنفيذ.</li><li>مستوى التقارير والتحليل والمتابعة المطلوبة.</li></ul>
+            <p>وراجعنا في أكتوبر 2026 باقات منشورة علنًا لدى بعض الوكالات السعودية، فوجدنا أن باقات المنصة الواحدة المعلنة تبدأ من نحو 1,200 ريال، وباقات المنصتين فأكثر من نحو 2,200 إلى 3,700 ريال، وقد يُترك السعر النهائي لما بعد الاستشارة. هذه مرجعية تقريبية وليست استطلاعًا للسوق. أما منصات العمل الحر فتعرض غالبًا خدمات أقل سعرًا بنطاق أضيق وتفاوت أكبر في الجودة.</p>
             <p><strong>قاعدة المقارنة:</strong> لا تقارن السعر قبل توحيد عدد المنصات، عدد ونوع المخرجات، مستوى الفيديو والتصوير، وحجم إدارة المجتمع. غير ذلك قد يجعلك تقارن خدمتين مختلفتين كأنهما نفس الباقة.</p>
           </div>
 
@@ -165,12 +203,12 @@ export default function SocialMediaManagementCostGuide() {
 
           <h2 id="decision">متى تكون الإدارة الشهرية استثمارًا سيئًا؟</h2>
           <p>عندما لا يوجد عرض واضح أو طريقة سهلة للطلب أو قدرة على متابعة العملاء، أو عندما تكون حاجتك الفعلية مجرد تجهيز محتوى الشهر. وقتها قد يكون البدء بنطاق أصغر أكثر عقلانية.</p>
-          <p><strong>لو تريد التنفيذ:</strong> راجع <Link href="/services/social-media-content">خدمة إدارة السوشيال ميديا وصناعة المحتوى</Link> للإدارة الأوسع، أو <Link href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> إذا كنت تريد بداية محددة المخرجات ومنخفضة الالتزام.</p>
+          <p><strong>إذا أردت التنفيذ:</strong> راجع <Link className="article-link" href="/services/social-media-content">خدمة إدارة السوشيال ميديا وصناعة المحتوى</Link> للإدارة الأوسع، أو <Link className="article-link" href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> إذا كنت تريد بداية محددة المخرجات ومنخفضة الالتزام.</p>
 
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>مش متأكد تحتاج إدارة كاملة ولا محتوى فقط؟</h2><p>ابدأ بتحديد المشكلة: هل تحتاج من ينتج المحتوى، أم من يدير الحساب يوميًا، أم من يدير الإعلانات؟ لما نفصل النطاق، يصبح السعر والقرار أوضح.</p><div className="guide-lead-actions"><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل حسابك ونحدد النطاق <span>↗</span></a><Link className="button secondary" href="/offers/30-day-content-package">راجع باقة 30 يومًا <span>←</span></Link><Link className="button secondary" href="/services/social-media-content">قارن خدمة الإدارة</Link></div></section>
+          <section className="article-cta"><h2>لست متأكدًا هل تحتاج إدارة كاملة أم محتوى فقط؟</h2><p>ابدأ بتحديد المشكلة: هل تحتاج من ينتج المحتوى، أم من يدير الحساب يوميًا، أم من يدير الإعلانات؟ عندما نفصل النطاق، يصبح السعر والقرار أوضح.</p><div className="guide-lead-actions"><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل حسابك ونحدد النطاق <span>↗</span></a><Link className="button secondary" href="/offers/30-day-content-package">راجع باقة 30 يومًا <span>←</span></Link><Link className="button secondary" href="/services/social-media-content">قارن خدمة الإدارة</Link></div></section>
         </div>
-        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#choose">اختيار نوع الخدمة</a><a href="#ranges">نطاقات الأسعار</a><a href="#instagram-cost">تكلفة إدارة إنستقرام</a><a href="#content-cost">تكلفة صناعة المحتوى</a><a href="#included">مكونات الباقة</a><a href="#separate">الخدمات المنفصلة</a><a href="#drivers">عوامل التكلفة</a><a href="#compare">مقارنة الباقات</a><a href="#provider-compare">فريلانسر أم وكالة؟</a><a href="#methodology">منهجية الأسعار</a><a href="#right-package">اختيار النطاق</a><a href="#decision">قبل التعاقد</a><a href="#faq">الأسئلة الشائعة</a><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">اسأل عن حسابك</a></aside>
+        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#choose">اختيار نوع الخدمة</a><a href="#ranges">نطاقات الأسعار</a><a href="#dewank-options">خيارات محددة السعر</a><a href="#instagram-cost">تكلفة إدارة إنستقرام</a><a href="#content-cost">تكلفة صناعة المحتوى</a><a href="#included">مكونات الباقة</a><a href="#separate">الخدمات المنفصلة</a><a href="#drivers">عوامل التكلفة</a><a href="#compare">مقارنة الباقات</a><a href="#posts-per-month">عدد المنشورات</a><a href="#before-contract">قبل التعاقد</a><a href="#provider-compare">فريلانسر أم وكالة؟</a><a href="#methodology">منهجية الأسعار</a><a href="#right-package">اختيار النطاق</a><a href="#decision">قبل التعاقد</a><a href="#faq">الأسئلة الشائعة</a><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">اسأل عن حسابك</a></aside>
       </div>
     </article><Footer />
   </main>;
