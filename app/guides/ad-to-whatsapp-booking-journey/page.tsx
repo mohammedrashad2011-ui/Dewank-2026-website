@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../guides.css";
+import "../whatsapp-family-links.css";
 
 const title = "كيف تبني رحلة عميل من الإعلان إلى واتساب ثم الحجز؟";
 const description = "دليل عملي لربط الإعلان بواتساب وCRM والحجز، وقياس نقاط التسرب من النقرة حتى الحضور أو البيع بدل الاكتفاء بعدد الرسائل.";
@@ -78,8 +79,8 @@ export default function AdToWhatsappBookingJourneyGuide() {
             <li>طبّق مسارًا واحدًا لخدمة واحدة، مع قواعد تحويل للموظف وإيقاف المتابعة.</li>
             <li>اختبر أسبوعين أو حجمًا كافيًا، ثم قارن الحجز والحضور والعائد بخط الأساس.</li>
           </ol>
-          <p>لفهم البنية التقنية والمتابعة اقرأ دليل <Link href="/guides/whatsapp-crm-automation">أتمتة واتساب مع CRM</Link>، وإذا كنت تختار النظام المناسب راجع <Link href="/guides/best-crm-whatsapp-saudi-arabia">دليل اختيار CRM لواتساب</Link>.</p>
-          <p>إذا كان الخلل بعد وصول الرسالة وليس في الإعلان نفسه، راجع <Link href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>. ولتجربة نطاق بداية واضح قبل بناء منظومة أوسع، يمكنك الاطلاع على <Link href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
+          <p>لفهم البنية التقنية والمتابعة اقرأ دليل <Link className="article-link" href="/guides/whatsapp-crm-automation">أتمتة واتساب مع CRM</Link>، وإذا كنت تختار النظام المناسب راجع <Link className="article-link" href="/guides/best-crm-whatsapp-saudi-arabia">دليل اختيار CRM لواتساب</Link>. ولأمثلة على أسئلة التأهيل وقواعد التوجيه للموظف بحسب النشاط، راجع <Link className="article-link" href="/guides/whatsapp-crm-automation#qualification-routing">قسم التأهيل والتوجيه</Link>.</p>
+          <p>إذا كان الخلل بعد وصول الرسالة وليس في الإعلان نفسه، راجع <Link className="article-link" href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>. ولتجربة نطاق بداية واضح قبل بناء منظومة أوسع، يمكنك الاطلاع على <Link className="article-link" href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد معرفة أين تضيع حجوزاتك؟</h2><p>نراجع الإعلان ورسائل واتساب والحجز والمتابعة والقياس، ثم نحدد نقطة التسرب ذات الأولوية ونبني مسارًا يناسب فريقك.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
         </div>

@@ -141,8 +141,8 @@ export default function AiAutomationPage() {
       <section className="ai-logic shell">
         <div className="ai-logic-copy">
           <span className="ai-label">AI OR AUTOMATION?</span>
-          <h2>مش كل حاجة محتاجة AI.</h2>
-          <p>القاعدة البسيطة: لو القرار ثابت وواضح، غالبًا Automation عادية تكفي. لو النظام يحتاج فهم نص، تصنيف نية، تلخيص أو التعامل مع مدخلات متغيرة، هنا AI ممكن يضيف قيمة.</p>
+          <h2>ليس كل شيء يحتاج AI.</h2>
+          <p>القاعدة البسيطة: إذا كان القرار ثابتًا وواضحًا فغالبًا تكفي Automation عادية. وإذا احتاج النظام إلى فهم نص أو تصنيف نية أو تلخيص أو التعامل مع مدخلات متغيرة، فقد يضيف AI قيمة حقيقية.</p>
         </div>
         <div className="ai-logic-grid">
           <article><small>Automation عادية</small><h3>قواعد ثابتة</h3><p>إرسال تنبيه، تحديث CRM، إنشاء مهمة، نقل بيانات، تذكير بعد مدة محددة.</p></article>
@@ -154,7 +154,7 @@ export default function AiAutomationPage() {
       <section className="ai-outcomes shell">
         <div className="ai-section-head">
           <span className="ai-label">BUSINESS OUTCOMES</span>
-          <h2>الهدف مش “نبني بوت”.<br/><em>الهدف إن العملية تمشي أفضل.</em></h2>
+          <h2>الهدف ليس «بناء بوت».<br/><em>الهدف أن تعمل العملية بشكل أفضل.</em></h2>
         </div>
         <div className="ai-outcome-grid">
           <article><strong>رد أسرع</strong><p>يصل الاستفسار للخطوة الصحيحة بدل انتظار النقل اليدوي.</p></article>
@@ -167,7 +167,7 @@ export default function AiAutomationPage() {
       <section className="ai-bridge shell">
         <div>
           <span className="ai-label">ابدأ بعملية واحدة</span>
-          <h2>عندك خطوة بتتكرر كل يوم؟<br/><em>غالبًا دي نقطة البداية.</em></h2>
+          <h2>عندك خطوة تتكرر كل يوم؟<br/><em>غالبًا هي نقطة البداية.</em></h2>
           <p>أرسل لنا العملية كما تعمل الآن، حتى لو كانت فوضوية. نراجع أين يضيع الوقت، وما الذي يمكن أتمتته، وما الذي يجب أن يبقى بيد الموظف.</p>
         </div>
         <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل العملية على واتساب <span>↗</span></a>
