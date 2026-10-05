@@ -51,31 +51,13 @@ export default function BrandNamingPage() {
       <div className="brand-hero-actions"><Link className="button whatsapp" href="/offers/brand-naming">شاهد باقة 490 ريال <span>←</span></Link><Link className="button primary" href="/guides/how-to-choose-brand-name-saudi-arabia">اقرأ دليل اختيار الاسم <span>←</span></Link></div>
     </div><div className="brand-diagnosis-copy"><span className="section-label">[ الباقة الجاهزة ]</span><h2>تبدأ من<br/><em>490 ريال سعودي</em></h2><p>يشمل السعر الأساسي التسمية والفحص المبدئي وBrand Direction أولي. يتغير السعر النهائي إذا توسع نطاق الأسواق أو اللغات.</p></div></section>
 
-    <section className="shell brand-diagnosis" aria-labelledby="brand-quick-answer"><div><span className="section-label">[ الإجابة المختصرة ]</span><h2 id="brand-quick-answer">ماذا تفعل<br/><em>خدمة التسمية؟</em></h2></div><div className="brand-diagnosis-copy"><p>نقترح عليك 10–15 اسمًا مدروسًا لمشروعك مع شرح معنى كل اسم، ونفحصها لغويًا وثقافيًا ونبحث مبدئيًا عن التشابه وتوفر الدومين وحسابات التواصل، ثم نرشّح لك أفضل 3 أسماء في مصفوفة قرار مختصرة.</p><p>الخدمة موجّهة لأصحاب المشاريع في السعودية والخليج، ويُراعى في الفحص اللغوي والثقافي السوق المستهدف نفسه بالعربية والإنجليزية. وهي خطوة تسبق حجز الاسم التجاري وتسجيل العلامة رسميًا ولا تحل محلهما؛ <Link href="/guides/how-to-choose-brand-name-saudi-arabia#reserve-vs-trademark">اقرأ الفرق بين حجز الاسم التجاري وتسجيل العلامة التجارية في السعودية</Link>، أو انتقل مباشرة إلى <Link href="/offers/brand-naming">باقة التسمية الجاهزة</Link>.</p></div></section>
-
     <section className="shell brand-diagnosis"><div><span className="section-label">[ المشكلة ]</span><h2>الاسم الضعيف<br/><em>تكلفته تظهر لاحقًا.</em></h2></div><div className="brand-diagnosis-copy"><p>اسم يصعب نطقه، أو يشبه منافسًا، أو لا يملك نطاقًا مناسبًا قد يستهلك ميزانية الهوية والتسويق ثم يجبرك على التغيير. لذلك نعامل التسمية كقرار بحث واستراتيجية، لا جلسة عصف ذهني فقط.</p><div className="brand-symptoms"><p>اسم عام يصعب امتلاكه</p><p>تشابه يربك العميل</p><p>معنى سلبي في سوق آخر</p><p>دومين وحسابات غير متاحة</p></div></div></section>
 
     <section className="shell brand-deliverables"><div className="brand-section-head"><div><span className="section-label">[ ما الذي تستلمه ]</span><h2>من فكرة المشروع<br/><em>إلى قائمة قابلة للقرار.</em></h2></div></div><div className="brand-deliverables-grid">{deliverables.map(([item, text], i) => <article key={item}><span>{String(i + 1).padStart(2, "0")}</span><div><h3>{item}</h3><p>{text}</p></div></article>)}</div></section>
 
-    <section className="shell brand-fit" aria-labelledby="brand-fit-title">
-      <div><span className="section-label">[ قبل أن تبدأ ]</span><h2 id="brand-fit-title">هل الخدمة<br/><em>مناسبة لك؟</em></h2></div>
-      <div className="brand-fit-list">
-        <h3>لمن تناسب الخدمة</h3>
-        <p>مشروع جديد في السعودية أو الخليج يحتاج اسمًا قبل الهوية والإطلاق.</p>
-        <p>نشاط قائم يريد إعادة تسمية مدروسة بدل تغيير الاسم بالحدس.</p>
-        <p>علامة ستعمل بالعربية والإنجليزية وتحتاج مراجعة النطق والمعنى في اللغتين.</p>
-        <p>صاحب قرار يفضّل قائمة قصيرة بمعايير واضحة على مئات الاقتراحات.</p>
-        <h3>لمن لا تناسب</h3>
-        <p>تريد شعارًا أو هوية بصرية كاملة: هذه خدمة مختلفة، وتجد نطاقاتها في <Link href="/guides/branding-identity-cost-saudi-arabia">دليل تكلفة تصميم الهوية البصرية في السعودية</Link> وفي <Link href="/branding">خدمة بناء الهوية</Link>.</p>
-        <p>تريد حجز اسم تجاري أو تسجيل علامة تجارية ومتابعة الإجراءات: هذه إجراءات رسمية مستقلة تتم عبر الجهات المختصة، ورسومها خارج السعر الأساسي.</p>
-        <p>تحتاج بحثًا قانونيًا متخصصًا أو ضمانًا بقبول الاسم: بحثنا مبدئي، ولا يغني عن مستشار مؤهل.</p>
-        <p>تريد شراء الدومين ضمن السعر الأساسي: نتحقق من التوفر وقت البحث فقط.</p>
-      </div>
-    </section>
-
     <BithanProofCard variant="naming" />
 
-    <section className="brand-process"><div className="shell"><div className="brand-section-head brand-process-head"><div><span className="section-label">[ حدود البحث ]</span><h2>نقلّل المخاطر.<br/><em>ولا نبيع ضمانًا وهميًا.</em></h2></div></div><p className="brand-process-intro">البحث الذي نقدمه مبدئي وإبداعي وتجاري. قرار قبول الاسم أو تسجيل العلامة يظل للجهة الرسمية المختصة، كما أن توفر الدومين أو الحسابات قد يتغير حتى لحظة الحجز. للتفريق بين الإجراءين الرسميين، اقرأ <Link href="/guides/how-to-choose-brand-name-saudi-arabia#reserve-vs-trademark">حجز الاسم التجاري وتسجيل العلامة التجارية</Link>.</p></div></section>
+    <section className="brand-process"><div className="shell"><div className="brand-section-head brand-process-head"><div><span className="section-label">[ حدود البحث ]</span><h2>نقلّل المخاطر.<br/><em>ولا نبيع ضمانًا وهميًا.</em></h2></div></div><p className="brand-process-intro">البحث الذي نقدمه مبدئي وإبداعي وتجاري. قرار قبول الاسم أو تسجيل العلامة يظل للجهة الرسمية المختصة، كما أن توفر الدومين أو الحسابات قد يتغير حتى لحظة الحجز.</p></div></section>
 
     <section className="shell brand-faq"><span className="section-label">[ أسئلة شائعة ]</span><div className="brand-section-head"><div><h2>وضوح قبل<br/><em>بدء البحث.</em></h2></div></div>{faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</section>
     <section className="shell brand-cta"><div><span className="section-label">[ ابدأ الآن ]</span><h2>ابنِ اسمًا يمكن<br/>لعلامتك أن تكبر داخله.</h2></div><div><p>أرسل نوع النشاط والسوق المستهدف وطموح التوسع، ونحدد لك نطاق الخدمة المناسب قبل البدء.</p><a className="button" href={whatsapp} target="_blank" rel="noopener noreferrer">ابدأ عبر واتساب <span>↗</span></a></div></section>
