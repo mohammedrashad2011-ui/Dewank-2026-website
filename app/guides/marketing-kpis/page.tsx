@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../guides.css";
+import "../whatsapp-family-links.css";
 
 const title = "مؤشرات الأداء في التسويق: أهم KPIs للشركات";
 const description = "دليل عملي لمؤشرات الأداء التسويقي: الوصول، CTR، التحويل، تكلفة العميل المحتمل، CAC، ROAS، الإيراد، والفرق بين المؤشرات التشغيلية والتجارية.";
@@ -56,9 +57,9 @@ export default function MarketingKpisGuide() {
             <tr><td>الاحتفاظ</td><td>Repeat Purchase، Retention، LTV عند توفر البيانات</td></tr>
           </tbody></table></div>
           <h2>لا تقرأ الإعلان بمعزل عن باقي الرحلة</h2>
-          <p>إذا كان CTR جيدًا لكن المبيعات ضعيفة، فالمشكلة قد تكون في الصفحة أو العرض أو المتابعة. راجع <Link href="/paid-ads">خدمة إدارة الإعلانات</Link>، و<Link href="/seo-aeo">SEO وAEO</Link>، و<Link href="/whatsapp-automation">أتمتة واتساب وCRM</Link> كأجزاء مترابطة من نفس مسار القياس.</p>
+          <p>إذا كان CTR جيدًا لكن المبيعات ضعيفة، فالمشكلة قد تكون في الصفحة أو العرض أو المتابعة. راجع <Link className="article-link" href="/paid-ads">خدمة إدارة الإعلانات</Link>، و<Link className="article-link" href="/seo-aeo">SEO وAEO</Link>، و<Link className="article-link" href="/whatsapp-automation">أتمتة واتساب وCRM</Link> كأجزاء مترابطة من نفس مسار القياس.</p>
           <h2>حوّل المؤشرات إلى قرارات</h2>
-          <p>حدد مؤشرًا رئيسيًا واحدًا لكل هدف، ومجموعة صغيرة من المؤشرات التشخيصية. إذا كانت شركتك تحتاج نظامًا أشمل، ابدأ من <Link href="/digital-marketing">استراتيجية التسويق الرقمي</Link> أو راجع <Link href="/services">خدمات ديوانك</Link>.</p>
+          <p>حدد مؤشرًا رئيسيًا واحدًا لكل هدف، ومجموعة صغيرة من المؤشرات التشخيصية. إذا كانت شركتك تحتاج نظامًا أشمل، ابدأ من <Link className="article-link" href="/digital-marketing">استراتيجية التسويق الرقمي</Link> أو راجع <Link className="article-link" href="/services">خدمات ديوانك</Link>.</p>
         </div>
         <aside className="article-aside"><div className="article-aside-card"><small>الأرقام كثيرة؟</small><h3>اربط القياس بالقرار.</h3><p>نحدد ما يستحق القياس وما الذي يجب تجاهله حتى تصبح التقارير أداة نمو لا أرشيفًا.</p><Link className="button primary" href="/contact">ناقش القياس <span>←</span></Link></div></aside>
       </div>

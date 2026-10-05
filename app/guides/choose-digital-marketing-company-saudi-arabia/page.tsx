@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../guides.css";
+import "../whatsapp-family-links.css";
 
 const title = "كيف تختار شركة تسويق رقمي في السعودية؟";
 const description = "دليل عملي لاختيار شركة تسويق رقمي في السعودية: معايير التقييم، الأسئلة المهمة، إشارات الخطر، ومقارنة الوكالة بالمستقل والفريق الداخلي.";
@@ -16,6 +17,7 @@ export const metadata: Metadata = createMetadata({
 
 const faqs = [
   { question: "ما أفضل شركة تسويق رقمي في السعودية؟", answer: "لا توجد شركة واحدة هي الأفضل لكل نشاط. الاختيار الأفضل هو الجهة التي تفهم نموذج عملك وسوقك، تربط التنفيذ بهدف تجاري قابل للقياس، وتوضح ما ستفعله وما لن تفعله قبل التعاقد." },
+  { question: "هل أحتاج شركة تسويق شاملة أم جهة متخصصة؟", answer: "ليس بالضرورة. إذا كانت المشكلة محددة، كالإعلانات أو SEO أو الموقع، فقد تكون جهة متخصصة أوضح نطاقًا. والشركة الشاملة مناسبة عندما تحتاج أكثر من تخصص بقيادة واحدة، بشرط أن توضح من ينفذ كل جزء وكيف يُقاس." },
   { question: "هل أختار شركة متخصصة في مجالي؟", answer: "الخبرة القطاعية تقلل وقت التعلم، لكنها ليست كافية وحدها. اطلب دليلًا على فهم رحلة العميل والقياس والامتثال، وتأكد أن الحل ليس نسخة مكررة من عميل سابق." },
   { question: "هل السعر الأقل يعني مخاطرة أكبر؟", answer: "ليس دائمًا، لكن السعر المنخفض جدًا غالبًا يخفي نطاقًا محدودًا أو فريقًا غير متفرغ أو غياب التحليل والقياس. قارن النطاق والمسؤوليات وجودة الفريق، لا الرقم النهائي فقط." },
   { question: "كم مدة العقد المناسبة؟", answer: "ابدأ بنطاق واضح ومرحلة تأسيس أو اختبار، مع مؤشرات ومواعيد مراجعة وحق الوصول إلى الحسابات والبيانات. تجنب الالتزام الطويل قبل إثبات جودة التنفيذ والتواصل." },
@@ -34,7 +36,7 @@ const criteria = [
 export default function ChooseMarketingCompanyGuide() {
   const url = `${siteUrl}/guides/choose-digital-marketing-company-saudi-arabia`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-03", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["اختيار شركة تسويق رقمي", "التسويق الرقمي في السعودية", "تقييم وكالات التسويق"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-10-05", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["اختيار شركة تسويق رقمي", "التسويق الرقمي في السعودية", "تقييم وكالات التسويق"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -46,13 +48,13 @@ export default function ChooseMarketingCompanyGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>التسويق الرقمي</span></nav>
         <h1>{title}</h1>
         <p>لا تختَر الشركة من شكل حسابها أو عدد خدماتها. الاختيار الصحيح يبدأ من قدرتها على فهم المشكلة، ربط العمل بنتيجة تجارية، وحماية حساباتك وبياناتك بعقد واضح.</p>
-        <div className="article-meta"><span>آخر تحديث: 3 أغسطس 2026</span><span>وقت القراءة: 10 دقائق</span><span>التركيز: التقييم قبل التعاقد</span></div>
+        <div className="article-meta"><span>آخر تحديث: 5 أكتوبر 2026</span><span>وقت القراءة: 10 دقائق</span><span>التركيز: التقييم قبل التعاقد</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
           <h2 id="short-answer">الإجابة المختصرة</h2>
           <div className="article-answer"><p>اختر شركة التسويق التي تفهم اقتصاد نشاطك ورحلة عميلك، تحدد مؤشرات مرتبطة بالمبيعات، تقدم نطاقًا وفريقًا واضحين، وتترك الحسابات والبيانات تحت ملكيتك. العروض الأرخص أو الأكثر ازدحامًا بالخدمات ليست بالضرورة الأفضل.</p></div>
-          <p>إذا كنت تقارن بين نطاقات التنفيذ نفسها، ابدأ من <Link href="/services">صفحة خدمات ديوانك كشركة تسويق ووكالة تسويق في السعودية</Link> لفهم الفرق بين مسارات الإعلانات والمحتوى والمواقع والبراند والأتمتة، ثم استخدم هذا الدليل لتقييم الجهة المناسبة.</p>
+          <p>إذا كنت تقارن بين نطاقات التنفيذ نفسها، ابدأ من <Link className="article-link" href="/services">صفحة خدمات ديوانك كشركة تسويق ووكالة تسويق في السعودية</Link> لفهم الفرق بين مسارات الإعلانات والمحتوى والمواقع والبراند والأتمتة، ثم استخدم هذا الدليل لتقييم الجهة المناسبة.</p>
           <h2 id="before-search">قبل البحث: حدّد ما تحتاجه فعلًا</h2>
           <p>لا تطلب «تسويقًا شاملًا» من دون تعريف المشكلة. هل تحتاج بناء طلب، زيادة فرص البيع، تحسين التحويل، إطلاق علامة، أم تنظيم المتابعة؟ اكتب الهدف والميزانية والمدة والموارد الداخلية. من دون ذلك ستقارن عروضًا مختلفة وكأنها متساوية.</p>
           <div className="article-table"><table><thead><tr><th>الحاجة</th><th>الخيار الأقرب</th><th>انتبه إلى</th></tr></thead><tbody>
@@ -60,6 +62,16 @@ export default function ChooseMarketingCompanyGuide() {
             <tr><td><strong>عدة قنوات وفريق تنفيذ</strong></td><td>وكالة أو شركة تسويق</td><td>من سينفذ فعليًا وليس فريق المبيعات</td></tr>
             <tr><td><strong>معرفة يومية عميقة بالنشاط</strong></td><td>فريق داخلي</td><td>تكلفة التوظيف والإدارة وتعدد التخصصات</td></tr>
             <tr><td><strong>قيادة مع تنفيذ مرن</strong></td><td>نموذج هجين</td><td>وضوح القيادة والمسؤوليات بين الأطراف</td></tr>
+          </tbody></table></div>
+          <h2 id="which-service">أي خدمة تحتاجها أولًا؟</h2>
+          <p>قبل أن تقارن الشركات، حدّد المشكلة التي تريد حلها. كل مسار أدناه تغطيه خدمة متخصصة:</p>
+          <div className="article-table"><table><thead><tr><th>المشكلة</th><th>الخدمة الأقرب</th></tr></thead><tbody>
+            <tr><td><strong>تريد طلبًا أسرع من الباحثين الآن</strong></td><td><Link className="article-link" href="/paid-ads">إدارة Google Ads والإعلانات</Link></td></tr>
+            <tr><td><strong>تريد ظهورًا عضويًا في Google</strong></td><td><Link className="article-link" href="/seo-aeo">خدمات SEO وAEO</Link></td></tr>
+            <tr><td><strong>تحتاج حضورًا ومحتوى منتظمًا</strong></td><td><Link className="article-link" href="/services/social-media-content">إدارة السوشيال ميديا والمحتوى</Link></td></tr>
+            <tr><td><strong>الزيارات لا تتحول إلى استفسارات</strong></td><td><Link className="article-link" href="/website-design">تصميم المواقع وصفحات الهبوط</Link></td></tr>
+            <tr><td><strong>الاستفسارات تضيع بعد وصولها</strong></td><td><Link className="article-link" href="/whatsapp-automation">أتمتة واتساب</Link></td></tr>
+            <tr><td><strong>لا تعرف من أين تبدأ</strong></td><td><Link className="article-link" href="/digital-marketing">استراتيجية التسويق الرقمي</Link></td></tr>
           </tbody></table></div>
           <h2 id="criteria">7 معايير لاختيار شركة التسويق</h2>
           {criteria.map(([heading, body]) => <section key={heading}><h3>{heading}</h3><p>{body}</p></section>)}
@@ -76,11 +88,11 @@ export default function ChooseMarketingCompanyGuide() {
           <h2 id="red-flags">إشارات خطر لا تتجاهلها</h2>
           <p>توقف عند الوعود المضمونة، إخفاء أسماء منفذي العمل، تقارير مليئة بمؤشرات شكلية، طلب تشغيل الإعلانات من حسابات الوكالة، غياب بند تسليم الأصول، أو دفعك إلى عقد طويل قبل أي تشخيص. كذلك لا تنخدع بعرض ضخم؛ كثرة البنود قد تعني تشتيت الجهد لا زيادة القيمة.</p>
           <h2 id="compare">كيف تقارن بين ثلاثة عروض؟</h2>
-          <p>أنشئ جدولًا موحدًا للهدف والنطاق والفريق والقياس والمدة والملكية والسعر. أعطِ الوزن الأكبر للفهم والمنهج وجودة التنفيذ، ثم قارن السعر داخل النطاق نفسه. إذا كان موقعك جزءًا من الخطة، راجع أيضًا دليل <Link href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link> حتى لا تدفع للإعلانات قبل إصلاح التسرب.</p>
+          <p>أنشئ جدولًا موحدًا للهدف والنطاق والفريق والقياس والمدة والملكية والسعر. أعطِ الوزن الأكبر للفهم والمنهج وجودة التنفيذ، ثم قارن السعر داخل النطاق نفسه. إذا كان موقعك جزءًا من الخطة، راجع أيضًا دليل <Link className="article-link" href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link> حتى لا تدفع للإعلانات قبل إصلاح التسرب.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تحتاج خطة قبل اختيار القنوات؟</h2><p>ديوانك يربط الاستراتيجية والمحتوى والإعلانات والموقع والأتمتة في مسار نمو واحد، مع نطاق وقياس واضحين قبل التنفيذ.</p><Link className="button primary" href="/digital-marketing">استعرض خدمة التسويق الرقمي <span>←</span></Link></section>
         </div>
-        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#before-search">تحديد الاحتياج</a><a href="#criteria">معايير الاختيار</a><a href="#questions">أسئلة قبل العقد</a><a href="#red-flags">إشارات الخطر</a><a href="#compare">مقارنة العروض</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">ناقش احتياجك</Link></aside>
+        <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#before-search">تحديد الاحتياج</a><a href="#which-service">أي خدمة أولًا؟</a><a href="#criteria">معايير الاختيار</a><a href="#questions">أسئلة قبل العقد</a><a href="#red-flags">إشارات الخطر</a><a href="#compare">مقارنة العروض</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">ناقش احتياجك</Link></aside>
       </div>
     </article><Footer />
   </main>;
