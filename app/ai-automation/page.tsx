@@ -163,7 +163,7 @@ export default function AiAutomationPage() {
 
       <section className="ai-logic ai-agents shell" id="agent-vs-workflow">
         <div className="ai-logic-copy">
-          <span className="ai-label">AGENT OR WORKFLOW?</span>
+          <span className="ai-label">AGENT VS WORKFLOW</span>
           <h2>وكيل ذكاء اصطناعي أم سير عمل؟</h2>
           <p>تفرّق Anthropic بين سير العمل، حيث تُنسَّق النماذج والأدوات عبر مسارات محددة مسبقًا، والوكيل الذي يوجّه النموذج فيه عملياته واستخدامه للأدوات بنفسه. وتنصح بالبدء بأبسط حل ممكن وعدم زيادة التعقيد إلا عند الحاجة. <Link className="ai-link" href="/guides/ai-agent-vs-workflow-automation">اقرأ الدليل الكامل</Link>.</p>
         </div>
