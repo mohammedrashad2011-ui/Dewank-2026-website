@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guides/whatsapp-crm-automation-cost-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/best-crm-whatsapp-saudi-arabia", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/ad-to-whatsapp-booking-journey", priority: 0.75, changeFrequency: "monthly" as const },
+    { path: "/guides/ai-agent-vs-workflow-automation", priority: 0.75, changeFrequency: "monthly" as const },
   ];
 
   return pages.map(({ path, priority, changeFrequency }) => ({

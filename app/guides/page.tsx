@@ -79,6 +79,12 @@ const guides = [
     href: "/guides/whatsapp-crm-automation",
   },
   {
+    category: "AI AUTOMATION · SAUDI ARABIA",
+    title: "وكيل ذكاء اصطناعي أم أتمتة سير عمل؟ كيف تقرر لشركتك",
+    description: "الفرق بين AI Agent وأتمتة سير العمل، ومتى تحتاج كلًا منهما، وحدود التسليم للموظف، وأسئلة الخصوصية قبل التعاقد.",
+    href: "/guides/ai-agent-vs-workflow-automation",
+  },
+  {
     category: "SEO + AEO · GCC",
     title: "الفرق بين SEO وAEO: كيف تظهر في Google وإجابات الذكاء الاصطناعي؟",
     description: "شرح عملي للتكامل بين تحسين محركات البحث ومحركات الإجابة، وخطوات تهيئة المحتوى للظهور دون وعود مضللة.",
