@@ -79,6 +79,7 @@ export default function WhatsappCrmAutomationGuide() {
             <tr><td><strong>أسئلة كثيرة بصياغات متنوعة</strong></td><td>AI مقيد بمصدر معرفة وحدود وتحويل للموظف.</td></tr>
             <tr><td><strong>سعر أو تشخيص أو قرار حساس</strong></td><td>معلومة معتمدة أو موظف؛ لا تترك القرار للنموذج وحده.</td></tr>
           </tbody></table></div>
+          <p>وللمقارنة الأوسع بين سير العمل ووكلاء الذكاء الاصطناعي، اقرأ <Link className="article-link" href="/guides/ai-agent-vs-workflow-automation">وكيل ذكاء اصطناعي أم أتمتة سير عمل؟</Link></p>
           <h2 id="qualification-routing">كيف يعمل التأهيل والتوجيه للموظف؟</h2>
           <p>التأهيل ليس استبيانًا طويلًا. هو سؤالان أو ثلاثة تحدد هل العميل جاهز، وإلى أين تنتقل المحادثة بعدها. الجدول التالي أمثلة تصميمية لأنشطة شائعة، وتُعدّل بحسب نشاطك وليست نتائج مقاسة.</p>
           <div className="article-table"><table><thead><tr><th>النشاط</th><th>أسئلة التأهيل الأساسية</th><th>متى تنتقل المحادثة للموظف؟</th></tr></thead><tbody>
