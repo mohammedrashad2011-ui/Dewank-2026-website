@@ -402,3 +402,5 @@
     scroll-behavior: auto !important;
   }
 }
+.seo-audit-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 24px; font-size: 12px; }
+.seo-audit-links a { color: rgba(245,240,231,.72); text-decoration: underline; text-underline-offset: 4px; }
