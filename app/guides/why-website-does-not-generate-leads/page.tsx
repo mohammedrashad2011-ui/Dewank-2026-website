@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../guides.css";
+import "../whatsapp-family-links.css";
 
 const title = "لماذا موقعك لا يجلب عملاء؟";
 const description = "اكتشف لماذا لا يحول موقعك الزيارات إلى استفسارات أو مبيعات، وكيف تصلح الرسالة والثقة وتجربة الجوال والدعوة للإجراء والقياس بخطة عملية.";
@@ -36,7 +37,7 @@ const causes = [
 export default function WebsiteLeadsGuide() {
   const url = `${siteUrl}/guides/why-website-does-not-generate-leads`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-08-10", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تحسين معدل التحويل", "تصميم المواقع", "توليد العملاء المحتملين"] },
+    { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar", datePublished: "2026-08-03", dateModified: "2026-10-05", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تحسين معدل التحويل", "تصميم المواقع", "توليد العملاء المحتملين"] },
     { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
   ] };
@@ -48,7 +49,7 @@ export default function WebsiteLeadsGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>تحويل المواقع</span></nav>
         <h1>{title}</h1>
         <p>وجود زيارات بلا استفسارات لا يعني تلقائيًا أنك تحتاج إعلانًا أكبر أو موقعًا جديدًا. غالبًا توجد نقطة تسرب محددة بين وعد الصفحة، ثقة الزائر، سهولة الخطوة التالية، وما يحدث بعد التواصل.</p>
-        <div className="article-meta"><span>آخر تحديث: 10 أغسطس 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: التحويل وتوليد العملاء</span></div>
+        <div className="article-meta"><span>آخر تحديث: 5 أكتوبر 2026</span><span>وقت القراءة: 9 دقائق</span><span>التركيز: التحويل وتوليد العملاء</span></div>
       </header>
       <div className="article-layout shell">
         <div className="article-body">
@@ -73,12 +74,12 @@ export default function WebsiteLeadsGuide() {
             <li><strong>اختبر الجوال والسرعة:</strong> أصلح ما يمنع الاستخدام قبل إضافة مؤثرات أو أقسام جديدة.</li>
             <li><strong>راجع ما بعد الاستفسار:</strong> زمن الرد، الأسئلة، التأهيل، الحجز، والمتابعة.</li>
           </ol>
-          <p>لو المشكلة مركزة في صفحة واحدة لحملة أو خدمة، فـ<Link href="/offers/landing-page-package">صفحة هبوط مخصصة</Link> قد تكون أنسب من إعادة بناء الموقع كله. أما لو البنية الحالية نفسها أصبحت عائقًا، راجع <Link href="/website-design">خدمة تصميم وتطوير المواقع</Link>.</p>
+          <p>إذا كانت المشكلة مركزة في صفحة واحدة لحملة أو خدمة، فـ<Link className="article-link" href="/offers/landing-page-package">صفحة هبوط مخصصة</Link> قد تكون أنسب من إعادة بناء الموقع كله. وإذا كان موقعك يحتاج شرح عدة خدمات عبر عدة صفحات، فراجع <Link className="article-link" href="/offers/small-business-website">باقة الموقع الصغير</Link>. أما إذا أصبحت البنية الحالية نفسها عائقًا، فراجع <Link className="article-link" href="/website-design">خدمة تصميم وتطوير المواقع</Link>.</p>
           <h2 id="metrics">ما الذي تقيسه بدل عدد الزيارات؟</h2>
           <p>راقب معدل الوصول إلى الإجراء، نقرات واتساب أو النموذج، الاستفسارات المؤهلة، الحجوزات، والمبيعات حسب المصدر والصفحة. معدل التحويل وحده قد يخدعك إذا كانت جودة العملاء ضعيفة؛ اربطه بالنتيجة التجارية النهائية.</p>
           <h2 id="rebuild">متى تحتاج تحسينًا ومتى تحتاج إعادة بناء؟</h2>
-          <p>ابدأ بتحسين موجّه عندما تستطيع تعديل المحتوى، إضافة القياس، وتحسين الجوال والسرعة. فكر في إعادة البناء إذا كانت المنصة تمنع هذه التغييرات، أو البنية مشتتة، أو الموقع غير قابل للإدارة والأمان والتوسع. قبل طلب عرض جديد، راجع دليل <Link href="/guides/website-design-cost-saudi-arabia">تكلفة تصميم موقع إلكتروني في السعودية</Link> لتقارن النطاق لا السعر وحده.</p>
-          <p>ولو كانت الزيارات قليلة أصلًا بسبب ضعف الفهرسة أو الظهور، انتقل إلى <Link href="/seo-aeo">خدمة SEO وAEO</Link> أو ابدأ بـ<Link href="/offers/seo-audit">فحص SEO وAEO</Link> لتحديد المشكلة قبل زيادة الإنفاق.</p>
+          <p>ابدأ بتحسين موجّه عندما تستطيع تعديل المحتوى، إضافة القياس، وتحسين الجوال والسرعة. فكر في إعادة البناء إذا كانت المنصة تمنع هذه التغييرات، أو البنية مشتتة، أو الموقع غير قابل للإدارة والأمان والتوسع. قبل طلب عرض جديد، راجع دليل <Link className="article-link" href="/guides/website-design-cost-saudi-arabia">تكلفة تصميم موقع إلكتروني في السعودية</Link> لتقارن النطاق لا السعر وحده.</p>
+          <p>وإذا كانت الزيارات قليلة أصلًا بسبب ضعف الفهرسة أو الظهور، فانتقل إلى <Link className="article-link" href="/seo-aeo">خدمة SEO وAEO</Link> أو ابدأ بـ<Link className="article-link" href="/offers/seo-audit">فحص SEO وAEO</Link> لتحديد المشكلة قبل زيادة الإنفاق.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>لا تعرف أين يتسرب العملاء؟</h2><p>نراجع الرسالة وتجربة الجوال ومسار التواصل والقياس، ثم نرتب التحسينات بحسب أثرها بدل البدء بإعادة تصميم عشوائية.</p><Link className="button primary" href="/website-design">استعرض خدمة تصميم المواقع <span>←</span></Link></section>
         </div>

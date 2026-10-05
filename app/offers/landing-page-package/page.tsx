@@ -110,14 +110,14 @@ export default function LandingPageOffer() {
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل متجرًا إلكترونيًا، بوابة دفع، تعدد اللغات، نظام حجز مخصص، كتابة صفحات إضافية، إدارة الإعلانات، أو رسوم تجديد الدومين والاستضافة بعد السنة الأولى.</p></details>
       </section>
 
-      <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل ما تبدأ.</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن تبدأ.</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta">
         <span className="offer-kicker">صفحة مخصصة · تسليم خلال 7–10 أيام</span>
-        <h2>خلّي خدمتك واضحة قبل ما تطلب من العميل يشتريها.</h2>
+        <h2>اجعل خدمتك واضحة قبل أن تطلب من العميل شراءها.</h2>
         <p>اختر الباقة المناسبة وسنسألك عن نشاطك وهدف الصفحة قبل بدء التنفيذ.</p>
         <LandingOfferWhatsApp kind="base" className="button primary" label="ابدأ بصفحة تبيع خدمتك" />
-        <div><Link href="/offers">← العودة إلى جميع العروض</Link></div>
+        <div><Link href="/offers/small-business-website">تحتاج موقعًا من عدة صفحات؟</Link> · <Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link> · <Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
       <Footer />
     </main>
