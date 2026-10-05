@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../guides.css";
+import "../whatsapp-family-links.css";
 
 const title = "نموذج خطة تسويقية جاهزة للشركات: الخطوات والمكونات";
 const description = "نموذج عملي لبناء خطة تسويقية للشركات: الهدف، الجمهور، العرض، القنوات، المحتوى، الميزانية، مؤشرات الأداء وخطة التنفيذ والتحسين.";
@@ -56,9 +57,9 @@ export default function MarketingPlanTemplateGuide() {
             <tr><td>المؤشر الرئيسي</td><td>تكلفة الفرصة المؤهلة ونسبة التحول إلى بيع</td></tr>
           </tbody></table></div>
           <h2>ما الفرق بين الخطة والاستراتيجية؟</h2>
-          <p><Link href="/digital-marketing">استراتيجية التسويق الرقمي</Link> تحدد أين ننافس ولماذا وما الأولويات، بينما الخطة تحول هذه القرارات إلى قنوات ومحتوى وميزانية وجدول وقياس.</p>
+          <p><Link className="article-link" href="/digital-marketing">استراتيجية التسويق الرقمي</Link> تحدد أين ننافس ولماذا وما الأولويات، بينما الخطة تحول هذه القرارات إلى قنوات ومحتوى وميزانية وجدول وقياس.</p>
           <h2>الخطوة التالية</h2>
-          <p>إذا كنت تحتاج جهة تنفذ الخطة عبر أكثر من تخصص، راجع <Link href="/services">خدمات ديوانك كشركة تسويق في السعودية</Link>. وإذا كانت المشكلة في التخطيط نفسه، ابدأ من <Link href="/digital-marketing">خدمة استراتيجية التسويق الرقمي</Link>.</p>
+          <p>إذا كنت تحتاج جهة تنفذ الخطة عبر أكثر من تخصص، راجع <Link className="article-link" href="/services">خدمات ديوانك كشركة تسويق في السعودية</Link>. وإذا كانت المشكلة في التخطيط نفسه، ابدأ من <Link className="article-link" href="/digital-marketing">خدمة استراتيجية التسويق الرقمي</Link>.</p>
         </div>
         <aside className="article-aside"><div className="article-aside-card"><small>تحتاج خطة قابلة للتنفيذ؟</small><h3>ابدأ من الهدف، لا من المنصة.</h3><p>نراجع العرض والجمهور والقنوات والقياس ونحدد أقصر مسار عملي.</p><Link className="button primary" href="/contact">ناقش خطتك <span>←</span></Link></div></aside>
       </div>
