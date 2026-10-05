@@ -111,8 +111,8 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> يوم عمل</span></div>
-          <h1>موقع صغير.<br/><em>لكن جاهز يشتغل باسمك.</em></h1>
-          <p>باقة واضحة للشركات والمشاريع التي تحتاج موقعًا تعريفيًا احترافيًا من غير مشروع ضخم: حتى 5 صفحات، تصميم وتطوير متجاوب، واتساب ونموذج تواصل، تحليلات وSEO أساسي وتجهيز كامل للإطلاق.</p>
+          <h1>موقع صغير.<br/><em>لكنه جاهز للعمل باسمك.</em></h1>
+          <p>باقة واضحة للشركات والمشاريع التي تحتاج موقعًا تعريفيًا احترافيًا دون مشروع ضخم: حتى 5 صفحات، تصميم وتطوير متجاوب، واتساب ونموذج تواصل، تحليلات وSEO أساسي وتجهيز كامل للإطلاق.</p>
           <div className="small-website-answer"><b>ماذا تحصل عليه؟</b><span>موقع تعريفي متكامل بنطاق محدد، وليس قالب صفحة واحدة ولا متجرًا إلكترونيًا.</span></div>
         </div>
         <aside className="offer-price-panel small-website-price-panel">
@@ -126,8 +126,8 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell small-website-proof">
         <div className="small-website-proof-copy">
           <span className="section-label">[ نطاق واضح ]</span>
-          <h2>مش كل مشروع<br/><em>يحتاج موقعًا ضخمًا.</em></h2>
-          <p>أحيانًا ما تحتاجه فعلًا هو موقع مرتب يشرح من أنت، ماذا تقدم، وكيف يتواصل العميل معك. الباقة تقفل هذه الفجوة بسرعة من غير أن تدفع في خصائص لن تستخدمها.</p>
+          <h2>ليس كل مشروع<br/><em>يحتاج موقعًا ضخمًا.</em></h2>
+          <p>أحيانًا ما تحتاجه فعلًا هو موقع مرتب يشرح من أنت، ماذا تقدم، وكيف يتواصل العميل معك. تسدّ الباقة هذه الفجوة بسرعة دون أن تدفع مقابل خصائص لن تستخدمها.</p>
         </div>
         <div className="small-site-map" aria-label="مثال هيكل موقع صغير">
           <div className="small-site-map-top"><b>هيكل موقع صغير</b><small>حتى 5 صفحات</small></div>
@@ -138,18 +138,18 @@ export default function SmallBusinessWebsiteOfferPage() {
       </section>
 
       <section className="shell offer-deliverables small-website-deliverables">
-        <div><span className="section-label">[ ماذا تشمل الباقة؟ ]</span><h2>كل الأساسيات.<br/><em>من غير حشو.</em></h2></div>
+        <div><span className="section-label">[ ماذا تشمل الباقة؟ ]</span><h2>كل الأساسيات.<br/><em>دون حشو.</em></h2></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell small-website-process">
-        <div className="small-website-process-head"><span className="section-label">[ طريقة التنفيذ ]</span><h2>من أول صفحة.<br/><em>لحد الإطلاق.</em></h2></div>
+        <div className="small-website-process-head"><span className="section-label">[ طريقة التنفيذ ]</span><h2>من أول صفحة.<br/><em>حتى الإطلاق.</em></h2></div>
         <div className="small-website-process-grid">{process.map(([number, title, text]) => <article key={number}><b>{number}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell offer-fit small-website-fit">
         <span className="section-label">[ هل الباقة مناسبة لك؟ ]</span>
-        <h2>مناسبة للموقع التعريفي.<br/><em>مش لكل نوع مشروع.</em></h2>
+        <h2>مناسبة للموقع التعريفي.<br/><em>وليست لكل نوع مشروع.</em></h2>
         <div className="offer-fit-grid">
           <article className="offer-fit-card good"><h3>مناسبة إذا</h3><ul>{fitFor.map((item) => <li key={item}>{item}</li>)}</ul></article>
           <article className="offer-fit-card limits"><h3>غير مشمول</h3><ul>{exclusions.map((item) => <li key={item}>{item}</li>)}</ul></article>
@@ -157,7 +157,7 @@ export default function SmallBusinessWebsiteOfferPage() {
       </section>
 
       <section className="shell small-website-scope-note">
-        <div><span className="section-label">[ قبل أن تبدأ ]</span><h2>لو احتياجك أكبر،<br/><em>ما نضغطوش داخل باقة صغيرة.</em></h2></div>
+        <div><span className="section-label">[ قبل أن تبدأ ]</span><h2>إذا كان احتياجك أكبر،<br/><em>فلن نضغطه داخل باقة صغيرة.</em></h2></div>
         <div><p>إذا كنت تحتاج متجرًا، نظام حجز، عضويات، CRM، أتمتة، عدد صفحات كبير أو استراتيجية موقع كاملة، الأفضل الانتقال إلى خدمة تصميم وتطوير المواقع بدل توسيع هذه الباقة حتى تفقد وضوحها.</p><Link href="/website-design">شاهد خدمة تصميم وتطوير المواقع <span>←</span></Link></div>
       </section>
 
@@ -168,11 +168,11 @@ export default function SmallBusinessWebsiteOfferPage() {
       </section>
 
       <section className="shell offer-final-cta small-website-final">
-        <span className="section-label">[ جاهز تبدأ؟ ]</span>
-        <h2>خلي مشروعك يبقى له<br/><em>عنوان رقمي حقيقي.</em></h2>
+        <span className="section-label">[ جاهز للبدء؟ ]</span>
+        <h2>اجعل لمشروعك<br/><em>عنوانًا رقميًا حقيقيًا.</em></h2>
         <p>ابدأ بموقع واضح وسريع، وبعدها وسّعه فقط عندما يحتاج المشروع فعلًا.</p>
         <SmallWebsiteWhatsApp className="button primary" label="ابدأ موقعك الآن" />
-        <div className="small-website-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط فقط؟</Link><Link href="/website-design">تحتاج موقعًا أكبر؟</Link></div>
+        <div className="small-website-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط فقط؟</Link><Link href="/website-design">تحتاج موقعًا أكبر؟</Link><Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link></div>
       </section>
 
       <Footer />

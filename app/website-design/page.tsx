@@ -43,6 +43,7 @@ const servicePaths = [
     label: "LANDING PAGE",
     title: "صفحة هبوط لحملة أو خدمة واحدة",
     text: "أفضل عندما تحتاج رسالة مركزة، عرضًا واحدًا، وCTA واحدًا مرتبطًا بإعلان أو خدمة محددة.",
+    facts: ["صفحة واحدة بهدف تحويل واحد.", "تسليم عادة خلال 7–10 أيام عمل بعد اعتماد المعلومات.", "الدومين والاستضافة ضمن الباقة الكاملة فقط، لمدة عام."],
     href: "/offers/landing-page-package",
     cta: "شاهد باقة صفحة الهبوط",
   },
@@ -50,6 +51,7 @@ const servicePaths = [
     label: "COMPANY WEBSITE",
     title: "موقع شركة يبني الثقة ويشرح الخدمات",
     text: "مناسب للشركات التي تحتاج حضورًا احترافيًا وصفحات خدمات واضحة وربط البحث والإعلانات بالتواصل.",
+    facts: ["حتى 5 صفحات أساسية.", "تسليم غالبًا خلال 7–12 يوم عمل بعد استلام المحتوى.", "الدومين والاستضافة خارج الباقة الأساسية إلا باتفاق منفصل."],
     href: "/offers/small-business-website",
     cta: "شاهد باقة موقع الشركة",
   },
@@ -57,6 +59,7 @@ const servicePaths = [
     label: "CUSTOM PROJECT",
     title: "مشروع مخصص عندما تكون الرحلة أعقد",
     text: "للمشاريع التي تحتاج صفحات أكثر، CRM، حجز، أتمتة، تكاملات أو تجربة مخصصة تتجاوز قالبًا جاهزًا.",
+    facts: ["الصفحات والوظائف تُحدَّد قبل التسعير.", "المتجر أو الحجز أو التكاملات تحتاج نطاقًا مكتوبًا.", "المدة والسعر حسب النطاق."],
     href: "#process",
     cta: "شاهد طريقة التنفيذ",
   },
@@ -108,7 +111,10 @@ const fitFor = [
 ];
 
 const faqs = [
-  { question: "كم يستغرق تصميم وتطوير الموقع؟", answer: "تعتمد المدة على عدد الصفحات والتكاملات وجاهزية المحتوى. المواقع التعريفية المركزة قد تحتاج عدة أسابيع، بينما المشاريع الأكبر أو متعددة الأنظمة تحتاج وقتًا أطول وخطة مراحل." },
+  { question: "هل أحتاج صفحة هبوط أم موقعًا كاملًا؟", answer: "صفحة الهبوط تناسب إعلانًا أو خدمة أو عرضًا واحدًا بإجراء واحد. أما موقع الشركة فيناسب من يحتاج شرح عدة خدمات وبناء الثقة والظهور في البحث عبر عدة صفحات. وإذا كانت احتياجاتك أكبر، كالمتجر أو الحجز أو التكاملات، فتحتاج مشروعًا مخصصًا يُحدَّد نطاقه قبل التسعير." },
+  { question: "كم يستغرق تصميم وتطوير الموقع؟", answer: "في باقاتنا الجاهزة يكون التسليم عادة خلال 7–10 أيام عمل لصفحة الهبوط، وغالبًا 7–12 يوم عمل للموقع الصغير، بعد استلام المعلومات والمحتوى واعتماد الاتجاه. أما المشاريع الأكبر أو متعددة الأنظمة فتعتمد المدة على عدد الصفحات والتكاملات وجاهزية المحتوى، وتحتاج خطة مراحل." },
+  { question: "هل يشمل السعر الدومين والاستضافة؟", answer: "ليس في الباقات الأساسية. باقة صفحة الهبوط الأساسية لا تشملهما، وتشملهما الباقة الكاملة لمدة عام. والموقع الصغير لا يشملهما إلا باتفاق منفصل. وفي المشاريع المخصصة يُحدَّد ذلك في عرض النطاق." },
+  { question: "من يملك الدومين بعد التسليم؟", answer: "في باقة صفحة الهبوط يُسجَّل الدومين باسم العميل وبريده الإلكتروني، ونسلّم بيانات الدخول وتعليمات التجديد. وفي بقية المشاريع تُحدَّد الملكية والحسابات بوضوح في الاتفاق قبل البدء." },
   { question: "هل تشمل الخدمة كتابة محتوى الموقع؟", answer: "يمكن أن تشمل كتابة الرسائل والعناوين والمحتوى الكامل حسب النطاق. نفضل بناء المحتوى والتصميم معًا لأن بنية الصفحة والرسالة تؤثران مباشرة في التحويل." },
   { question: "هل سيكون الموقع مناسبًا للجوال؟", answer: "نعم. نصمم ونختبر الصفحات لتعمل على الجوال والتابلت والكمبيوتر، مع إعطاء أولوية لسهولة القراءة وسرعة الوصول إلى الإجراء الأساسي." },
   { question: "هل يشمل الموقع SEO؟", answer: "يشمل الأساس التقني للصفحات مثل العناوين والوصف والروابط القانونية والسكيما وخريطة الموقع. أما المنافسة على كلمات واسعة فتحتاج استراتيجية محتوى وروابط وتحسينًا مستمرًا." },
@@ -161,23 +167,23 @@ export default function WebsiteDesignPage() {
       <section className="wd-hero shell">
         <div className="wd-hero-copy">
           <div className="wd-kicker"><span>WEBSITE DESIGN</span><span>UX / SEO / CRO</span></div>
-          <h1>موقعك مش مجرد واجهة.<br/><em>لازم يساعد العميل ياخد خطوة.</em></h1>
-          <p>كديوانك، شركة تصميم مواقع في السعودية، نصمم ونطوّر مواقع للشركات تربط الرسالة بالثقة والسرعة وSEO وCRO والتتبع، عشان الزيارة من Google أو الإعلانات تتحول إلى استفسار أو فرصة بيع أو حجز واضح.</p>
+          <h1>موقعك ليس مجرد واجهة.<br/><em>يجب أن يساعد العميل على اتخاذ خطوة.</em></h1>
+          <p>نحن في ديوانك شركة تصميم مواقع في السعودية، نصمم ونطوّر مواقع للشركات تربط الرسالة بالثقة والسرعة وSEO وCRO والتتبع، لتتحول الزيارة من Google أو الإعلانات إلى استفسار أو فرصة بيع أو حجز واضح.</p>
           <div className="wd-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعك على واتساب <span>↗</span></a><a className="wd-text-link" href="#choose-path">اختَر نوع الموقع</a></div>
         </div>
         <div className="wd-browser" aria-label="تصور تفاعلي لواجهة موقع احترافي"><div className="wd-browser-top"><div><i></i><i></i><i></i></div><span>dewank.com</span></div><div className="wd-browser-nav"><b>D</b><div><span>الخدمات</span><span>الأعمال</span><span>عن ديوانك</span></div><button type="button">ابدأ مشروعك</button></div><div className="wd-browser-grid"><div className="wd-screen-copy"><small>01 / CLARITY</small><strong>القيمة<br/><em>قبل الزخرفة.</em></strong><p>رسالة واضحة، دليل ثقة، ومسار يقود إلى الإجراء.</p><span className="wd-demo-cta">اكتشف الحل ←</span></div><div className="wd-screen-cards"><article><b>وضوح الرسالة</b><span>ما الذي تقدمه؟</span></article><article><b>دليل الثقة</b><span>لماذا يختارك العميل؟</span></article><article><b>خطوة تالية</b><span>ماذا يفعل الآن؟</span></article></div></div><div className="wd-browser-foot"><span>UX STRATEGY</span><span>RESPONSIVE</span><span>CONVERSION</span></div></div>
       </section>
 
-      <section className="wd-truth"><div className="shell"><span className="wd-label wd-truth-label">الفكرة الأساسية</span><div className="wd-truth-grid wd-truth-grid-revised"><div className="wd-truth-primary"><h2>الشكل يلفت النظر.<br/><em>لكن القرار يحتاج أكثر من شكل.</em></h2></div><div className="wd-truth-secondary"><p>لو الزائر ما فهمش الخدمة بسرعة، أو ما لاقاش سبب يثق، أو احتار يعمل إيه بعد كده، الموقع بيبقى مجرد كتالوج جميل.</p><p>عشان كده بنربط التصميم بالمحتوى وتجربة المستخدم والسرعة والتتبع، بحيث يخدم الموقع البحث والإعلانات والمبيعات في نفس الوقت.</p></div></div></div></section>
+      <section className="wd-truth"><div className="shell"><span className="wd-label wd-truth-label">الفكرة الأساسية</span><div className="wd-truth-grid wd-truth-grid-revised"><div className="wd-truth-primary"><h2>الشكل يلفت النظر.<br/><em>لكن القرار يحتاج أكثر من شكل.</em></h2></div><div className="wd-truth-secondary"><p>إذا لم يفهم الزائر الخدمة بسرعة، أو لم يجد سببًا للثقة، أو لم يعرف ماذا يفعل بعد ذلك، يصبح الموقع مجرد كتالوج جميل.</p><p>لهذا نربط التصميم بالمحتوى وتجربة المستخدم والسرعة والتتبع، ليخدم الموقع البحث والإعلانات والمبيعات في وقت واحد.</p></div></div></div></section>
 
       <section className="wd-paths shell" id="choose-path">
-        <div className="wd-section-head"><div><span className="wd-label">اختَر نقطة البداية</span><h2>مش كل مشروع محتاج نفس الموقع.<br/><em>ابدأ بالنطاق اللي يخدم الهدف.</em></h2></div><p>الاختيار الصح بين Landing Page وموقع شركة ومشروع مخصص يوفر تكلفة وتعقيد من غير ما يختصر النتيجة المطلوبة.</p></div>
-        <div className="wd-path-grid">{servicePaths.map((path, index) => <article key={path.title}><small>{String(index + 1).padStart(2, "0")} · {path.label}</small><h3>{path.title}</h3><p>{path.text}</p><Link href={path.href}>{path.cta} <span>↗</span></Link></article>)}</div>
+        <div className="wd-section-head"><div><span className="wd-label">اختَر نقطة البداية</span><h2>ليس كل مشروع يحتاج الموقع نفسه.<br/><em>ابدأ بالنطاق الذي يخدم الهدف.</em></h2></div><p>الاختيار الصحيح بين Landing Page وموقع شركة ومشروع مخصص يوفر التكلفة والتعقيد دون أن يقلل النتيجة المطلوبة.</p></div>
+        <div className="wd-path-grid">{servicePaths.map((path, index) => <article key={path.title}><small>{String(index + 1).padStart(2, "0")} · {path.label}</small><h3>{path.title}</h3><p>{path.text}</p><ul className="wd-path-facts">{path.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul><Link href={path.href}>{path.cta} <span>↗</span></Link></article>)}</div>
       </section>
 
       <section className="wd-journey"><div className="shell"><div className="wd-section-head"><div><span className="wd-label">من الزيارة إلى النتيجة</span><h2>كل صفحة لها وظيفة.<br/><em>وكل خطوة تقلل التردد.</em></h2></div><p>نبني الرحلة من السؤال الأول في ذهن الزائر إلى الإجراء الذي يخدم هدف النشاط.</p></div><div className="wd-journey-list">{stages.map((stage) => <article key={stage.n}><div className="wd-stage-id"><span>{stage.n}</span><small>{stage.en}</small></div><h3>{stage.title}</h3><p>{stage.text}</p></article>)}</div></div></section>
 
-      <section className="wd-foundation shell"><div className="wd-section-head"><div><span className="wd-label">ما وراء التصميم</span><h2>SEO والسرعة والتحويل والتتبع.<br/><em>مش إضافات بعد التسليم.</em></h2></div><p>لو الموقع هيستقبل زيارات من Google أو الحملات، الأساس التقني ومسار التحويل لازم يتبنوا من البداية.</p></div><div className="wd-foundation-grid">{foundations.map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div><div className="wd-foundation-links"><Link href="/seo-aeo">راجع خدمة SEO وAEO <span>↗</span></Link><Link href="/paid-ads">راجع إدارة الإعلانات <span>↗</span></Link></div></section>
+      <section className="wd-foundation shell"><div className="wd-section-head"><div><span className="wd-label">ما وراء التصميم</span><h2>SEO والسرعة والتحويل والتتبع.<br/><em>ليست إضافات بعد التسليم.</em></h2></div><p>إذا كان الموقع سيستقبل زيارات من Google أو الحملات، فيجب بناء الأساس التقني ومسار التحويل من البداية.</p></div><div className="wd-foundation-grid">{foundations.map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div><div className="wd-foundation-links"><Link href="/seo-aeo">راجع خدمة SEO وAEO <span>↗</span></Link><Link href="/paid-ads">راجع إدارة الإعلانات <span>↗</span></Link></div></section>
 
       <section className="wd-capabilities shell"><div className="wd-section-head"><div><span className="wd-label">نطاق الخدمة</span><h2>تصميم، تطوير،<br/><em>وتحويل في منظومة واحدة.</em></h2></div><p>نحدد النطاق حسب حاجة المشروع بدل إضافة خصائص لا تخدم المستخدم أو النتيجة.</p></div><div className="wd-capability-grid">{capabilities.map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
 
@@ -191,7 +197,7 @@ export default function WebsiteDesignPage() {
 
       <section className="wd-faq shell"><div className="wd-faq-head"><div><span className="wd-label">أسئلة شائعة</span><h2>قبل أن نبدأ.</h2></div><p>إجابات مباشرة عن النطاق والمدة والمحتوى والتطوير والربط.</p></div><div className="wd-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></section>
 
-      <section className="wd-final shell"><div><span className="wd-label">الخطوة التالية</span><h2>أرسل رابط موقعك الحالي.<br/><em>أو احكي لنا المشروع.</em></h2></div><div className="wd-final-actions"><p>نحدد هل الأنسب Landing Page، موقع شركة، تطوير للموقع الحالي، أو مشروع مخصص قبل ما تبدأ في تكلفة أكبر من المطلوب.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش موقعك على واتساب <span>↗</span></a><div className="wd-related"><Link href="/guides/website-design-cost-saudi-arabia">اعرف تكلفة تصميم المواقع في السعودية</Link><Link href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link><Link href="/seo-aeo">SEO وAEO</Link></div></div></section>
+      <section className="wd-final shell"><div><span className="wd-label">الخطوة التالية</span><h2>أرسل رابط موقعك الحالي.<br/><em>أو اشرح لنا المشروع.</em></h2></div><div className="wd-final-actions"><p>نحدد هل الأنسب Landing Page، موقع شركة، تطوير للموقع الحالي، أو مشروع مخصص، قبل أن تبدأ في تكلفة أكبر من المطلوب.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش موقعك على واتساب <span>↗</span></a><div className="wd-related"><Link href="/guides/website-design-cost-saudi-arabia">اعرف تكلفة تصميم المواقع في السعودية</Link><Link href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link><Link href="/seo-aeo">SEO وAEO</Link></div></div></section>
       <Footer />
     </main>
   );
