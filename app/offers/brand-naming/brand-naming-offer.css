@@ -208,5 +208,6 @@
 .brand-naming-case-link:focus-visible { outline: 3px solid rgba(155, 113, 30, .35); outline-offset: 3px; }
 
 @media (max-width: 820px) {
-  .brand-naming-case { grid-template-columns: 1fr; }
+  .brand-naming-case { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
+  .brand-naming-case h2 { font-size: 24px; }
 }
