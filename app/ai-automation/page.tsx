@@ -190,7 +190,7 @@ export default function AiAutomationPage() {
       <section className="ai-bridge shell">
         <div>
           <span className="ai-label">ابدأ بعملية واحدة</span>
-          <h2>عندك خطوة تتكرر كل يوم؟<br/><em>غالبًا هي نقطة البداية.</em></h2>
+          <h2>هل لديك خطوة تتكرر كل يوم؟<br/><em>غالبًا هي نقطة البداية.</em></h2>
           <p>أرسل لنا العملية كما تعمل الآن، حتى لو كانت فوضوية. نراجع أين يضيع الوقت، وما الذي يمكن أتمتته، وما الذي يجب أن يبقى بيد الموظف.</p>
         </div>
         <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل العملية على واتساب <span>↗</span></a>
