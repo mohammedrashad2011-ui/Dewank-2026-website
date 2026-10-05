@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import "../guides.css";
+import "../whatsapp-family-links.css";
 
 const title = "أفضل CRM لربطه بواتساب في السعودية: كيف تختار؟";
 const description = "دليل عملي لاختيار CRM مناسب لواتساب في السعودية حسب رحلة العميل وحجم الفريق والتكاملات والتقارير والملكية، بعيدًا عن قوائم الأفضل العامة.";
@@ -53,6 +54,7 @@ export default function BestCrmWhatsappGuide() {
             <li><strong>التقارير:</strong> زمن الرد والتحويل والحجز والحضور والإغلاق حسب المصدر والموظف.</li>
             <li><strong>الملكية والخروج:</strong> تصدير البيانات، الوصول للحسابات، النسخ الاحتياطي وتكلفة الانتقال.</li>
           </ol>
+          <p>وللفرق بين تطبيق WhatsApp Business وWhatsApp Business Platform وما يعنيه لاختيارك، اقرأ <Link className="article-link" href="/guides/whatsapp-crm-automation#whatsapp-business-platform">هذا القسم في دليل أتمتة واتساب مع CRM</Link>.</p>
           <h2 id="fit">أي نوع يناسبك؟</h2>
           <div className="article-table"><table><thead><tr><th>الوضع</th><th>الاختيار الأقرب</th><th>الأولوية</th></tr></thead><tbody>{fit.map(([situation, choice, priority]) => <tr key={situation}><td><strong>{situation}</strong></td><td>{choice}</td><td>{priority}</td></tr>)}</tbody></table></div>
           <h2 id="demo">اختبار عملي قبل الشراء</h2>
@@ -67,8 +69,8 @@ export default function BestCrmWhatsappGuide() {
           </ul>
           <h2 id="decision">طريقة قرار من 4 خطوات</h2>
           <ol><li>ارسم الرحلة الحالية ونقاط التسرب.</li><li>حوّلها إلى متطلبات أساسية وأخرى مؤجلة.</li><li>اختبر خيارين أو ثلاثة بنفس السيناريو والبيانات.</li><li>ابدأ Pilot قصيرًا بمؤشرات نجاح ومسؤول تشغيل محدد.</li></ol>
-          <p>لفهم البنية كاملة اقرأ <Link href="/guides/whatsapp-crm-automation">دليل أتمتة واتساب مع CRM</Link>، ولتقدير الاستثمار راجع <Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">دليل التكلفة في السعودية</Link>.</p>
-          <p>إذا أصبح قرارك هو التنفيذ وليس مقارنة الأنظمة، انتقل إلى <Link href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>. وللمشروعات التي تحتاج بداية محدودة قبل نظام أكبر، راجع <Link href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
+          <p>لفهم البنية كاملة اقرأ <Link className="article-link" href="/guides/whatsapp-crm-automation">دليل أتمتة واتساب مع CRM</Link>، ولتقدير الاستثمار راجع <Link className="article-link" href="/guides/whatsapp-crm-automation-cost-saudi-arabia">دليل التكلفة في السعودية</Link>.</p>
+          <p>إذا أصبح قرارك هو التنفيذ وليس مقارنة الأنظمة، انتقل إلى <Link className="article-link" href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>. وللمشروعات التي تحتاج بداية محدودة قبل نظام أكبر، راجع <Link className="article-link" href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
           <section className="article-cta"><h2>تريد اختيار النظام قبل دفع تكلفته؟</h2><p>أرسل حجم الرسائل، عدد المستخدمين، مراحل البيع والأنظمة الحالية؛ نحدد المتطلبات ونقترح بنية تناسب التشغيل الحقيقي.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
         </div>

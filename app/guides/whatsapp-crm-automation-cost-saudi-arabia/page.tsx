@@ -4,6 +4,7 @@ import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl } from "../../lib/seo";
 import { WhatsAppStarterPrice } from "../../offers/whatsapp-automation-starter/localized-whatsapp-starter";
 import "../guides.css";
+import "../whatsapp-family-links.css";
 
 const title = "كم تكلفة أتمتة واتساب في السعودية؟ الأسعار وCRM";
 const description = "تعرف على تكلفة أتمتة واتساب للشركات في السعودية، الفرق بين باقة تأسيس بسيطة ونظام WhatsApp + CRM متكامل، ورسوم التشغيل والتكاملات قبل الشراء.";
@@ -43,7 +44,7 @@ export default function WhatsappCrmCostGuide() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar-SA", datePublished: "2026-08-04", dateModified: "2026-08-12", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تكلفة أتمتة واتساب", "WhatsApp Automation", "CRM", "السعودية"] },
+      { "@type": "Article", "@id": `${url}#article`, headline: title, description, inLanguage: "ar-SA", datePublished: "2026-08-04", dateModified: "2026-10-05", mainEntityOfPage: url, author: { "@id": organizationId }, publisher: { "@id": organizationId }, about: ["تكلفة أتمتة واتساب", "WhatsApp Automation", "CRM", "السعودية"] },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "أدلة النمو", item: `${siteUrl}/guides` }, { "@type": "ListItem", position: 3, name: title, item: url }] },
     ],
@@ -57,7 +58,7 @@ export default function WhatsappCrmCostGuide() {
         <nav className="article-breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link><span>/</span><Link href="/guides">أدلة النمو</Link><span>/</span><span>تكلفة أتمتة واتساب</span></nav>
         <h1>{title}</h1>
         <p>تكلفة أتمتة واتساب تعتمد على ما تريد أن يحدث بعد أول رسالة: هل تحتاج ردًا وتأهيلًا بسيطًا، أم CRM وحجزًا وتذكيرات وتقارير وتكاملات كاملة؟</p>
-        <div className="article-meta"><span>آخر تحديث: 12 أغسطس 2026</span><span>وقت القراءة: 7 دقائق</span><span>السوق: السعودية</span></div>
+        <div className="article-meta"><span>آخر تحديث: 5 أكتوبر 2026</span><span>وقت القراءة: 7 دقائق</span><span>السوق: السعودية</span></div>
       </header>
 
       <div className="article-layout shell">
@@ -74,11 +75,11 @@ export default function WhatsappCrmCostGuide() {
 
           <h2 id="starter">متى تكفيك باقة Starter؟</h2>
           <p>Starter مناسبة عندما تكون المشكلة واضحة ومحدودة: نفس الأسئلة تتكرر، الرد يتأخر، بيانات العملاء تضيع، أو الموظف يدخل كل محادثة قبل أن يعرف هل العميل مناسب أصلًا. في هذه الحالة الهدف هو تقليل الاحتكاك وتنظيم أول جزء من الرحلة.</p>
-          <p><Link href="/offers/whatsapp-automation-starter"><strong>راجع باقة أتمتة واتساب Starter</strong></Link> إذا كنت تريد نطاقًا تأسيسيًا واضحًا بدل بناء CRM كامل من البداية.</p>
+          <p><Link className="article-link" href="/offers/whatsapp-automation-starter"><strong>راجع باقة أتمتة واتساب Starter</strong></Link> إذا كنت تريد نطاقًا تأسيسيًا واضحًا بدل بناء CRM كامل من البداية.</p>
 
           <h2 id="full-system">متى تحتاج WhatsApp + CRM كاملًا؟</h2>
           <p>النظام الكامل يصبح منطقيًا عندما يكون لديك فريق مبيعات أو حجوزات أو أكثر من مرحلة متابعة أو عدة فروع، أو عندما تحتاج تسجيل مصدر العميل وحالته وربط المحادثة بالتقارير والحجز والمهام والتذكيرات.</p>
-          <p>في هذه الحالة راجع <Link href="/whatsapp-automation"><strong>خدمة أتمتة واتساب مع CRM</strong></Link> لأنها تستهدف نية النظام المتكامل، وليس مجرد الرد الآلي.</p>
+          <p>في هذه الحالة راجع <Link className="article-link" href="/whatsapp-automation"><strong>خدمة أتمتة واتساب مع CRM</strong></Link> لأنها تستهدف نية النظام المتكامل، وليس مجرد الرد الآلي.</p>
 
           <h2 id="components">مم تتكوّن التكلفة؟</h2>
           <ul>
@@ -89,6 +90,7 @@ export default function WhatsappCrmCostGuide() {
             <li><strong>القناة والتراخيص:</strong> رسوم واتساب أو مزود الربط أو CRM أو أداة الأتمتة.</li>
             <li><strong>الدعم والتحسين:</strong> المراقبة وتعديل المسارات والردود بعد التشغيل.</li>
           </ul>
+          <p>رسوم الرسائل وقواعد القوالب وحدودها تحددها Meta وتتغير، ولذلك لا نذكر أرقامها هنا؛ راجع <a className="article-link" href="https://whatsappbusiness.com/products/platform-pricing/" target="_blank" rel="noopener noreferrer">صفحة تسعير WhatsApp Business Platform</a> عند التخطيط، واقرأ <Link className="article-link" href="/guides/whatsapp-crm-automation#whatsapp-business-platform">الفرق بين تطبيق WhatsApp Business والمنصة</Link> لتفهم أي مسار ينطبق على نشاطك.</p>
 
           <h2 id="drivers">ما الذي يرفع السعر؟</h2>
           <p>يزداد النطاق مع عدد الفروع واللغات والمستخدمين والمسارات والتكاملات، وتعقيد الحجز أو التأهيل، والحاجة إلى AI أو قاعدة معرفة، ومستوى التقارير والدعم. عدد الرسائل وحده لا يحدد تعقيد المشروع.</p>
