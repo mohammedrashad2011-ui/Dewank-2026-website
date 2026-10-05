@@ -99,7 +99,7 @@ export default function OffersPage() {
           <article data-filter="web" data-category="SEO وتحليل" className="offer-card compact-offer-card seo-audit-offer-card">
             <Link className="offer-card-hit" href="/offers/seo-audit" aria-label="شاهد تفاصيل فحص SEO الشامل" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>48</strong> ساعة للتسليم</span></div>
-            <h2>اعرف المشكلة.<br/><em>قبل ما تزود الميزانية.</em></h2>
+            <h2>اعرف المشكلة.<br/><em>قبل أن تزيد الميزانية.</em></h2>
             <p>فحص SEO وAEO شامل يكشف مشاكل الفهرسة والسرعة والمحتوى والكلمات والتحويل، مع تقرير PDF وخطة تحسين مرتبة لمدة 30 يومًا.</p>
             <div className="offer-card-meta"><div><small>فحص شامل من</small><SeoAuditOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
@@ -139,7 +139,7 @@ export default function OffersPage() {
           <article data-filter="content" data-category="إنستجرام" className="offer-card compact-offer-card instagram-upgrade-offer-card">
             <Link className="offer-card-hit" href="/offers/instagram-14-day-upgrade" aria-label="شاهد تفاصيل تطوير حساب إنستجرام خلال 14 يوم" />
             <div className="instagram-card-topline"><span className="instagram-platform-badge"><span className="instagram-platform-icon" aria-hidden="true" />إنستجرام</span><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span></div>
-            <h2>طوّر حساب إنستجرام.<br/><em>وخلّيه يقنع العميل.</em></h2>
+            <h2>طوّر حساب إنستجرام.<br/><em>واجعله يقنع العميل.</em></h2>
             <p>مراجعة شاملة، تحسين البايو والـCTA والهايلايتس، محاور محتوى وتوجه بصري، 6 تصميمات وخطة تنفيذ لمدة 14 يومًا.</p>
             <div className="offer-card-meta"><div><small>باقة تطوير إنستجرام من</small><InstagramUpgradePrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
@@ -152,7 +152,7 @@ export default function OffersPage() {
             <div className="offer-card-meta"><div><small>باقة الموقع من</small><SmallWebsitePrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
-          <aside className="offers-note offers-overview-note"><div><small>مش عارف تختار؟</small><h2>قول لنا هدفك.<br/>ونرشح لك البداية المناسبة.</h2><p>ابعت نشاطك والنتيجة اللي عايز توصل لها، ونحدد لك أي عرض أقرب لاحتياجك من غير ما تشتري خدمات مش محتاجها.</p></div><Link className="button primary" href="https://wa.me/97339066649">اسأل ديوانك <span>←</span></Link></aside>
+          <aside className="offers-note offers-overview-note"><div><small>لم تقرر بعد؟</small><h2>أخبرنا بهدفك.<br/>ونرشح لك البداية المناسبة.</h2><p>أرسل نشاطك والنتيجة التي تريد الوصول إليها، ونحدد لك أي عرض أقرب لاحتياجك دون أن تشتري خدمات لا تحتاجها.</p></div><Link className="button primary" href="https://wa.me/97339066649">اسأل ديوانك <span>←</span></Link></aside>
         </section>
       </section>
       <Footer />

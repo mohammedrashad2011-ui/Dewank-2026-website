@@ -91,7 +91,7 @@ export default function PaidAdsPage() {
         <div className="pa-hero-copy">
           <div className="pa-kicker"><span>GOOGLE ADS</span><span>META ADS</span><span>PERFORMANCE</span></div>
           <h1>إدارة Google Ads في السعودية.<br/><em>ميزانية أوضح. وعميل قابل للقياس.</em></h1>
-          <p>ندير الحملات من الكلمة والإعلان إلى الصفحة والتتبع والمتابعة، عشان تعرف أي إنفاق يصنع عميلًا فعلًا، وأين تحتاج الحملة إصلاحًا قبل زيادة الميزانية.</p>
+          <p>ندير الحملات من الكلمة والإعلان إلى الصفحة والتتبع والمتابعة، لتعرف أي إنفاق يصنع عميلًا فعلًا، وأين تحتاج الحملة إصلاحًا قبل زيادة الميزانية.</p>
           <div className="pa-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">راجع حملتك على واتساب <span>↗</span></a><Link href="/offers/google-ads-launch">تحتاج تشغيل حملة فقط؟</Link><a href="#journey">استعرض النظام</a></div>
         </div>
         <div className="pa-dashboard" aria-label="لوحة تصور عناصر قياس الحملات">
@@ -128,7 +128,7 @@ export default function PaidAdsPage() {
         </div>
       </section>
 
-      <section className="pa-conversion-bridge shell"><div><span className="pa-label">[ قبل زيادة الميزانية ]</span><h2>الإعلان يوصل الزيارة.<br/><em>الصفحة والتتبع يحسموا النتيجة.</em></h2><p>لو Search Terms كويسة والإعلان بيجيب نقرات لكن التحويل ضعيف، المشكلة غالبًا بعد النقرة. لذلك نراجع صفحة الهبوط، سرعة القرار، CTA والتتبع قبل ما نطلب من المنصة ميزانية أكبر.</p></div><div className="pa-conversion-links"><Link href="/offers/landing-page-package">راجع باقة صفحة الهبوط <span>↗</span></Link><Link href="/website-design">راجع تصميم المواقع <span>↗</span></Link></div></section>
+      <section className="pa-conversion-bridge shell"><div><span className="pa-label">[ قبل زيادة الميزانية ]</span><h2>الإعلان يوصل الزيارة.<br/><em>الصفحة والتتبع يحسمان النتيجة.</em></h2><p>إذا كانت Search Terms جيدة والإعلان يجلب نقرات لكن التحويل ضعيف، فالمشكلة غالبًا بعد النقرة. لذلك نراجع صفحة الهبوط، سرعة القرار، CTA والتتبع قبل أن نطلب من المنصة ميزانية أكبر.</p></div><div className="pa-conversion-links"><Link href="/offers/landing-page-package">راجع باقة صفحة الهبوط <span>↗</span></Link><Link href="/website-design">راجع تصميم المواقع <span>↗</span></Link></div></section>
 
       <section className="pa-journey shell" id="journey"><div className="pa-section-head"><div><span className="pa-label">[ من الإنفاق إلى النتيجة ]</span><h2>كل خطوة تحمي الميزانية.<br/><em>وكل رقم يقود إلى قرار.</em></h2></div><p>نحوّل إدارة الإعلانات من رد فعل يومي إلى نظام اختبار وقياس وتحسين.</p></div><div className="pa-journey-list">{journey.map((item) => <article key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div></section>
 
@@ -140,8 +140,8 @@ export default function PaidAdsPage() {
 
       <section className="pa-readiness shell" aria-labelledby="pa-readiness-title">
         <small>هل حملتك جاهزة للتوسع؟</small>
-        <h2 id="pa-readiness-title">لا تزود الميزانية قبل ما تتأكد من الأربع نقاط دي.</h2>
-        <p>لو واحدة منها مكسورة، زيادة الإنفاق قد تكبر المشكلة بدل ما تكبر النتيجة.</p>
+        <h2 id="pa-readiness-title">لا تزد الميزانية قبل أن تتأكد من هذه النقاط الأربع.</h2>
+        <p>إذا كانت واحدة منها مكسورة، فزيادة الإنفاق قد تكبّر المشكلة بدل أن تكبّر النتيجة.</p>
         <div className="pa-readiness-grid">
           <article><b>Search Terms</b><span>هل النقرات جاية من نية شراء حقيقية أم بحث غير مناسب؟</span></article>
           <article><b>Tracking</b><span>هل التحويلات والحجوزات والطلبات مسجلة بشكل صحيح؟</span></article>

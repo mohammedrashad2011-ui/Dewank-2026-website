@@ -17,6 +17,18 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // Legacy /portfolio (404, still shown in Google at ~position 3) maps to the current case-study index.
+      {
+        source: "/portfolio",
+        has: [{ type: "host", value: "www.dewank.com" }],
+        destination: "https://dewank.com/work",
+        permanent: true,
+      },
+      {
+        source: "/portfolio",
+        destination: "/work",
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.dewank.com" }],
