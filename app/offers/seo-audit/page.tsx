@@ -127,7 +127,7 @@ export default function SeoAuditOfferPage() {
         <div className="seo-audit-proof-copy">
           <span className="section-label">[ شكل النتيجة ]</span>
           <h2 id="audit-preview-title">تقرير يفهمه صاحب المشروع.<br/>وليس قائمة أخطاء بلا نهاية.</h2>
-          <p>نرتب ما وجدناه حسب التأثير، ونوضح ما يحتاج تدخلًا عاجلًا وما يمكن تأجيله، حتى تتحول المراجعة إلى قرارات قابلة للتنفيذ.</p>
+          <p>نرتب ما وجدناه حسب التأثير، ونوضح ما يحتاج تدخلًا عاجلًا وما يمكن تأجيله، حتى تتحول المراجعة إلى قرارات قابلة للتنفيذ. الأرقام في النموذج المجاور توضيحية فقط وليست نتيجة موقع فعلي.</p>
         </div>
         <div className="seo-report-mockup" role="img" aria-label="تصور لتقرير SEO يعرض درجة الموقع ومشكلات حرجة وفرص تحسين">
           <div className="seo-report-top"><span>DEWANK SEO AUDIT</span><small>REPORT / 01</small></div>
@@ -167,16 +167,16 @@ export default function SeoAuditOfferPage() {
       </section>
 
       <section className="shell offer-faq" id="faq">
-        <div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل ما ترسل الموقع.</h2></div>
+        <div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن ترسل الموقع.</h2></div>
         <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="shell offer-final-cta seo-audit-final">
         <span className="offer-kicker">SEO + AEO · تقرير PDF · خلال 48 ساعة</span>
-        <h2>اعرف أين تخسر الظهور قبل ما تدفع أكثر لجلب الزيارات.</h2>
+        <h2>اعرف أين تخسر الظهور قبل أن تدفع أكثر لجلب الزيارات.</h2>
         <p>أرسل رابط موقعك ونوع النشاط والسوق المستهدف، ونبدأ الفحص من الصورة الكبيرة إلى التفاصيل التي تؤثر فعلًا.</p>
         <SeoAuditWhatsApp className="button primary" label="افحص موقعي الآن" />
-        <div><Link href="/offers">← العودة إلى جميع العروض</Link></div>
+        <div className="seo-audit-links"><Link href="/guides/seo-vs-aeo">تريد فهم الفرق بين SEO وAEO؟</Link><Link href="/seo-aeo">تحتاج تنفيذًا مستمرًا بعد الفحص؟</Link><Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
       <Footer />
     </main>
