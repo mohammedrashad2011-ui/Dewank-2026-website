@@ -98,7 +98,7 @@ export default function GoogleAdsLaunchOffer() {
           <p>نجهز لك حملة Google Search من الصفر: كلمات بنية شراء، إعلانات مناسبة، كلمات سلبية، تتبع تحويل أساسي، وفحص كامل قبل تشغيل الميزانية.</p>
           <div className="google-ads-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
-            <span>إذا كنت تبحث عن سعر تشغيل حملة Google Ads، فهذه الباقة للتأسيس والإطلاق بسعر واضح، وليست إدارة شهرية. مناسبة لو عندك صفحة جاهزة وتريد بدء Google Search بطريقة منظمة.</span>
+            <span>إذا كنت تبحث عن سعر تشغيل حملة Google Ads، فهذه الباقة للتأسيس والإطلاق بسعر واضح، وليست إدارة شهرية. مناسبة إذا كانت لديك صفحة جاهزة وتريد بدء Google Search بطريقة منظمة.</span>
           </div>
         </div>
         <aside className="offer-price-panel google-ads-price-panel">

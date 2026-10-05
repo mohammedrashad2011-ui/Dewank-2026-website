@@ -143,7 +143,7 @@ export default function PaidAdsPage() {
         <h2 id="pa-readiness-title">لا تزد الميزانية قبل أن تتأكد من هذه النقاط الأربع.</h2>
         <p>إذا كانت واحدة منها مكسورة، فزيادة الإنفاق قد تكبّر المشكلة بدل أن تكبّر النتيجة.</p>
         <div className="pa-readiness-grid">
-          <article><b>Search Terms</b><span>هل النقرات جاية من نية شراء حقيقية أم بحث غير مناسب؟</span></article>
+          <article><b>Search Terms</b><span>هل النقرات قادمة من نية شراء حقيقية أم بحث غير مناسب؟</span></article>
           <article><b>Tracking</b><span>هل التحويلات والحجوزات والطلبات مسجلة بشكل صحيح؟</span></article>
           <article><b>Landing Page</b><span>هل الصفحة سريعة وواضحة وتوصل العميل لخطوة واحدة؟</span></article>
           <article><b>Lead Quality</b><span>هل العملاء الناتجون مناسبون فعلًا أم مجرد استفسارات ضعيفة؟</span></article>
@@ -154,7 +154,7 @@ export default function PaidAdsPage() {
       <section className="pa-cluster shell" aria-labelledby="pa-cluster-title">
         <div className="pa-cluster-head"><div><span className="pa-label">[ قبل تشغيل الميزانية ]</span><h2 id="pa-cluster-title">افهم تكلفة Google Ads.<em>ثم اختر بين الإطلاق والإدارة.</em></h2></div><p>إذا كنت ما زلت تحدد الميزانية، ابدأ بدليل التكلفة. وإذا كنت تحتاج حملة Search واحدة فقط فابدأ بباقة الإطلاق، أما الحسابات التي تحتاج تحسينًا مستمرًا فهذه صفحة الإدارة المناسبة لها.</p></div>
         <div className="pa-guide-grid">{paidAdsGuides.map((guide) => <Link className="pa-guide-card" href={guide.href} key={guide.href}><small>{guide.label}</small><h3>{guide.title}</h3><p>{guide.text}</p><span>اقرأ الدليل ↗</span></Link>)}</div>
-        <div className="pa-offer-row"><div className="pa-offer-copy"><small>لو تحتاج تشغيل حملة Google Search فقط</small><h3>باقة إطلاق Google Ads</h3><p>حملة Search واحدة بنطاق واضح، بحث كلمات وإعلانات وكلمات سلبية وتتبع تحويل أساسي، بدون خلطها بإدارة شهرية كاملة.</p></div><Link className="pa-offer-price-card" href="/offers/google-ads-launch"><GoogleAdsLaunchPrice /><b>شاهد عرض الإطلاق ↗</b></Link></div>
+        <div className="pa-offer-row"><div className="pa-offer-copy"><small>إذا كنت تحتاج تشغيل حملة Google Search فقط</small><h3>باقة إطلاق Google Ads</h3><p>حملة Search واحدة بنطاق واضح، بحث كلمات وإعلانات وكلمات سلبية وتتبع تحويل أساسي، بدون خلطها بإدارة شهرية كاملة.</p></div><Link className="pa-offer-price-card" href="/offers/google-ads-launch"><GoogleAdsLaunchPrice /><b>شاهد عرض الإطلاق ↗</b></Link></div>
       </section>
 
       <section className="pa-faq shell"><div className="pa-section-head"><div><span className="pa-label">[ أسئلة شائعة ]</span><h2>إدارة Google Ads بدون غموض.</h2></div><p>إجابات مباشرة عن التكلفة والميزانية والإطلاق والإدارة والتتبع.</p></div><div className="pa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></section>
