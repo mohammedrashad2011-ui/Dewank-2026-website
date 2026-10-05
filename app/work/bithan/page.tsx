@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { BithanTrackedLink } from "./tracked-link";
 import { createMetadata, organizationId, siteName, siteUrl } from "../../lib/seo";
@@ -296,6 +297,7 @@ export default function BithanCaseStudyPage() {
               <p>اختار العميل اسم BITHAN في النهاية بعد الاستكشاف الاستراتيجي لمساحات التسمية والقوائم المختصرة وجولات التطوير.</p>
             </div>
             <p className="bithan-legal-note">فحوص الدومين والتواجد الرقمي والتعارضات كانت فحوصًا عملية مبدئية فقط وليست تصريحًا قانونيًا. التحقق القانوني النهائي للعلامة التجارية يجب أن يتم عبر جهة أو مستشار مؤهل قبل التسجيل والإطلاق.</p>
+            <p className="bithan-legal-note">تريد تطبيق خطوات التسمية نفسها على مشروعك؟ تعرّف على <Link href="/services/brand-naming">خدمة التسمية</Link>، أو اقرأ <Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار اسم تجاري للسوق السعودي</Link>.</p>
           </div>
         </section>
 
