@@ -4,6 +4,7 @@ import Link from "next/link";
 import { canonicalServiceNames, createMetadata, organizationId, servedMarkets, serviceId, siteUrl } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import AboutExperience from "./about-experience";
+import AnchorScroll from "./anchor-scroll";
 import "./about-page.css";
 import "./about-entity-aeo.css";
 
@@ -85,6 +86,7 @@ export default function AboutPage() {
     <main className="about-page about-entity-page" dir="rtl">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <AnchorScroll />
 
       <section className="about-hero shell">
         <div>
@@ -182,13 +184,14 @@ export default function AboutPage() {
           <span className="section-label">الاستراتيجية وراء العمل</span>
           <h2 id="mohamed-rashad-title" dir="ltr">Mohamed Rashad</h2>
           <p className="about-person-role" dir="ltr">Marketing &amp; Brand Growth Strategist</p>
-          <p className="about-person-bio">يمتلك محمد أكثر من 14 عامًا من الخبرة في التسويق، بناء العلامات، النمو الرقمي ورحلة العميل في أسواق الخليج. يقود العمل الاستراتيجي في ديوانك من التموضع والتسمية إلى أنظمة النمو وCRM والأتمتة، مع التركيز على نتائج قابلة للقياس.</p>
+          <p className="about-person-bio">يمتلك محمد رشاد أكثر من 14 عامًا من الخبرة في التسويق، بناء العلامات، النمو الرقمي ورحلة العميل في أسواق الخليج. تمتد خبرته من التموضع والتسمية إلى أنظمة النمو وCRM والأتمتة، مع التركيز على تحويل الاستراتيجية إلى قرارات ونتائج قابلة للقياس.</p>
+          <p className="about-person-meta" dir="ltr">14+ years across brand strategy, digital growth, customer acquisition and CRM across GCC markets.</p>
           <Link className="about-person-link" href="/work">شاهد أعمال مختارة <span aria-hidden="true">←</span></Link>
         </div>
         <div className="about-person-portrait">
           <Image
             src="/mohamed-rashad-brand-growth-strategist.webp"
-            alt="صورة محمد رشاد، استراتيجي التسويق ونمو العلامات"
+            alt="محمد رشاد | Mohamed Rashad - Marketing & Brand Growth Strategist"
             width={1122}
             height={1402}
             sizes="(max-width: 760px) 80vw, 330px"
