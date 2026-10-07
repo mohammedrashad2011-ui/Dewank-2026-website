@@ -37,14 +37,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: "/about/mohamed-rashad",
-        destination: "/about",
-      },
-    ];
-  },
   async headers() {
     return [
       {
