@@ -39,7 +39,7 @@ const faqs = [
   { question: "هل يمكن البدء بخدمة واحدة فقط؟", answer: "نعم. يمكن البدء بخدمة واحدة مثل الإعلانات أو الموقع أو المحتوى أو أتمتة واتساب، ثم توسيع المنظومة عندما تظهر حاجة واضحة ومقاسة." },
 ];
 
-export default function AboutPage() {
+export function AboutPageContent({ startAtMohamed = false }: { startAtMohamed?: boolean }) {
   const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد مناقشة التحدي الحالي في مشروعي. النشاط: ");
   const schema = {
     "@context": "https://schema.org",
@@ -86,98 +86,103 @@ export default function AboutPage() {
     <main className="about-page about-entity-page" dir="rtl">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <AnchorScroll />
+      {!startAtMohamed && <AnchorScroll />}
 
-      <section className="about-hero shell">
-        <div>
-          <span className="section-label">عن ديوانك</span>
-          <h1>لسنا وكالة خدمات.<br/><em>نبني منظومة نمو أوضح.</em></h1>
-          <p>نجمع استراتيجية البراند، التسويق، المواقع، البيانات والأتمتة داخل مسار واحد، لأن النمو لا يتعطل غالبًا بسبب نقص خدمة، بل بسبب عدم اتصال الخدمات ببعضها.</p>
-          <div className="about-hero-actions">
-            <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش التحدي على واتساب <span>↗</span></a>
-            <Link className="button secondary" href="/work">شاهد الأعمال <span>←</span></Link>
-          </div>
-        </div>
-        <aside className="about-hero-card">
-          <small>BRAND × GROWTH × AI</small>
-          <strong>نبدأ من المشكلة، لا من اسم الخدمة.</strong>
-          <span>نحدد الأولوية أولًا، ثم نبني أصغر نظام يصنع فرقًا حقيقيًا وقابلًا للقياس.</span>
-        </aside>
-      </section>
-
-      <section className="about-entity-definition shell" aria-labelledby="about-definition-title">
-        <span className="section-label">تعريف مباشر</span>
-        <div>
-          <h2 id="about-definition-title">من هي ديوانك؟</h2>
-          <p><strong>ديوانك شركة نمو رقمي تخدم الشركات في السعودية والخليج.</strong> نربط البراند والمحتوى والإعلانات والمواقع وSEO وواتساب وCRM والذكاء الاصطناعي بحيث تخدم كل خطوة ما بعدها، بدل تشغيل أدوات وخدمات متفرقة يصعب قياس أثرها.</p>
-        </div>
-      </section>
-
-      <section className="about-origin shell">
-        <div className="about-origin-copy">
-          <span className="section-label">لماذا ديوانك؟</span>
-          <h2>بدأت الفكرة من مشكلة نراها كل يوم.</h2>
-          <p>شركة تتعامل مع مصمم لا يعرف هدف التسويق، ومسوق لا يفهم البراند، ومطور يبني موقعًا بلا رحلة تحويل، وأتمتة تعمل بعيدًا عن المبيعات. النتيجة: مجهود وأدوات كثيرة، لكن رحلة العميل ما زالت مفككة.</p>
-          <p>ديوانك بُنيت لتربط القرار الاستراتيجي بالتنفيذ والتقنية والقياس داخل نظام واحد.</p>
-        </div>
-        <div className="fragment-grid">
-          <article className="fragment-card"><b>تصميم بلا استراتيجية</b><p>هوية جميلة، لكن السوق لا يفهم لماذا يختارها.</p></article>
-          <article className="fragment-card"><b>تسويق بلا رحلة</b><p>وصول وتفاعل، لكن انتقال ضعيف نحو الطلب أو الشراء.</p></article>
-          <article className="fragment-card"><b>موقع بلا تحويل</b><p>صفحات أنيقة لا تقود الزائر إلى خطوة واضحة.</p></article>
-          <article className="fragment-card"><b>أتمتة بلا تنظيم</b><p>تقنية تسرّع الفوضى بدل أن تقللها.</p></article>
-        </div>
-      </section>
-
-      <AboutExperience />
-
-      <section className="about-services-map shell" aria-labelledby="about-services-title">
-        <div className="about-services-head">
-          <div><span className="section-label">ماذا تقدم ديوانك؟</span><h2 id="about-services-title">سبعة مسارات.<br/><em>هدف واحد: نمو أوضح.</em></h2></div>
-          <Link href="/services">كل الخدمات <span>←</span></Link>
-        </div>
-        <div className="about-services-grid">
-          {serviceMap.map((service, index) => (
-            <Link className="about-service-card" href={service.href} key={service.href}>
-              <small>{String(index + 1).padStart(2, "0")}</small>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              <span>استكشف الخدمة ↗</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="about-values shell">
-        <span className="section-label">ما الذي يجعلنا مختلفين</span>
-        <h2>قرارات واضحة قبل التنفيذ.</h2>
-        <div className="values-grid">
-          {values.map((value) => (
-            <article className="value-card" key={value.no}>
-              <span>{value.no}</span><h3>{value.title}</h3><p>{value.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="about-market">
-        <div className="shell market-grid">
-          <div>
-            <span className="section-label">خبرة السوق</span>
-            <h2>خبرة بُنيت داخل السوق،<br/>لا داخل العروض التقديمية.</h2>
-            <p>ديوانك تجمع خبرات عملية في استراتيجية البراند، التسويق الرقمي، تطوير المواقع، إدارة الحملات، رحلة العميل، CRM والأتمتة داخل أسواق الخليج.</p>
-            <p>نعمل على ربط التسويق بالمبيعات وخدمة العملاء، وتحويل نقاط التواصل المتفرقة إلى منظومات أوضح وأسهل في القياس والتطوير.</p>
-            <div className="market-tags">
-              <span>السعودية</span><span>البحرين</span><span>الإمارات</span><span>السوق الخليجي</span>
+      {!startAtMohamed && (
+        <>
+          <section className="about-hero shell">
+            <div>
+              <span className="section-label">عن ديوانك</span>
+              <h1>لسنا وكالة خدمات.<br/><em>نبني منظومة نمو أوضح.</em></h1>
+              <p>نجمع استراتيجية البراند، التسويق، المواقع، البيانات والأتمتة داخل مسار واحد، لأن النمو لا يتعطل غالبًا بسبب نقص خدمة، بل بسبب عدم اتصال الخدمات ببعضها.</p>
+              <div className="about-hero-actions">
+                <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش التحدي على واتساب <span>↗</span></a>
+                <Link className="button secondary" href="/work">شاهد الأعمال <span>←</span></Link>
+              </div>
             </div>
-          </div>
-          <div className="market-map" aria-label="خبرة ديوانك في أسواق الخليج">
-            <small>GCC MARKET EXPERIENCE</small>
-            <strong>نفهم أن الثقة، السرعة، واتساب، واللغة ليست تفاصيل جانبية.</strong>
-            <p>هي أجزاء أساسية من قرار العميل الخليجي وطريقة انتقاله من الاهتمام إلى التواصل.</p>
-            <span className="gcc-word" aria-hidden="true">GCC</span>
-          </div>
-        </div>
-      </section>
+            <aside className="about-hero-card">
+              <small>BRAND × GROWTH × AI</small>
+              <strong>نبدأ من المشكلة، لا من اسم الخدمة.</strong>
+              <span>نحدد الأولوية أولًا، ثم نبني أصغر نظام يصنع فرقًا حقيقيًا وقابلًا للقياس.</span>
+            </aside>
+          </section>
+
+          <section className="about-entity-definition shell" aria-labelledby="about-definition-title">
+            <span className="section-label">تعريف مباشر</span>
+            <div>
+              <h2 id="about-definition-title">من هي ديوانك؟</h2>
+              <p><strong>ديوانك شركة نمو رقمي تخدم الشركات في السعودية والخليج.</strong> نربط البراند والمحتوى والإعلانات والمواقع وSEO وواتساب وCRM والذكاء الاصطناعي بحيث تخدم كل خطوة ما بعدها، بدل تشغيل أدوات وخدمات متفرقة يصعب قياس أثرها.</p>
+            </div>
+          </section>
+
+          <section className="about-origin shell">
+            <div className="about-origin-copy">
+              <span className="section-label">لماذا ديوانك؟</span>
+              <h2>بدأت الفكرة من مشكلة نراها كل يوم.</h2>
+              <p>شركة تتعامل مع مصمم لا يعرف هدف التسويق، ومسوق لا يفهم البراند، ومطور يبني موقعًا بلا رحلة تحويل، وأتمتة تعمل بعيدًا عن المبيعات. النتيجة: مجهود وأدوات كثيرة، لكن رحلة العميل ما زالت مفككة.</p>
+              <p>ديوانك بُنيت لتربط القرار الاستراتيجي بالتنفيذ والتقنية والقياس داخل نظام واحد.</p>
+            </div>
+            <div className="fragment-grid">
+              <article className="fragment-card"><b>تصميم بلا استراتيجية</b><p>هوية جميلة، لكن السوق لا يفهم لماذا يختارها.</p></article>
+              <article className="fragment-card"><b>تسويق بلا رحلة</b><p>وصول وتفاعل، لكن انتقال ضعيف نحو الطلب أو الشراء.</p></article>
+              <article className="fragment-card"><b>موقع بلا تحويل</b><p>صفحات أنيقة لا تقود الزائر إلى خطوة واضحة.</p></article>
+              <article className="fragment-card"><b>أتمتة بلا تنظيم</b><p>تقنية تسرّع الفوضى بدل أن تقللها.</p></article>
+            </div>
+          </section>
+
+          <AboutExperience />
+
+          <section className="about-services-map shell" aria-labelledby="about-services-title">
+            <div className="about-services-head">
+              <div><span className="section-label">ماذا تقدم ديوانك؟</span><h2 id="about-services-title">سبعة مسارات.<br/><em>هدف واحد: نمو أوضح.</em></h2></div>
+              <Link href="/services">كل الخدمات <span>←</span></Link>
+            </div>
+            <div className="about-services-grid">
+              {serviceMap.map((service, index) => (
+                <Link className="about-service-card" href={service.href} key={service.href}>
+                  <small>{String(index + 1).padStart(2, "0")}</small>
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+                  <span>استكشف الخدمة ↗</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className="about-values shell">
+            <span className="section-label">ما الذي يجعلنا مختلفين</span>
+            <h2>قرارات واضحة قبل التنفيذ.</h2>
+            <div className="values-grid">
+              {values.map((value) => (
+                <article className="value-card" key={value.no}>
+                  <span>{value.no}</span><h3>{value.title}</h3><p>{value.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="about-market">
+            <div className="shell market-grid">
+              <div>
+                <span className="section-label">خبرة السوق</span>
+                <h2>خبرة بُنيت داخل السوق،<br/>لا داخل العروض التقديمية.</h2>
+                <p>ديوانك تجمع خبرات عملية في استراتيجية البراند، التسويق الرقمي، تطوير المواقع، إدارة الحملات، رحلة العميل، CRM والأتمتة داخل أسواق الخليج.</p>
+                <p>نعمل على ربط التسويق بالمبيعات وخدمة العملاء، وتحويل نقاط التواصل المتفرقة إلى منظومات أوضح وأسهل في القياس والتطوير.</p>
+                <div className="market-tags">
+                  <span>السعودية</span><span>البحرين</span><span>الإمارات</span><span>السوق الخليجي</span>
+                </div>
+              </div>
+              <div className="market-map" aria-label="خبرة ديوانك في أسواق الخليج">
+                <small>GCC MARKET EXPERIENCE</small>
+                <strong>نفهم أن الثقة، السرعة، واتساب، واللغة ليست تفاصيل جانبية.</strong>
+                <p>هي أجزاء أساسية من قرار العميل الخليجي وطريقة انتقاله من الاهتمام إلى التواصل.</p>
+                <span className="gcc-word" aria-hidden="true">GCC</span>
+              </div>
+            </div>
+          </section>
+
+        </>
+      )}
 
       <section className="about-person shell" id="mohamed-rashad" aria-labelledby="mohamed-rashad-title">
         <div className="about-person-content">
@@ -249,4 +254,9 @@ export default function AboutPage() {
       <Footer />
     </main>
   );
+}
+
+
+export default function AboutPage() {
+  return <AboutPageContent />;
 }

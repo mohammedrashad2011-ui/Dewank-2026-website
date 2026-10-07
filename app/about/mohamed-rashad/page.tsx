@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { createMetadata } from "../../lib/seo";
-import AboutPage from "../page";
+import { AboutPageContent } from "../page";
 
 export const metadata: Metadata = {
   ...createMetadata({
@@ -23,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function MohamedRashadAboutPage() {
-  return <AboutPage />;
+  return <AboutPageContent startAtMohamed />;
 }
