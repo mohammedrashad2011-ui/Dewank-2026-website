@@ -98,7 +98,31 @@ export default function AboutPageContent({ startAtMohamed = false }: { startAtMo
               <span>نحدد الأولوية أولًا، ثم نبني أصغر نظام يصنع فرقًا حقيقيًا وقابلًا للقياس.</span>
             </aside>
           </section>
+        </>
+      )}
 
+      <section className="about-person shell" id="mohamed-rashad" aria-labelledby="mohamed-rashad-title">
+        <div className="about-person-content">
+          <span className="section-label">الاستراتيجية وراء العمل</span>
+          <h2 id="mohamed-rashad-title" dir="ltr">Mohamed Rashad</h2>
+          <p className="about-person-role" dir="ltr">Marketing &amp; Brand Growth Strategist</p>
+          <p className="about-person-bio">يمتلك محمد رشاد أكثر من 14 عامًا من الخبرة في التسويق، بناء العلامات، النمو الرقمي ورحلة العميل في أسواق الخليج. تمتد خبرته من التموضع والتسمية إلى أنظمة النمو وCRM والأتمتة، مع التركيز على تحويل الاستراتيجية إلى قرارات ونتائج قابلة للقياس.</p>
+          <p className="about-person-meta" dir="ltr">14+ years across brand strategy, digital growth, customer acquisition and CRM across GCC markets.</p>
+          <Link className="about-person-link" href="/work">شاهد أعمال مختارة <span aria-hidden="true">←</span></Link>
+        </div>
+        <div className="about-person-portrait">
+          <Image
+            src="/mohamed-rashad-brand-growth-strategist.webp"
+            alt="محمد رشاد | Mohamed Rashad - Marketing & Brand Growth Strategist"
+            width={1122}
+            height={1402}
+            sizes="(max-width: 760px) 80vw, 330px"
+          />
+        </div>
+      </section>
+
+      {!startAtMohamed && (
+        <>
           <section className="about-entity-definition shell" aria-labelledby="about-definition-title">
             <span className="section-label">تعريف مباشر</span>
             <div>
@@ -175,26 +199,6 @@ export default function AboutPageContent({ startAtMohamed = false }: { startAtMo
 
         </>
       )}
-
-      <section className="about-person shell" id="mohamed-rashad" aria-labelledby="mohamed-rashad-title">
-        <div className="about-person-content">
-          <span className="section-label">الاستراتيجية وراء العمل</span>
-          <h2 id="mohamed-rashad-title" dir="ltr">Mohamed Rashad</h2>
-          <p className="about-person-role" dir="ltr">Marketing &amp; Brand Growth Strategist</p>
-          <p className="about-person-bio">يمتلك محمد رشاد أكثر من 14 عامًا من الخبرة في التسويق، بناء العلامات، النمو الرقمي ورحلة العميل في أسواق الخليج. تمتد خبرته من التموضع والتسمية إلى أنظمة النمو وCRM والأتمتة، مع التركيز على تحويل الاستراتيجية إلى قرارات ونتائج قابلة للقياس.</p>
-          <p className="about-person-meta" dir="ltr">14+ years across brand strategy, digital growth, customer acquisition and CRM across GCC markets.</p>
-          <Link className="about-person-link" href="/work">شاهد أعمال مختارة <span aria-hidden="true">←</span></Link>
-        </div>
-        <div className="about-person-portrait">
-          <Image
-            src="/mohamed-rashad-brand-growth-strategist.webp"
-            alt="محمد رشاد | Mohamed Rashad - Marketing & Brand Growth Strategist"
-            width={1122}
-            height={1402}
-            sizes="(max-width: 760px) 80vw, 330px"
-          />
-        </div>
-      </section>
 
       <section className="about-fit shell">
         <span className="section-label">هل نحن مناسبون؟</span>
