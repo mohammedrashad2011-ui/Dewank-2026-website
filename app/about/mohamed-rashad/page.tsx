@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { createMetadata } from "../../lib/seo";
-import { AboutPageContent } from "../page";
+import AboutPageContent from "../about-page-content";
+import "../about-page.css";
+import "../about-entity-aeo.css";
 
 export const metadata: Metadata = {
   ...createMetadata({
