@@ -15,6 +15,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Unmatched URLs use app/global-not-found.tsx, which supplies its own <html> now that the root layouts are split by route group.
+  experimental: {
+    globalNotFound: true,
+  },
   async redirects() {
     return [
       // Legacy /portfolio (404, still shown in Google at ~position 3) maps to the current case-study index.
