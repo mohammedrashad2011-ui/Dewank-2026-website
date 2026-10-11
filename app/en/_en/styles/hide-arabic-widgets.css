@@ -1,0 +1,6 @@
+body:has(.en-site) .sitewide-whatsapp-bridge,
+body:has(.en-site) .instagram-guides-popup,
+body:has(.en-site) .sitewide-whatsapp-wrap,
+body:has(.en-site) .mobile-offers-rail-wrap {
+  display: none !important;
+}

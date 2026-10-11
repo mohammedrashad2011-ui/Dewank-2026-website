@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MobileNavigation } from "./mobile-navigation";
 import { ServicesMenu } from "./services-menu";
 import "./offers-nav-premium-preview.css";
+import "./language-switch.css";
 
 const footerServices = [
   ["/branding", "البراند والهوية"],
@@ -37,7 +38,7 @@ export function Header() {
           <Link href="/about">عن ديوانك</Link>
           <Link href="/contact">تواصل</Link>
         </nav>
-        <div className="nav-actions"><MobileNavigation /><Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link></div>
+        <div className="nav-actions"><a className="language-switch" href="/en" hrefLang="en" lang="en">English</a><MobileNavigation /><Link className="nav-cta" href="/contact">ناقش مشروعك معنا <span>←</span></Link></div>
       </div>
     </header>
   );

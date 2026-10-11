@@ -1,0 +1,146 @@
+/* Homepage: creative and motion layer. Everything here is CSS-only, progressive, and
+   disabled under prefers-reduced-motion (global rule in globals.css). Text is never hidden. */
+
+/* Hero: three-beat headline, signature flow */
+.en-site .home-hero { padding: clamp(36px, 6vw, 72px) 0 clamp(40px, 6vw, 80px); display: grid; gap: 48px; }
+.en-site .home-hero h1 { font-size: clamp(38px, 4.7vw, 64px); line-height: 1.04; letter-spacing: -0.02em; max-width: 24ch; }
+.en-site .home-hero h1 .beat { display: block; }
+.en-site .home-hero h1 .beat em { font-style: normal; color: var(--gold-deep); }
+.en-site .home-hero .lead { margin-top: 22px; }
+.en-site .home-hero .button-row { margin-top: 30px; }
+
+/* Signature flow: Brand → Experience → Growth → Automation */
+.en-site .flow {
+  position: relative; list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 26px; counter-reset: flow;
+}
+.en-site .flow::before {
+  content: ""; position: absolute; background: linear-gradient(180deg, var(--gold), var(--gold-deep));
+  left: 21px; top: 22px; bottom: 22px; width: 2px; transform-origin: top center; transform: scaleY(0);
+}
+.en-site .flow li {
+  position: relative; counter-increment: flow; padding-left: 68px; min-height: 60px; min-width: 0;
+}
+.en-site .flow li::before {
+  content: counter(flow, decimal-leading-zero); position: absolute; left: 0; top: 0;
+  width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff;
+  font-weight: 700; font-size: 14px; display: grid; place-items: center; box-shadow: 0 0 0 6px var(--paper);
+}
+.en-site .flow-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); }
+.en-site .flow strong { display: block; font-family: "EN Cormorant Garamond", Georgia, serif; font-size: 26px; font-weight: 600; line-height: 1.15; margin-top: 4px; }
+.en-site .flow p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+
+.en-site .flow-caption { font-size: 14px; color: var(--muted); margin-top: 18px; }
+
+@keyframes en-flow-line { to { transform: scaleX(1); } }
+@keyframes en-flow-line-v { to { transform: scaleY(1); } }
+@keyframes en-node-in { from { opacity: 0; transform: scale(0.6); } to { opacity: 1; transform: none; } }
+
+@media (min-width: 900px) {
+  .en-site .home-hero { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; }
+}
+
+@supports (animation-timeline: view()) {
+  .en-site .flow::before { animation: en-flow-line 1.1s 0.35s cubic-bezier(.2,.7,.2,1) both; }
+  .en-site .flow li::before { animation: en-node-in 0.5s both; }
+  .en-site .flow li:nth-child(1)::before { animation-delay: 0.3s; }
+  .en-site .flow li:nth-child(2)::before { animation-delay: 0.7s; }
+  .en-site .flow li:nth-child(3)::before { animation-delay: 1.1s; }
+  .en-site .flow li:nth-child(4)::before { animation-delay: 1.5s; }
+}
+@supports (animation-timeline: view()) {
+  .en-site .flow::before { animation-name: en-flow-line-v; }
+}
+
+/* Scroll storytelling: sections reveal as they enter, never blocking content */
+@supports (animation-timeline: view()) {
+  .en-site .reveal {
+    animation: en-reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+}
+/* Movement only: text never fades, so contrast stays constant while sections enter. */
+@keyframes en-reveal-up {
+  from { transform: translateY(24px); }
+  to { transform: none; }
+}
+
+/* Service discovery: interactive category cards */
+.en-site .service-card {
+  position: relative; display: flex; flex-direction: column; height: 100%;
+  transition: transform 0.35s cubic-bezier(.2,.7,.2,1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.en-site .service-card:hover, .en-site .service-card:focus-within {
+  transform: translateY(-4px); box-shadow: 0 22px 48px rgba(6, 26, 51, 0.12); border-color: rgba(213, 168, 67, 0.7);
+}
+.en-site .service-card .card-link { margin-top: auto; }
+.en-site .service-card .card-link span { display: inline-block; transition: transform 0.3s ease; }
+.en-site .service-card:hover .card-link span, .en-site .service-card .card-link:focus-visible span { transform: translateX(5px); }
+.en-site .service-card .category-links li { min-height: 28px; display: flex; align-items: center; }
+
+/* Featured work: image-led */
+.en-site .home-work { display: grid; gap: 24px; align-items: start; }
+.en-site .home-work-feature {
+  margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 26px; overflow: hidden;
+  display: grid; grid-template-columns: 1fr;
+}
+.en-site .home-work-feature img { width: 100%; height: auto; aspect-ratio: 1126 / 1591; object-fit: cover; object-position: top; }
+.en-site .home-work-feature figcaption { padding: 22px 24px 26px; display: grid; gap: 8px; }
+.en-site .home-work-feature figcaption span { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); }
+.en-site .home-work-feature figcaption strong { font-family: "EN Cormorant Garamond", Georgia, serif; font-size: 30px; line-height: 1.15; font-weight: 600; color: var(--navy); }
+.en-site .home-work-feature figcaption a { font-weight: 700; color: var(--navy); min-height: 44px; display: inline-flex; align-items: center; }
+.en-site .home-work-tiles { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; }
+.en-site .home-work-tile { position: relative; display: block; border-radius: 20px; overflow: hidden; background: #fff; border: 1px solid var(--line); text-decoration: none; }
+.en-site .home-work-tile img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+.en-site .home-work-tile:hover img, .en-site .home-work-tile:focus-visible img { transform: scale(1.04); }
+.en-site .home-work-tile span { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px; background: linear-gradient(to top, rgba(6, 26, 51, 0.92), rgba(6, 26, 51, 0)); color: #fff; display: grid; gap: 2px; }
+.en-site .home-work-tile strong { font-size: 16px; }
+.en-site .home-work-tile small { font-size: 13px; color: rgba(255, 255, 255, 0.82); }
+
+@media (min-width: 900px) {
+  .en-site .home-work { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: start; }
+  .en-site .home-work-tiles { grid-template-columns: 1fr; }
+  .en-site .home-work-feature { grid-template-columns: 1fr; }
+}
+@media (min-width: 1100px) {
+  .en-site .home-work-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Process and differentiation */
+.en-site .home-process { display: grid; gap: 14px; list-style: none; padding: 0; margin: 28px 0 0; counter-reset: step; }
+.en-site .home-process li { display: grid; gap: 4px; padding: 22px 22px 22px 84px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); position: relative; counter-increment: step; }
+.en-site .home-process li::before {
+  content: "0" counter(step); position: absolute; left: 22px; top: 22px; font-family: "EN Cormorant Garamond", Georgia, serif;
+  font-size: 34px; font-weight: 600; color: var(--gold-deep); line-height: 1;
+}
+.en-site .home-process h3 { font-size: 20px; }
+.en-site .home-process p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.en-site .home-differences { display: grid; gap: 14px; grid-template-columns: 1fr; margin-top: 28px; }
+.en-site .home-differences div { border-top: 2px solid var(--navy); padding-top: 14px; }
+.en-site .home-differences strong { display: block; font-size: 18px; color: var(--navy); margin-bottom: 4px; }
+.en-site .home-differences p { margin: 0; color: var(--muted); font-size: 15px; }
+@media (min-width: 900px) {
+  .en-site .home-differences { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+}
+
+/* Mobile tap comfort */
+@media (max-width: 719px) {
+  .en-site .home-hero .button-row .button { width: 100%; }
+  .en-site .home-work-tile span { padding: 12px 14px; }
+}
+
+/* Reduced motion: the flow spine starts at scaleY(0) and only the animation draws it.
+   With animations off, show the finished line instead of leaving it undrawn. */
+@media (prefers-reduced-motion: reduce) {
+  .en-site .flow::before { transform: none; }
+}
+
+/* Visually hidden but available to assistive technology */
+.en-site .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Flow panel wrapper: keeps the figure semantic without default browser margins */
+.en-site .flow-panel { margin: 0; padding: clamp(20px, 3vw, 32px); background: #fff; border: 1px solid var(--line); border-radius: 26px; box-shadow: 0 30px 70px rgba(6, 26, 51, 0.08); }
+.en-site .flow-panel .flow-caption { margin: 0 0 22px; }
+.en-site .flow-panel .flow-caption strong { color: var(--navy); font-size: 15px; font-weight: 700; }

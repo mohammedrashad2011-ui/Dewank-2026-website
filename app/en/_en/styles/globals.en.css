@@ -1,0 +1,294 @@
+/* Dewank English site: brand tokens copied (not imported) from the Arabic identity.
+   Keep this file independent of the Arabic production stylesheets. */
+@font-face {
+  font-family: "EN Alexandria";
+  src: url("/en/fonts/alexandria-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EN Cormorant Garamond";
+  src: url("/en/fonts/cormorant-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.en-site {
+  --paper: #f5f0e7;
+  --ink: #111214;
+  --navy: #061a33;
+  --gold: #d5a843;
+  /* Darkened from #9b711e so small gold text clears WCAG AA (5.6:1 on paper). */
+  --gold-deep: #7a5a12;
+  --muted: #5d6068;
+  --line: rgba(6, 26, 51, 0.14);
+  --shell: min(1120px, calc(100% - 40px));
+  --radius: 18px;
+  --focus: 3px solid #9b711e;
+}
+
+.en-site * { box-sizing: border-box; }
+.en-site { -webkit-text-size-adjust: 100%; }
+.en-site {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "EN Alexandria", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+.en-site img { max-width: 100%; height: auto; display: block; }
+.en-site a { color: inherit; }
+.en-site a:focus-visible, .en-site button:focus-visible, .en-site summary:focus-visible {
+  outline: var(--focus);
+  outline-offset: 3px;
+}
+.en-site h1, .en-site h2, .en-site h3 { line-height: 1.2; margin: 0; font-weight: 700; letter-spacing: -0.01em; }
+.en-site h1 { font-family: "EN Cormorant Garamond", Georgia, serif; font-size: clamp(40px, 6vw, 72px); font-weight: 600; }
+.en-site h2 { font-family: "EN Cormorant Garamond", Georgia, serif; font-size: clamp(30px, 4vw, 48px); font-weight: 600; }
+.en-site h3 { font-size: 20px; }
+.en-site p { margin: 0 0 16px; }
+.en-site ul, .en-site ol { margin: 0; padding: 0; }
+
+.en-site .skip-link {
+  position: absolute; left: 12px; top: -48px; background: var(--navy); color: #fff;
+  padding: 10px 14px; border-radius: 10px; z-index: 50;
+}
+.en-site .skip-link:focus { top: 12px; }
+
+.en-site .shell { width: var(--shell); margin-inline: auto; }
+.en-site .section { padding: clamp(56px, 8vw, 104px) 0; border-top: 1px solid var(--line); }
+.en-site .eyebrow {
+  display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold-deep); margin-bottom: 14px;
+}
+.en-site .lead { font-size: clamp(18px, 2vw, 21px); color: var(--muted); max-width: 680px; }
+
+/* Header and footer */
+.en-site .site-header { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 20; }
+.en-site .site-header .shell { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; flex-wrap: wrap; padding: 10px 0; }
+.en-site .brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-weight: 700; font-size: 20px; }
+.en-site .brand img { width: 34px; height: 34px; border-radius: 8px; }
+.en-site .site-nav { display: flex; gap: 22px; flex-wrap: wrap; list-style: none; }
+.en-site .site-nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; font-size: 15px; color: rgba(255, 255, 255, 0.86); }
+.en-site .site-nav a:hover { color: var(--gold); }
+.en-site .header-cta { font-size: 15px; font-weight: 700; color: var(--navy); background: var(--gold); padding: 9px 16px; border-radius: 999px; text-decoration: none; }
+
+.en-site .site-footer { background: var(--navy); color: rgba(255, 255, 255, 0.86); padding: 56px 0 32px; }
+.en-site .footer-grid { display: grid; gap: 28px; grid-template-columns: 1.4fr 1fr 1fr; }
+.en-site .footer-grid h2 { font-family: Alexandria, Arial, sans-serif; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 700; }
+.en-site .footer-grid a { display: flex; align-items: center; min-height: 44px; text-decoration: none; margin-bottom: 0; }
+.en-site .footer-base a { display: inline-flex; align-items: center; min-height: 44px; }
+.en-site .footer-grid a:hover { color: var(--gold); }
+.en-site .footer-base { margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.14); font-size: 14px; color: rgba(255, 255, 255, 0.6); }
+
+/* Buttons */
+.en-site .button-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+.en-site .button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 12px 22px;
+  border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px; border: 2px solid transparent;
+}
+.en-site .button.primary { background: var(--navy); color: #fff; }
+.en-site .button.primary:hover { background: #0b2a4f; }
+.en-site .button.secondary { background: transparent; color: var(--navy); border-color: var(--navy); }
+.en-site .button.secondary:hover { background: var(--navy); color: #fff; }
+.en-site .button.whatsapp { background: #1f7a4d; color: #fff; }
+.en-site .button.whatsapp:hover { background: #17633d; }
+
+/* Hero */
+.en-site .hero { padding: clamp(64px, 10vw, 128px) 0 clamp(48px, 7vw, 88px); }
+.en-site .hero h1 { max-width: 880px; }
+.en-site .hero h1 em { font-style: normal; color: var(--gold-deep); }
+
+/* Cards and grids */
+.en-site .grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.en-site .card { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.en-site .card p:last-child { margin-bottom: 0; }
+.en-site .card .tag { font-size: 13px; font-weight: 700; color: var(--gold-deep); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; display: block; }
+.en-site .card a.card-link { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--navy); }
+
+.en-site .band { background: var(--navy); color: #fff; border-radius: 28px; padding: clamp(28px, 5vw, 56px); }
+.en-site .band h2, .en-site .band h3 { color: #fff; }
+.en-site .band p { color: rgba(255, 255, 255, 0.84); }
+.en-site .band .eyebrow { color: var(--gold); }
+.en-site .band .button.secondary { color: #fff; border-color: #fff; }
+.en-site .band .button.secondary:hover { background: #fff; color: var(--navy); }
+
+.en-site .checklist { list-style: none; display: grid; gap: 12px; }
+.en-site .checklist li { padding-left: 26px; position: relative; }
+.en-site .checklist li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); }
+
+.en-site .steps { display: grid; gap: 16px; grid-template-columns: 1fr; list-style: none; counter-reset: step; }
+.en-site .steps li { counter-increment: step; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 22px 22px 70px; position: relative; }
+.en-site .steps li::before {
+  content: counter(step); position: absolute; left: 20px; top: 20px; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--navy); color: #fff; font-weight: 700; display: grid; place-items: center;
+}
+
+.en-site details.faq { border-bottom: 1px solid var(--line); padding: 18px 0; }
+.en-site details.faq summary { cursor: pointer; display: flex; align-items: center; min-height: 44px; font-weight: 700; font-size: 18px; }
+.en-site details.faq p { margin: 12px 0 0; color: var(--muted); }
+
+.en-site .notice { border-left: 4px solid var(--gold); background: #fff; padding: 18px 20px; border-radius: 12px; color: var(--muted); }
+
+.en-site .service-actions { display: flex; flex-wrap: wrap; gap: 4px 24px; margin-top: 6px; }
+
+/* Services panel (header) */
+.en-site .services-nav { position: relative; display: flex; align-items: center; gap: 0; }
+.en-site .services-toggle {
+  min-width: 44px; min-height: 44px; background: none; border: 0; padding: 0; cursor: pointer;
+  color: rgba(255, 255, 255, 0.86); font: inherit; font-size: 18px; line-height: 1;
+}
+.en-site .services-toggle:hover { color: var(--gold); }
+.en-site .services-panel {
+  position: absolute; top: calc(100% + 10px); left: -16px; width: min(780px, 92vw); z-index: 40;
+  background: #fff; color: var(--ink); border-radius: 18px; padding: 26px;
+  box-shadow: 0 24px 60px rgba(6, 26, 51, 0.22); border: 1px solid var(--line);
+}
+.en-site .services-panel[hidden] { display: none; }
+.en-site .services-panel-grid { display: grid; gap: 22px 28px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.en-site .services-panel-grid > section { min-width: 0; }
+.en-site .services-panel-label { font-family: Alexandria, Arial, sans-serif; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 4px; }
+.en-site .services-panel-label a { color: var(--gold-deep); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+.en-site .services-panel-label a:hover { text-decoration: underline; }
+.en-site .services-panel ul { list-style: none; margin: 0; padding: 0; }
+.en-site .services-panel li a {
+  display: flex; align-items: center; min-height: 44px; padding: 6px 0; color: var(--ink);
+  text-decoration: none; font-size: 15px; line-height: 1.35;
+}
+.en-site .services-panel li a:hover { color: var(--gold-deep); text-decoration: underline; text-underline-offset: 3px; }
+.en-site .services-panel-foot { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+.en-site .services-panel-foot a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--navy); }
+
+/* Services catalogue (services page) */
+.en-site .catalogue-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.en-site .catalogue-nav a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: #fff; color: var(--navy); font-weight: 700; text-decoration: none; font-size: 15px;
+}
+.en-site .catalogue-nav a:hover { border-color: var(--gold); }
+.en-site .category { padding: clamp(48px, 7vw, 84px) 0; border-top: 1px solid var(--line); scroll-margin-top: 110px; }
+.en-site .category-head { display: grid; gap: 12px; margin-bottom: 28px; }
+.en-site .category-head p { color: var(--muted); max-width: 680px; margin: 0; }
+.en-site .service-list { display: grid; gap: 18px; grid-template-columns: 1fr; list-style: none; padding: 0; margin: 0; }
+.en-site .service-item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3vw, 30px); scroll-margin-top: 110px; }
+.en-site .service-item h3 { font-size: 26px; font-family: "EN Cormorant Garamond", Georgia, serif; font-weight: 600; margin-bottom: 8px; }
+.en-site .service-item .service-summary { font-size: 17px; color: var(--ink); margin-bottom: 14px; }
+.en-site .service-item dl { display: grid; gap: 10px; margin: 0 0 16px; }
+.en-site .service-item dt { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); }
+.en-site .service-item dd { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+@media (min-width: 900px) {
+  .en-site .service-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .en-site .service-item.wide { grid-column: 1 / -1; }
+}
+
+/* Entrance motion: restrained, and removed for users who prefer reduced motion */
+@keyframes en-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.en-site .hero h1, .en-site .hero-split > div, .en-site .hero-visual { animation: en-rise 0.7s ease both; }
+.en-site .hero-visual { animation-delay: 0.12s; }
+@media (prefers-reduced-motion: reduce) {
+  .en-site *, .en-site *::before, .en-site *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* Compact mobile header: logo and quote button share the first row, navigation takes the second */
+@media (max-width: 719px) {
+  .en-site .site-header .shell { min-height: 0; padding: 10px 0; gap: 8px 12px; }
+  .en-site .site-header .brand { order: 1; font-size: 18px; min-height: 44px; }
+  .en-site .header-cta { order: 2; margin-left: auto; font-size: 14px; padding: 9px 14px; min-height: 40px; }
+  .en-site .primary-nav { order: 3; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .en-site .site-nav { flex-wrap: nowrap; gap: 14px; }
+  .en-site .site-nav a { white-space: nowrap; }
+}
+
+/* Mobile services panel: fixed sheet under the header */
+@media (max-width: 899px) {
+  /* Anchor the sheet to the sticky header's bottom edge, which varies because the header wraps. */
+  .en-site .services-nav { position: static; }
+  .en-site .services-panel {
+    position: absolute; top: 100%; left: 12px; right: 12px; width: auto; margin-top: 8px;
+    max-height: calc(100vh - 210px); overflow: auto; padding: 20px;
+  }
+  .en-site .services-panel-grid { grid-template-columns: 1fr; }
+}
+
+/* Home: hero visual, service grid with a CTA tile, identity proof strip, quote */
+.en-site .hero-split { display: grid; gap: 40px; align-items: center; }
+.en-site .hero-visual { margin: 0; }
+.en-site .hero-visual img { width: 100%; height: auto; aspect-ratio: 1126 / 1591; border-radius: 24px; border: 1px solid var(--line); background: #fff; box-shadow: 0 24px 60px rgba(6, 26, 51, 0.12); }
+.en-site .hero-visual figcaption { margin-top: 14px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; }
+.en-site .hero-visual figcaption span { font-weight: 700; color: var(--gold-deep); text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; }
+.en-site .hero-visual figcaption a { font-weight: 700; color: var(--navy); min-height: 44px; display: inline-flex; align-items: center; }
+
+.en-site .service-grid { grid-template-columns: 1fr; }
+.en-site .service-cta-tile { background: var(--navy); color: #fff; display: flex; flex-direction: column; gap: 6px; }
+.en-site .service-cta-tile h3 { color: #fff; }
+.en-site .service-cta-tile p { color: rgba(255, 255, 255, 0.84); }
+.en-site .service-cta-tile .tag { color: var(--gold); }
+.en-site .service-cta-tile .button { align-self: flex-start; margin-top: 10px; }
+
+.en-site .proof-strip { list-style: none; display: grid; gap: 16px; grid-template-columns: repeat(2, 1fr); margin: 32px 0 0; padding: 0; }
+.en-site .proof-strip a { display: block; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.en-site .proof-strip img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.en-site .proof-strip-label { display: grid; gap: 2px; padding: 12px 14px; }
+.en-site .proof-strip-label strong { font-size: 16px; color: var(--navy); }
+.en-site .proof-strip-label small { font-size: 13px; color: var(--muted); }
+.en-site .proof-strip a:hover { border-color: var(--gold); }
+
+.en-site .home-quote { margin: 36px 0 0; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 24px 26px; }
+.en-site .home-quote blockquote { margin: 0 0 12px; font-family: "EN Cormorant Garamond", Georgia, serif; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.4; color: var(--ink); }
+.en-site .home-quote figcaption { font-size: 15px; color: var(--muted); }
+
+/* Responsive: mobile first */
+@media (min-width: 720px) {
+  .en-site .grid.two { grid-template-columns: 1fr 1fr; }
+  .en-site .grid.three { grid-template-columns: repeat(3, 1fr); }
+  .en-site .steps { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 900px) {
+  .en-site .hero-split { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); }
+  .en-site .proof-strip { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1000px) {
+  .en-site .service-grid { grid-template-columns: repeat(3, 1fr); }
+  .en-site .steps-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .en-site .steps-5 li { padding: 64px 16px 18px; }
+  .en-site .steps-5 li::before { left: 16px; top: 16px; }
+}
+
+/* Proof card used on service pages */
+.en-site .proof-card { display: grid; gap: 20px; grid-template-columns: 1fr; text-decoration: none; background: #fff; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
+.en-site .proof-card img { width: 100%; height: auto; max-height: 360px; object-fit: cover; object-position: top; background: #fff; }
+.en-site .proof-card > span { display: grid; gap: 10px; align-content: center; padding: 24px 26px 26px 0; }
+.en-site .proof-card strong { font-family: "EN Cormorant Garamond", Georgia, serif; font-size: clamp(24px, 3vw, 32px); line-height: 1.25; color: var(--navy); }
+.en-site .proof-card-link { font-weight: 700; color: var(--navy); text-decoration: underline; text-underline-offset: 4px; min-height: 44px; display: inline-flex; align-items: center; }
+.en-site .proof-card:hover strong { color: var(--gold-deep); }
+@media (min-width: 720px) {
+  .en-site .proof-card { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center; }
+  .en-site .proof-card img { height: 100%; max-height: none; min-height: 320px; }
+  .en-site .proof-card > span { padding: 28px 28px 28px 0; }
+}
+@media (max-width: 719px) {
+  .en-site { font-size: 16px; }
+  .en-site .site-nav { gap: 14px; }
+  .en-site .site-nav a { font-size: 14px; }
+  .en-site .footer-grid { grid-template-columns: 1fr; }
+  .en-site .button-row .button { flex: 1 1 100%; }
+}
+
+/* Category lists on homepage cards */
+.en-site .category-links { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 4px; font-size: 15px; color: var(--muted); }
+.en-site .category-links li::before { content: "—"; color: var(--gold-deep); margin-right: 8px; }
+
+/* Language switch (English header): sits beside the CTA, back to the Arabic home. */
+.en-site .lang-switch { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; border: 1px solid currentColor; border-radius: 999px; color: inherit; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.en-site .lang-switch:hover { background: rgba(255, 255, 255, 0.08); }
+.en-site .lang-switch:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+/* Preview fixes: the Arabic site defines .site-header (floating, inset), which the English header must not inherit. */
+.en-site .site-header { margin: 0; width: auto; max-width: none; border-radius: 0; box-shadow: none; }
+/* Keep the skip link fully off-screen until it is focused (it showed a 1px sliver at the top edge). */
+.en-site .skip-link { top: -200px; }
+.en-site .skip-link:focus { top: 12px; }

@@ -1,0 +1,83 @@
+/* Work page only. Shared tokens live in app/globals.css. */
+
+/* Anchored sections land below the sticky header, not under it. */
+.en-site section[id] { scroll-margin-top: 110px; }
+
+.en-site .journey {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 32px;
+  padding: 0;
+  counter-reset: stage;
+}
+.en-site .journey li {
+  counter-increment: stage;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.en-site .journey li::before {
+  content: counter(stage) " · ";
+  color: var(--gold-deep);
+}
+
+.en-site .case-grid { display: grid; gap: 28px; grid-template-columns: 1fr; margin-top: 8px; }
+.en-site .case-grid h3 { font-family: "EN Cormorant Garamond", Georgia, serif; font-size: 28px; margin-bottom: 10px; }
+
+.en-site .case-figure { margin: 36px 0 20px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.en-site .case-figure img { width: 100%; height: auto; }
+
+.en-site .gallery { display: grid; gap: 16px; grid-template-columns: 1fr; margin-top: 16px; }
+.en-site .gallery figure { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.en-site .gallery img { width: 100%; height: auto; }
+.en-site .gallery figcaption { padding: 12px 16px; font-size: 14px; color: var(--muted); }
+
+.en-site .case-note { margin-top: 28px; }
+
+.en-site .facts { display: grid; gap: 18px; grid-template-columns: 1fr; margin-top: 28px; }
+.en-site .fact { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+.en-site .fact h3 { font-size: 18px; color: var(--gold-deep); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; font-family: Alexandria, Arial, sans-serif; }
+.en-site .fact p { margin: 0; color: var(--ink); }
+
+.en-site .metrics { margin-top: 32px; background: var(--navy); color: #fff; border-radius: 24px; padding: clamp(24px, 4vw, 40px); }
+.en-site .metrics-kicker { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; font-weight: 700; }
+.en-site .metric-row { display: grid; gap: 16px; grid-template-columns: 1fr; }
+.en-site .metric-card { display: grid; gap: 4px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 18px; padding: 20px; }
+.en-site .metric-card strong { font-family: "EN Cormorant Garamond", Georgia, serif; font-size: 48px; line-height: 1; color: var(--gold); }
+.en-site .metric-unit { font-size: 13px; color: rgba(255, 255, 255, 0.7); }
+.en-site .metric-card > span:last-child { color: rgba(255, 255, 255, 0.9); }
+.en-site .metrics-note { margin: 18px 0 0; font-size: 14px; color: rgba(255, 255, 255, 0.72); }
+
+.en-site .identity-grid { margin-top: 28px; }
+.en-site .identity-card figure { margin: -26px -26px 18px; background: #fff; border-radius: var(--radius) var(--radius) 0 0; overflow: hidden; }
+.en-site .identity-card img { width: 100%; height: auto; }
+
+/* Light-background footnote (the .metrics-note class is only for the dark metrics panel). */
+.en-site .note-muted { font-size: 14px; color: var(--muted); }
+
+.en-site .testimonial blockquote { margin: 0 0 16px; font-size: 18px; line-height: 1.6; color: var(--ink); }
+.en-site .testimonial figcaption { font-size: 15px; color: var(--muted); }
+
+@media (min-width: 720px) {
+  .en-site .case-grid { grid-template-columns: 1fr 1fr; }
+  .en-site .gallery { grid-template-columns: 1fr 1fr; }
+  .en-site .facts { grid-template-columns: 1fr 1fr; }
+  .en-site .metric-row { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1000px) {
+  .en-site .gallery { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Case index under the Work hero */
+.en-site .case-index { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.en-site .case-index a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 8px 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: #fff; color: var(--navy); font-weight: 700; text-decoration: none; font-size: 15px;
+}
+.en-site .case-index a:hover { border-color: var(--gold); }
