@@ -2,17 +2,16 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { offerPricing, type LocalPrice } from "./offer-pricing";
+import { useSavedOfferCountry } from "./use-offer-price";
 
 const config = offerPricing["30-day-content-package"];
 const storageKey = "dewank_offer_country";
 
 function useLocalizedPrice() {
-  const [price, setPrice] = useState<LocalPrice>(config.initial);
+  const savedCountry = useSavedOfferCountry();
+  const [lookedUpPrice, setLookedUpPrice] = useState<LocalPrice | null>(null);
 
   useEffect(() => {
-    const savedCountry = window.localStorage.getItem(storageKey)?.toUpperCase();
-    if (savedCountry && config.prices[savedCountry]) setPrice(config.prices[savedCountry]);
-
     const controller = new AbortController();
     fetch("https://api.country.is/", { cache: "no-store", signal: controller.signal })
       .then((response) => {
@@ -23,12 +22,16 @@ function useLocalizedPrice() {
         const country = data.country?.toUpperCase();
         if (!country) return;
         window.localStorage.setItem(storageKey, country);
-        setPrice(config.prices[country] ?? config.fallback);
+        setLookedUpPrice(config.prices[country] ?? config.fallback);
       })
       .catch(() => {});
 
     return () => controller.abort();
   }, []);
+
+  // Same precedence as before: a looked-up price, then the saved country's price, then the initial price.
+  const savedPrice = savedCountry ? config.prices[savedCountry] : undefined;
+  const price = lookedUpPrice ?? savedPrice ?? config.initial;
 
   return useMemo(() => ({
     ...price,

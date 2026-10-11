@@ -7,9 +7,14 @@ import { usePathname } from "next/navigation";
 export default function MobileOffersRail() {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+  // A route change hides the rail. The reset runs during render, so the effect does not call setState synchronously.
+  const [shownPath, setShownPath] = useState(pathname);
+  if (shownPath !== pathname) {
+    setShownPath(pathname);
+    setVisible(false);
+  }
 
   useEffect(() => {
-    setVisible(false);
     if (pathname === "/contact" || pathname.startsWith("/offers")) return;
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;

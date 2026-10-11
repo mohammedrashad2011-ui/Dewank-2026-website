@@ -31,11 +31,15 @@ export default function InstagramFollowCard() {
   const pathname = usePathname();
   const [instagramVisible, setInstagramVisible] = useState(false);
   const [offersVisible, setOffersVisible] = useState(false);
-
-  useEffect(() => {
+  // A route change hides both popups. The reset runs during render, so the effect does not call setState synchronously.
+  const [shownPath, setShownPath] = useState(pathname);
+  if (shownPath !== pathname) {
+    setShownPath(pathname);
     setInstagramVisible(false);
     setOffersVisible(false);
+  }
 
+  useEffect(() => {
     const shouldShowOffersRail = usesOffersRail(pathname);
     const offerScroll = () => {
       if (!shouldShowOffersRail) return;
