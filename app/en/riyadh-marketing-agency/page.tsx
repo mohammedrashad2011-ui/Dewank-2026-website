@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { organizationId, siteUrl } from "../../lib/seo";
+import { arabicEquivalent } from "../../components/language-routes";
 import "./riyadh-marketing-agency.css";
+import "./riyadh-language-switch.css";
 
 const canonical = `${siteUrl}/en/riyadh-marketing-agency`;
 const socialImage = `${siteUrl}/dewank-social-preview-2026-07.png`;
@@ -195,6 +197,8 @@ export default function RiyadhMarketingAgencyPage() {
             <a href="#process">Process</a>
             <a href="#faq">FAQ</a>
           </nav>
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- the switch must load the Arabic document in full. */}
+          <a className="re-lang" href={arabicEquivalent("/en/riyadh-marketing-agency")} lang="ar" hrefLang="ar">العربية</a>
           <a className="re-nav-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">Discuss your project</a>
         </div>
       </header>
