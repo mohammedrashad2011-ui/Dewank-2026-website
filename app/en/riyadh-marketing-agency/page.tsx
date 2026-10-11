@@ -20,6 +20,8 @@ export const metadata: Metadata = {
     "branding agency Saudi Arabia",
     "performance marketing Riyadh",
   ],
+  // Preview pages are noindex, as on every other English page.
+  robots: { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
   alternates: {
     canonical,
     languages: {
