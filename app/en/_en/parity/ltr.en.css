@@ -39,3 +39,23 @@ html body .en-parity.studio-home .growth-shortcuts a {
 html body .en-parity.studio-home .growth-shortcuts a:hover {
   background: #2a2d33 !important;
 }
+
+/* Arabic labels, English only. The shared homepage styles hide the English label text (font-size: 0) and draw an
+   Arabic word with ::before. English labels are shown instead, and the Arabic ::before text is removed. */
+html body .en-parity.studio-home .section-label {
+  font-size: clamp(14px, 1.05vw, 16px) !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.02em !important;
+  direction: ltr !important;
+  text-align: start !important;
+}
+html body .en-parity.studio-home .section-label::before,
+html body .en-parity.studio-home .section-label::after,
+html body .en-parity.studio-home .growth-shortcuts::before {
+  content: none !important;
+}
+@media (max-width: 640px) {
+  html body .en-parity.studio-home .section-label {
+    font-size: 13px !important;
+  }
+}

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { enMetadata } from "./_en/metadata";
-/* eslint-disable @next/next/no-img-element -- static SVG and WebP case assets with explicit dimensions. */
 import { CONTACT_EMAIL, briefMailto } from "@/app/en/_en/lib/site";
 import { Footer } from "./_en/parity/footer";
 import { Header } from "./_en/parity/header";
@@ -24,7 +23,7 @@ const services = [
   {
     n: "01",
     title: "Attract demand",
-    en: "PAID GROWTH",
+    en: "PAID ADVERTISING",
     text: "Google and Meta with clear tracking, landing pages and optimisation decisions based on conversions, not clicks.",
     tags: ["Google Ads", "Meta Ads", "Tracking"],
     tone: "growth",
@@ -33,7 +32,7 @@ const services = [
   {
     n: "02",
     title: "Build the experience",
-    en: "WEB EXPERIENCES",
+    en: "WEBSITES",
     text: "Fast websites and landing pages that combine your message, SEO, conversion optimisation and tracking to lead visitors to one clear action.",
     tags: ["Web Design", "CRO", "SEO"],
     tone: "web",
@@ -42,7 +41,7 @@ const services = [
   {
     n: "03",
     title: "Build the brand and content",
-    en: "BRAND + CONTENT",
+    en: "BRAND AND CONTENT",
     text: "Positioning, identity and content that make your business clearer in your customers' minds and more consistent at every touchpoint.",
     tags: ["Branding", "Content", "Social"],
     tone: "brand",
@@ -51,7 +50,7 @@ const services = [
   {
     n: "04",
     title: "Automate the follow-up",
-    en: "AI AUTOMATION",
+    en: "AUTOMATION",
     text: "WhatsApp, CRM and smart automation that connect conversations to qualification, booking and follow-up, and cut manual work.",
     tags: ["WhatsApp", "CRM", "AI"],
     tone: "automation",
@@ -70,7 +69,7 @@ const selectedWork = [
   },
   {
     n: "02",
-    label: "NAMING → IDENTITY",
+    label: "BRAND IDENTITY",
     title: "From a naming decision to a complete fine jewellery identity",
     text: "BITHAN: positioning and naming checks, a name the client chose, and a bilingual Arabic and English identity with premium applications.",
     href: "/en/work#bithan",
@@ -130,10 +129,6 @@ export default function Home() {
 
       <section className="hybrid-hero shell">
         <div className="hero-copy">
-          <div className="hero-meta">
-            <span>DEWANK® CREATIVE GROWTH STUDIO</span>
-            <span>2026 / INTERNATIONAL</span>
-          </div>
           <h1>
             <span>We build the brand.</span>
             <span>We drive the demand.</span>
@@ -159,20 +154,12 @@ export default function Home() {
         </div>
 
         <MotionSystem />
-        <div className="hero-foot">
-          <span>Strategy first</span>
-          <span>Execution with purpose</span>
-          <span>Measure before scaling</span>
-        </div>
       </section>
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
-          <span className="section-label">Evidence before claims</span>
           <h2 id="home-proof-title">
-            The result matters.
-            <br />
-            <em>The path to it matters more.</em>
+            Results from a live clinic project.
           </h2>
           <p>
             In a live project for a cosmetic clinic, we connected marketing with conversations, booking and follow-up,
