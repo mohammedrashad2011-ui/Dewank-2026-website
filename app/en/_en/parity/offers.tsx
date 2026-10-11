@@ -4,15 +4,15 @@ import Link from "next/link";
 import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { offerPricing, type OfferPriceKey } from "@/app/offers/offer-pricing";
 
-// English copy of the Arabic HomeSelectedOffers, using the same approved price data (app/offers/offer-pricing.ts)
-// and the same country rules: saved country first, then the country lookup, then the fallback price.
+// English copy of the Arabic HomeSelectedOffers, using the approved price data (app/offers/offer-pricing.ts).
+//
+// USD first: every render, server and first client, shows the approved USD fallback price. A saved country
+// (localStorage, same key the Arabic site uses) then switches the amount to that country's approved price.
+// Unsupported, unknown or failed countries keep the USD price. No GBP/EUR conversion is ever made.
 //
 // Differences from the Arabic component, on purpose:
-// - Prices are shown only once a country is known. The Arabic default (SAR) is not used for English visitors,
-//   because GCC prices must not be presented as worldwide prices.
-// - The third-party country lookup (api.country.is) is gated by COUNTRY_LOOKUP_APPROVED below. It stays off until
-//   the privacy review is approved. Visitors who already have a saved country (set on the Arabic site, same origin)
-//   still see their price.
+// - The third-party country lookup (api.country.is) is gated by COUNTRY_LOOKUP_APPROVED below. It stays off until the
+//   English privacy page discloses it. Saved countries are still used.
 // - No popularity request, no Arabic ranking and no home_offer_select dataLayer event.
 // - Currency is shown as an ISO code (SAR, AED ...) because the config labels are Arabic.
 
@@ -78,11 +78,11 @@ function writeSavedCountry(country: string) {
   }
 }
 
-// Same selection as the Arabic component: a GCC price where one is approved, the approved fallback for any other country.
-function resolvePrice(key: OfferPriceKey, country: string) {
+// A country-specific approved price where one exists; otherwise the approved USD fallback. Never a SAR default.
+function resolvePrice(key: OfferPriceKey, country: string | null) {
   const config = offerPricing[key];
-  const local = config.prices[country];
-  if (local) return { amount: local.amount, currency: currencyCodes[country] ?? fallbackCurrencyCode };
+  const local = country ? config.prices[country] : undefined;
+  if (country && local) return { amount: local.amount, currency: currencyCodes[country] ?? fallbackCurrencyCode };
   return { amount: config.fallback.amount, currency: fallbackCurrencyCode };
 }
 
@@ -93,7 +93,7 @@ export function HomeSelectedOffers() {
   // so there is no hydration mismatch. A country from the lookup is kept separately and takes effect after the lookup.
   const savedCountry = useSyncExternalStore(noopSubscribe, readSavedCountry, () => null);
   const [lookedUpCountry, setLookedUpCountry] = useState<string | null>(null);
-  // null = unknown (lookup pending, disabled or failed). Neutral text is shown in that state.
+  // null = unknown (lookup pending, disabled or failed). The USD fallback is shown in that state.
   const country = savedCountry ?? lookedUpCountry;
 
   useEffect(() => {
@@ -125,7 +125,7 @@ export function HomeSelectedOffers() {
     };
   }, [savedCountry]);
 
-  const cards = useMemo(() => offers.map((offer) => ({ ...offer, price: country ? resolvePrice(offer.key, country) : null })), [country]);
+  const cards = useMemo(() => offers.map((offer) => ({ ...offer, price: resolvePrice(offer.key, country) })), [country]);
 
   return (
     <div className="en-offer-grid">
@@ -142,14 +142,8 @@ export function HomeSelectedOffers() {
           <p>{offer.text}</p>
           <div className="home-offer-bottom">
             <div className="home-offer-price">
-              {offer.price ? (
-                <>
-                  <strong>{amountFormatter.format(offer.price.amount)}</strong>
-                  <span>{offer.price.currency}</span>
-                </>
-              ) : (
-                <strong>Quoted after a scope call</strong>
-              )}
+              <strong>{amountFormatter.format(offer.price.amount)}</strong>
+              <span>{offer.price.currency}</span>
             </div>
             <b>View the service</b>
           </div>

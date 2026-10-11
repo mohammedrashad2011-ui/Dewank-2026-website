@@ -59,3 +59,14 @@ html body .en-parity.studio-home .growth-shortcuts::before {
     font-size: 13px !important;
   }
 }
+
+/* Hero orbit, English only, desktop and tablet. Three satellites sit on a 542px orbit, so their labels reach past the
+   565px panel edge (Brand identity, Paid advertising, AI automation). A 400px orbit keeps every label inside the panel.
+   Phones keep the Arabic orbit sizes: the 349px panel cannot hold eleven labels without moving the design. */
+@media (min-width: 641px) {
+  html body .en-parity.studio-home .planet-system .s2,
+  html body .en-parity.studio-home .planet-system .s5,
+  html body .en-parity.studio-home .planet-system .s7 {
+    --orbit-size: 400px;
+  }
+}
