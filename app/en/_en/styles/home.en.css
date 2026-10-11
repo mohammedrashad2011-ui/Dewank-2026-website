@@ -185,3 +185,204 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* Where to start: four numbered entry points into the service system. */
+.en-site .gateways {
+  padding: clamp(56px, 8vw, 104px) 0;
+  border-top: 1px solid var(--line);
+}
+.en-site .gateways h2 {
+  max-width: 24ch;
+  margin-top: 12px;
+}
+.en-site .gateways-intro {
+  max-width: 640px;
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.6;
+}
+.en-site .gateway-grid {
+  list-style: none;
+  padding: 0;
+  margin: 36px 0 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+  counter-reset: gateway;
+}
+.en-site .gateway {
+  position: relative;
+  height: 100%;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 26px 24px 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  color: var(--ink);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.en-site .gateway::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-deep));
+  transform: scaleX(0.25);
+  transform-origin: left center;
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.en-site .gateway:hover,
+.en-site .gateway:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(6, 26, 51, 0.12);
+  border-color: rgba(213, 168, 67, 0.7);
+}
+.en-site .gateway:hover::before,
+.en-site .gateway:focus-visible::before {
+  transform: scaleX(1);
+}
+.en-site .gateway:focus-visible {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 4px;
+}
+.en-site .gateway-no {
+  font-family: "EN Cormorant Garamond", Georgia, serif;
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--gold-deep);
+}
+.en-site .gateway-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.en-site .gateway-title {
+  font-family: "EN Cormorant Garamond", Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+}
+.en-site .gateway-text {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.en-site .gateway-cta {
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 15px;
+}
+@media (min-width: 720px) {
+  .en-site .gateway-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1000px) {
+  .en-site .gateway-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Proof: the clinic case, with its approximate results and qualifier kept beside them. */
+.en-site .home-proof {
+  padding: clamp(40px, 6vw, 72px) 0;
+  border-top: 1px solid var(--line);
+}
+.en-site .home-proof-card {
+  padding: clamp(28px, 4vw, 52px);
+  background: var(--navy);
+  color: #fff;
+  border-radius: 28px;
+  display: grid;
+  gap: 16px;
+}
+.en-site .home-proof-card .eyebrow {
+  color: var(--gold);
+}
+.en-site .home-proof-card h2 {
+  color: #fff;
+  margin: 0;
+  max-width: 22ch;
+}
+.en-site .home-proof-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 640px;
+  line-height: 1.6;
+}
+.en-site .home-proof-metrics {
+  margin: 8px 0 0;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+.en-site .home-proof-metrics > div {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+.en-site .home-proof-metrics dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.en-site .home-proof-metrics dd {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 16px;
+}
+.en-site .home-proof-metrics strong {
+  font-family: "EN Cormorant Garamond", Georgia, serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: #fff;
+  margin-right: 6px;
+}
+.en-site .home-proof-note {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+.en-site .home-proof-card .button.secondary {
+  justify-self: start;
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+@media (min-width: 900px) {
+  .en-site .home-proof-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .en-site .gateway {
+    transition: none;
+  }
+  .en-site .gateway::before {
+    transition: none;
+  }
+  .en-site .gateway:hover,
+  .en-site .gateway:focus-visible {
+    transform: none;
+  }
+}
+
+/* The hero flow sits on a navy panel. Its colours are set here explicitly, because the Arabic site defines a global
+   .flow class with its own colours. Contrast: stage labels gold on navy, descriptions 78% white on navy (AA+). */
+.en-site .flow { background: #0c1525; color: #fff; }
+.en-site .flow strong { color: #fff; }
+.en-site .flow-label { color: var(--gold); }
+.en-site .flow p { color: rgba(255, 255, 255, 0.78); }

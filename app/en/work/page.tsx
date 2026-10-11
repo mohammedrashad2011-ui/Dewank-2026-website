@@ -5,8 +5,14 @@ import Link from "next/link";
 import { briefMailto, whatsappHref } from "@/app/en/_en/lib/site";
 import "../_en/styles/work.en.css";
 
-
-const bithanJourney = ["Naming", "Shortlist", "Client choice", "Identity", "Applications"];
+// Facts, qualifiers and case details are unchanged from the verified English portfolio copy.
+const bithanJourney = [
+  { step: "Naming", text: "Linguistic and emotional territories defined before any name is generated." },
+  { step: "Shortlist", text: "Broad generation, firm rejection, then a selective shortlist." },
+  { step: "Client choice", text: "The client chose BITHAN after strategic exploration and development rounds." },
+  { step: "Identity", text: "A hand sketch refined into a precise, contemporary mark." },
+  { step: "Applications", text: "Premium brand applications and usage rules for production." },
+];
 
 const bithanDelivered = [
   "A chosen name, selected by the client from a shortlist after strategic exploration and development rounds",
@@ -124,42 +130,86 @@ const method = [
 
 function WorkPage() {
   return (
-    <>
-      <section className="hero shell">
-        <span className="eyebrow">Selected work</span>
-        <h1>
-          Brand, identity and automation work, <em>with the reasoning behind each decision.</em>
-        </h1>
-        <p className="lead">
-          Real projects from Dewank: a naming and identity project for a fine jewellery brand, a follow-up automation
-          case for a clinic, and identity work across several sectors. Each one shows the challenge, the decision, what
-          was delivered and the results as we have published them.
-        </p>
-        <nav className="case-index" aria-label="Work index">
-          <a href="#bithan">Naming and identity</a>
-          <a href="#clinic">Automation case</a>
-          <a href="#identity">Identity work</a>
-          <a href="#concepts">Concept projects</a>
-          <a href="#testimonials">Client feedback</a>
-        </nav>
+    <div className="wk">
+      <section className="wk-hero shell" aria-labelledby="work-title">
+        <div className="wk-hero-copy">
+          <span className="eyebrow">Selected work</span>
+          <h1 id="work-title">
+            Brand, identity and automation work, <em>with the reasoning behind each decision.</em>
+          </h1>
+          <p className="lead">
+            Real projects from Dewank: a naming and identity project for a fine jewellery brand, a follow-up automation
+            case for a clinic, and identity work across several sectors. Each one shows the challenge, the decision,
+            what was delivered and the results as we have published them.
+          </p>
+          <nav className="wk-index" aria-label="Work index">
+            <a href="#bithan">
+              <span className="wk-index-no">01</span>
+              <span>
+                <strong>Naming and identity</strong>
+                <small>BITHAN, fine jewellery, Qatar</small>
+              </span>
+            </a>
+            <a href="#clinic">
+              <span className="wk-index-no">02</span>
+              <span>
+                <strong>Automation case</strong>
+                <small>Clinic follow-up, Bahrain</small>
+              </span>
+            </a>
+            <a href="#identity">
+              <span className="wk-index-no">03</span>
+              <span>
+                <strong>Identity work</strong>
+                <small>Four sectors</small>
+              </span>
+            </a>
+            <a href="#concepts">
+              <span className="wk-index-no">04</span>
+              <span>
+                <strong>Concept projects</strong>
+                <small>How we think, not client work</small>
+              </span>
+            </a>
+          </nav>
+        </div>
+        <figure className="wk-hero-art">
+          <img
+            src="/en/work/bithan/hero.svg"
+            alt="Final approved identity cover for BITHAN Fine Jewelry"
+            width={1126}
+            height={1591}
+            decoding="async"
+            fetchPriority="high"
+          />
+        </figure>
       </section>
 
-      <section className="section shell case" id="bithan" aria-labelledby="bithan-title">
-        <span className="eyebrow">Featured case · Naming and identity · Qatar</span>
-        <h2 id="bithan-title">BITHAN: from a naming brief to a complete fine jewellery identity.</h2>
-        <p className="lead">
-          A fine jewellery house preparing its digital launch in Qatar, with ambitions to grow into a wider commercial
-          and physical presence. The name had to carry prestige, work when spoken and read, and remain distinctive.
-        </p>
+      <section className="wk-chapter shell" id="bithan" aria-labelledby="bithan-title">
+        <header className="wk-chapter-head">
+          <span className="wk-no">Case 01</span>
+          <span className="eyebrow">Naming and identity · Qatar</span>
+          <h2 id="bithan-title">BITHAN: from a naming brief to a complete fine jewellery identity.</h2>
+          <p className="lead">
+            A fine jewellery house preparing its digital launch in Qatar, with ambitions to grow into a wider commercial
+            and physical presence. The name had to carry prestige, work when spoken and read, and remain distinctive.
+          </p>
+        </header>
 
-        <ol className="journey" aria-label="Project stages">
-          {bithanJourney.map((step) => (
-            <li key={step}>{step}</li>
+        <ol className="wk-journey" aria-label="Project stages">
+          {bithanJourney.map((item, index) => (
+            <li key={item.step}>
+              <span className="wk-journey-no" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3>{item.step}</h3>
+              <p>{item.text}</p>
+            </li>
           ))}
         </ol>
 
-        <div className="case-grid">
-          <div>
+        <div className="wk-story">
+          <div className="wk-story-text">
             <h3>What we did</h3>
             <p>
               Before generating any names, we defined the linguistic and emotional territories worth exploring. We then
@@ -171,9 +221,9 @@ function WorkPage() {
               keeps the Arabic character of the first direction.
             </p>
           </div>
-          <div>
+          <div className="wk-story-list">
             <h3>What was delivered</h3>
-            <ul className="checklist">
+            <ul className="wk-checklist">
               {bithanDelivered.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -181,130 +231,150 @@ function WorkPage() {
           </div>
         </div>
 
-        <figure className="case-figure">
-          <img src="/en/work/bithan/hero.svg" alt="Final approved identity cover for BITHAN Fine Jewelry" loading="lazy" decoding="async" width={1200} height={800} />
-        </figure>
-
-        <div className="gallery" aria-label="BITHAN identity stages">
+        <div className="wk-gallery" aria-label="BITHAN identity stages">
+          <figure className="wk-gallery-feature">
+            <img src="/en/work/bithan/applications.svg" alt="BITHAN brand applications on a jewellery box, shopping bag, business card and social post" loading="lazy" decoding="async" width={1126} height={1591} />
+            <figcaption>Brand applications</figcaption>
+          </figure>
           <figure>
-            <img src="/en/work/bithan/sketch.svg" alt="BITHAN original sketch page, the starting point of the identity" loading="lazy" decoding="async" width={1200} height={800} />
+            <img src="/en/work/bithan/sketch.svg" alt="BITHAN original sketch page, the starting point of the identity" loading="lazy" decoding="async" width={1126} height={1591} />
             <figcaption>Original sketch</figcaption>
           </figure>
           <figure>
-            <img src="/en/work/bithan/evolution.svg" alt="BITHAN evolution from sketch to final mark" loading="lazy" decoding="async" width={1200} height={800} />
+            <img src="/en/work/bithan/evolution.svg" alt="BITHAN evolution from sketch to final mark" loading="lazy" decoding="async" width={1126} height={1591} />
             <figcaption>From sketch to final mark</figcaption>
           </figure>
           <figure>
-            <img src="/en/work/bithan/logo-suite.svg" alt="BITHAN final logo suite showing seven versions of the logo" loading="lazy" decoding="async" width={1200} height={800} />
+            <img src="/en/work/bithan/logo-suite.svg" alt="BITHAN final logo suite showing seven versions of the logo" loading="lazy" decoding="async" width={1126} height={1591} />
             <figcaption>Final logo suite</figcaption>
           </figure>
           <figure>
-            <img src="/en/work/bithan/palette.svg" alt="BITHAN master colour palette and print specifications" loading="lazy" decoding="async" width={1200} height={800} />
+            <img src="/en/work/bithan/palette.svg" alt="BITHAN master colour palette and print specifications" loading="lazy" decoding="async" width={1126} height={1591} />
             <figcaption>Colour palette and print specs</figcaption>
-          </figure>
-          <figure>
-            <img src="/en/work/bithan/applications.svg" alt="BITHAN brand applications on a jewellery box, shopping bag, business card and social post" loading="lazy" decoding="async" width={1200} height={800} />
-            <figcaption>Brand applications</figcaption>
           </figure>
         </div>
 
-        <div className="notice case-note">
+        <p className="wk-note">
           <strong>Scope and limits.</strong> Domain, online presence and conflict checks were preliminary practical
           checks, not a legal opinion. Final legal verification of a trademark should be done with the competent
           authority or a qualified legal adviser.
-        </div>
+        </p>
       </section>
 
-      <section className="section shell case" id="clinic" aria-labelledby="clinic-title">
-        <span className="eyebrow">Case · WhatsApp, CRM and automation · Bahrain · Anonymised</span>
-        <h2 id="clinic-title">From scattered messages to a follow-up journey you can measure.</h2>
-        <p className="lead">A cosmetic clinic whose enquiries came from campaigns, but whose follow-up depended on manual replies.</p>
+      <section className="wk-chapter wk-clinic shell" id="clinic" aria-labelledby="clinic-title">
+        <header className="wk-chapter-head">
+          <span className="wk-no">Case 02</span>
+          <span className="eyebrow">WhatsApp, CRM and automation · Bahrain · Anonymised</span>
+          <h2 id="clinic-title">From scattered messages to a follow-up journey you can measure.</h2>
+          <p className="lead">
+            A cosmetic clinic whose enquiries came from campaigns, but whose follow-up depended on manual replies.
+          </p>
+        </header>
 
-        <div className="facts">
-          {clinicFacts.map((fact) => (
-            <div className="fact" key={fact.label}>
+        <ol className="wk-clinic-steps" aria-label="How the clinic case unfolded">
+          {clinicFacts.map((fact, index) => (
+            <li key={fact.label}>
+              <span className="wk-clinic-no" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <h3>{fact.label}</h3>
               <p>{fact.text}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        <div className="metrics" aria-label="Approximate results from the live operation">
-          <p className="metrics-kicker">Approximate results from the live operation</p>
-          <div className="metric-row">
+        <div className="wk-metrics" aria-label="Approximate results from the live operation">
+          <p className="wk-metrics-kicker">Approximate results from the live operation</p>
+          <div className="wk-metric-row">
             {clinicMetrics.map((m) => (
-              <div className="metric-card" key={m.label}>
+              <div className="wk-metric" key={m.label}>
                 <strong>{m.value}</strong>
-                <span className="metric-unit">{m.unit}</span>
-                <span>{m.label}</span>
+                <span className="wk-metric-unit">{m.unit}</span>
+                <span className="wk-metric-label">{m.label}</span>
               </div>
             ))}
           </div>
-          <p className="metrics-note">
+          <p className="wk-metrics-note">
             These are approximate figures from the live project. Results depend on message volume, offer quality and how
             fast the team responds, so they should not be read as a guarantee.
           </p>
         </div>
 
         <div className="button-row">
-          <Link className="button secondary" href="/en/services">
-            See the automation service
+          <Link className="button secondary" href="/en/whatsapp-crm-automation">
+            Read about WhatsApp and CRM automation
           </Link>
         </div>
       </section>
 
-      <section className="section shell" id="identity" aria-labelledby="identity-title">
-        <span className="eyebrow">Identity work</span>
-        <h2 id="identity-title">Brands we have built a lasting presence for.</h2>
-        <div className="grid two identity-grid">
+      <section className="wk-chapter shell" id="identity" aria-labelledby="identity-title">
+        <header className="wk-chapter-head">
+          <span className="wk-no">Case 03</span>
+          <span className="eyebrow">Identity work</span>
+          <h2 id="identity-title">Brands we have built a lasting presence for.</h2>
+        </header>
+        <div className="wk-identity-grid">
           {identityWork.map((item) => (
-            <article className="card identity-card" key={item.name}>
+            <article className="wk-identity" key={item.name}>
               <figure>
                 <img src={item.image} alt={`${item.name} identity work`} loading="lazy" decoding="async" width={1200} height={900} />
               </figure>
-              <span className="tag">{item.sector}</span>
-              <h3>{item.name}</h3>
-              <p>{item.summary}</p>
+              <div className="wk-identity-body">
+                <span className="wk-tag">{item.sector}</span>
+                <h3>{item.name}</h3>
+                <p>{item.summary}</p>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section shell" id="concepts" aria-labelledby="concepts-title">
-        <span className="eyebrow">Concept work</span>
-        <h2 id="concepts-title">Concept projects that show how we think.</h2>
-        <p className="lead">
-          These are concept projects, not client engagements. We use them to show how we approach positioning, identity
-          and experience.
-        </p>
-        <div className="grid three" style={{ marginTop: 28 }}>
+      <section className="wk-chapter shell" id="concepts" aria-labelledby="concepts-title">
+        <header className="wk-chapter-head">
+          <span className="wk-no">Case 04</span>
+          <span className="eyebrow">Concept work</span>
+          <h2 id="concepts-title">Concept projects that show how we think.</h2>
+          <p className="lead">
+            These are concept projects, not client engagements. We use them to show how we approach positioning, identity
+            and experience.
+          </p>
+        </header>
+        <div className="wk-concepts">
           {concepts.map((c) => (
-            <article className="card" key={c.name}>
-              <span className="tag">{c.type}</span>
+            <article className="wk-concept" key={c.name}>
+              <span className="wk-tag">{c.type}</span>
               <h3 dir="ltr">{c.name}</h3>
-              <p>
-                <strong>Challenge:</strong> {c.challenge}
-              </p>
-              <p>
-                <strong>Decision:</strong> {c.decision}
-              </p>
-              <p>
-                <strong>Scope:</strong> {c.scope}
-              </p>
-              <p>
-                <strong>Targeted impact:</strong> {c.target}
-              </p>
+              <dl>
+                <div>
+                  <dt>Challenge</dt>
+                  <dd>{c.challenge}</dd>
+                </div>
+                <div>
+                  <dt>Decision</dt>
+                  <dd>{c.decision}</dd>
+                </div>
+                <div>
+                  <dt>Scope</dt>
+                  <dd>{c.scope}</dd>
+                </div>
+                <div>
+                  <dt>Targeted impact</dt>
+                  <dd>{c.target}</dd>
+                </div>
+              </dl>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section shell" id="testimonials" aria-labelledby="testimonials-title">
-        <span className="eyebrow">Client feedback</span>
-        <h2 id="testimonials-title">What clients say.</h2>
-        <div className="grid three" style={{ marginTop: 28 }}>
+      <section className="wk-chapter shell" id="testimonials" aria-labelledby="testimonials-title">
+        <header className="wk-chapter-head">
+          <span className="eyebrow">Client feedback</span>
+          <h2 id="testimonials-title">What clients say.</h2>
+        </header>
+        <div className="wk-quotes">
           {testimonials.map((t) => (
-            <figure className="card testimonial" key={t.name}>
+            <figure className="wk-quote" key={t.name}>
               <blockquote>“{t.quote}”</blockquote>
               <figcaption>
                 <strong>{t.name}</strong> <span>· {t.country}</span>
@@ -312,18 +382,23 @@ function WorkPage() {
             </figure>
           ))}
         </div>
-        <p className="note-muted" style={{ marginTop: 16 }}>
+        <p className="wk-note wk-note-muted">
           Feedback was originally given in English or translated for publication; wording has been lightly adapted for
           clarity while keeping its meaning.
         </p>
       </section>
 
-      <section className="section shell" aria-labelledby="method-title">
-        <span className="eyebrow">How we work</span>
-        <h2 id="method-title">From the challenge to a system you can run and measure.</h2>
-        <ol className="steps" style={{ marginTop: 28 }}>
+      <section className="wk-chapter shell" aria-labelledby="method-title">
+        <header className="wk-chapter-head">
+          <span className="eyebrow">How we work</span>
+          <h2 id="method-title">From the challenge to a system you can run and measure.</h2>
+        </header>
+        <ol className="wk-method">
           {method.map((m) => (
             <li key={m.no}>
+              <span className="wk-method-no" aria-hidden="true">
+                {m.no}
+              </span>
               <h3>{m.title}</h3>
               <p>{m.text}</p>
             </li>
@@ -331,13 +406,13 @@ function WorkPage() {
         </ol>
       </section>
 
-      <section className="section shell">
-        <div className="band">
+      <section className="shell wk-cta" aria-labelledby="work-cta-title">
+        <div className="wk-cta-inner">
           <span className="eyebrow">Next step</span>
-          <h2>Have a project in mind?</h2>
-          <p style={{ maxWidth: 640 }}>Send a short brief. We will tell you whether we are the right fit and what the first step should be.</p>
+          <h2 id="work-cta-title">Have a project in mind?</h2>
+          <p>Send a short brief. We will tell you whether we are the right fit and what the first step should be.</p>
           <div className="button-row">
-            <a className="button primary" href={briefMailto("Project brief from the work page")} style={{ background: "#d5a843", color: "#061a33" }}>
+            <a className="button primary" href={briefMailto("Project brief from the work page")}>
               Email a brief
             </a>
             <a className="button secondary" href={whatsappHref("Hello Dewank, I saw your work and would like to discuss a project. My main goal is: ")} rel="noopener noreferrer" target="_blank">
@@ -346,11 +421,15 @@ function WorkPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
-export const metadata = enMetadata("Work", "Brand naming and identity for a fine jewellery brand in Qatar, a clinic follow-up automation case in Bahrain, and identity work across four sectors. Each project shows the challenge, the decision and the result as published.", "/en/work");
+export const metadata = enMetadata(
+  "Work",
+  "Brand naming and identity for a fine jewellery brand in Qatar, a clinic follow-up automation case in Bahrain, and identity work across four sectors. Each project shows the challenge, the decision, what was delivered and the results as published.",
+  "/en/work",
+);
 
 export default function Page() {
   return (

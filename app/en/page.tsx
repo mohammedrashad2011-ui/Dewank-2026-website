@@ -49,6 +49,38 @@ const faqs = [
   },
 ];
 
+// Four entry points into the service system. Each one leads to a dedicated English page.
+const gateways = [
+  {
+    label: "Paid media",
+    title: "Qualified demand from Google and Meta",
+    text: "Campaigns measured by enquiries, with the landing path and conversion tracking set up before spend increases.",
+    href: "/en/paid-advertising",
+    cta: "See paid advertising",
+  },
+  {
+    label: "Websites",
+    title: "A site that explains the offer and asks for the next step",
+    text: "Mobile-first websites and landing pages, with SEO foundations, analytics and clear contact paths.",
+    href: "/en/website-design",
+    cta: "See website design",
+  },
+  {
+    label: "Brand",
+    title: "A name and identity with a reason to exist",
+    text: "Naming with preliminary checks, then the strategy and identity built on top of it.",
+    href: "/en/brand-naming",
+    cta: "See brand naming",
+  },
+  {
+    label: "Automation",
+    title: "Fewer enquiries lost between the first message and the booking",
+    text: "WhatsApp, CRM and workflow automation, with a clear handover to your team when a decision is needed.",
+    href: "/en/whatsapp-crm-automation",
+    cta: "See WhatsApp and CRM",
+  },
+];
+
 // FAQPage data generated from the same list that is rendered below, so the markup matches the visible questions.
 const faqJsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -131,6 +163,30 @@ function HomePage() {
         </ul>
       </section>
 
+      <section className="gateways shell reveal" aria-labelledby="gateways-title">
+        <span className="eyebrow">Where to start</span>
+        <h2 id="gateways-title">Four starting points. One system behind them.</h2>
+        <p className="gateways-intro">
+          Most clients begin with one of these. Each starting point is planned with the others in mind, so the first
+          project can grow into a connected system without being rebuilt.
+        </p>
+        <ol className="gateway-grid">
+          {gateways.map((g, index) => (
+            <li key={g.href}>
+              <Link className="gateway" href={g.href}>
+                <span className="gateway-no" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="gateway-label">{g.label}</span>
+                <strong className="gateway-title">{g.title}</strong>
+                <span className="gateway-text">{g.text}</span>
+                <span className="gateway-cta">{g.cta} →</span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <section className="section shell reveal" aria-labelledby="system-title">
         <span className="eyebrow">The services</span>
         <h2 id="system-title">Eight disciplines. One connected plan.</h2>
@@ -184,6 +240,44 @@ function HomePage() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="home-proof shell reveal" aria-labelledby="proof-title">
+        <div className="home-proof-card">
+          <span className="eyebrow">Case · Clinic follow-up · Bahrain · Anonymised</span>
+          <h2 id="proof-title">From scattered messages to a follow-up journey you can measure.</h2>
+          <p>
+            A cosmetic clinic whose enquiries came from campaigns, but whose follow-up depended on manual replies. We
+            connected the conversation to qualification, booking, reminders and follow-up in one CRM.
+          </p>
+          <dl className="home-proof-metrics" aria-label="Approximate results from the live operation">
+            <div>
+              <dt>Approximate results</dt>
+              <dd>
+                <strong>+25</strong> points in attendance rate (approx.)
+              </dd>
+            </div>
+            <div>
+              <dt>Approximate results</dt>
+              <dd>
+                <strong>+30%</strong> conversion from enquiry to booking (approx.)
+              </dd>
+            </div>
+            <div>
+              <dt>Approximate results</dt>
+              <dd>
+                <strong>−40%</strong> reception workload (approx.)
+              </dd>
+            </div>
+          </dl>
+          <p className="home-proof-note">
+            Approximate figures from the live project. Results depend on message volume, offer quality and response
+            speed, so they are not a guarantee.
+          </p>
+          <Link className="button secondary" href="/en/work#clinic">
+            Read the clinic case
+          </Link>
         </div>
       </section>
 

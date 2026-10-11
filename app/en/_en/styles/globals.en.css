@@ -2,14 +2,14 @@
    Keep this file independent of the Arabic production stylesheets. */
 @font-face {
   font-family: "EN Alexandria";
-  src: url("/en/fonts/alexandria-latin.woff2") format("woff2");
+  src: url("/fonts/alexandria-latin.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "EN Cormorant Garamond";
-  src: url("/en/fonts/cormorant-latin.woff2") format("woff2");
+  src: url("/fonts/cormorant-latin.woff2") format("woff2");
   font-weight: 300 700;
   font-style: normal;
   font-display: swap;

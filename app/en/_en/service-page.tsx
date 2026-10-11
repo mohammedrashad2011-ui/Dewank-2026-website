@@ -52,17 +52,32 @@ export function ServicePage({ page }: { page: ServiceDetail }) {
   return (
     <div className="svc">
       <section className="svc-hero shell" aria-labelledby="svc-title">
-        <span className="eyebrow">{page.eyebrow}</span>
-        <h1 id="svc-title">{page.h1}</h1>
-        <p className="lead">{page.lead}</p>
-        <div className="button-row">
-          <Link className="button primary" href="/en/contact">
-            Request a scope
-          </Link>
-          <a className="button secondary" href={briefMailto(page.scopeSubject)}>
-            Email a brief
-          </a>
+        <div className="svc-hero-copy">
+          <span className="eyebrow">{page.eyebrow}</span>
+          <h1 id="svc-title">{page.h1}</h1>
+          <p className="lead">{page.lead}</p>
+          <div className="button-row">
+            <Link className="button primary" href="/en/contact">
+              Request a scope
+            </Link>
+            <a className="button secondary" href={briefMailto(page.scopeSubject)}>
+              Email a brief
+            </a>
+          </div>
         </div>
+        <aside className="svc-glance" aria-label="At a glance">
+          <p className="svc-glance-kicker">At a glance</p>
+          <ul>
+            {page.included.slice(0, 3).map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p className="svc-glance-steps">
+            <strong>{page.steps.length} steps</strong>
+            <span>{page.steps.map((s) => s.title).join(" → ")}</span>
+          </p>
+          <p className="svc-glance-foot">Scoped and quoted in writing after a short brief. No fixed packages.</p>
+        </aside>
       </section>
 
       {page.intro && (
