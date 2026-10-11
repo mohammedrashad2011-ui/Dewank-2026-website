@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { EnShell } from "../_en/shell";
 import { enMetadata } from "../_en/metadata";
 import { CONTACT_EMAIL, WHATSAPP_NUMBER, briefMailto, whatsappHref } from "@/app/(en)/en/_en/lib/site";
@@ -88,7 +89,7 @@ function ContactPage() {
         <div className="notice">
           <p style={{ marginBottom: 8 }}>
             <strong>How we use your details:</strong> only to reply to your enquiry. Read the{" "}
-            <a href="/en/privacy">privacy notice</a> for the full details.
+            <Link href="/en/privacy">privacy notice</Link> for the full details.
           </p>
           <p style={{ marginBottom: 0 }}>
             Pricing is custom. We do not publish fixed prices on this site, and every quote is written after a scoping

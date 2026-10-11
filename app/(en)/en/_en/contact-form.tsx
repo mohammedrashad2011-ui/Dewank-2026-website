@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { COUNTRIES, SERVICES, TIMELINES, LIMITS, validateContact, type FieldErrors } from "@/app/(en)/en/_en/lib/contact-schema";
 
@@ -280,7 +281,7 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
             <input id="consent" name="consent" type="checkbox" disabled={disabled} aria-invalid={!!errors.consent} aria-describedby={describe("consent")} />
             <span>
               I agree that Dewank may reply to my enquiry. I have read the{" "}
-              <a href="/en/privacy">privacy notice</a>.
+              <Link href="/en/privacy">privacy notice</Link>.
             </span>
           </label>
           {errors.consent && <p className="field-error" id="consent-error">{errors.consent}</p>}

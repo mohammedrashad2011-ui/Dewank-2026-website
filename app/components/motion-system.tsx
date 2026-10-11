@@ -26,6 +26,7 @@ export default function MotionSystem() {
         <div className="space-glow" aria-hidden="true" />
         <div className="service-ring ring-a" aria-hidden="true" />
 
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- kept as a plain anchor: the approved orbit markup must not change. Same-group link. */}
         <a className="dewank-sun" href="/services" aria-label="استكشف خدمات ديوانك">
           <span>ديوانك</span>
         </a>
