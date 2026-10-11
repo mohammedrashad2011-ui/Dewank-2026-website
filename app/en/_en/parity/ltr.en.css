@@ -1,0 +1,18 @@
+/* Left-to-right adaptation of the Arabic homepage (English only).
+   The Arabic stylesheets set direction: rtl and text-align: right on the homepage, including !important rules.
+   These overrides use a more specific selector than theirs, so the English page reads and aligns left to right.
+   The homepage stylesheets contain no centred text, so start alignment changes nothing else. */
+html body .en-parity.studio-home,
+html body .en-parity.studio-home * {
+  direction: ltr !important;
+  text-align: start !important;
+}
+
+/* English headlines are longer than the Arabic ones. On phones the English hero headline is set a little smaller so the
+   primary CTA stays in the first screen (English only; the Arabic headline keeps its own size). */
+@media (max-width: 640px) {
+  html body .en-parity.studio-home .hybrid-hero h1 {
+    font-size: 38px !important;
+    line-height: 1.02 !important;
+  }
+}

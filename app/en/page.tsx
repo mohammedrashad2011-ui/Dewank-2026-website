@@ -1,101 +1,112 @@
-import { EnShell } from "./_en/shell";
+import Link from "next/link";
 import { enMetadata } from "./_en/metadata";
 /* eslint-disable @next/next/no-img-element -- static SVG and WebP case assets with explicit dimensions. */
-import Link from "next/link";
-import { CONTACT_EMAIL, WHATSAPP_NUMBER, briefMailto, whatsappHref } from "@/app/en/_en/lib/site";
-import { SERVICE_CATEGORIES, categoryHref } from "@/app/en/_en/lib/services";
-import "./_en/styles/home.en.css";
+import { CONTACT_EMAIL, briefMailto } from "@/app/en/_en/lib/site";
+import { Footer } from "./_en/parity/footer";
+import { Header } from "./_en/parity/header";
+import MotionSystem from "./_en/parity/motion-system";
+import HomeTestimonials from "./_en/parity/testimonials";
+import { HomeSelectedOffers } from "./_en/parity/offers";
+// The Arabic homepage's visual system, reused unchanged. Every class below matches the Arabic homepage so the
+// English page renders with the same components, spacing, motion and responsive rules.
+import "../home-growth-upgrade.css";
+import "../home-conversion-refinement.css";
+import "../home-mobile-service-cards.css";
+import "./_en/parity/offer-grid.en.css";
+import "./_en/styles/hide-arabic-widgets.css";
+import "./_en/parity/ltr.en.css";
 
-// The four business entry points, in the order a visitor is most likely to need them.
-const orbit = [
-  { pos: "top", label: "Branding", href: "/en/brand-naming" },
-  { pos: "right", label: "Paid growth", href: "/en/paid-advertising" },
-  { pos: "bottom", label: "Websites", href: "/en/website-design" },
-  { pos: "left", label: "AI & automation", href: "/en/ai-automation" },
-] as const;
+const whatsappHref =
+  "https://wa.me/97339066649?text=" + encodeURIComponent("Hello Dewank, I would like to discuss my growth. The business is: ");
 
-// Service bento. Copy is the verified English gateway copy; only the visual treatment is new.
-const bento = [
+// Service entry points. Same four tones and order as the Arabic bento; English copy and English routes.
+const services = [
   {
-    id: "brand",
-    kicker: "Branding",
-    title: "A name and identity with a reason to exist",
-    text: "Naming with preliminary checks, then the strategy and identity built on top of it.",
-    href: "/en/brand-naming",
-    cta: "See brand naming",
-    tone: "paper",
-  },
-  {
-    id: "paid",
-    kicker: "Paid growth",
-    title: "Qualified demand from Google and Meta",
-    text: "Campaigns measured by enquiries, with the landing path and conversion tracking set up before spend increases.",
+    n: "01",
+    title: "Attract demand",
+    en: "PAID GROWTH",
+    text: "Google and Meta with clear tracking, landing pages and optimisation decisions based on conversions, not clicks.",
+    tags: ["Google Ads", "Meta Ads", "Tracking"],
+    tone: "growth",
     href: "/en/paid-advertising",
-    cta: "See paid advertising",
-    tone: "lime",
   },
   {
-    id: "web",
-    kicker: "Websites",
-    title: "A site that explains the offer and asks for the next step",
-    text: "Mobile-first websites and landing pages, with SEO foundations, analytics and clear contact paths.",
+    n: "02",
+    title: "Build the experience",
+    en: "WEB EXPERIENCES",
+    text: "Fast websites and landing pages that combine your message, SEO, conversion optimisation and tracking to lead visitors to one clear action.",
+    tags: ["Web Design", "CRO", "SEO"],
+    tone: "web",
     href: "/en/website-design",
-    cta: "See website design",
-    tone: "ink",
   },
   {
-    id: "ai",
-    kicker: "AI & automation",
-    title: "Fewer enquiries lost between the first message and the booking",
-    text: "WhatsApp, CRM and workflow automation, with a clear handover to your team when a decision is needed.",
-    href: "/en/ai-automation",
-    cta: "See AI and automation",
-    tone: "coral",
+    n: "03",
+    title: "Build the brand and content",
+    en: "BRAND + CONTENT",
+    text: "Positioning, identity and content that make your business clearer in your customers' minds and more consistent at every touchpoint.",
+    tags: ["Branding", "Content", "Social"],
+    tone: "brand",
+    href: "/en/services#brand",
   },
-] as const;
-
-// Clinic case: approximate figures from the live project, with the qualifiers kept exactly as published.
-const clinicMetrics = [
-  { value: "+25", unit: "points", label: "in attendance rate (approx.)" },
-  { value: "+30%", unit: "", label: "conversion from enquiry to booking (approx.)" },
-  { value: "−40%", unit: "", label: "reception workload (approx.)" },
+  {
+    n: "04",
+    title: "Automate the follow-up",
+    en: "AI AUTOMATION",
+    text: "WhatsApp, CRM and smart automation that connect conversations to qualification, booking and follow-up, and cut manual work.",
+    tags: ["WhatsApp", "CRM", "AI"],
+    tone: "automation",
+    href: "/en/whatsapp-crm-automation",
+  },
 ];
 
-const identityTiles = [
-  { name: "ReachwayAD", sector: "Marketing and advertising", image: "/en/work/reachwayad-remastered.webp" },
-  { name: "Clinika", sector: "Beauty and care", image: "/en/work/clinika-remastered.webp" },
-  { name: "Arab Sun", sector: "Travel and tourism", image: "/en/work/arab-sun-remastered.webp" },
-  { name: "Dar Al Safa", sector: "Healthcare", image: "/en/work/dar-al-safa-remastered.webp" },
+// Verified case work. Titles and descriptions follow the authentic case copy on the Work page.
+const selectedWork = [
+  {
+    n: "01",
+    label: "AUTOMATION",
+    title: "From scattered messages to a booking journey you can measure",
+    text: "A WhatsApp and CRM system that connects replies, qualification, booking, reminders and follow-up.",
+    href: "/en/work#clinic",
+  },
+  {
+    n: "02",
+    label: "NAMING → IDENTITY",
+    title: "From a naming decision to a complete fine jewellery identity",
+    text: "BITHAN: positioning and naming checks, a name the client chose, and a bilingual Arabic and English identity with premium applications.",
+    href: "/en/work#bithan",
+  },
+  {
+    n: "03",
+    label: "STRATEGY",
+    title: "Strategic decisions before execution",
+    text: "Projects that show how we think about the challenge, positioning and experience before the final form.",
+    href: "/en/work#concepts",
+  },
 ];
 
 const method = [
-  { title: "Send your brief", text: "Tell us the goal, the market and what you have today." },
-  { title: "Scoping conversation", text: "We confirm the problem, the constraints and what is out of scope." },
-  { title: "Written proposal", text: "A fixed scope, deliverables, timeline and a clear price in writing." },
-];
-
-const differences = [
-  { title: "Strategy first", text: "We agree the decision before any production starts." },
-  { title: "Measured by enquiries", text: "We report on conversations and bookings, not only reach." },
-  { title: "Written scope", text: "Every engagement starts with a written scope and a written quote." },
+  ["01", "Understand", "The context, the audience and where growth breaks down."],
+  ["02", "Decide", "The opportunity, the message and the business priority."],
+  ["03", "Build", "The brand, website, campaign or system that fits the priority."],
+  ["04", "Measure", "We review what happens and improve what drives the result."],
 ];
 
 const faqs = [
   {
-    q: "Do you work with companies in other countries?",
-    a: "Yes. We work remotely with businesses in other markets when the scope and time zone fit. Tell us your market and we will confirm.",
+    q: "Where should I start?",
+    a: "Start with the problem closest to revenue or lost customers. If demand is weak, we review attraction first. If visits arrive but do not convert, we look at the website and the offer.",
   },
   {
-    q: "How is pricing set?",
-    a: "Every engagement is scoped first and quoted in writing. We do not publish fixed packages on this site.",
+    q: "Do I need more than one service?",
+    a: "No. We prefer to start with the smallest scope that can solve the current problem and show its effect, then add only what the results justify.",
   },
   {
-    q: "Do you guarantee rankings or trademark registration?",
-    a: "No. We guarantee the quality of the work and the clarity of the process. Rankings depend on many factors, and trademark registration is decided by the official authority.",
+    q: "When is automation the right step?",
+    a: "When the same questions, follow-ups and bookings keep repeating, or when enquiries are lost to slow replies. Automation takes over routine steps, while your team keeps the decisions that need judgement.",
   },
 ];
 
-// FAQPage data generated from the same list that is rendered below, so the markup matches the visible questions.
+// FAQPage data generated from the list rendered below, so the markup matches the visible questions.
 const faqJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -106,250 +117,254 @@ const faqJsonLd = JSON.stringify({
   })),
 }).replace(/</g, "\\u003c");
 
-// Small, geometric service symbols drawn in SVG. Decorative only.
-function ServiceSymbol({ id }: { id: string }) {
-  if (id === "brand") {
-    return (
-      <svg className="eh-symbol" viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="26" />
-        <circle cx="32" cy="32" r="14" />
-        <path d="M32 6 L32 58" />
-      </svg>
-    );
-  }
-  if (id === "paid") {
-    return (
-      <svg className="eh-symbol" viewBox="0 0 64 64" aria-hidden="true">
-        <rect x="8" y="38" width="10" height="18" />
-        <rect x="24" y="28" width="10" height="28" />
-        <rect x="40" y="16" width="10" height="40" />
-        <path d="M6 14 L30 6 L26 18" />
-      </svg>
-    );
-  }
-  if (id === "web") {
-    return (
-      <svg className="eh-symbol" viewBox="0 0 64 64" aria-hidden="true">
-        <rect x="8" y="8" width="22" height="22" />
-        <rect x="34" y="8" width="22" height="22" />
-        <rect x="8" y="34" width="22" height="22" />
-        <rect x="34" y="34" width="22" height="22" className="eh-symbol-fill" />
-      </svg>
-    );
-  }
-  return (
-    <svg className="eh-symbol" viewBox="0 0 64 64" aria-hidden="true">
-      <circle cx="12" cy="32" r="6" />
-      <circle cx="52" cy="14" r="6" />
-      <circle cx="52" cy="50" r="6" />
-      <path d="M18 32 L46 16 M18 32 L46 48" />
-    </svg>
-  );
-}
+export const metadata = enMetadata(
+  "Brand, Growth and AI Automation",
+  "Dewank brings branding, digital marketing, websites and automation together in one growth system for businesses worldwide. Custom scopes for ambitious companies.",
+  "/en",
+);
 
-function HomePage() {
+export default function Home() {
   return (
-    <>
-      {/* 1. Hero: the connected system. Dark stage, lime accent, one signature graphic. */}
-      <section className="eh-hero" aria-labelledby="hero-title">
-        <div className="shell eh-hero-inner">
-          <div className="eh-hero-copy">
-            <p className="eh-kicker">Creative growth studio · Brand · Demand · Automation</p>
-            <h1 id="hero-title">
-              <span className="eh-line">Brands people choose.</span>
-              <span className="eh-line eh-accent">Growth you can measure.</span>
-            </h1>
-            <p className="eh-lead">
-              Dewank connects your name, your website, your paid demand and your follow-up into one system. Business
-              owners and marketing leaders get one plan, and enquiries they can measure.
-            </p>
-            <div className="eh-ctas">
-              <Link className="eh-btn eh-btn-primary" href="/en/contact">
-                Request a custom quote
-              </Link>
-              <Link className="eh-btn eh-btn-ghost" href="/en/work">
-                See selected work
-              </Link>
-            </div>
+    <main className="studio-home home-conversion-page en-parity" lang="en" dir="ltr">
+      <Header />
+
+      <section className="hybrid-hero shell">
+        <div className="hero-copy">
+          <div className="hero-meta">
+            <span>DEWANK® CREATIVE GROWTH STUDIO</span>
+            <span>2026 / INTERNATIONAL</span>
           </div>
+          <h1>
+            <span>We build the brand.</span>
+            <span>We drive the demand.</span>
+            <span>
+              <em>We automate the growth.</em>
+            </span>
+          </h1>
+          <p>
+            Dewank brings branding, marketing, websites and automation into one system, so customers understand why to
+            choose you, reach you faster, and move towards a clear decision.
+          </p>
+          <div className="hero-actions">
+            <a className="button primary home-whatsapp-primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">
+              Send us your business and challenge <span>↗</span>
+            </a>
+            <Link className="button secondary" href="/en/work">
+              See our work and results <span>→</span>
+            </Link>
+          </div>
+          <p className="cta-expectation">
+            A short conversation to understand the project and find the best starting point, with no obligation.
+          </p>
+        </div>
 
-          <nav className="eh-system" aria-label="Four starting points">
-            <svg className="eh-system-svg" viewBox="0 0 520 520" aria-hidden="true" focusable="false">
-              <g className="eh-rings">
-                <circle cx="260" cy="260" r="200" className="eh-ring" />
-                <circle cx="260" cy="260" r="132" className="eh-ring eh-ring-inner" />
-              </g>
-              <path d="M260 260 L260 22 M260 260 L498 260 M260 260 L260 498 M260 260 L22 260" className="eh-connector" />
-              <circle r="5" className="eh-packet">
-                <animateMotion dur="3.6s" repeatCount="indefinite" path="M260 260 L260 22" />
-              </circle>
-              <circle r="5" className="eh-packet">
-                <animateMotion dur="3.6s" begin="0.9s" repeatCount="indefinite" path="M260 260 L498 260" />
-              </circle>
-              <circle r="5" className="eh-packet">
-                <animateMotion dur="3.6s" begin="1.8s" repeatCount="indefinite" path="M260 260 L260 498" />
-              </circle>
-              <circle r="5" className="eh-packet">
-                <animateMotion dur="3.6s" begin="2.7s" repeatCount="indefinite" path="M260 260 L22 260" />
-              </circle>
-            </svg>
-            <div className="eh-core" aria-hidden="true">
-              <span>Dewank</span>
+        <MotionSystem />
+        <div className="hero-foot">
+          <span>Strategy first</span>
+          <span>Execution with purpose</span>
+          <span>Measure before scaling</span>
+        </div>
+      </section>
+
+      <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
+        <div className="home-proof-intro">
+          <span className="section-label">Evidence before claims</span>
+          <h2 id="home-proof-title">
+            The result matters.
+            <br />
+            <em>The path to it matters more.</em>
+          </h2>
+          <p>
+            In a live project for a cosmetic clinic, we connected marketing with conversations, booking and follow-up,
+            instead of letting each step work on its own.
+          </p>
+          <div className="home-proof-actions">
+            <Link href="/en/work#clinic">
+              Read the full case study <span>→</span>
+            </Link>
+            <Link href="/en/whatsapp-crm-automation">
+              Explore WhatsApp automation <span>→</span>
+            </Link>
+          </div>
+        </div>
+        <div className="proof-grid home-proof-metrics">
+          <article>
+            <strong>+30%</strong>
+            <h3>Approximate improvement in conversion to booking</h3>
+            <p>A clearer journey from enquiry to appointment.</p>
+          </article>
+          <article>
+            <strong>+25</strong>
+            <h3>Approximate points gained in attendance rate</h3>
+            <p>With more regular reminders and follow-up.</p>
+          </article>
+          <article>
+            <strong>−40%</strong>
+            <h3>Approximate reduction in reception workload</h3>
+            <p>After automating replies and repeated tasks.</p>
+          </article>
+        </div>
+        <p className="proof-note">
+          Approximate results from a previous project, not a guarantee of similar outcomes. Results vary with the
+          business, the offer, the data and the execution.
+        </p>
+      </section>
+
+      <section className="bento-section home-core-paths">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="section-label">Choose a starting point</span>
+              <h2>
+                Four starting points.
+                <br />
+                <em>One system behind them.</em>
+              </h2>
             </div>
-            {orbit.map((node) => (
-              <Link key={node.href} className={`eh-node eh-node-${node.pos}`} href={node.href}>
-                {node.label}
+            <Link className="text-link" href="/en/services">
+              Explore all services <span>→</span>
+            </Link>
+          </div>
+          <div className="service-bento">
+            {services.map((service) => (
+              <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
+                <div className="card-top">
+                  <span>{service.n}</span>
+                  <small>{service.en}</small>
+                  <b>↗</b>
+                </div>
+                <div className={`service-symbol ${service.tone}`} aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                </div>
+                <div className="card-copy">
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+                  <div className="tag-row">
+                    {service.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
               </Link>
             ))}
+          </div>
+          <nav className="growth-shortcuts" aria-label="Additional routes">
+            <Link href="/en/social-media-content">
+              Social media content <span>↗</span>
+            </Link>
+            <Link href="/en/seo-geo-aeo">
+              SEO, GEO and AEO <span>↗</span>
+            </Link>
+            <Link href="/en/ai-automation">
+              AI automation for business <span>↗</span>
+            </Link>
           </nav>
         </div>
       </section>
 
-      {/* 2. Proof: the clinic results, stated as approximate, on a coral accent band. */}
-      <section className="eh-proof" aria-labelledby="proof-title">
-        <div className="shell">
-          <p className="eh-label">Case · Clinic follow-up · Bahrain · Anonymised</p>
-          <h2 id="proof-title">From scattered messages to a follow-up you can measure.</h2>
-          <dl className="eh-metrics" aria-label="Approximate results from the live operation">
-            {clinicMetrics.map((m) => (
-              <div key={m.label}>
-                <dt className="eh-visually-hidden">Approximate result</dt>
-                <dd>
-                  <strong>
-                    {m.value}
-                    {m.unit ? <span className="eh-metric-unit"> {m.unit}</span> : null}
-                  </strong>
-                  <span>{m.label}</span>
-                </dd>
+      <section className="home-work-preview shell" aria-labelledby="home-work-title">
+        <div className="home-work-head">
+          <div>
+            <span className="section-label">Selected work</span>
+            <h2 id="home-work-title">
+              We don&rsquo;t just show the look.
+              <br />
+              <em>We show the decision behind it.</em>
+            </h2>
+          </div>
+          <Link href="/en/work">
+            View the work page <span>→</span>
+          </Link>
+        </div>
+        <div className="home-work-grid">
+          {selectedWork.map((item) => (
+            <Link className="home-work-card" href={item.href} key={item.n}>
+              <small>
+                {item.n} / {item.label}
+              </small>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <span>View the project ↗</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <div className="work-section shell home-trust-section">
+        <HomeTestimonials />
+      </div>
+
+      <section className="method-section home-method-section">
+        <div className="shell method-layout">
+          <div className="method-intro">
+            <span className="section-label">How we work</span>
+            <h2>
+              Fewer steps.
+              <br />
+              <em>Clearer decisions.</em>
+            </h2>
+            <p>
+              We start with the business problem, then identify the shortest path that can be executed and measured.
+              Every step leads to a clear decision, not an activity for its own sake.
+            </p>
+          </div>
+          <div className="method-list">
+            {method.map(([no, title, text]) => (
+              <div key={no}>
+                <span>{no}</span>
+                <strong>{title}</strong>
+                <p>{text}</p>
               </div>
             ))}
-          </dl>
-          <p className="eh-proof-note">
-            Approximate figures from the live project. Results depend on message volume, offer quality and response
-            speed, so they are not a guarantee.
-          </p>
-          <Link className="eh-link eh-link-dark" href="/en/work#clinic">
-            Read the clinic case →
+          </div>
+        </div>
+      </section>
+
+      <section className="home-growth-summary shell" aria-labelledby="home-growth-summary-title">
+        <span className="section-label">The Dewank system</span>
+        <h2 id="home-growth-summary-title">From the first impression to the follow-up after the enquiry.</h2>
+        <p>
+          We connect brand strategy, content, ads, websites, SEO, WhatsApp and CRM so each step serves the next, rather
+          than running separate services whose effect is hard to see.
+        </p>
+        <div className="home-growth-links">
+          <Link href="/en/brand-naming">
+            Brand <span>↗</span>
+          </Link>
+          <Link href="/en/paid-advertising">
+            Ads <span>↗</span>
+          </Link>
+          <Link href="/en/website-design">
+            Websites <span>↗</span>
+          </Link>
+          <Link href="/en/whatsapp-crm-automation">
+            Automation <span>↗</span>
           </Link>
         </div>
       </section>
 
-      {/* 3. Who we work with: a typographic row, not cards. */}
-      <section className="eh-audience shell" aria-labelledby="audience-title">
-        <h2 id="audience-title" className="eh-label">
-          Who we work with
-        </h2>
-        <ul className="eh-audience-list">
-          <li>Founders and business owners who need a clear position before they spend on marketing.</li>
-          <li>Startups and new brands preparing a launch or a repositioning.</li>
-          <li>Growing SMEs whose enquiries depend on the website, the ads and the follow-up working together.</li>
-          <li>Marketing leaders who want one measurable plan across channels and agencies.</li>
-        </ul>
-      </section>
-
-      {/* 4. Service bento: the four entry points, then all eight disciplines. */}
-      <section className="eh-services" aria-labelledby="services-title">
-        <div className="shell">
-          <p className="eh-label">Where to start</p>
-          <h2 id="services-title">Four starting points. One system behind them.</h2>
-          <div className="eh-bento">
-            {bento.map((card) => (
-              <article key={card.id} className={`eh-card eh-card-${card.tone} eh-card-${card.id}`}>
-                <div className="eh-card-top">
-                  <span className="eh-card-kicker">{card.kicker}</span>
-                  <ServiceSymbol id={card.id} />
-                </div>
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
-                <Link className="eh-card-link" href={card.href}>
-                  {card.cta} <span aria-hidden="true">→</span>
-                </Link>
-              </article>
-            ))}
-          </div>
-
-          <div className="eh-disciplines">
-            <p className="eh-disciplines-label">All eight disciplines</p>
-            <ul>
-              {SERVICE_CATEGORIES.map((category) => (
-                <li key={category.id}>
-                  <Link href={categoryHref(category)}>{category.label}</Link>
-                </li>
-              ))}
-            </ul>
+      <section className="home-selected-offers shell" aria-labelledby="home-offers-title">
+        <div className="home-selected-offers-head">
+          <div>
+            <span className="section-label">Ready starting points</span>
+            <h2 id="home-offers-title">If your need is clear, start with a defined scope.</h2>
           </div>
         </div>
-      </section>
-
-      {/* 5. Featured work: image first, the BITHAN case leads. */}
-      <section className="eh-work shell" aria-labelledby="work-title">
-        <p className="eh-label">Selected work</p>
-        <h2 id="work-title">Real projects, with the reasoning behind each decision.</h2>
-        <div className="eh-work-grid">
-          <figure className="eh-work-feature">
-            <img
-              src="/en/work/bithan/hero.svg"
-              alt="Final approved identity cover for BITHAN Fine Jewelry, a naming and identity project in Qatar"
-              width={1126}
-              height={1591}
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption>
-              <span>Featured case · Naming and identity · Qatar</span>
-              <strong>BITHAN: from a naming brief to a complete identity.</strong>
-              <Link href="/en/work#bithan">Read the case →</Link>
-            </figcaption>
-          </figure>
-          <ul className="eh-work-tiles">
-            {identityTiles.map((t) => (
-              <li key={t.name}>
-                <Link href="/en/work#identity">
-                  <img src={t.image} alt={`${t.name} identity work`} width={1200} height={900} loading="lazy" decoding="async" />
-                  <span>
-                    <strong>{t.name}</strong>
-                    <small>{t.sector}</small>
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <HomeSelectedOffers />
+        <div className="home-selected-offers-all">
+          <Link href="/en/services">
+            Explore all services <span>→</span>
+          </Link>
         </div>
       </section>
 
-      {/* 6. Method and differentiation on the dark stage. */}
-      <section className="eh-method" aria-labelledby="method-title">
-        <div className="shell">
-          <p className="eh-label eh-label-lime">How it works</p>
-          <h2 id="method-title">Three steps, no surprises.</h2>
-          <ol className="eh-steps">
-            {method.map((step, index) => (
-              <li key={step.title}>
-                <span className="eh-step-no" aria-hidden="true">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </li>
-            ))}
-          </ol>
-          <ul className="eh-differences">
-            {differences.map((d) => (
-              <li key={d.title}>
-                <strong>{d.title}</strong>
-                <span>{d.text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* 7. Questions. */}
-      <section className="eh-faq shell" aria-labelledby="faq-title">
+      <section className="faq-section shell" aria-labelledby="home-faq-title">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
-        <p className="eh-label">Questions</p>
-        <h2 id="faq-title">Before you write to us.</h2>
-        <div className="eh-faq-list">
+        <span className="section-label">Before you start</span>
+        <h2 id="home-faq-title">Three questions that shorten the path.</h2>
+        <div className="faq-grid">
           {faqs.map((f) => (
             <details key={f.q}>
               <summary>{f.q}</summary>
@@ -359,41 +374,37 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 8. Closing CTA on the lime band. Approved contact methods only. */}
-      <section className="eh-close" aria-labelledby="close-title">
-        <div className="shell eh-close-inner">
-          <p className="eh-label">Next step</p>
-          <h2 id="close-title">Tell us the goal. We reply with the next step.</h2>
-          <p>Send a short brief by email, or message us on WhatsApp.</p>
-          <div className="eh-ctas">
-            <a className="eh-btn eh-btn-primary" href={briefMailto("Project brief from the homepage")}>
-              Email a brief · {CONTACT_EMAIL}
+      <section className="final-cta shell home-final-conversion">
+        <div>
+          <span className="section-label">Next step</span>
+          <h2>
+            Send us your business.
+            <br />
+            <em>Tell us where growth stops.</em>
+          </h2>
+        </div>
+        <div>
+          <p>
+            Instead of choosing a service by name, send us your business and current challenge. We will identify the
+            shortest practical starting point with you.
+          </p>
+          <div className="final-actions">
+            <a className="button primary home-whatsapp-primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">
+              Start on WhatsApp <span>↗</span>
             </a>
-            <a
-              className="eh-btn eh-btn-ghost-dark"
-              href={whatsappHref("Hello Dewank, I would like to discuss a project. My main goal is: ")}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              WhatsApp +{WHATSAPP_NUMBER}
-            </a>
+            <Link className="button secondary" href="/en/work">
+              Review the work first <span>→</span>
+            </Link>
           </div>
+          <small className="cta-expectation">
+            Or email{" "}
+            <a href={briefMailto("Project brief from the homepage")}>{CONTACT_EMAIL}</a>. A short conversation to understand
+            the project and identify the right starting point.
+          </small>
         </div>
       </section>
-    </>
-  );
-}
 
-export const metadata = enMetadata(
-  "Brand, Growth and AI Automation",
-  "Dewank connects brand naming, strategy, websites, paid acquisition and automation into one measurable growth system. Custom scopes for ambitious companies.",
-  "/en",
-);
-
-export default function Page() {
-  return (
-    <EnShell>
-      <HomePage />
-    </EnShell>
+      <Footer />
+    </main>
   );
 }
