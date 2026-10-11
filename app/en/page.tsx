@@ -36,8 +36,8 @@ const differences = [
 
 const faqs = [
   {
-    q: "Do you work outside the Gulf?",
-    a: "Yes, remotely, when the scope and time zone fit. Tell us your market and we will confirm.",
+    q: "Do you work with companies in other countries?",
+    a: "Yes. We work remotely with businesses in other markets when the scope and time zone fit. Tell us your market and we will confirm.",
   },
   {
     q: "How is pricing set?",
@@ -48,6 +48,17 @@ const faqs = [
     a: "No. We guarantee the quality of the work and the clarity of the process. Rankings depend on many factors, and trademark registration is decided by the official authority.",
   },
 ];
+
+// FAQPage data generated from the same list that is rendered below, so the markup matches the visible questions.
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+}).replace(/</g, "\\u003c");
 
 function HomePage() {
   return (
@@ -102,9 +113,27 @@ function HomePage() {
         </p>
       </section>
 
+      <section className="audience shell reveal" aria-labelledby="audience-title">
+        <h2 id="audience-title" className="audience-label">Who we work with</h2>
+        <ul className="audience-list">
+          <li>
+            <strong>Founders and business owners</strong> who need a clear position before they spend on marketing.
+          </li>
+          <li>
+            <strong>Startups and new brands</strong> preparing a launch or a repositioning.
+          </li>
+          <li>
+            <strong>Growing SMEs</strong> whose enquiries depend on the website, the ads and the follow-up working together.
+          </li>
+          <li>
+            <strong>Marketing leaders</strong> who want one measurable plan across channels and agencies.
+          </li>
+        </ul>
+      </section>
+
       <section className="section shell reveal" aria-labelledby="system-title">
         <span className="eyebrow">The services</span>
-        <h2 id="system-title">Six categories. One connected plan.</h2>
+        <h2 id="system-title">Eight disciplines. One connected plan.</h2>
         <div className="grid service-grid" style={{ marginTop: 28 }}>
           {SERVICE_CATEGORIES.map((category) => (
             <article className="card service-card" key={category.id}>
@@ -198,6 +227,7 @@ function HomePage() {
       </section>
 
       <section className="section shell reveal" aria-labelledby="faq-title">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
         <span className="eyebrow">Questions</span>
         <h2 id="faq-title">Before you write to us.</h2>
         <div style={{ marginTop: 24 }}>

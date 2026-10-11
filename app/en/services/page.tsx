@@ -104,7 +104,7 @@ function ServicesPage() {
   );
 }
 
-export const metadata = enMetadata("Services", "Brand, content, growth, websites, automation and career services, each with a clear scope. Custom quotes, written after a short brief.", "/en/services");
+export const metadata = enMetadata("Services", "Brand strategy, naming and identity, digital strategy, paid advertising, SEO, GEO and AEO, websites, social media, AI automation and analytics. Each service has a clear scope and a written quote.", "/en/services");
 
 export default function Page() {
   return (

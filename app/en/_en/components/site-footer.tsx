@@ -11,8 +11,8 @@ export function SiteFooter() {
               Brand, growth and automation, as one system.
             </p>
             <p>
-              Custom scopes for companies in Saudi Arabia, the UAE, Bahrain and Qatar. Remote engagements are
-              considered case by case.
+              Custom scopes for ambitious businesses worldwide. Every engagement starts with a written scope, and
+              remote engagements are considered case by case.
             </p>
           </div>
           <div>

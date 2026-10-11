@@ -144,3 +144,43 @@
 .en-site .flow-panel { margin: 0; padding: clamp(20px, 3vw, 32px); background: #fff; border: 1px solid var(--line); border-radius: 26px; box-shadow: 0 30px 70px rgba(6, 26, 51, 0.08); }
 .en-site .flow-panel .flow-caption { margin: 0 0 22px; }
 .en-site .flow-panel .flow-caption strong { color: var(--navy); font-size: 15px; font-weight: 700; }
+
+/* Who we work with: a short audience strip under the hero. */
+.en-site .audience {
+  padding: clamp(40px, 6vw, 64px) 0;
+  display: grid;
+  gap: 18px;
+}
+.en-site .audience-label {
+  font-family: "EN Cormorant Garamond", Georgia, serif;
+  font-size: clamp(26px, 3vw, 34px);
+  margin: 0;
+}
+.en-site .audience-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+.en-site .audience-list li {
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.en-site .audience-list strong {
+  display: block;
+  color: var(--navy);
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+@media (min-width: 900px) {
+  .en-site .audience-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
