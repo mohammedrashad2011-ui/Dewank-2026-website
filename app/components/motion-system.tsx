@@ -3,6 +3,7 @@
 // two-column service list below 655px. Arabic labels are set in two-line pills. Destinations are the Arabic routes.
 // Every rule below sits under .arabic-home-polish, which only the Arabic homepage sets.
 import "../home-hierarchy-refinement.css";
+import { BidiText } from "./bidi-text";
 
 const services = [
   { name: "استراتيجية البراند", href: "/branding", position: "s1" },
@@ -33,7 +34,7 @@ export default function MotionSystem() {
           <div className={`satellite-track ${service.position}`} key={service.name}>
             <a className="service-satellite" href={service.href} aria-label={`انتقل إلى خدمة ${service.name}`}>
               <i aria-hidden="true" />
-              <span>{service.name}</span>
+              <span><BidiText text={service.name} /></span>
             </a>
           </div>
         ))}

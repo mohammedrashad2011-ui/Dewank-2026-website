@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import "./mobile-site-structure-preview.css";
+import { BidiText } from "./bidi-text";
 
 const mobileGroups = [
   {
@@ -127,7 +128,7 @@ export function MobileNavigation() {
                     {group.links.map(([href, label], index) => (
                       <Link href={href} key={href} onClick={() => setOpen(false)}>
                         <span>{String(index + 1).padStart(2, "0")}</span>
-                        <strong>{label}</strong>
+                        <strong><BidiText text={label} /></strong>
                         <b aria-hidden="true">←</b>
                       </Link>
                     ))}

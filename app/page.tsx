@@ -6,6 +6,7 @@ import MotionSystem from "./components/motion-system";
 import HomeTestimonials from "./components/home-testimonials";
 import HomeSelectedOffers from "./components/home-selected-offers";
 import { ServiceArt } from "./components/home-service-art";
+import { BidiText } from "./components/bidi-text";
 import "./home-growth-upgrade.css";
 import "./home-conversion-refinement.css";
 import "./home-mobile-service-cards.css";
@@ -103,7 +104,7 @@ export default function Home() {
               <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
                 <div className="card-top"><span>{service.n}</span><b>↗</b></div>
                 <div className={`service-symbol ${service.tone}`} aria-hidden="true"><ServiceArt tone={service.tone} /></div>
-                <div className="card-copy"><h3>{service.title}</h3><p>{service.text}</p><div className="tag-row">{service.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div>
+                <div className="card-copy"><h3>{service.title}</h3><p><BidiText text={service.text} /></p><div className="tag-row">{service.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div>
               </Link>
             ))}
           </div>
