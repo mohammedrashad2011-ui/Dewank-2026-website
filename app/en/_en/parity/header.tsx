@@ -22,6 +22,7 @@ export function Header() {
             <span className="offers-nav-label">Starting points</span>
           </Link>
           <Link href="/en/work">Our work</Link>
+          <Link href="/en/about">About</Link>
           <Link href="/en/brand-naming">Brand naming</Link>
           <Link href="/en/contact">Contact</Link>
         </nav>
