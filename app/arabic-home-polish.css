@@ -30,3 +30,16 @@ html body .arabic-home-polish .hybrid-hero .hero-copy h1 {
   font-size: clamp(40px, 9.8cqi, 72px) !important;
   line-height: 1.28 !important;
 }
+
+/* Colour contrast (WCAG AA, 4.5:1 for body text). Only the Arabic homepage is changed. The shared tokens in globals.css
+   stay as they are, because the English homepage uses the same classes.
+   - Testimonial translation: #77787d on #111214 was 4.25:1. #8b8d94 is 5.65:1.
+   - Method paragraphs: #686a70 on #ebe9e2 was 4.45:1. #63656b is 4.80:1. */
+html body .arabic-home-polish .testimonial-translation {
+  color: #8b8d94;
+}
+
+html body .arabic-home-polish .method-intro p,
+html body .arabic-home-polish .method-list p {
+  color: #63656b;
+}
