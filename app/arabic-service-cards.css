@@ -1,0 +1,148 @@
+/* Arabic homepage service cards (نجذب الطلب، نبني المواقع، نبني البراند والمحتوى، نؤتمت المتابعة).
+   Layout pass only: content, links, tags, tones and colours are unchanged. Scoped to .arabic-home-polish, which only the
+   Arabic homepage sets. The English homepage does not load this file.
+
+   - Each graphic has its own band at the top of the card, and the copy is anchored to the bottom, so artwork never sits
+     behind a title.
+   - Arabic display type is sized for Arabic glyphs, with more line height than the Latin cards.
+   - Phone: the graphic stays visible as a small accent above the copy, and the card sizes to its content. */
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-bento {
+  grid-auto-rows: auto !important;
+  gap: 18px !important;
+}
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  min-height: 490px !important;
+  height: auto !important;
+  padding: 26px 32px 30px !important;
+  overflow: hidden;
+}
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-top {
+  flex: 0 0 auto;
+}
+
+/* Graphic band: fixed under the top row. The transform and animation are off so every card holds still. */
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card .service-symbol {
+  position: absolute !important;
+  right: 32px !important;
+  left: auto !important;
+  top: 88px !important;
+  bottom: auto !important;
+  transform: none !important;
+  animation: none !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card.growth .service-symbol.growth {
+  width: 150px !important;
+  height: 120px !important;
+}
+
+/* The browser mockup keeps its 16px blue offset shadow, so its band stays shorter than the others. */
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card.web .service-symbol.web {
+  width: 230px !important;
+  height: 130px !important;
+}
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card.brand .service-symbol.brand {
+  width: 136px !important;
+  height: 136px !important;
+}
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card.automation .service-symbol.automation {
+  width: 180px !important;
+  height: 140px !important;
+}
+
+/* Copy: bottom-anchored, full width, Arabic-sized heading and body. */
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy {
+  position: relative !important;
+  z-index: 2 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 0 !important;
+  margin: auto 0 0 !important;
+  padding-top: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+}
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy h3 {
+  min-height: 0 !important;
+  margin: 0 0 14px !important;
+  font-size: clamp(36px, 3vw, 46px) !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0 !important;
+}
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy p {
+  max-width: 520px !important;
+  margin: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.9 !important;
+  opacity: .82 !important;
+}
+
+.arabic-home-polish.home-conversion-page .home-core-paths .service-card .tag-row {
+  margin-top: 20px !important;
+}
+
+/* Tablet: the grid is one column here, so cards keep a shorter, comfortable height. */
+@media (max-width: 900px) {
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card {
+    min-height: 420px !important;
+  }
+}
+
+/* Phone: the graphic becomes a small accent above the copy, and the card sizes to its content. */
+@media (max-width: 640px) {
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card {
+    min-height: 0 !important;
+    height: auto !important;
+    padding: 20px 20px 22px !important;
+  }
+
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card .service-symbol {
+    top: 66px !important;
+    right: 20px !important;
+    transform: scale(.62) !important;
+    transform-origin: top right !important;
+  }
+
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy {
+    padding-top: 118px !important;
+    margin-top: 0 !important;
+  }
+
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy h3 {
+    font-size: 30px !important;
+    line-height: 1.42 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy p {
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card .tag-row {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-top: 0 !important;
+  }
+
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card .tag-row span {
+    padding: 5px 10px !important;
+    font-size: 10.5px !important;
+    white-space: nowrap !important;
+  }
+}
