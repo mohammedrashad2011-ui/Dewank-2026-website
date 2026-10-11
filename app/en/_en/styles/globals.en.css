@@ -292,3 +292,11 @@
 /* Keep the skip link fully off-screen until it is focused (it showed a 1px sliver at the top edge). */
 .en-site .skip-link { top: -200px; }
 .en-site .skip-link:focus { top: 12px; }
+
+/* Service action links sit in their own rows and are the main route into each service, so give them a 44px tap area. */
+.en-site .service-actions .card-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
+}
