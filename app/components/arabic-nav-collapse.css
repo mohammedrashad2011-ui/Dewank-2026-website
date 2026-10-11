@@ -1,0 +1,252 @@
+/* Arabic header bar, 1180px and smaller (the phone and collapsed widths). The header bar's blur makes it the containing
+   block for the fixed drawer, which pushes the drawer and its backdrop inside the bar. The blur is removed at these widths,
+   and the bar is more opaque so it still reads as a solid header. Desktop keeps the blur (no drawer there). */
+@media (max-width: 1180px) {
+  .arabic-site-header .nav-wrap {
+    backdrop-filter: none !important;
+    background: rgba(250, 249, 246, .94) !important;
+  }
+}
+
+/* Arabic header: from 901px to 1180px the nav collapses into the Menu, as the English header does, so the EN switch,
+   logo and main CTA keep their room. Every selector is scoped to .arabic-site-header, which only the Arabic header sets.
+   The shared rules for 900px and smaller (mobile-refinement.css, mobile-site-structure-preview.css) and the English
+   header and drawer are unchanged. The copies below mirror those rules, with the main CTA kept visible. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .arabic-site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .arabic-site-header .nav-wrap {
+    height: 82px;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+  }
+
+  .arabic-site-header .nav-wrap > nav,
+  .arabic-site-header .mobile-services-link {
+    display: none !important;
+  }
+
+  .arabic-site-header .nav-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .arabic-site-header .mobile-navigation {
+    display: block;
+  }
+
+  .arabic-site-header .mobile-menu-trigger {
+    min-width: 92px;
+    height: 46px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    padding: 0 13px;
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 9px;
+    align-items: center;
+    font: 700 12px var(--font-arabic);
+    cursor: pointer;
+  }
+
+  .arabic-site-header .mobile-menu-trigger > span:first-child,
+  .arabic-site-header .mobile-menu-trigger > span:nth-child(2) {
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: currentColor;
+    grid-column: 1;
+  }
+
+  .arabic-site-header .mobile-menu-trigger > span:first-child {
+    grid-row: 1;
+    align-self: end;
+    margin-bottom: 3px;
+  }
+
+  .arabic-site-header .mobile-menu-trigger > span:nth-child(2) {
+    grid-row: 2;
+    align-self: start;
+    margin-top: 3px;
+  }
+
+  .arabic-site-header .mobile-menu-label {
+    grid-column: 2;
+    grid-row: 1 / 3;
+  }
+
+  .arabic-site-header .mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, .48);
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s;
+    z-index: 109;
+  }
+
+  .arabic-site-header .mobile-menu-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .arabic-site-header .mobile-menu-panel {
+    position: fixed;
+    z-index: 110;
+    top: 0;
+    right: 0;
+    width: min(92vw, 430px);
+    height: 100dvh;
+    background: var(--paper);
+    border-left: 1px solid var(--ink);
+    padding: 22px;
+    transform: translateX(102%);
+    transition: transform .3s ease;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .arabic-site-header .mobile-menu-panel.is-open {
+    transform: translateX(0);
+  }
+
+  .arabic-site-header .mobile-menu-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .arabic-site-header .mobile-menu-head small {
+    font: 700 10px Arial;
+    letter-spacing: .14em;
+  }
+
+  .arabic-site-header .mobile-menu-head button {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .arabic-site-header .mobile-menu-panel nav {
+    display: block;
+  }
+
+  .arabic-site-header .mobile-menu-panel nav a {
+    display: grid;
+    grid-template-columns: 34px 1fr 24px;
+    gap: 12px;
+    align-items: center;
+    min-height: 58px;
+    border-bottom: 1px solid rgba(10, 10, 10, .2);
+  }
+
+  .arabic-site-header .mobile-menu-panel nav a span {
+    font: 700 9px Arial;
+    color: var(--blue);
+  }
+
+  .arabic-site-header .mobile-menu-panel nav a strong {
+    font-size: 15px;
+  }
+
+  .arabic-site-header .mobile-menu-panel nav a b {
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .arabic-site-header .mobile-menu-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-top: 20px;
+  }
+
+  .arabic-site-header .mobile-menu-actions .button {
+    min-height: 50px;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .arabic-site-header .mobile-whatsapp {
+    background: #fff;
+  }
+
+  /* Drawer groups (the same styles as mobile-site-structure-preview.css). */
+  .arabic-site-header .mobile-menu-groups {
+    padding-top: 8px;
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group {
+    padding: 18px 0 8px;
+    border-bottom: 1px solid rgba(10, 10, 10, .22);
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group:last-child {
+    border-bottom: 0;
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group-head {
+    margin-bottom: 6px;
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group-head > strong,
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group-head > a {
+    min-height: 0;
+    border: 0;
+    display: flex;
+    grid-template-columns: none;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    padding: 0 0 10px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group-head > a span {
+    color: var(--blue);
+    font: 700 9px Arial;
+    letter-spacing: .02em;
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group-links a {
+    min-height: 49px;
+    border-bottom: 1px solid rgba(10, 10, 10, .11);
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group-links a:last-child {
+    border-bottom: 0;
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group-links a strong {
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-group-links a span {
+    opacity: .72;
+  }
+
+  .arabic-site-header .mobile-menu-panel .mobile-menu-actions {
+    position: sticky;
+    bottom: -22px;
+    margin: 4px -22px -22px;
+    padding: 16px 22px 22px;
+    background: var(--paper);
+    border-top: 1px solid rgba(10, 10, 10, .16);
+  }
+}

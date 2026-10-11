@@ -3,6 +3,7 @@ import { MobileNavigation } from "./mobile-navigation";
 import { ServicesMenu } from "./services-menu";
 import { LanguageSwitch } from "./language-switch";
 import "./offers-nav-premium-preview.css";
+import "./arabic-nav-collapse.css";
 
 const footerServices = [
   ["/branding", "البراند والهوية"],
@@ -23,7 +24,7 @@ function ContactIcon({ type }: { type: "email" | "instagram" | "whatsapp" }) {
 
 export function Header() {
   return (
-    <header className="site-header">
+    <header className="site-header arabic-site-header">
       <div className="shell nav-wrap">
         <Link className="brand-logo" href="/" aria-label="ديوانك - الرئيسية"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link>
         <nav aria-label="التنقل الرئيسي">

@@ -5,8 +5,8 @@ import { englishEquivalent } from "./language-routes";
 import "./language-switch.css";
 
 // Arabic site switch: opens the English version of the current page, or the English home page when none exists.
-// The header variant sits in the nav actions. Between 901px and 1180px the nav needs that room, so the header variant
-// hides there and the footer variant (always shown) carries the link.
+// The header variant sits in the nav actions and stays visible at every width (the nav collapses into the Menu from
+// 1180px down, see arabic-nav-collapse.css). The footer variant is a plain text link under the contact details.
 export function LanguageSwitch({ variant = "header" }: { variant?: "header" | "footer" }) {
   const pathname = usePathname() ?? "/";
   const href = englishEquivalent(pathname);
