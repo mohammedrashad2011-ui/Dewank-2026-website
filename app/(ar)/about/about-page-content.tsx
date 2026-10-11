@@ -79,6 +79,8 @@ export default function AboutPageContent({ startAtMohamed = false }: { startAtMo
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       {!startAtMohamed && <AnchorScroll />}
+      {/* The /about/mohamed-rashad view skips the hero, which holds the page's only h1. This hidden heading keeps the heading structure. */}
+      {startAtMohamed && <h1 className="about-page-sr-title" dir="ltr">Mohamed Rashad</h1>}
 
       {!startAtMohamed && (
         <>

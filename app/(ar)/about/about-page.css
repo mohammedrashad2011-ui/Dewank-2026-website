@@ -38,3 +38,16 @@
 @media(max-width:1180px){.about-page .nav-wrap nav{gap:24px;font-size:13px}.about-hero{grid-template-columns:1fr .8fr}.about-hero>div:first-child{transform:translateX(-10px)}.market-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:980px){.about-page .nav-wrap{grid-template-columns:1fr auto}.about-page .nav-wrap nav{display:none}.about-hero,.about-origin,.system-interactive,.market-grid,.about-final{grid-template-columns:1fr}.about-hero{padding-top:86px}.about-hero>div:first-child{transform:none;max-width:none}.about-hero h1{font-size:clamp(40px,9vw,56px)}.fit-grid{grid-template-columns:1fr}.about-final{margin-inline:18px;padding:44px 26px}.system-tabs{display:grid;grid-template-columns:1fr 1fr;border-left:0;border-bottom:1px solid #ffffff22}.system-tabs button{border-left:1px solid #ffffff18}.values-grid{grid-template-columns:1fr 1fr}.value-card:nth-child(2){border-left:0}.market-map{min-height:390px}}
 @media(max-width:560px){.fragment-grid,.fit-grid,.system-tabs,.values-grid{grid-template-columns:1fr}.about-origin,.about-system,.about-values,.about-market,.about-fit{padding-block:76px}.about-hero-card{min-height:300px}.about-final h2,.about-origin h2,.about-system h2,.about-values h2,.about-fit h2,.about-market h2{font-size:33px;line-height:1.68}.about-hero p,.about-origin-copy p,.about-system-copy p,.about-market p,.about-fit p,.system-panel p{font-size:16px}.value-card{border-left:0;border-bottom:1px solid var(--line)}.market-map{padding:30px;min-height:410px}.market-map strong{font-size:22px}.gcc-word{font-size:92px;bottom:22px}.system-panel{padding:34px 26px}.about-hero h1{font-size:38px;line-height:1.6}}
+
+/* Visually hidden heading for the /about/mohamed-rashad view (the hero that holds the page h1 is not rendered there). */
+.about-page .about-page-sr-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
