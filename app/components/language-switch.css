@@ -1,0 +1,22 @@
+/* Language switch in the Arabic header: links to the English preview at /en. */
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 12px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.language-switch:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.language-switch:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}

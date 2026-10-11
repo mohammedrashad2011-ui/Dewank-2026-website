@@ -1,0 +1,107 @@
+/* The one English header (parity/header.tsx), used on every English route, including Contact and Privacy. Its pill
+   width and inset come from the shared .site-header rules. The colours below are set on the header itself, so the
+   header looks the same inside the English shell (.en-site) as on the other pages. */
+
+/* The inner row has the same margin on every route (the English shell adds a margin to .shell on Contact and Privacy). */
+html body .site-header .nav-wrap {
+  width: 100%;
+  margin: 0;
+}
+
+/* Desktop links and the header CTA. */
+html body .site-header .nav-wrap nav a:not(.offers-nav-link) {
+  color: rgb(48, 50, 56);
+}
+html body .site-header .nav-cta {
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Labels stay on one line; the navigation is wider now that Offers and Guides are in it. */
+html body nav[aria-label="Main navigation"] > a,
+html body nav[aria-label="Main navigation"] .services-trigger a {
+  white-space: nowrap;
+}
+
+/* Active page (aria-current), shown as an underline so the menu structure and the Offers highlight stay unchanged. */
+html body nav[aria-label="Main navigation"] > a[aria-current="page"],
+html body nav[aria-label="Main navigation"] .services-trigger a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+/* Between the phone breakpoint (900px) and 1180px the full link row does not fit beside the CTA. The links move into
+   the same mobile menu used on phones, and the logo, language switch, menu button and CTA stay in the header. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  html body .site-header .nav-wrap {
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+  }
+  html body .site-header .nav-wrap > nav {
+    display: none !important;
+  }
+  html body .site-header .mobile-navigation {
+    display: block;
+  }
+  html body .site-header .mobile-menu-trigger {
+    min-width: 92px;
+    height: 46px;
+    border: 1px solid var(--ink);
+    background: transparent;
+    padding: 0 13px;
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    grid-template-rows: 1fr 1fr;
+    column-gap: 9px;
+    align-items: center;
+    font: 700 12px var(--font-arabic);
+    cursor: pointer;
+  }
+  html body .site-header .mobile-menu-trigger > span:first-child,
+  html body .site-header .mobile-menu-trigger > span:nth-child(2) {
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: currentColor;
+    grid-column: 1;
+  }
+}
+
+/* Skip link: first Tab stop on every English page. Hidden until focused, then shown above the header. */
+html body .site-header .skip-link {
+  position: absolute;
+  top: -160px;
+  left: 12px;
+  z-index: 60;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #111214;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+html body .site-header .skip-link:focus-visible {
+  top: 12px;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Offers highlight sheen, English header only. The shared keyframes move `left`, which triggers layout on every frame.
+   This version moves the same sheen with transform (same start, end, timing and skew), so it runs on the compositor. */
+html body .site-header nav .offers-nav-link::after {
+  left: 0;
+  animation: offer-nav-sheen-en 3.8s ease-in-out infinite;
+}
+@keyframes offer-nav-sheen-en {
+  0%, 58% { transform: translateX(-178.6%) skewX(-20deg); opacity: 0; }
+  62% { opacity: 1; }
+  80% { transform: translateX(321.4%) skewX(-20deg); opacity: 1; }
+  100% { transform: translateX(321.4%) skewX(-20deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .site-header nav .offers-nav-link::after {
+    animation: none;
+  }
+}

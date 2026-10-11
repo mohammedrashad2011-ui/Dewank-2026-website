@@ -1,0 +1,31 @@
+/* English services hub. The Arabic services layout (services-overview.css, services-conversion-hub.css and
+   services-aeo-upgrade.css) is reused unchanged. These overrides make it left to right and set English type.
+   Scope: .en-services only. The Arabic hub is not affected. */
+html body .en-services,
+html body .en-services * {
+  direction: ltr !important;
+  text-align: start !important;
+}
+
+/* Anchor targets for in-page links. They take no space and offset the sticky header. */
+html body .en-services .anchor-target {
+  display: block;
+  position: relative;
+  top: -110px;
+  height: 0;
+  visibility: hidden;
+}
+
+/* Headings in English use the Latin face and a tighter line height than the Arabic hub. */
+html body .en-services h1,
+html body .en-services h2,
+html body .en-services h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+/* Remove the Arabic-only decorative labels with brackets; English labels are plain. */
+html body .en-services .eyebrow::before,
+html body .en-services .eyebrow::after {
+  content: none !important;
+}

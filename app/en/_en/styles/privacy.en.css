@@ -1,0 +1,12 @@
+/* Privacy notice only. */
+.en-site .privacy { max-width: 820px; }
+.en-site .privacy h1 { font-size: clamp(34px, 5vw, 52px); margin-bottom: 24px; }
+.en-site .privacy h2 { font-family: "EN Alexandria", Arial, sans-serif; font-size: 22px; margin: 32px 0 10px; color: var(--navy); }
+.en-site .privacy p, .en-site .privacy li { color: var(--ink); }
+.en-site .privacy ul { padding-left: 22px; margin: 0 0 16px; }
+.en-site .privacy li { margin-bottom: 6px; }
+.en-site .privacy a { color: var(--navy); font-weight: 700; }
+.en-site .draft-banner {
+  border: 2px solid #b3261e; background: #fff4f2; color: #6b1a14; border-radius: 14px;
+  padding: 16px 18px; margin-bottom: 28px; font-size: 15px;
+}

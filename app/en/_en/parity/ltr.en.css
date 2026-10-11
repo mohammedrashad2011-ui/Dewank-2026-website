@@ -1,0 +1,75 @@
+/* Left-to-right adaptation of the Arabic homepage (English only).
+   The Arabic stylesheets set direction: rtl and text-align: right on the homepage, including !important rules.
+   These overrides use a more specific selector than theirs, so the English page reads and aligns left to right.
+   The homepage stylesheets contain no centred text, so start alignment changes nothing else. */
+html body .en-parity.studio-home,
+html body .en-parity.studio-home * {
+  direction: ltr !important;
+  text-align: start !important;
+}
+
+/* Hero headline, English only. The headline is sized to its own column (container query units), so it keeps a clear
+   three-part hierarchy with a balanced animated system beside it at every width, and the primary CTA stays in the first
+   screen. The Arabic headline keeps its own sizes. */
+html body .en-parity.studio-home .hybrid-hero .hero-copy {
+  container-type: inline-size;
+}
+html body .en-parity.studio-home .hybrid-hero .hero-copy h1 {
+  font-size: clamp(34px, 9.8cqi, 62px) !important;
+  line-height: 1.08 !important;
+}
+
+/* WCAG AA contrast and size fixes, English only. The Arabic homepage uses these same values; they fall below the
+   AA thresholds for small text, so the English page raises them slightly. Layout and palette are unchanged. */
+html body .en-parity.studio-home .method-list p {
+  color: #4a4d55;
+}
+html body .en-parity.studio-home .testimonial-translation {
+  color: #b7b4ab;
+  font-size: 12px;
+}
+html body .en-parity.studio-home .home-offer-top small {
+  opacity: 0.8;
+}
+html body .en-parity.studio-home .method-intro p {
+  color: #4a4d55;
+}
+/* The shortcut links sit on a translucent tint; a solid dark fill makes their contrast unambiguous. */
+html body .en-parity.studio-home .growth-shortcuts a {
+  background: #1d1f23 !important;
+}
+html body .en-parity.studio-home .growth-shortcuts a:hover {
+  background: #2a2d33 !important;
+}
+
+/* Arabic labels, English only. The shared homepage styles hide the English label text (font-size: 0) and draw an
+   Arabic word with ::before. English labels are shown instead, and the Arabic ::before text is removed. */
+html body .en-parity.studio-home .section-label {
+  font-size: clamp(14px, 1.05vw, 16px) !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.02em !important;
+  direction: ltr !important;
+  text-align: start !important;
+}
+html body .en-parity.studio-home .section-label::before,
+html body .en-parity.studio-home .section-label::after,
+html body .en-parity.studio-home .growth-shortcuts::before {
+  content: none !important;
+}
+@media (max-width: 640px) {
+  html body .en-parity.studio-home .section-label {
+    font-size: 13px !important;
+  }
+}
+
+
+/* Section labels: the blue on light sections and the blue on the two dark sections both fell below the WCAG AA contrast
+   ratio for small text. English homepage only; the Arabic labels keep their colours. */
+
+html body .en-parity.studio-home .section-label {
+  color: #2a4bd9 !important;
+}
+html body .en-parity.studio-home .bento-section .section-label,
+html body .en-parity.studio-home .home-trust-section .section-label {
+  color: #9fb4ff !important;
+}
