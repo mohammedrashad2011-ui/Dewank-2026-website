@@ -20,3 +20,26 @@
   outline: 2px solid currentColor;
   outline-offset: 2px;
 }
+
+/* Arabic header: hidden from 901px to 1180px, where the nav needs the room. The footer link covers those widths. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .nav-actions .language-switch-ar {
+    display: none;
+  }
+}
+
+/* Arabic footer: a plain text link under the contact details. */
+.language-switch.language-switch-footer {
+  display: inline-block;
+  min-height: 0;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.language-switch.language-switch-footer:hover {
+  background: transparent;
+}

@@ -10,6 +10,7 @@ import "../../../components/offers-nav-premium-preview.css";
 import "../../../components/language-switch.css";
 import { MobileNavigation } from "./mobile-navigation";
 import { ServicesMenu } from "./services-menu";
+import { arabicEquivalent } from "../../../components/language-routes";
 
 // Marks the link for the current page (or its section) with aria-current, without changing the menu structure.
 function isActive(pathname: string, href: string) {
@@ -42,7 +43,7 @@ export function Header() {
         </nav>
         <div className="nav-actions">
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- the language switch must load the Arabic document in full. */}
-          <a className="language-switch" href="/" lang="ar" hrefLang="ar">
+          <a className="language-switch" href={arabicEquivalent(pathname)} lang="ar" hrefLang="ar">
             العربية
           </a>
           <MobileNavigation />
