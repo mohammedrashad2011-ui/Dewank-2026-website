@@ -72,7 +72,7 @@ const selectedWork = [
     label: "BRAND IDENTITY",
     title: "From a naming decision to a complete fine jewellery identity",
     text: "BITHAN: positioning and naming checks, a name the client chose, and a bilingual Arabic and English identity with premium applications.",
-    href: "/en/work#bithan",
+    href: "/en/work/bithan",
   },
   {
     n: "03",

@@ -153,7 +153,7 @@ export default function BrandingPage() {
         <div><span className="section-label">Verified work</span><h2 id="brand-proof-title">A naming and identity project,<br /><em>from decision to application.</em></h2></div>
         <div className="brand-fit-list">
           <p>See how the BITHAN project moved from positioning and naming checks to a complete identity with applications.</p>
-          <Link className="button secondary" href="/en/work#bithan">Read the BITHAN case study <span>→</span></Link>
+          <Link className="button secondary" href="/en/work/bithan">Read the BITHAN case study <span>→</span></Link>
         </div>
       </section>
 

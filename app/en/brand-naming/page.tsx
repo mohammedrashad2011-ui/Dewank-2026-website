@@ -115,7 +115,7 @@ export default function BrandNamingPage() {
         <div><span className="section-label">Proof</span><h2 id="proof-title">A name chosen by the client,<br /><em>then a complete identity.</em></h2></div>
         <div className="brand-fit-list">
           <p>BITHAN Fine Jewelry: the naming and identity case, from positioning and name checks to a bilingual identity and applications.</p>
-          <Link className="button secondary" href="/en/work#bithan">Read the naming and identity case <span>→</span></Link>
+          <Link className="button secondary" href="/en/work/bithan">Read the naming and identity case <span>→</span></Link>
         </div>
       </section>
 
