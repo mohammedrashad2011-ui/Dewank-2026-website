@@ -98,13 +98,14 @@
 .en-site .home-work-tile strong { font-size: 16px; }
 .en-site .home-work-tile small { font-size: 13px; color: rgba(255, 255, 255, 0.82); }
 
+/* Desktop: the featured case sits beside its caption, and the four identity tiles run as one row beneath it,
+   so the two blocks end at about the same height instead of a tall stack on one side. */
 @media (min-width: 900px) {
-  .en-site .home-work { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: start; }
-  .en-site .home-work-tiles { grid-template-columns: 1fr; }
-  .en-site .home-work-feature { grid-template-columns: 1fr; }
-}
-@media (min-width: 1100px) {
-  .en-site .home-work-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .en-site .home-work { grid-template-columns: minmax(0, 1fr); }
+  .en-site .home-work-feature { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); align-items: stretch; }
+  .en-site .home-work-feature figcaption { align-content: center; padding: clamp(28px, 4vw, 48px); gap: 12px; }
+  .en-site .home-work-feature figcaption strong { font-size: clamp(30px, 3.2vw, 44px); }
+  .en-site .home-work-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 /* Process and differentiation */
