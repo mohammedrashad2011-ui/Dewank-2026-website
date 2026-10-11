@@ -1,3 +1,7 @@
+// Arabic homepage orbit. The approved English single-ring MotionSystem is the geometry source: one 480px orbit, eleven
+// satellites on even 8-second offsets (every 32.7 degrees), labels that counter-rotate so they stay upright, and a
+// two-column service list below 655px. Arabic labels are set in two-line pills. Destinations are the Arabic routes.
+// Every rule below sits under .arabic-home-polish, which only the Arabic homepage sets.
 import "../home-hierarchy-refinement.css";
 
 const services = [
@@ -20,8 +24,6 @@ export default function MotionSystem() {
       <div className="hero-system planet-system" aria-label="منظومة خدمات ديوانك">
         <div className="space-glow" aria-hidden="true" />
         <div className="service-ring ring-a" aria-hidden="true" />
-        <div className="service-ring ring-b" aria-hidden="true" />
-        <div className="service-ring ring-c" aria-hidden="true" />
 
         <a className="dewank-sun" href="/services" aria-label="استكشف خدمات ديوانك">
           <span>ديوانك</span>
@@ -73,153 +75,162 @@ export default function MotionSystem() {
           color: #4a4d55 !important;
         }
 
-        .planet-system .system-caption {
+        /* Single orbit, 480px across. The shared second and third rings are not drawn. */
+        .arabic-home-polish .planet-system {
+          width: min(620px, 100%) !important;
+          height: 580px !important;
+          justify-self: center;
+          overflow: hidden;
+        }
+        .arabic-home-polish .planet-system .system-caption {
           direction: rtl;
           font-family: var(--font-arabic), Arial, sans-serif;
           letter-spacing: 0;
           font-weight: 700;
+          font-size: 12px;
+          display: flex;
+        }
+        .arabic-home-polish .planet-system .ring-a {
+          display: block !important;
+          width: 480px !important;
+          height: 480px !important;
+          animation: none !important;
+          border-color: rgba(255, 255, 255, 0.24) !important;
         }
 
-        /* Three stable orbital bands. Items on the same band share one speed,
-           so their spacing stays fixed instead of slowly catching each other. */
-        .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 {
-          --orbit-size: 330px;
-          animation-duration: 78s !important;
-        }
-        .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 {
-          --orbit-size: 432px;
+        /* Every satellite (track and label) turns in 88s. Start points are 8s apart: 0, -8, -16 ... -80. */
+        .arabic-home-polish .planet-system .satellite-track,
+        .arabic-home-polish .planet-system .service-satellite {
           animation-duration: 88s !important;
+          --orbit-size: 480px;
         }
-        .planet-system .s2,.planet-system .s5,.planet-system .s7 {
-          --orbit-size: 542px;
-          animation-duration: 98s !important;
+        .arabic-home-polish .planet-system .s1,  .arabic-home-polish .planet-system .s1 .service-satellite  { animation-delay: 0s !important; }
+        .arabic-home-polish .planet-system .s2,  .arabic-home-polish .planet-system .s2 .service-satellite  { animation-delay: -8s !important; }
+        .arabic-home-polish .planet-system .s3,  .arabic-home-polish .planet-system .s3 .service-satellite  { animation-delay: -16s !important; }
+        .arabic-home-polish .planet-system .s4,  .arabic-home-polish .planet-system .s4 .service-satellite  { animation-delay: -24s !important; }
+        .arabic-home-polish .planet-system .s5,  .arabic-home-polish .planet-system .s5 .service-satellite  { animation-delay: -32s !important; }
+        .arabic-home-polish .planet-system .s6,  .arabic-home-polish .planet-system .s6 .service-satellite  { animation-delay: -40s !important; }
+        .arabic-home-polish .planet-system .s7,  .arabic-home-polish .planet-system .s7 .service-satellite  { animation-delay: -48s !important; }
+        .arabic-home-polish .planet-system .s8,  .arabic-home-polish .planet-system .s8 .service-satellite  { animation-delay: -56s !important; }
+        .arabic-home-polish .planet-system .s9,  .arabic-home-polish .planet-system .s9 .service-satellite  { animation-delay: -64s !important; }
+        .arabic-home-polish .planet-system .s10, .arabic-home-polish .planet-system .s10 .service-satellite { animation-delay: -72s !important; }
+        .arabic-home-polish .planet-system .s11, .arabic-home-polish .planet-system .s11 .service-satellite { animation-delay: -80s !important; }
+
+        /* Two-line Arabic labels: a dot and the service name in a pill. */
+        .arabic-home-polish .planet-system .service-satellite {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          width: max-content;
+          max-width: 136px;
+          font-size: 12px;
+          line-height: 1.3;
+          white-space: normal;
+        }
+        .arabic-home-polish .planet-system .service-satellite span {
+          display: block;
+          max-width: 104px;
+          padding: 7px 13px;
+          font-size: 12px;
+          font-weight: 700;
+          line-height: 1.45;
+          white-space: normal;
+          text-align: center;
+        }
+        .arabic-home-polish .planet-system .service-satellite:focus-visible {
+          outline: 2px solid #d9ff43;
+          outline-offset: 4px;
+          border-radius: 999px;
         }
 
-        .planet-system .s6 .service-satellite,.planet-system .s8 .service-satellite,.planet-system .s9 .service-satellite,.planet-system .s10 .service-satellite { animation-duration: 78s !important; }
-        .planet-system .s1 .service-satellite,.planet-system .s3 .service-satellite,.planet-system .s4 .service-satellite,.planet-system .s11 .service-satellite { animation-duration: 88s !important; }
-        .planet-system .s2 .service-satellite,.planet-system .s5 .service-satellite,.planet-system .s7 .service-satellite { animation-duration: 98s !important; }
-
-        /* Inner band: four equal 90-degree starting positions. */
-        .planet-system .s6,.planet-system .s6 .service-satellite { animation-delay: 0s !important; }
-        .planet-system .s8,.planet-system .s8 .service-satellite { animation-delay: -19.5s !important; }
-        .planet-system .s9,.planet-system .s9 .service-satellite { animation-delay: -39s !important; }
-        .planet-system .s10,.planet-system .s10 .service-satellite { animation-delay: -58.5s !important; }
-
-        /* Middle band: four equal 90-degree starting positions, offset from inner. */
-        .planet-system .s1,.planet-system .s1 .service-satellite { animation-delay: -11s !important; }
-        .planet-system .s3,.planet-system .s3 .service-satellite { animation-delay: -33s !important; }
-        .planet-system .s4,.planet-system .s4 .service-satellite { animation-delay: -55s !important; }
-        .planet-system .s11,.planet-system .s11 .service-satellite { animation-delay: -77s !important; }
-
-        /* Outer band: three equal 120-degree starting positions. */
-        .planet-system .s2,.planet-system .s2 .service-satellite { animation-delay: -8s !important; }
-        .planet-system .s5,.planet-system .s5 .service-satellite { animation-delay: -40.67s !important; }
-        .planet-system .s7,.planet-system .s7 .service-satellite { animation-delay: -73.33s !important; }
-
-        @media (max-width: 640px) {
-          /* The orbital art starts after the LCP copy on mobile. Defer its paint until needed. */
-          .studio-home .hero-system {
-            content-visibility: auto;
-            contain-intrinsic-size: 470px;
+        /* Phones and narrow screens: no orbit. The same navy panel holds the service list in two columns. */
+        @media (max-width: 654px) {
+          .arabic-home-polish .planet-system {
+            height: auto !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 30px 16px 26px;
+            border-radius: 28px;
           }
-
-          .planet-system .space-glow,
-          .planet-system .ring-b,
-          .planet-system .ring-c {
-            display: block;
+          .arabic-home-polish .planet-system .space-glow,
+          .arabic-home-polish .planet-system .ring-a { display: none !important; }
+          .arabic-home-polish .planet-system .dewank-sun {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            transform: none !important;
+            width: 96px !important;
+            height: 96px !important;
+            grid-column: 1 / -1;
+            justify-self: center;
+            margin-bottom: 8px;
           }
-          .planet-system .space-glow { opacity: .72; }
-          .planet-system .ring-b { opacity: .42; }
-          .planet-system .ring-c { opacity: .28; }
-
-          .planet-system .satellite-track {
-            animation-name: mobile-orbit !important;
-            animation-timing-function: linear !important;
-            animation-iteration-count: infinite !important;
-            animation-direction: normal !important;
-            transform-origin: 50% 50%;
-            will-change: transform;
+          .arabic-home-polish .planet-system .satellite-track {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            width: auto !important;
+            height: auto !important;
+            margin: 0 !important;
+            animation: none !important;
+            transform: none !important;
           }
-
-          .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 {
-            --orbit-size: 282px;
-            animation-duration: 82s !important;
-          }
-          .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 {
-            --orbit-size: 354px;
-            animation-duration: 92s !important;
-          }
-          .planet-system .s2,.planet-system .s5,.planet-system .s7 {
-            --orbit-size: 428px;
-            animation-duration: 102s !important;
-          }
-
-          .planet-system .s6 .service-satellite,.planet-system .s8 .service-satellite,.planet-system .s9 .service-satellite,.planet-system .s10 .service-satellite { animation-duration: 82s !important; }
-          .planet-system .s1 .service-satellite,.planet-system .s3 .service-satellite,.planet-system .s4 .service-satellite,.planet-system .s11 .service-satellite { animation-duration: 92s !important; }
-          .planet-system .s2 .service-satellite,.planet-system .s5 .service-satellite,.planet-system .s7 .service-satellite { animation-duration: 102s !important; }
-
-          .planet-system .s6,.planet-system .s6 .service-satellite { animation-delay: 0s !important; }
-          .planet-system .s8,.planet-system .s8 .service-satellite { animation-delay: -20.5s !important; }
-          .planet-system .s9,.planet-system .s9 .service-satellite { animation-delay: -41s !important; }
-          .planet-system .s10,.planet-system .s10 .service-satellite { animation-delay: -61.5s !important; }
-
-          .planet-system .s1,.planet-system .s1 .service-satellite { animation-delay: -11.5s !important; }
-          .planet-system .s3,.planet-system .s3 .service-satellite { animation-delay: -34.5s !important; }
-          .planet-system .s4,.planet-system .s4 .service-satellite { animation-delay: -57.5s !important; }
-          .planet-system .s11,.planet-system .s11 .service-satellite { animation-delay: -80.5s !important; }
-
-          .planet-system .s2,.planet-system .s2 .service-satellite { animation-delay: -8s !important; }
-          .planet-system .s5,.planet-system .s5 .service-satellite { animation-delay: -42s !important; }
-          .planet-system .s7,.planet-system .s7 .service-satellite { animation-delay: -76s !important; }
-
-          .planet-system .service-satellite {
-            animation-name: mobile-counter-orbit !important;
-            animation-timing-function: linear !important;
-            animation-iteration-count: infinite !important;
-            animation-direction: normal !important;
+          .arabic-home-polish .planet-system .service-satellite {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            translate: none !important;
+            animation: none !important;
+            transform: none !important;
+            width: 100%;
+            max-width: none;
             min-height: 44px;
-            max-width: 150px;
-            touch-action: manipulation;
-            will-change: transform;
+            font-size: 14px;
           }
-          .planet-system .service-satellite span {
-            white-space: nowrap;
-            font-size: 11px;
+          .arabic-home-polish .planet-system .service-satellite span {
+            width: 100%;
+            max-width: none;
+            padding: 10px 12px;
+            font-size: 14px;
           }
-
-          .planet-system:active .satellite-track,
-          .planet-system:active .service-satellite,
-          .planet-system:focus-within .satellite-track,
-          .planet-system:focus-within .service-satellite {
-            animation-play-state: paused !important;
+          .arabic-home-polish .planet-system .system-caption {
+            position: static;
+            grid-column: 1 / -1;
+            font-size: 13px;
+            justify-content: center;
+            color: #fff;
           }
         }
 
-        @keyframes mobile-orbit {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes mobile-counter-orbit {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(-360deg); }
-        }
-
-        @media (max-width: 380px) {
-          .planet-system .s6,.planet-system .s8,.planet-system .s9,.planet-system .s10 { --orbit-size: 258px; }
-          .planet-system .s1,.planet-system .s3,.planet-system .s4,.planet-system .s11 { --orbit-size: 320px; }
-          .planet-system .s2,.planet-system .s5,.planet-system .s7 { --orbit-size: 382px; }
-          .planet-system .service-satellite { max-width: 138px; }
-          .planet-system .service-satellite span { font-size: 10px; }
-        }
-
+        /* Reduced motion: the even arrangement is held still. Track angles, and labels counter-rotated to stay upright. */
         @media (prefers-reduced-motion: reduce) {
-          .planet-system *,
-          .planet-system *::before,
-          .planet-system *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            scroll-behavior: auto !important;
+          .arabic-home-polish .planet-system .satellite-track,
+          .arabic-home-polish .planet-system .service-satellite {
+            animation: none !important;
           }
+          .arabic-home-polish .planet-system .s1  { transform: rotate(0deg); }
+          .arabic-home-polish .planet-system .s2  { transform: rotate(32.73deg); }
+          .arabic-home-polish .planet-system .s3  { transform: rotate(65.45deg); }
+          .arabic-home-polish .planet-system .s4  { transform: rotate(98.18deg); }
+          .arabic-home-polish .planet-system .s5  { transform: rotate(130.91deg); }
+          .arabic-home-polish .planet-system .s6  { transform: rotate(163.64deg); }
+          .arabic-home-polish .planet-system .s7  { transform: rotate(196.36deg); }
+          .arabic-home-polish .planet-system .s8  { transform: rotate(229.09deg); }
+          .arabic-home-polish .planet-system .s9  { transform: rotate(261.82deg); }
+          .arabic-home-polish .planet-system .s10 { transform: rotate(294.55deg); }
+          .arabic-home-polish .planet-system .s11 { transform: rotate(327.27deg); }
+          .arabic-home-polish .planet-system .s1 .service-satellite  { transform: rotate(0deg); }
+          .arabic-home-polish .planet-system .s2 .service-satellite  { transform: rotate(-32.73deg); }
+          .arabic-home-polish .planet-system .s3 .service-satellite  { transform: rotate(-65.45deg); }
+          .arabic-home-polish .planet-system .s4 .service-satellite  { transform: rotate(-98.18deg); }
+          .arabic-home-polish .planet-system .s5 .service-satellite  { transform: rotate(-130.91deg); }
+          .arabic-home-polish .planet-system .s6 .service-satellite  { transform: rotate(-163.64deg); }
+          .arabic-home-polish .planet-system .s7 .service-satellite  { transform: rotate(-196.36deg); }
+          .arabic-home-polish .planet-system .s8 .service-satellite  { transform: rotate(-229.09deg); }
+          .arabic-home-polish .planet-system .s9 .service-satellite  { transform: rotate(-261.82deg); }
+          .arabic-home-polish .planet-system .s10 .service-satellite { transform: rotate(-294.55deg); }
+          .arabic-home-polish .planet-system .s11 .service-satellite { transform: rotate(-327.27deg); }
         }
       `}</style>
     </>

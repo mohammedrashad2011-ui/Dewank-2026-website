@@ -1,0 +1,20 @@
+/* Arabic homepage refinements (Preview). Scoped to .arabic-home-polish, which only the Arabic homepage sets.
+   - The orbit column is 620px wide from 1280px up, the same column the approved English homepage uses.
+   - The headline is sized to its own column (container query units), so the three lines stay balanced against the orbit
+     and the primary CTA stays in the first desktop viewport. Arabic glyphs are wider than Latin, so the scale is set
+     for Arabic, not copied from the English numbers. */
+
+@media (min-width: 1280px) {
+  html body .arabic-home-polish .hybrid-hero {
+    grid-template-columns: minmax(0, 1fr) 620px !important;
+  }
+}
+
+html body .arabic-home-polish .hybrid-hero .hero-copy {
+  container-type: inline-size;
+}
+
+html body .arabic-home-polish .hybrid-hero .hero-copy h1 {
+  font-size: clamp(40px, 9.8cqi, 72px) !important;
+  line-height: 1.28 !important;
+}

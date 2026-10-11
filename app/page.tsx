@@ -8,6 +8,7 @@ import HomeSelectedOffers from "./components/home-selected-offers";
 import "./home-growth-upgrade.css";
 import "./home-conversion-refinement.css";
 import "./home-mobile-service-cards.css";
+import "./arabic-home-polish.css";
 
 export const metadata: Metadata = createMetadata({
   title: "ديوانك | براند، تسويق، مواقع وأتمتة للشركات",
@@ -22,7 +23,6 @@ const services = [
   {
     n: "01",
     title: "نجذب الطلب",
-    en: "PAID GROWTH",
     text: "Google وMeta مع تتبع واضح، صفحات هبوط، وقرارات تحسين مبنية على التحويل وليس عدد النقرات.",
     tags: ["Google Ads", "Meta Ads", "Tracking"],
     tone: "growth",
@@ -31,7 +31,6 @@ const services = [
   {
     n: "02",
     title: "نبني المواقع",
-    en: "WEB EXPERIENCES",
     text: "مواقع وصفحات هبوط سريعة تجمع الرسالة وSEO وCRO والتتبع لتقود الزائر نحو إجراء واضح.",
     tags: ["Web Design", "CRO", "SEO"],
     tone: "web",
@@ -40,7 +39,6 @@ const services = [
   {
     n: "03",
     title: "نبني البراند والمحتوى",
-    en: "BRAND + CONTENT",
     text: "تموضع وهوية ومحتوى يجعل مشروعك أوضح في ذهن العميل وأكثر اتساقًا في كل نقطة تواصل.",
     tags: ["Branding", "Content", "Social"],
     tone: "brand",
@@ -49,7 +47,6 @@ const services = [
   {
     n: "04",
     title: "نؤتمت المتابعة",
-    en: "AI AUTOMATION",
     text: "واتساب وCRM وأتمتة ذكية تربط المحادثة بالتأهيل والحجز والمتابعة وتقلل العمل اليدوي.",
     tags: ["WhatsApp", "CRM", "AI"],
     tone: "automation",
@@ -58,19 +55,18 @@ const services = [
 ];
 
 const selectedWork = [
-  { n: "01", label: "AUTOMATION", title: "من رسائل متفرقة إلى رحلة حجز قابلة للقياس", text: "نظام واتساب وCRM يربط الرد والتأهيل والحجز والتذكير والمتابعة.", href: "/work#case-studies" },
-  { n: "02", label: "NAMING → IDENTITY", title: "من قرار التسمية إلى هوية Fine Jewelry متكاملة", text: "BITHAN: تموضع وتسمية وفحص، ثم اسم اختاره العميل وهوية عربية-إنجليزية كاملة بتطبيقات Premium.", href: "/work/bithan" },
-  { n: "03", label: "STRATEGY", title: "قرارات استراتيجية قبل التنفيذ", text: "مشروعات تعرض كيف نفكر في التحدي والتموضع والتجربة قبل الوصول للشكل النهائي.", href: "/work#concept-work" },
+  { n: "01", title: "من رسائل متفرقة إلى رحلة حجز قابلة للقياس", text: "نظام واتساب وCRM يربط الرد والتأهيل والحجز والتذكير والمتابعة.", href: "/work#case-studies" },
+  { n: "02", title: "من قرار التسمية إلى هوية Fine Jewelry متكاملة", text: "BITHAN: تموضع وتسمية وفحص، ثم اسم اختاره العميل وهوية عربية-إنجليزية كاملة بتطبيقات Premium.", href: "/work/bithan" },
+  { n: "03", title: "قرارات استراتيجية قبل التنفيذ", text: "مشروعات تعرض كيف نفكر في التحدي والتموضع والتجربة قبل الوصول للشكل النهائي.", href: "/work#concept-work" },
 ];
 
 export default function Home() {
   return (
-    <main className="studio-home home-conversion-page">
+    <main className="studio-home home-conversion-page arabic-home-polish">
       <Header />
 
       <section className="hybrid-hero shell">
         <div className="hero-copy">
-          <div className="hero-meta"><span>DEWANK® CREATIVE GROWTH STUDIO</span><span>2026 / MENA</span></div>
           <h1><span>نصنع العلامة.</span><span>نحرّك الطلب.</span><span><em>ونؤتمت النمو.</em></span></h1>
           <p>ديوانك يجمع البراندينج والتسويق والمواقع والأتمتة في منظومة واحدة، حتى يعرف العميل لماذا يختارك، يصل إليك أسرع، ويتحرك نحو قرار واضح.</p>
           <div className="hero-actions">
@@ -81,12 +77,10 @@ export default function Home() {
         </div>
 
         <MotionSystem />
-        <div className="hero-foot"><span>استراتيجية أولًا</span><span>تنفيذ له وظيفة</span><span>قياس قبل التوسع</span></div>
       </section>
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
-          <span className="section-label">دليل قبل الكلام</span>
           <h2 id="home-proof-title">النتيجة مهمة.<br/><em>وطريقة الوصول لها أهم.</em></h2>
           <p>في مشروع فعلي بالقطاع الطبي، ربطنا التسويق بالمحادثة والحجز والمتابعة بدل ترك كل خطوة تعمل وحدها.</p>
           <div className="home-proof-actions"><Link href="/work">شاهد دراسة الحالة كاملة <span>←</span></Link><Link href="/whatsapp-automation">استكشف أتمتة واتساب <span>←</span></Link></div>
@@ -105,7 +99,7 @@ export default function Home() {
           <div className="service-bento">
             {services.map((service) => (
               <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
-                <div className="card-top"><span>{service.n}</span><small>{service.en}</small><b>↗</b></div>
+                <div className="card-top"><span>{service.n}</span><b>↗</b></div>
                 <div className={`service-symbol ${service.tone}`} aria-hidden="true"><i/><i/><i/></div>
                 <div className="card-copy"><h3>{service.title}</h3><p>{service.text}</p><div className="tag-row">{service.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div>
               </Link>
@@ -118,7 +112,7 @@ export default function Home() {
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
         <div className="home-work-head"><div><span className="section-label">أعمال مختارة</span><h2 id="home-work-title">لا نعرض الشكل فقط.<br/><em>نعرض القرار خلفه.</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
         <div className="home-work-grid">
-          {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><small>{item.n} / {item.label}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
+          {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><small>{item.n}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
         </div>
       </section>
 
