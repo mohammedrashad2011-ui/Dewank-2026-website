@@ -70,7 +70,7 @@ export default function RootLayout({
     <html lang="en" dir="ltr" style={fontVariables}>
       <RootHeadScripts />
       <body>
-        <RootBodyStart />
+        <RootBodyStart language="en" />
         {children}
         <DeferredClientLayer />
       </body>

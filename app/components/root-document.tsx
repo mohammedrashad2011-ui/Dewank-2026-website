@@ -1,14 +1,17 @@
 import Script from "next/script";
-import { entityGraph, jsonLd } from "../lib/seo";
+import { englishEntityGraph, entityGraph, jsonLd } from "../lib/seo";
+import { vendorTrackingEnabled } from "../lib/analytics-mode";
 
 // Tracking and structured data shared by every root layout (Arabic, English) and the global not-found page.
-// The IDs are the existing production IDs. No IDs are added here.
+// The IDs are the existing production IDs. No IDs are added here. Vendor scripts load only in production mode
+// (see app/lib/analytics-mode.ts and docs/analytics-environments.md).
 const gaId = "G-5SKKT1NBHB";
 const gtmId = "GTM-PG525ZFN";
 const metaPixelId = "2274266710087331";
 
-// Rendered in <html>, before <body>. Same markup and order as before the split.
+// Rendered in <html>, before <body>. Same markup and order as before the split, in production mode.
 export function RootHeadScripts() {
+  if (!vendorTrackingEnabled) return null;
   return (
     <>
       <Script id="google-tag-manager" strategy="lazyOnload">
@@ -65,10 +68,13 @@ export function RootHeadScripts() {
   );
 }
 
-// Rendered first inside <body>. Same markup and order as before the split.
-export function RootBodyStart() {
+// Rendered first inside <body>. The Organization and WebSite graph follows the document language: Arabic for the Arabic
+// layout, English for the English one. The noscript tracking fallbacks follow the analytics mode.
+export function RootBodyStart({ language = "ar" }: { language?: "ar" | "en" }) {
+  const graph = language === "en" ? englishEntityGraph : entityGraph;
   return (
     <>
+      {vendorTrackingEnabled ? (
         <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
@@ -78,7 +84,9 @@ export function RootBodyStart() {
             title="Google Tag Manager"
           />
         </noscript>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(entityGraph) }} />
+      ) : null}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(graph) }} />
+      {vendorTrackingEnabled ? (
         <noscript>
           <img
             height="1"
@@ -88,6 +96,7 @@ export function RootBodyStart() {
             alt=""
           />
         </noscript>
+      ) : null}
     </>
   );
 }
