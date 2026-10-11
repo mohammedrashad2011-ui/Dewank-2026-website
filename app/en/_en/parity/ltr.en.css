@@ -16,3 +16,26 @@ html body .en-parity.studio-home * {
     line-height: 1.02 !important;
   }
 }
+
+/* WCAG AA contrast and size fixes, English only. The Arabic homepage uses these same values; they fall below the
+   AA thresholds for small text, so the English page raises them slightly. Layout and palette are unchanged. */
+html body .en-parity.studio-home .method-list p {
+  color: #4a4d55;
+}
+html body .en-parity.studio-home .testimonial-translation {
+  color: #b7b4ab;
+  font-size: 12px;
+}
+html body .en-parity.studio-home .home-offer-top small {
+  opacity: 0.8;
+}
+html body .en-parity.studio-home .method-intro p {
+  color: #4a4d55;
+}
+/* The shortcut links sit on a translucent tint; a solid dark fill makes their contrast unambiguous. */
+html body .en-parity.studio-home .growth-shortcuts a {
+  background: #1d1f23 !important;
+}
+html body .en-parity.studio-home .growth-shortcuts a:hover {
+  background: #2a2d33 !important;
+}
