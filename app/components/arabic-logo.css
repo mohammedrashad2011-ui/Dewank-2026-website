@@ -1,0 +1,25 @@
+/* Arabic site logo: the official Arabic wordmark (public/brand/dewank-logo-ar.png) in the header and footer.
+   The image keeps its own gold colour and transparent background. Scoped to .brand-logo-ar, which only the Arabic
+   header and footer set. The English logo is unchanged. */
+.brand-logo.brand-logo-ar {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.brand-logo.brand-logo-ar img {
+  display: block;
+  width: auto;
+  height: 50px;
+  max-width: none;
+}
+
+.brand-logo.brand-logo-ar.footer-brand img {
+  height: 64px;
+}
+
+@media (max-width: 900px) {
+  .brand-logo.brand-logo-ar img {
+    height: 36px;
+  }
+}

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { MobileNavigation } from "./mobile-navigation";
 import { ServicesMenu } from "./services-menu";
 import { LanguageSwitch } from "./language-switch";
+import "./arabic-logo.css";
+import { BidiText } from "./bidi-text";
 import "./offers-nav-premium-preview.css";
 import "./arabic-nav-collapse.css";
 
@@ -26,7 +28,7 @@ export function Header() {
   return (
     <header className="site-header arabic-site-header">
       <div className="shell nav-wrap">
-        <Link className="brand-logo" href="/" aria-label="ديوانك - الرئيسية"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link>
+        <Link className="brand-logo brand-logo-ar" href="/" aria-label="ديوانك - الرئيسية"><img src="/brand/dewank-logo-ar.png" alt="ديوانك" width="640" height="232" /></Link>
         <nav aria-label="التنقل الرئيسي">
           <ServicesMenu />
           <Link className="offers-nav-link" href="/offers" aria-label="العروض">
@@ -49,8 +51,8 @@ export function Footer() {
   return (
     <footer className="site-footer unified-footer">
       <div className="shell footer-grid unified-footer-grid">
-        <div className="footer-intro"><Link className="brand-logo footer-brand" href="/"><span className="mark-frame" aria-hidden="true"/><strong>ديوانك</strong></Link><p>نصنع العلامة. نحرّك الطلب. ونؤتمت النمو.</p></div>
-        <div className="footer-services"><b>الخدمات</b><div className="footer-service-links">{footerServices.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}</div></div>
+        <div className="footer-intro"><Link className="brand-logo brand-logo-ar footer-brand" href="/"><img src="/brand/dewank-logo-ar.png" alt="ديوانك" width="640" height="232" /></Link><p>نصنع العلامة. نحرّك الطلب. ونؤتمت النمو.</p></div>
+        <div className="footer-services"><b>الخدمات</b><div className="footer-service-links">{footerServices.map(([href, label]) => <Link href={href} key={href}><BidiText text={label} /></Link>)}</div></div>
         <div><b>استكشف</b><Link href="/services">جميع الخدمات</Link><Link href="/offers">العروض</Link><Link href="/work">أعمالنا</Link><Link href="/guides">أدلة النمو</Link><Link href="/about">عن ديوانك</Link><Link href="/ats-cv">للأفراد · السيرة الذاتية ATS</Link><Link href="/contact">ابدأ مشروعًا</Link></div>
         <div className="footer-contact"><b>تواصل</b><div className="footer-social-icons"><a href="https://wa.me/97339066649" target="_blank" rel="noreferrer" aria-label="تواصل عبر واتساب" title="واتساب"><ContactIcon type="whatsapp" /></a><a href="mailto:hello@dewank.com" aria-label="البريد الإلكتروني" title="البريد الإلكتروني"><ContactIcon type="email" /></a><a href="https://www.instagram.com/dewank_marketing" target="_blank" rel="noreferrer" aria-label="إنستجرام" title="إنستجرام"><ContactIcon type="instagram" /></a></div><span>البراندينج · التسويق · AI</span><LanguageSwitch variant="footer" /></div>
       </div>

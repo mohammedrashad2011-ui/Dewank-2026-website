@@ -12,14 +12,12 @@ export function LanguageSwitch({ variant = "header" }: { variant?: "header" | "f
   const href = englishEquivalent(pathname);
   if (variant === "footer") {
     return (
-      // eslint-disable-next-line @next/next/no-html-link-for-pages -- the switch must load the English document in full.
       <a className="language-switch language-switch-footer" href={href} lang="en" hrefLang="en">
         English version
       </a>
     );
   }
   return (
-    // eslint-disable-next-line @next/next/no-html-link-for-pages -- the switch must load the English document in full.
     <a className="language-switch language-switch-ar" href={href} lang="en" hrefLang="en" aria-label="English">
       EN
     </a>
