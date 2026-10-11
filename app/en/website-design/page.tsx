@@ -2,6 +2,7 @@ import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
+import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic website-design page's layout and styles, reused unchanged. English-only direction and type overrides follow.
@@ -274,6 +275,7 @@ export default function WebsiteDesignPage() {
           <div className="wd-related"><Link href="/en/seo-geo-aeo">SEO, GEO and AEO</Link><Link href="/en/paid-advertising">Paid advertising</Link><Link href="/en/contact">Contact</Link></div>
         </div>
       </section>
+      <RelatedGuides guides={[{ href: "/en/guides/why-website-does-not-generate-leads", title: "Why your website does not generate leads" }]} />
       <Footer />
     </main>
   );

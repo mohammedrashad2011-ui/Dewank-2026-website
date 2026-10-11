@@ -2,6 +2,7 @@ import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
+import { RelatedGuides } from "../_en/parity/related-guides";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic AI automation page's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../ai-automation/ai-automation.css";
@@ -210,6 +211,7 @@ export default function AiAutomationPage() {
         <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss automation with Dewank <span>↗</span></a>
       </section>
 
+      <RelatedGuides guides={[{ href: "/en/guides/ai-agent-vs-workflow-automation", title: "AI agent or workflow automation? How to choose" }]} />
       <Footer />
     </main>
   );

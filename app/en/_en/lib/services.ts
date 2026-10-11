@@ -39,7 +39,7 @@ export const SERVICE_CATEGORIES: Category[] = [
         forWhom: "New businesses and brands preparing a launch or a repositioning.",
         scopeSubject: "Naming scope request",
         detailHref: "/en/brand-naming",
-        proof: { label: "See the BITHAN naming and identity case", href: "/en/work#bithan" },
+        proof: { label: "See the BITHAN naming and identity case", href: "/en/work/bithan" },
       },
       {
         id: "brand-strategy",

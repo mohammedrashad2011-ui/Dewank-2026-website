@@ -2,6 +2,7 @@ import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
+import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { CONTACT_EMAIL } from "../_en/lib/site";
 // The Arabic SEO page's layout and styles, reused unchanged. English-only direction and type overrides follow.
@@ -192,6 +193,7 @@ export default function SeoAeoPage() {
           <p className="sa-contact-email">Or email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
         </div>
       </section>
+      <RelatedGuides guides={[{ href: "/en/guides/seo-vs-aeo", title: "SEO vs AEO: how to appear in Google and AI answers" }, { href: "/en/guides/why-website-does-not-generate-leads", title: "Why your website does not generate leads" }]} />
       <Footer />
     </main>
   );

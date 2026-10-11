@@ -24,7 +24,9 @@ const mobileGroups = [
     title: "Explore",
     links: [
       ["/en/services", "Starting points"],
+      ["/en/offers", "Offers"],
       ["/en/work", "Our work"],
+      ["/en/guides", "Guides"],
       ["/en/brand-naming", "Brand naming"],
     ],
   },

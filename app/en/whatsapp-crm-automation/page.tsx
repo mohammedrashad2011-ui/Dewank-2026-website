@@ -2,6 +2,7 @@ import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
+import { RelatedGuides } from "../_en/parity/related-guides";
 import { AutomationFlow, ConnectedSystem, WhatsAppHeroDemo } from "../_en/parity/whatsapp-demos";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
@@ -201,6 +202,7 @@ export default function WhatsAppAutomationPage() {
           <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss your automation map <span>↗</span></a>
         </div>
       </section>
+      <RelatedGuides guides={[{ href: "/en/guides/whatsapp-crm-automation", title: "How WhatsApp automation with a CRM reduces lost customers" }, { href: "/en/guides/ad-to-whatsapp-booking-journey", title: "From advert to WhatsApp to booking: the customer journey" }]} />
       <Footer />
     </main>
   );

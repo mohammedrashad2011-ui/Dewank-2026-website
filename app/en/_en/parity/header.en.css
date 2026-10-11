@@ -1,0 +1,5 @@
+/* Main navigation labels stay on one line. Offers and Guides added links to the row, which made "Our work" wrap. */
+html body nav[aria-label="Main navigation"] > a,
+html body nav[aria-label="Main navigation"] .services-trigger a {
+  white-space: nowrap;
+}

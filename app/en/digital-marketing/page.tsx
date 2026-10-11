@@ -2,6 +2,7 @@ import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
+import { RelatedGuides } from "../_en/parity/related-guides";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic digital-marketing page's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../digital-marketing/digital-marketing-page.css";
@@ -284,6 +285,7 @@ export default function DigitalMarketingPage() {
         </div>
       </section>
 
+      <RelatedGuides guides={[{ href: "/en/guides/marketing-plan-template", title: "A marketing plan template for businesses" }, { href: "/en/guides/marketing-kpis", title: "Marketing KPIs: the key measures businesses should track" }]} />
       <Footer />
     </main>
   );

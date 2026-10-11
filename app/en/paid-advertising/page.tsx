@@ -2,6 +2,7 @@ import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
+import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic paid-advertising page's layout and styles, reused unchanged. English-only direction and type overrides follow.
@@ -213,6 +214,7 @@ export default function PaidAdvertisingPage() {
         <div><span className="pa-label">Next step</span><h2>Send your current account<br /><em>or the details of your business.</em></h2></div>
         <div><p>We will say whether you need ongoing management, a single launch, or a fix to the page and tracking before increasing the budget.</p><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start a campaign review <span>↗</span></a></div>
       </section>
+      <RelatedGuides guides={[{ href: "/en/guides/google-ads-clicks-no-leads", title: "Why Google Ads brings clicks but not customers" }, { href: "/en/guides/google-ads-vs-meta-ads", title: "Google Ads or Meta Ads: which is right for your business?" }]} />
       <Footer />
     </main>
   );

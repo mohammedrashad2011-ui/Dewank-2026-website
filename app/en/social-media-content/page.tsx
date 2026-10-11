@@ -2,6 +2,7 @@ import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
+import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic social media page's layout and styles, reused unchanged. English-only direction and type overrides follow.
@@ -136,6 +137,7 @@ export default function SocialMediaContentPage() {
       </section>
 
       <section className="content-final shell"><h2>Make content work<br /><em>inside a clear plan.</em></h2><Link className="button primary" href={contactLink}>Discuss your needs <span>→</span></Link></section>
+      <RelatedGuides guides={[{ href: "/en/guides/social-media-not-generating-leads", title: "Your account looks good but does not bring customers" }]} />
       <Footer />
     </main>
   );

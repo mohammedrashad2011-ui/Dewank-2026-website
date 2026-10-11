@@ -29,7 +29,9 @@ export function Footer() {
         <div>
           <b>Explore</b>
           <Link href="/en/services">All services</Link>
+          <Link href="/en/offers">Offers</Link>
           <Link href="/en/work">Our work</Link>
+          <Link href="/en/guides">Guides</Link>
           <Link href="/en/brand-naming">Brand naming</Link>
           <Link href="/en/contact">Start a project</Link>
           <Link href="/en/privacy">Privacy notice</Link>

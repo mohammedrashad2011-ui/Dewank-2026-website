@@ -1,6 +1,7 @@
 // English copy of the Arabic site header (app/components/site-shell.tsx). Same markup, classes and styles.
-// Routes without an English equivalent yet (offers, guides, about) are left out rather than linked to Arabic pages.
+// Every route in this header has an English page. The language switch is the only link to the Arabic site.
 import Link from "next/link";
+import "./header.en.css";
 import "../../../components/offers-nav-premium-preview.css";
 import "../../../components/language-switch.css";
 import { MobileNavigation } from "./mobile-navigation";
@@ -21,10 +22,10 @@ export function Header() {
             <span className="offers-nav-confetti" aria-hidden="true" />
             <span className="offers-nav-label">Starting points</span>
           </Link>
+          <Link href="/en/offers">Offers</Link>
           <Link href="/en/work">Our work</Link>
+          <Link href="/en/guides">Guides</Link>
           <Link href="/en/about">About</Link>
-          <Link href="/en/brand-naming">Brand naming</Link>
-          <Link href="/en/contact">Contact</Link>
         </nav>
         <div className="nav-actions">
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- the language switch must load the Arabic document in full. */}

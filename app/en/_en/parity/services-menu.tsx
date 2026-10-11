@@ -126,6 +126,12 @@ export function ServicesMenu() {
           <Link href="/en/services" onClick={closeMenu}>
             View all services <span>→</span>
           </Link>
+          <Link href="/en/offers" onClick={closeMenu}>
+            Fixed-scope offers <span>→</span>
+          </Link>
+          <Link href="/en/guides" onClick={closeMenu}>
+            Read the guides <span>→</span>
+          </Link>
         </div>
         <div className="mega-groups">
           {serviceGroups.map((group) => (
