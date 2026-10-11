@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { offerPricing, type OfferPriceKey } from "../offers/offer-pricing";
+import { offerPricing, type OfferPriceKey } from "../(ar)/offers/offer-pricing";
 
 type OfferCard = {
   key: OfferPriceKey;
