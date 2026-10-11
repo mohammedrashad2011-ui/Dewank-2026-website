@@ -18,7 +18,7 @@ export function LanguageSwitch({ variant = "header" }: { variant?: "header" | "f
     );
   }
   return (
-    <a className="language-switch language-switch-ar" href={href} lang="en" hrefLang="en" aria-label="English">
+    <a className="language-switch language-switch-ar" href={href} lang="en" hrefLang="en">
       EN
     </a>
   );

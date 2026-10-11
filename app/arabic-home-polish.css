@@ -43,3 +43,23 @@ html body .arabic-home-polish .method-intro p,
 html body .arabic-home-polish .method-list p {
   color: #63656b;
 }
+
+/* Mobile contrast (WCAG AA, 4.5:1 for body text). Scoped to the Arabic homepage.
+   - Growth shortcuts (phones, 640px and below): the links sit on a #1c1d1f panel (the section's #111214 with the panel's
+     4.5% white on top). Each link gets that same colour as a solid background. The text is then checked against the
+     panel colour, not the white work card whose box overlaps the panel. The rendered colour does not change.
+   - Offer card labels (phones and tablets, 900px and below): opacity .55 to .62. The #111214 ink on white goes from
+     4.14:1 to 5.25:1 (4.92:1 on the recommended card's gradient). Labels keep their size and weight. Desktop already
+     sets these labels to opacity 1 with !important, so it is unchanged. */
+@media (max-width: 640px) {
+  html body .arabic-home-polish .home-core-paths .growth-shortcuts a {
+    background: #1c1d1f !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html body .arabic-home-polish .home-offer-top small {
+    opacity: 0.62;
+  }
+}
+
