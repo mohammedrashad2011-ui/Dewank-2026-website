@@ -8,13 +8,15 @@ html body .en-parity.studio-home * {
   text-align: start !important;
 }
 
-/* English headlines are longer than the Arabic ones. On phones the English hero headline is set a little smaller so the
-   primary CTA stays in the first screen (English only; the Arabic headline keeps its own size). */
-@media (max-width: 640px) {
-  html body .en-parity.studio-home .hybrid-hero h1 {
-    font-size: 38px !important;
-    line-height: 1.02 !important;
-  }
+/* Hero headline, English only. The headline is sized to its own column (container query units), so it keeps a clear
+   three-part hierarchy with a balanced animated system beside it at every width, and the primary CTA stays in the first
+   screen. The Arabic headline keeps its own sizes. */
+html body .en-parity.studio-home .hybrid-hero .hero-copy {
+  container-type: inline-size;
+}
+html body .en-parity.studio-home .hybrid-hero .hero-copy h1 {
+  font-size: clamp(34px, 9.8cqi, 62px) !important;
+  line-height: 1.08 !important;
 }
 
 /* WCAG AA contrast and size fixes, English only. The Arabic homepage uses these same values; they fall below the

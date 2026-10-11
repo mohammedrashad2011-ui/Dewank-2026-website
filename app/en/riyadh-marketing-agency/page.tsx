@@ -20,8 +20,12 @@ export const metadata: Metadata = {
     "branding agency Saudi Arabia",
     "performance marketing Riyadh",
   ],
-  // Preview pages are noindex, as on every other English page.
-  robots: { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
+  // Preview deployments are noindex. Production keeps the page's established metadata (no robots directive), so this
+  // branch does not change the page's production indexing behaviour.
+  robots:
+    globalThis.process.env.VERCEL_ENV === "production"
+      ? undefined
+      : { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
   alternates: {
     canonical,
     languages: {

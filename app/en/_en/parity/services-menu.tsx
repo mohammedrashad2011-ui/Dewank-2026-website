@@ -2,6 +2,7 @@
 
 // English copy of the Arabic ServicesMenu. Same markup, classes and behaviour; English copy and English routes.
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import "../../../components/services-menu-compact-preview.css";
 
@@ -41,6 +42,7 @@ const serviceGroups = [
 ];
 
 export function ServicesMenu() {
+  const pathname = usePathname() ?? "";
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -94,7 +96,7 @@ export function ServicesMenu() {
       onMouseLeave={scheduleClose}
     >
       <div className="services-trigger">
-        <Link href="/en/services">Services</Link>
+        <Link href="/en/services" aria-current={pathname === "/en/services" || pathname.startsWith("/en/services/") ? "page" : undefined}>Services</Link>
         <button
           type="button"
           aria-label={open ? "Hide services menu" : "Show services menu"}
