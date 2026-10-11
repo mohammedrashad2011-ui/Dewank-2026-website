@@ -63,3 +63,9 @@ html body .arabic-home-polish .method-list p {
   }
 }
 
+/* Orbit disc (Arabic homepage only). The disc is at most 132px on screen, but its background was the 1254px, 2.2 MB
+   logo. The homepage now uses public/brand/dewank-sun-ar.png (384px, 173 KB). The disc keeps the same background colour,
+   position and cover sizing. The English homepage keeps /dewank-logo.png. */
+html body .arabic-home-polish .planet-system .dewank-sun {
+  background-image: url('/brand/dewank-sun-ar.png');
+}
