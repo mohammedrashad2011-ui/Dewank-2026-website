@@ -29,3 +29,9 @@ html body .en-services .eyebrow::before,
 html body .en-services .eyebrow::after {
   content: none !important;
 }
+
+/* The "Where to start" cards show their number once, in the blue heading ("01 · Attract customers"). The shared
+   stylesheet also draws a grey counter in the card corner; it duplicates that number, so it is removed here. */
+html body .en-services .primary-path-card::before {
+  content: none !important;
+}
