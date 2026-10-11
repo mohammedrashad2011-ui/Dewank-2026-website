@@ -10,6 +10,18 @@
   }
 }
 
+/* Below 1280px the orbit column is too narrow for the 480px ring, and its labels were clipped. The hero stacks instead:
+   copy first, then the full 620px orbit centred underneath. The labels keep their size. */
+@media (max-width: 1279px) {
+  html body .arabic-home-polish .hybrid-hero {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body .arabic-home-polish .hybrid-hero .planet-system {
+    justify-self: center;
+  }
+}
+
 html body .arabic-home-polish .hybrid-hero .hero-copy {
   container-type: inline-size;
 }
