@@ -14,6 +14,8 @@ import "../home-mobile-service-cards.css";
 import "./_en/parity/offer-grid.en.css";
 import "./_en/styles/hide-arabic-widgets.css";
 import "./_en/parity/ltr.en.css";
+// Layout pass on the four service cards only. Scoped to .en-parity.studio-home.
+import "./_en/parity/service-cards.en.css";
 
 const whatsappHref =
   "https://wa.me/97339066649?text=" + encodeURIComponent("Hello Dewank, I would like to discuss my growth. The business is: ");
