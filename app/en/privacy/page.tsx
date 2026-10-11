@@ -47,6 +47,18 @@ function PrivacyPage() {
       <h2>International transfers</h2>
       <p>[To be confirmed once the delivery provider and its data region are approved.]</p>
 
+      <h2>Country detection for prices (not yet active)</h2>
+      <p>
+        [Draft for approval. This describes a feature that is switched off. It must not be published as active until the
+        approval note is signed off.] Prices are shown in US dollars by default. To show local prices, the browser would
+        send a request to api.country.is, a third-party service. The request contains the IP address of your connection, as
+        any web request does, and the service returns a two-letter country code. Dewank stores only that country code, in
+        your browser’s local storage under the key dewank_offer_country, so the request is not repeated on later visits.
+        Dewank does not store your IP address from this request. [Provider terms to be confirmed before activation: how long
+        the service keeps IP addresses and request logs, where they are processed, and whether the service shares them.] You
+        can remove the stored country at any time by clearing this site’s data in your browser.
+      </p>
+
       <h2>Your rights</h2>
       <p>
         Depending on where you live, you may ask us to access, correct or delete your details, or to object to or
