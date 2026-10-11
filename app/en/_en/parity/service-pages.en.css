@@ -1,0 +1,20 @@
+/* English service pages. The Arabic service layouts are reused unchanged; these overrides set left-to-right reading and
+   English type. Scope: .en-service only, so the Arabic pages are not affected. */
+html body .en-service,
+html body .en-service * {
+  direction: ltr !important;
+  text-align: start !important;
+}
+
+html body .en-service h1,
+html body .en-service h2,
+html body .en-service h3 {
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+/* Arabic-only decorative brackets around section labels are not used in English. */
+html body .en-service .sa-label::before,
+html body .en-service .sa-label::after {
+  content: none !important;
+}

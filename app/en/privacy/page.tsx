@@ -68,8 +68,11 @@ function PrivacyPage() {
 
       <h2>Cookies and analytics</h2>
       <p>
-        This website does not currently set analytics or marketing cookies. [Update this section before any analytics
-        or pixel is added.]
+        Every page of this website loads Google Tag Manager, Google Analytics 4 (gtag.js) and the Meta Pixel. These
+        services can set cookies and collect information about visits, such as pages viewed, referring sources and device
+        details, and they send it to Google and Meta. Some tracking events are sent to the browser’s data layer for
+        measurement of enquiries and clicks. [Cookie consent approach, the cookies each service sets and retention periods
+        to be confirmed by counsel before publication.]
       </p>
 
       <h2>Changes to this notice</h2>
