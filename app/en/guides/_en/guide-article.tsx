@@ -44,8 +44,8 @@ export function guideSchema({ slug, title, description, faqs }: Pick<GuideArticl
         inLanguage: "en",
         dateModified: "2026-10-11",
         mainEntityOfPage: url,
-        author: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
-        publisher: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        author: { "@id": "https://dewank.com/#organization" },
+        publisher: { "@id": "https://dewank.com/#organization" },
       },
       {
         "@type": "FAQPage",

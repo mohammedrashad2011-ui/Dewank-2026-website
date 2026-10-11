@@ -130,7 +130,7 @@ export default function WebsiteDesignPage() {
         alternateName: "Website design, landing pages and conversion-focused web development",
         description: "Design and development of company websites, landing pages and custom digital experiences for businesses worldwide, with responsive interfaces, UX, technical SEO, conversion work and tracking.",
         serviceType: ["Website design", "Web development", "UX design", "UI design", "Landing page design", "Conversion rate optimisation", "Technical SEO"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url: "https://dewank.com/en/website-design",
         inLanguage: "en",

@@ -81,7 +81,7 @@ export default function BrandingPage() {
         name: "Brand strategy and visual identity design",
         description: "Brand strategy, positioning, naming and visual identity services for businesses worldwide.",
         serviceType: ["Brand strategy", "Visual identity design", "Brand naming"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url: "https://dewank.com/en/branding",
         inLanguage: "en",

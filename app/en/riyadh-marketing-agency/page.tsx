@@ -20,11 +20,15 @@ export const metadata: Metadata = {
     "branding agency Saudi Arabia",
     "performance marketing Riyadh",
   ],
-  // Preview deployments are noindex. Production keeps the page's established metadata (no robots directive), so this
-  // branch does not change the page's production indexing behaviour.
+  // Preview deployments are noindex. Production returns the same robots object as the root layout on main, so the
+  // page's production output is unchanged.
   robots:
     globalThis.process.env.VERCEL_ENV === "production"
-      ? undefined
+      ? {
+          index: true,
+          follow: true,
+          googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
+        }
       : { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
   alternates: {
     canonical,

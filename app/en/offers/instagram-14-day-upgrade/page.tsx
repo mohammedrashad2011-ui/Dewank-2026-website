@@ -49,7 +49,7 @@ export default function Instagram14DayUpgradeOffer() {
         name: "14-day Instagram profile upgrade",
         description: "A focused 14-day Instagram upgrade for an existing account: review, bio and call to action, highlights, content themes, a visual direction, six designs and a 14-day plan.",
         serviceType: ["Instagram Profile Optimization", "Social Media Content Strategy", "Social Media Design"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url,
         inLanguage: "en",

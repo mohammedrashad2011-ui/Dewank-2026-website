@@ -62,7 +62,7 @@ export default function SeoAuditOfferPage() {
         alternateName: "Website SEO Audit",
         description: "A full SEO and AEO audit covering technical, content, speed, keywords and conversion, with a PDF report and a 30-day improvement plan.",
         serviceType: ["SEO Audit", "Technical SEO Audit", "On-page SEO Audit", "AEO Audit", "Website Performance Audit"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url,
         inLanguage: "en",

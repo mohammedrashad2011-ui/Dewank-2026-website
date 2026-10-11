@@ -51,7 +51,7 @@ export default function GoogleAdsLaunchOffer() {
         name: "Google Ads Search campaign setup and launch",
         description: "Setup and launch of one Google Search campaign: buyer-intent keyword research, ad copy, negative keywords, basic conversion tracking and a pre-launch check. Ad spend is paid directly to Google.",
         serviceType: ["Google Ads Setup", "Google Ads Campaign Launch", "Google Search Ads", "Conversion Tracking"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url,
         inLanguage: "en",

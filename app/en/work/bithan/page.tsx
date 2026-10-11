@@ -105,8 +105,8 @@ export default function BithanCaseStudyPage() {
         datePublished: "2026-09-23",
         dateModified: "2026-09-24",
         inLanguage: "en",
-        author: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
-        publisher: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        author: { "@id": "https://dewank.com/#organization" },
+        publisher: { "@id": "https://dewank.com/#organization" },
         about: ["Brand naming", "Brand strategy", "Visual identity design", "Fine jewellery branding", "Qatar"],
       },
       {

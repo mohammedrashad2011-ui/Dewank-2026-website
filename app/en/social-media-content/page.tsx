@@ -56,7 +56,7 @@ export default function SocialMediaContentPage() {
     "@type": "Service",
     "@id": "https://dewank.com/en/social-media-content#service",
     name: "Social media management and content creation",
-    provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+    provider: { "@id": "https://dewank.com/#organization" },
     areaServed: "Worldwide",
     url: "https://dewank.com/en/social-media-content",
     description: "Social media management and content creation for businesses worldwide: strategy, ideas, design, captions, publishing plans and development reporting.",

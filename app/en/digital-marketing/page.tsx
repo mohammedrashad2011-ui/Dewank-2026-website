@@ -100,7 +100,7 @@ export default function DigitalMarketingPage() {
         alternateName: "Digital marketing and content strategy",
         description: "Digital marketing strategy, content strategy, messaging, customer journey mapping and conversion strategy for businesses worldwide.",
         serviceType: ["Digital marketing strategy", "Content strategy", "Social media content", "Marketing messaging", "Customer journey", "Conversion strategy"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url: "https://dewank.com/en/digital-marketing",
         inLanguage: "en",

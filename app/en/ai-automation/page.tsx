@@ -65,7 +65,7 @@ export default function AiAutomationPage() {
         name: "AI automation for business workflows",
         description: "Workflow and AI automation for businesses worldwide, connecting WhatsApp and customer service, lead qualification, CRM, order processes and reporting, with people kept in control of sensitive decisions.",
         url,
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         serviceType: ["AI automation", "Workflow automation", "CRM automation", "Customer service automation"],
         inLanguage: "en",

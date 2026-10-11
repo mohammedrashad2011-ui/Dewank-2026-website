@@ -49,7 +49,7 @@ export default function WhatsAppAutomationPage() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": `${url}#service`, name: "WhatsApp automation and CRM for businesses", alternateName: "WhatsApp Business automation and CRM", description: "WhatsApp automation for businesses worldwide, connecting replies, lead qualification, bookings, follow-up and CRM, with a handover to the team.", serviceType: ["WhatsApp automation", "WhatsApp CRM", "Lead qualification automation", "Sales automation"], provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" }, areaServed: "Worldwide", url, inLanguage: "en" },
+      { "@type": "Service", "@id": `${url}#service`, name: "WhatsApp automation and CRM for businesses", alternateName: "WhatsApp Business automation and CRM", description: "WhatsApp automation for businesses worldwide, connecting replies, lead qualification, bookings, follow-up and CRM, with a handover to the team.", serviceType: ["WhatsApp automation", "WhatsApp CRM", "Lead qualification automation", "Sales automation"], provider: { "@id": "https://dewank.com/#organization" }, areaServed: "Worldwide", url, inLanguage: "en" },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://dewank.com/en" }, { "@type": "ListItem", position: 2, name: "Services", item: "https://dewank.com/en/services" }, { "@type": "ListItem", position: 3, name: "WhatsApp and CRM", item: url }] },
     ],

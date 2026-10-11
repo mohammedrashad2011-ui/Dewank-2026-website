@@ -67,7 +67,7 @@ export default function ContentOfferPage() {
     name: "30-day social media content package",
     description: "A content package for 30 days with 12 custom posts, 3 story designs and one reel, plus ideas, captions, a publishing plan and a bio and call-to-action review. It is not a full monthly account management contract.",
     serviceType: ["Social media content creation", "Social media design"],
-    provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+    provider: { "@id": "https://dewank.com/#organization" },
     areaServed: "Worldwide",
     url: "https://dewank.com/en/offers/30-day-content-package",
     inLanguage: "en",

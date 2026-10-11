@@ -26,7 +26,7 @@ function PrivacyPage() {
       <ul>
         <li>Your name, work email address and, if you give it, your company and website.</li>
         <li>The country you are targeting, the service you need, your timeline and your project brief.</li>
-        <li>The time the form was opened and submitted, and a short-lived request identifier used to limit spam.</li>
+        <li>[Applies once the contact form is enabled: the time the form was opened and submitted, and any request identifier used to limit spam.]</li>
       </ul>
 
       <h2>Why we use it</h2>
@@ -38,7 +38,7 @@ function PrivacyPage() {
       <h2>Who receives your details</h2>
       <p>
         Members of the Dewank team who handle enquiries. [Email delivery provider: not yet appointed. Name, role and
-        location of any processor to be added once approved.] We do not sell your details or use them for advertising.
+        location of any processor to be added once approved.] [Counsel to confirm: whether any enquiry details are used for advertising or remarketing. Measurement tags on this site may use visit data for advertising, as described under cookies.]
       </p>
 
       <h2>How long we keep them</h2>
@@ -68,10 +68,10 @@ function PrivacyPage() {
 
       <h2>Cookies and analytics</h2>
       <p>
-        Every page of this website loads Google Tag Manager, Google Analytics 4 (gtag.js) and the Meta Pixel. These
-        services can set cookies and collect information about visits, such as pages viewed, referring sources and device
-        details, and they send it to Google and Meta. Some tracking events are sent to the browser’s data layer for
-        measurement of enquiries and clicks. [Cookie consent approach, the cookies each service sets and retention periods
+        Every page of this website loads Google Tag Manager and Google Analytics 4 (gtag.js). The Meta Pixel loads after a
+        visitor first interacts with the page, or after a short delay. These services can set cookies and collect information about visits, such as pages viewed, referring sources and device
+        details, and they send it to Google and Meta. [No enquiry or click events are configured on the English pages yet. Confirm this, and any Google Ads conversion
+        tracking, before publication.] [Cookie consent approach, the cookies each service sets and retention periods
         to be confirmed by counsel before publication.]
       </p>
 

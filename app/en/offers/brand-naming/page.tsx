@@ -50,7 +50,7 @@ export default function BrandNamingOfferPage() {
         name: "Brand naming package with an initial brand direction",
         description: "A defined brand naming package with 10–15 considered names, linguistic and cultural checks, preliminary similarity and domain research, a top three and an initial brand direction.",
         serviceType: ["Brand Naming", "Brand Direction", "Domain Availability Research"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url,
         inLanguage: "en",

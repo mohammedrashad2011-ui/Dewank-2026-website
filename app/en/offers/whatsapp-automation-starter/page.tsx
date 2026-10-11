@@ -51,7 +51,7 @@ export default function WhatsAppAutomationStarterOffer() {
         alternateName: "WhatsApp Automation Starter",
         description: "A foundation WhatsApp automation package: automatic replies, lead qualification, data capture, handover to a team member, basic follow-up and testing before launch. Not a full CRM.",
         serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url,
         inLanguage: "en",

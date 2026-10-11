@@ -73,7 +73,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         name: "Small business website, ready to launch",
         description: "Design and development of a small company website of up to five pages, with WhatsApp and contact form, basic analytics and SEO, and a pre-launch review.",
         serviceType: ["Website Design", "Website Development", "Basic SEO"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url,
         inLanguage: "en",

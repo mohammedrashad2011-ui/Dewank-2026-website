@@ -50,7 +50,7 @@ export default function MiniVisualIdentityOffer() {
         name: "Mini visual identity package",
         description: "A mini visual identity package: a primary logo and a simplified version, a colour palette, suggested typefaces, a visual direction, three practical applications and a short guidelines file.",
         serviceType: ["Visual Identity Design", "Logo Design", "Brand Identity"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url,
         inLanguage: "en",

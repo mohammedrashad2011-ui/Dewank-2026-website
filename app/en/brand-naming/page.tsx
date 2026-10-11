@@ -53,7 +53,7 @@ export default function BrandNamingPage() {
         name: "Brand naming with preliminary checks",
         description: "Brand naming for businesses worldwide, with 10–15 considered names, meaning and pronunciation checks, preliminary similarity research and domain availability.",
         serviceType: ["Brand naming", "Preliminary similarity research", "Domain availability research"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url: "https://dewank.com/en/brand-naming",
         inLanguage: "en",

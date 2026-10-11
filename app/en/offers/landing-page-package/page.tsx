@@ -46,7 +46,7 @@ export default function LandingPageOffer() {
         name: "Landing page design",
         description: "A custom landing page with marketing copy, design, WhatsApp and form routes, analytics and basic SEO. A full option includes a domain and hosting for one year.",
         serviceType: ["Landing page design", "Conversion copywriting", "Web analytics setup"],
-        provider: { "@type": "Organization", name: "Dewank", url: "https://dewank.com/en" },
+        provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url: "https://dewank.com/en/offers/landing-page-package",
         inLanguage: "en",
