@@ -71,7 +71,7 @@ export default function Instagram14DayUpgradeOffer() {
   };
 
   return (
-    <main className="inner-page offers-page instagram-upgrade-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page instagram-upgrade-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 

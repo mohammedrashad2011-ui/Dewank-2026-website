@@ -67,7 +67,7 @@ export function guideSchema({ slug, title, description, faqs }: Pick<GuideArticl
 export function GuideArticle({ slug, title, description, crumb, intro, readTime, focus, answer, toc, faqs, ctaHeading, ctaText, ctaHref, ctaLabel, children }: GuideArticleProps) {
   const schema = guideSchema({ slug, title, description, faqs });
   return (
-    <main className="guides-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="guides-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       <article>

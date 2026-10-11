@@ -73,7 +73,7 @@ export default function WhatsAppAutomationStarterOffer() {
   };
 
   return (
-    <main className="inner-page offers-page whatsapp-starter-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page whatsapp-starter-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       <section className="shell offer-detail-hero whatsapp-starter-hero">

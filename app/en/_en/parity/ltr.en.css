@@ -62,3 +62,14 @@ html body .en-parity.studio-home .growth-shortcuts::before {
   }
 }
 
+
+/* Section labels: the blue on light sections and the blue on the two dark sections both fell below the WCAG AA contrast
+   ratio for small text. English homepage only; the Arabic labels keep their colours. */
+
+html body .en-parity.studio-home .section-label {
+  color: #2a4bd9 !important;
+}
+html body .en-parity.studio-home .bento-section .section-label,
+html body .en-parity.studio-home .home-trust-section .section-label {
+  color: #9fb4ff !important;
+}

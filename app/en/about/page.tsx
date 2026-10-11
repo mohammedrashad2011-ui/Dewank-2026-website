@@ -63,7 +63,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="about-page about-entity-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="about-page about-entity-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 

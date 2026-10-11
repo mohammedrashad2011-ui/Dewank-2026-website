@@ -67,3 +67,41 @@ html body nav[aria-label="Main navigation"] .services-trigger a[aria-current="pa
     grid-column: 1;
   }
 }
+
+/* Skip link: first Tab stop on every English page. Hidden until focused, then shown above the header. */
+html body .site-header .skip-link {
+  position: absolute;
+  top: -160px;
+  left: 12px;
+  z-index: 60;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #111214;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+html body .site-header .skip-link:focus-visible {
+  top: 12px;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Offers highlight sheen, English header only. The shared keyframes move `left`, which triggers layout on every frame.
+   This version moves the same sheen with transform (same start, end, timing and skew), so it runs on the compositor. */
+html body .site-header nav .offers-nav-link::after {
+  left: 0;
+  animation: offer-nav-sheen-en 3.8s ease-in-out infinite;
+}
+@keyframes offer-nav-sheen-en {
+  0%, 58% { transform: translateX(-178.6%) skewX(-20deg); opacity: 0; }
+  62% { opacity: 1; }
+  80% { transform: translateX(321.4%) skewX(-20deg); opacity: 1; }
+  100% { transform: translateX(321.4%) skewX(-20deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body .site-header nav .offers-nav-link::after {
+    animation: none;
+  }
+}

@@ -37,7 +37,7 @@ export default function GuidesHubPage() {
   };
 
   return (
-    <main className="guides-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="guides-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       <section className="guides-hero shell">

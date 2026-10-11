@@ -14,11 +14,8 @@ export function EnShell({ children }: { children: ReactNode }) {
   preload("/fonts/cormorant-latin.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
   return (
     <div className="en-site" lang="en" dir="ltr">
-      <a className="skip-link" href="#main">
-        Skip to content
-      </a>
       <Header />
-      <main id="main">{children}</main>
+      <main id="main-content">{children}</main>
       <Footer />
     </div>
   );

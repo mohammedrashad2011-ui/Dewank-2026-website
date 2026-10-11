@@ -22,6 +22,7 @@ export function Header() {
   const current = (href: string) => (isActive(pathname, href) ? "page" : undefined);
   return (
     <header className="site-header">
+      <a className="skip-link" href="#main-content">Skip to content</a>
       <div className="shell nav-wrap">
         <Link className="brand-logo" href="/en" aria-label="Dewank home">
           <span className="mark-frame" aria-hidden="true" />

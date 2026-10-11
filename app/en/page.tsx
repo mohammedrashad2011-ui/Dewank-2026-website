@@ -124,7 +124,7 @@ export const metadata = enMetadata(
 
 export default function Home() {
   return (
-    <main className="studio-home home-conversion-page en-parity" lang="en" dir="ltr">
+    <main id="main-content" className="studio-home home-conversion-page en-parity" lang="en" dir="ltr">
       <Header />
 
       <section className="hybrid-hero shell">
