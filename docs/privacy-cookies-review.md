@@ -11,8 +11,10 @@ data-protection law. Only qualified counsel can make that determination.
 
 ### Consent
 
-- A bilingual consent dialog appears on the first visit. It offers **Accept all**, **Reject all** and **Manage choices**.
-  Manage offers two categories: usage measurement and advertising measurement. The dialog is built in
+- A bilingual consent banner appears on the first visit. It offers **Accept all**, **Reject all** (the same size and
+  weight) and **Manage preferences**. Preferences open a dialog with two categories, usage measurement and advertising
+  measurement, each with its description, the withdrawal instructions and a link to the privacy notice. The banner and
+  dialog are built in
   `app/components/consent-bootstrap.ts`.
 - A visitor who does nothing has made no choice. No vendor request is made. The dialog stays until a choice is made.
 - The choice is stored in the browser's local storage under `dewank-consent-v1`. The value holds only

@@ -1,16 +1,19 @@
 # Release candidate report: bilingual site (Arabic at `/`, English at `/en`)
 
-**Verdict: BLOCKED pending an owner decision.** One technical regression stops merge review: on a first visit, the
-Arabic homepage's mobile LCP is worse than the baseline (about 4.0 s to 6.3 s in lab runs), because the consent dialog
-becomes the largest element. Every other gate passes. The English launch remains blocked by items B1 to B6 in
-`docs/launch-readiness.md`. Nothing has been merged, deployed to production, or launched.
+**Verdict.** The release candidate is ready for owner review as a preview merge. It is **not** ready for production
+launch.
+
+- **Preview merge blockers:** none. The first-visit consent regression is fixed, and no measured page regresses against
+  the baseline (`54114a2`).
+- **Production launch blockers:** the English launch items B1 to B6 (see "Production launch blockers" below), and
+  first-visit mobile LCP is above 2.5 s on every page.
+
+Nothing has been merged, deployed to production, or launched. English indexing is off.
 
 ## Branch and commits
 
-- Branch: `feat/dewank-bilingual-release-candidate`
-- Base and visual baseline: `feat/dewank-unified-preview` at `54114a2`
-- Rollback branch (unchanged): `rollback/unified-preview-pre-bilingual-20261012` at `8b2d9ca`
-- Commits on the branch, oldest first:
+Branch `feat/dewank-bilingual-release-candidate`, based on `feat/dewank-unified-preview` at `54114a2`. Rollback branch
+`rollback/unified-preview-pre-bilingual-20261012` at `8b2d9ca` is unchanged.
 
 | Commit | Change |
 |---|---|
@@ -21,180 +24,200 @@ becomes the largest element. Every other gate passes. The English launch remains
 | `87c4c16` | WCAG AA text contrast on English labels and paid-ads copy; 24 px WhatsApp target |
 | `7a8f361` | Retire the unused `/api/og` route; cap contact request bodies at 16 KB |
 | `5a67058` | Launch procedure, privacy review and readiness documents |
-| `e71af33` | Correct English label contrast: restore the light-section blue |
+| `e71af33` | Restore the light-section English label blue |
+| `070f8ef` | Release candidate report (first version) |
+| `6005cfb` | **Consent: render the bootstrap inline and show a compact banner** |
+| `ccb8b62` | **Arabic logo: 240 px WebP; Cookie settings at 24 px without layout change** |
+| `2e317c4` | **English homepage: render the work section so the method label is not overlapped** |
+| (this commit) | Release candidate report and privacy review update |
 
-The verified code is `e71af33`. The commit that adds this report comes after it and changes no code. The Vercel
-preview check for the final pushed SHA is reported under "Vercel" below.
+**Not touched:** `main`, PR #154, PR #155, `feat/dewank-unified-preview`, production DNS and hosting, analytics accounts
+and IDs, production environment variables, Deployment Protection. The GTM, GA4 and Meta configurations are unchanged.
 
-**Not touched:** `main`, PR #154, PR #155, `feat/dewank-unified-preview`, production DNS and hosting, analytics
-accounts and IDs, production environment variables, Deployment Protection.
+## What the three blockers turned out to be
 
-**Not activated:** English indexing (`ENGLISH_LAUNCH_ENABLED = false`), the English sitemap entries, and the reciprocal
-hreflang. The launch configuration was built and checked in an isolated worktree, and it was not deployed.
+**1. First-visit consent delay (the Arabic home regression).** The consent bootstrap was a `beforeInteractive` script.
+Next queues those behind its client runtime, so the banner was inserted about 1.6 s after DOMContentLoaded. Measured
+under throttling (4x CPU, 150 ms RTT, 1.6 Mbps), the script was added at 5,157 ms, against DOMContentLoaded at 3,500 ms.
+The banner was also the largest element, so it became the LCP candidate.
 
-## Blockers
+- Fix: the bootstrap is an inline script at the start of `<body>`. The banner is inserted at DOMContentLoaded (about
+  3.5 s in the same probe), and the consent default is set while the document parses.
+- The banner is now short, so the hero paragraph stays the LCP element. In the final runs, the LCP element is the hero
+  paragraph in every run.
+- The preferences dialog carries the full descriptions, the withdrawal instructions and the privacy notice link.
+  Accept and Reject are identical in size and style.
 
-### Technical (stops merge review)
+**2. The method-label contrast (English homepage, mobile).** The English homepage's work section was skipped with
+`content-visibility: auto` and an 820 px placeholder. Its testimonials box (948 px, `overflow: hidden`) overhangs the work
+section (872 px). On first load, the placeholder moved the method section up over that overhang, so the method label
+was painted on the dark testimonials background.
 
-**T1. Arabic homepage mobile LCP regresses on a first visit.** Measured on the same lab setup (mobile, devtools
-throttling, 3 runs, median):
+- Evidence: axe-core (the engine Lighthouse uses) reported `#2a4bd9` on `#111214`, 2.77:1, in the unscrolled state. When
+  the work section was rendered normally, the method section moved to y=6,171, below the overhang, and the violation
+  went away.
+- Fix: the work section is no longer skipped. The rendered layout is unchanged, and the label passes on the light
+  background at 5.56:1 in both states.
 
-- Baseline (`54114a2`): LCP 4,031 ms. The LCP element is the hero paragraph (area 31,160 px²), painted at about 4.0 s.
-- Candidate: LCP 6,254 ms. The LCP element is the consent dialog's paragraph (area 31,856 px²). It is about 2% larger
-  than the hero paragraph and paints late, with 6.2 s of element render delay.
-- With consent accepted (vendors loaded): LCP 1,303 ms median, performance 80.
+**3. Pricing text differences.** The 32 cases matched on prices, currencies, call counts and the stored country. The
+text hashes differed because `document.body.innerText` now includes two intentional additions: the footer legal line
+(Privacy notice and Cookie settings) on every page, and the consent banner on a first visit. With those two removed, the
+normalized hashes match in all 32 cases. No code change was needed, and the offer and country-lookup code is untouched.
 
-The cause is the consent dialog, which appears on every first visit. Options, all of which need an owner decision:
+Two further fixes came out of the investigation:
 
-1. Make the dialog more compact on phones, so its text block is smaller than the hero paragraph. The copy and the
-   choices stay the same.
-2. Keep the dialog as a bottom sheet with a shorter body, and move the full explanation behind "Manage choices"
-   (the privacy notice still carries the full text).
-3. Accept the regression and record it, with the consent-accepted figures as the returning-visitor experience.
+- The Arabic wordmark was a 720 x 313 PNG of 102 KB, rendered at 22 px tall. It is now a 240 px WebP of 7 KB. Compared
+  on the real header and footer backgrounds, the two differ by a mean of 1.4 to 5.6 out of 255, with edge
+  anti-aliasing only.
+- The Cookie settings control in both footers was 10 px tall. It now has a 24 px hit area, with a matching negative margin
+  so the footer keeps its original height.
 
-The change is a design decision, so it has not been made here. The candidate is not safe to merge until one of these is
-chosen.
+## Verification
 
-### Launch blockers (English only; they do not stop review of this branch)
+Measured on the committed code (`2e317c4`). `npm ci` from the lockfile, then `npm run build`, which prerendered 93 routes.
 
-- **B1.** The English contact form is closed (`formEnabled = false`). Its endpoint `POST /en/api/contact` returns 405, and
-  no route returns the `delivered: true` the form expects. Choose a delivery route before the form opens.
-- **B2.** The privacy notices are drafts, pending counsel review and the owner's facts (`docs/privacy-cookies-review.md`).
-- **B3.** Provider-side consent settings (GTM, GA4, Meta) are not verified from this codebase.
-- **B4.** The Arabic offer pages call `api.country.is` before any consent choice. Decide whether to keep it, gate it, or
-  replace it.
-- **B5.** English analytics: shared IDs with `/en` segmentation, or separate properties.
-- **B6.** `/en/riyadh-marketing-agency` is indexable on production today. Confirm this is intended.
-
-## What was verified
-
-All checks ran on the production build of `e71af33` (`npm ci` from the lockfile, then `npm run build`, 93 routes
-prerendered). Each result below was measured, not inferred.
-
-| Gate | Result |
+| Check | Result |
 |---|---|
-| Install and build | `npm ci` and `npm run build` pass. The only warnings are Node deprecation notices from the toolchain. |
-| TypeScript | `tsc --noEmit` passes. |
-| ESLint (project ignore patterns) | 0 errors, 39 warnings (existing `<img>` and hook notes). |
-| Route audit | 97 internal link targets, none returning a non-200 or redirect status. |
-| Route parity | 94 routes compared. |
-| Functional checks | Language switch, menu open/close and Escape, focus return, and the Arabic form's empty-submit validation all pass. |
-| Third-party hosts (no choice) | Five routes sampled. None on the English pages sampled. On `/offers` (Arabic), `api.country.is` only. |
-| Vendor requests (no choice) | Two routes sampled (`/services`, `/en/privacy`): 0 requests each. |
-| Consent scenarios | First visit: 0 vendor requests and the dialog is shown. Reject all: 0. Accept all: vendors load, and the choice survives a reload. Analytics only: GTM loads, Meta does not. Withdrawal: the page reloads and measurement cookies are removed. Language switch after accept: choice kept. |
-| GA4 page views | One `page_view` per load on `/` and on `/en`, using the existing GA4 ID. |
-| Meta PageView | The Meta scripts load on both the baseline and the candidate. No `facebook.com/tr` beacon was seen from `localhost` on either build, so this is not a regression. Confirm in Events Manager on production. |
-| Preview build (vendors) | After Accept all: 0 GA4 and 0 Meta requests. |
-| Popups | Popup behaviour is identical to the baseline in all 16 checks. |
-| Pricing | Prices and call counts identical to the baseline in all 32 scenarios. The page text hash differs in each scenario; the cause was not isolated. |
-| Contact API | Body over 16 KB: 413, with and without `Content-Length`. Malformed JSON: 400. Valid body: 202 with `persisted: false`. |
-| `/api/og` | Removed. No page references it. On the baseline build it returned an empty reply for the two titles tested. |
+| Clean install and production build | Pass |
+| TypeScript (`tsc --noEmit`) | Pass |
+| ESLint, full tree, project ignore patterns | 0 errors, 39 warnings (existing `<img>` and hook notes) |
+| Route audit | 97 internal link targets, none returning a non-200 or redirect status. `/api/contact` answers GET with 405, as a POST-only route should. |
+| Route parity | 94 routes compared |
+| Consent scenarios (Arabic and English) | First visit: 0 vendor requests and the banner shown. Reject all: 0. Accept all: vendors load, and the choice survives a reload. Analytics only: GTM and GA4 load, Meta does not. Withdrawal: 0 vendor requests after the reload and no measurement cookies. Language switch: choice kept. |
+| Keyboard and focus (21 checks, Arabic and English) | All pass. Banner reachable by Tab; Accept and Reject the same size; Manage opens a labelled modal; focus moves to its heading; Tab and Shift+Tab stay inside it; Escape closes it and returns focus to the trigger; a choice moves focus to main content; returning visitors get no banner, and the footer control reopens preferences with the stored state. |
+| GA4 page views | One `page_view` per load on `/` and `/en`, using the existing GA4 ID |
+| Meta PageView | Meta scripts load after consent. No `facebook.com/tr` beacon is seen from `localhost`, on the baseline or the candidate. Confirm in Events Manager on production. |
+| Popups | No difference from the baseline in 16 checks |
+| Pricing | Prices, currencies, call counts and stored country identical in 32 of 32 cases. Normalized page-text hashes identical in 32 of 32 (raw hashes differ only by the footer legal line and banner text). |
+| Contact API | Body over 16 KB: 413. Malformed JSON: 400. Valid body: 202, `persisted: false`. |
+| Functional checks | Language switch, menu open and Escape, focus return, empty-form validation |
+| Third-party requests with no choice | None on the English pages sampled. `api.country.is` on `/offers`, as before. |
 
-### Indexing, by build (same commit `e71af33`, three builds)
+### Preview configuration (built with `VERCEL_ENV=preview`, from `2e317c4`)
 
-| Build | Launch flag | Environment | English robots | English sitemap entries | English hreflang | Vendors allowed |
+- After Accept all: 0 GTM, GA4 or Meta requests. 0 GA4 page views. 0 Meta PageView requests.
+- English pages: `noindex`, no English hreflang. The English sitemap has no entries, and the Riyadh page is `noindex`.
+- Vendor loading is blocked whatever the stored choice.
+
+### Indexing gate, by build
+
+| Build | English robots | English sitemap entries | English hreflang | Vendors |
+|---|---|---|---|---|
+| Candidate (production, flag off) | `noindex`; Riyadh indexable | 0 (Riyadh only) | none | after consent |
+| Launch configuration (flag on, production), verified on `e71af33` in an isolated worktree; the indexing code is unchanged since | indexable; privacy drafts `noindex` | 37 | reciprocal, 36 pairs | after consent |
+| Preview (`VERCEL_ENV=preview`) | `noindex` on all English pages | 0 | none | never |
+
+The Arabic pages are indexable on the preview build as well. That is unchanged from the baseline and outside the
+English-indexing brief. See the owner decisions.
+
+### Visual captures, all seven widths
+
+Pixel comparison of 84 full-page captures (12 pages at 1440, 1280, 1100, 1024, 834, 390 and 360 px), baseline against the
+candidate, with consent set to rejected so the banner is not in the capture.
+
+- **Desktop:** the differences are where the approved changes are. Logo bands in the header and footer; the footer legal
+  line at the bottom of each page; and the paid-advertising copy, which has the contrast correction. The mid-page layout
+  of the English homepage is pixel-identical. Heights match the baseline on desktop, and the largest difference on any
+  page is 0.25% of pixels.
+- **Phones (360 and 390 px):** every page is 20 px taller. The footer legal line wraps onto a second row. This is a
+  visible change that the owner should accept or reject.
+
+### Lab performance (Lighthouse, mobile devtools throttling unless stated, median of 3 runs)
+
+First visit means no stored choice, which is what Lighthouse's fresh profile produces.
+
+| Page | Perf (base → final) | LCP ms (base → final) | TBT ms (base → final) | CLS (base → final) | Transfer KB (base → final) | A11y (base → final) |
 |---|---|---|---|---|---|---|
-| Candidate (production) | off | production | `noindex` (Riyadh indexable) | 0 (Riyadh only) | none | yes, after consent |
-| Launch configuration | on | production | indexable (privacy drafts `noindex`) | 37 | reciprocal, 36 pairs | yes, after consent |
-| Preview configuration | on | `VERCEL_ENV=preview` | `noindex` on all English pages | 0 | none | no |
+| Arabic home | 54 → **82** | 4,031 → **3,354** | 1,134 → 200 | 0 → 0 | 2,017 → 1,148 | 100 → 100 |
+| English home | 70 → **87** | 3,459 → **2,971** | 531 → 153 | 0 → 0 | 4,018 → 1,091 | 96 → **100** |
+| Arabic services | 58 → **85** | 3,881 → 3,236 | 967 → 148 | 0 → 0 | 2,016 → 1,134 | 100 → 100 |
+| English services | 69 → **88** | 3,524 → 2,896 | 542 → 159 | 0 → 0 | 3,976 → 1,035 | 96 → **100** |
+| Arabic paid ads | 56 → **84** | 4,071 → 3,288 | 936 → 146 | 0 → 0 | 2,041 → 1,159 | 92 → **100** |
+| English paid ads | 70 → **87** | 3,434 → 2,988 | 539 → 162 | 0 → 0 | 4,019 → 1,079 | 96 → **100** |
+| English Riyadh | 60 → **86** | 3,960 → 2,725 | 670 → 229 | 0.071 → 0.071 | 4,106 → 1,068 | 96 → **100** |
 
-The launch configuration returns reciprocal `en`/`ar` alternates with `x-default` on `/` and `/en`, and matching pairs on
-the other sampled pages (`/services`, `/contact`, `/paid-ads`). The preview configuration keeps the flag on and still
-produces no indexable English page, no English hreflang, and no vendor. The draft privacy notices stay `noindex` in every
-build.
+Desktop (simulated) first visit: every page improves. Performance rises from 82–97 to 96–98, LCP falls to 1.08–1.21 s,
+TBT falls to 0, and accessibility is 96 to 100. Riyadh's CLS is 0.088 on desktop, unchanged from the baseline.
 
-## Performance
+**First-visit LCP and consent-accepted LCP, reported separately (AR and EN homes, mobile):**
 
-Lab, Lighthouse, median of 3 runs. Baseline is `54114a2`; candidate is `e71af33` before the final contrast-only commit.
-The contrast commit changes colours only, and it was not re-measured in the full matrix.
+| State | Arabic home: perf / LCP | English home: perf / LCP | LCP element |
+|---|---|---|---|
+| First visit, no choice (baseline 54 / 4,031 ms and 70 / 3,459 ms) | 82 / **3,354 ms** | 87 / **2,971 ms** | Hero paragraph |
+| Returning, rejected | 100 / 1,264 ms | 100 / 1,174 ms | Hero paragraph |
+| Returning, accepted (vendors load) | 85 / 1,304 ms (TBT 594 ms) | 93 / 1,158 ms (TBT 311 ms) | Hero paragraph |
 
-| Page (mobile, devtools throttling) | Performance | LCP (ms) | TBT (ms) | Transfer (KB) | JS (KB) |
-|---|---|---|---|---|---|
-| Arabic home | 54 → **68** | 4,031 → **6,254** (regression, T1) | 1,134 → 133 | 2,017 → 1,237 | 1,350 → 512 |
-| English home | 70 → **87** | 3,459 → 2,907 | 531 → 131 | 4,018 → 1,083 | 1,330 → 492 |
-| Arabic services | 58 → **83** | 3,881 → 3,233 | 967 → 127 | 2,016 → 1,223 | 1,351 → 513 |
-| Arabic paid ads | 56 → **84** | 4,071 → 3,234 | 936 → 124 | 2,041 → 1,248 | 1,366 → 527 |
-| English paid ads | 70 → **87** | 3,434 → 2,946 | 539 → 138 | 4,019 → 1,072 | 1,330 → 492 |
-| English Riyadh | 60 → **86** | 3,960 → 2,796 | 670 → 203 | 4,106 → 1,157 | 1,345 → 506 |
-| English services | 69 → **88** | 3,524 → 2,861 | 542 → 121 | 3,976 → 1,028 | 1,328 → 490 |
+With no stored choice, no vendor is requested. In the accepted state the vendor tags load, which is the cost of
+measurement and not a fault in the page.
 
-Desktop (simulated) improved on every page: performance 82–97 → 96–98, and LCP 1.2–2.9 s → 1.1–1.2 s. Its TBT fell to 0.
+Targets against the final numbers:
 
-Consent accepted, mobile, 3 runs (vendors load, so this is the returning-visitor or post-choice experience):
+- **Performance 85 or more, mobile:** met on English services, English paid ads, English Riyadh and English home, and on
+  Arabic services (85). Not met on Arabic home (82) and Arabic paid ads (84).
+- **LCP under 2.5 s:** not met on any first visit. Met for returning visitors on both homes (about 1.2 s).
+- **CLS under 0.1:** met on every page.
+- **TBT under 200 ms:** met on six of seven pages. English Riyadh is 229 ms.
+- **No desktop regression:** met. No desktop page regressed on performance, LCP, TBT or CLS.
 
-- Arabic home: performance 80, LCP 1,303 ms, TBT 886 ms.
-- English home: performance 87, LCP 1,106 ms, TBT 485 ms.
+**Why first-visit LCP is still above 2.5 s.** The hero paragraph is the LCP element, and its paint waits on two
+render-blocking resources: a 102 KB stylesheet and a 144 KB HTML document, both sharing the throttled connection with the
+fonts. The stylesheet finishes at about 2.8 s in the throttled probe. Shrinking it means restructuring the CSS, which
+risks the approved visuals, so it was not done here.
 
-Against the targets (lab, first visit):
+## Blockers and decisions
 
-- **Performance 85 or more, mobile:** met on the four English pages (86–88). Not met on the Arabic home (68), Arabic
-  services (83) and Arabic paid ads (84).
-- **LCP under 2.5 s:** not met on any page on a first visit (best 2,796 ms). Met with consent on both homepages.
-- **CLS under 0.1:** met on every page (highest 0.071 on English Riyadh).
-- **TBT under 200 ms:** met on six of seven pages. English Riyadh is 203 ms.
-- **No desktop regression:** no desktop page regressed in performance or LCP.
+### Preview merge blockers
 
-The largest English image fell from 2.16 MB to 61 KB. On English pages the logo is now a CSS `image-set()` WebP. The
-Arabic page's largest image is 61 KB.
+None. The first-visit consent regression is fixed and no page regresses against the baseline. Every check above passes.
 
-Remaining limitations: LCP on a first visit is limited by the main-thread work of the homepage and by the consent dialog
-(T1). Third-party tags add TBT once a visitor consents (about 880 ms median TBT on the Arabic home with consent). There is
-no Content Security Policy yet.
+### Production launch blockers
 
-## Accessibility
+1. **First-visit mobile LCP above 2.5 s on every page.** Arabic home 3.35 s, English home 2.97 s. The bottleneck is measured
+   (102 KB render-blocking stylesheet and 144 KB HTML). Fixing it requires CSS restructuring and a fresh visual check.
+2. **Arabic mobile performance below 85 on home (82) and paid ads (84).**
+3. **English Riyadh TBT 229 ms** (target 200 ms).
+4. **English launch items B1 to B6** (see `docs/launch-readiness.md`):
+   - B1 English contact form: closed, and its endpoint returns 405. No delivery route exists, and none has been invented.
+   - B2 Privacy and cookie notices are drafts pending counsel review.
+   - B3 Provider-side consent settings (GTM, GA4, Meta) are not verified from this codebase.
+   - B4 The Arabic offers page calls `api.country.is` before any consent choice.
+   - B5 English analytics segmentation is undecided.
+   - B6 The Riyadh page's indexing needs confirming.
 
-Lighthouse accessibility, two runs per page, English pages after the final contrast commit:
+### Owner, legal and provider decisions
 
-- English home, desktop: 100.
-- English services, desktop and mobile: 100.
-- English Riyadh, desktop and mobile: 100.
-- English home, mobile: 96. One item remains: the method-section label. Lighthouse reads this label against a dark
-  background on a first-load mobile capture, in both runs. The live page (after scrolling) reads it on a light background,
-  where `#2a4bd9` measures 5.56:1. No single blue passes on both backgrounds, so this is an open item, not a fix. The
-  state-dependent capture needs an investigation of the homepage's content-visibility handling.
-- Arabic home, services, paid ads: 100 on desktop and mobile (paid ads was 92–96 on the baseline).
+- Counsel review of both privacy notices, and the owner's facts for them (legal entity, registration, address,
+  retention, lawful bases, processors).
+- The English enquiry route (B1), and the copy that goes with it.
+- Whether to keep, consent-gate or replace the Arabic country lookup (B4).
+- English analytics: shared IDs with `/en` segmentation, or separate properties (B5).
+- The Riyadh page's indexing (B6).
+- Provider-side configuration of GTM consent overview, GA4 consent settings, Meta consent handling and Google Ads
+  conversion settings. These were not changed from this repository, and nothing here verifies them.
+- Whether the footer legal line may wrap onto a second row on phones (+20 px). This is a visible change.
+- Preview indexing: the Arabic pages are indexable on Vercel preview builds, as on the baseline. Confirm that Deployment
+  Protection keeps previews unreachable to crawlers, or decide to add `noindex` to Arabic previews too.
+- Approval of the English launch, in writing, before the activation procedure in `docs/english-launch-activation.md`.
 
-Contrast corrections in this branch: the English section labels are back to `#2a4bd9` on light sections (dark sections keep
-`#9fb4ff`). The navy services label is `#9fb4ff` (8.7:1). The Riyadh footer line is `#8a877f` (5.4:1). The paid-ads copy is
-`#963f17`, measured at 4.6 to 6.5:1 on the paper and card backgrounds. The WhatsApp minimise control is 24 px.
+### Optional improvements
 
-The visual captures at 1440, 1280, 1100, 1024, 834, 390 and 360 px were taken on earlier builds of this branch, before the
-final contrast commits. The consent dialog's keyboard behaviour was not separately tested in this pass.
-
-## Vercel
-
-- `5a67058` (push 1): Vercel reports `success` ("Deployment has completed"). Dashboard:
-  https://vercel.com/dewank-marketing/dewank-2026-website/4e8YjDnNQXFyZNweeVPLqh2ob9Af
-- The protected preview address could not be reached from this environment, so the preview was not browsed directly.
-  The checks above ran on the same commit locally.
-
-## Known and recorded
-
-- `/_global-error` returns 500 when requested directly. This is Next's internal route, and it does the same on the
-  baseline. It is not linked from any page.
-- The root `POST /api/contact` accepts a valid body, returns 202, and stores nothing. No code calls it now. It can be
-  removed with B1.
-- The Arabic offers page calls `api.country.is` before any consent choice (B4).
-- Pricing text hashes differ from the baseline; the prices do not. Not isolated.
+- Reduce the 102 KB render-blocking stylesheet and the 144 KB HTML document. This is the path to first-visit LCP under
+  2.5 s. It needs its own change and visual regression.
+- Remove the root `POST /api/contact` route. It accepts a valid body and stores nothing, and nothing calls it. It can go
+  with B1.
+- Remove the unreferenced `public/en/brand/dewank-logo.png` (about 2.2 MB) and the unused showcase PNGs.
+- Decide on `scripts/route-group-migration.mjs` and `scripts/qa/*`.
+- `/_global-error` returns 500 when requested directly. This is Next's internal route, and the baseline does the same.
 - Node deprecation warnings (`module.register`) come from the toolchain.
 
 ## Rollback
 
-Ordered from least to most change:
-
 1. Do not merge. The branch can stay as it is.
-2. English launch: revert to `ENGLISH_LAUNCH_ENABLED = false` in a new commit and redeploy (see
+2. English launch: set `ENGLISH_LAUNCH_ENABLED` back to `false` in a new commit and redeploy (see
    `docs/english-launch-activation.md`).
 3. Full rollback: deploy `feat/dewank-unified-preview` at `54114a2`, or the rollback branch at `8b2d9ca`. Production DNS,
    hosting and analytics were never changed, so no infrastructure work is needed.
 
-## Owner actions
+## Stop before merge
 
-1. Decide T1 (banner option 1, 2 or 3), or accept the regression in writing.
-2. Choose the English enquiry route (B1) and approve the copy that goes with it.
-3. Counsel review and the owner's facts for both privacy notices (B2).
-4. Check the provider-side consent settings in GTM, GA4 and Meta (B3).
-5. Decide on the Arabic country lookup (B4), English analytics (B5) and the Riyadh page's indexing (B6).
-6. Decide what to do with `public/en/brand/dewank-logo.png` (about 2.2 MB, unreferenced), unused showcase PNGs, and
-   `scripts/route-group-migration.mjs` and `scripts/qa/*`.
-7. Only after all of the above: approve the English launch in writing, then follow the activation procedure.
+This report stops at the merge-review gate. Nothing has been merged into `main`, the unified preview, or production.
