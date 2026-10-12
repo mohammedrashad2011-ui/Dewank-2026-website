@@ -35,3 +35,9 @@ html body .en-services .eyebrow::after {
 html body .en-services .primary-path-card::before {
   content: none !important;
 }
+
+/* The "If the problem is not clear" label sits on the navy section, where the shared grey (#686a70, 3.2:1) fails.
+   The lighter blue used on dark sections on the homepage (8.7:1) is used here too. English services page only. */
+html body .problem-chooser .section-label {
+  color: #9fb4ff !important;
+}
