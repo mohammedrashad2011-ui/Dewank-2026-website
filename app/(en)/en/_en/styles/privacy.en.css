@@ -7,6 +7,17 @@
 .en-site .privacy li { margin-bottom: 6px; }
 .en-site .privacy a { color: var(--navy); font-weight: 700; }
 .en-site .draft-banner {
-  border: 2px solid #b3261e; background: #fff4f2; color: #6b1a14; border-radius: 14px;
-  padding: 16px 18px; margin-bottom: 28px; font-size: 15px;
+  border: 1px solid #d2a84e; background: #fff7e8; color: #111214; border-radius: 12px;
+  padding: 14px 18px; margin-bottom: 28px; font-size: 14px; line-height: 1.7;
 }
+.en-site .privacy .legal-table-wrap { margin: 16px 0 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.en-site .privacy .legal-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px; line-height: 1.7; }
+.en-site .privacy .legal-table caption { margin-bottom: 8px; color: var(--ink); font-weight: 800; text-align: start; }
+.en-site .privacy .legal-table th,
+.en-site .privacy .legal-table td { padding: 10px 12px; border: 1px solid rgba(17, 18, 20, 0.14); text-align: start; vertical-align: top; }
+.en-site .privacy .legal-table th { background: #fff7e8; font-weight: 800; }
+.en-site .privacy .legal-link-button {
+  padding: 0; border: 0; background: none; color: var(--navy); font: inherit; font-weight: 700;
+  text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+}
+.en-site .privacy .legal-link-button:focus-visible { outline: 3px solid #d2a84e; outline-offset: 3px; border-radius: 4px; }

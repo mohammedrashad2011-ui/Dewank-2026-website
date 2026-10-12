@@ -64,4 +64,55 @@ export const privacyPageCss = `/* Legal draft page (Arabic). Plain, readable lay
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+.legal-link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #1e3a8a;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.legal-link-button:focus-visible {
+  outline: 3px solid #d2a84e;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.legal-table-wrap {
+  margin: 16px 0 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.legal-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.legal-table caption {
+  margin-bottom: 8px;
+  color: #111214;
+  font-weight: 800;
+  text-align: start;
+}
+
+.legal-table th,
+.legal-table td {
+  padding: 10px 12px;
+  border: 1px solid rgba(17, 18, 20, 0.14);
+  text-align: start;
+  vertical-align: top;
+}
+
+.legal-table th {
+  background: #fff7e8;
+  font-weight: 800;
+}
 `;
