@@ -3,7 +3,8 @@
 // order of the page stylesheets; the Arabic service-card and offer-card treatments depend on it).
 export const consentBannerCss = `/* Consent banner and preferences. Palette from the site: navy #071a33, gold #d2a84e, ivory #fff7e8. Accept and reject are
    identical in size, weight and treatment, so rejecting is as easy as accepting. Direction comes from the dir attribute
-   (rtl for Arabic, ltr for English). Every control is at least 44 px high. */
+   (rtl for Arabic, ltr for English). The visible buttons are compact; each one keeps a 44 px touch area through its
+   ::before pseudo-element, so the banner is small without making the controls harder to tap. */
 
 .dewank-consent {
   position: fixed;
@@ -11,22 +12,22 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
   bottom: 12px;
   z-index: 9000;
   box-sizing: border-box;
-  max-width: 720px;
+  max-width: 480px;
   margin-inline: auto;
-  padding: 14px 16px;
+  padding: 10px 12px;
   border: 1px solid rgba(210, 168, 78, 0.5);
-  border-radius: 14px;
+  border-radius: 12px;
   background: #071a33;
   color: #fff7e8;
-  box-shadow: 0 14px 36px rgba(2, 10, 24, 0.35);
-  font-size: 14px;
-  line-height: 1.6;
+  box-shadow: 0 10px 28px rgba(2, 10, 24, 0.35);
+  font-size: 12.5px;
+  line-height: 1.5;
 }
 
 .dewank-consent-title {
-  margin: 0 0 4px;
+  margin: 0 0 2px;
   color: #fff7e8;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
   line-height: 1.35;
 }
@@ -36,14 +37,14 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
 }
 
 .dewank-consent-body {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
   color: #fff7e8;
 }
 
 .dewank-consent-small {
-  margin: 0 0 10px;
+  margin: 0 0 6px;
   color: rgba(255, 247, 232, 0.85);
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .dewank-consent a {
@@ -55,19 +56,29 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
 .dewank-consent-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 8px;
 }
 
 .dewank-consent-btn {
-  min-height: 44px;
-  padding: 10px 14px;
+  position: relative;
+  min-height: 32px;
+  padding: 5px 12px;
   border: 1px solid #d2a84e;
   border-radius: 999px;
   background: #d2a84e;
   color: #071a33;
   font: inherit;
+  font-size: 12.5px;
   font-weight: 800;
   cursor: pointer;
+}
+
+.dewank-consent-btn::before,
+.dewank-consent-manage::before,
+.dewank-consent-links a::before {
+  content: "";
+  position: absolute;
+  inset: -6px -4px;
 }
 
 .dewank-consent-save {
@@ -78,17 +89,19 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 2px 16px;
-  margin-top: 4px;
+  gap: 2px 14px;
+  margin-top: 2px;
 }
 
 .dewank-consent-manage {
-  min-height: 44px;
-  padding: 10px 0;
+  position: relative;
+  min-height: 32px;
+  padding: 6px 0;
   border: 0;
   background: transparent;
   color: #f2d089;
   font: inherit;
+  font-size: 12.5px;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -96,9 +109,11 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
 }
 
 .dewank-consent-links a {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
+  min-height: 32px;
+  font-size: 12.5px;
 }
 
 .dewank-consent button:focus-visible,
@@ -178,12 +193,18 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
   .dewank-consent {
     inset-inline: 8px;
     bottom: 8px;
-    padding: 12px 14px;
-    font-size: 13px;
+    padding: 9px 10px;
+    font-size: 12px;
   }
 
   .dewank-consent-title {
-    font-size: 15px;
+    font-size: 13px;
+  }
+
+  .dewank-consent-btn {
+    min-height: 30px;
+    padding: 4px 10px;
+    font-size: 12px;
   }
 
   .dewank-consent-backdrop {
