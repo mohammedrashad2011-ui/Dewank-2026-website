@@ -58,6 +58,23 @@ data-protection law. Only qualified counsel can make that determination.
 - The root `/api/contact` route has been removed. It returned a success response for valid submissions and stored nothing.
   No code path stores a contact submission.
 
+## Status after the final pre-launch pass (12 October 2026)
+
+The notices were rewritten as short, customer-facing policies (commit `0d79958`). What changed against the table below:
+
+- The draft banner and the "for review" notes are removed. Nothing in the notices claims legal approval. Both pages are
+  public (footer and consent banner) and stay `noindex` until the owner decides. Access and indexing are separate settings.
+- Items 1, 4, 5 and 9 are resolved in the wording. Item 8 is decided for launch (kept, with disclosure); counsel review continues.
+- Two essential disclosures remain open and are marked in the notices: the retention period for enquiries and WhatsApp
+  conversations, and the server-log retention period from the hosting provider (items 7a and 7b).
+- Checked against the code and the owner account, not assumed: the events sent to the measurement layer are
+  `sitewide_whatsapp_click`, `offer_select`, `home_offer_select` and `contact_whatsapp_submit`, none with message text or
+  contact details. The Meta Pixel receives `PageView` only (Events Manager shows `PageView` as the only active event).
+- Not verified: whether the GTM container forwards those events to Google Analytics or Google Ads (container
+  `GTM-PG525ZFN` is not reachable from the owner session used here), and whether any remarketing audience is built from
+  them. The notices say only what the code sends and that Google and Meta use the data under their own policies. If
+  remarketing is used, the notices need a sentence on it before launch.
+
 ## Items for the owner and counsel
 
 Status after the final pass. "Launch blocker" means it must be closed before merge to `main`, or before the English
