@@ -194,11 +194,16 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
     inset-inline: 8px;
     bottom: 8px;
     padding: 9px 10px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .dewank-consent-title {
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .dewank-consent-manage,
+  .dewank-consent-links a {
+    font-size: 11px;
   }
 
   .dewank-consent-btn {
