@@ -147,7 +147,7 @@ export const jsonLd = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u
 // Only facts already published on the site are used: the English homepage description, the shared contact details,
 // the social profile, and the two languages the business works in. No Gulf-only geography is stated for English pages.
 const englishDescription =
-  "Dewank brings branding, digital marketing, websites and automation together in one growth system for businesses worldwide.";
+  "Dewank provides branding, digital marketing, web development, and automation services for businesses across international markets.";
 
 export const englishOrganizationSchema = {
   "@type": "Organization",
