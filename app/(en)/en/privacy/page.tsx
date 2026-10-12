@@ -67,8 +67,10 @@ function PrivacyPage() {
         and policies.
       </p>
       <p>
-        After that, the conversation stays in WhatsApp, where our team reads it and replies. We keep it for as long as needed to
-        reply to you and keep a record of the enquiry. <span className="legal-owner-note">[Retention period after the last message: owner to confirm.]</span>
+        After that, the conversation stays in WhatsApp, where our team reads it and replies. WhatsApp conversations and customer
+        enquiries may be kept for ongoing communication with you. No automatic deletion period is currently established. You can
+        ask us to delete your information at <a href="mailto:hello@dewank.com">hello@dewank.com</a>, subject to applicable
+        requirements.
       </p>
       <p>
         When you click a WhatsApp button on the site, the site records a measurement event named{" "}
@@ -223,12 +225,13 @@ function PrivacyPage() {
       <ul>
         <li>Browser storage: until you delete it or withdraw your choice, as section 5 describes.</li>
         <li>
-          Server logs: kept by our hosting provider under its retention policy.{" "}
-          <span className="legal-owner-note">[Retention period: owner to confirm with the hosting provider.]</span>
+          Server logs: kept under the data-retention practices of our hosting provider, <bdi dir="ltr">Hostinger</bdi>. See its
+          privacy policy for details.
         </li>
         <li>
-          Enquiries and WhatsApp conversations: as section 3 describes.{" "}
-          <span className="legal-owner-note">[Retention period: owner to confirm.]</span>
+          Enquiries and WhatsApp conversations: may be kept for ongoing communication, as section 3 describes. No automatic
+          deletion period is currently established. You can ask us to delete them at{" "}
+          <a href="mailto:hello@dewank.com">hello@dewank.com</a>, subject to applicable requirements.
         </li>
         <li>Measurement data: according to the retention settings in our Google and Meta accounts.</li>
       </ul>
