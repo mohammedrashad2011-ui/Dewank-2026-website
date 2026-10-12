@@ -115,4 +115,10 @@ export const privacyPageCss = `/* Legal draft page (Arabic). Plain, readable lay
   background: #fff7e8;
   font-weight: 800;
 }
+
+.legal-owner-note {
+  display: inline;
+  color: #7a4f00;
+  font-style: italic;
+}
 `;

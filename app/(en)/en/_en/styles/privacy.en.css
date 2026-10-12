@@ -21,3 +21,4 @@
   text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
 }
 .en-site .privacy .legal-link-button:focus-visible { outline: 3px solid #d2a84e; outline-offset: 3px; border-radius: 4px; }
+.en-site .privacy .legal-owner-note { color: #7a4f00; font-style: italic; }
