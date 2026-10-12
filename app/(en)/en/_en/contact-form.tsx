@@ -1,42 +1,102 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState, type FormEvent } from "react";
-import { COUNTRIES, SERVICES, TIMELINES, LIMITS, validateContact, type FieldErrors } from "@/app/(en)/en/_en/lib/contact-schema";
+import { useRef, useState, type FormEvent } from "react";
+import {
+  COUNTRIES,
+  SERVICES,
+  TIMELINES,
+  LIMITS,
+  cleanBrief,
+  cleanLine,
+  validateContact,
+  type FieldErrors,
+} from "@/app/(en)/en/_en/lib/contact-schema";
+import { WHATSAPP_NUMBER } from "@/app/(en)/en/_en/lib/site";
 
+// The form does not send anything to a Dewank server. It writes the enquiry out and opens WhatsApp with it. The visitor
+// completes the enquiry by pressing Send inside WhatsApp, so the page never reports the enquiry as delivered.
 type Status =
   | { kind: "idle" }
-  | { kind: "submitting" }
-  | { kind: "sent" }
+  | { kind: "opened"; url: string }
+  | { kind: "blocked"; url: string; text: string }
   | { kind: "error"; message: string };
 
 const FIELD_ORDER = ["name", "email", "company", "country", "service", "timeline", "brief", "consent"] as const;
+const countryLabel = Object.fromEntries(COUNTRIES.map((c) => [c.value, c.label]));
+const serviceLabel = Object.fromEntries(SERVICES.map((s) => [s.value, s.label]));
+const timelineLabel = Object.fromEntries(TIMELINES.map((t) => [t.value, t.label]));
 
-// Read the clock only from event handlers and effects, never during render.
+// Read the clock from event handlers only, never during render.
 function currentTime() {
   return Date.now();
+}
+
+// Same event name and parameters as the Arabic contact form. It carries the service and the page, never the brief or
+// any contact detail.
+function trackEnquiry(service: string) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "contact_whatsapp_submit",
+    lead_intent: service,
+    source_path: "/en/contact",
+    cta_location: "english_contact_form",
+  });
+}
+
+// Opens WhatsApp in a new window and reports whether the browser allowed it. Clearing opener stops the new page from
+// reaching this one.
+function openWhatsApp(url: string): boolean {
+  const opened = window.open(url, "_blank");
+  if (!opened) return false;
+  try {
+    opened.opener = null;
+  } catch {
+    // Some browsers block access to the new window; it is still open.
+  }
+  return true;
+}
+
+// The English enquiry that WhatsApp opens with. Values must already be cleaned by the shared schema.
+export function buildEnquiryMessage(v: {
+  name: string;
+  email: string;
+  company: string;
+  country: string;
+  service: string;
+  timeline: string;
+  brief: string;
+}): string {
+  return [
+    "New enquiry from the Dewank website (English)",
+    "",
+    `Name: ${v.name}`,
+    `Email: ${v.email}`,
+    `Company: ${v.company || "Not given"}`,
+    `Country: ${countryLabel[v.country] ?? v.country}`,
+    `Service: ${serviceLabel[v.service] ?? v.service}`,
+    `Timeline: ${timelineLabel[v.timeline] ?? v.timeline}`,
+    "",
+    "Project brief:",
+    v.brief,
+  ].join("\n");
 }
 
 export function ContactForm({ enabled }: { enabled: boolean }) {
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [briefLength, setBriefLength] = useState(0);
-  const startedAt = useRef<number | null>(null);
+  const [copied, setCopied] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Timing starts when the visitor first sees the form, not on page load.
-  useEffect(() => {
-    startedAt.current = Date.now();
-  }, []);
+  const disabled = !enabled;
 
-  const disabled = !enabled || status.kind === "submitting" || status.kind === "sent";
-
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!enabled) return;
 
     const form = new FormData(event.currentTarget);
-    const payload = {
+    const raw = {
       name: form.get("name"),
       email: form.get("email"),
       company: form.get("company"),
@@ -46,56 +106,41 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
       brief: form.get("brief"),
       consent: form.get("consent") === "on",
       website: form.get("website"),
-      startedAt: startedAt.current ?? currentTime(),
     };
 
-    // Same rules as the server, so obvious mistakes are caught before a round trip.
-    const local = validateContact(payload, currentTime());
-    if (!local.valid) {
-      setErrors(local.errors);
+    // Honeypot: a hidden field that people never fill in. If a script filled it, do nothing.
+    if (typeof raw.website === "string" && raw.website.trim()) return;
+
+    // Only the field rules decide here. The timing check is not applied, because nothing is sent to a server to protect.
+    const check = validateContact({ ...raw, startedAt: currentTime() }, currentTime());
+    if (!check.valid) {
+      setErrors(check.errors);
       setStatus({ kind: "error", message: "Please check the highlighted fields." });
-      focusFirstError(local.errors);
+      focusFirstError(check.errors);
       return;
     }
 
     setErrors({});
-    setStatus({ kind: "submitting" });
+    setCopied(false);
+    const values = {
+      name: cleanLine(raw.name, LIMITS.nameMax),
+      email: cleanLine(raw.email, LIMITS.emailMax).toLowerCase(),
+      company: cleanLine(raw.company, LIMITS.companyMax),
+      country: String(raw.country),
+      service: String(raw.service),
+      timeline: String(raw.timeline),
+      brief: cleanBrief(raw.brief, LIMITS.briefMax),
+    };
+    const text = buildEnquiryMessage(values);
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 
-    try {
-      const response = await fetch("/en/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const body = (await response.json().catch(() => ({}))) as {
-        ok?: boolean;
-        delivered?: boolean;
-        message?: string;
-        fields?: FieldErrors;
-      };
+    trackEnquiry(values.service);
 
-      // Success is shown ONLY when the server says the brief was delivered.
-      if (response.status === 201 && body.ok === true && body.delivered === true) {
-        setStatus({ kind: "sent" });
-        formRef.current?.reset();
-        return;
-      }
-
-      if (body.fields) {
-        setErrors(body.fields);
-        focusFirstError(body.fields);
-      }
-      setStatus({
-        kind: "error",
-        message:
-          body.message ||
-          "We could not send your brief just now. Please email us or message us on WhatsApp.",
-      });
-    } catch {
-      setStatus({
-        kind: "error",
-        message: "Network problem. Your brief was not sent. Please try again, or email or WhatsApp us.",
-      });
+    if (openWhatsApp(url)) {
+      setStatus({ kind: "opened", url });
+    } else {
+      // A pop-up blocker, or no WhatsApp handler, stops the window. The visitor gets the link and the text instead.
+      setStatus({ kind: "blocked", url, text });
     }
   }
 
@@ -106,33 +151,67 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
     el?.focus();
   }
 
+  async function copyText(text: string) {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+    } catch {
+      setCopied(false);
+    }
+  }
+
   const describe = (key: keyof FieldErrors) => (errors[key] ? `${key}-error` : undefined);
 
   return (
     <div className="contact-form-wrap" id="brief-form">
       {!enabled && (
         <div className="notice form-closed" role="note">
-          <strong>The form opens once our privacy notice is published.</strong> Until then, please send your brief by
-          email or WhatsApp. Nothing you type here is collected while the form is closed.
+          <strong>The form is not available at the moment.</strong> Please email us or message us on WhatsApp.
         </div>
       )}
 
-      {status.kind === "sent" && (
+      {status.kind === "opened" && (
         <div className="form-success" role="status" tabIndex={-1}>
-          <strong>Thank you. Your brief has been delivered to our team.</strong>
-          <p>We reply after reviewing it, with the next step and a custom scope.</p>
+          <strong>WhatsApp has opened with your enquiry.</strong>
+          <p>
+            Your enquiry is not complete yet. Press Send in WhatsApp to deliver it to our team. Nothing has been sent until you
+            do.
+          </p>
+          <p>
+            <a href={status.url} target="_blank" rel="noopener noreferrer">
+              Open WhatsApp again
+            </a>
+          </p>
         </div>
       )}
 
-      <form
-        ref={formRef}
-        className="contact-form"
-        onSubmit={onSubmit}
-        noValidate
-        aria-describedby="form-help"
-      >
+      {status.kind === "blocked" && (
+        <div className="notice" role="alert" tabIndex={-1}>
+          <strong>WhatsApp did not open.</strong>
+          <p>
+            Your browser may have blocked the window, or WhatsApp may not be installed. Open WhatsApp with this link, or copy the
+            message below and send it to +973 3906 6649 in WhatsApp. Your enquiry is complete only when you send it.
+          </p>
+          <p>
+            <a href={status.url} target="_blank" rel="noopener noreferrer">
+              Open WhatsApp with this enquiry
+            </a>
+          </p>
+          <label htmlFor="enquiry-text">Your enquiry</label>
+          <textarea id="enquiry-text" className="enquiry-text" readOnly rows={8} value={status.text} />
+          <p>
+            <button type="button" className="button" onClick={() => copyText(status.text)}>
+              Copy message
+            </button>
+            {copied && <span role="status"> Copied.</span>}
+          </p>
+        </div>
+      )}
+
+      <form ref={formRef} className="contact-form" onSubmit={onSubmit} noValidate aria-describedby="form-help">
         <p id="form-help" className="form-help">
-          Fields marked with * are required. We use your details only to reply to your enquiry.
+          Fields marked with * are required. This form opens WhatsApp with your details written out. Nothing you type here is
+          stored on this website, and your enquiry is complete only when you press Send in WhatsApp.
         </p>
 
         <div className="field-grid">
@@ -278,10 +357,16 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
 
         <div className="field consent">
           <label htmlFor="consent">
-            <input id="consent" name="consent" type="checkbox" disabled={disabled} aria-invalid={!!errors.consent} aria-describedby={describe("consent")} />
+            <input
+              id="consent"
+              name="consent"
+              type="checkbox"
+              disabled={disabled}
+              aria-invalid={!!errors.consent}
+              aria-describedby={describe("consent")}
+            />
             <span>
-              I agree that Dewank may reply to my enquiry. I have read the{" "}
-              <Link href="/en/privacy">privacy notice</Link>.
+              I agree that Dewank may reply to my enquiry. I have read the <Link href="/en/privacy">privacy notice</Link>.
             </span>
           </label>
           {errors.consent && <p className="field-error" id="consent-error">{errors.consent}</p>}
@@ -295,7 +380,7 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
 
         <div className="form-actions">
           <button className="button primary" type="submit" disabled={disabled}>
-            {status.kind === "submitting" ? "Sending…" : "Send my brief"}
+            Continue on WhatsApp
           </button>
           <p className="form-status" role="alert" aria-live="assertive">
             {status.kind === "error" ? status.message : ""}

@@ -17,7 +17,8 @@ const briefChecklist = [
 ];
 
 function ContactPage() {
-  const formEnabled = false; // Closed until email delivery and the privacy notice are approved.
+  // Open. The form hands the enquiry to WhatsApp (see _en/contact-form.tsx); it does not post to a server.
+  const formEnabled = true;
 
   return (
     <>
