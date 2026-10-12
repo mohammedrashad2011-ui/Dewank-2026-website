@@ -12,6 +12,33 @@ notices). Nothing has been merged, deployed, or changed on the live site, in DNS
 | 3. Privacy | **MISSING ESSENTIAL DISCLOSURE** (two items) | The notices are short, accurate and ready for owner review. Two retention periods are not known and are marked in the text: how long enquiries and WhatsApp conversations are kept, and the hosting provider's server-log period. See section 4. |
 | 4. Final release | **NO-GO** | The three points above are open: Hostinger configuration, two GTM and Google Ads checks, and the retention periods. The release also fixes a live problem: production measures visitors before any choice (section 3). |
 
+## Final launch gate (13 October 2026)
+
+Verified in this pass, on the owner's own accounts:
+
+- **Hostinger (hPanel):** dewank.com is connected to GitHub, auto-deployment is on, the branch is `main`, Node 22.x,
+  root `./`, framework Next.js, and the current deployment is `b4edc70a` (Completed, 7 Oct 2026). The ten most recent entries in the
+  deployment history (5 to 7 October) each follow a push to `main`, and all completed. The build runs `npm install`, then `npm run build`, and publishes the output. The runtime
+  logs show Next.js 16.3.6 listening on port 3000, with zero errors and zero issues in the last hour. Environment variables:
+  none set, so no `DEWANK_*` or `VERCEL_ENV` setting reaches production. Daily backups are enabled. The CDN has a "Clear
+  cache" control. Plan: Business, expires 15 April 2030.
+- **Rollback reference:** the annotated tag `rollback/pre-launch-b4edc70` points at `b4edc70` and is pushed to origin. The
+  merge-and-revert path is verified in Git (`docs/production-deployment-runbook.md`, section 5).
+- **GTM:** container `GTM-PG525ZFN`, live version 7, no pending changes. The "missing Google tag" warning and the duplicate
+  WhatsApp events are explained, and the smallest corrections are proposed (`docs/measurement-map.md`). Nothing is published.
+- **Meta:** pixel `2274266710087331` shows `PageView` only. No lead event is configured.
+- **GA4:** property and stream confirmed. Key events, retention and consent settings not readable in this session.
+- **Google Ads:** not verified. The DEWANK account must be selected by the owner.
+- **Privacy:** the notices are ready for owner review. Two retention periods are missing (section 4).
+
+Still open before merge (owner):
+
+1. Retention periods for enquiries and WhatsApp conversations, and for hosting server logs.
+2. Decision on the GTM proposals in `docs/measurement-map.md` (approval to publish, and which tags to pause).
+3. Google Ads: select the DEWANK account, then confirm conversion `768813020`.
+4. GA4: confirm the key events and the retention setting.
+5. Final written approval to merge PR #157 and to deploy.
+
 ## 1. Hostinger: what was verified and what remains
 
 **Verified from outside (12 October 2026):**
