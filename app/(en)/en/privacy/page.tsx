@@ -121,7 +121,7 @@ function PrivacyPage() {
         The site stores a few items in your browser’s local storage to remember your choices. It sets no measurement cookie
         until you allow the relevant category. The table lists what the site stores:
       </p>
-      <div className="legal-table-wrap">
+      <div className="legal-table-wrap" tabIndex={0} role="region" aria-label="What the site stores in your browser">
         <table className="legal-table">
           <caption>What the site stores in your browser</caption>
           <thead>

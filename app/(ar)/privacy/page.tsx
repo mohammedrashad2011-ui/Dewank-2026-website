@@ -112,7 +112,7 @@ export default function PrivacyPage() {
           يستخدم الموقع التخزين المحلي للمتصفح لحفظ اختياراتك وبعض التفضيلات، ولا يضع أدوات القياس أي ملف تعريف ارتباط إلا
           بعد موافقتك. الجدول التالي يصف ما يضعه الموقع فعلاً:
         </p>
-        <div className="legal-table-wrap">
+        <div className="legal-table-wrap" tabIndex={0} role="region" aria-label="جدول ما يحفظه الموقع في متصفحك">
           <table className="legal-table">
             <caption>ما يحفظه الموقع في متصفحك</caption>
             <thead>
