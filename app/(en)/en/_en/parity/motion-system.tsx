@@ -61,12 +61,13 @@ export default function MotionSystem() {
           transition: none !important;
         }
 
-        /* Skip layout/paint work for sections that are well below the first viewport. */
+        /* Skip layout/paint work for sections that are well below the first viewport. The work section is not skipped: its
+           testimonials overhang it, and a placeholder height (820px) laid the method section over that overhang on first
+           load, which put the method label on a dark background for the contrast audit. Rendering it keeps the layout true. */
         .studio-home .belief,
         .studio-home .trust-strip,
         .studio-home .proof-section,
         .studio-home .bento-section,
-        .studio-home .work-section,
         .studio-home .case-study,
         .studio-home .method-section,
         .studio-home .seo-content,
