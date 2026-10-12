@@ -117,9 +117,22 @@
     height: 144px !important;
   }
 
-  .arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy {
-    padding-top: 168px !important;
-    margin-top: 0 !important;
+  /* The shared phone rules fix every card at 252 px. One more class in the selector wins over them whatever the load order,
+     so each card grows to fit its copy. */
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-bento .service-card {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  /* The copy sits below the illustration in normal flow. A fixed height with a large top padding left about 20 px for the
+     text, so the heading and paragraph overflowed up into the illustration. */
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy,
+  .arabic-home-polish.home-conversion-page .home-core-paths .service-card.brand .card-copy {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 160px !important;
   }
 
   .arabic-home-polish.home-conversion-page .home-core-paths .service-card .card-copy h3 {
