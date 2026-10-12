@@ -50,12 +50,13 @@ data-protection law. Only qualified counsel can make that determination.
 - **Arabic form** (`app/(ar)/contact/contact-form.tsx`): on submit it opens a WhatsApp conversation (`wa.me`) containing
   the name, email, phone, company or project, service and brief the visitor typed. The message reaches WhatsApp, which is
   operated by Meta, when the visitor sends it. It does not reach a Dewank server.
-- **English form** (`app/(en)/en/_en/contact-form.tsx`): closed in this build (`formEnabled = false` in
-  `app/(en)/en/contact/page.tsx`). Its inputs are disabled, and visitors are told to use email or WhatsApp. When it is
-  opened, it posts to `/en/api/contact`, which returns HTTP 405, so no enquiry can be delivered. This is blocker B1 in
-  the release report, and it must be fixed before the form opens.
-- `app/api/contact/route.ts` validates a submission and returns `persisted: false`. It stores nothing. No code path
-  stores a contact submission.
+- **English form** (`app/(en)/en/_en/contact-form.tsx`): open on the release branch. It validates the fields, writes an
+  English enquiry, and opens WhatsApp with it, following the Arabic form. Nothing is posted to a Dewank server, and the
+  page does not report the enquiry as sent until the visitor presses Send in WhatsApp. If the browser blocks the window,
+  the visitor gets the link and the text. The form records the same tracking event as the Arabic form, only after
+  consent to measurement, and without the brief.
+- The root `/api/contact` route has been removed. It returned a success response for valid submissions and stored nothing.
+  No code path stores a contact submission.
 
 ## Items for the owner and counsel
 

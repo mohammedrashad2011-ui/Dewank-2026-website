@@ -29,9 +29,9 @@ All of these must be true. The release report (`docs/release-candidate-report.md
 1. The owner has approved the English launch in writing.
 2. Counsel has reviewed the English and Arabic privacy notices (`docs/privacy-cookies-review.md`). Bracketed items are
    resolved and the drafts are approved for publication.
-3. The English contact form can deliver an enquiry before it is opened. Today it cannot: the form is closed
-   (`formEnabled = false` in `app/(en)/en/contact/page.tsx`), and its endpoint `POST /en/api/contact` returns 405. The
-   form may be opened only after a delivery route exists (blocker B1 in the release report).
+3. The English contact form hands each enquiry to WhatsApp, as the Arabic form does, and is open on the production release
+   branch (`formEnabled = true` in `app/(en)/en/contact/page.tsx`). Nothing is posted to a server. The owner must still
+   confirm that the WhatsApp route is the one to keep (blocker B1 record in `docs/launch-readiness.md`).
 4. The analytics decision for English is recorded: shared production IDs with `/en` segmentation, or separate properties.
 5. Provider-side settings are confirmed in the owner's accounts: Google Tag Manager consent overview, GA4 consent
    settings, and the Meta Pixel. None of these is configured from this codebase.

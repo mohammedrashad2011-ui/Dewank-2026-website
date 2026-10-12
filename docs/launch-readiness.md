@@ -34,9 +34,9 @@ lists what is done, what is blocked and what only the owner can decide.
 
 These stop the English launch. They do not stop review of this branch.
 
-- **B1. English contact form cannot deliver.** The form is closed (`formEnabled = false`, `app/(en)/en/contact/page.tsx`).
-  When it is opened, it posts to `/en/api/contact`, which returns HTTP 405, and the form needs a server response with
-  `delivered: true`, which no route produces. The owner must choose the delivery route before the form opens:
+- **B1. English contact form: resolved in the production release branch.** The form now opens WhatsApp with the enquiry,
+  the same route as the Arabic form. Nothing is posted to a server, and no enquiry is reported as sent until the visitor
+  presses Send in WhatsApp. The options below are the record of the decision. The chosen route is Option A.
   - **Option A (WhatsApp hand-off, recommended for speed).** Mirror the Arabic contact form, which opens a WhatsApp message
     built from the fields. No new processor is needed. WhatsApp (Meta) receives the message. The English copy and privacy
     notice must describe this.
