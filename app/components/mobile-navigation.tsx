@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./mobile-site-structure-preview.css";
+import { BidiText } from "./bidi-text";
 
 const mobileGroups = [
   {
@@ -36,10 +37,42 @@ const mobileGroups = [
 
 export function MobileNavigation() {
   const [open, setOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const wasOpen = useRef(false);
 
   useEffect(() => {
     document.body.classList.toggle("mobile-menu-open", open);
     return () => document.body.classList.remove("mobile-menu-open");
+  }, [open]);
+
+  // Focus moves into the panel when it opens, and back to the trigger when it closes.
+  useEffect(() => {
+    if (open) closeRef.current?.focus();
+    else if (wasOpen.current) triggerRef.current?.focus();
+    wasOpen.current = open;
+  }, [open]);
+
+  // While the panel is open, Tab and Shift+Tab stay inside it.
+  useEffect(() => {
+    if (!open) return;
+    const keepFocusInPanel = (event: KeyboardEvent) => {
+      if (event.key !== "Tab" || !panelRef.current) return;
+      const items = Array.from(panelRef.current.querySelectorAll<HTMLElement>("a[href], button:not([disabled])"));
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener("keydown", keepFocusInPanel);
+    return () => window.removeEventListener("keydown", keepFocusInPanel);
   }, [open]);
 
   useEffect(() => {
@@ -53,6 +86,7 @@ export function MobileNavigation() {
   return (
     <div className="mobile-navigation">
       <button
+        ref={triggerRef}
         className="mobile-menu-trigger"
         type="button"
         aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
@@ -69,6 +103,7 @@ export function MobileNavigation() {
         <>
           <div className="mobile-menu-backdrop is-open" onClick={() => setOpen(false)} aria-hidden="true" />
           <aside
+            ref={panelRef}
             id="mobile-menu-panel"
             className="mobile-menu-panel is-open"
             role="dialog"
@@ -77,7 +112,7 @@ export function MobileNavigation() {
           >
             <div className="mobile-menu-head">
               <small>DEWANK MENU</small>
-              <button type="button" onClick={() => setOpen(false)} aria-label="إغلاق القائمة">×</button>
+              <button ref={closeRef} type="button" onClick={() => setOpen(false)} aria-label="إغلاق القائمة">×</button>
             </div>
             <nav aria-label="قائمة الموبايل" className="mobile-menu-groups">
               {mobileGroups.map((group) => (
@@ -93,7 +128,7 @@ export function MobileNavigation() {
                     {group.links.map(([href, label], index) => (
                       <Link href={href} key={href} onClick={() => setOpen(false)}>
                         <span>{String(index + 1).padStart(2, "0")}</span>
-                        <strong>{label}</strong>
+                        <strong><BidiText text={label} /></strong>
                         <b aria-hidden="true">←</b>
                       </Link>
                     ))}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { launchHreflang } from "@/app/(en)/en/_en/lib/seo-launch";
 
 export const siteUrl = "https://dewank.com";
 export const siteName = "ديوانك | Dewank";
@@ -33,7 +34,9 @@ export function createMetadata({
     keywords,
     alternates: {
       canonical,
-      languages: {
+      // Before the English launch (and always in preview) this is the existing Arabic-only output. After approval,
+      // genuine equivalent pages get reciprocal English alternates (see seo-launch.ts).
+      languages: launchHreflang(path) ?? {
         ar: canonical,
         "x-default": canonical,
       },
@@ -142,3 +145,44 @@ export const entityGraph = {
 
 // JSON for an inline <script type="application/ld+json">; "<" is escaped so content can never close the tag.
 export const jsonLd = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c");
+
+// English identity. Same @id values as the Arabic graph, so both languages describe one organization and one website.
+// Only facts already published on the site are used: the English homepage description, the shared contact details,
+// the social profile, and the two languages the business works in. No Gulf-only geography is stated for English pages.
+const englishDescription =
+  "Dewank provides branding, digital marketing, web development, and automation services for businesses across international markets.";
+
+export const englishOrganizationSchema = {
+  "@type": "Organization",
+  "@id": organizationId,
+  name: organizationAlternateName,
+  alternateName: organizationName,
+  url: siteUrl,
+  logo: `${siteUrl}/dewank-logo.png`,
+  image: socialImage,
+  description: englishDescription,
+  email: "hello@dewank.com",
+  telephone: "+97339066649",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+97339066649",
+    contactType: "sales",
+    availableLanguage: ["English", "Arabic"],
+  },
+  sameAs: [instagramUrl],
+};
+
+export const englishWebsiteSchema = {
+  "@type": "WebSite",
+  "@id": websiteId,
+  url: siteUrl,
+  name: organizationAlternateName,
+  alternateName: organizationName,
+  inLanguage: "en",
+  publisher: organizationRef,
+};
+
+export const englishEntityGraph = {
+  "@context": "https://schema.org",
+  "@graph": [englishOrganizationSchema, englishWebsiteSchema],
+};

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { offerPricing, type OfferPriceKey } from "../offers/offer-pricing";
+import { offerPricing, type OfferPriceKey } from "../(ar)/offers/offer-pricing";
+import { useSavedOfferCountry } from "../(ar)/offers/use-offer-price";
 
 type OfferCard = {
   key: OfferPriceKey;
@@ -35,12 +36,14 @@ const countryStorageKey = "dewank_offer_country";
 
 export default function HomeSelectedOffers() {
   const [rankedKeys, setRankedKeys] = useState<OfferPriceKey[]>(fallbackKeys);
-  const [country, setCountry] = useState<string | null>(null);
+  const [lookedUpCountry, setLookedUpCountry] = useState<string | null>(null);
+  // A saved country is used as it is. The lookup below only runs when no country is saved, so the saved value wins.
+  const storedCountry = useSavedOfferCountry();
+  const country = storedCountry ?? lookedUpCountry;
 
   useEffect(() => {
     let cancelled = false;
     const savedCountry = window.localStorage.getItem(countryStorageKey)?.toUpperCase();
-    if (savedCountry) setCountry(savedCountry);
 
     let countryTimer: number | null = null;
     let countryController: AbortController | null = null;
@@ -61,7 +64,7 @@ export default function HomeSelectedOffers() {
             const next = data.country?.toUpperCase();
             if (!next || cancelled) return;
             window.localStorage.setItem(countryStorageKey, next);
-            setCountry(next);
+            setLookedUpCountry(next);
           })
           .catch(() => {});
       }, 6500);

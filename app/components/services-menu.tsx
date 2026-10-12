@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { BidiText } from "./bidi-text";
 import "./services-menu-compact-preview.css";
 
 const serviceGroups = [
@@ -133,7 +134,7 @@ export function ServicesMenu() {
               <div className="mega-group-title"><small>{group.label}</small><h2>{group.title}</h2></div>
               {group.links.map((item) => (
                 <Link href={item.href} key={item.href} onClick={closeMenu}>
-                  <strong>{item.title}</strong>
+                  <strong><BidiText text={item.title} /></strong>
                   <span>{item.text}</span>
                 </Link>
               ))}

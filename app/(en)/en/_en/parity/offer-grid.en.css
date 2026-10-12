@@ -1,0 +1,12 @@
+/* English copy of the Arabic homepage offer-grid rules (home-growth-upgrade.css), renamed to .en-offer-grid.
+   Generated from the Arabic source; the Arabic .home-offer-grid class stays reserved for the Arabic homepage. */
+.en-offer-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px
+}
+@media (max-width:900px) {
+.en-offer-grid {grid-template-columns:1fr 1fr
+}
+}
+@media (max-width:640px) {
+.en-offer-grid {grid-template-columns:1fr
+}
+}

@@ -1,0 +1,70 @@
+/* Arabic homepage refinements (Preview). Scoped to .arabic-home-polish, which only the Arabic homepage sets.
+   - The orbit column is 620px wide from 1280px up, the same column the approved English homepage uses.
+   - The headline is sized to its own column (container query units), so the three lines stay balanced against the orbit
+     and the primary CTA stays in the first desktop viewport. Arabic glyphs are wider than Latin, so the scale is set
+     for Arabic, not copied from the English numbers. */
+
+@media (min-width: 1280px) {
+  html body .arabic-home-polish .hybrid-hero {
+    grid-template-columns: minmax(0, 1fr) 620px !important;
+  }
+}
+
+/* Below 1280px the orbit column is too narrow for the 480px ring, and its labels were clipped. The hero stacks instead:
+   copy first, then the full 620px orbit centred underneath. The labels keep their size. */
+@media (max-width: 1279px) {
+  html body .arabic-home-polish .hybrid-hero {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body .arabic-home-polish .hybrid-hero .planet-system {
+    justify-self: center;
+  }
+}
+
+html body .arabic-home-polish .hybrid-hero .hero-copy {
+  container-type: inline-size;
+}
+
+html body .arabic-home-polish .hybrid-hero .hero-copy h1 {
+  font-size: clamp(40px, 9.8cqi, 72px) !important;
+  line-height: 1.28 !important;
+}
+
+/* Colour contrast (WCAG AA, 4.5:1 for body text). Only the Arabic homepage is changed. The shared tokens in globals.css
+   stay as they are, because the English homepage uses the same classes.
+   - Testimonial translation: #77787d on #111214 was 4.25:1. #8b8d94 is 5.65:1.
+   - Method paragraphs: #686a70 on #ebe9e2 was 4.45:1. #63656b is 4.80:1. */
+html body .arabic-home-polish .testimonial-translation {
+  color: #8b8d94;
+}
+
+html body .arabic-home-polish .method-intro p,
+html body .arabic-home-polish .method-list p {
+  color: #63656b;
+}
+
+/* Mobile contrast (WCAG AA, 4.5:1 for body text). Scoped to the Arabic homepage.
+   - Growth shortcuts (phones, 640px and below): the links sit on a #1c1d1f panel (the section's #111214 with the panel's
+     4.5% white on top). Each link gets that same colour as a solid background. The text is then checked against the
+     panel colour, not the white work card whose box overlaps the panel. The rendered colour does not change.
+   - Offer card labels (phones and tablets, 900px and below): opacity .55 to .62. The #111214 ink on white goes from
+     4.14:1 to 5.25:1 (4.92:1 on the recommended card's gradient). Labels keep their size and weight. Desktop already
+     sets these labels to opacity 1 with !important, so it is unchanged. */
+@media (max-width: 640px) {
+  html body .arabic-home-polish .home-core-paths .growth-shortcuts a {
+    background: #1c1d1f !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html body .arabic-home-polish .home-offer-top small {
+    opacity: 0.62;
+  }
+}
+
+/* Orbit disc (Arabic homepage only). The disc is at most 132px on screen. Its background is the 384px WebP set from
+   app/globals.css, so this rule keeps the same image on this page. */
+html body .arabic-home-polish .planet-system .dewank-sun {
+  background-image: image-set(url('/brand/sun/dewank-sun-256.webp') type('image/webp') 1x, url('/brand/sun/dewank-sun-384.webp') type('image/webp') 2x, url('/brand/sun/dewank-sun-384.webp') type('image/webp') 3x);
+}

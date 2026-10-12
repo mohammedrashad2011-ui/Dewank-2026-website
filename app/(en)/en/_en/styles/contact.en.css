@@ -1,0 +1,85 @@
+/* Contact page only. Shared tokens live in app/globals.css. */
+
+.en-site .form-layout { display: grid; gap: 28px; grid-template-columns: 1fr; margin-top: 28px; }
+.en-site .form-aside { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; align-self: start; }
+.en-site .form-aside h3 { font-size: 22px; margin-bottom: 14px; font-family: "EN Cormorant Garamond", Georgia, serif; }
+.en-site .form-aside .aside-next { margin-top: 28px; }
+.en-site .aside-steps { list-style: none; counter-reset: aside; display: grid; gap: 12px; padding: 0; margin: 0; }
+.en-site .aside-steps li { counter-increment: aside; position: relative; padding-left: 36px; color: var(--ink); font-size: 15px; }
+.en-site .aside-steps li::before { content: counter(aside); position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: #fff; font-size: 13px; font-weight: 700; display: grid; place-items: center; }
+
+.en-site .contact-form-wrap { background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: clamp(20px, 4vw, 36px); }
+
+.en-site .form-closed { margin-bottom: 24px; }
+
+.en-site .form-success {
+  border: 2px solid #1f7a4d; background: #f0faf4; color: #14452c; border-radius: 16px;
+  padding: 20px 22px; margin-bottom: 24px;
+}
+.en-site .form-success p { margin: 6px 0 0; }
+.en-site .form-success:focus-visible { outline: var(--focus); outline-offset: 3px; }
+
+.en-site .contact-form { display: grid; gap: 20px; }
+.en-site .form-help { margin: 0; font-size: 14px; color: var(--muted); }
+
+.en-site .field-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+.en-site .field { display: grid; gap: 8px; }
+.en-site .field > label, .en-site .consent label { font-weight: 700; font-size: 15px; color: var(--navy); }
+
+/* 16px inputs stop mobile browsers from zooming on focus. */
+.en-site .field input[type="text"],
+.en-site .field input[type="email"],
+.en-site .field select,
+.en-site .field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--ink);
+  background: #fff;
+  border: 1.5px solid rgba(6, 26, 51, 0.28);
+  border-radius: 12px;
+}
+.en-site .field textarea { min-height: 160px; resize: vertical; }
+.en-site .field input:focus-visible,
+.en-site .field select:focus-visible,
+.en-site .field textarea:focus-visible { outline: var(--focus); outline-offset: 2px; border-color: var(--gold-deep); }
+.en-site .field input[aria-invalid="true"],
+.en-site .field select[aria-invalid="true"],
+.en-site .field textarea[aria-invalid="true"] { border-color: #b3261e; background: #fff8f7; }
+.en-site .field input:disabled,
+.en-site .field select:disabled,
+.en-site .field textarea:disabled { background: #efebe3; color: #6b6e75; cursor: not-allowed; }
+
+.en-site .field-hint { margin: 0; font-size: 13px; color: var(--muted); }
+.en-site .field-error { margin: 0; font-size: 14px; color: #b3261e; font-weight: 700; }
+
+.en-site .consent { display: grid; gap: 6px; }
+.en-site .consent label { display: flex; gap: 12px; align-items: flex-start; min-height: 44px; padding: 6px 0; font-weight: 400; color: var(--ink); font-size: 15px; cursor: pointer; }
+.en-site .consent input[type="checkbox"] { width: 24px; height: 24px; min-width: 24px; margin-top: 2px; accent-color: var(--navy); }
+.en-site .consent a { color: var(--navy); font-weight: 700; }
+.en-site .consent input:disabled + span { color: #6b6e75; }
+
+/* Visually hidden honeypot. Not display:none, so naive bots still "see" it. */
+.en-site .hp {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.en-site .form-actions { display: grid; gap: 12px; margin-top: 4px; }
+.en-site .form-actions .button { width: 100%; }
+.en-site .form-actions .button:disabled { background: #9aa0aa; cursor: not-allowed; }
+.en-site .form-status { margin: 0; min-height: 1.4em; color: #b3261e; font-weight: 700; font-size: 15px; }
+
+@media (min-width: 720px) {
+  .en-site .field-grid { grid-template-columns: 1fr 1fr; }
+  .en-site .form-actions { grid-template-columns: auto 1fr; align-items: center; }
+  .en-site .form-actions .button { width: auto; }
+}
+@media (min-width: 1000px) {
+  .en-site .form-layout { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; }
+}

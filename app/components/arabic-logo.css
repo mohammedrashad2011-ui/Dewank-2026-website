@@ -1,0 +1,31 @@
+/* Arabic site logo: the D mark stays as it was (.mark-frame). Beside it sits the official Arabic word ديوانك in a small size
+   (public/brand/dewank-logo-ar-240.webp, a 240 px WebP of the official wordmark with its transparent background). Scoped to .brand-logo-ar, which only the Arabic
+   header and footer set. The English logo is unchanged. */
+.brand-logo.brand-logo-ar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-logo.brand-logo-ar img {
+  display: block;
+  width: auto;
+  height: 22px;
+  max-width: none;
+}
+
+.brand-logo.brand-logo-ar.footer-brand img {
+  height: 28px;
+}
+
+@media (max-width: 900px) {
+  .brand-logo.brand-logo-ar img {
+    height: 18px;
+  }
+}
+
+/* The D mark on the Arabic site uses the 120px and 240px WebP files (see app/globals.css for the full set). The English
+   header and footer keep the shared rule. */
+.brand-logo.brand-logo-ar .mark-frame {
+  background-image: url('/brand/mark/dewank-mark-240.webp');
+}
