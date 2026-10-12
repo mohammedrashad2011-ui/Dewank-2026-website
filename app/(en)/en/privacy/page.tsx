@@ -24,7 +24,7 @@ function PrivacyPage() {
 
       <h2>What we collect when you send a brief</h2>
       <ul>
-        <li>Your name, work email address and, if you give it, your company and website.</li>
+        <li>Your name, work email address and, if you give them, your company details.</li>
         <li>The country you are targeting, the service you need, your timeline and your project brief.</li>
         <li>[Applies once the contact form is enabled: the time the form was opened and submitted, and any request identifier used to limit spam.]</li>
       </ul>
@@ -37,8 +37,10 @@ function PrivacyPage() {
 
       <h2>Who receives your details</h2>
       <p>
-        Members of the Dewank team who handle enquiries. [Email delivery provider: not yet appointed. Name, role and
-        location of any processor to be added once approved.] [Counsel to confirm: whether any enquiry details are used for advertising or remarketing. Measurement tags on this site may use visit data for advertising, as described under cookies.]
+        Members of the Dewank team who handle enquiries. [Delivery route for English enquiries: not yet decided. The English
+        contact form cannot send enquiries yet, so nothing leaves the site from it. If the route is a WhatsApp hand-off, as on
+        the Arabic site, WhatsApp (operated by Meta) would receive the details the visitor sends.] [Email delivery provider:
+        not yet appointed. Name, role and location of any processor to be added once approved.] [Counsel to confirm: whether any enquiry details are used for advertising or remarketing. Measurement tags on this site may use visit data for advertising, as described under cookies.]
       </p>
 
       <h2>How long we keep them</h2>
@@ -66,13 +68,27 @@ function PrivacyPage() {
         others.] To use these rights, email us at {CONTACT_EMAIL}.
       </p>
 
-      <h2>Cookies and analytics</h2>
+      <h2>Cookies and measurement</h2>
       <p>
-        Every page of this website loads Google Tag Manager and Google Analytics 4 (gtag.js). The Meta Pixel loads after a
-        visitor first interacts with the page, or after a short delay. These services can set cookies and collect information about visits, such as pages viewed, referring sources and device
-        details, and they send it to Google and Meta. [No enquiry or click events are configured on the English pages yet. Confirm this, and any Google Ads conversion
-        tracking, before publication.] [Cookie consent approach, the cookies each service sets and retention periods
-        to be confirmed by counsel before publication.]
+        The website uses three measurement services: Google Tag Manager, Google Analytics 4 and the Meta Pixel. They can
+        set cookies and collect information about visits, such as pages viewed, referring sources and device details, and
+        send it to Google and Meta. Nothing is sent to these services until you choose to allow it. Until you choose, the
+        site makes no request to them and sets none of their cookies.
+      </p>
+      <p>
+        You choose two categories. Usage measurement covers Google Analytics 4 and Google Tag Manager. Advertising
+        measurement covers Google Ads and the Meta Pixel. You can accept all, reject all, or choose each category. You can
+        change or withdraw your choice at any time with the Cookie settings link in the footer. Withdrawing reloads the
+        page without these services and removes the measurement cookies this browser holds for this site.
+      </p>
+      <p>
+        Your choice is stored in this browser&apos;s local storage under the key dewank-consent-v1. It holds only the two
+        choices and the date you made them. The site works without it.
+      </p>
+      <p>
+        [Owner and counsel to confirm before publication: the cookie names each service sets and their lifetimes; the
+        retention period for analytics data; whether Google Ads conversion tags run in the container and under which
+        category; and the lawful basis or consent approach that applies in each market the site serves.]
       </p>
 
       <h2>Changes to this notice</h2>
@@ -81,7 +97,11 @@ function PrivacyPage() {
   );
 }
 
-export const metadata = enMetadata("Privacy Notice", "How Dewank uses the details you send us when you contact us. Draft pending legal review.", "/en/privacy");
+// Draft notice: stays noindex even after the English launch flag is on, until counsel approves it and this line is removed.
+export const metadata = {
+  ...enMetadata("Privacy Notice", "How Dewank uses the details you send us when you contact us. Draft pending legal review.", "/en/privacy"),
+  robots: { index: false, follow: false, nocache: true, googleBot: { index: false, follow: false } },
+};
 
 export default function Page() {
   return (
