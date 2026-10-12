@@ -6,10 +6,11 @@ import { isPreviewBuild } from "@/app/lib/site-environment";
 
 export const siteUrl = "https://dewank.com";
 
-// Launch approval switch. Flip to true only after the owner approves the English launch. The launch also needs a
-// production build: a preview build (Vercel preview or DEWANK_SITE_ENV=preview) never indexes English pages, even when
-// this flag is true, so a preview cannot become indexable by accident. See docs/english-launch-activation.md.
-export const ENGLISH_LAUNCH_ENABLED = false;
+// Launch approval switch. Set to true for the bilingual production launch (release/bilingual-production-20261012),
+// which the owner has approved. A preview build (Vercel preview or DEWANK_SITE_ENV=preview) never indexes English pages,
+// even when this flag is true, so a preview cannot become indexable by accident. The privacy notices stay noindex until
+// their own approval (see app/(en)/en/privacy/page.tsx and app/(ar)/privacy/page.tsx).
+export const ENGLISH_LAUNCH_ENABLED = true;
 
 // True when English pages may be indexed and reciprocal hreflang may be published. Computed once per build.
 export const englishLaunchActive = ENGLISH_LAUNCH_ENABLED && !isPreviewBuild;
