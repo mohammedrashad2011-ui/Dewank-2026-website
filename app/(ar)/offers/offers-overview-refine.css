@@ -177,3 +177,12 @@
     grid-column: 1 / -1;
   }
 }
+
+/* Preserve the approved cyan brand-naming card in the Arabic offers hub.
+   Pin the treatment against CSS import-order changes from the route-group split.
+   The standalone brand-naming offer page remains unchanged. */
+.offers-overview-page .offers-overview-grid > .offer-card.brand-naming-offer-card {
+  background:
+    radial-gradient(circle at 14% 6%, rgba(34, 205, 208, .16), transparent 25%),
+    linear-gradient(145deg, #09284a, var(--offer-navy) 62%) !important;
+}
