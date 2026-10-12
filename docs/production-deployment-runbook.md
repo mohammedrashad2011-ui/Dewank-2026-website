@@ -1,94 +1,112 @@
 # Production deployment runbook (dewank.com)
 
-Status: **not deployed.** This document records how the live site is served, what was checked read-only, what only the
-owner's hosting account can confirm, and the steps for the launch. Nothing here changes DNS, hosting or production
-settings.
+Status: **not deployed.** This runbook records how the live site is served, the Hostinger requirements that were checked,
+what the owner must confirm in the hosting account, the launch steps, the post-deploy checks, and rollback. Nothing here
+changes DNS, hosting, or production settings.
 
 ## What is live today (read-only checks, 12 October 2026)
 
 | Check | Result | What it shows |
 |---|---|---|
-| `https://dewank.com/` | 200, `Server: hcdn`, `X-Powered-By: Next.js`, HSTS, `X-Frame-Options: SAMEORIGIN` | Served through a CDN named `hcdn`, running a Next.js build. The project's notes call production the Hostinger-served site. |
+| `https://dewank.com/` | 200, `Server: hcdn`, `X-Powered-By: Next.js`, HSTS, `X-Frame-Options: SAMEORIGIN` | Served through Hostinger's CDN (`hcdn`), running a Next.js build. |
 | `https://www.dewank.com/` | 301 to `https://dewank.com/` | The www host redirects to the apex. |
 | `https://dewank.com/en` | 404 | The English site is not live. |
 | `https://dewank.com/privacy` | 404 | No privacy page is live. |
-| `https://dewank.com/sitemap.xml` | 200, 47 URLs | The live sitemap lists the Arabic pages only. |
-| `https://dewank.com/robots.txt` | 200, `Allow: /`, `Disallow: /api/`, sitemap line | Robots are reachable. |
+| `https://dewank.com/sitemap.xml` | 200 | The live sitemap lists the Arabic pages only. |
 
-The live site is therefore the Arabic-only build from `main`. The release branch changes it: English pages, the privacy
-pages, the new contact form, and the removal of the `X-Powered-By` header (`poweredByHeader: false`).
+The live site is the Arabic-only build from `main`. The launch changes it: English pages, the privacy pages, the English
+contact form, and the removal of the `X-Powered-By` header.
+
+## Hostinger requirements (checked against Hostinger's Node.js documentation)
+
+| Requirement | What Hostinger supports | What this project does |
+|---|---|---|
+| Plan | Node.js web apps need Business Web Hosting or a Cloud plan. VPS plans need manual setup. | **Owner to confirm** the plan on the account that serves dewank.com. |
+| Node.js version | 18, 20, 22 and 24. 20 and 22 are the LTS versions. Hostinger auto-detects from `engines` if no version is chosen. | `package.json` declares `22.x`. **Select Node 22 explicitly.** Changing the version can change the build. |
+| Build command | `npm run build` is a supported command. Next.js is auto-detected. | `npm run build` runs `scripts/build-next.mjs`, which runs `next build --webpack`. |
+| Start command | Hostinger's guide does not give a default start command for Next.js. Its guide says the app must listen on port 3000. | `npm start` runs `next start -p 3000`. Use this command. |
+| Package manager | npm, yarn or pnpm. Do not upload `node_modules`. Dependencies are installed during deploy. | npm, with `package-lock.json`. |
+| Environment variables | None are needed for the build. | Leave `DEWANK_SITE_ENV`, `DEWANK_ANALYTICS_MODE` and `VERCEL_ENV` **unset**. |
+| Automatic rebuild | Pushing to the connected branch triggers a rebuild. | Use the branch that the owner approves for launch. |
+
+Verified locally on this branch: `npm ci` on Node 22.23.3, `npm run build` on Node 22.23.3, and `npm start` (port 3000)
+serving every checked page. Node 26 was used for earlier checks only.
 
 ## What the repository establishes
 
-- **Build:** `npm ci`, then `npm run build` (`scripts/build-next.mjs`, which runs `next build --webpack` unless `VERCEL=1`).
-  Node 22.x is required (`package.json` engines). The app uses the Next.js App Router and needs a Node runtime that can run
-  `next start`.
-- **Environment variables:** the build needs none. The optional overrides are `DEWANK_ANALYTICS_MODE` and
-  `DEWANK_SITE_ENV` (both `production` or `preview`). Leave both unset in production. When `VERCEL_ENV` is set to `preview`
-  or `development`, the build becomes a preview build: no vendor loads, and English stays `noindex`. A host that does not
-  set `VERCEL_ENV`, such as the Hostinger site, is a production build.
-- **Analytics environment behaviour:** production loads the measurement tags only after the visitor's consent. Preview
-  builds never load them. The tracking IDs are fixed in `app/lib/tracking-ids.ts`; nothing in this branch changes them.
-- **Redirects:** `vercel.json` redirects `www.dewank.com` to `dewank.com` when deployed on Vercel. The live www redirect
-  already exists on the production host.
+- **Analytics environment:** production builds load the measurement tags only after the visitor's consent. Preview builds
+  never load them. The tracking IDs are fixed in `app/lib/tracking-ids.ts`; this branch changes none of them.
+- **Redirects:** `vercel.json` redirects `www.dewank.com` to `dewank.com` when deployed on Vercel. The www redirect already
+  exists on the production host.
 - **Headers:** `next.config.ts` sets `Strict-Transport-Security`, `X-Content-Type-Options: nosniff`,
   `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN` and a `Permissions-Policy` that turns off
-  camera, microphone and geolocation. It disables `X-Powered-By`, and caches `/fonts/` and `/brand/` files for 30 days. No
-  Content-Security-Policy is set (recorded as a follow-up).
-- **Sitemap:** generated by `app/sitemap.ts`. In production with the English switch on, it lists 83 URLs. Preview builds
-  list the Arabic set only (46 URLs). Privacy pages are never listed.
+  camera, microphone and geolocation. It disables `X-Powered-By`, and caches `/fonts/` and `/brand/` for 30 days. No
+  Content-Security-Policy is set (a follow-up).
+- **Sitemap:** generated by `app/sitemap.ts`. In production with the English switch on, it lists 83 URLs, of which 37 are
+  English. Preview builds list the Arabic set only (46 URLs). Privacy pages are never listed.
 - **API routes:** the only route is `POST /api/offer-popularity`, which stores nothing (it returns `persisted: false`).
   The contact route was removed in this branch.
 
-## What only the owner can confirm (hosting account)
+## Owner items (hosting account and provider accounts)
 
-1. The hosting provider and plan, and that it runs Node 22 and Next.js 16 (`next start`).
-2. How `main` is built and deployed to the live site: a Git integration, an upload, or a build pipeline. None of this is
-   in the repository. The steps below assume a build from the branch and a manual switch by the owner.
-3. The environment variables set in the hosting account. Confirm that neither `DEWANK_SITE_ENV` nor
-   `DEWANK_ANALYTICS_MODE` is set, and that `VERCEL_ENV` is absent.
-4. SSL certificate renewal and the HTTP-to-HTTPS redirect (the live site already sends HSTS).
-5. Whether the host provides a country header for requests (option C in `docs/country-lookup-decision.md`).
-6. The host's server-log retention, which the privacy policy must state.
-7. The rollback mechanism the host offers (a previous deployment or a file restore).
+These cannot be confirmed from the repository. Each one is needed before launch unless marked otherwise.
+
+1. The hosting plan (Business Web Hosting or Cloud), and that the Node.js app sits on the account that serves dewank.com.
+2. The Node.js version selected for the app: **22**.
+3. The build command `npm run build`, the start command `npm start`, and the port 3000.
+4. That no environment variable is set for `DEWANK_SITE_ENV`, `DEWANK_ANALYTICS_MODE` or `VERCEL_ENV`.
+5. How the connected branch maps to the live site: the Hostinger Git integration on `main`, or an upload. The steps below
+   assume the Git integration.
+6. The hosting provider's server-log retention period, and the server location. The privacy notice must state both.
+7. Whether the host provides a country header for requests (option C in `docs/country-lookup-decision.md`). Not needed
+   for launch: the lookup is kept as it is.
+8. SSL renewal and the HTTP-to-HTTPS redirect (the live site already sends HSTS).
 
 ## Launch procedure (owner-approved only)
 
-Do not start this until the owner has approved the release summary and PR #157 has been reviewed.
+Do not start this until the owner has approved the release report, PR #157 has been reviewed, and the launch blockers in
+`docs/release-candidate-report.md` are closed.
 
-1. Confirm the release branch's Vercel preview build passed (it builds the same code). Confirm the `npm ci` and
-   `npm run build` run locally before the switch.
-2. Merge PR #157 into `main` (owner decision). Do not use an automatic merge workflow.
-3. Build the merged `main` with the host's build process, with the production settings above.
-4. Deploy it to dewank.com by the owner's process. Keep the previous build available for rollback.
-5. Run the post-deploy checks (below) on the live URLs before announcing the launch.
+1. Merge PR #157 into `main` (owner decision, by a normal merge, not an automatic workflow). Record the `main` commit
+   that is live before the merge (currently `b4edc70`). It is the rollback point.
+2. In the Hostinger hPanel, open the Node.js app for dewank.com. Set Node.js to **22**, the build command to
+   `npm run build`, the start command to `npm start`, and the port to 3000. Confirm that no environment variables are set.
+3. Connect the branch `main` (or deploy the merged commit) and start the deployment. Wait for it to finish. Only one
+   deployment runs at a time.
+4. Check the deployment log and the runtime log. The runtime log should show the server listening on port 3000.
+5. Run the post-deploy checks below on the live URLs before announcing the launch.
 6. In Search Console, submit `https://dewank.com/sitemap.xml` (owner).
 
 ### Post-deploy checks (live URLs)
 
 - `/`, `/en`, `/services`, `/en/services`, `/contact`, `/en/contact`: 200, correct `lang` and `dir`, canonical equal to the URL.
-- `/privacy` and `/en/privacy`: 200 and `noindex`.
+- `/privacy` and `/en/privacy`: 200 and `noindex`, until the owner and counsel approve the notices.
 - `/sitemap.xml`: 83 URLs, the English set included, no privacy URLs.
 - `robots.txt`: unchanged (`Allow: /`, `Disallow: /api/`).
 - The English contact form: validation works, and the WhatsApp link opens with `+973 3906 6649`.
 - A first visit with no choice: no request to GTM, GA4, Meta or Google Ads, and one country request only where the
   decision in `docs/country-lookup-decision.md` allows it.
-- Accept all: the measurement tags load, and the GA4 real-time view shows one `page_view` (owner, in the GA4 account).
+- Accept all: the measurement tags load. Then the owner checks in the GA4 real-time view that one `page_view` arrives.
+  Then the owner checks the Meta PageView in Events Manager, which is not visible from `localhost`.
 - `X-Powered-By` is absent.
 
 ## Rollback
 
-1. **English only:** set `ENGLISH_LAUNCH_ENABLED = false` in a new commit, and redeploy. The English pages return to
-   `noindex`, and the English sitemap entries are removed.
-2. **Whole site:** redeploy the previous build (the commit before the launch merge, currently `b4edc70` on `main`), or use
-   the host's rollback. The live Arabic site was not changed by the release branch, so it can be restored exactly.
-3. **Contact form:** the English form can be closed again by setting `formEnabled = false` on the English contact page.
+Hostinger's documentation says Git-connected Node.js apps have **no per-commit rollback**, and that Redeploy rebuilds the
+latest code on the connected branch. A redeploy therefore does not undo a bad commit that is still the head of the branch.
+The rollback is a Git revert, pushed to the connected branch.
+
+1. **Whole site:** revert the launch merge on `main` (`git revert -m 1 <merge-commit>`), and push. Hostinger rebuilds
+   automatically. The result is the `main` state before launch (`b4edc70`). Check the runtime log afterwards.
+2. **English only:** set `ENGLISH_LAUNCH_ENABLED = false` in a new commit, and push. The English pages return to `noindex`,
+   and the English sitemap entries are removed.
+3. **Contact form:** set `formEnabled = false` on the English contact page, and push.
 4. **Analytics:** no ID or event name changed in this branch, so no analytics rollback is needed.
+5. **Archive-based deploy (if the owner uses uploads instead of Git):** keep a copy of the previous archive and upload it
+   again. Hostinger's Deployments list records each build for reference.
 
-## Not done in this branch, and why
+## Verification status
 
-- No DNS, hosting, SSL, or production environment variable was changed.
-- No production deployment was made.
-- The production build could not be run locally in this session: the local build command was refused by the
-  automation's safety check, which treats it as a production deployment. The Vercel preview build of the pushed commit
-  is the independent build check until the owner runs the production build.
+- Local build: `npm ci` and `npm run build` on Node 22.23.3, with 89 static and 3 dynamic routes.
+- Local production server: `next start` on port 3000 under Node 22, checked on the launch routes.
+- Not done here: no production deployment, no DNS, hosting, SSL or environment change, and no change to the live site.

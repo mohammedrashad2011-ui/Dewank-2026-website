@@ -42,17 +42,17 @@ These stop the English launch. They do not stop review of this branch.
     notice must describe this.
   - **Option B (email).** Appoint an email delivery provider, add a route that sends the enquiry, and update the privacy
     notice with the processor and its data region.
-- **B2. Privacy and cookie notices.** Both drafts need counsel review and the owner's facts: legal entity, registration
-  number, address, retention periods, lawful bases and processors. See `docs/privacy-cookies-review.md` items 1 to 13.
+- **B2. Privacy and cookie notices.** Both drafts need counsel review and the owner's facts. The legal-entity, registration
+  and address placeholders are resolved in the wording (DEWANK is an unregistered, independently operated brand). Still
+  open: counsel approval, retention periods (enquiries, server logs, measurement), remarketing use, hosting and team
+  location, the Bahrain complaint contact, and the data protection officer decision. See `docs/privacy-cookies-review.md`.
 - **B3. Provider-side consent setup.** GTM consent overview, GA4 consent settings and Meta consent handling are not
   configured from this codebase. The owner must confirm them in the accounts. Nothing here verifies those accounts.
-- **B4. Country lookup before consent.** The Arabic offer pages call `api.country.is` before any choice, and the
-  request includes the visitor's IP address. The owner must decide whether to keep it, require consent for it, or
-  replace it. English pages make no such call.
-- **B5. Analytics segmentation for English.** English and Arabic share the production GTM, GA4 and Meta IDs. The owner
-  decides whether English gets separate properties. Until then, reporting uses `/en` paths and the `lang` attribute.
-- **B6. Riyadh page.** `/en/riyadh-marketing-agency` is indexable on production today and stays so. The owner should
-  confirm that this is intended before English launches.
+- **B4. Country lookup before consent: decided for launch, not a blocker.** The owner decided to keep the lookup with
+  accurate disclosure, pending further privacy review. The notices describe it. Counsel's review continues.
+- **B5. Analytics segmentation for English: decided, not a blocker.** One shared property with `/en` page-path
+  segmentation, as recommended in `docs/analytics-environments.md`. No new property or ID.
+- **B6. Riyadh page: decided, not a blocker.** `/en/riyadh-marketing-agency` stays indexable, as it is today.
 
 ## Not blocking, recorded for follow-up
 
@@ -67,11 +67,10 @@ These stop the English launch. They do not stop review of this branch.
 
 ## Owner decisions in one list
 
-1. Option A or B for B1, and the English copy that goes with it.
-2. Counsel review and owner facts for both privacy notices (B2).
-3. Provider-side consent configuration (B3).
-4. Country lookup: keep, consent-gate or replace (B4).
-5. English analytics: shared IDs or separate properties (B5).
-6. Confirm the Riyadh page's indexing (B6).
-7. Approval to launch English, in writing.
-8. Disposition of the legacy assets and scripts above.
+1. Counsel review, the retention, location and remarketing facts, and the Bahrain contact, for both privacy notices (B2).
+2. Provider-side consent configuration in GTM, GA4, Meta and Google Ads (B3).
+3. Approval to launch English, in writing.
+4. Disposition of the legacy assets and scripts above (not a blocker).
+
+Decided in this pass: B1 (WhatsApp hand-off), B4 (country lookup kept, with disclosure), B5 (shared property with `/en`
+segmentation) and B6 (Riyadh indexable). See `docs/release-candidate-report.md` for the launch blockers.

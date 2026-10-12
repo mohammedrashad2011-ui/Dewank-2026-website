@@ -75,12 +75,24 @@ existing signals:
 
 No new GA4 property, measurement ID or Meta pixel has been created.
 
-## Pending decisions for the owner
+## Decision for launch: one shared property with `/en` segmentation
 
-1. Separate GA4 and Meta properties for English. Not created. Only the owner can create them.
-2. Provider-side consent configuration in GTM, GA4 and Meta. Not verified from this codebase.
-3. Whether the English pages should send to the Arabic production properties at launch.
-4. Whether the Arabic country lookup needs consent, since it runs before any choice (see `docs/privacy-cookies-review.md`).
+Recommended, and the basis for the launch: English and Arabic send to the existing GA4 property (`G-5SKKT1NBHB`) and
+the existing Meta Pixel (`2274266710087331`). English is separated in reports by page path (`/en/...`). No new property,
+ID or event is created, so the existing reporting history and the conversion setup are unchanged.
+
+- Reports: in each exploration, add a filter on Page path that begins with `/en` for English, and one that does not for
+  Arabic. Save both as comparisons.
+- Meta: the Pixel does not add a language field. Split by page URL where Meta's reporting allows it, and use the
+  `source_path` parameter on the WhatsApp events.
+- Separate English properties remain an option for later. They would start with no history, so they are not recommended
+  for launch.
+
+## Open items for the owner
+
+1. Provider-side consent configuration in GTM, GA4 and Meta. Not verified from this codebase. The owner checks it in the
+   accounts before launch (see `docs/release-candidate-report.md`).
+2. The GA4 data-retention setting. The owner checks it in GA4 and states the period in the privacy notice.
 
 ## Changing the mode
 

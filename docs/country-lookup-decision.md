@@ -1,8 +1,10 @@
 # Country lookup for offer prices: decision record
 
-Status: **decision pending (owner and counsel).** Nothing in this branch changes the lookup. The Arabic site keeps
-its current behaviour and the privacy policy describes it accurately. This record sets out the options, their
-trade-offs, and a recommendation.
+Status: **decided for launch by the owner: keep the lookup, with accurate disclosure, pending further privacy review.**
+No code changes. The Arabic site keeps its current behaviour. The privacy notices (sections 9 and 10) describe it,
+including the timing and the three outcomes: a saved country with an approved price, a country without one (US dollars),
+and a country that cannot be determined (Saudi riyals). Counsel's review of the disclosure continues and is not a
+launch blocker. Options B to D below remain available if counsel later requires consent.
 
 ## What the code does today
 

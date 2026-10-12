@@ -60,21 +60,33 @@ data-protection law. Only qualified counsel can make that determination.
 
 ## Items for the owner and counsel
 
-| # | Item | Owner or counsel | Notice section |
-|---|---|---|---|
-| 1 | Legal entity name, commercial registration number and registered address | Owner | Who we are |
-| 2 | Which data-protection rules apply to the business and its visitors | Counsel | All |
-| 3 | Lawful basis for each purpose, if the applicable rules require one | Counsel | Why we use it |
-| 4 | Delivery route for English enquiries (WhatsApp hand-off as on the Arabic site, or an email provider) | Owner | Who receives your details |
-| 5 | Any email or CRM processor: identity, role, data region, and processing terms | Owner | Who receives your details, International transfers |
-| 6 | Whether enquiry details are used for advertising or remarketing | Owner and counsel | Who receives your details |
-| 7 | Retention periods: enquiries, WhatsApp conversations, the consent record, GA4 data retention, Meta data | Owner | How long we keep them |
-| 8 | Country lookup: keep the third-party call, require consent for it, or replace it. Provider terms and retention at `api.country.is` | Owner and counsel | Country detection |
-| 9 | Cookie and storage inventory: what each vendor sets and for how long, including the `dewank_offer_country` key | Owner (provider documentation) | Cookies and measurement |
-| 10 | Provider-side settings: GTM consent overview and tag firing, GA4 consent settings, Meta Pixel consent handling, and Google Ads conversion settings | Owner (in the provider accounts) | Cookies and measurement |
-| 11 | Whether a server-side consent record is needed. The current record is local to each browser only | Counsel | Cookies and measurement |
-| 12 | Approval to publish either notice, and removal of the `noindex` overrides at the same time | Owner, after counsel | Changes to this notice |
-| 13 | Publication date and version number of the notice | Owner | Changes to this notice |
+Status after the final pass. "Launch blocker" means it must be closed before merge to `main`, or before the English
+launch. The notices carry 11 distinct bracketed facts (each in both languages). Everything else is written from the code
+or from facts the owner supplied.
+
+| # | Item | Owner or counsel | Status | Launch blocker |
+|---|---|---|---|---|
+| 1 | Who is responsible for the data. DEWANK is independently operated and not registered: no commercial registration, no registered office | Owner | Stated in both notices. Counsel to say whether the operator's name must also be given | No |
+| 2 | Which data-protection rules apply | Counsel | Open. Notices say "as we understand it" where unsure | Yes (counsel approval) |
+| 3 | Lawful basis for each purpose | Counsel | Open | Yes (counsel approval) |
+| 4 | English enquiry route | Owner | Resolved: WhatsApp hand-off, as on the Arabic site | No |
+| 5 | Processors. None connected. Hosting provider named as Hostinger | Owner | Resolved for the named host. Any later processor is a notice update | No |
+| 6 | Remarketing or custom audiences in Google Ads or Meta | Owner (check the ad accounts) | Open. Bracketed in both notices | Yes |
+| 7a | Retention of WhatsApp conversations and enquiries | Owner | Open. Bracketed | Yes |
+| 7b | Retention of server logs (Hostinger) | Owner (hosting account) | Open. Bracketed | Yes |
+| 7c | Retention of measurement data (GA4 data retention, Meta) | Owner (GA4 and Meta settings) | Open. Bracketed | Yes |
+| 8 | Country lookup (`api.country.is`) | Owner (decided) and counsel (review) | Decided for launch: kept, with disclosure. Counsel review continues | No |
+| 9 | Cookie lifetimes | Owner (provider documentation) | Resolved by reference to each provider's policy. The owner checks the values in each account (item 10) | No |
+| 10 | Provider-side settings: GTM consent overview and tag firing, GA4 consent settings, Meta consent handling, Google Ads conversion settings | Owner (in each account) | Open. Not verifiable from the code | Yes |
+| 11 | Whether a server-side consent record is needed. The current record is local to each browser | Counsel | Open | No |
+| 12 | Hosting data location and team location (international transfers) | Owner (hosting account) | Open. Bracketed | Yes |
+| 13 | Whether the operator sells personal data (the notices say it does not) | Owner | Open. Bracketed | Yes |
+| 14 | Team access controls | Owner | Open. Bracketed | No (needed for approval) |
+| 15 | Response period for each country served. Saudi: 30 days, extendable in some cases | Counsel | Open for the other countries. Bracketed | Yes (counsel approval) |
+| 16 | Bahrain complaint route. The authority under Law No. 30 of 2018 and its current contact details | Counsel and owner | Partly stated. Contact details bracketed for confirmation before publication | Yes |
+| 17 | Data protection officer: appointed or not | Counsel and owner | Open. Bracketed | Yes if counsel requires one |
+| 18 | Approval to publish either notice, and removal of the draft banner and the `noindex` overrides | Owner, after counsel | Open | Yes |
+| 19 | Publication date. The notice states it takes effect from the date it is published on the page | Owner, at publication | Launch step | No |
 
 ## What this review does not claim
 

@@ -34,8 +34,8 @@ function PrivacyPage() {
       <h2 id="about">1. Who we are</h2>
       <p>
         Dewank is a brand for brand strategy, marketing, websites, automation and AI solutions. It operates the website
-        dewank.com. The party responsible for your personal information is: [full legal name of the business], [commercial
-        registration number and issuing registry], [registered address]. For privacy questions, email{" "}
+        dewank.com independently. DEWANK is not yet registered: it has no commercial registration and no registered office. We
+        are responsible for the personal information you send through this website. For privacy questions, email{" "}
         <a href="mailto:hello@dewank.com">hello@dewank.com</a> or WhatsApp <bdi dir="ltr">+973 3906 6649</bdi>.
       </p>
       <p>
@@ -155,13 +155,13 @@ function PrivacyPage() {
               <td><bdi dir="ltr">_ga</bdi>, <bdi dir="ltr">_ga_5SKKT1NBHB</bdi>, <bdi dir="ltr">_gcl_au</bdi></td>
               <td>Measurement cookies</td>
               <td>Usage measurement (Google Analytics) and advertising measurement (Google Ads). Set only after you allow the category.</td>
-              <td>[Lifetime set by Google, to be confirmed from the account settings.]</td>
+              <td>Set by Google. You can see each cookie’s lifetime in its details in your browser, and Google’s cookie policy describes them.</td>
             </tr>
             <tr>
               <td><bdi dir="ltr">_fbp</bdi>, <bdi dir="ltr">_fbc</bdi></td>
               <td>Measurement cookies</td>
               <td>Advertising measurement for Meta. Set only after you allow advertising measurement.</td>
-              <td>[Lifetime set by Meta, to be confirmed.]</td>
+              <td>Set by Meta. You can see each cookie’s lifetime in its details in your browser, and Meta’s cookie policy describes them.</td>
             </tr>
           </tbody>
         </table>
@@ -215,7 +215,7 @@ function PrivacyPage() {
 
       <h2 id="country">9. Country detection and currency</h2>
       <p>
-        Some offer pages on the Arabic site show each offer’s price in the currency of your country, using the prices we have
+        The Arabic homepage and offer pages show each offer’s price in the currency of your country, using the prices we have
         approved for each country: Saudi Arabia, the United Arab Emirates, Bahrain, Kuwait, Qatar and Oman. The site determines
         your country in one of two ways:
       </p>
@@ -228,13 +228,14 @@ function PrivacyPage() {
           <bdi dir="ltr">api.country.is</bdi>. Your browser sends this request directly to that service, and, like any web
           request, it can include your IP address. On the Arabic homepage, the request starts about 6.5 seconds after the page
           loads. On Arabic offer pages, it starts when the browser is idle, and no later than about three seconds after the
-          page loads. At present you are not asked to consent to it. [Owner and counsel decision pending: whether
-          this request will require consent, or be replaced by another method.]
+          page loads. At present you are not asked to consent to it. We are reviewing this request as part of our ongoing
+          privacy review, and we will update this page if the way it works changes.
         </li>
       </ul>
       <p>
         The site stores only the country code, not your IP address. You can remove a saved country by clearing this site’s
-        data in your browser. If no approved price exists for your country, the site shows the standard approved price.
+        data in your browser. If your country has no approved price, the site shows the US dollar price. If your country cannot
+        be determined, the site shows the Saudi riyal price, which is the default on the Arabic site.
       </p>
       <p>
         On the English site, offer prices are shown in US dollars, and the site does not request your country from{" "}
@@ -249,11 +250,11 @@ function PrivacyPage() {
         <li>Meta, for WhatsApp, and for the Meta Pixel after you allow advertising measurement.</li>
         <li>Google, for Google Tag Manager, Google Analytics 4 and Google Ads after you allow the relevant category.</li>
         <li>The third-party service <bdi dir="ltr">api.country.is</bdi>, to determine your country as section 9 explains.</li>
-        <li>The hosting provider that runs the site and records server logs: [name of hosting provider, to be confirmed].</li>
+        <li>The hosting provider that runs the site and records server logs: <bdi dir="ltr">Hostinger</bdi>.</li>
       </ul>
       <p>
-        No email delivery provider or customer-relationship system is connected to the site at present. [If a processor is
-        appointed later, this section will name it and its role.] We do not sell personal information. [Owner to confirm.]
+        No email delivery provider or customer-relationship system is connected to the site at present. If we appoint a
+        processor later, this section will name it and its role. We do not sell personal information. [Owner to confirm.]
       </p>
 
       <h2 id="transfers">11. International transfers</h2>
@@ -298,7 +299,8 @@ function PrivacyPage() {
       <p>
         If you believe our processing breaches the applicable law, you can complain to the competent authority in your
         country. In Saudi Arabia, the competent authority is the Saudi Data and Artificial Intelligence Authority (SDAIA). In
-        Bahrain, [the competent data protection authority and its contact details: to be confirmed].
+        Bahrain, Law No. 30 of 2018 provides for a Personal Data Protection Authority. As we understand it, the Ministry of Justice
+        exercises that role in the meantime. [Contact details to be confirmed before publication.]
       </p>
 
       <h2 id="children">15. Children’s privacy</h2>
@@ -310,14 +312,15 @@ function PrivacyPage() {
       <h2 id="contact">16. Contacting us about privacy</h2>
       <p>
         For questions about this policy or to exercise your rights: <a href="mailto:hello@dewank.com">hello@dewank.com</a>, or
-        WhatsApp <bdi dir="ltr">+973 3906 6649</bdi>, or post to [postal address, to be confirmed]. [Whether a data
+        WhatsApp <bdi dir="ltr">+973 3906 6649</bdi>. We do not publish a postal address. [Whether a data
         protection officer is appointed: owner decision pending.]
       </p>
 
       <h2 id="updates">17. Changes to this policy</h2>
       <p>
-        We update this page when what we collect, use or share changes, and we show the effective date at the top. [Effective
-        date and version number: added when the owner approves the text.]
+        We update this page when what we collect, use or share changes, and we show the effective date at the top. This is
+        version 1.0. It takes effect from the date it is published on this page, and that date is shown at the top when it is
+        published.
       </p>
     </section>
   );
