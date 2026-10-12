@@ -1,43 +1,48 @@
-// Styles for the consent dialog. Rendered as an inline <style> inside the banner, not as a stylesheet import, so the
-// root layout keeps the same stylesheet set and order as before. A new root stylesheet changes the cascade order of the
-// page stylesheets (the Arabic service-card and offer-card treatments depend on it).
-export const consentBannerCss = `/* Consent dialog. Palette from the site: navy #071a33, gold #d2a84e, ivory #fff7e8. Accept and reject are identical in size,
-   weight and treatment, so rejecting is as easy as accepting. Direction comes from the dir attribute (rtl for Arabic,
-   ltr for English). Keep it clear of the WhatsApp bridge: the dialog sits at the bottom edge and scrolls with the page. */
+// Styles for the consent banner and preferences dialog. Rendered as an inline <style> by consent-bootstrap.ts, not as a
+// stylesheet import, so the root layouts keep the same stylesheet set and cascade order (a new root stylesheet changes the
+// order of the page stylesheets; the Arabic service-card and offer-card treatments depend on it).
+export const consentBannerCss = `/* Consent banner and preferences. Palette from the site: navy #071a33, gold #d2a84e, ivory #fff7e8. Accept and reject are
+   identical in size, weight and treatment, so rejecting is as easy as accepting. Direction comes from the dir attribute
+   (rtl for Arabic, ltr for English). Every control is at least 44 px high. */
 
 .dewank-consent {
   position: fixed;
   inset-inline: 12px;
   bottom: 12px;
   z-index: 9000;
-  max-width: 760px;
+  box-sizing: border-box;
+  max-width: 720px;
   margin-inline: auto;
-  padding: 18px 20px;
+  padding: 14px 16px;
   border: 1px solid rgba(210, 168, 78, 0.5);
-  border-radius: 16px;
+  border-radius: 14px;
   background: #071a33;
   color: #fff7e8;
-  box-shadow: 0 18px 44px rgba(2, 10, 24, 0.35);
+  box-shadow: 0 14px 36px rgba(2, 10, 24, 0.35);
   font-size: 14px;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .dewank-consent-title {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   color: #fff7e8;
   font-size: 16px;
   font-weight: 800;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
-.dewank-consent-body,
-.dewank-consent-essential {
-  margin: 0 0 8px;
+.dewank-consent-title[tabindex="-1"]:focus {
+  outline: none;
+}
+
+.dewank-consent-body {
+  margin: 0 0 10px;
   color: #fff7e8;
 }
 
-.dewank-consent-essential {
-  color: rgba(255, 247, 232, 0.82);
+.dewank-consent-small {
+  margin: 0 0 10px;
+  color: rgba(255, 247, 232, 0.85);
   font-size: 13px;
 }
 
@@ -48,17 +53,14 @@ export const consentBannerCss = `/* Consent dialog. Palette from the site: navy 
 }
 
 .dewank-consent-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-top: 14px;
 }
 
 .dewank-consent-btn {
   min-height: 44px;
-  min-width: 132px;
-  padding: 10px 18px;
+  padding: 10px 14px;
   border: 1px solid #d2a84e;
   border-radius: 999px;
   background: #d2a84e;
@@ -68,9 +70,21 @@ export const consentBannerCss = `/* Consent dialog. Palette from the site: navy 
   cursor: pointer;
 }
 
+.dewank-consent-save {
+  grid-column: 1 / -1;
+}
+
+.dewank-consent-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 16px;
+  margin-top: 4px;
+}
+
 .dewank-consent-manage {
   min-height: 44px;
-  padding: 10px 6px;
+  padding: 10px 0;
   border: 0;
   background: transparent;
   color: #f2d089;
@@ -81,6 +95,12 @@ export const consentBannerCss = `/* Consent dialog. Palette from the site: navy 
   cursor: pointer;
 }
 
+.dewank-consent-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
 .dewank-consent button:focus-visible,
 .dewank-consent input:focus-visible,
 .dewank-consent a:focus-visible {
@@ -89,8 +109,33 @@ export const consentBannerCss = `/* Consent dialog. Palette from the site: navy 
   border-radius: 6px;
 }
 
+.dewank-consent-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9001;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+  background: rgba(2, 10, 24, 0.55);
+}
+
+.dewank-consent.dewank-consent-dialog {
+  position: relative;
+  inset: auto;
+  bottom: auto;
+  z-index: auto;
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  margin: 0;
+  overflow: auto;
+  padding: 20px;
+}
+
 .dewank-consent-fieldset {
-  margin: 12px 0 0;
+  margin: 4px 0 12px;
   padding: 0;
   border: 0;
 }
@@ -106,7 +151,7 @@ export const consentBannerCss = `/* Consent dialog. Palette from the site: navy 
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   cursor: pointer;
 }
 
@@ -125,7 +170,7 @@ export const consentBannerCss = `/* Consent dialog. Palette from the site: navy 
 
 .dewank-consent-option small {
   display: block;
-  color: rgba(255, 247, 232, 0.82);
+  color: rgba(255, 247, 232, 0.85);
   font-size: 13px;
 }
 
@@ -133,26 +178,26 @@ export const consentBannerCss = `/* Consent dialog. Palette from the site: navy 
   .dewank-consent {
     inset-inline: 8px;
     bottom: 8px;
-    padding: 16px;
+    padding: 12px 14px;
     font-size: 13px;
   }
 
-  .dewank-consent-actions {
-    flex-direction: column;
-    align-items: stretch;
+  .dewank-consent-title {
+    font-size: 15px;
   }
 
-  .dewank-consent-btn {
-    width: 100%;
+  .dewank-consent-backdrop {
+    padding: 8px;
   }
 
-  .dewank-consent-manage {
-    align-self: center;
+  .dewank-consent.dewank-consent-dialog {
+    padding: 16px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dewank-consent-btn {
+  .dewank-consent-btn,
+  .dewank-consent-manage {
     transition: none;
   }
 }

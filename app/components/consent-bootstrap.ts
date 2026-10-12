@@ -5,56 +5,62 @@ import { consentBannerCss } from "./consent-banner-styles";
 export const CONSENT_STORAGE_KEY = "dewank-consent-v1";
 // Event fired after every choice, so pages can react. The detail is { analytics, advertising }.
 export const CONSENT_CHANGE_EVENT = "dewank:consent-change";
-// Attribute on any element (the footer control) that reopens the consent dialog in manage mode.
+// Attribute on any element (the footer control) that reopens the preferences dialog.
 export const CONSENT_OPEN_ATTRIBUTE = "data-dewank-consent-open";
 
-// Copy for both languages. The dialog states what runs and what does not. It does not claim legal compliance.
+// Copy for both languages. It states what runs and what does not. It does not claim legal compliance. The preferences
+// dialog carries the full description of each category; the banner only summarises it.
 const copy = {
   ar: {
-    title: "ملفات تعريف الموقع والقياس",
-    body: "نستخدم أدوات قياس وإعلان (Google Analytics وGoogle Tag Manager وMeta Pixel) لفهم استخدام الموقع وقياس الحملات. لا تعمل هذه الأدوات إلا إذا اخترت ذلك.",
-    essential: "الموقع يعمل كاملًا دون هذه الأدوات. يُحفظ اختيارك في متصفحك فقط.",
-    privacy: "سياسة الخصوصية",
+    bannerTitle: "ملفات تعريف الارتباط والقياس",
+    bannerBody: "نستخدم أدوات قياس وإعلان لفهم استخدام الموقع وقياس الحملات. لا تعمل هذه الأدوات إلا إذا وافقت عليها.",
     accept: "قبول الكل",
     reject: "رفض الكل",
-    manage: "إدارة الاختيارات",
-    save: "حفظ الاختيارات",
-    manageTitle: "اختر ما تسمح به",
-    analyticsLabel: "قياس الاستخدام",
-    analyticsDesc: "Google Analytics (GA4) وGoogle Tag Manager، لمعرفة الصفحات المستخدمة وأداء الموقع.",
-    advertisingLabel: "القياس الإعلاني",
-    advertisingDesc: "Google Ads وMeta Pixel، لقياس الإعلانات والتحويلات.",
-    regionLabel: "إعدادات ملفات تعريف الارتباط",
+    manage: "إدارة التفضيلات",
+    privacy: "سياسة الخصوصية",
     privacyHref: "/privacy",
+    dialogTitle: "تفضيلات ملفات تعريف الارتباط",
+    dialogIntro: "الموقع يعمل كاملًا دون هذه الأدوات. يُحفظ اختيارك في متصفحك فقط، ولا يحتوي على بيانات شخصية.",
+    optionsLegend: "اختر ما تسمح به",
+    analyticsLabel: "قياس الاستخدام",
+    analyticsDesc: "Google Tag Manager وGoogle Analytics 4 لمعرفة الصفحات المستخدمة وأداء الموقع. قد تضع ملفات تعريف ارتباط مثل _ga، وتُرسل معلومات الزيارة إلى Google.",
+    advertisingLabel: "القياس الإعلاني",
+    advertisingDesc: "Google Ads وMeta Pixel لقياس الإعلانات والتحويلات. قد تضع ملفات تعريف ارتباط مثل _fbp، وتُرسل أحداث الموقع إلى Google وMeta.",
+    withdraw: "يمكنك تغيير اختيارك أو سحبه في أي وقت من «إعدادات ملفات تعريف الارتباط» أسفل الصفحة. عند السحب تُعاد تحميل الصفحة دون هذه الأدوات، وتُحذف ملفات القياس التي يحملها المتصفح لهذا الموقع.",
+    save: "حفظ الاختيارات",
+    regionLabel: "إعدادات ملفات تعريف الارتباط",
   },
   en: {
-    title: "Cookies and measurement",
-    body: "We use measurement and advertising tools (Google Analytics, Google Tag Manager and the Meta Pixel) to understand how the site is used and to measure campaigns. They run only if you choose to allow them.",
-    essential: "The site works fully without them. Your choice is stored in your browser only.",
-    privacy: "Privacy notice",
+    bannerTitle: "Cookies and measurement",
+    bannerBody: "We use measurement and advertising tools to understand how the site is used and to measure campaigns. They run only if you agree.",
     accept: "Accept all",
     reject: "Reject all",
-    manage: "Manage choices",
-    save: "Save choices",
-    manageTitle: "Choose what you allow",
-    analyticsLabel: "Usage measurement",
-    analyticsDesc: "Google Analytics (GA4) and Google Tag Manager, to see which pages are used and how the site performs.",
-    advertisingLabel: "Advertising measurement",
-    advertisingDesc: "Google Ads and the Meta Pixel, to measure ads and conversions.",
-    regionLabel: "Cookie settings",
+    manage: "Manage preferences",
+    privacy: "Privacy notice",
     privacyHref: "/en/privacy",
+    dialogTitle: "Cookie preferences",
+    dialogIntro: "The site works fully without these tools. Your choice is stored in your browser only and holds no personal data.",
+    optionsLegend: "Choose what you allow",
+    analyticsLabel: "Usage measurement",
+    analyticsDesc: "Google Tag Manager and Google Analytics 4, to see which pages are used and how the site performs. They may set cookies such as _ga and send visit information to Google.",
+    advertisingLabel: "Advertising measurement",
+    advertisingDesc: "Google Ads and the Meta Pixel, to measure ads and conversions. They may set cookies such as _fbp and send site events to Google and Meta.",
+    withdraw: "You can change or withdraw your choice at any time from Cookie settings at the bottom of the page. Withdrawing reloads the page without these tools and removes the measurement cookies this browser holds for this site.",
+    save: "Save choices",
+    regionLabel: "Cookie settings",
   },
 };
 
-// Inline script, rendered in <head> before any other script. It runs before the first paint and decides which vendor
-// requests may be made. Rules:
+// Inline script, rendered in <body> before any other content (see RootBodyStart). It runs while the document is parsing,
+// not after the app's JavaScript, so the consent default and the banner do not wait for the app. Rules:
 //   - Google Consent Mode defaults to denied for analytics and advertising, unless a choice is already stored.
 //   - Nothing is requested from GTM, GA4 or Meta until a category is allowed. No noscript fallback exists (see
 //     RootBodyStart): a visitor without JavaScript cannot consent, so nothing is requested for them either.
-//   - Analytics events pushed to dataLayer before a choice are dropped, so a later choice cannot send old events.
+//   - In production, analytics events pushed to dataLayer before a choice are dropped, so a later choice cannot send old
+//     events, and events are dropped after Reject all.
 //   - Measurement cookies left by an earlier visit are removed on every load where no category is allowed.
 //   - In a preview build the vendors never load, whatever the stored choice. dataLayer events are recorded as before.
-// The consent dialog is built here as well, not as a React component, so the root layout adds no client component.
+// The banner and the preferences dialog are built here, not as React components, so the root layouts add no client code.
 export function consentBootstrapScript(vendorsAllowed: boolean): string {
   const vendors = vendorsAllowed ? "true" : "false";
   return `(function(){
@@ -154,50 +160,12 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     if(kids){ for(var i=0;i<kids.length;i++) node.appendChild(kids[i]); }
     return node;
   }
-  var dialog=null;
-  function removeDialog(){ if(dialog&&dialog.parentNode) dialog.parentNode.removeChild(dialog); dialog=null; }
-  function saveChoice(next){ removeDialog(); window.dewankConsent.set(next); }
-  function buildDialog(manage){
-    var t=COPY[currentLang()];
-    var lang=currentLang();
-    var children=[el('h2',{id:'dewank-consent-title',class:'dewank-consent-title',text:t.title}),
-      el('p',{class:'dewank-consent-body',text:t.body}),
-      el('p',{class:'dewank-consent-essential',text:t.essential})];
-    var link=el('a',{href:t.privacyHref,text:t.privacy});
-    children[1].appendChild(document.createTextNode(' '));
-    children[1].appendChild(link);
-    if(manage){
-      var current=choice||{analytics:false,advertising:false};
-      var a=el('input',{type:'checkbox',id:'dewank-consent-analytics'}); a.checked=!!current.analytics;
-      var b=el('input',{type:'checkbox',id:'dewank-consent-advertising'}); b.checked=!!current.advertising;
-      var form=el('form',{class:'dewank-consent-form'},[
-        el('fieldset',{class:'dewank-consent-fieldset'},[
-          el('legend',{text:t.manageTitle}),
-          el('label',{class:'dewank-consent-option'},[a,el('span',null,[el('strong',{text:t.analyticsLabel}),el('small',{text:t.analyticsDesc})])]),
-          el('label',{class:'dewank-consent-option'},[b,el('span',null,[el('strong',{text:t.advertisingLabel}),el('small',{text:t.advertisingDesc})])])
-        ]),
-        el('div',{class:'dewank-consent-actions'},[
-          el('button',{type:'submit',class:'dewank-consent-btn',text:t.save}),
-          el('button',{type:'button',class:'dewank-consent-btn',text:t.reject,on:function(){ saveChoice({analytics:false,advertising:false}); }})
-        ])
-      ]);
-      form.addEventListener('submit',function(event){ event.preventDefault(); saveChoice({analytics:a.checked,advertising:b.checked}); });
-      children.push(form);
-    } else {
-      children.push(el('div',{class:'dewank-consent-actions'},[
-        el('button',{type:'button',class:'dewank-consent-btn',text:t.accept,on:function(){ saveChoice({analytics:true,advertising:true}); }}),
-        el('button',{type:'button',class:'dewank-consent-btn',text:t.reject,on:function(){ saveChoice({analytics:false,advertising:false}); }}),
-        el('button',{type:'button',class:'dewank-consent-manage',text:t.manage,on:function(){ removeDialog(); openDialog(true); }})
-      ]));
-    }
-    var section=el('section',{class:'dewank-consent',lang:lang,dir:lang==='ar'?'rtl':'ltr','aria-labelledby':'dewank-consent-title','aria-label':t.regionLabel},children);
-    return section;
-  }
-  function openDialog(manage){
-    if(!document.body) return;
-    removeDialog();
-    dialog=buildDialog(manage);
-    document.body.appendChild(dialog);
+  function removeNode(node){ if(node&&node.parentNode) node.parentNode.removeChild(node); }
+  var banner=null, dialog=null, lastTrigger=null, inertNodes=[];
+  function focusMain(){
+    var target=document.querySelector('main')||document.body;
+    if(!target.hasAttribute('tabindex')) target.setAttribute('tabindex','-1');
+    try{ target.focus({preventScroll:true}); }catch(e){}
   }
   function injectStyle(){
     if(document.getElementById('dewank-consent-style')) return;
@@ -205,6 +173,107 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     s.id='dewank-consent-style';
     s.textContent=CSS;
     document.head.appendChild(s);
+  }
+  function setInert(on){
+    if(on){
+      [].slice.call(document.body.children).forEach(function(node){
+        if(node===dialog||node.hasAttribute('inert')) return;
+        node.setAttribute('inert','');
+        inertNodes.push(node);
+      });
+    } else {
+      inertNodes.forEach(function(node){ node.removeAttribute('inert'); });
+      inertNodes=[];
+    }
+  }
+  function focusables(root){
+    return [].slice.call(root.querySelectorAll('button,input,a[href]')).filter(function(n){ return !n.disabled; });
+  }
+  // Keeps Tab inside the open dialog and closes it on Escape.
+  function trapKey(event){
+    if(!dialog) return;
+    if(event.key==='Escape'){ event.preventDefault(); closeDialog(); return; }
+    if(event.key!=='Tab') return;
+    var items=focusables(dialog);
+    if(!items.length) return;
+    var idx=items.indexOf(document.activeElement);
+    if(event.shiftKey){
+      if(idx<=0){ event.preventDefault(); items[items.length-1].focus(); }
+    } else if(idx===-1||idx===items.length-1){
+      event.preventDefault(); items[0].focus();
+    }
+  }
+  function acceptAll(){ saveChoice({analytics:true,advertising:true}); }
+  function rejectAll(){ saveChoice({analytics:false,advertising:false}); }
+  function buildBanner(){
+    var lang=currentLang(), t=COPY[lang];
+    var manage=el('button',{type:'button',class:'dewank-consent-manage',text:t.manage,on:function(){ openDialog(manage); }});
+    return el('section',{class:'dewank-consent dewank-consent-banner',lang:lang,dir:lang==='ar'?'rtl':'ltr','aria-labelledby':'dewank-consent-title'},[
+      el('h2',{id:'dewank-consent-title',class:'dewank-consent-title',text:t.bannerTitle}),
+      el('p',{class:'dewank-consent-body',text:t.bannerBody}),
+      el('div',{class:'dewank-consent-actions'},[
+        el('button',{type:'button',class:'dewank-consent-btn',text:t.reject,on:rejectAll}),
+        el('button',{type:'button',class:'dewank-consent-btn',text:t.accept,on:acceptAll})
+      ]),
+      el('div',{class:'dewank-consent-links'},[manage,el('a',{href:t.privacyHref,text:t.privacy})])
+    ]);
+  }
+  function buildDialog(){
+    var lang=currentLang(), t=COPY[lang], current=choice||{analytics:false,advertising:false};
+    var analytics=el('input',{type:'checkbox',id:'dewank-consent-analytics'}); analytics.checked=!!current.analytics;
+    var advertising=el('input',{type:'checkbox',id:'dewank-consent-advertising'}); advertising.checked=!!current.advertising;
+    var form=el('form',{class:'dewank-consent-form'},[
+      el('p',{class:'dewank-consent-body',text:t.dialogIntro}),
+      el('fieldset',{class:'dewank-consent-fieldset'},[
+        el('legend',{text:t.optionsLegend}),
+        el('label',{class:'dewank-consent-option'},[analytics,el('span',null,[el('strong',{text:t.analyticsLabel}),el('small',{text:t.analyticsDesc})])]),
+        el('label',{class:'dewank-consent-option'},[advertising,el('span',null,[el('strong',{text:t.advertisingLabel}),el('small',{text:t.advertisingDesc})])])
+      ]),
+      el('p',{class:'dewank-consent-small',text:t.withdraw}),
+      el('div',{class:'dewank-consent-actions'},[
+        el('button',{type:'button',class:'dewank-consent-btn',text:t.reject,on:rejectAll}),
+        el('button',{type:'button',class:'dewank-consent-btn',text:t.accept,on:acceptAll}),
+        el('button',{type:'submit',class:'dewank-consent-btn dewank-consent-save',text:t.save})
+      ]),
+      el('p',{class:'dewank-consent-small'},[el('a',{href:t.privacyHref,text:t.privacy})])
+    ]);
+    form.addEventListener('submit',function(event){ event.preventDefault(); saveChoice({analytics:analytics.checked,advertising:advertising.checked}); });
+    var title=el('h2',{id:'dewank-consent-dialog-title',class:'dewank-consent-title',tabindex:'-1',text:t.dialogTitle});
+    var panel=el('div',{class:'dewank-consent dewank-consent-dialog',role:'dialog','aria-modal':'true','aria-labelledby':'dewank-consent-dialog-title',lang:lang,dir:lang==='ar'?'rtl':'ltr'},[title,form]);
+    return el('div',{class:'dewank-consent-backdrop'},[panel]);
+  }
+  function showBanner(){
+    if(!document.body||banner||dialog) return;
+    injectStyle();
+    banner=buildBanner();
+    document.body.appendChild(banner);
+  }
+  function openDialog(trigger){
+    if(!document.body) return;
+    injectStyle();
+    lastTrigger=trigger||document.activeElement;
+    removeNode(banner); banner=null;
+    removeNode(dialog);
+    dialog=buildDialog();
+    document.body.appendChild(dialog);
+    setInert(true);
+    document.addEventListener('keydown',trapKey);
+    dialog.querySelector('#dewank-consent-dialog-title').focus();
+  }
+  function closeDialog(){
+    if(!dialog) return;
+    removeNode(dialog); dialog=null;
+    setInert(false);
+    document.removeEventListener('keydown',trapKey);
+    if(choice===null) showBanner();
+    var target=lastTrigger&&document.body.contains(lastTrigger)?lastTrigger:(banner?banner.querySelector('.dewank-consent-manage'):null);
+    if(target) target.focus(); else focusMain();
+  }
+  function saveChoice(next){
+    removeNode(banner); banner=null;
+    if(dialog){ removeNode(dialog); dialog=null; setInert(false); document.removeEventListener('keydown',trapKey); }
+    window.dewankConsent.set(next);
+    focusMain();
   }
   window.dewankConsent={
     get:function(){ return choice?{analytics:choice.analytics,advertising:choice.advertising}:null; },
@@ -231,14 +300,14 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     // was unloaded during a withdrawal can write them again, so the check is repeated here.
     if(state.analytics||state.advertising) loadPermitted(); else removeMeasurementCookies();
   }
-  // The footer control reopens the dialog in manage mode. Delegated, so it works on every page without a component.
+  // The footer control reopens the preferences dialog. Delegated, so it works on every page without a component.
   document.addEventListener('click',function(event){
     var target=event.target&&event.target.closest?event.target.closest('['+OPEN_ATTR+']'):null;
-    if(target){ event.preventDefault(); injectStyle(); openDialog(true); }
+    if(target){ event.preventDefault(); openDialog(target); }
   });
   function showIfNeeded(){
     injectStyle();
-    if(choice===null && !dialog) openDialog(false);
+    if(choice===null) showBanner();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',showIfNeeded); else showIfNeeded();
 })();`;
