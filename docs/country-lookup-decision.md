@@ -8,7 +8,7 @@ trade-offs, and a recommendation.
 
 | Surface | Call | When | Consent gate |
 |---|---|---|---|
-| Arabic offer pages (`app/(ar)/offers/use-offer-price.ts`, `localized-offer.tsx`) | `GET https://api.country.is/` from the browser | When no country is saved in `dewank_offer_country` | None |
+| Arabic offer pages (`app/(ar)/offers/use-offer-price.ts`, `localized-offer.tsx`) | `GET https://api.country.is/` from the browser | When no country is saved in `dewank_offer_country`: during browser idle time, no later than about 3 s after load (2.2 s where idle callbacks are unsupported) | None |
 | Arabic homepage offers section (`app/components/home-selected-offers.tsx`) | `GET https://api.country.is/` from the browser | About 6.5 s after load, when no country is saved | None |
 | English offer pages (`app/(en)/en/_en/lib/localized-price.tsx`) | Same call, but gated by `COUNTRY_LOOKUP_APPROVED = false` | Never in this build | Not applicable |
 

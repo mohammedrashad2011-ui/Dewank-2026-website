@@ -226,8 +226,9 @@ function PrivacyPage() {
         <li>
           If no country is saved, a request for your country code to the third-party service{" "}
           <bdi dir="ltr">api.country.is</bdi>. Your browser sends this request directly to that service, and, like any web
-          request, it can include your IP address. On the Arabic homepage and offer pages, the request starts about 6.5 seconds
-          after the page loads, and at present you are not asked to consent to it. [Owner and counsel decision pending: whether
+          request, it can include your IP address. On the Arabic homepage, the request starts about 6.5 seconds after the page
+          loads. On Arabic offer pages, it starts when the browser is idle, and no later than about three seconds after the
+          page loads. At present you are not asked to consent to it. [Owner and counsel decision pending: whether
           this request will require consent, or be replaced by another method.]
         </li>
       </ul>
