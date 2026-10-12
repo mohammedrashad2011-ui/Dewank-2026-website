@@ -69,6 +69,7 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
   var GTM=${JSON.stringify(GTM_CONTAINER_ID)};
   var GA=${JSON.stringify(GA_MEASUREMENT_ID)};
   var FB=${JSON.stringify(META_PIXEL_ID)};
+  var DISMISS_KEY=KEY+'-dismissed';
   var OPEN_ATTR=${JSON.stringify(CONSENT_OPEN_ATTRIBUTE)};
   var CHANGE_EVENT=${JSON.stringify(CONSENT_CHANGE_EVENT)};
   var CSS=${JSON.stringify(consentBannerCss)};
@@ -205,17 +206,16 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
   }
   function acceptAll(){ saveChoice({analytics:true,advertising:true}); }
   function rejectAll(){ saveChoice({analytics:false,advertising:false}); }
+  function dismissBanner(){
+    removeNode(banner); banner=null;
+    try{ window.sessionStorage.setItem(DISMISS_KEY,'1'); }catch(e){}
+    focusMain();
+  }
   function buildBanner(){
-    var lang=currentLang(), t=COPY[lang];
-    var manage=el('button',{type:'button',class:'dewank-consent-manage',text:t.manage,on:function(){ openDialog(manage); }});
-    return el('section',{class:'dewank-consent dewank-consent-banner',lang:lang,dir:lang==='ar'?'rtl':'ltr','aria-labelledby':'dewank-consent-title'},[
-      el('h2',{id:'dewank-consent-title',class:'dewank-consent-title',text:t.bannerTitle}),
-      el('p',{class:'dewank-consent-body',text:t.bannerBody}),
-      el('div',{class:'dewank-consent-actions'},[
-        el('button',{type:'button',class:'dewank-consent-btn',text:t.reject,on:rejectAll}),
-        el('button',{type:'button',class:'dewank-consent-btn',text:t.accept,on:acceptAll})
-      ]),
-      el('div',{class:'dewank-consent-links'},[manage,el('a',{href:t.privacyHref,text:t.privacy})])
+    return el('section',{class:'dewank-consent dewank-consent-banner',lang:'en',dir:'ltr','aria-label':'Cookie consent'},[
+      el('p',{class:'dewank-consent-message',text:'This website uses cookies to improve your web experience.'}),
+      el('button',{type:'button',class:'dewank-consent-btn dewank-consent-accept',text:'Accept',on:acceptAll}),
+      el('button',{type:'button',class:'dewank-consent-close','aria-label':'Close without accepting cookies',text:'×',on:dismissBanner})
     ]);
   }
   function buildDialog(){
@@ -244,6 +244,7 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
   }
   function showBanner(){
     if(!document.body||banner||dialog) return;
+    try{ if(window.sessionStorage.getItem(DISMISS_KEY)==='1') return; }catch(e){}
     injectStyle();
     banner=buildBanner();
     document.body.appendChild(banner);
