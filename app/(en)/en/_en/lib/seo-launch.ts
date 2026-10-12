@@ -2,10 +2,17 @@
 // exists until launch is approved. This file records the exact sets that the launch commit will use, so they can be
 // reviewed before anything goes live.
 
+import { isPreviewBuild } from "@/app/lib/site-environment";
+
 export const siteUrl = "https://dewank.com";
 
-// Flip to true only in the approved launch commit, together with removing the English noindex in enMetadata.
+// Launch approval switch. Flip to true only after the owner approves the English launch. The launch also needs a
+// production build: a preview build (Vercel preview or DEWANK_SITE_ENV=preview) never indexes English pages, even when
+// this flag is true, so a preview cannot become indexable by accident. See docs/english-launch-activation.md.
 export const ENGLISH_LAUNCH_ENABLED = false;
+
+// True when English pages may be indexed and reciprocal hreflang may be published. Computed once per build.
+export const englishLaunchActive = ENGLISH_LAUNCH_ENABLED && !isPreviewBuild;
 
 // English routes that are genuinely the same page as an Arabic route (translated, same purpose and offer). Pairs are
 // used for hreflang only when BOTH sides declare them: the Arabic pages need the reciprocal entries too (see the launch
@@ -57,3 +64,34 @@ export const proposedXDefault = `${siteUrl}/`;
 
 // English sitemap entries for the launch commit. Riyadh stays in the root sitemap as it is today.
 export const englishSitemapPaths = Object.keys(englishToArabic);
+
+// Reverse of englishToArabic: the Arabic side of each genuine pair.
+const arabicToEnglish: Record<string, string> = Object.fromEntries(
+  Object.entries(englishToArabic).map(([en, ar]) => [ar, en]),
+);
+
+const absoluteUrl = (path: string) => new URL(path, siteUrl).toString();
+
+// Reciprocal hreflang for one page, or undefined when there is nothing to publish. Nothing is published while the launch
+// is not active, so Preview and pre-launch production never show English alternates. x-default is set only on the
+// homepage pair, which is the site's primary entry point.
+export function launchHreflang(path: string): Record<string, string> | undefined {
+  if (!englishLaunchActive) return undefined;
+  if (Object.prototype.hasOwnProperty.call(englishToArabic, path)) {
+    const arabic = englishToArabic[path];
+    return {
+      en: absoluteUrl(path),
+      ar: absoluteUrl(arabic),
+      ...(path === "/en" ? { "x-default": absoluteUrl("/") } : {}),
+    };
+  }
+  if (Object.prototype.hasOwnProperty.call(arabicToEnglish, path)) {
+    const english = arabicToEnglish[path];
+    return {
+      ar: absoluteUrl(path),
+      en: absoluteUrl(english),
+      ...(path === "/" ? { "x-default": absoluteUrl("/") } : {}),
+    };
+  }
+  return undefined;
+}

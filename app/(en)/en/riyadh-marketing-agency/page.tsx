@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { organizationId, siteUrl } from "../../../lib/seo";
 import { arabicEquivalent } from "../../../components/language-routes";
+import { isPreviewBuild } from "../../../lib/site-environment";
 import "./riyadh-marketing-agency.css";
 import "./riyadh-language-switch.css";
 
@@ -22,10 +23,11 @@ export const metadata: Metadata = {
     "branding agency Saudi Arabia",
     "performance marketing Riyadh",
   ],
-  // Preview deployments are noindex. Production returns the same robots object as the root layout on main, so the
-  // page's production output is unchanged.
+  // This page is a legacy production page that is indexable today (main, robots index, listed in the sitemap). Its
+  // production indexing is kept as it is. Only preview builds are noindex, and that does not depend on VERCEL_ENV, so a
+  // Hostinger-served production build keeps the page indexable.
   robots:
-    globalThis.process.env.VERCEL_ENV === "production"
+    !isPreviewBuild
       ? {
           index: true,
           follow: true,
