@@ -189,6 +189,81 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
   font-size: 13px;
 }
 
+
+/* Compact, unobtrusive bottom consent bar. The preferences dialog keeps the existing DEWANK navy/gold style. */
+.dewank-consent.dewank-consent-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  column-gap: 16px;
+  inset-inline: 12px;
+  bottom: 12px;
+  width: auto;
+  max-width: none;
+  padding: 10px 14px 10px 20px;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  background: #fff;
+  color: #202020;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  direction: ltr;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.dewank-consent-message {
+  margin: 0;
+  min-width: 0;
+  color: #202020;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dewank-consent-banner .dewank-consent-btn {
+  min-height: 42px;
+  padding: 9px 24px;
+  border: 1px solid #080808;
+  border-radius: 999px;
+  background: #080808;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dewank-consent-banner .dewank-consent-btn::before {
+  inset: -1px;
+}
+
+.dewank-consent-close {
+  display: inline-flex;
+  flex: 0 0 34px;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #444;
+  font: inherit;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dewank-consent-close:hover {
+  background: #f2f2f2;
+}
+
+.dewank-consent-banner .dewank-consent-btn:focus-visible,
+.dewank-consent-close:focus-visible {
+  outline: 3px solid #181818;
+  outline-offset: 3px;
+}
+
 @media (max-width: 640px) {
   .dewank-consent {
     inset-inline: 8px;
@@ -205,6 +280,34 @@ export const consentBannerCss = `/* Consent banner and preferences. Palette from
     min-height: 30px;
     padding: 4px 10px;
     font-size: 12px;
+  }
+
+  .dewank-consent.dewank-consent-banner {
+    grid-template-columns: minmax(0, 1fr) 34px;
+    grid-template-areas: "message close" "accept accept";
+    row-gap: 8px;
+    column-gap: 10px;
+    inset-inline: 8px;
+    bottom: 8px;
+    padding: 11px 12px;
+  }
+
+  .dewank-consent-message {
+    grid-area: message;
+    font-size: 13px;
+  }
+
+  .dewank-consent-banner .dewank-consent-accept {
+    grid-area: accept;
+    justify-self: end;
+    min-height: 38px;
+    min-width: 116px;
+    padding: 6px 18px;
+  }
+
+  .dewank-consent-close {
+    grid-area: close;
+    align-self: start;
   }
 
   .dewank-consent-backdrop {
