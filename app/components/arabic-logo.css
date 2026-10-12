@@ -24,9 +24,8 @@
   }
 }
 
-/* The D mark is drawn at 40px (36px on phones), but the English mark file is 1254px and 2.2 MB. On the Arabic site it is
-   downscaled once to 240px (public/brand/dewank-mark-ar.png, 70 KB), so the page no longer waits on 2 MB before text and
-   fonts. The English header and footer keep /dewank-logo.png, and the structured data still points to it. */
+/* The D mark on the Arabic site uses the 120px and 240px WebP files (see app/globals.css for the full set). The English
+   header and footer keep the shared rule. */
 .brand-logo.brand-logo-ar .mark-frame {
-  background-image: url('/brand/dewank-mark-ar.png');
+  background-image: url('/brand/mark/dewank-mark-240.webp');
 }
