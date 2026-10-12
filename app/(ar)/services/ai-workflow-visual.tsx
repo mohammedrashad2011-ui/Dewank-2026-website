@@ -57,10 +57,11 @@ export default function AiWorkflowVisual() {
           ))}
         </div>
 
-        <button type="button" className="ai-orchestrator" onClick={runFlow} aria-label="شغّل الأتمتة التفاعلية">
-          <span className="ai-ring ring-one" aria-hidden="true">RULES</span>
-          <span className="ai-ring ring-two" aria-hidden="true">DATA</span>
-          <span className="ai-ring ring-three" aria-hidden="true">ACTIONS</span>
+        {/* No aria-label: the accessible name is the visible text, as WCAG 2.5.3 requires. The ring words are read too. */}
+        <button type="button" className="ai-orchestrator" onClick={runFlow}>
+          <span className="ai-ring ring-one">RULES</span>
+          <span className="ai-ring ring-two">DATA</span>
+          <span className="ai-ring ring-three">ACTIONS</span>
           <strong>AI</strong>
           <small>ORCHESTRATION</small>
         </button>
