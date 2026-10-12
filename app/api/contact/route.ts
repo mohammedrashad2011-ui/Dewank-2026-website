@@ -1,10 +1,21 @@
+const MAX_BODY_BYTES = 16 * 1024;
+
 function clean(value: unknown, max: number) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
 }
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as Record<string, unknown>;
+    // Reject oversized bodies before parsing. A contact brief is at most 2,500 characters, so 16 KB is generous.
+    const declared = Number(request.headers.get("content-length") || 0);
+    if (declared > MAX_BODY_BYTES) {
+      return Response.json({ error: "حجم الطلب كبير." }, { status: 413 });
+    }
+    const raw = await request.text();
+    if (raw.length > MAX_BODY_BYTES) {
+      return Response.json({ error: "حجم الطلب كبير." }, { status: 413 });
+    }
+    const body = JSON.parse(raw) as Record<string, unknown>;
 
     if (clean(body.website, 100)) {
       return Response.json({ ok: true, persisted: false }, { status: 201 });
