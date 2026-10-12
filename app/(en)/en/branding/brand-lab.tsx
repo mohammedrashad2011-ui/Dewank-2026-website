@@ -42,7 +42,7 @@ export default function BrandLab() {
           <span>Brand building lab</span>
           <b>Choose a stage to see how an idea becomes a decision.</b>
         </div>
-        <img src="/dewank-logo.png" alt="Dewank logo" width="62" height="62" />
+        <img src="/brand/mark/dewank-mark-240.webp" alt="Dewank logo" width="62" height="62" />
       </div>
 
       <div className="brand-lab-tabs" role="tablist" aria-label="Stages of brand building">

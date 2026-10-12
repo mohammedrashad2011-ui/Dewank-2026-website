@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { launchHreflang } from "@/app/(en)/en/_en/lib/seo-launch";
 
 export const siteUrl = "https://dewank.com";
 export const siteName = "ديوانك | Dewank";
@@ -33,7 +34,9 @@ export function createMetadata({
     keywords,
     alternates: {
       canonical,
-      languages: {
+      // Before the English launch (and always in preview) this is the existing Arabic-only output. After approval,
+      // genuine equivalent pages get reciprocal English alternates (see seo-launch.ts).
+      languages: launchHreflang(path) ?? {
         ar: canonical,
         "x-default": canonical,
       },

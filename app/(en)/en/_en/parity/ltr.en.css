@@ -63,8 +63,8 @@ html body .en-parity.studio-home .growth-shortcuts::before {
 }
 
 
-/* Section labels: the blue on light sections and the blue on the two dark sections both fell below the WCAG AA contrast
-   ratio for small text. English homepage only; the Arabic labels keep their colours. */
+/* Section labels. The original blue (#2a4bd9) passes on the light sections (5.5:1 or more). The two dark sections use a
+   lighter blue (#9fb4ff, 8.7:1 or more). English homepage only; the Arabic labels keep their colours. */
 
 html body .en-parity.studio-home .section-label {
   color: #2a4bd9 !important;

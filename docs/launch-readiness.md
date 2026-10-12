@@ -1,63 +1,77 @@
-# Bilingual launch readiness (experimental branch)
+# Bilingual launch readiness
 
-Branch: `experiment/bilingual-root-layout`. Nothing here is merged or released. English indexing stays off.
+Branch: `feat/dewank-bilingual-release-candidate`, based on `feat/dewank-unified-preview` at `54114a2`.
 
-## Fixed in this hardening pass
+Status: **release candidate for owner review. Not merged, not launched.** English indexing is off. The production site,
+`main`, the unified preview and the existing pull requests are not changed by this branch.
 
-- **WhatsApp widget on English pages.** The widget copy and direction follow the page language. Same destination
-  (`+97339066649`), same `lead_intent` keys and event names. It is hidden on phones on the Riyadh landing page, where it
-  covered the primary button. The English stylesheet still hides it on the approved English pages, as before.
-- **Structured data for English.** English pages carry an English Organization and WebSite node with the same `@id`
-  values as the Arabic graph. Descriptions and names come from copy already on the site. No Gulf-only geography is stated
-  on English pages. Each document has one Organization and one WebSite node, and every sampled page parses.
-- **Unknown URLs.** `/en/...` unknown paths return HTTP 404 with `lang="en" dir="ltr"`. Unknown Arabic paths return HTTP 404
-  with `lang="ar" dir="rtl"`. Implemented as route handlers behind the static routes, so valid pages match first.
-- **Analytics by environment.** Vendor scripts load only in production mode (see `analytics-environments.md`). Preview and
-  development builds record `dataLayer` events without sending them anywhere.
-- **Accessible name of the WhatsApp link** now matches its visible text (a Lighthouse label-in-name failure).
-- **Lint.** English internal links use `Link` where that changes no markup. The approved MotionSystem anchors keep a
-  documented exception. Five `set-state-in-effect` errors remain (see below).
+The release decision, the measured results and the rollback plan are in `docs/release-candidate-report.md`. This file
+lists what is done, what is blocked and what only the owner can decide.
 
-## Intentionally unchanged
+## What this branch changes
 
-- Approved visual designs: English homepage, English service cards and their animations, English services hub, Arabic
-  homepage, orbit and service cards. Pixel comparison: identical to the previous experiment and to the original baseline.
-- Arabic pricing and the Arabic country lookup (`api.country.is`) on Arabic offer pages. Protected behaviour.
-- English `noindex` while `ENGLISH_LAUNCH_ENABLED` is false.
-- Conversion event names and fields.
+- **Indexing gate.** One switch, `ENGLISH_LAUNCH_ENABLED` (`app/(en)/en/_en/lib/seo-launch.ts`), is combined with a preview
+  check (`app/lib/site-environment.ts`). English stays `noindex`, and English hreflang and sitemap entries stay out, until
+  the owner approves the launch commit. Preview builds never index English. The legacy English Riyadh page keeps its
+  current production indexing. See `docs/english-launch-activation.md`.
+- **Consent.** A bilingual consent dialog replaces the unconditional tag loading. Nothing loads before a visitor
+  chooses. Accept, reject, manage and withdraw are available, with a footer control. See
+  `docs/privacy-cookies-review.md`.
+- **Analytics modes.** Preview builds never load vendor scripts. Production loads them only after consent. The IDs
+  and event names are unchanged. See `docs/analytics-environments.md`.
+- **Privacy notices.** Arabic (`/privacy`) and English (`/en/privacy`) drafts. Both are `noindex`, both carry bracketed
+  owner and counsel items, and neither makes a compliance claim.
+- **Performance.** The logo and orbit images are served as sized WebP files, with PNG fallbacks in CSS. The two large
+  Arabic brand PNGs (`dewank-mark-ar.png`, `dewank-sun-ar.png`) are removed. The source logo stays, because structured data
+  refers to it. Files under `/brand/` get a 30-day cache header. Captures at 1x to 3x device pixel ratio match the
+  baseline except for anti-aliased edge pixels.
+- **Accessibility.** English section-label and Arabic paid-advertising text colours now meet WCAG AA. The WhatsApp
+  minimise control is 24 px. Measured results are in the release report.
+- **API hardening.** `/api/og` is removed. No page references it, and on the unified baseline build it returned an empty
+  reply for both titles tested. `/api/contact` rejects bodies over 16 KB with HTTP 413. `X-Powered-By` is disabled.
 
-## Blockers and decisions before production
+## Blockers for the English launch
 
-1. **Owner decision: English WhatsApp widget.** The approved English pages hide it. Only the Riyadh landing page shows it.
-   Showing it on all English pages changes approved designs, so it needs owner approval.
-2. **Owner decision: separate English tracking.** Not created. English and Arabic share the production GTM, GA4 and Meta IDs.
-   Segment by `/en` path and `lang`, as described in `analytics-environments.md`.
-3. **Owner decision: consent.** No consent banner or consent mode exists. This is a legal question for the target markets.
-4. **Legacy ESLint errors (5), not changed.** `react-hooks/set-state-in-effect` in `localized-offer.tsx`,
-   `use-offer-price.ts`, `home-selected-offers.tsx`, `instagram-follow-card.tsx` and `mobile-offers-rail.tsx`. They sit in
-   offer pricing, the country lookup and popups. Rewriting them could change pricing behaviour, which is protected. They
-   need a separate, reviewed change.
-5. **Arabic colour contrast.** Testimonial translation text fails the contrast check. Fixing it changes an approved Arabic
-   visual, so it needs owner approval.
-6. **English structured data policy.** English pages keep the existing Organization identity. Adding English-only
-   properties such as `areaServed` or award data needs owner-supplied facts.
-7. **English hreflang and sitemap.** Prepared in `app/(en)/en/_en/lib/seo-launch.ts`. They stay off until the launch commit
-   flips the flag, and Arabic pages need reciprocal entries at that point.
-8. **Experimental route handling.** Unknown-URL handling uses route handlers, not an experimental Next.js flag. This
-   removes `experimental.globalNotFound`.
+These stop the English launch. They do not stop review of this branch.
 
-## Verification
+- **B1. English contact form cannot deliver.** The form is closed (`formEnabled = false`, `app/(en)/en/contact/page.tsx`).
+  When it is opened, it posts to `/en/api/contact`, which returns HTTP 405, and the form needs a server response with
+  `delivered: true`, which no route produces. The owner must choose the delivery route before the form opens:
+  - **Option A (WhatsApp hand-off, recommended for speed).** Mirror the Arabic contact form, which opens a WhatsApp message
+    built from the fields. No new processor is needed. WhatsApp (Meta) receives the message. The English copy and privacy
+    notice must describe this.
+  - **Option B (email).** Appoint an email delivery provider, add a route that sends the enquiry, and update the privacy
+    notice with the processor and its data region.
+- **B2. Privacy and cookie notices.** Both drafts need counsel review and the owner's facts: legal entity, registration
+  number, address, retention periods, lawful bases and processors. See `docs/privacy-cookies-review.md` items 1 to 13.
+- **B3. Provider-side consent setup.** GTM consent overview, GA4 consent settings and Meta consent handling are not
+  configured from this codebase. The owner must confirm them in the accounts. Nothing here verifies those accounts.
+- **B4. Country lookup before consent.** The Arabic offer pages call `api.country.is` before any choice, and the
+  request includes the visitor's IP address. The owner must decide whether to keep it, require consent for it, or
+  replace it. English pages make no such call.
+- **B5. Analytics segmentation for English.** English and Arabic share the production GTM, GA4 and Meta IDs. The owner
+  decides whether English gets separate properties. Until then, reporting uses `/en` paths and the `lang` attribute.
+- **B6. Riyadh page.** `/en/riyadh-marketing-agency` is indexable on production today and stays so. The owner should
+  confirm that this is intended before English launches.
 
-- TypeScript: passes.
-- ESLint: 5 errors, all in item 4 above. No new errors.
-- Production build: passes.
-- Route parity (93 routes): no unexpected differences. Only `lang` and `dir` change, on the 38 English routes.
-- Visual regression (deterministic captures, 9 pages x 5 widths): identical on the homepages, services, contact and offers.
-  The Riyadh page differs by 0.01 to 0.05% because of the widget copy change.
-- Lighthouse, English homepage: Accessibility 100, Best Practices 77, SEO 66.
-  - Best Practices: one third-party cookie from the production Google tags.
-  - SEO: `noindex` on English pages, which is intended.
-- Lighthouse, Arabic homepage: Accessibility 96, Best Practices 77, SEO 100.
-  - Accessibility: testimonial colour contrast (blocker 5).
-  - Best Practices: the same third-party cookie.
-- Preview mode: no GTM, GA4 or Meta requests. Widget click still records `sitewide_whatsapp_click`.
+## Not blocking, recorded for follow-up
+
+- **Content Security Policy.** No CSP header is set. Adding one needs an inventory of inline scripts (the consent
+  bootstrap and JSON-LD) and of the vendor hosts. It is a separate change.
+- **Legacy asset.** `public/en/brand/dewank-logo.png` (about 2.2 MB) is unreferenced. Showcase PNGs that nothing
+  references remain in `public/`. Removing them is an owner decision, because they were not part of this branch's review.
+- **Route scripts.** `scripts/route-group-migration.mjs` and `scripts/qa/*` remain in the repository. The owner decides
+  whether to keep them.
+- **Lint warnings.** ESLint reports zero errors with the project's ignore patterns. Remaining warnings are existing
+  `<img>` usage and hook dependency notes, not introduced here.
+
+## Owner decisions in one list
+
+1. Option A or B for B1, and the English copy that goes with it.
+2. Counsel review and owner facts for both privacy notices (B2).
+3. Provider-side consent configuration (B3).
+4. Country lookup: keep, consent-gate or replace (B4).
+5. English analytics: shared IDs or separate properties (B5).
+6. Confirm the Riyadh page's indexing (B6).
+7. Approval to launch English, in writing.
+8. Disposition of the legacy assets and scripts above.

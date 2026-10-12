@@ -15,6 +15,8 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Do not advertise the framework.
+  poweredByHeader: false,
   async redirects() {
     return [
       // Legacy /portfolio (404, still shown in Google at ~position 3) maps to the current case-study index.
@@ -45,6 +47,10 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/fonts/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
+      },
+      {
+        source: "/brand/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
       },
     ];

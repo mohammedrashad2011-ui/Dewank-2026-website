@@ -26,3 +26,27 @@
 @media(max-width:900px){.pa-conversion-bridge{grid-template-columns:1fr}.pa-hero-copy h1{font-size:clamp(38px,7vw,56px)!important}.pa-section-head h2,.pa-truth h2,.pa-measure h2,.pa-fit h2,.pa-final h2,.pa-cluster-head h2{font-size:clamp(30px,6vw,44px)!important}}
 @media(max-width:640px){.pa-hero-copy h1{font-size:34px!important;line-height:1.34!important}.pa-hero-copy h1 em{margin-top:.24em}.pa-hero-copy>p{font-size:17px}.pa-section-head h2,.pa-truth h2,.pa-measure h2,.pa-fit h2,.pa-final h2,.pa-cluster-head h2{font-size:30px!important;line-height:1.44!important}.pa-conversion-bridge{margin:48px auto;padding:30px 24px}.pa-conversion-bridge h2{font-size:29px;line-height:1.45}.pa-actions .button{width:100%;justify-content:center}.pa-label::after{font-size:11px}}
 @media(prefers-reduced-motion:reduce){.pa-conversion-links a{transition:none}}
+
+/* Contrast (WCAG AA) for the paid-advertising detail page, Arabic and English (both use .pa-page). Only the text colour of
+   the listed elements changes. Decorative orange (rules, markers, borders, backgrounds) keeps the original token #d45f32.
+   - Orange text on the paper and card backgrounds: #d45f32 measured 2.74 to 3.39:1. #963f17 measures about 4.6 to 6.5:1.
+   - Blue text on the dark readiness panel: #3155ff measured 3.34:1. #7b95f8 measures 6.47:1.
+   - White text on the English closing button: #d45f32 measured 3.83:1. #a94a1c measures 5.70:1. The button keeps its shape. */
+
+.pa-page .pa-channel-grid article > span,
+.pa-page .pa-section-head h2 em,
+.pa-page .pa-scope-grid article > b,
+.pa-page .pa-journey-list article > span,
+.pa-page .pa-deliverables-list > div > b {
+  color: #963f17;
+}
+
+.pa-page .pa-readiness > small {
+  color: #7b95f8;
+}
+
+/* English page only (its main carries .en-service). The Arabic closing button was not flagged and is left as it is. */
+.pa-page.en-service .pa-final a.button {
+  background-color: #a94a1c;
+  border-color: #a94a1c;
+}

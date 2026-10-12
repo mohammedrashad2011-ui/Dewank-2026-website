@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { organizationId, siteUrl } from "../../../lib/seo";
 import { arabicEquivalent } from "../../../components/language-routes";
+import { isPreviewBuild } from "../../../lib/site-environment";
 import "./riyadh-marketing-agency.css";
 import "./riyadh-language-switch.css";
 
@@ -22,10 +23,11 @@ export const metadata: Metadata = {
     "branding agency Saudi Arabia",
     "performance marketing Riyadh",
   ],
-  // Preview deployments are noindex. Production returns the same robots object as the root layout on main, so the
-  // page's production output is unchanged.
+  // This page is a legacy production page that is indexable today (main, robots index, listed in the sitemap). Its
+  // production indexing is kept as it is. Only preview builds are noindex, and that does not depend on VERCEL_ENV, so a
+  // Hostinger-served production build keeps the page indexable.
   robots:
-    globalThis.process.env.VERCEL_ENV === "production"
+    !isPreviewBuild
       ? {
           index: true,
           follow: true,
@@ -190,7 +192,7 @@ export default function RiyadhMarketingAgencyPage() {
 
       <header className="re-header">
         <div className="re-shell re-nav">
-          <Link className="re-brand re-brand-lockup" href="/" aria-label="Dewank home"><img src="/dewank-logo.png" alt="Dewank" /></Link>
+          <Link className="re-brand re-brand-lockup" href="/" aria-label="Dewank home"><img src="/brand/mark/dewank-mark-240.webp" alt="Dewank" /></Link>
           <nav aria-label="English page navigation">
             <a href="#services">Services</a>
             <a href="#fit">When we fit</a>
@@ -274,7 +276,7 @@ export default function RiyadhMarketingAgencyPage() {
         <div><p>Share your business type, market and current challenge. We will recommend the most focused next step instead of starting with the largest scope.</p><a className="re-button" href={whatsappHref} target="_blank" rel="noopener noreferrer">Start on WhatsApp <span>↗</span></a></div>
       </section>
 
-      <footer className="re-footer"><div className="re-shell"><Link className="re-brand re-brand-lockup" href="/" aria-label="Dewank home"><img src="/dewank-logo.png" alt="Dewank" /></Link><div><Link href="/services">Arabic services</Link><Link href="/work">Work</Link><Link href="/contact">Contact</Link><a href="mailto:hello@dewank.com">hello@dewank.com</a></div><p>© {new Date().getFullYear()} Dewank. Brand × Growth × AI.</p></div></footer>
+      <footer className="re-footer"><div className="re-shell"><Link className="re-brand re-brand-lockup" href="/" aria-label="Dewank home"><img src="/brand/mark/dewank-mark-240.webp" alt="Dewank" /></Link><div><Link href="/services">Arabic services</Link><Link href="/work">Work</Link><Link href="/contact">Contact</Link><a href="mailto:hello@dewank.com">hello@dewank.com</a></div><p>© {new Date().getFullYear()} Dewank. Brand × Growth × AI.</p></div></footer>
     </main>
   );
 }

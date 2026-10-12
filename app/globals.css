@@ -112,7 +112,7 @@ body{
 .mark-frame{
   width:40px;height:40px;display:block;overflow:hidden;position:relative;
   flex:0 0 40px;border-radius:50%;border:1px solid rgba(210,168,78,.45);
-  background-color:#071a33;background-image:url('/dewank-logo.png');
+  background-color:#071a33;background-image:url('/brand/mark/dewank-mark-240.png');background-image:image-set(url('/brand/mark/dewank-mark-120.webp') type('image/webp') 1x,url('/brand/mark/dewank-mark-240.webp') type('image/webp') 2x,url('/brand/mark/dewank-mark-240.webp') type('image/webp') 3x);
   background-position:center;background-repeat:no-repeat;background-size:cover;
   box-shadow:0 4px 12px rgba(7,26,51,.14)
 }
@@ -278,7 +278,7 @@ body{
 .space-glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 48%,rgba(119,241,255,.17),transparent 30%),radial-gradient(circle at 82% 18%,rgba(217,255,67,.12),transparent 14%);animation:spaceBreath 6s ease-in-out infinite alternate}
 .service-ring{position:absolute;left:50%;top:48%;border:1px solid rgba(255,255,255,.2);border-radius:50%;translate:-50% -50%;pointer-events:none}
 .ring-a{width:230px;height:230px}.ring-b{width:390px;height:390px;border-style:dashed;animation:ringOrbit 34s linear infinite}.ring-c{width:550px;height:550px}
-.dewank-sun{position:absolute;left:50%;top:48%;width:132px;height:132px;transform:translate(-50%,-50%);z-index:5;border-radius:50%;display:grid;place-items:center;text-decoration:none;background:#07182e url('/dewank-logo.png') center/cover no-repeat;border:1px solid rgba(255,211,95,.78);box-shadow:0 0 0 9px rgba(255,255,255,.05),0 0 58px rgba(255,203,75,.23),0 28px 65px rgba(2,8,59,.55);transition:transform .35s ease,box-shadow .35s ease}
+.dewank-sun{position:absolute;left:50%;top:48%;width:132px;height:132px;transform:translate(-50%,-50%);z-index:5;border-radius:50%;display:grid;place-items:center;text-decoration:none;background:#07182e url('/brand/sun/dewank-sun-384.png') center/cover no-repeat;background-image:image-set(url('/brand/sun/dewank-sun-256.webp') type('image/webp') 1x,url('/brand/sun/dewank-sun-384.webp') type('image/webp') 2x,url('/brand/sun/dewank-sun-384.webp') type('image/webp') 3x);border:1px solid rgba(255,211,95,.78);box-shadow:0 0 0 9px rgba(255,255,255,.05),0 0 58px rgba(255,203,75,.23),0 28px 65px rgba(2,8,59,.55);transition:transform .35s ease,box-shadow .35s ease}
 .dewank-sun:hover,.dewank-sun:focus-visible{transform:translate(-50%,-50%) scale(1.06);box-shadow:0 0 0 12px rgba(255,255,255,.07),0 0 78px rgba(255,203,75,.34);outline:none}
 .dewank-sun span{position:absolute;left:-9999px}
 .satellite-track{--orbit-size:230px;--orbit-speed:34s;--orbit-delay:0s;position:absolute;left:50%;top:48%;width:var(--orbit-size);height:var(--orbit-size);margin:calc(var(--orbit-size) / -2);z-index:4;border-radius:50%;pointer-events:none;animation:serviceOrbit var(--orbit-speed) linear var(--orbit-delay) infinite}
@@ -651,7 +651,7 @@ body{
   -webkit-backdrop-filter:blur(22px) saturate(145%);backdrop-filter:blur(22px) saturate(145%);
   direction:rtl;animation:instagramCardIn .5s cubic-bezier(.2,.8,.2,1) both
 }
-.instagram-card-mark{width:56px;height:56px;border-radius:18px;background:#071a33 url('/dewank-logo.png') center/cover no-repeat;border:1px solid rgba(210,168,78,.58);box-shadow:0 9px 24px rgba(0,0,0,.22)}
+.instagram-card-mark{width:56px;height:56px;border-radius:18px;background:#071a33 url('/brand/mark/dewank-mark-240.png') center/cover no-repeat;background-image:image-set(url('/brand/mark/dewank-mark-120.webp') type('image/webp') 1x,url('/brand/mark/dewank-mark-240.webp') type('image/webp') 2x,url('/brand/mark/dewank-mark-240.webp') type('image/webp') 3x);border:1px solid rgba(210,168,78,.58);box-shadow:0 9px 24px rgba(0,0,0,.22)}
 .instagram-card-copy{min-width:0;display:flex;flex-direction:column;gap:3px}.instagram-card-copy small{direction:ltr;text-align:right;color:#d2a84e;font:700 7px/1.4 Arial,sans-serif;letter-spacing:.15em}.instagram-card-copy strong{font-size:13px;line-height:1.7}.instagram-card-copy span{color:#bfc6d2;font-size:10px;line-height:1.65}
 .instagram-card-action{min-height:40px;padding:9px 14px;border-radius:999px;background:#d2a84e;color:#07152b;display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:800;white-space:nowrap;transition:transform .22s,background .22s}.instagram-card-action:hover{transform:translateY(-2px);background:#e0bd6a}
 .instagram-card-close{position:absolute;left:9px;top:7px;width:25px;height:25px;border:0;background:transparent;color:#c6ccd6;font:400 18px/1 Arial;cursor:pointer;border-radius:50%}.instagram-card-close:hover,.instagram-card-close:focus-visible{background:rgba(255,255,255,.1);color:#fff;outline:none}

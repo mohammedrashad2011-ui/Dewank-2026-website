@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { preload } from "react-dom";
-import { RootBodyStart, RootHeadScripts } from "../components/root-document";
+import { RootBodyStart } from "../components/root-document";
 import "../fonts.css";
 import "../globals.css";
 import "../service-pages-fix.css";
@@ -68,7 +68,6 @@ export default function RootLayout({
   preload("/fonts/alexandria-latin.woff2", { as: "font", type: "font/woff2", crossOrigin: "anonymous" });
   return (
     <html lang="en" dir="ltr" style={fontVariables}>
-      <RootHeadScripts />
       <body>
         <RootBodyStart language="en" />
         {children}

@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "./lib/seo";
+import { englishLaunchActive, englishSitemapPaths } from "@/app/(en)/en/_en/lib/seo-launch";
+import { isPreviewBuild } from "./lib/site-environment";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
@@ -16,7 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/seo-aeo", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/whatsapp-automation", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/ai-automation", priority: 0.9, changeFrequency: "monthly" as const },
-    { path: "/en/riyadh-marketing-agency", priority: 0.85, changeFrequency: "monthly" as const },
 
     // Offers hub and offer landing pages
     { path: "/offers", priority: 0.8, changeFrequency: "weekly" as const },
@@ -61,6 +62,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guides/ad-to-whatsapp-booking-journey", priority: 0.75, changeFrequency: "monthly" as const },
     { path: "/guides/ai-agent-vs-workflow-automation", priority: 0.75, changeFrequency: "monthly" as const },
   ];
+
+  // The legacy English Riyadh page is indexable on production (as it is on main) and never in a preview build.
+  if (!isPreviewBuild) {
+    pages.push({ path: "/en/riyadh-marketing-agency", priority: 0.85, changeFrequency: "monthly" as const });
+  }
+
+  // English pages join the sitemap only with the approved launch. Until then they are noindex and stay out.
+  if (englishLaunchActive) {
+    for (const path of englishSitemapPaths) {
+      pages.push({ path, priority: 0.8, changeFrequency: "monthly" as const });
+    }
+  }
 
   return pages.map(({ path, priority, changeFrequency }) => ({
     url: `${siteUrl}${path}`,
