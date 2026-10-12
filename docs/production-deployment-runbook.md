@@ -22,6 +22,28 @@ through a read-only session), **Documented** (from Hostinger's documentation, no
 **Immediate consequence.** The current production site measures visitors before any choice. The bilingual release fixes this:
 no vendor request before consent, and the banner is shown. Launch is the fix, so it should not be delayed without a reason.
 
+## 1a. Verified in hPanel (13 October 2026, read-only)
+
+- **Connection:** dewank.com is connected to GitHub (`Dewank-2026-website`), branch `main`, root `./`, Next.js, Node 22.x.
+  Auto-deployment is on.
+- **Current deployment:** `b4edc70a`, Completed, 7 Oct 2026 19:04 (1m 18s). The ten most recent deployments (5 to 7 Oct) each
+  followed a push to `main` and all completed. Deployment history lists 169 deployments.
+- **Build settings (tooltip, "Default"):** build command `build` (runs `npm run build`), output directory `.next`, install
+  command `npm install`. The build log confirms: "Package manager: npm", "Build command: npm run build", "Environment: no
+  .env file", "Detected Next.js standalone server output", then "Restarting Node.js server".
+- **Runtime:** runtime logs show Next.js 16.3.6 listening on `0.0.0.0:3000`. Zero errors and zero issues in the last hour.
+- **Environment variables:** none. No `DEWANK_*` or `VERCEL_ENV` setting reaches production.
+- **Backups:** daily (Essentials card). The restore procedure was not opened in this pass.
+- **CDN:** the dashboard has a "Clear cache" control. It was not used in this pass.
+- **Plan:** Business. Plan expires 15 April 2030.
+- **Redeploy:** the Redeploy button and the deployment-details "Redeploy" rebuild the connected branch's current head. They do
+  not restore a historical commit. Roll back by a Git revert on `main`.
+- **Options menu** (next to Redeploy): "Change repository", "Disconnect GitHub". Not used.
+
+The install command is `npm install`, while the repository's lockfile is used by `npm ci`. The production install resolved
+513 packages, against the 506 in a local `npm ci`. That plausibly explains why production chunk names differ from local builds.
+The rendered output matches. Not a launch blocker; a possible hardening change for the owner.
+
 ## 2. Hostinger requirements (documented, not yet tested on this account)
 
 | Requirement | Hostinger documentation | This project | Status |
