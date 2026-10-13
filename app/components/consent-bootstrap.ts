@@ -57,11 +57,17 @@ const copy = {
 //   - Measurement cookies left by an earlier visit are removed on every load where no category is allowed.
 //   - In a preview build the vendors never load, whatever the stored choice. dataLayer events are recorded as before.
 // The preferences dialog is built here, not as a React component, so the root layouts add no client code.
+// Page views for in-site route changes sent by this script. Keep false while GA4 enhanced measurement sends them (see the
+// comment in the script). Set to true only after that GA4 setting is switched off by the owner.
+const ROUTE_PAGE_VIEWS_FROM_SCRIPT = false;
+
 export function consentBootstrapScript(vendorsAllowed: boolean): string {
   const vendors = vendorsAllowed ? "true" : "false";
+  const routeViews = ROUTE_PAGE_VIEWS_FROM_SCRIPT ? "true" : "false";
   return `(function(){
   var KEY=${JSON.stringify(CONSENT_STORAGE_KEY)};
   var VENDORS=${vendors};
+  var ROUTE_VIEWS=${routeViews};
   var GTM=${JSON.stringify(GTM_CONTAINER_ID)};
   var GA=${JSON.stringify(GA_MEASUREMENT_ID)};
   var FB=${JSON.stringify(META_PIXEL_ID)};
@@ -123,6 +129,7 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     document.head.appendChild(s);
     gtag('js',new Date());
     gtag('config',GA);
+    lastRoute=routeKey();
   }
   function loadMeta(){
     if(state.fb) return;
@@ -272,6 +279,22 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
       window.dispatchEvent(new CustomEvent(CHANGE_EVENT,{detail:choice}));
     }
   };
+  // In-site navigation (app router, history.pushState). GA4 enhanced measurement, "Page changes based on browser history
+  // events", already sends a page_view for each in-site route change, queued until the next hit. When ROUTE_VIEWS is on,
+  // this script sends one page_view per new path and query instead, promptly and with the new page location. Turn it on
+  // only after that GA4 setting is switched off, otherwise each in-site page is counted twice. The history API is not
+  // patched: wrapping pushState sent a page_view with the previous page location (checked in a local test).
+  var lastRoute=null;
+  function routeKey(){ return location.pathname+location.search; }
+  function trackRoute(){
+    if(!VENDORS||!ROUTE_VIEWS||!state.ga) return;
+    var key=routeKey();
+    if(key===lastRoute) return;
+    var previous=lastRoute;
+    lastRoute=key;
+    gtag('event','page_view',{page_location:location.href,page_path:location.pathname,page_title:document.title,page_referrer:previous?location.origin+previous:document.referrer});
+  }
+  if(VENDORS&&ROUTE_VIEWS) setInterval(trackRoute,300);
   if(VENDORS){
     // Without a permitted category, measurement cookies left by an earlier visit are removed on every load. A page that
     // was unloaded during a withdrawal can write them again, so the check is repeated here.
