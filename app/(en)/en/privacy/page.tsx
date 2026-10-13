@@ -155,8 +155,8 @@ function PrivacyPage() {
       <h2 id="consent">6. Your consent, refusal and withdrawal</h2>
       <ul>
         <li>
-          On your first visit a banner appears with <strong>Accept all</strong>, <strong>Reject all</strong> and{" "}
-          <strong>Manage preferences</strong>. You can allow usage measurement, advertising measurement, or both.
+          On your first visit usage measurement is on by default. Advertising measurement (Google Ads and the Meta Pixel) stays
+          off until you turn it on.
         </li>
         <li>Refusing measurement does not affect how you use the site or the services you request.</li>
         <li>

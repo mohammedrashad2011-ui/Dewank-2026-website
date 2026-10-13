@@ -9,18 +9,15 @@ export const CONSENT_CHANGE_EVENT = "dewank:consent-change";
 export const CONSENT_OPEN_ATTRIBUTE = "data-dewank-consent-open";
 
 // Copy for both languages. It states what runs and what does not. It does not claim legal compliance. The preferences
-// dialog carries the full description of each category; the banner only summarises it.
+// dialog carries the full description of each category.
 const copy = {
   ar: {
-    bannerTitle: "ملفات تعريف الارتباط والقياس",
-    bannerBody: "نستخدم أدوات قياس وإعلان لفهم استخدام الموقع وقياس الحملات. لا تعمل هذه الأدوات إلا إذا وافقت عليها.",
     accept: "قبول الكل",
     reject: "رفض الكل",
-    manage: "إدارة التفضيلات",
     privacy: "سياسة الخصوصية",
     privacyHref: "/privacy",
     dialogTitle: "تفضيلات ملفات تعريف الارتباط",
-    dialogIntro: "الموقع يعمل كاملًا دون هذه الأدوات. يُحفظ اختيارك في متصفحك فقط، ولا يحتوي على بيانات شخصية.",
+    dialogIntro: "قياس الاستخدام مفعّل افتراضيًا لفهم أداء الموقع، والقياس الإعلاني معطّل حتى توافق عليه. الموقع يعمل كاملًا دون هذه الأدوات. يُحفظ اختيارك في متصفحك فقط، ولا يحتوي على بيانات شخصية.",
     optionsLegend: "اختر ما تسمح به",
     analyticsLabel: "قياس الاستخدام",
     analyticsDesc: "Google Tag Manager وGoogle Analytics 4 لمعرفة الصفحات المستخدمة وأداء الموقع. قد تضع ملفات تعريف ارتباط مثل _ga، وتُرسل معلومات الزيارة إلى Google.",
@@ -31,15 +28,12 @@ const copy = {
     regionLabel: "إعدادات ملفات تعريف الارتباط",
   },
   en: {
-    bannerTitle: "Cookies and measurement",
-    bannerBody: "We use measurement and advertising tools to understand how the site is used and to measure campaigns. They run only if you agree.",
     accept: "Accept all",
     reject: "Reject all",
-    manage: "Manage preferences",
     privacy: "Privacy notice",
     privacyHref: "/en/privacy",
     dialogTitle: "Cookie preferences",
-    dialogIntro: "The site works fully without these tools. Your choice is stored in your browser only and holds no personal data.",
+    dialogIntro: "Usage measurement is on by default to understand how the site performs. Advertising measurement stays off until you turn it on. The site works fully without these tools. Your choice is stored in your browser only and holds no personal data.",
     optionsLegend: "Choose what you allow",
     analyticsLabel: "Usage measurement",
     analyticsDesc: "Google Tag Manager and Google Analytics 4, to see which pages are used and how the site performs. They may set cookies such as _ga and send visit information to Google.",
@@ -52,24 +46,31 @@ const copy = {
 };
 
 // Inline script, rendered in <body> before any other content (see RootBodyStart). It runs while the document is parsing,
-// not after the app's JavaScript, so the consent default and the banner do not wait for the app. Rules:
-//   - Google Consent Mode defaults to denied for analytics and advertising, unless a choice is already stored.
-//   - Nothing is requested from GTM, GA4 or Meta until a category is allowed. No noscript fallback exists (see
-//     RootBodyStart): a visitor without JavaScript cannot consent, so nothing is requested for them either.
-//   - In production, analytics events pushed to dataLayer before a choice are dropped, so a later choice cannot send old
-//     events, and events are dropped after Reject all.
+// not after the app's JavaScript. Rules:
+//   - No banner is shown. With no stored choice, usage measurement (GTM, GA4) is on and advertising measurement (Meta
+//     Pixel, Google Ads) is off. A stored choice replaces both defaults, including a stored rejection.
+//   - Google Consent Mode defaults follow the same values. Nothing is requested from a vendor for a category that is off.
+//     No noscript fallback exists (see RootBodyStart): a visitor without JavaScript sends nothing.
+//   - Either category is changed or withdrawn from the preferences dialog, opened by the footer "Cookie settings" link.
+//   - In production, analytics events pushed to dataLayer before a category is allowed are dropped, so a later choice
+//     cannot send old events, and events are dropped after Reject all.
 //   - Measurement cookies left by an earlier visit are removed on every load where no category is allowed.
 //   - In a preview build the vendors never load, whatever the stored choice. dataLayer events are recorded as before.
-// The banner and the preferences dialog are built here, not as React components, so the root layouts add no client code.
+// The preferences dialog is built here, not as a React component, so the root layouts add no client code.
+// Page views for in-site route changes sent by this script. Keep false while GA4 enhanced measurement sends them (see the
+// comment in the script). Set to true only after that GA4 setting is switched off by the owner.
+const ROUTE_PAGE_VIEWS_FROM_SCRIPT = false;
+
 export function consentBootstrapScript(vendorsAllowed: boolean): string {
   const vendors = vendorsAllowed ? "true" : "false";
+  const routeViews = ROUTE_PAGE_VIEWS_FROM_SCRIPT ? "true" : "false";
   return `(function(){
   var KEY=${JSON.stringify(CONSENT_STORAGE_KEY)};
   var VENDORS=${vendors};
+  var ROUTE_VIEWS=${routeViews};
   var GTM=${JSON.stringify(GTM_CONTAINER_ID)};
   var GA=${JSON.stringify(GA_MEASUREMENT_ID)};
   var FB=${JSON.stringify(META_PIXEL_ID)};
-  var DISMISS_KEY=KEY+'-dismissed';
   var OPEN_ATTR=${JSON.stringify(CONSENT_OPEN_ATTRIBUTE)};
   var CHANGE_EVENT=${JSON.stringify(CONSENT_CHANGE_EVENT)};
   var CSS=${JSON.stringify(consentBannerCss)};
@@ -81,7 +82,9 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     var raw=window.localStorage.getItem(KEY);
     if(raw){ var parsed=JSON.parse(raw); if(parsed&&parsed.v===1){ choice={analytics:!!parsed.analytics,advertising:!!parsed.advertising}; } }
   }catch(e){ choice=null; }
-  var state={analytics:!!(choice&&choice.analytics),advertising:!!(choice&&choice.advertising),gtm:false,ga:false,fb:false};
+  // No stored choice: usage measurement on, advertising measurement off. A stored choice replaces both defaults.
+  var DEFAULTS={analytics:true,advertising:false};
+  var state={analytics:choice?choice.analytics:DEFAULTS.analytics,advertising:choice?choice.advertising:DEFAULTS.advertising,gtm:false,ga:false,fb:false};
   function gtag(){ dl.push(arguments); }
   function consentArgs(c){
     return {
@@ -126,6 +129,7 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     document.head.appendChild(s);
     gtag('js',new Date());
     gtag('config',GA);
+    lastRoute=routeKey();
   }
   function loadMeta(){
     if(state.fb) return;
@@ -162,7 +166,7 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     return node;
   }
   function removeNode(node){ if(node&&node.parentNode) node.parentNode.removeChild(node); }
-  var banner=null, dialog=null, lastTrigger=null, inertNodes=[];
+  var dialog=null, lastTrigger=null, inertNodes=[];
   function focusMain(){
     var target=document.querySelector('main')||document.body;
     if(!target.hasAttribute('tabindex')) target.setAttribute('tabindex','-1');
@@ -206,20 +210,8 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
   }
   function acceptAll(){ saveChoice({analytics:true,advertising:true}); }
   function rejectAll(){ saveChoice({analytics:false,advertising:false}); }
-  function dismissBanner(){
-    removeNode(banner); banner=null;
-    try{ window.sessionStorage.setItem(DISMISS_KEY,'1'); }catch(e){}
-    focusMain();
-  }
-  function buildBanner(){
-    return el('section',{class:'dewank-consent dewank-consent-banner',lang:'en',dir:'ltr','aria-label':'Cookie consent'},[
-      el('p',{class:'dewank-consent-message',text:'This website uses cookies to improve your web experience.'}),
-      el('button',{type:'button',class:'dewank-consent-btn dewank-consent-accept',text:'Accept',on:acceptAll}),
-      el('button',{type:'button',class:'dewank-consent-close','aria-label':'Close without accepting cookies',text:'×',on:dismissBanner})
-    ]);
-  }
   function buildDialog(){
-    var lang=currentLang(), t=COPY[lang], current=choice||{analytics:false,advertising:false};
+    var lang=currentLang(), t=COPY[lang], current={analytics:state.analytics,advertising:state.advertising};
     var analytics=el('input',{type:'checkbox',id:'dewank-consent-analytics'}); analytics.checked=!!current.analytics;
     var advertising=el('input',{type:'checkbox',id:'dewank-consent-advertising'}); advertising.checked=!!current.advertising;
     var form=el('form',{class:'dewank-consent-form'},[
@@ -242,18 +234,10 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     var panel=el('div',{class:'dewank-consent dewank-consent-dialog',role:'dialog','aria-modal':'true','aria-labelledby':'dewank-consent-dialog-title',lang:lang,dir:lang==='ar'?'rtl':'ltr'},[title,form]);
     return el('div',{class:'dewank-consent-backdrop'},[panel]);
   }
-  function showBanner(){
-    if(!document.body||banner||dialog) return;
-    try{ if(window.sessionStorage.getItem(DISMISS_KEY)==='1') return; }catch(e){}
-    injectStyle();
-    banner=buildBanner();
-    document.body.appendChild(banner);
-  }
   function openDialog(trigger){
     if(!document.body) return;
     injectStyle();
     lastTrigger=trigger||document.activeElement;
-    removeNode(banner); banner=null;
     removeNode(dialog);
     dialog=buildDialog();
     document.body.appendChild(dialog);
@@ -266,12 +250,10 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     removeNode(dialog); dialog=null;
     setInert(false);
     document.removeEventListener('keydown',trapKey);
-    if(choice===null) showBanner();
-    var target=lastTrigger&&document.body.contains(lastTrigger)?lastTrigger:(banner?banner.querySelector('.dewank-consent-manage'):null);
+    var target=lastTrigger&&document.body.contains(lastTrigger)?lastTrigger:null;
     if(target) target.focus(); else focusMain();
   }
   function saveChoice(next){
-    removeNode(banner); banner=null;
     if(dialog){ removeNode(dialog); dialog=null; setInert(false); document.removeEventListener('keydown',trapKey); }
     window.dewankConsent.set(next);
     focusMain();
@@ -279,12 +261,13 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
   window.dewankConsent={
     get:function(){ return choice?{analytics:choice.analytics,advertising:choice.advertising}:null; },
     set:function(next){
-      var previous=choice;
+      // Compared with the effective state, not the stored choice: a visitor with no stored choice already has analytics on.
+      var previous={analytics:state.analytics,advertising:state.advertising};
       choice={analytics:!!next.analytics,advertising:!!next.advertising};
       try{ window.localStorage.setItem(KEY,JSON.stringify({v:1,analytics:choice.analytics,advertising:choice.advertising,at:new Date().toISOString()})); }catch(e){}
       state.analytics=choice.analytics;
       state.advertising=choice.advertising;
-      var withdrew=!!previous&&((previous.analytics&&!choice.analytics)||(previous.advertising&&!choice.advertising));
+      var withdrew=(previous.analytics&&!choice.analytics)||(previous.advertising&&!choice.advertising);
       if(withdrew&&VENDORS&&(state.gtm||state.ga||state.fb)){
         // Loaded vendor code cannot be unloaded from the page, so a withdrawal reloads it without the tags.
         removeMeasurementCookies();
@@ -296,6 +279,22 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
       window.dispatchEvent(new CustomEvent(CHANGE_EVENT,{detail:choice}));
     }
   };
+  // In-site navigation (app router, history.pushState). GA4 enhanced measurement, "Page changes based on browser history
+  // events", already sends a page_view for each in-site route change, queued until the next hit. When ROUTE_VIEWS is on,
+  // this script sends one page_view per new path and query instead, promptly and with the new page location. Turn it on
+  // only after that GA4 setting is switched off, otherwise each in-site page is counted twice. The history API is not
+  // patched: wrapping pushState sent a page_view with the previous page location (checked in a local test).
+  var lastRoute=null;
+  function routeKey(){ return location.pathname+location.search; }
+  function trackRoute(){
+    if(!VENDORS||!ROUTE_VIEWS||!state.ga) return;
+    var key=routeKey();
+    if(key===lastRoute) return;
+    var previous=lastRoute;
+    lastRoute=key;
+    gtag('event','page_view',{page_location:location.href,page_path:location.pathname,page_title:document.title,page_referrer:previous?location.origin+previous:document.referrer});
+  }
+  if(VENDORS&&ROUTE_VIEWS) setInterval(trackRoute,300);
   if(VENDORS){
     // Without a permitted category, measurement cookies left by an earlier visit are removed on every load. A page that
     // was unloaded during a withdrawal can write them again, so the check is repeated here.
@@ -306,10 +305,5 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     var target=event.target&&event.target.closest?event.target.closest('['+OPEN_ATTR+']'):null;
     if(target){ event.preventDefault(); openDialog(target); }
   });
-  function showIfNeeded(){
-    injectStyle();
-    if(choice===null) showBanner();
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',showIfNeeded); else showIfNeeded();
 })();`;
 }
