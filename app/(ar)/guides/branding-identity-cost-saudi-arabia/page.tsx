@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import { offerPricing } from "../../offers/offer-pricing";
 import "../guides.css";
@@ -95,7 +96,7 @@ export default function BrandingIdentityCostGuide() {
           <p>إذا كانت المشكلة في ضعف العرض أو المبيعات أو الاتساق التنفيذي، فقد يكفي ضبط النظام الحالي أو تحديث بعض العناصر. إعادة بناء الهوية قرار مكلف إذا لم يكن هناك تغير حقيقي في الجمهور أو التموضع أو طموح العلامة.</p>
           <p>إذا كان احتياجك بداية بصرية صغيرة ومحددة وليست مشروع هوية متكاملًا، يمكنك مراجعة <Link className="article-link" href="/offers/mini-visual-identity">عرض الهوية البصرية المصغرة</Link>. هذا العرض نطاقه أصغر من مشاريع الهوية الكاملة المذكورة في نطاقات الأسعار أعلاه، لذلك لا تُقارن الأرقام كأنها الخدمة نفسها.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تريد هوية تبدو جيدة وتعمل جيدًا؟</h2><p>نبني الهوية من فهم النشاط والسوق، ثم نحوّلها إلى نظام واضح يمكن تطبيقه بثبات عبر نقاط التواصل المختلفة.</p><Link className="button primary" href="/branding">استعرض خدمة بناء الهوية <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/branding-identity-cost-saudi-arabia" /><section className="article-cta"><h2>تريد هوية تبدو جيدة وتعمل جيدًا؟</h2><p>نبني الهوية من فهم النشاط والسوق، ثم نحوّلها إلى نظام واضح يمكن تطبيقه بثبات عبر نقاط التواصل المختلفة.</p><Link className="button primary" href="/branding">استعرض خدمة بناء الهوية <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#ranges">نطاقات الأسعار</a><a href="#difference">المصطلحات</a><a href="#which-do-you-need">شعار أم هوية؟</a><a href="#included">مكونات الباقة</a><a href="#drivers">عوامل التكلفة</a><a href="#red-flags">إشارات الخطر</a><a href="#compare">مقارنة العروض</a><a href="#decision">هل تحتاج إعادة هوية؟</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">اطلب عرضًا مناسبًا</Link></aside>
       </div>

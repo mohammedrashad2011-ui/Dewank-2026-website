@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 
@@ -42,7 +43,7 @@ export default function BrandNameGuide() {
       <h2 id="service">متى تستعين بخدمة تسمية احترافية؟</h2><p>عندما يكون المشروع جادًا، أو يستهدف أكثر من سوق، أو يتطلب توافقًا عربيًا وإنجليزيًا، أو ستكون تكلفة تغيير الاسم لاحقًا مرتفعة. يمكنك الاطلاع على <Link href="/services/brand-naming">خدمة تسمية العلامة وفحص الاسم والدومين</Link>، وتبدأ الباقة الجاهزة الأساسية من 490 ريال سعودي.</p><p>ولرؤية كيف تتحول هذه الخطوات إلى مشروع فعلي من استراتيجية التسمية والفحص إلى الاسم الذي اختاره العميل ثم الهوية البصرية، راجع <Link href="/work/bithan">دراسة حالة تسمية وهوية BITHAN للمجوهرات</Link>.</p>
       <p>إذا كنت جاهزًا للتنفيذ بنطاق محدد، راجع <Link href="/offers/brand-naming">عرض تسمية العلامة بـ490 ريال</Link>. أما إذا كنت ما زلت تحدد ما إذا كنت تحتاج اسمًا فقط أم هوية أوسع، فراجع أيضًا <Link href="/guides/branding-identity-cost-saudi-arabia">دليل تكلفة تصميم الهوية البصرية في السعودية</Link>.</p>
       <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-      <section className="article-cta"><h2>تحتاج اسمًا مبنيًا على قرار، لا تخمين؟</h2><p>نحوّل فكرة المشروع إلى 10–15 اسمًا مدروسًا، ثم نفحصها ونرشح أقوى الخيارات مع منطق واضح.</p><Link className="button primary" href="/offers/brand-naming">ابدأ باقة الاسم (490 ريال) <span>←</span></Link></section>
+      <ArticleShare lang="ar" title={title} path="/guides/how-to-choose-brand-name-saudi-arabia" /><section className="article-cta"><h2>تحتاج اسمًا مبنيًا على قرار، لا تخمين؟</h2><p>نحوّل فكرة المشروع إلى 10–15 اسمًا مدروسًا، ثم نفحصها ونرشح أقوى الخيارات مع منطق واضح.</p><Link className="button primary" href="/offers/brand-naming">ابدأ باقة الاسم (490 ريال) <span>←</span></Link></section>
     </div><aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#criteria">معايير الاسم القوي</a><a href="#process">خطوات الاختيار</a><a href="#checks">الفحوصات</a><a href="#reserve-vs-trademark">حجز الاسم وتسجيل العلامة</a><a href="#mistakes">الأخطاء الشائعة</a><a href="#service">متى تحتاج متخصصًا؟</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/services/brand-naming">ابدأ مشروع التسمية</Link></aside></div>
   </article><Footer /></main>;
 }

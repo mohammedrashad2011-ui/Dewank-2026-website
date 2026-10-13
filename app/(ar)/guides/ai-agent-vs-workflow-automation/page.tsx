@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -99,7 +100,7 @@ export default function AiAgentVsWorkflowGuide() {
           </ul>
           <p>إذا كانت عمليتك تدور حول واتساب والتأهيل والحجز، فاقرأ <Link className="article-link" href="/guides/whatsapp-crm-automation#whatsapp-business-platform">الفرق بين تطبيق WhatsApp Business وWhatsApp Business Platform</Link>، وراجع <Link className="article-link" href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>عندك عملية تريد أتمتتها؟</h2><p>نراجع العملية كما تعمل الآن، ونحدد أين تكفي القواعد وأين يفيد AI وما الذي يجب أن يبقى بيد الفريق.</p><Link className="button primary" href="/ai-automation">استعرض خدمة أتمتة الأعمال <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/ai-agent-vs-workflow-automation" /><section className="article-cta"><h2>عندك عملية تريد أتمتتها؟</h2><p>نراجع العملية كما تعمل الآن، ونحدد أين تكفي القواعد وأين يفيد AI وما الذي يجب أن يبقى بيد الفريق.</p><Link className="button primary" href="/ai-automation">استعرض خدمة أتمتة الأعمال <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#difference">الفرق بينهما</a><a href="#examples">أمثلة من الأنشطة</a><a href="#handoff">حدود التسليم</a><a href="#data">البيانات والخصوصية</a><a href="#start">كيف تبدأ</a><a href="#evaluate">تقييم العرض</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">ناقش عمليتك</Link></aside>
       </div>

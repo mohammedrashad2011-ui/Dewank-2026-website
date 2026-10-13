@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -84,7 +85,7 @@ export default function DigitalMarketingCostGuide() {
           <p>ابدأ من قيمة العميل وهوامش الربح والطاقة التشغيلية، لا من متوسط السوق وحده. إذا كان فريق المبيعات لا يتابع بسرعة أو الموقع لا يحول، أصلح التسرب أولًا. ميزانية إعلانية أكبر لا تصلح عرضًا ضعيفًا أو متابعة متأخرة.</p>
           <p>إذا كان احتياجك أوسع من المحتوى وحده، راجع <Link className="article-link" href="/digital-marketing">خدمة التسويق الرقمي وصناعة المحتوى</Link>. أما إذا كان هدفك بداية تنفيذية محددة في المحتوى، فـ<Link className="article-link" href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> نطاق أصغر وواضح ولا تمثل إدارة تسويق شهرية متكاملة.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تريد نطاقًا يناسب هدفك لا باقة مزدحمة؟</h2><p>نراجع وضعك ونحدد الأولوية والقنوات والقياس، ثم نبني نطاق عمل واضحًا يمكن تقييمه قبل زيادة الإنفاق.</p><Link className="button primary" href="/digital-marketing">استعرض خدمة التسويق الرقمي <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/digital-marketing-cost-saudi-arabia" /><section className="article-cta"><h2>تريد نطاقًا يناسب هدفك لا باقة مزدحمة؟</h2><p>نراجع وضعك ونحدد الأولوية والقنوات والقياس، ثم نبني نطاق عمل واضحًا يمكن تقييمه قبل زيادة الإنفاق.</p><Link className="button primary" href="/digital-marketing">استعرض خدمة التسويق الرقمي <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#ranges">نطاقات الميزانية</a><a href="#included">مكونات العرض</a><a href="#separate">فصل الميزانيات</a><a href="#price-drivers">عوامل السعر</a><a href="#compare">مقارنة العروض</a><a href="#by-service">التكلفة حسب الخدمة</a><a href="#budget">تحديد الميزانية</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">اطلب عرضًا واضحًا</Link></aside>
       </div>

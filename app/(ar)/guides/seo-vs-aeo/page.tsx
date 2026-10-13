@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -91,7 +92,7 @@ export default function SeoVsAeoGuide() {
           <p>إذا كان الموقع لا يُفهرس جيدًا أو صفحاته ضعيفة ومكررة، فالأولوية لـSEO. إذا كان الأساس سليمًا لكن المحتوى لا يجيب بوضوح ولا يثبت خبرة العلامة، أضف AEO. في أغلب المشاريع الصحيحة يُنفذ الاثنان ضمن خطة واحدة، لا كباقتين منفصلتين تتنافسان على الميزانية.</p>
           <p>إذا كان موقعك موجودًا لكن لا يحول الزيارات إلى طلبات، راجع أيضًا دليل <Link className="article-link" href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link>. وإذا كانت المشكلة في البنية والتجربة نفسها، انتقل إلى <Link className="article-link" href="/website-design">خدمة تصميم وتطوير المواقع</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تريد بناء ظهور يمكن قياسه؟</h2><p>نراجع الأساس التقني، خريطة الصفحات، نية البحث، وضوح الإجابات والقياس، ثم نرتب التنفيذ حسب أثره التجاري.</p><Link className="button primary" href="/seo-aeo">استعرض خدمة SEO وAEO <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/seo-vs-aeo" /><section className="article-cta"><h2>تريد بناء ظهور يمكن قياسه؟</h2><p>نراجع الأساس التقني، خريطة الصفحات، نية البحث، وضوح الإجابات والقياس، ثم نرتب التنفيذ حسب أثره التجاري.</p><Link className="button primary" href="/seo-aeo">استعرض خدمة SEO وAEO <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#comparison">الفرق بينهما</a><a href="#how-engines-answer">اختيار المصادر</a><a href="#geo">وماذا عن GEO؟</a><a href="#implementation">خطوات التنفيذ</a><a href="#situations">أي مشكلة لديك؟</a><a href="#mistakes">أخطاء شائعة</a><a href="#measurement">قياس النتائج</a><a href="#priority">ترتيب الأولويات</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/seo-aeo">اطلب مراجعة موقعك</Link></aside>
       </div>

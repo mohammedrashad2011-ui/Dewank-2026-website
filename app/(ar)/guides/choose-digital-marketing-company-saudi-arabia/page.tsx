@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -90,7 +91,7 @@ export default function ChooseMarketingCompanyGuide() {
           <h2 id="compare">كيف تقارن بين ثلاثة عروض؟</h2>
           <p>أنشئ جدولًا موحدًا للهدف والنطاق والفريق والقياس والمدة والملكية والسعر. أعطِ الوزن الأكبر للفهم والمنهج وجودة التنفيذ، ثم قارن السعر داخل النطاق نفسه. إذا كان موقعك جزءًا من الخطة، راجع أيضًا دليل <Link className="article-link" href="/guides/why-website-does-not-generate-leads">لماذا موقعك لا يجلب عملاء؟</Link> حتى لا تدفع للإعلانات قبل إصلاح التسرب.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تحتاج خطة قبل اختيار القنوات؟</h2><p>ديوانك يربط الاستراتيجية والمحتوى والإعلانات والموقع والأتمتة في مسار نمو واحد، مع نطاق وقياس واضحين قبل التنفيذ.</p><Link className="button primary" href="/digital-marketing">استعرض خدمة التسويق الرقمي <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/choose-digital-marketing-company-saudi-arabia" /><section className="article-cta"><h2>تحتاج خطة قبل اختيار القنوات؟</h2><p>ديوانك يربط الاستراتيجية والمحتوى والإعلانات والموقع والأتمتة في مسار نمو واحد، مع نطاق وقياس واضحين قبل التنفيذ.</p><Link className="button primary" href="/digital-marketing">استعرض خدمة التسويق الرقمي <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#before-search">تحديد الاحتياج</a><a href="#which-service">أي خدمة أولًا؟</a><a href="#criteria">معايير الاختيار</a><a href="#questions">أسئلة قبل العقد</a><a href="#red-flags">إشارات الخطر</a><a href="#compare">مقارنة العروض</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">ناقش احتياجك</Link></aside>
       </div>

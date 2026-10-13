@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import { GoogleAdsLaunchPrice } from "../../offers/google-ads-launch/localized-google-ads-launch";
 import "../guides.css";
@@ -99,7 +100,7 @@ export default function GoogleAdsCostGuide() {
         </tbody></table></div>
 
         <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-        <section className="article-cta"><h2>تريد تشغيل Google Ads أم إدارتها؟</h2><p>إذا كانت لديك صفحة جاهزة وتريد بداية محددة، ابدأ بباقة الإطلاق. وإذا كان لديك حساب قائم أو تحتاج تحسينًا مستمرًا، انتقل إلى خدمة الإدارة.</p><Link className="button primary" href="/offers/google-ads-launch">شاهد باقة الإطلاق <span>←</span></Link> <Link className="button" href="/paid-ads">إدارة Google Ads</Link></section>
+        <ArticleShare lang="ar" title={title} path="/guides/google-ads-cost-saudi-arabia" /><section className="article-cta"><h2>تريد تشغيل Google Ads أم إدارتها؟</h2><p>إذا كانت لديك صفحة جاهزة وتريد بداية محددة، ابدأ بباقة الإطلاق. وإذا كان لديك حساب قائم أو تحتاج تحسينًا مستمرًا، انتقل إلى خدمة الإدارة.</p><Link className="button primary" href="/offers/google-ads-launch">شاهد باقة الإطلاق <span>←</span></Link> <Link className="button" href="/paid-ads">إدارة Google Ads</Link></section>
       </div><aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#components">مكونات التكلفة</a><a href="#setup-vs-management">الإعداد أم الإدارة</a><a href="#budget">ميزانية الاختبار</a><a href="#expensive">متى يبدو الإعلان غاليًا</a><a href="#compare-offers">مقارنة العروض</a><a href="#starting">اختيار نقطة البداية</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/offers/google-ads-launch">شاهد باقة الإطلاق</Link></aside></div>
     </article><Footer />
   </main>;

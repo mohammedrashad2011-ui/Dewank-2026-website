@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -72,7 +73,7 @@ export default function BestCrmWhatsappGuide() {
           <p>لفهم البنية كاملة اقرأ <Link className="article-link" href="/guides/whatsapp-crm-automation">دليل أتمتة واتساب مع CRM</Link>، ولتقدير الاستثمار راجع <Link className="article-link" href="/guides/whatsapp-crm-automation-cost-saudi-arabia">دليل التكلفة في السعودية</Link>.</p>
           <p>إذا أصبح قرارك هو التنفيذ وليس مقارنة الأنظمة، انتقل إلى <Link className="article-link" href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link>. وللمشروعات التي تحتاج بداية محدودة قبل نظام أكبر، راجع <Link className="article-link" href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تريد اختيار النظام قبل دفع تكلفته؟</h2><p>أرسل حجم الرسائل، عدد المستخدمين، مراحل البيع والأنظمة الحالية؛ نحدد المتطلبات ونقترح بنية تناسب التشغيل الحقيقي.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/best-crm-whatsapp-saudi-arabia" /><section className="article-cta"><h2>تريد اختيار النظام قبل دفع تكلفته؟</h2><p>أرسل حجم الرسائل، عدد المستخدمين، مراحل البيع والأنظمة الحالية؛ نحدد المتطلبات ونقترح بنية تناسب التشغيل الحقيقي.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#requirements">معايير الاختيار</a><a href="#fit">النوع المناسب</a><a href="#demo">اختبار النظام</a><a href="#mistakes">الأخطاء الشائعة</a><a href="#decision">طريقة القرار</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">ناقش متطلباتك</Link></aside>
       </div>

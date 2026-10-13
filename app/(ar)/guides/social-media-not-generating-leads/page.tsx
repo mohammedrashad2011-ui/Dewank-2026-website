@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 
@@ -77,7 +78,7 @@ export default function SocialMediaNotGeneratingLeadsGuide() {
           <p>وإذا كنت تقارن نطاق التنفيذ والتكلفة، راجع دليل <Link href="/guides/social-media-management-cost-saudi-arabia">أسعار إدارة حسابات التواصل الاجتماعي في السعودية</Link>.</p>
           <p>إذا كانت المشكلة في الرسالة والمحتوى نفسه، راجع <Link href="/services/social-media-content">خدمة إدارة السوشيال ميديا وصناعة المحتوى</Link>. وإذا كان الحساب يحتاج إصلاحًا مركزًا قبل إدارة شهرية كاملة، يمكنك الاطلاع على <Link href="/offers/instagram-14-day-upgrade">عرض تحسين حساب إنستجرام خلال 14 يومًا</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تريد معرفة أين يتسرب عملاؤك؟</h2><p>نراجع الرسالة والمحتوى والعرض ومسار الطلب، ثم نرتب التحسينات حسب أثرها بدل زيادة النشر بلا تشخيص.</p><Link className="button primary" href="/digital-marketing">استعرض حلول التسويق الرقمي <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/social-media-not-generating-leads" /><section className="article-cta"><h2>تريد معرفة أين يتسرب عملاؤك؟</h2><p>نراجع الرسالة والمحتوى والعرض ومسار الطلب، ثم نرتب التحسينات حسب أثرها بدل زيادة النشر بلا تشخيص.</p><Link className="button primary" href="/digital-marketing">استعرض حلول التسويق الرقمي <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#diagnosis">أسباب ضعف التحويل</a><a href="#test">اختبار الخمس ثواني</a><a href="#metrics">مؤشرات التسرب</a><a href="#plan">خطة الإصلاح</a><a href="#ads">دور الإعلانات</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">اطلب مراجعة حسابك</Link></aside>
       </div>
