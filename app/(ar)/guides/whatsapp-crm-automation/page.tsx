@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -119,7 +120,7 @@ export default function WhatsappCrmAutomationGuide() {
           <p>إذا كان التسرب يبدأ من الحساب قبل وصول العميل إلى واتساب، راجع دليل <Link className="article-link" href="/guides/social-media-not-generating-leads">حسابك جميل لكنه لا يجلب عملاء</Link>.</p>
           <p>إذا وصلت لمرحلة التنفيذ، راجع <Link className="article-link" href="/whatsapp-automation">خدمة أتمتة واتساب مع CRM</Link> لفهم النطاق الكامل. وإذا كنت تريد بداية أصغر ومحددة، يمكنك الاطلاع على <Link className="article-link" href="/offers/whatsapp-automation-starter">عرض أتمتة واتساب Starter</Link>.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>تريد تحويل واتساب إلى نظام متابعة؟</h2><p>نراجع رحلة العميل، نقاط التسرب، CRM والحجز، ثم نبني تدفقًا يناسب فريقك ويقيس النتيجة التجارية.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/whatsapp-crm-automation" /><section className="article-cta"><h2>تريد تحويل واتساب إلى نظام متابعة؟</h2><p>نراجع رحلة العميل، نقاط التسرب، CRM والحجز، ثم نبني تدفقًا يناسب فريقك ويقيس النتيجة التجارية.</p><Link className="button primary" href="/whatsapp-automation">استعرض خدمة أتمتة واتساب <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#journey">رحلة العميل</a><a href="#components">مكونات النظام</a><a href="#whatsapp-business-platform">التطبيق أم المنصة؟</a><a href="#ai-or-rules">AI أم قواعد؟</a><a href="#qualification-routing">التأهيل والتوجيه</a><a href="#leaks">نقاط التسرب</a><a href="#metrics">مؤشرات القياس</a><a href="#implementation">خطة التنفيذ</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">اطلب مراجعة النظام</Link></aside>
       </div>

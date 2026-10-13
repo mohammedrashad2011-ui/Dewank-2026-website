@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import { WhatsAppStarterPrice } from "../../offers/whatsapp-automation-starter/localized-whatsapp-starter";
 import "../guides.css";
@@ -106,7 +107,7 @@ export default function WhatsappCrmCostGuide() {
 
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
 
-          <section className="article-cta"><h2>تريد تعرف أي مستوى يناسبك؟</h2><p>لو تحتاج بداية محدودة اختر Starter. ولو عندك CRM أو حجز أو فريق ومراحل متابعة، أرسل لنا الرحلة الحالية ونحدد نطاق النظام الكامل.</p><Link className="button primary" href="/offers/whatsapp-automation-starter">شاهد باقة Starter <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/whatsapp-crm-automation-cost-saudi-arabia" /><section className="article-cta"><h2>تريد تعرف أي مستوى يناسبك؟</h2><p>لو تحتاج بداية محدودة اختر Starter. ولو عندك CRM أو حجز أو فريق ومراحل متابعة، أرسل لنا الرحلة الحالية ونحدد نطاق النظام الكامل.</p><Link className="button primary" href="/offers/whatsapp-automation-starter">شاهد باقة Starter <span>←</span></Link></section>
         </div>
 
         <aside className="article-side" aria-label="محتويات الدليل">

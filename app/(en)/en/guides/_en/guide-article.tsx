@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
+import { ArticleShare } from "../../../../components/article-share";
 // The Arabic guides' article layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/guides/guides.css";
 import "../../_en/parity/service-pages.en.css";
@@ -88,7 +89,7 @@ export function GuideArticle({ slug, title, description, crumb, intro, readTime,
               <h2>Frequently asked questions</h2>
               {faqs.map(([question, reply]) => <details key={question}><summary>{question}</summary><p>{reply}</p></details>)}
             </section>
-            <section className="article-cta">
+            <ArticleShare lang="en" title={title} path={`/en/guides/${slug}`} /><section className="article-cta">
               <h2>{ctaHeading}</h2>
               <p>{ctaText}</p>
               <Link className="button primary" href={ctaHref}>{ctaLabel} <span>→</span></Link>

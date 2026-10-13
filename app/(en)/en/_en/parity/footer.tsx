@@ -48,6 +48,9 @@ export function Footer() {
             <a href="https://www.instagram.com/dewank_marketing" target="_blank" rel="noreferrer" aria-label="Instagram" title="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" className="fill" /></svg>
             </a>
+            <a href="https://www.linkedin.com/company/dewank/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn, opens in a new tab" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3" /><path d="M8 10.5v5.5" /><path d="M8 7.6v.1" /><path d="M11.5 16v-5.5" /><path d="M11.5 12.5c0-1.4 1-2.3 2.2-2.3s2.3.9 2.3 2.3V16" /></svg>
+            </a>
           </div>
           <span>Branding · Marketing · AI</span>
         </div>

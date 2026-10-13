@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -81,7 +82,7 @@ export default function WebsiteLeadsGuide() {
           <p>ابدأ بتحسين موجّه عندما تستطيع تعديل المحتوى، إضافة القياس، وتحسين الجوال والسرعة. فكر في إعادة البناء إذا كانت المنصة تمنع هذه التغييرات، أو البنية مشتتة، أو الموقع غير قابل للإدارة والأمان والتوسع. قبل طلب عرض جديد، راجع دليل <Link className="article-link" href="/guides/website-design-cost-saudi-arabia">تكلفة تصميم موقع إلكتروني في السعودية</Link> لتقارن النطاق لا السعر وحده.</p>
           <p>وإذا كانت الزيارات قليلة أصلًا بسبب ضعف الفهرسة أو الظهور، فانتقل إلى <Link className="article-link" href="/seo-aeo">خدمة SEO وAEO</Link> أو ابدأ بـ<Link className="article-link" href="/offers/seo-audit">فحص SEO وAEO</Link> لتحديد المشكلة قبل زيادة الإنفاق.</p>
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>لا تعرف أين يتسرب العملاء؟</h2><p>نراجع الرسالة وتجربة الجوال ومسار التواصل والقياس، ثم نرتب التحسينات بحسب أثرها بدل البدء بإعادة تصميم عشوائية.</p><Link className="button primary" href="/website-design">استعرض خدمة تصميم المواقع <span>←</span></Link></section>
+          <ArticleShare lang="ar" title={title} path="/guides/why-website-does-not-generate-leads" /><section className="article-cta"><h2>لا تعرف أين يتسرب العملاء؟</h2><p>نراجع الرسالة وتجربة الجوال ومسار التواصل والقياس، ثم نرتب التحسينات بحسب أثرها بدل البدء بإعادة تصميم عشوائية.</p><Link className="button primary" href="/website-design">استعرض خدمة تصميم المواقع <span>←</span></Link></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#diagnosis">تشخيص التسرب</a><a href="#causes">الأسباب التسعة</a><a href="#plan">خطة الإصلاح</a><a href="#metrics">المقاييس المهمة</a><a href="#rebuild">التحسين أم إعادة البناء</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/website-design">اطلب مراجعة موقعك</Link></aside>
       </div>

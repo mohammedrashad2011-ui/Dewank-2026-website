@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import { offerPricing } from "../../offers/offer-pricing";
 import "../guides.css";
@@ -206,7 +207,7 @@ export default function SocialMediaManagementCostGuide() {
           <p><strong>إذا أردت التنفيذ:</strong> راجع <Link className="article-link" href="/services/social-media-content">خدمة إدارة السوشيال ميديا وصناعة المحتوى</Link> للإدارة الأوسع، أو <Link className="article-link" href="/offers/30-day-content-package">باقة محتوى 30 يومًا</Link> إذا كنت تريد بداية محددة المخرجات ومنخفضة الالتزام.</p>
 
           <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-          <section className="article-cta"><h2>لست متأكدًا هل تحتاج إدارة كاملة أم محتوى فقط؟</h2><p>ابدأ بتحديد المشكلة: هل تحتاج من ينتج المحتوى، أم من يدير الحساب يوميًا، أم من يدير الإعلانات؟ عندما نفصل النطاق، يصبح السعر والقرار أوضح.</p><div className="guide-lead-actions"><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل حسابك ونحدد النطاق <span>↗</span></a><Link className="button secondary" href="/offers/30-day-content-package">راجع باقة 30 يومًا <span>←</span></Link><Link className="button secondary" href="/services/social-media-content">قارن خدمة الإدارة</Link></div></section>
+          <ArticleShare lang="ar" title={title} path="/guides/social-media-management-cost-saudi-arabia" /><section className="article-cta"><h2>لست متأكدًا هل تحتاج إدارة كاملة أم محتوى فقط؟</h2><p>ابدأ بتحديد المشكلة: هل تحتاج من ينتج المحتوى، أم من يدير الحساب يوميًا، أم من يدير الإعلانات؟ عندما نفصل النطاق، يصبح السعر والقرار أوضح.</p><div className="guide-lead-actions"><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل حسابك ونحدد النطاق <span>↗</span></a><Link className="button secondary" href="/offers/30-day-content-package">راجع باقة 30 يومًا <span>←</span></Link><Link className="button secondary" href="/services/social-media-content">قارن خدمة الإدارة</Link></div></section>
         </div>
         <aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#choose">اختيار نوع الخدمة</a><a href="#ranges">نطاقات الأسعار</a><a href="#dewank-options">خيارات محددة السعر</a><a href="#instagram-cost">تكلفة إدارة إنستقرام</a><a href="#content-cost">تكلفة صناعة المحتوى</a><a href="#included">مكونات الباقة</a><a href="#separate">الخدمات المنفصلة</a><a href="#drivers">عوامل التكلفة</a><a href="#compare">مقارنة الباقات</a><a href="#posts-per-month">عدد المنشورات</a><a href="#before-contract">قبل التعاقد</a><a href="#provider-compare">فريلانسر أم وكالة؟</a><a href="#methodology">منهجية الأسعار</a><a href="#right-package">اختيار النطاق</a><a href="#decision">قبل التعاقد</a><a href="#faq">الأسئلة الشائعة</a><a className="button primary cost-whatsapp-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">اسأل عن حسابك</a></aside>
       </div>

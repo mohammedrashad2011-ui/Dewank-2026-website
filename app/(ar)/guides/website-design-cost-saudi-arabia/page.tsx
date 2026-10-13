@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import { LandingOfferPrice } from "../../offers/landing-page-package/localized-landing-offer";
 import { SmallWebsitePrice } from "../../offers/small-business-website/localized-small-website";
@@ -305,7 +306,7 @@ export default function WebsiteDesignCostGuide() {
               {faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
             </section>
 
-            <section className="article-cta">
+            <ArticleShare lang="ar" title={title} path="/guides/website-design-cost-saudi-arabia" /><section className="article-cta">
               <h2>تريد معرفة تكلفة موقعك بدل قراءة متوسطات عامة؟</h2>
               <p>أرسل لنا نشاطك وهدف الموقع، ونحدد معك هل تحتاج Landing Page، موقع شركة صغيرًا، أم نطاقًا مخصصًا.</p>
               <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش موقعك عبر واتساب <span>↗</span></a>

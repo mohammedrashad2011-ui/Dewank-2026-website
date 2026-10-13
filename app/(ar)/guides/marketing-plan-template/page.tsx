@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -60,6 +61,7 @@ export default function MarketingPlanTemplateGuide() {
           <p><Link className="article-link" href="/digital-marketing">استراتيجية التسويق الرقمي</Link> تحدد أين ننافس ولماذا وما الأولويات، بينما الخطة تحول هذه القرارات إلى قنوات ومحتوى وميزانية وجدول وقياس.</p>
           <h2>الخطوة التالية</h2>
           <p>إذا كنت تحتاج جهة تنفذ الخطة عبر أكثر من تخصص، راجع <Link className="article-link" href="/services">خدمات ديوانك كشركة تسويق في السعودية</Link>. وإذا كانت المشكلة في التخطيط نفسه، ابدأ من <Link className="article-link" href="/digital-marketing">خدمة استراتيجية التسويق الرقمي</Link>.</p>
+        <ArticleShare lang="ar" title={title} path="/guides/marketing-plan-template" />
         </div>
         <aside className="article-aside"><div className="article-aside-card"><small>تحتاج خطة قابلة للتنفيذ؟</small><h3>ابدأ من الهدف، لا من المنصة.</h3><p>نراجع العرض والجمهور والقنوات والقياس ونحدد أقصر مسار عملي.</p><Link className="button primary" href="/contact">ناقش خطتك <span>←</span></Link></div></aside>
       </div>

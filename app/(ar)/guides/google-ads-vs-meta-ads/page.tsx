@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
+import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
@@ -42,6 +43,6 @@ export default function GoogleVsMetaGuide() {
       <h2 id="both">متى تستخدمهما معًا؟</h2><p>إذا كانت البيانات والميزانية كافيتين، يمكن لـMeta أن تخلق الاهتمام وتعيد الاستهداف، بينما تلتقط Google من وصل إلى مرحلة البحث. لكن تشغيل القناتين معًا لا يكون ميزة إذا كان التتبع ضعيفًا أو الميزانية لا تسمح لكل قناة بجمع بيانات مفيدة.</p>
       <p>إذا قررت أن Google هي نقطة البداية، راجع <Link className="article-link" href="/guides/google-ads-cost-saudi-arabia">دليل تكلفة Google Ads في السعودية</Link> ثم <Link className="article-link" href="/offers/google-ads-launch">باقة إطلاق Google Ads</Link> إذا كنت تحتاج تأسيس حملة Search محددة. وإذا كنت تحتاج إدارة أكثر شمولًا للقنوات، راجع <Link className="article-link" href="/paid-ads">خدمة إدارة الإعلانات المدفوعة</Link>. وإذا كانت الحملة تعمل لكنها لا تجلب عملاء، ابدأ بدليل <Link className="article-link" href="/guides/google-ads-clicks-no-leads">لماذا Google Ads تجلب زيارات ولا تجلب عملاء؟</Link>، وإذا كانت الصفحة نفسها هي المشكلة فراجع <Link className="article-link" href="/offers/landing-page-package">عرض صفحة الهبوط</Link>.</p>
       <section className="article-faq" id="faq"><h2>أسئلة شائعة</h2>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</section>
-      <section className="article-cta"><h2>لا تعرف من أي قناة تبدأ؟</h2><p>ابدأ من نية العميل والعرض ومسار التحويل، وبعدها اختر المنصة التي تخدم المرحلة بدل تشغيل الاثنين لمجرد الحضور.</p><Link className="button primary" href="/paid-ads">استعرض خدمة الإعلانات <span>←</span></Link></section>
+      <ArticleShare lang="ar" title={title} path="/guides/google-ads-vs-meta-ads" /><section className="article-cta"><h2>لا تعرف من أي قناة تبدأ؟</h2><p>ابدأ من نية العميل والعرض ومسار التحويل، وبعدها اختر المنصة التي تخدم المرحلة بدل تشغيل الاثنين لمجرد الحضور.</p><Link className="button primary" href="/paid-ads">استعرض خدمة الإعلانات <span>←</span></Link></section>
     </div><aside className="article-side" aria-label="محتويات الدليل"><b>في هذا الدليل</b><a href="#short-answer">الإجابة المختصرة</a><a href="#compare">المقارنة</a><a href="#google">متى تختار Google</a><a href="#meta">متى تختار Meta</a><a href="#situations">ابدأ من وضعك</a><a href="#both">استخدام القناتين</a><a href="#faq">الأسئلة الشائعة</a><Link className="button primary" href="/contact">ناقش حملتك</Link></aside></div></article><Footer /></main>;
 }
