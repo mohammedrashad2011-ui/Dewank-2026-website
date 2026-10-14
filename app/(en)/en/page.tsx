@@ -6,6 +6,7 @@ import { Header } from "./_en/parity/header";
 import MotionSystem from "./_en/parity/motion-system";
 import HomeTestimonials from "./_en/parity/testimonials";
 import { HomeSelectedOffers } from "./_en/parity/offers";
+import { RelatedGuides } from "./_en/parity/related-guides";
 // The Arabic homepage's visual system, reused unchanged. Every class below matches the Arabic homepage so the
 // English page renders with the same components, spacing, motion and responsive rules.
 import "../../home-growth-upgrade.css";
@@ -348,6 +349,15 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <RelatedGuides
+        guides={[
+          { href: "/en/guides/why-website-does-not-generate-leads", title: "Why your website does not generate leads" },
+          { href: "/en/guides/google-ads-clicks-no-leads", title: "Why Google Ads brings clicks but not customers" },
+          { href: "/en/guides/whatsapp-crm-automation", title: "How WhatsApp automation with a CRM reduces lost customers" },
+          { href: "/en/guides/marketing-kpis", title: "Marketing KPIs: the key measures businesses should track" },
+        ]}
+      />
 
       <section className="faq-section shell" aria-labelledby="home-faq-title">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />

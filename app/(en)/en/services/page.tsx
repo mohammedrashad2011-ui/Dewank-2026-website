@@ -3,6 +3,7 @@ import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
 import { whatsappHref } from "../_en/lib/site";
+import { RelatedGuides } from "../_en/parity/related-guides";
 // The Arabic services hub's layout system, reused unchanged. English-only direction and type overrides follow.
 import "../../../(ar)/services/services-overview.css";
 import "../../../(ar)/services/services-conversion-hub.css";
@@ -226,6 +227,15 @@ export default function ServicesPage() {
           <Link href="/en/whatsapp-crm-automation"><b>Follow-up is slow or lost</b><span>WhatsApp, CRM and automation →</span></Link>
         </div>
       </section>
+
+      <RelatedGuides
+        guides={[
+          { href: "/en/guides/seo-vs-aeo", title: "SEO vs AEO: how to appear in Google and AI answers" },
+          { href: "/en/guides/google-ads-vs-meta-ads", title: "Google Ads or Meta Ads: which is right for your business?" },
+          { href: "/en/guides/ai-agent-vs-workflow-automation", title: "AI agent or workflow automation? How to choose for your business" },
+          { href: "/en/guides/marketing-plan-template", title: "A marketing plan template for businesses" },
+        ]}
+      />
 
       <section className="seo-content shell services-faq" aria-labelledby="services-faq-title">
         <span className="section-label">Frequently asked questions</span>
