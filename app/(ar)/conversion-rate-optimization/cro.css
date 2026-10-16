@@ -211,3 +211,27 @@
 .offers-grid-nine .cro-offer-card p {
   max-width: 780px;
 }
+
+/* Numbered fit lists (who it is for, after the audit). The shared rule puts every child of these paragraphs in a 38px cell,
+   so a link or a bare text node wraps word by word. Each item now has two children, the number and one text span. The intro
+   paragraph spans the full width. */
+.cro-page .sa-fit-grid>div:last-child p.cro-fit-intro {
+  display: block;
+}
+
+.cro-page .sa-fit-grid p .cro-fit-text {
+  color: inherit;
+  font-size: inherit;
+}
+
+/* One heading scale for the CRO pages, smaller than the shared SEO/AEO scale. Every section heading uses the same size,
+   so the sections read as one system. */
+main.cro-page h1 {
+  font-size: clamp(2.5rem, 4.6vw, 3.8rem);
+  line-height: 1.12;
+}
+
+main.cro-page h2 {
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+  line-height: 1.2;
+}

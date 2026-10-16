@@ -145,10 +145,10 @@ export default function ConversionRateOptimizationEnglishPage() {
         <div className="sa-fit-grid">
           <div><span className="sa-label">[ Who it is for ]</span><h2>Who this service is for.<br/><em>And who it is not for.</em></h2></div>
           <div>
-            <p><span>01</span>Websites and landing pages that receive traffic from adverts, search or social media, but produce too few enquiries.</p>
-            <p><span>02</span>Businesses that receive WhatsApp messages or form enquiries, but only a weak share of them turn into bookings or sales.</p>
-            <p><span>03</span>Teams that market consistently but cannot tell which page or message is blocking the visitor&apos;s decision.</p>
-            <p><span>04</span>If your goal is getting your site to appear in Google, that is a different question. See <Link href="/en/seo-geo-aeo">the SEO and AEO service</Link>.</p>
+            <p><span>01</span><span className="cro-fit-text">Websites and landing pages that receive traffic from adverts, search or social media, but produce too few enquiries.</span></p>
+            <p><span>02</span><span className="cro-fit-text">Businesses that receive WhatsApp messages or form enquiries, but only a weak share of them turn into bookings or sales.</span></p>
+            <p><span>03</span><span className="cro-fit-text">Teams that market consistently but cannot tell which page or message is blocking the visitor&apos;s decision.</span></p>
+            <p><span>04</span><span className="cro-fit-text">If your goal is getting your site to appear in Google, that is a different question. See <Link href="/en/seo-geo-aeo">the SEO and AEO service</Link>.</span></p>
           </div>
         </div>
       </section>
@@ -246,8 +246,8 @@ export default function ConversionRateOptimizationEnglishPage() {
         <div className="sa-fit-grid">
           <div><span className="sa-label">[ After the audit ]</span><h2>The audit identifies the next step.<br/><em>Implementation is a separate decision.</em></h2></div>
           <div>
-            <p>We do not recommend implementation before you understand the problem. After the report, one of these may fit, or none may be needed:</p>
-            {afterAudit.map((item, index) => <p key={item[0]}><span>0{index + 1}</span><Link href={item[2]}>{item[0]}</Link>: {item[1]}</p>)}
+            <p className="cro-fit-intro">We do not recommend implementation before you understand the problem. After the report, one of these may fit, or none may be needed:</p>
+            {afterAudit.map((item, index) => <p key={item[0]}><span>0{index + 1}</span><span className="cro-fit-text"><Link href={item[2]}>{item[0]}</Link>: {item[1]}</span></p>)}
           </div>
         </div>
       </section>
