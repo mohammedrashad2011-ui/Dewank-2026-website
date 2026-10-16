@@ -10,6 +10,7 @@ import { OfferPrice } from "../_en/lib/localized-price";
 import "../../../(ar)/seo-aeo/seo-aeo-page.css";
 import "../../../(ar)/seo-aeo/seo-cluster.css";
 import "../../../(ar)/conversion-rate-optimization/cro.css";
+import { CroDiagnosticPanel } from "../../../components/cro-diagnostic-panel";
 import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
@@ -124,6 +125,7 @@ export default function ConversionRateOptimizationEnglishPage() {
             <a href="#audit">See what the audit covers</a>
           </div>
         </div>
+        <CroDiagnosticPanel locale="en" />
       </section>
 
       <section className="sa-truth">

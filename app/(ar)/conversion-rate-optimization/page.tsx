@@ -6,6 +6,7 @@ import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../li
 import "../seo-aeo/seo-aeo-page.css";
 import "../seo-aeo/seo-cluster.css";
 import { CroPackagePrice, CroPackageWhatsApp } from "./cro-packages";
+import { CroDiagnosticPanel } from "../../components/cro-diagnostic-panel";
 import "./cro.css";
 
 export const metadata: Metadata = createMetadata({
@@ -119,6 +120,7 @@ export default function ConversionRateOptimizationPage() {
             <a href="#audit">اعرف ما يشمله التدقيق</a>
           </div>
         </div>
+        <CroDiagnosticPanel locale="ar" />
       </section>
 
       <section className="sa-truth">
