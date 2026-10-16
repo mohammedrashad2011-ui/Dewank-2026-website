@@ -130,7 +130,8 @@ export default function SitewideWhatsAppBridge() {
   const english = isEnglishPath(pathname);
   const language = copy[english ? "en" : "ar"];
   // Mobile hides the widget on the same pages in both languages. The Riyadh landing page is added because the widget covers its primary CTA on phones.
-  const mobileSuppressed = ["/", "/services", "/digital-marketing", "/en", "/en/services", "/en/digital-marketing", "/en/riyadh-marketing-agency"].includes(pathname);
+  // The two CRO pages are added because the widget covers the package cards and their WhatsApp buttons on phones. Those pages have their own WhatsApp buttons.
+  const mobileSuppressed = ["/", "/services", "/digital-marketing", "/en", "/en/services", "/en/digital-marketing", "/en/riyadh-marketing-agency", "/conversion-rate-optimization", "/en/conversion-rate-optimization"].includes(pathname);
   const intent = resolveIntent(pathname);
   const message = `${intent.message}\n\n${language.pageLabel}: ${pathname}`;
   const href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;

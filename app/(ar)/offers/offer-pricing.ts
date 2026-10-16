@@ -33,6 +33,9 @@ export const offerPricing = {
   "google-ads-launch": gcc(790, 79, 65, 211),
   "instagram-14-day-upgrade": gcc(590, 59, 49, 158),
   "small-business-website": gcc(1990, 199, 165, 530),
+  "cro-snapshot": gcc(290, 29, 23, 79),
+  "cro-audit": gcc(590, 59, 49, 159),
+  "cro-growth-diagnostic": gcc(1190, 119, 99, 319),
 } as const satisfies Record<string, OfferPriceConfig>;
 
 export type OfferPriceKey = keyof typeof offerPricing;

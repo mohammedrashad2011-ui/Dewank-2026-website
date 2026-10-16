@@ -1,0 +1,237 @@
+/* CRO service page and its diagnostic section. Layout only; colours, type and buttons come from the shared tokens. */
+.cro-page .cro-audit {
+  padding-top: clamp(56px, 8vw, 96px);
+  padding-bottom: clamp(56px, 8vw, 96px);
+}
+
+.cro-page .cro-scope-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  margin-top: 36px;
+}
+
+.cro-page .cro-scope-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 28px 24px;
+  border: 1px solid rgba(127, 127, 127, 0.3);
+  border-radius: 16px;
+}
+
+.cro-page .cro-scope-card small {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.cro-page .cro-scope-card h3 {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.cro-page .cro-scope-card p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.cro-page .cro-audit-columns {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  margin-top: 40px;
+}
+
+.cro-page .cro-audit-columns h3 {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+}
+
+.cro-page .cro-audit-columns p {
+  line-height: 1.8;
+}
+
+.cro-page .cro-list,
+.cro-page .cro-steps {
+  margin: 0;
+  padding-inline-start: 1.2em;
+  line-height: 1.85;
+}
+
+.cro-page .cro-list {
+  list-style: disc;
+}
+
+.cro-page .cro-steps {
+  list-style: decimal;
+}
+
+.cro-page .cro-list li + li,
+.cro-page .cro-steps li + li {
+  margin-top: 6px;
+}
+
+.cro-page .cro-honesty {
+  margin: 40px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(127, 127, 127, 0.25);
+  line-height: 1.8;
+}
+
+/* Packages. Three equal cards in a responsive grid; the recommended card is marked by a border and a badge, not by size. */
+.cro-page .cro-pricing {
+  padding-top: clamp(56px, 8vw, 96px);
+  padding-bottom: clamp(56px, 8vw, 96px);
+}
+
+.cro-page .cro-package-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  margin-top: 36px;
+  align-items: stretch;
+}
+
+.cro-page .cro-package-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 30px 24px 26px;
+  border: 1px solid rgba(127, 127, 127, 0.3);
+  border-radius: 18px;
+}
+
+.cro-page .cro-package-recommended {
+  border: 2px solid currentColor;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.cro-page .cro-package-badge {
+  position: absolute;
+  top: -13px;
+  inset-inline-start: 24px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--ink, #15161b);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.cro-page .cro-package-card small {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+}
+
+.cro-page .cro-package-card h3 {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.cro-page .cro-package-card h4 {
+  margin: 14px 0 0;
+  font-size: 15px;
+}
+
+.cro-page .cro-package-purpose,
+.cro-page .cro-package-delivery,
+.cro-page .cro-package-payment {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.cro-page .cro-package-payment {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.cro-page .cro-package-card .cro-list {
+  font-size: 15px;
+}
+
+.cro-page .cro-package-excluded {
+  opacity: 0.85;
+}
+
+.cro-page .cro-package-cta {
+  margin-top: auto;
+  justify-content: center;
+}
+
+.cro-page .cro-pricing-note {
+  margin: 28px 0 0;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* One-line pointer from the Services problem chooser to the CRO packages. */
+.services-cro-link {
+  margin: 14px 0 0;
+  font-size: 15px;
+  line-height: 1.75;
+  opacity: 0.85;
+}
+
+.services-cro-link a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Price line shared by the package cards (Arabic block and English span). */
+.cro-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin: 6px 0 0;
+}
+
+.cro-price strong {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1;
+}
+
+.cro-price span {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Offers index: the CRO card keeps the standard compact card width, so it sits in the same grid as its neighbours. */
+.offers-grid-nine .cro-offer-card h2,
+.offers-grid-nine .cro-offer-card p {
+  max-width: 780px;
+}
+
+/* Numbered fit lists (who it is for, after the audit). The shared rule puts every child of these paragraphs in a 38px cell,
+   so a link or a bare text node wraps word by word. Each item now has two children, the number and one text span. The intro
+   paragraph spans the full width. */
+.cro-page .sa-fit-grid>div:last-child p.cro-fit-intro {
+  display: block;
+}
+
+.cro-page .sa-fit-grid p .cro-fit-text {
+  color: inherit;
+  font-size: inherit;
+}
+
+/* One heading scale for the CRO pages, smaller than the shared SEO/AEO scale. Every section heading uses the same size,
+   so the sections read as one system. */
+main.cro-page h1 {
+  font-size: clamp(2.5rem, 4.6vw, 3.8rem);
+  line-height: 1.12;
+}
+
+main.cro-page h2 {
+  font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+  line-height: 1.2;
+}
