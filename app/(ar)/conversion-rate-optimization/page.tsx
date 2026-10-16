@@ -136,14 +136,16 @@ export default function ConversionRateOptimizationPage() {
         <div className="sa-service-grid">{wrongPlaces.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
       </section>
 
-      <section className="sa-fit shell">
-        <div className="sa-fit-grid">
-          <div><span className="sa-label">[ لمن؟ ]</span><h2>لمن هذه الخدمة؟<br/><em>ولمن ليست مناسبة.</em></h2></div>
-          <div>
-            <p><span>01</span><span className="cro-fit-text">مواقع وصفحات هبوط تستقبل زيارات من إعلانات أو بحث أو وسائل تواصل، ولا تنتج استفسارات كافية.</span></p>
-            <p><span>02</span><span className="cro-fit-text">شركات تستقبل استفسارات واتساب أو نماذج، لكن نسبة ضعيفة منها تتحول إلى مواعيد أو مبيعات.</span></p>
-            <p><span>03</span><span className="cro-fit-text">فرق تنفذ تسويقًا منتظمًا، لكنها لا تعرف أي صفحة أو رسالة تعطّل قرار الزائر.</span></p>
-            <p><span>04</span><span className="cro-fit-text">إذا كان هدفك ظهور موقعك في Google، فهذا سؤال مختلف. راجع <Link href="/seo-aeo">خدمة SEO وAEO</Link>.</span></p>
+      <section className="sa-fit">
+        <div className="shell">
+          <div className="sa-fit-grid">
+            <div><span className="sa-label">[ لمن؟ ]</span><h2>لمن هذه الخدمة؟<br/><em>ولمن ليست مناسبة.</em></h2></div>
+            <div>
+              <p><span>01</span><span className="cro-fit-text">مواقع وصفحات هبوط تستقبل زيارات من إعلانات أو بحث أو وسائل تواصل، ولا تنتج استفسارات كافية.</span></p>
+              <p><span>02</span><span className="cro-fit-text">شركات تستقبل استفسارات واتساب أو نماذج، لكن نسبة ضعيفة منها تتحول إلى مواعيد أو مبيعات.</span></p>
+              <p><span>03</span><span className="cro-fit-text">فرق تنفذ تسويقًا منتظمًا، لكنها لا تعرف أي صفحة أو رسالة تعطّل قرار الزائر.</span></p>
+              <p><span>04</span><span className="cro-fit-text">إذا كان هدفك ظهور موقعك في Google، فهذا سؤال مختلف. راجع <Link href="/seo-aeo">خدمة SEO وAEO</Link>.</span></p>
+            </div>
           </div>
         </div>
       </section>
@@ -237,12 +239,14 @@ export default function ConversionRateOptimizationPage() {
         </ol>
       </section>
 
-      <section className="sa-fit shell">
-        <div className="sa-fit-grid">
-          <div><span className="sa-label">[ بعد التدقيق ]</span><h2>التدقيق يحدد الخطوة.<br/><em>التنفيذ قرار منفصل.</em></h2></div>
-          <div>
-            <p className="cro-fit-intro">لا نقترح تنفيذًا قبل أن تفهم المشكلة. بعد التقرير، قد تكون إحدى هذه الخدمات مناسبة، وقد لا تحتاج أيًا منها:</p>
-            {afterAudit.map((item, index) => <p key={item[0]}><span>0{index + 1}</span><span className="cro-fit-text"><Link href={item[2]}>{item[0]}</Link>: {item[1]}</span></p>)}
+      <section className="sa-fit">
+        <div className="shell">
+          <div className="sa-fit-grid">
+            <div><span className="sa-label">[ بعد التدقيق ]</span><h2>التدقيق يحدد الخطوة.<br/><em>التنفيذ قرار منفصل.</em></h2></div>
+            <div>
+              <p className="cro-fit-intro">لا نقترح تنفيذًا قبل أن تفهم المشكلة. بعد التقرير، قد تكون إحدى هذه الخدمات مناسبة، وقد لا تحتاج أيًا منها:</p>
+              {afterAudit.map((item, index) => <p key={item[0]}><span>0{index + 1}</span><span className="cro-fit-text"><Link href={item[2]}>{item[0]}</Link>: {item[1]}</span></p>)}
+            </div>
           </div>
         </div>
       </section>

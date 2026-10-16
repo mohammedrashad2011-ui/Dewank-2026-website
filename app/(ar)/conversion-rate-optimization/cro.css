@@ -235,3 +235,55 @@ main.cro-page h2 {
   font-size: clamp(2.2rem, 3.6vw, 3.4rem);
   line-height: 1.2;
 }
+
+/* Layout refinement (both languages). Changes are scoped to the CRO pages. */
+
+/* Step rows: a wider title column keeps each title on one line, so the rows stay even. Desktop only; mobile has its own grid. */
+@media (min-width: 761px) {
+  .cro-page .sa-process-list article {
+    grid-template-columns: 70px minmax(0, 0.9fr) minmax(0, 1fr);
+  }
+
+  /* Package titles reserve two lines, so the price, delivery and feature lists line up across the three cards. */
+  .cro-page .cro-package-card h3 {
+    min-height: 2.7em;
+  }
+
+  /* Delivery lines reserve three lines, so the feature lists start at the same height in every card. */
+  .cro-page .cro-package-delivery {
+    min-height: 5.25em;
+  }
+}
+
+/* Long closing notes keep a readable line length instead of running the full container width. */
+.cro-page .cro-honesty,
+.cro-page .cro-pricing-note {
+  max-width: 48rem;
+}
+
+/* English only. The shared grids place the copy first, which mirrors the Arabic layout. In English the heading must start
+   on the left, so the copy moves to the right. */
+.cro-page.en-service .sa-section-head,
+.cro-page.en-service .sa-truth-grid {
+  grid-template-areas: "label copy" "title copy";
+}
+
+/* Tablet and phone widths: the CRO content edge matches the site header gutter (32px at 761-900px, 16px at 760px and below). */
+@media (min-width: 761px) and (max-width: 900px) {
+  .cro-page > section.shell,
+  .cro-page > section > .shell {
+    width: calc(100% - 64px);
+  }
+}
+
+@media (max-width: 760px) {
+  .cro-page > section.shell,
+  .cro-page > section > .shell {
+    width: calc(100% - 32px);
+  }
+}
+
+/* Keeps "one-time" on one line in the English pricing heading. */
+.cro-nowrap {
+  white-space: nowrap;
+}
