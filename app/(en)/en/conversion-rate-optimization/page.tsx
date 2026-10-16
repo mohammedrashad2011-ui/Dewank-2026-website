@@ -4,6 +4,8 @@ import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
 import { whatsappHref } from "../_en/lib/site";
 import { siteUrl, organizationId, servedMarkets } from "../../../lib/seo";
+import { CroPackageWhatsAppEn } from "./cro-packages-en";
+import { OfferPrice } from "../_en/lib/localized-price";
 // Shared section system from the Arabic SEO page and the CRO page, reused unchanged. English direction and type follow.
 import "../../../(ar)/seo-aeo/seo-aeo-page.css";
 import "../../../(ar)/seo-aeo/seo-cluster.css";
@@ -39,9 +41,16 @@ const scopes = [
   { title: "Marketing Performance Audit", tag: "Marketing Performance Audit", problem: "Marketing spend cannot be connected to clear business results.", covers: "The messages, channels and measurement, and which numbers reflect a real decision rather than activity that only looks good.", inputs: "The marketing channels in use, the business result you want to measure, and the data you already have." },
 ];
 
-const inputs = ["The website or main page address, the type of business and the market you serve.", "The route or service you want reviewed, and the main sources of visits.", "A description of what happens after an enquiry: who replies, and how long it takes.", "Optional access to measurement data when it is needed. We explain exactly what we need before using it."];
+const inputs = ["The website or main page address, the type of business and the market you serve.", "The route or service you want reviewed, and the main sources of visits.", "A description of what happens after an enquiry: who replies, and how long it takes.", "Optional access to measurement data for the second and third packages, when it is needed. We explain exactly what we need before using it."];
 
-const deliverables = ["A written report that ranks the fixes by impact, confidence and effort.", "Evidence for each finding: a page capture, a description of the route, or the data available.", "A 30-day improvement plan with clear steps your team can carry out.", "A review session on the report with the people responsible for the website or sales."];
+const deliverables = ["A written report that ranks the fixes by impact, confidence and effort.", "Evidence for each finding: a page capture, a description of the route, or the data available.", "What each package includes in detail is listed in the packages section below."];
+
+// One-time packages. Each one states its own limits, so no package promises what another one includes.
+const packages = [
+  { offerKey: "cro-snapshot" as const, label: "One page", name: "Conversion Snapshot", purpose: "A quick review of one public page or landing page, to show what stops the visitor from enquiring first.", delivery: "Two working days after payment is confirmed and the required inputs are received", includes: ["One public page or one landing page", "A heuristic review of messaging, calls to action, trust, mobile use and enquiry friction", "Up to three documented findings", "Practical fixes ranked by priority", "A short PDF report"], excludes: ["No strategy call", "No analytics access required", "No implementation", "Not a full conversion-funnel audit"], cta: "Order the Conversion Snapshot", recommended: false },
+  { offerKey: "cro-audit" as const, label: "Full journey", name: "Website & Conversion Funnel Audit", purpose: "A review of one defined customer journey, from the first page to the enquiry and its follow-up.", delivery: "3 to 5 working days after payment is confirmed and the required inputs are received", includes: ["One defined customer journey", "Up to three relevant pages or conversion stages", "Review of messaging, UX, calls to action, trust, forms and enquiry handling", "Up to five documented findings", "Recommendations ranked by impact, confidence and effort", "A professional PDF report and a practical 30-day improvement roadmap", "One short written clarification round, asynchronous", "Analytics review only when relevant data is available and the scope allows it", "For enquiry or CRM cases: one defined journey from the enquiry to the follow-up"], excludes: ["No implementation", "No ongoing management of campaigns or the website", "No CRM development"], cta: "Order the Conversion Audit", recommended: true },
+  { offerKey: "cro-growth-diagnostic" as const, label: "Deeper analysis", name: "Growth Diagnostic", purpose: "A broader but explicitly defined journey, with a deeper review of enquiry handling and measurement where the data allows.", delivery: "5 to 7 working days after payment is confirmed and the required inputs are received", includes: ["One broader but explicitly defined conversion journey", "Up to five relevant pages or stages", "Up to ten evidence-backed findings", "A deeper review of enquiry handling and the relevant measurement", "GA4 or funnel-data review where access and sufficient data exist", "A prioritised optimisation roadmap and a professional PDF report", "One 30-minute walkthrough of the findings"], excludes: ["No implementation", "No CRM development", "No campaign execution", "No A/B test execution"], cta: "Order the Growth Diagnostic", recommended: false },
+];
 
 const notIncluded = ["Making the changes to the website or pages.", "Managing advertising or running campaigns.", "Building a CRM system or setting up WhatsApp automation.", "Designing a new website or rebuilding landing pages.", "Running A/B tests or analysing visitor behaviour through session recordings."];
 
@@ -53,8 +62,8 @@ const afterAudit = [
 
 const faqs = [
   { question: "What is the difference between a conversion audit and an SEO audit?", answer: "An SEO audit asks why the site does not appear in search results. A conversion audit asks why an interested visitor does not become an enquiry. The two can overlap, but they answer different questions, and each has its own service." },
-  { question: "Do I need access to Google Analytics?", answer: "Not always. When data is available we use it. When it is not, we state that the findings come from reviewing the pages and the route, not from real visitor behaviour." },
-  { question: "How long does the audit take?", answer: "The timeline depends on the scope, because it changes with the number of routes and the inputs available. We confirm it in writing before we start." },
+  { question: "Do I need access to Google Analytics?", answer: "The Conversion Snapshot needs no access at all. In the second and third packages we review analytics data only when it is available and the scope allows it. We do not assume figures we have not seen." },
+  { question: "How long does the audit take?", answer: "It depends on the package: two working days for the Conversion Snapshot, three to five for the Website & Conversion Funnel Audit, and five to seven for the Growth Diagnostic. The time starts after payment is confirmed and the required inputs are received." },
   { question: "Does the audit include making the fixes?", answer: "No. The audit sets priorities and recommendations. Implementation is a separate service, suggested after you review the report if it fits your needs." },
   { question: "Does the audit guarantee more sales?", answer: "No provider can guarantee that. The aim is to show where opportunities are being lost and which fixes are most likely to matter, so you can test them first." },
   { question: "Who is this audit not right for?", answer: "Businesses that do not yet receive visits or enquiries. In that case the first priority is visibility or advertising, and conversion becomes useful once there is traffic to improve." },
@@ -111,7 +120,7 @@ export default function ConversionRateOptimizationEnglishPage() {
           <h1>Conversion Rate Optimisation (CRO).<br/><em>Turn qualified visits into real opportunities.</em></h1>
           <p>If people who need your service reach your website but do not enquire, book or buy, the problem is rarely the number of visits. We trace where a visitor stops: the message, the trust, the next step, or the follow-up after an enquiry arrives.</p>
           <div className="sa-actions">
-            <a className="button primary" href={whatsappAudit} target="_blank" rel="noreferrer">Request the conversion audit <span>→</span></a>
+            <a className="button primary" href="#pricing">Choose the right package <span>→</span></a>
             <a href="#audit">See what the audit covers</a>
           </div>
         </div>
@@ -154,7 +163,7 @@ export default function ConversionRateOptimizationEnglishPage() {
       <section id="audit" className="sa-deliverables shell cro-audit" aria-labelledby="cro-audit-title">
         <div className="sa-section-head">
           <div><span className="sa-label">[ Paid diagnostic ]</span><h2 id="cro-audit-title">Website & Conversion Funnel Audit.<br/><em>For one defined path, not the whole site.</em></h2></div>
-          <p>We agree together which path deserves review, from the first point of contact to the enquiry or booking. The report stays practical instead of becoming a long list of general notes.</p>
+          <p>We agree together which path deserves review, from the first point of contact to the enquiry or booking. The report stays practical instead of becoming a long list of general notes. Each package sets its own limits; see the packages below.</p>
         </div>
         <div className="cro-scope-grid">
           {scopes.map((scope) => (
@@ -186,18 +195,43 @@ export default function ConversionRateOptimizationEnglishPage() {
           </div>
           <div>
             <h3>Price and next steps</h3>
-            <p>The price is confirmed after we agree the scope. We do not show a figure before we know the path and the inputs required. The timeline and the price are confirmed in writing before we start.</p>
-            <p>We do not offer a free full audit. The scope conversation is short, and its purpose is to understand your goal, not to review the whole site.</p>
+            <p>Prices are one-time and listed in the packages section below. We do not offer a free full audit, and no package starts before its scope, price and timeline are confirmed in writing.</p>
             <ol className="cro-steps">
-              <li>A WhatsApp message with your website link and business type.</li>
-              <li>We agree the scope and the inputs together.</li>
-              <li>We confirm the price and timeline in writing.</li>
+              <li>Choose a package and order it on WhatsApp.</li>
+              <li>We confirm the scope and the inputs required, in writing.</li>
+              <li>We confirm the price and timeline in writing before we start.</li>
               <li>We start once you approve.</li>
             </ol>
           </div>
         </div>
 
         <p className="cro-honesty">The audit shows where opportunities are being lost. It does not automatically increase sales. The result depends on which fixes are carried out and on what happens after an enquiry arrives.</p>
+      </section>
+
+      <section id="pricing" className="shell cro-pricing" aria-labelledby="cro-pricing-title">
+        <div className="sa-section-head">
+          <div><span className="sa-label">[ Packages ]</span><h2 id="cro-pricing-title">Three one-time packages.<br/><em>Each one sets its limits before we start.</em></h2></div>
+          <p>Choose by the size of the journey you want reviewed. Prices appear in the approved currency of your saved country where one exists, and in US dollars elsewhere.</p>
+        </div>
+        <div className="cro-package-grid">
+          {packages.map((pkg) => (
+            <article key={pkg.offerKey} className={pkg.recommended ? "cro-package-card cro-package-recommended" : "cro-package-card"}>
+              {pkg.recommended ? <span className="cro-package-badge">Recommended</span> : null}
+              <small>{pkg.label}</small>
+              <h3>{pkg.name}</h3>
+              <p className="cro-package-purpose">{pkg.purpose}</p>
+              <OfferPrice offerKey={pkg.offerKey} className="cro-price" />
+              <p className="cro-package-payment">One-time payment</p>
+              <p className="cro-package-delivery"><strong>Delivery:</strong> {pkg.delivery}</p>
+              <h4>What you receive</h4>
+              <ul className="cro-list">{pkg.includes.map((item) => <li key={item}>{item}</li>)}</ul>
+              <h4>Not included</h4>
+              <ul className="cro-list cro-package-excluded">{pkg.excludes.map((item) => <li key={item}>{item}</li>)}</ul>
+              <CroPackageWhatsAppEn offerKey={pkg.offerKey} packageName={pkg.name} className="button primary cro-package-cta" label={pkg.cta} />
+            </article>
+          ))}
+        </div>
+        <p className="cro-pricing-note">Prices are one-time. Opening WhatsApp does not mean the order is complete; the order is confirmed once the scope, price and timeline are agreed in writing. Any scope beyond these limits needs a custom quotation agreed before we start.</p>
       </section>
 
       <section className="sa-fit shell">

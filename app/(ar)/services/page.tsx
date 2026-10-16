@@ -7,6 +7,7 @@ import "./ai-control-room.css";
 import "./services-overview.css";
 import "./services-conversion-hub.css";
 import "./services-aeo-upgrade.css";
+import "../conversion-rate-optimization/cro.css";
 
 export const metadata: Metadata = createMetadata({
   title: "شركة تسويق ووكالة تسويق في السعودية | خدمات ديوانك",
@@ -178,7 +179,7 @@ export default function ServicesPage() {
       <section id="automation-services" className="shell service-group" aria-labelledby="automation-title"><div className="service-group-head"><span className="section-label">الأتمتة والذكاء</span><h2 id="automation-title">لا تترك العميل ينتظر النظام اليدوي.</h2><p>نربط الرد والتأهيل والمتابعة والبيانات لتعمل العمليات بسرعة واتساق.</p></div><div className="services-detail-bento services-grid-refined">{services.slice(9, 11).map(renderCard)}</div></section>
       <section className="shell service-group career-service-group" aria-labelledby="career-services-title"><div className="service-group-head"><span className="section-label">خدمة مهنية مستقلة</span><h2 id="career-services-title">خبرتك قوية. يجب أن تظهر كذلك.</h2></div><div className="services-detail-bento services-grid-refined career-service-last">{services.slice(11).map(renderCard)}</div></section>
 
-      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title"><div><span className="section-label">إذا لم تتضح المشكلة بعد</span><h2 id="problem-chooser-title">أخبرنا أين يتعطل العميل.<br/><em>ونبدأ من هناك.</em></h2></div><div className="problem-options"><Link href="/branding"><b>العلامة غير واضحة</b><span>استراتيجية البراند والهوية ←</span></Link><Link href="/paid-ads"><b>أحتاج عملاء أكثر</b><span>الإعلانات واكتساب العملاء ←</span></Link><Link href="/website-design"><b>الزيارات لا تتحول</b><span>الموقع وCRO والقياس ←</span></Link><Link href="/whatsapp-automation"><b>المتابعة بطيئة أو تضيع</b><span>واتساب وCRM والأتمتة ←</span></Link></div></section>
+      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title"><div><span className="section-label">إذا لم تتضح المشكلة بعد</span><h2 id="problem-chooser-title">أخبرنا أين يتعطل العميل.<br/><em>ونبدأ من هناك.</em></h2><p className="services-cro-link">زيارات تصل ولا تتحول إلى استفسارات؟ <Link href="/conversion-rate-optimization#pricing">اطّلع على باقات تدقيق التحويل ←</Link></p></div><div className="problem-options"><Link href="/branding"><b>العلامة غير واضحة</b><span>استراتيجية البراند والهوية ←</span></Link><Link href="/paid-ads"><b>أحتاج عملاء أكثر</b><span>الإعلانات واكتساب العملاء ←</span></Link><Link href="/website-design"><b>الزيارات لا تتحول</b><span>الموقع وCRO والقياس ←</span></Link><Link href="/whatsapp-automation"><b>المتابعة بطيئة أو تضيع</b><span>واتساب وCRM والأتمتة ←</span></Link></div></section>
 
       <section className="shell primary-service-paths decision-guides" aria-labelledby="decision-guides-title">
         <div className="primary-paths-head"><span className="section-label">قبل أن تطلب عرضًا</span><h2 id="decision-guides-title">افهم السعر والنطاق أولًا.</h2><p>أدلة عملية تشرح ما يغيّر التكلفة وما يجب أن يشمله العرض في كل خدمة، قبل أن تقارن بين العروض.</p></div>

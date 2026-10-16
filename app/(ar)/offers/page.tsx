@@ -20,6 +20,7 @@ import "./mini-visual-identity/mini-visual-identity.css";
 import "./google-ads-launch/google-ads-launch.css";
 import "./instagram-14-day-upgrade/instagram-upgrade.css";
 import "./small-business-website/small-business-website.css";
+import { CroPackagePrice } from "../conversion-rate-optimization/cro-packages";
 import "../conversion-rate-optimization/cro.css";
 import "./offers-overview.css";
 import "./offers-overview-refine.css";
@@ -154,11 +155,11 @@ export default function OffersPage() {
           </article>
 
           <article data-filter="web" data-category="تدقيق وتحويل" className="offer-card compact-offer-card cro-offer-card">
-            <Link className="offer-card-hit" href="/conversion-rate-optimization#audit" aria-label="شاهد تفاصيل تدقيق الموقع ومسار التحويل" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>حسب النطاق</strong> بعد تحديد المسار</span></div>
-            <h2>تدقيق الموقع ومسار التحويل.<br/><em>اعرف أين تتوقف الزيارات.</em></h2>
-            <p>تدقيق مدفوع لمسار محدد من الزيارة إلى الاستفسار: الرسالة والدعوة لاتخاذ إجراء والنموذج والجوال ومتابعة الاستفسارات، مع تقرير وأولويات تنفيذ واضحة.</p>
-            <div className="offer-card-meta"><div><small>السعر</small><span className="cro-price-note">يُحدد بعد مراجعة النطاق</span></div><span className="button primary">التفاصيل <span>←</span></span></div>
+            <Link className="offer-card-hit" href="/conversion-rate-optimization#pricing" aria-label="شاهد باقات فحص التحويل وتدقيق المسار" />
+            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> باقات لمرة واحدة</span></div>
+            <h2>فحص التحويل وتدقيق المسار.<br/><em>اعرف أين تتوقف الزيارات.</em></h2>
+            <p>ثلاث باقات محددة الحدود، من فحص صفحة واحدة إلى تحليل مسار أوسع. كل باقة تحدد ما تشمله ومدة تسليمها قبل الدفع.</p>
+            <div className="offer-card-meta"><div><small>يبدأ من</small><CroPackagePrice offerKey="cro-snapshot" /></div><span className="button primary">الباقات <span>←</span></span></div>
           </article>
 
           <aside className="offers-note offers-overview-note"><div><small>لم تقرر بعد؟</small><h2>أخبرنا بهدفك.<br/>ونرشح لك البداية المناسبة.</h2><p>أرسل نشاطك والنتيجة التي تريد الوصول إليها، ونحدد لك أي عرض أقرب لاحتياجك دون أن تشتري خدمات لا تحتاجها.</p></div><Link className="button primary" href="https://wa.me/97339066649">اسأل ديوانك <span>←</span></Link></aside>

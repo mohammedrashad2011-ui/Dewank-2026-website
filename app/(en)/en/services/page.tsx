@@ -10,6 +10,7 @@ import "../../../(ar)/services/services-conversion-hub.css";
 import "../../../(ar)/services/services-aeo-upgrade.css";
 import "../_en/parity/services-hub.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
+import "../../../(ar)/conversion-rate-optimization/cro.css";
 
 export const metadata = enMetadata(
   "Services: brand, growth and automation",
@@ -219,6 +220,7 @@ export default function ServicesPage() {
         <div>
           <span className="section-label">If the problem is not clear yet</span>
           <h2 id="problem-chooser-title">Tell us where the customer gets stuck.<br /><em>We will start there.</em></h2>
+          <p className="services-cro-link">Visits arrive but enquiries do not follow? <Link href="/en/conversion-rate-optimization#pricing">See the conversion audit packages →</Link></p>
         </div>
         <div className="problem-options">
           <Link href="/en/services#brand-strategy"><b>The brand is unclear</b><span>Brand strategy and identity →</span></Link>

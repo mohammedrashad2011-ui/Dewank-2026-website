@@ -99,11 +99,11 @@ export default function OffersPage() {
           ))}
 
           <article data-filter="web" data-category="Audit and conversion" className="offer-card compact-offer-card cro-offer-card">
-            <Link className="offer-card-hit" href="/en/conversion-rate-optimization#audit" aria-label="View the Website and Conversion Funnel Audit" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>Scope</strong> agreed first</span></div>
-            <h2>Website & conversion funnel audit.<br /><em>See where visits stop.</em></h2>
-            <p>A paid diagnostic of one defined path, from the visit to the enquiry: the message, calls to action, the form, mobile and follow-up. You receive a written report with prioritised fixes.</p>
-            <div className="offer-card-meta"><div><small>Price</small><span className="cro-price-note">Confirmed after we agree the scope</span></div><span className="button primary">Details <span>→</span></span></div>
+            <Link className="offer-card-hit" href="/en/conversion-rate-optimization#pricing" aria-label="View the conversion audit packages" />
+            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> one-time packages</span></div>
+            <h2>Conversion check and funnel audit.<br /><em>See where visits stop.</em></h2>
+            <p>Three one-time packages with defined limits, from a single-page check to a deeper journey analysis. Each package states what it includes and how long delivery takes before you pay.</p>
+            <div className="offer-card-meta"><div><small>Starting from</small><OfferPrice offerKey="cro-snapshot" className="cro-price" /></div><span className="button primary">Packages <span>→</span></span></div>
           </article>
 
           <aside className="offers-note offers-overview-note">
