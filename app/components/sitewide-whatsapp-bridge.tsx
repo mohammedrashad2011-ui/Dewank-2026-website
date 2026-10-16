@@ -125,7 +125,7 @@ export default function SitewideWhatsAppBridge() {
 
   // Same hidden routes as before. The Arabic guides hide the widget because of the Instagram popup, which English guides do
   // not have, so English guides keep the widget with English copy.
-  if (pathname === "/contact" || pathname === "/en/contact" || pathname.startsWith("/guides/")) return null;
+  if (pathname === "/contact" || pathname === "/en/contact" || pathname === "/privacy" || pathname === "/en/privacy" || pathname.startsWith("/guides/")) return null;
 
   const english = isEnglishPath(pathname);
   const language = copy[english ? "en" : "ar"];
