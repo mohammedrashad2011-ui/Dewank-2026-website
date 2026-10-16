@@ -1,124 +1,83 @@
-// Styles for the Arabic legal draft. Inline, so the root and page stylesheet set stays unchanged.
-export const privacyPageCss = `/* Legal draft page (Arabic). Plain, readable layout on the site palette: paper background, navy text, gold accents. */
-
+// Compact privacy-page typography. Scoped to /privacy; no other Arabic page changes.
+export const privacyPageCss = `
 .legal-page {
   background: #f4f2ec;
   color: #111214;
 }
-
 .legal-shell {
-  max-width: 820px;
-  padding-block: clamp(96px, 12vw, 150px) clamp(60px, 8vw, 110px);
+  max-width: 760px;
+  padding-block: clamp(100px, 12vw, 145px) clamp(46px, 6vw, 70px);
 }
-
-.legal-draft {
-  margin-bottom: 28px;
-  padding: 14px 18px;
-  border: 1px solid #d2a84e;
-  border-radius: 12px;
-  background: #fff7e8;
-  color: #111214;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
 .legal-eyebrow {
-  display: inline-block;
-  margin-bottom: 14px;
-  color: #6b5320;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 9px;
+  color: #786031;
+  font-size: 11px;
+  font-weight: 700;
 }
-
 .legal-shell h1 {
-  margin: 0 0 28px;
-  font-size: clamp(30px, 4.6vw, 46px);
-  line-height: 1.3;
-}
-
-.legal-shell h2 {
-  margin: 30px 0 10px;
-  font-size: 20px;
+  margin: 0 0 12px;
+  color: #071a33;
+  font-size: clamp(24px, 3vw, 29px);
+  font-weight: 800;
   line-height: 1.4;
 }
-
+.legal-shell h2 {
+  margin: 23px 0 6px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(7,26,51,.12);
+  color: #071a33;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.6;
+}
 .legal-shell p,
 .legal-shell li {
-  font-size: 16px;
-  line-height: 1.9;
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.85;
 }
-
 .legal-shell ul {
-  padding-inline-start: 22px;
+  margin: 0 0 10px;
+  padding-inline-start: 19px;
 }
-
-.legal-shell a {
-  color: #1e3a8a;
+.legal-shell li { margin-bottom: 3px; }
+.legal-shell .legal-intro { color: #303c4b; }
+.legal-shell .legal-updated {
+  color: #6b7280;
+  font-size: 11.5px;
+}
+.legal-shell a,
+.legal-shell .legal-link-button {
+  color: #163b69;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-
-.legal-shell a:focus-visible {
-  outline: 3px solid #d2a84e;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
 .legal-link-button {
   padding: 0;
   border: 0;
   background: none;
-  color: #1e3a8a;
   font: inherit;
-  text-decoration: underline;
-  text-underline-offset: 3px;
   cursor: pointer;
 }
-
-.legal-link-button:focus-visible {
-  outline: 3px solid #d2a84e;
+.legal-shell a:focus-visible,
+.legal-shell button:focus-visible {
+  outline: 3px solid #c9a34d;
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 3px;
 }
-
-.legal-table-wrap {
-  margin: 16px 0 20px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+.legal-shell .legal-signoff {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(7,26,51,.16);
+  color: #071a33;
 }
-
-.legal-table {
-  width: 100%;
-  min-width: 560px;
-  border-collapse: collapse;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.legal-table caption {
-  margin-bottom: 8px;
-  color: #111214;
-  font-weight: 800;
-  text-align: start;
-}
-
-.legal-table th,
-.legal-table td {
-  padding: 10px 12px;
-  border: 1px solid rgba(17, 18, 20, 0.14);
-  text-align: start;
-  vertical-align: top;
-}
-
-.legal-table th {
-  background: #fff7e8;
-  font-weight: 800;
-}
-
-.legal-owner-note {
-  display: inline;
-  color: #7a4f00;
-  font-style: italic;
+@media (max-width: 640px) {
+  .legal-shell { padding-block: 100px 46px; }
+  .legal-shell p, .legal-shell li { font-size: 13px; line-height: 1.9; }
+  .legal-shell h2 { font-size: 14.5px; }
 }
 `;
