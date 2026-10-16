@@ -287,3 +287,306 @@ main.cro-page h2 {
 .cro-nowrap {
   white-space: nowrap;
 }
+
+/* A fictional page demonstrates the audit sequence without implying client results. */
+.cro-page .sa-hero-copy,
+.cro-diagnostic {
+  min-width: 0;
+}
+
+.cro-diagnostic {
+  width: 100%;
+  max-width: 490px;
+  justify-self: center;
+  padding: clamp(16px, 2vw, 24px);
+  border: 1px solid rgba(16, 26, 43, .16);
+  border-radius: 22px;
+  background: #e9e7df;
+  box-shadow: 0 24px 55px rgba(16, 26, 43, .1);
+  text-align: start;
+}
+
+.cro-diagnostic-heading {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.cro-diagnostic-heading span {
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.cro-diagnostic-heading strong {
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.4;
+}
+
+.cro-diagnostic-stage {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.cro-diagnostic-browser {
+  overflow: hidden;
+  border: 1px solid rgba(16, 26, 43, .16);
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(16, 26, 43, .08);
+}
+
+.cro-diagnostic-browserbar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  padding-inline: 13px;
+  border-bottom: 1px solid rgba(16, 26, 43, .12);
+  background: #f5f3ed;
+}
+
+.cro-diagnostic-browserbar i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #b9c1bf;
+}
+
+.cro-diagnostic-browserbar span {
+  margin-inline-start: auto;
+  color: rgba(16, 26, 43, .56);
+  font-size: 10px;
+}
+
+.cro-diagnostic-landing {
+  min-height: 250px;
+  padding: 16px 19px 19px;
+  direction: inherit;
+}
+
+.cro-diagnostic-page-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(16, 26, 43, .1);
+}
+
+.cro-diagnostic-mark {
+  width: 31px;
+  height: 12px;
+  margin-inline-end: auto;
+  border-radius: 3px;
+  background: var(--ink);
+}
+
+.cro-diagnostic-nav {
+  width: 34px;
+  height: 5px;
+  border-radius: 5px;
+  background: #c5cdcf;
+}
+
+.cro-diagnostic-nav.short {
+  width: 23px;
+}
+
+.cro-diagnostic-page-body {
+  padding-top: 18px;
+}
+
+.cro-diagnostic-eyebrow {
+  display: block;
+  width: 60px;
+  height: 5px;
+  margin-bottom: 11px;
+  border-radius: 4px;
+  background: var(--orange);
+}
+
+.cro-diagnostic-copy,
+.cro-diagnostic-button,
+.cro-diagnostic-status {
+  display: grid;
+}
+
+.cro-diagnostic-copy > *,
+.cro-diagnostic-button > *,
+.cro-diagnostic-status > * {
+  grid-area: 1 / 1;
+}
+
+.cro-diagnostic-copy {
+  min-height: 56px;
+  align-items: center;
+}
+
+.cro-diagnostic-copy b {
+  max-width: 260px;
+  font-size: clamp(18px, 2.2vw, 23px);
+  line-height: 1.25;
+}
+
+.cro-diagnostic-lines {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 14px;
+}
+
+.cro-diagnostic-lines span {
+  width: 78%;
+  height: 5px;
+  border-radius: 4px;
+  background: #d8dcda;
+}
+
+.cro-diagnostic-lines span:last-child {
+  width: 53%;
+}
+
+.cro-diagnostic-button {
+  width: fit-content;
+  min-width: 110px;
+  min-height: 31px;
+  align-items: center;
+  justify-items: center;
+  padding: 5px 12px;
+  border-radius: 5px;
+  background: #8e9ca1;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  animation: cro-button-refine 8s ease forwards;
+}
+
+.cro-diagnostic-button span {
+  white-space: nowrap;
+}
+
+.cro-diagnostic-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 13px;
+  opacity: 0;
+  animation: cro-show-proof 8s ease forwards;
+}
+
+.cro-diagnostic-proof span {
+  padding: 4px 7px;
+  border: 1px solid rgba(49, 95, 120, .25);
+  border-radius: 5px;
+  color: #315f78;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cro-diagnostic-before {
+  opacity: 1;
+  animation: cro-hide-before 8s ease forwards;
+}
+
+.cro-diagnostic-after {
+  opacity: 0;
+  animation: cro-show-after 8s ease forwards;
+}
+
+.cro-diagnostic-status {
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-end: 12px;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 5px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.cro-diagnostic-findings {
+  position: relative;
+  min-height: 122px;
+  padding-top: 17px;
+}
+
+.cro-diagnostic-findings-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(16, 26, 43, .65);
+}
+
+.cro-diagnostic-findings ol {
+  display: grid;
+  gap: 5px;
+  margin: 9px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cro-diagnostic-findings li {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0;
+  animation: cro-finding-first 8s ease forwards;
+}
+
+.cro-diagnostic-findings li:nth-child(2) { animation-name: cro-finding-second; }
+.cro-diagnostic-findings li:nth-child(3) { animation-name: cro-finding-third; }
+
+.cro-diagnostic-findings li span {
+  color: var(--orange);
+  font-size: 10px;
+}
+
+.cro-diagnostic-findings p {
+  position: absolute;
+  inset-block-start: 47px;
+  inset-inline: 0;
+  margin: 0;
+  color: #315f78;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.6;
+  opacity: 0;
+  animation: cro-show-after 8s ease forwards;
+}
+
+.cro-diagnostic .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes cro-hide-before { 0%, 62% { opacity: 1; } 72%, 100% { opacity: 0; } }
+@keyframes cro-show-after { 0%, 62% { opacity: 0; } 72%, 100% { opacity: 1; } }
+@keyframes cro-show-proof { 0%, 64% { opacity: 0; } 78%, 100% { opacity: 1; } }
+@keyframes cro-button-refine { 0%, 62% { background: #8e9ca1; } 75%, 100% { background: #315f78; } }
+@keyframes cro-finding-first { 0%, 8% { opacity: 0; } 12%, 62% { opacity: 1; } 72%, 100% { opacity: 0; } }
+@keyframes cro-finding-second { 0%, 24% { opacity: 0; } 28%, 62% { opacity: 1; } 72%, 100% { opacity: 0; } }
+@keyframes cro-finding-third { 0%, 40% { opacity: 0; } 44%, 62% { opacity: 1; } 72%, 100% { opacity: 0; } }
+
+@media (max-width: 1050px) {
+  .cro-diagnostic { justify-self: stretch; }
+}
+
+@media (max-width: 760px) {
+  .cro-page .sa-hero { gap: 30px; }
+  .cro-diagnostic { max-width: none; box-shadow: 0 12px 30px rgba(16, 26, 43, .08); }
+  .cro-diagnostic-landing { min-height: 240px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cro-diagnostic *, .cro-diagnostic *::before, .cro-diagnostic *::after { animation: none !important; }
+  .cro-diagnostic-before, .cro-diagnostic-findings li { opacity: 0; }
+  .cro-diagnostic-after, .cro-diagnostic-proof, .cro-diagnostic-findings p { opacity: 1; }
+  .cro-diagnostic-button { background: #315f78; }
+}
