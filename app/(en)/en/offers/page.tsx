@@ -14,6 +14,7 @@ import "../../../(ar)/offers/mini-visual-identity/mini-visual-identity.css";
 import "../../../(ar)/offers/google-ads-launch/google-ads-launch.css";
 import "../../../(ar)/offers/instagram-14-day-upgrade/instagram-upgrade.css";
 import "../../../(ar)/offers/small-business-website/small-business-website.css";
+import "../../../(ar)/conversion-rate-optimization/cro.css";
 import "../../../(ar)/offers/offers-overview.css";
 import "../../../(ar)/offers/offers-overview-refine.css";
 import "../_en/parity/service-pages.en.css";
@@ -96,6 +97,14 @@ export default function OffersPage() {
               </div>
             </article>
           ))}
+
+          <article data-filter="web" data-category="Audit and conversion" className="offer-card compact-offer-card cro-offer-card">
+            <Link className="offer-card-hit" href="/en/conversion-rate-optimization#audit" aria-label="View the Website and Conversion Funnel Audit" />
+            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>Scope</strong> agreed first</span></div>
+            <h2>Website & conversion funnel audit.<br /><em>See where visits stop.</em></h2>
+            <p>A paid diagnostic of one defined path, from the visit to the enquiry: the message, calls to action, the form, mobile and follow-up. You receive a written report with prioritised fixes.</p>
+            <div className="offer-card-meta"><div><small>Price</small><span className="cro-price-note">Confirmed after we agree the scope</span></div><span className="button primary">Details <span>→</span></span></div>
+          </article>
 
           <aside className="offers-note offers-overview-note">
             <div>

@@ -15,6 +15,7 @@ const arabicToEnglish: Record<string, string> = {
   "/paid-ads": "/en/paid-advertising",
   "/seo-aeo": "/en/seo-geo-aeo",
   "/website-design": "/en/website-design",
+  "/conversion-rate-optimization": "/en/conversion-rate-optimization",
   "/whatsapp-automation": "/en/whatsapp-crm-automation",
   "/ai-automation": "/en/ai-automation",
   "/services/social-media-content": "/en/social-media-content",

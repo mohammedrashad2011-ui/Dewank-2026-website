@@ -55,6 +55,7 @@ export const englishToArabic: Record<string, string> = {
   "/en/whatsapp-crm-automation": "/whatsapp-automation",
   "/en/ai-automation": "/ai-automation",
   "/en/social-media-content": "/services/social-media-content",
+  "/en/conversion-rate-optimization": "/conversion-rate-optimization",
 };
 
 // Deliberately without an Arabic equivalent: /en/privacy (the Arabic site has no privacy page to pair with) and
