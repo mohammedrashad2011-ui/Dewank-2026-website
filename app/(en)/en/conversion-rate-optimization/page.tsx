@@ -47,9 +47,9 @@ const deliverables = ["A written report that ranks the fixes by impact, confiden
 
 // One-time packages. Each one states its own limits, so no package promises what another one includes.
 const packages = [
-  { offerKey: "cro-snapshot" as const, label: "One page", name: "Conversion Snapshot", purpose: "A quick review of one public page or landing page, to show what stops the visitor from enquiring first.", delivery: "Two working days after payment is confirmed and the required inputs are received", includes: ["One public page or one landing page", "A heuristic review of messaging, calls to action, trust, mobile use and enquiry friction", "Up to three documented findings", "Practical fixes ranked by priority", "A short PDF report"], excludes: ["No strategy call", "No analytics access required", "No implementation", "Not a full conversion-funnel audit"], cta: "Order the Conversion Snapshot", recommended: false },
-  { offerKey: "cro-audit" as const, label: "Full journey", name: "Website & Conversion Funnel Audit", purpose: "A review of one defined customer journey, from the first page to the enquiry and its follow-up.", delivery: "3 to 5 working days after payment is confirmed and the required inputs are received", includes: ["One defined customer journey", "Up to three relevant pages or conversion stages", "Review of messaging, UX, calls to action, trust, forms and enquiry handling", "Up to five documented findings", "Recommendations ranked by impact, confidence and effort", "A professional PDF report and a practical 30-day improvement roadmap", "One short written clarification round, asynchronous", "Analytics review only when relevant data is available and the scope allows it", "For enquiry or CRM cases: one defined journey from the enquiry to the follow-up"], excludes: ["No implementation", "No ongoing management of campaigns or the website", "No CRM development"], cta: "Order the Conversion Audit", recommended: true },
-  { offerKey: "cro-growth-diagnostic" as const, label: "Deeper analysis", name: "Growth Diagnostic", purpose: "A broader but explicitly defined journey, with a deeper review of enquiry handling and measurement where the data allows.", delivery: "5 to 7 working days after payment is confirmed and the required inputs are received", includes: ["One broader but explicitly defined conversion journey", "Up to five relevant pages or stages", "Up to ten evidence-backed findings", "A deeper review of enquiry handling and the relevant measurement", "GA4 or funnel-data review where access and sufficient data exist", "A prioritised optimisation roadmap and a professional PDF report", "One 30-minute walkthrough of the findings"], excludes: ["No implementation", "No CRM development", "No campaign execution", "No A/B test execution"], cta: "Order the Growth Diagnostic", recommended: false },
+  { offerKey: "cro-snapshot" as const, label: "One page", name: "Conversion Snapshot", purpose: "A quick review of one public page or landing page, to show what stops the visitor from enquiring first.", delivery: "Two working days after payment is confirmed and the required inputs are received", includes: ["One public page or one landing page", "A heuristic review of messaging, calls to action, trust, mobile use and enquiry friction", "Up to three documented findings", "Practical fixes ranked by priority", "A short PDF report"], excludes: ["No strategy call", "No analytics access required", "No implementation", "Not based on real visitor behaviour data", "Not a full conversion-funnel audit"], cta: "Confirm the Snapshot scope on WhatsApp", recommended: false },
+  { offerKey: "cro-audit" as const, label: "Full journey", name: "Website & Conversion Funnel Audit", purpose: "A review of one defined customer journey, from the first page to the enquiry and its follow-up.", delivery: "3 to 5 working days after payment is confirmed and the required inputs are received", includes: ["One defined customer journey", "Up to three relevant pages or conversion stages", "Review of messaging, UX, calls to action, trust, forms and enquiry handling", "Up to five documented findings", "Recommendations ranked by impact, confidence and effort", "A professional PDF report and a practical 30-day improvement roadmap", "One short written clarification round, asynchronous", "Analytics review only when relevant data is available and the scope allows it", "For enquiry or CRM cases: one defined journey from the enquiry to the follow-up"], excludes: ["No implementation", "No ongoing management of campaigns or the website", "No CRM development"], cta: "Confirm the audit scope on WhatsApp", recommended: true },
+  { offerKey: "cro-growth-diagnostic" as const, label: "Deeper analysis", name: "Growth Diagnostic", purpose: "A broader but explicitly defined journey, with a deeper review of enquiry handling and measurement where the data allows.", delivery: "5 to 7 working days after payment is confirmed and the required inputs are received", includes: ["One broader but explicitly defined conversion journey", "Up to five relevant pages or stages", "Up to ten evidence-backed findings", "A deeper review of enquiry handling and the relevant measurement", "GA4 or funnel-data review where access and sufficient data exist", "A prioritised optimisation roadmap and a professional PDF report", "One 30-minute walkthrough of the findings"], excludes: ["No implementation", "No CRM development", "No campaign execution", "No A/B test execution"], cta: "Confirm the diagnostic scope on WhatsApp", recommended: false },
 ];
 
 const notIncluded = ["Making the changes to the website or pages.", "Managing advertising or running campaigns.", "Building a CRM system or setting up WhatsApp automation.", "Designing a new website or rebuilding landing pages.", "Running A/B tests or analysing visitor behaviour through session recordings."];
@@ -196,12 +196,7 @@ export default function ConversionRateOptimizationEnglishPage() {
           <div>
             <h3>Price and next steps</h3>
             <p>Prices are one-time and listed in the packages section below. We do not offer a free full audit, and no package starts before its scope, price and timeline are confirmed in writing.</p>
-            <ol className="cro-steps">
-              <li>Choose a package and order it on WhatsApp.</li>
-              <li>We confirm the scope and the inputs required, in writing.</li>
-              <li>We confirm the price and timeline in writing before we start.</li>
-              <li>We start once you approve.</li>
-            </ol>
+            <p>The full ordering steps are set out in “How ordering works” below the packages.</p>
           </div>
         </div>
 
@@ -232,6 +227,19 @@ export default function ConversionRateOptimizationEnglishPage() {
           ))}
         </div>
         <p className="cro-pricing-note">Prices are one-time. Opening WhatsApp does not mean the order is complete; the order is confirmed once the scope, price and timeline are agreed in writing. Any scope beyond these limits needs a custom quotation agreed before we start.</p>
+      </section>
+
+      <section className="shell cro-order" aria-labelledby="cro-order-title">
+        <div className="sa-section-head">
+          <div><span className="sa-label">[ How ordering works ]</span><h2 id="cro-order-title">From package to delivery.<br/><em>Four steps, in order.</em></h2></div>
+          <p>Pressing the WhatsApp button opens a conversation to confirm the scope. It does not mean the order or the payment is complete.</p>
+        </div>
+        <ol className="cro-steps cro-order-steps">
+          <li><strong>Choose a package.</strong> The package sets its limits, the price shown for your saved country, and the delivery time after payment.</li>
+          <li><strong>Confirm the scope.</strong> We review the page or journey and the inputs needed with you on WhatsApp, and write the scope down before any commitment.</li>
+          <li><strong>Agree the payment.</strong> We confirm the final price and the payment arrangement in writing. Work does not start before this step.</li>
+          <li><strong>Start delivery.</strong> The delivery time begins after payment and receipt of the required inputs. We then send the report for your package.</li>
+        </ol>
       </section>
 
       <section className="sa-fit shell">
@@ -269,7 +277,7 @@ export default function ConversionRateOptimizationEnglishPage() {
         <div><span className="sa-label">[ Next step ]</span><h2>Send us the page link.<br/><em>We will show where the visit stops.</em></h2></div>
         <div>
           <p>Send the website or page link and your business type. We will agree the most useful path to review and what the audit needs.</p>
-          <a className="button primary" href={whatsappAudit} target="_blank" rel="noreferrer">Request the conversion audit <span>→</span></a>
+          <a className="button primary" href={whatsappAudit} target="_blank" rel="noreferrer">Talk to us about the right package <span>→</span></a>
         </div>
       </section>
       <Footer />

@@ -1,6 +1,7 @@
 "use client";
 
 import type { OfferPriceKey } from "@/app/(ar)/offers/offer-pricing";
+import { pushCroPackageSelect } from "@/app/components/cro-package-event";
 import { resolveOfferPrice, useOfferCountry } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 
@@ -12,5 +13,14 @@ export function CroPackageWhatsAppEn({ offerKey, packageName, className, label }
   const country = useOfferCountry();
   const price = resolveOfferPrice(offerKey, country);
   const text = `Hello Dewank, I would like to order the ${packageName} package at ${amountFormatter.format(price.amount)} ${price.currency}. My website/business is: . I would like to confirm the scope and next steps.`;
-  return <a className={className} href={whatsappHref(text)} target="_blank" rel="noopener noreferrer">{label} <span>→</span></a>;
+  function trackSelect() {
+    pushCroPackageSelect({
+      package_id: offerKey as "cro-snapshot" | "cro-audit" | "cro-growth-diagnostic",
+      language: "en",
+      displayed_amount: price.amount,
+      currency: price.currency,
+      page_path: window.location.pathname,
+    });
+  }
+  return <a className={className} href={whatsappHref(text)} target="_blank" rel="noopener noreferrer" onClick={trackSelect}>{label} <span>→</span></a>;
 }
