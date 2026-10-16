@@ -195,7 +195,7 @@ export default function ConversionRateOptimizationEnglishPage() {
           </div>
           <div>
             <h3>Price and next steps</h3>
-            <p>Prices are one-time and listed in the packages section below. We do not offer a free full audit, and no package starts before its scope, price and timeline are confirmed in writing.</p>
+            <p>Prices are one-time and listed in the packages section below. We do not offer a free full audit. No package starts before its scope, price, timeline and payment instructions are confirmed in writing, and its full fee is paid in advance.</p>
             <p>The full ordering steps are set out in “How ordering works” below the packages.</p>
           </div>
         </div>
@@ -216,7 +216,7 @@ export default function ConversionRateOptimizationEnglishPage() {
               <h3>{pkg.name}</h3>
               <p className="cro-package-purpose">{pkg.purpose}</p>
               <OfferPrice offerKey={pkg.offerKey} className="cro-price" />
-              <p className="cro-package-payment">One-time payment</p>
+              <p className="cro-package-payment">Full payment in advance, before work begins</p>
               <p className="cro-package-delivery"><strong>Delivery:</strong> {pkg.delivery}</p>
               <h4>What you receive</h4>
               <ul className="cro-list">{pkg.includes.map((item) => <li key={item}>{item}</li>)}</ul>
@@ -226,18 +226,18 @@ export default function ConversionRateOptimizationEnglishPage() {
             </article>
           ))}
         </div>
-        <p className="cro-pricing-note">Prices are one-time. Opening WhatsApp does not mean the order is complete; the order is confirmed once the scope, price and timeline are agreed in writing. Any scope beyond these limits needs a custom quotation agreed before we start.</p>
+        <p className="cro-pricing-note">Prices are one-time and paid in full in advance, before work begins. Opening WhatsApp is not a confirmed order, a payment or a qualified lead. The order is confirmed once the scope, price, timeline and payment instructions are agreed in writing. Any scope beyond these limits needs a custom quotation agreed before we start.</p>
       </section>
 
       <section className="shell cro-order" aria-labelledby="cro-order-title">
         <div className="sa-section-head">
           <div><span className="sa-label">[ How ordering works ]</span><h2 id="cro-order-title">From package to delivery.<br/><em>Four steps, in order.</em></h2></div>
-          <p>Pressing the WhatsApp button opens a conversation to confirm the scope. It does not mean the order or the payment is complete.</p>
+          <p>Pressing the WhatsApp button opens a conversation to confirm the scope. That step is not a confirmed order, a payment or a qualified lead, and no work begins until step three.</p>
         </div>
         <ol className="cro-steps cro-order-steps">
           <li><strong>Choose a package.</strong> The package sets its limits, the price shown for your saved country, and the delivery time after payment.</li>
-          <li><strong>Confirm the scope.</strong> We review the page or journey and the inputs needed with you on WhatsApp, and write the scope down before any commitment.</li>
-          <li><strong>Agree the payment.</strong> We confirm the final price and the payment arrangement in writing. Work does not start before this step.</li>
+          <li><strong>Confirm the scope.</strong> We confirm the scope, deliverables, timeline and payment instructions with you on WhatsApp, and write them down before any commitment.</li>
+          <li><strong>Pay in advance.</strong> Each fixed-scope package is paid in full before work begins. Payment instructions come with the scope confirmation.</li>
           <li><strong>Start delivery.</strong> The delivery time begins after payment and receipt of the required inputs. We then send the report for your package.</li>
         </ol>
       </section>
