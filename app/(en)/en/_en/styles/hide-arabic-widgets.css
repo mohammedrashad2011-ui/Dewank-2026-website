@@ -1,21 +1,21 @@
-/* Arabic-only floating widgets (WhatsApp bridge, guides popup, mobile offers rail) are hidden on English pages.
+/* Arabic-only floating widgets are hidden on English pages. The localized English offers rail is allowed.
    English pages are identified by an English-language <main>, or by an English page shell. The Arabic site does not set
    lang on its <main>, so these rules never match an Arabic page. */
 body:has(.en-site) .sitewide-whatsapp-bridge,
 body:has(.en-site) .instagram-guides-popup,
 body:has(.en-site) .sitewide-whatsapp-wrap,
-body:has(.en-site) .mobile-offers-rail-wrap,
+body:has(.en-site) .mobile-offers-rail-wrap:not(.mobile-offers-rail-wrap--en),
 body:has(.en-parity) .sitewide-whatsapp-bridge,
 body:has(.en-parity) .instagram-guides-popup,
 body:has(.en-parity) .sitewide-whatsapp-wrap,
-body:has(.en-parity) .mobile-offers-rail-wrap,
+body:has(.en-parity) .mobile-offers-rail-wrap:not(.mobile-offers-rail-wrap--en),
 body:has(.en-services) .sitewide-whatsapp-bridge,
 body:has(.en-services) .instagram-guides-popup,
 body:has(.en-services) .sitewide-whatsapp-wrap,
-body:has(.en-services) .mobile-offers-rail-wrap,
+body:has(.en-services) .mobile-offers-rail-wrap:not(.mobile-offers-rail-wrap--en),
 body:has(main[lang="en"]) .sitewide-whatsapp-bridge,
 body:has(main[lang="en"]) .instagram-guides-popup,
 body:has(main[lang="en"]) .sitewide-whatsapp-wrap,
-body:has(main[lang="en"]) .mobile-offers-rail-wrap {
+body:has(main[lang="en"]) .mobile-offers-rail-wrap:not(.mobile-offers-rail-wrap--en) {
   display: none !important;
 }
