@@ -12,6 +12,7 @@ import "../home-conversion-refinement.css";
 import "../home-mobile-service-cards.css";
 import "../arabic-home-polish.css";
 import "../arabic-service-cards.css";
+import "../home-premium-trust.css";
 
 export const metadata: Metadata = createMetadata({
   title: "ديوانك | براند، تسويق، مواقع وأتمتة للشركات",
@@ -58,9 +59,8 @@ const services = [
 ];
 
 const selectedWork = [
-  { n: "01", title: "من رسائل متفرقة إلى رحلة حجز قابلة للقياس", text: "نظام واتساب وCRM يربط الرد والتأهيل والحجز والتذكير والمتابعة.", href: "/work#case-studies" },
-  { n: "02", title: "من قرار التسمية إلى هوية Fine Jewelry متكاملة", text: "BITHAN: تموضع وتسمية وفحص، ثم اسم اختاره العميل وهوية عربية-إنجليزية كاملة بتطبيقات Premium.", href: "/work/bithan" },
-  { n: "03", title: "قرارات استراتيجية قبل التنفيذ", text: "مشروعات تعرض كيف نفكر في التحدي والتموضع والتجربة قبل الوصول للشكل النهائي.", href: "/work#concept-work" },
+  { n: "01", category: "أتمتة ومتابعة · مشروع طبي", title: "من محادثة متفرقة إلى رحلة حجز واضحة", text: "ربط الرد والتأهيل والحجز والتذكير والمتابعة داخل واتساب وCRM.", href: "/work#case-studies", visual: "journey" },
+  { n: "02", category: "تسمية وهوية · Fine Jewelry", title: "BITHAN: من اختيار الاسم إلى هوية متكاملة", text: "اسم اختاره العميل، ثم شعار ونظام هوية وتطبيقات عربية وإنجليزية.", href: "/work/bithan", visual: "bithan" },
 ];
 
 export default function Home() {
@@ -113,10 +113,16 @@ export default function Home() {
       </section>
 
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
-        <div className="home-work-head"><div><span className="section-label">أعمال مختارة</span><h2 id="home-work-title">لا نعرض الشكل فقط.<br/><em>نعرض القرار خلفه.</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
+        <div className="home-work-head"><div><span className="section-label">أعمال مختارة</span><h2 id="home-work-title">الثقة تبدأ عندما ترى<br/><em>ما حدث داخل المشروع.</em></h2><p>مشروعان منفذان، من التحدي الأول إلى القرار والحل. اختر الأقرب لاحتياجك وتعرّف على التفاصيل.</p></div><Link href="/work">شاهد كل الأعمال <span>←</span></Link></div>
         <div className="home-work-grid">
-          {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><small>{item.n}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
+          {selectedWork.map((item) => <Link className={`home-work-card home-work-card-${item.visual}`} href={item.href} key={item.n}>
+            <div className={`home-work-visual home-work-visual-${item.visual}`} aria-hidden="true">
+              {item.visual === "bithan" ? <img src="/work/bithan-bilingual-lockup.svg" alt="" loading="lazy" decoding="async" /> : <div className="home-work-journey"><span>استفسار</span><i/><span>تأهيل</span><i/><span>حجز ومتابعة</span></div>}
+            </div>
+            <div className="home-work-card-copy"><small>{item.n} / {item.category}</small><h3>{item.title}</h3><p>{item.text}</p><span>اقرأ دراسة الحالة <b aria-hidden="true">↗</b></span></div>
+          </Link>)}
         </div>
+        <Link className="home-work-concepts-link" href="/work#concept-work">وشاهد أيضًا كيف نبني القرارات الاستراتيجية قبل التنفيذ <span aria-hidden="true">←</span></Link>
       </section>
 
       <div className="work-section shell home-trust-section"><HomeTestimonials /></div>
