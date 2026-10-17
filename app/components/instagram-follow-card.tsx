@@ -19,16 +19,19 @@ function InstagramIcon() {
 }
 
 function usesOffersRail(pathname: string) {
-  return pathname === "/" || pathname === "/services" || pathname === "/digital-marketing";
+  return pathname === "/" || pathname === "/services" || pathname === "/digital-marketing" || pathname === "/en" || pathname === "/en/services" || pathname === "/en/digital-marketing" || pathname === "/en/brand-naming";
 }
 
 function offerLabel(pathname: string) {
+  if (pathname === "/en") return "Explore current offers";
+  if (pathname.startsWith("/en/")) return "See the right offer for you";
   if (pathname === "/") return "اكتشف العروض الحالية";
   return "شوف العروض المناسبة لك";
 }
 
 export default function InstagramFollowCard() {
   const pathname = usePathname();
+  const isEnglish = pathname === "/en" || pathname.startsWith("/en/");
   const [instagramVisible, setInstagramVisible] = useState(false);
   const [offersVisible, setOffersVisible] = useState(false);
   // A route change hides both popups. The reset runs during render, so the effect does not call setState synchronously.
@@ -90,11 +93,11 @@ export default function InstagramFollowCard() {
   return (
     <>
       {offersVisible && (
-        <div className="mobile-offers-rail-wrap">
-          <Link className="mobile-offers-rail" href="/offers">
-            <span>العروض</span>
+        <div className={`mobile-offers-rail-wrap${isEnglish ? " mobile-offers-rail-wrap--en" : ""}`} dir={isEnglish ? "ltr" : "rtl"}>
+          <Link className="mobile-offers-rail" href={isEnglish ? "/en/offers" : "/offers"}>
+            <span>{isEnglish ? "Offers" : "العروض"}</span>
             <strong>{offerLabel(pathname)}</strong>
-            <b aria-hidden="true">←</b>
+            <b aria-hidden="true">{isEnglish ? "→" : "←"}</b>
           </Link>
         </div>
       )}
