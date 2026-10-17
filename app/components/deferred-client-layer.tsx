@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 const SitewideWhatsAppBridge = dynamic(() => import("./sitewide-whatsapp-bridge"), { ssr: false });
 const InstagramFollowCard = dynamic(() => import("./instagram-follow-card"), { ssr: false });
+const HideMobileFeedbackNote = dynamic(() => import("./hide-mobile-feedback-note"), { ssr: false });
 
 export default function DeferredClientLayer() {
   const [ready, setReady] = useState(false);
@@ -37,6 +38,7 @@ export default function DeferredClientLayer() {
     <>
       <SitewideWhatsAppBridge />
       <InstagramFollowCard />
+      <HideMobileFeedbackNote />
     </>
   );
 }
