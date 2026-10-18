@@ -1,0 +1,192 @@
+/* Real work takes the visual lead on the Arabic homepage. */
+.home-conversion-page .home-work-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 32px;
+}
+
+.home-conversion-page .home-work-head > div { max-width: 790px; }
+.home-conversion-page .home-work-head p {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: #555b66;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.home-conversion-page .home-work-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.home-conversion-page .home-work-card,
+.home-conversion-page .home-work-card:last-child {
+  grid-column: auto;
+  min-height: 540px;
+  padding: 0;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 14px 42px rgba(20, 22, 26, .045);
+}
+
+.home-conversion-page .home-work-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 52px rgba(20, 22, 26, .10);
+}
+
+.home-conversion-page .home-work-card:focus-visible,
+.home-conversion-page .home-work-concepts-link:focus-visible {
+  outline: 3px solid #3155ff;
+  outline-offset: 4px;
+}
+
+.home-work-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 270px;
+  overflow: hidden;
+}
+
+.home-work-visual-bithan { background: linear-gradient(140deg, #f9fbff, #e7f0fa); }
+.home-work-visual-bithan img {
+  display: block;
+  width: min(72%, 380px);
+  height: 88%;
+  object-fit: contain;
+}
+
+.home-work-visual-journey {
+  background: radial-gradient(circle at 52% 42%, #263f70 0, #15243d 45%, #0c1425 100%);
+  color: #fff;
+  isolation: isolate;
+}
+
+.home-work-visual-journey::before {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 20px;
+}
+
+.home-work-journey {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.4vw, 18px);
+  width: calc(100% - 64px);
+  z-index: 1;
+}
+
+.home-work-journey span {
+  display: grid;
+  place-items: center;
+  min-width: 92px;
+  min-height: 68px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, .32);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .08);
+  font-size: 14px;
+  font-weight: 800;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.home-work-journey span:last-child {
+  border-color: #b8d3ff;
+  background: #edf4ff;
+  color: #15243d;
+}
+
+.home-work-journey i {
+  flex: 1 1 20px;
+  max-width: 55px;
+  height: 1px;
+  background: rgba(255, 255, 255, .55);
+}
+
+.home-work-card-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 28px 30px 30px;
+}
+
+.home-conversion-page .home-work-card-copy small {
+  color: #4d5b72;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.home-conversion-page .home-work-card-copy h3 {
+  margin: 20px 0 10px;
+  font-size: clamp(24px, 2vw, 30px);
+  line-height: 1.45;
+}
+
+.home-conversion-page .home-work-card-copy p {
+  margin: 0 0 22px;
+  color: #555b66;
+  font-size: 14px;
+  line-height: 1.85;
+  opacity: 1;
+}
+
+.home-work-card-copy > span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(20, 22, 26, .12);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.home-work-card-copy > span b { font-size: 18px; font-weight: 500; }
+.home-work-concepts-link {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 24px;
+  color: #28384f;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 900px) {
+  .home-conversion-page .home-work-head { grid-template-columns: 1fr; gap: 20px; }
+  .home-conversion-page .home-work-grid { grid-template-columns: 1fr; }
+  .home-conversion-page .home-work-card,
+  .home-conversion-page .home-work-card:last-child { min-height: 0; }
+}
+
+@media (max-width: 640px) {
+  .home-conversion-page .home-work-head p { font-size: 14px; }
+  .home-work-visual { height: 205px; }
+  .home-work-visual-journey::before { inset: 14px; }
+  .home-work-journey { width: calc(100% - 36px); gap: 6px; }
+  .home-work-journey span {
+    min-width: 0;
+    min-height: 58px;
+    padding: 8px 9px;
+    font-size: 11px;
+  }
+  .home-work-journey i { flex-basis: 10px; }
+  .home-work-card-copy { padding: 22px; }
+  .home-conversion-page .home-work-card-copy h3 { font-size: 23px; }
+  .home-work-concepts-link { align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-conversion-page .home-work-card { transition: none; }
+}
