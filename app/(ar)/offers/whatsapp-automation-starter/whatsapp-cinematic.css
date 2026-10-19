@@ -1,0 +1,218 @@
+/* Dewank / WhatsApp Starter Cinematic V1.
+   No external assets, runtime libraries, analytics or pricing changes.
+   Opt-in scope: .wa-cinema-page, shared across Arabic and English. */
+
+.wa-cinema-page{--wa-cinema-night:#041722;--wa-cinema-deep:#092635;--wa-cinema-green:#75f0bd;--wa-cinema-gold:#e2bb6e;--wa-cinema-cream:#f4f7f2}
+.wa-cinema-page .wa-cinema-hero{position:relative;isolation:isolate;overflow:hidden;align-items:center;gap:clamp(24px,4vw,60px);margin-top:clamp(18px,3vw,40px);margin-bottom:clamp(90px,11vw,155px);padding:clamp(30px,5.4vw,72px);border:1px solid rgba(117,240,189,.23);border-radius:clamp(24px,3vw,42px);background:radial-gradient(circle at 9% 94%,rgba(28,126,120,.21),transparent 40%),radial-gradient(circle at 90% 5%,rgba(213,168,67,.13),transparent 34%),linear-gradient(140deg,#072332 0%,#041521 75%);box-shadow:0 35px 75px rgba(2,22,31,.19);grid-template-columns:minmax(0,1.14fr) minmax(0,.86fr)}
+.wa-cinema-page .wa-cinema-hero::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.23;pointer-events:none;background-image:linear-gradient(rgba(117,240,189,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(117,240,189,.12) 1px,transparent 1px);background-size:47px 47px;mask-image:linear-gradient(90deg,transparent,#000 70%)}
+.wa-cinema-page .wa-cinema-hero>div:first-child{min-width:0}
+.wa-cinema-page .wa-cinema-hero h1{font-size:clamp(39px,4.2vw,66px);line-height:1.25;color:#f2f7f4;letter-spacing:-.035em}
+.wa-cinema-page .wa-cinema-hero h1 em{color:var(--wa-cinema-green);line-height:1.28}
+.wa-cinema-page .wa-cinema-hero>div:first-child>p{max-width:670px;color:#c9d7d3;font-size:clamp(15px,1.3vw,18px);line-height:1.8}
+.wa-cinema-page .wa-cinema-hero .whatsapp-starter-answer{max-width:610px;background:rgba(255,255,255,.06);border-color:rgba(117,240,189,.19)}
+.wa-cinema-page .wa-cinema-hero .whatsapp-starter-answer b{color:#aaf6d2}
+.wa-cinema-page .wa-cinema-hero .whatsapp-starter-answer span{color:#e3e8e3}
+.wa-cinema-page .wa-cinema-hero .whatsapp-starter-price-panel{z-index:1;background:rgba(5,21,30,.93);border-color:rgba(226,187,110,.65);box-shadow:0 25px 70px rgba(0,0,0,.27),0 0 0 6px rgba(226,187,110,.04);backdrop-filter:blur(5px)}
+.wa-cinema-page .wa-cinema-hero .button.primary{position:relative;z-index:2;box-shadow:0 0 0 4px rgba(226,187,110,.06)}
+.wa-cinema-hero-art{position:relative;isolation:isolate;height:clamp(232px,27vw,338px);margin-top:22px;border-radius:25px;border:1px solid rgba(117,240,189,.22);background:radial-gradient(ellipse at 53% 52%,rgba(56,182,154,.16),transparent 54%),rgba(3,17,25,.48);overflow:hidden}
+.wa-cinema-hero-grid{position:absolute;inset:0;background-image:radial-gradient(rgba(115,240,189,.18) 1px,transparent 1px);background-size:17px 17px;mask-image:radial-gradient(ellipse,#000 20%,transparent 72%)}
+.wa-cinema-orbit{position:absolute;left:50%;top:49%;width:240px;height:240px;border:1px solid rgba(117,240,189,.15);border-radius:50%;transform:translate(-50%,-50%) rotate(-20deg) scaleX(1.5)}
+.wa-cinema-orbit-b{width:360px;height:360px;border-color:rgba(226,187,110,.12);transform:translate(-50%,-50%) rotate(29deg) scaleX(1.1)}
+.wa-cinema-floating{position:absolute;top:50%;display:flex;flex-direction:column;justify-content:center;gap:6px;width:clamp(150px,35%,236px);min-height:95px;padding:14px;border:1px solid rgba(255,255,255,.2);border-radius:17px;background:rgba(12,48,60,.92);box-shadow:0 19px 48px rgba(0,0,0,.3);transform:translateY(-50%);color:#ebfff7}
+.wa-cinema-floating>span:not(.wa-cinema-mini-dot){color:#a9cfc7;font-size:11px}
+.wa-cinema-floating b{font-size:clamp(12px,1.2vw,15px);line-height:1.5;white-space:normal}
+.wa-cinema-incoming{inset-inline-start:5%;rotate:-5deg}
+.wa-cinema-resolved{inset-inline-end:5%;rotate:4deg;border-color:rgba(117,240,189,.52);background:rgba(13,65,58,.94)}
+.wa-cinema-mini-dot{position:absolute;top:14px;inset-inline-end:13px;width:7px;height:7px;border-radius:50%;background:#76f2bd;box-shadow:0 0 0 5px rgba(117,240,189,.12)}
+.wa-cinema-routing{position:absolute;left:50%;top:50%;display:grid;place-items:center;width:74px;height:74px;border:1px solid rgba(117,240,189,.55);border-radius:50%;background:#092e33;color:#90ffce;box-shadow:0 0 0 15px rgba(117,240,189,.045),0 0 50px rgba(117,240,189,.16);transform:translate(-50%,-50%);font-size:15px}
+.wa-cinema-routing span:first-child{position:absolute;top:7px;left:10px}
+.wa-cinema-routing span:nth-child(2){font-size:30px}
+.wa-cinema-routing span:last-child{position:absolute;bottom:7px;right:10px}
+.wa-cinema-hero-caption{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#bde1d5;font-size:11px;letter-spacing:.01em}
+.wa-cinema-caption-light,.wa-cinema-live{display:inline-block;flex:none;width:7px;height:7px;margin-inline-end:7px;border-radius:50%;background:#78edb7;box-shadow:0 0 0 4px rgba(117,240,189,.1)}
+.wa-cinema-journey{position:relative;padding-bottom:clamp(105px,12vw,170px)}
+.wa-cinema-section-head{max-width:840px;margin-bottom:clamp(28px,4vw,45px)}
+.wa-cinema-eyebrow{display:inline-flex;align-items:center;gap:10px;color:#26725c;font-weight:800;font-size:12px;letter-spacing:.04em}
+.wa-cinema-section-head h2{font-size:clamp(38px,5.6vw,76px);line-height:1.17;margin:20px 0;color:#061c30;letter-spacing:-.035em}
+.wa-cinema-section-head h2 em{font-style:normal;color:#31856a}
+.wa-cinema-section-head p{max-width:740px;color:var(--muted);font-size:clamp(15px,1.35vw,18px);line-height:1.9}
+.wa-cinema-industry{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:23px}
+.wa-cinema-industry button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:11px 18px;border:1px solid #c5d8d2;border-radius:999px;background:#fbfcf9;color:#193f3e;font:700 13px/1.5 inherit;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.wa-cinema-industry button span{font-size:19px}
+.wa-cinema-industry button[aria-pressed=true]{background:#0b3640;border-color:#0b3640;color:#fff;box-shadow:0 10px 25px rgba(10,52,56,.16)}
+.wa-cinema-page button:focus-visible{outline:3px solid #c19747;outline-offset:3px}
+.wa-cinema-stepper{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 15px}
+.wa-cinema-stepper button{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0;min-height:106px;padding:15px 16px;border:1px solid rgba(94,136,136,.24);border-radius:16px 16px 6px 6px;background:#f6f8f4;text-align:start;cursor:pointer;color:#516460;font:inherit;transition:background .2s,transform .2s,border-color .2s}
+.wa-cinema-stepper button b{font-size:10px;letter-spacing:.16em;color:#77958c}
+.wa-cinema-stepper button span{font-size:14px;font-weight:850;color:#243c40}
+.wa-cinema-stepper button small{font-size:11px;line-height:1.45;color:#536961}
+.wa-cinema-stepper button.is-passed{border-color:rgba(45,120,90,.4)}
+.wa-cinema-stepper button[aria-current=step]{background:#0c3540;border-color:#0c3540;box-shadow:0 11px 20px rgba(7,37,46,.14)}
+.wa-cinema-stepper button[aria-current=step] :is(b,span,small){color:#ecfff4}
+.wa-cinema-console{position:relative;isolation:isolate;overflow:hidden;border-radius:clamp(22px,3.2vw,36px);border:1px solid rgba(117,240,189,.32);background:radial-gradient(circle at 85% 28%,rgba(47,165,134,.13),transparent 43%),linear-gradient(135deg,#061d2b,#081922);box-shadow:0 32px 70px rgba(2,28,38,.2);color:#edf8f1}
+.wa-cinema-console::before{position:absolute;inset:0;content:"";z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(117,240,189,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(117,240,189,.035) 1px,transparent 1px);background-size:30px 30px}
+.wa-cinema-console-top,.wa-cinema-console-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:65px;padding:16px clamp(18px,3vw,34px);font-size:11px;letter-spacing:.03em;color:#a7c9c0}
+.wa-cinema-console-top{border-bottom:1px solid rgba(255,255,255,.09)}
+.wa-cinema-console-top>span:first-child{display:inline-flex;align-items:center;gap:5px;font-weight:800;color:#d8f8e8;letter-spacing:.12em}
+.wa-cinema-console-grid{display:grid;grid-template-columns:minmax(0,1.06fr) 70px minmax(0,.88fr);gap:12px;align-items:center;padding:clamp(16px,3vw,35px)}
+.wa-cinema-chat,.wa-cinema-lead{min-width:0;min-height:410px;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:24px;background:#f8faf7;color:#17313c;box-shadow:0 22px 55px rgba(0,0,0,.22)}
+.wa-cinema-chat{display:flex;flex-direction:column}
+.wa-cinema-chat-head{display:flex;align-items:center;gap:12px;min-height:72px;padding:12px 17px;background:#114137;color:#f5fff8}
+.wa-cinema-chat-avatar{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#b0f2cb,#51a98d);font-size:25px;color:#0e473a}
+.wa-cinema-chat-head>div:nth-child(2){display:flex;flex-direction:column;gap:2px}
+.wa-cinema-chat-head strong{font-size:13px}
+.wa-cinema-chat-head small{font-size:10px;color:#cde7d9}
+.wa-cinema-chat-head>span{margin-inline-start:auto;letter-spacing:.3em;opacity:.65}
+.wa-cinema-chat-body{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-height:290px;padding:22px;background:radial-gradient(circle at 20% 20%,rgba(98,196,145,.13),transparent 32%),#e9f0e9}
+.wa-cinema-chat-day{align-self:center;padding:5px 13px;border-radius:30px;background:#d3e4da;color:#49645a;font-size:10px}
+.wa-cinema-bubble{max-width:84%;padding:11px 14px;border-radius:15px;background:#fff;box-shadow:0 3px 10px rgba(0,0,0,.04);font-size:13px;line-height:1.65}
+.wa-cinema-bubble.is-customer{align-self:flex-end;border-end-end-radius:4px;background:#d0f9d6}
+.wa-cinema-bubble.is-system{border-start-start-radius:4px}
+.wa-cinema-bot-tag{display:block;margin-bottom:4px;font-size:10px;font-weight:800;color:#298368}
+.wa-cinema-bubble.is-choice{background:#ecf9f0;border:1px solid #85cda4;color:#144d3e}
+.wa-cinema-bubble.is-handover{background:#e1ecf3;color:#204b64}
+.wa-cinema-chat-compose{display:flex;justify-content:space-between;align-items:center;min-height:50px;padding:10px 19px;background:#fff;color:#a2b3ad;font-size:12px}
+.wa-cinema-chat-compose b{display:grid;place-items:center;width:29px;height:29px;border-radius:50%;background:#177a59;color:#fff}
+.wa-cinema-transfer{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;color:#92fbc6;text-align:center}
+.wa-cinema-transfer>span:nth-child(2){display:grid;place-items:center;width:56px;height:56px;border:1px solid rgba(117,240,189,.45);border-radius:50%;background:#0c3d39;box-shadow:0 0 0 12px rgba(117,240,189,.045);font-size:26px}
+.wa-cinema-transfer small{font-size:9px;letter-spacing:.16em;color:#b4dace}
+.wa-cinema-transfer-pulse{position:absolute;top:15px;left:50%;width:25px;height:25px;border:1px solid #75f0bd;border-radius:50%;transform:translateX(-50%);opacity:0}
+.wa-cinema-lead{display:flex;flex-direction:column;padding:clamp(18px,2.5vw,30px);background:linear-gradient(145deg,#fafff8,#e7f0e8)}
+.wa-cinema-lead-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;border-bottom:1px solid #cdd9d2;padding-bottom:18px;color:#3e6862;font-size:11px;font-weight:800}
+.wa-cinema-lead-top span:last-child{font-size:9px;color:#73928a}
+.wa-cinema-lead-icon{display:grid;place-items:center;width:48px;height:48px;margin-top:19px;border-radius:15px;background:#0d5244;color:#91f5bf;font-size:31px}
+.wa-cinema-lead h3{margin:18px 0 21px;min-height:48px;font-size:clamp(20px,2vw,28px);line-height:1.3;color:#0d302e}
+.wa-cinema-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #dbe5dc;font-size:11px;color:#647d73}
+.wa-cinema-meta strong{color:#1b4b40;text-align:end;font-size:12px}
+.wa-cinema-meta strong.wa-cinema-status-ready{color:#15804b}
+.wa-cinema-lead-progress{width:100%;height:6px;margin-top:24px;overflow:hidden;border-radius:99px;background:#d2e1d7}
+.wa-cinema-lead-progress span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#135c4d,#61cd91);transition:width .36s ease}
+.wa-cinema-lead p{margin:13px 0 0;color:#627a70;font-size:10px;line-height:1.55}
+.wa-cinema-console-bottom{border-top:1px solid rgba(255,255,255,.1)}
+.wa-cinema-console-bottom>div{display:flex;align-items:center;gap:13px;color:#f1faf1;font-weight:800}
+.wa-cinema-console-bottom button{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(117,240,189,.35);border-radius:50%;background:#123c3c;color:#d1ffe9;font-size:20px;cursor:pointer}
+.wa-cinema-contrast{padding-bottom:clamp(92px,12vw,160px)}
+.wa-cinema-contrast-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.wa-cinema-contrast-grid article{display:flex;flex-direction:column;min-width:0;min-height:410px;padding:clamp(23px,3vw,39px);border-radius:30px;overflow:hidden}
+.wa-cinema-before{background:#e9e4df;border:1px solid #d4c4bc}
+.wa-cinema-after{background:linear-gradient(140deg,#0a3136,#061d2d);border:1px solid #165d51;color:#f3fff7}
+.wa-cinema-contrast-label{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.05em}
+.wa-cinema-contrast-label b{display:grid;place-items:center;width:33px;height:33px;border:1px solid currentColor;border-radius:50%;font-size:17px}
+.wa-cinema-before .wa-cinema-contrast-label{color:#8b5d50}
+.wa-cinema-after .wa-cinema-contrast-label{color:#9cf9c6}
+.wa-cinema-scatter,.wa-cinema-ordered{position:relative;flex:1;min-height:210px;margin-block:18px}
+.wa-cinema-scatter span{position:absolute;display:block;max-width:54%;padding:12px 15px;border:1px solid #cebfb7;border-radius:15px;background:#fffdfb;box-shadow:0 12px 23px rgba(71,50,39,.08);color:#695049;font-size:clamp(11px,1.3vw,15px)}
+.wa-cinema-scatter span:nth-child(1){top:10%;inset-inline-start:3%;transform:rotate(-9deg)}
+.wa-cinema-scatter span:nth-child(2){top:24%;inset-inline-end:0;transform:rotate(8deg)}
+.wa-cinema-scatter span:nth-child(3){bottom:10%;inset-inline-start:14%;transform:rotate(6deg)}
+.wa-cinema-scatter span:nth-child(4){bottom:20%;inset-inline-end:5%;transform:rotate(-6deg)}
+.wa-cinema-ordered{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:10px}
+.wa-cinema-ordered span{display:flex;align-items:center;gap:12px;min-height:65px;padding:13px;border:1px solid rgba(117,240,189,.2);border-radius:15px;background:rgba(117,240,189,.075);color:#ecfff4;font-weight:750;font-size:13px}
+.wa-cinema-ordered i{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:#a8f5c9;color:#124438;font-size:9px;font-style:normal}
+.wa-cinema-contrast-grid h3{font-size:clamp(24px,2.5vw,35px);line-height:1.2;margin:14px 0 9px}
+.wa-cinema-contrast-grid p{font-size:14px;line-height:1.8;margin:0;max-width:55ch}
+.wa-cinema-before p{color:#6b5751}
+.wa-cinema-after p{color:#c2ded1}
+.wa-cinema-scope-note{margin:16px 0 0;color:#586b65;line-height:1.65;font-size:12px}
+.wa-cinema-page .whatsapp-starter-process-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.wa-cinema-page .whatsapp-starter-process-grid article{position:relative;overflow:hidden;border-top:3px solid #429477;background:linear-gradient(165deg,#f9fcf8,#ebf2e9);transition:transform .25s,box-shadow .25s}
+.wa-cinema-page .whatsapp-starter-process-grid article b{font-size:27px;color:#2b7965}
+.wa-cinema-page .whatsapp-starter-deliverables .deliverable-item{border-inline-start:4px solid #69b998;transition:background .25s,transform .25s}
+.wa-cinema-page .whatsapp-starter-fit .offer-fit-card{box-shadow:0 20px 40px rgba(7,34,41,.06)}
+.wa-cinema-page .wa-cinema-final{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(66px,10vw,128px);background:radial-gradient(circle at 15% 22%,rgba(117,240,189,.16),transparent 30%),radial-gradient(circle at 85% 88%,rgba(213,168,67,.2),transparent 28%),linear-gradient(130deg,#052b35,#051521 70%);border:1px solid rgba(117,240,189,.35)}
+.wa-cinema-page .wa-cinema-final::before{content:"";position:absolute;z-index:-1;left:50%;top:52%;width:min(80vw,790px);height:min(80vw,790px);border:1px solid rgba(117,240,189,.1);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 65px rgba(117,240,189,.025),0 0 0 140px rgba(117,240,189,.019)}
+.wa-cinema-page .wa-cinema-final h2{position:relative;font-size:clamp(38px,6vw,77px);max-width:850px;margin-inline:auto;color:#f7fbf6}
+.wa-cinema-page .wa-cinema-final p{position:relative;margin-inline:auto;max-width:710px;font-size:16px;line-height:1.8;color:#d6e4dc}
+.wa-cinema-page .wa-cinema-final .button{position:relative;min-height:54px;min-width:min(100%,280px);box-shadow:0 0 0 8px rgba(226,187,110,.06),0 17px 46px rgba(0,0,0,.2)}
+@media (prefers-reduced-motion:no-preference){
+ .wa-cinema-hero-art .wa-cinema-orbit{animation:wa-cinema-orbit 22s linear infinite}
+ .wa-cinema-hero-art .wa-cinema-orbit-b{animation:wa-cinema-orbit-b 29s linear infinite}
+ .wa-cinema-incoming{animation:wa-cinema-float 4.6s ease-in-out infinite}
+ .wa-cinema-resolved{animation:wa-cinema-float 4.6s ease-in-out -2.3s infinite}
+ .wa-cinema-routing{animation:wa-cinema-glow 3.2s ease-in-out infinite alternate}
+ .wa-cinema-transfer-pulse{animation:wa-cinema-pulse 2.2s ease-out infinite}
+ .wa-cinema-chat-body>.wa-cinema-bubble{animation:wa-cinema-enter .45s cubic-bezier(.15,.85,.25,1) both}
+ .wa-cinema-chat-body>.wa-cinema-bubble:nth-child(3){animation-delay:.08s}
+ .wa-cinema-chat-body>.wa-cinema-bubble:nth-child(4){animation-delay:.16s}
+ .wa-cinema-chat-body>.wa-cinema-bubble:nth-child(5){animation-delay:.24s}
+ .wa-cinema-chat-body>.wa-cinema-bubble:nth-child(6){animation-delay:.32s}
+ .wa-cinema-lead{animation:wa-cinema-enter .45s ease-out both}
+ .wa-cinema-scatter span{animation:wa-cinema-jitter 5s ease-in-out infinite alternate}
+ .wa-cinema-scatter span:nth-child(2){animation-delay:-1s}
+ .wa-cinema-scatter span:nth-child(3){animation-delay:-2s}
+ .wa-cinema-scatter span:nth-child(4){animation-delay:-3s}
+ .wa-cinema-ordered span{transition:transform .25s,border-color .25s}
+ .wa-cinema-ordered span:hover{transform:translateY(-5px);border-color:#8fefba}
+ .wa-cinema-page .whatsapp-starter-process-grid article:hover,.wa-cinema-page .whatsapp-starter-deliverables .deliverable-item:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(7,45,39,.1)}
+ .wa-cinema-industry button:hover{transform:translateY(-2px)}
+ .wa-cinema-stepper button:hover{transform:translateY(-3px)}
+}
+@keyframes wa-cinema-orbit{from{transform:translate(-50%,-50%) rotate(-20deg) scaleX(1.5)}to{transform:translate(-50%,-50%) rotate(340deg) scaleX(1.5)}}
+@keyframes wa-cinema-orbit-b{from{transform:translate(-50%,-50%) rotate(29deg) scaleX(1.1)}to{transform:translate(-50%,-50%) rotate(-331deg) scaleX(1.1)}}
+@keyframes wa-cinema-float{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes wa-cinema-glow{from{box-shadow:0 0 0 10px rgba(117,240,189,.025),0 0 28px rgba(117,240,189,.1)}to{box-shadow:0 0 0 19px rgba(117,240,189,.065),0 0 57px rgba(117,240,189,.3)}}
+@keyframes wa-cinema-pulse{0%{opacity:.7;transform:translateX(-50%) scale(.5)}100%{opacity:0;transform:translateX(-50%) scale(3)}}
+@keyframes wa-cinema-enter{from{opacity:.2;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes wa-cinema-jitter{from{translate:0 0}to{translate:6px -7px}}
+@media (max-width:1040px){
+ .wa-cinema-console-grid{grid-template-columns:minmax(0,1fr) 50px minmax(0,1fr);gap:5px}
+ .wa-cinema-transfer>span:nth-child(2){width:43px;height:43px}
+ .wa-cinema-hero-art{height:255px}
+ .wa-cinema-floating{width:40%;padding:12px}
+}
+@media (max-width:860px){
+ .wa-cinema-page .wa-cinema-hero{grid-template-columns:minmax(0,1fr);gap:26px}
+ .wa-cinema-page .wa-cinema-hero h1{font-size:clamp(39px,6.7vw,64px)}
+ .wa-cinema-hero-art{max-width:690px}
+ .wa-cinema-page .wa-cinema-hero .whatsapp-starter-price-panel{max-width:100%;width:100%}
+ .wa-cinema-page .whatsapp-starter-process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:700px){
+ .wa-cinema-stepper{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+ .wa-cinema-stepper button{min-height:84px;align-items:center;padding:11px 5px;text-align:center;border-radius:12px}
+ .wa-cinema-stepper button span{font-size:11px}
+ .wa-cinema-stepper button small{display:none}
+ .wa-cinema-console-grid{display:flex;flex-direction:column;gap:18px}
+ .wa-cinema-chat,.wa-cinema-lead{width:100%;min-height:0}
+ .wa-cinema-chat-body{min-height:260px}
+ .wa-cinema-lead{min-height:320px}
+ .wa-cinema-transfer{transform:rotate(90deg);margin:2px auto}
+ .wa-cinema-transfer small{display:none}
+ .wa-cinema-contrast-grid{grid-template-columns:1fr}
+ .wa-cinema-contrast-grid article{min-height:390px}
+ .wa-cinema-ordered{min-height:200px}
+}
+@media (max-width:620px){
+ .wa-cinema-page .wa-cinema-hero{margin-top:12px;border-radius:24px;padding:24px 19px 32px;margin-bottom:90px}
+ .wa-cinema-page .wa-cinema-hero h1{font-size:clamp(34px,9.2vw,49px);line-height:1.28}
+ .wa-cinema-page .wa-cinema-hero h1 em{line-height:1.35}
+ .wa-cinema-page .wa-cinema-hero .whatsapp-starter-answer{padding:13px}
+ .wa-cinema-hero-art{height:225px;margin-top:17px}
+ .wa-cinema-floating{width:42%;min-height:82px;padding:10px}
+ .wa-cinema-floating b{font-size:11px}
+ .wa-cinema-incoming{inset-inline-start:3%}
+ .wa-cinema-resolved{inset-inline-end:3%}
+ .wa-cinema-routing{width:48px;height:48px;font-size:11px}
+ .wa-cinema-routing span:nth-child(2){font-size:22px}
+ .wa-cinema-routing span:first-child{top:1px;left:5px}
+ .wa-cinema-routing span:last-child{bottom:1px;right:5px}
+ .wa-cinema-hero-caption{font-size:9px;bottom:10px}
+ .wa-cinema-journey{padding-bottom:100px}
+ .wa-cinema-section-head h2{font-size:clamp(34px,10vw,53px)}
+ .wa-cinema-industry{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .wa-cinema-industry button{padding:11px 7px;font-size:12px}
+ .wa-cinema-console-top,.wa-cinema-console-bottom{padding:13px 16px;min-height:58px}
+ .wa-cinema-console-top>span:last-child{max-width:115px;text-align:end;font-size:9px}
+ .wa-cinema-console-grid{padding:13px}
+ .wa-cinema-chat-body{padding:15px}
+ .wa-cinema-bubble{font-size:12px}
+ .wa-cinema-contrast-grid article{padding:23px}
+ .wa-cinema-scatter{min-height:185px}
+ .wa-cinema-page .whatsapp-starter-process-grid{grid-template-columns:1fr}
+ .wa-cinema-page .wa-cinema-final{border-radius:23px}
+ .wa-cinema-page .wa-cinema-final h2{font-size:clamp(33px,9vw,51px)}
+}
+@media (prefers-reduced-motion:reduce){
+ .wa-cinema-page :is(*,*::before,*::after){animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ .wa-cinema-chat-body>.wa-cinema-bubble,.wa-cinema-lead{opacity:1;transform:none}
+}
