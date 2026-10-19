@@ -62,7 +62,6 @@ const copy = {
     story: "قصة الاتجاه",
     palette: "لوحة الألوان المقترحة",
     sample: "مثال تطبيقي",
-    illustrative: "الأسماء واللوحات والأمثلة هنا افتراضية وغير مفحوصة. الباقة تشمل توجهًا أوليًا للعلامة؛ تصميم الشعار والهوية البصرية الكاملة خدمة منفصلة.",
   },
   en: {
     eyebrow: "FROM IDEAS TO IDENTITY · ILLUSTRATIVE DEMO",
@@ -76,7 +75,6 @@ const copy = {
     story: "Direction story",
     palette: "Suggested colour palette",
     sample: "Sample application",
-    illustrative: "These names, palettes and examples are fictional and have not been screened. The package includes an initial brand direction; logo and full visual identity design are separate services.",
   },
 } as const;
 
@@ -173,7 +171,6 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
           </div>
         )}
       </div>
-      <p className="name-identity-disclaimer">{words.illustrative}</p>
     </div>
   );
 }

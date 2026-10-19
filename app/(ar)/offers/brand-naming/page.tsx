@@ -102,7 +102,7 @@ export default function BrandNamingOfferPage() {
 
       <section className="shell brand-naming-case" aria-labelledby="brand-naming-case-title">
         <div>
-          <span className="section-label">[ مشروع تسمية فعلي ]</span>
+
           <h2 id="brand-naming-case-title">BITHAN: علامة مجوهرات راقية في قطر.</h2>
           <p>اختار العميل اسم BITHAN بعد موجز استراتيجي وقائمة مختصرة وجولة تطوير وفحص مبدئي للدومين والتشابه، وهو فحص ليس تصريحًا قانونيًا. والهوية البصرية التي تلت الاسم خارج نطاق هذه الباقة.</p>
         </div>
@@ -116,7 +116,7 @@ export default function BrandNamingOfferPage() {
 
       <section className="shell brand-naming-proof">
         <div className="brand-naming-proof-copy">
-          <span className="section-label">[ كيف نقرر؟ ]</span>
+
           <h2>الاسم الجيد يمر عبر أكثر من ذوق.</h2>
           <p>نقارن الخيارات وفق التميز، سهولة النطق، قابلية التذكر، ملاءمة السوق، المرونة المستقبلية، والتوفر الرقمي. الهدف ليس اسمًا يعجبنا فقط، بل اسمًا يمكن بناء علامة حوله.</p>
         </div>
@@ -124,12 +124,12 @@ export default function BrandNamingOfferPage() {
       </section>
 
       <section className="shell offer-deliverables brand-naming-deliverables">
-        <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>من الفكرة.<br/>إلى قرار يمكنك الدفاع عنه.</h2><p>كل عنصر مصمم لتقليل التخمين قبل أن تبدأ في الشعار والهوية والإطلاق.</p></div>
+        <div><h2>من الفكرة.<br/>إلى قرار يمكنك الدفاع عنه.</h2><p>كل عنصر مصمم لتقليل التخمين قبل أن تبدأ في الشعار والهوية والإطلاق.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell brand-naming-process">
-        <div className="brand-naming-process-head"><span className="section-label">[ 3 خطوات ]</span><h2>ملخص صغير. بحث عميق. قرار واضح.</h2></div>
+        <div className="brand-naming-process-head"><h2>ملخص صغير. بحث عميق. قرار واضح.</h2></div>
         <div className="brand-naming-process-grid">
           <article><b>01</b><h3>نفهم المشروع</h3><p>النشاط، السوق، الجمهور، المنافسون، طبيعة الاسم المطلوبة وطموح التوسع.</p></article>
           <article><b>02</b><h3>نبحث ونبني</h3><p>ننشئ اتجاهات تسمية مختلفة ثم نفلترها بالمعنى والنطق والتشابه والتوفر الرقمي.</p></article>
@@ -138,12 +138,12 @@ export default function BrandNamingOfferPage() {
       </section>
 
       <section className="shell offer-confidence brand-naming-confidence">
-        <div className="offer-confidence-head"><span className="section-label">[ حدود واضحة ]</span><h2>البحث يقلل المخاطر. لا يلغيها.</h2></div>
+        <div className="offer-confidence-head"><h2>البحث يقلل المخاطر. لا يلغيها.</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>الفحص القانوني الذي نقدمه مبدئي وليس رأيًا قانونيًا أو ضمان تسجيل.</span></article><article><b>02</b><span>توفر الدومين والحسابات يُراجع وقت البحث وقد يتغير قبل الحجز.</span></article><article><b>03</b><span>تصميم الشعار والهوية البصرية الكاملة خدمة منفصلة بعد اعتماد الاسم.</span></article></div>
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل رسوم الجهات الرسمية، تسجيل العلامة، شراء الدومين، تصميم الشعار أو الهوية الكاملة، أو بحثًا قانونيًا متخصصًا في عدة فئات وأسواق.</p></details>
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل ما تختار اسمك.</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><h2>قبل ما تختار اسمك.</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta brand-naming-final">
         <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
