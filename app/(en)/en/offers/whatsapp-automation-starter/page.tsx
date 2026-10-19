@@ -4,10 +4,12 @@ import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
+import { AutomationHeroArt, AutomationJourney, AutomationContrast } from "../../../../(ar)/offers/whatsapp-automation-starter/whatsapp-cinematic";
 // The Arabic WhatsApp automation starter offer's layout and styles, reused unchanged. English-only overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/whatsapp-automation-starter/whatsapp-starter.css";
+import "../../../../(ar)/offers/whatsapp-automation-starter/whatsapp-cinematic.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
@@ -73,27 +75,27 @@ export default function WhatsAppAutomationStarterOffer() {
   };
 
   return (
-    <main id="main-content" className="inner-page offers-page whatsapp-starter-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page whatsapp-starter-page wa-cinema-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-      <section className="shell offer-detail-hero whatsapp-starter-hero">
+      <section className="shell offer-detail-hero whatsapp-starter-hero wa-cinema-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> working days</span></div>
           <h1>WhatsApp automation for businesses.<br/><em>Start with the path that stops leads being lost.</em></h1>
           <p>We build a WhatsApp automation path that answers the basic questions, qualifies the customer, captures their details and follows up on the next step before passing them to the right person.</p>
           <div className="whatsapp-starter-answer" aria-label="The short answer"><b>The short answer</b><span>This is a foundation package, not a full CRM. It suits you if your main problems are slow replies, the same questions repeated, and customers lost before they reach the team.</span></div>
+          <AutomationHeroArt locale="en" />
         </div>
         <aside className="offer-price-panel whatsapp-starter-price-panel"><small>Foundation package from</small><OfferPrice offerKey="whatsapp-automation-starter" className="offer-price" /><div className="offer-trust-inline"><span>Reply and qualify</span><span>Handover to a person</span><span>7-day support</span></div><p>Includes setting up the basic path, testing and going live. WhatsApp fees, external tools and a full CRM are not included.</p><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start WhatsApp automation <span>→</span></a></aside>
       </section>
 
-      <section className="shell whatsapp-starter-proof">
-        <div className="whatsapp-starter-proof-copy"><span className="section-label">What changes?</span><h2>From “tell me more”.<br/>To a clearer lead for your team.</h2><p>Instead of waiting for a generic reply, the customer enters a short path that understands their need, gives the right information, captures their details, and decides whether they need automatic follow-up or a person.</p></div>
-        <div className="whatsapp-flow-card" aria-label="Simplified example of a WhatsApp path"><div className="whatsapp-flow-top"><span>Example WhatsApp path</span><small>Starter</small></div><div className="whatsapp-flow-steps"><article><b>01</b><div><strong>New enquiry</strong><span>Hello, I would like to know more</span></div></article><article><b>02</b><div><strong>Identify the need</strong><span>Which service are you interested in?</span></div></article><article><b>03</b><div><strong>Capture details</strong><span>Name · business · request</span></div></article><article><b>04</b><div><strong>Hand over to a person</strong><span>A qualified lead, ready for follow-up</span></div></article></div></div>
-      </section>
+      <AutomationJourney locale="en" />
 
       <section className="shell offer-deliverables whatsapp-starter-deliverables"><div><span className="section-label">What you receive</span><h2>A clear scope.<br/>No full CRM you do not need.</h2><p>We start with the essential path only, so it is quick to understand, easy to run and simple to develop later.</p></div><div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div></section>
 
       <section className="shell whatsapp-starter-fit"><div className="whatsapp-starter-fit-head"><span className="section-label">Is it right for you?</span><h2>Starter, or a full WhatsApp and CRM system?</h2></div><div className="offer-fit-grid"><article className="offer-fit-card good"><h3>Starter suits you if</h3><ul><li>You receive the same questions every day</li><li>Replies are delayed because the team is busy</li><li>You want to capture customer details before a person gets involved</li><li>You need a starting point before a full CRM</li></ul></article><article className="offer-fit-card limits"><h3>You need the full system if</h3><ul><li>You have several branches or sales teams</li><li>You need a full CRM with sales stages</li><li>You need booking, reminders and several integrations</li><li>You need reports, AI or a wider knowledge base</li></ul></article></div></section>
+
+      <AutomationContrast locale="en" />
 
       <section className="shell whatsapp-starter-process"><div className="whatsapp-starter-process-head"><span className="section-label">How it is delivered</span><h2>Understand. Build. Test. Launch.</h2></div><div className="whatsapp-starter-process-grid"><article><b>01</b><h3>Analyse the questions</h3><p>We identify the intents, the basic replies and what information to collect from the customer.</p></article><article><b>02</b><h3>Build the path</h3><p>We arrange the reply, the qualification, the follow-up and the handover points to your team.</p></article><article><b>03</b><h3>Test</h3><p>We try the normal cases and the unusual ones before the system goes live.</p></article><article><b>04</b><h3>Launch</h3><p>We switch the path on and review technical feedback during the first 7 days.</p></article></div></section>
 
@@ -101,7 +103,7 @@ export default function WhatsAppAutomationStarterOffer() {
 
       <section className="shell offer-faq whatsapp-starter-faq" id="faq"><div><span className="section-label">Quick questions</span><h2>Before you start.</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="shell offer-final-cta whatsapp-starter-final"><div><span className="section-label">Start here</span><h2>Turn your first message<br/>into a clear next step.</h2><p>Send us your business type and the questions you receive most often, and we will tell you whether the starter is enough or whether you need a larger system.</p></div><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start on WhatsApp <span>→</span></a><div className="whatsapp-starter-links"><Link href="/en/whatsapp-crm-automation">Need a CRM and larger integrations?</Link><Link href="/en/ai-automation">Explore AI automation</Link></div></section>
+      <section className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">Start here</span><h2>Turn your first message<br/>into a clear next step.</h2><p>Send us your business type and the questions you receive most often, and we will tell you whether the starter is enough or whether you need a larger system.</p></div><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start on WhatsApp <span>→</span></a><div className="whatsapp-starter-links"><Link href="/en/whatsapp-crm-automation">Need a CRM and larger integrations?</Link><Link href="/en/ai-automation">Explore AI automation</Link></div></section>
       <Footer />
     </main>
   );
