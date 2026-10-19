@@ -17,6 +17,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Do not advertise the framework.
   poweredByHeader: false,
+  // Shared hosts can expose many CPUs while enforcing a much smaller process limit.
+  experimental: process.env.VERCEL === "1" ? {} : { cpus: 2 },
   async redirects() {
     return [
       // Legacy /portfolio (404, still shown in Google at ~position 3) maps to the current case-study index.
