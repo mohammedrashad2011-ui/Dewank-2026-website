@@ -4,6 +4,7 @@ import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
+import { NameToIdentity } from "../../../../(ar)/offers/brand-naming/name-to-identity";
 // The Arabic brand naming offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -116,12 +117,7 @@ export default function BrandNamingOfferPage() {
           <h2>A good name passes more than one taste test.</h2>
           <p>We compare the options on distinctiveness, ease of pronunciation, memorability, fit with the market, future flexibility and digital availability. The goal is not a name we like, but a name a brand can be built around.</p>
         </div>
-        <div className="brand-direction-board" aria-label="Illustrative example of a brand direction">
-          <div className="brand-direction-top"><span>Initial brand direction, example</span><small>After the name is chosen</small></div>
-          <div className="brand-direction-name">NOVA<span>FIELD</span></div>
-          <div className="brand-direction-tags"><span>Clear</span><span>Confident</span><span>Modern</span><span>Scalable</span></div>
-          <div className="brand-direction-grid"><article><small>Tone of voice</small><b>Direct · smart · calm</b></article><article><small>Visual mood</small><b>Simple · editorial · bold</b></article><article><small>Positioning</small><b>A flexible brand that grows with the business</b></article></div>
-        </div>
+        <NameToIdentity locale="en" />
       </section>
 
       <section className="shell offer-deliverables brand-naming-deliverables">

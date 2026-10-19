@@ -49,78 +49,6 @@
 
 .brand-naming-proof-copy p { color: var(--muted); line-height: 1.9; }
 
-.brand-direction-board {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(24px, 4vw, 42px);
-  border-radius: 30px;
-  border: 1px solid rgba(213, 168, 67, .42);
-  color: var(--offer-ivory);
-  background:
-    radial-gradient(circle at 18% 12%, rgba(34, 205, 208, .12), transparent 30%),
-    linear-gradient(150deg, #132d4d, #07192d 72%);
-  box-shadow: 0 34px 84px rgba(2, 15, 30, .22);
-}
-
-.brand-direction-board::after {
-  content: "";
-  position: absolute;
-  inset-inline-end: -75px;
-  bottom: -90px;
-  width: 230px;
-  height: 230px;
-  border: 42px solid rgba(213, 168, 67, .08);
-  border-radius: 50%;
-}
-
-.brand-direction-top,
-.brand-direction-name,
-.brand-direction-tags,
-.brand-direction-grid { position: relative; z-index: 1; }
-
-.brand-direction-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  color: var(--offer-gold-soft);
-  font-size: 11px;
-  letter-spacing: .08em;
-}
-
-.brand-direction-top small { color: rgba(245,240,231,.5); }
-
-.brand-direction-name {
-  margin: 30px 0 24px;
-  font-size: clamp(40px, 6vw, 76px);
-  font-weight: 900;
-  letter-spacing: -.05em;
-  line-height: 1;
-}
-.brand-direction-name span { color: var(--offer-gold-soft); font-weight: 400; }
-
-.brand-direction-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
-.brand-direction-tags span {
-  padding: 7px 11px;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 999px;
-  background: rgba(255,255,255,.05);
-  color: rgba(245,240,231,.78);
-  font-size: 11px;
-}
-
-.brand-direction-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.brand-direction-grid article {
-  min-height: 112px;
-  padding: 16px;
-  border-radius: 17px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.08);
-}
-.brand-direction-grid small { display: block; margin-bottom: 14px; color: var(--naming-cyan); font-size: 9px; letter-spacing: .08em; }
-.brand-direction-grid b { font-size: 13px; line-height: 1.65; }
-
 .brand-naming-deliverables .deliverable-list { grid-template-columns: 1fr 1fr; }
 
 .brand-naming-process {
@@ -161,7 +89,6 @@
 
 @media (max-width: 860px) {
   .brand-naming-proof { grid-template-columns: 1fr; }
-  .brand-direction-board { max-width: 680px; }
 }
 
 @media (max-width: 620px) {
@@ -169,11 +96,6 @@
   .brand-naming-hero h1 { font-size: clamp(38px, 12vw, 56px); }
   .brand-naming-answer { margin-top: 18px; padding: 14px; }
   .brand-naming-proof { gap: 26px; padding-bottom: 92px; }
-  .brand-direction-board { padding: 20px; border-radius: 24px; }
-  .brand-direction-top { font-size: 9px; }
-  .brand-direction-name { margin: 24px 0 20px; font-size: clamp(38px, 14vw, 58px); }
-  .brand-direction-grid { grid-template-columns: 1fr; }
-  .brand-direction-grid article { min-height: 0; }
   .brand-naming-deliverables .deliverable-list,
   .brand-naming-process-grid { grid-template-columns: 1fr; }
   .brand-naming-process-grid article { padding: 22px; }
@@ -211,3 +133,136 @@
   .brand-naming-case { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
   .brand-naming-case h2 { font-size: 24px; }
 }
+
+/* Motion pilot (Brand Naming, Arabic and English). No animation dependencies.
+   The default state is fully readable. Motion is added only where the browser supports scroll timelines and the visitor
+   has not asked for reduced motion. Animations use transform and opacity only, so they do not change layout, and the
+   H1 and the CTA are never hidden. */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero: one restrained entrance for the price panel. The H1 and the answer box stay static. */
+  .brand-naming-hero .brand-naming-price-panel {
+    animation: brand-naming-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
+  }
+
+  /* Tactile CTA feedback, on touch and keyboard as well as pointer. */
+  .brand-naming-offer-page .button.primary:active {
+    transform: translateY(0) scale(0.985);
+  }
+}
+
+@keyframes brand-naming-rise {
+  from { transform: translate3d(0, 14px, 0); }
+  to { transform: none; }
+}
+
+/* Scroll-led storytelling. Applied only where view timelines exist; otherwise the proof and process content simply
+   renders in its final state. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* The three steps unfold in sequence. */
+    .brand-naming-process-grid article {
+      animation: brand-naming-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+    .brand-naming-process-grid article:nth-child(2) { animation-range: entry 6% cover 46%; }
+    .brand-naming-process-grid article:nth-child(3) { animation-range: entry 12% cover 52%; }
+  }
+}
+
+@keyframes brand-naming-reveal {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Hover lift and arrow nudge only where a pointer can hover. Touch devices get the press state above instead. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .brand-naming-offer-page .button.primary {
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+  }
+  .brand-naming-offer-page .button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(2, 15, 30, 0.22);
+  }
+  .brand-naming-offer-page .button.primary span {
+    display: inline-block;
+    transition: transform 0.22s ease;
+  }
+  .brand-naming-offer-page .button.primary:hover span { transform: translateX(3px); }
+  :dir(rtl) .brand-naming-offer-page .button.primary:hover span { transform: translateX(-3px); }
+}
+
+/* Keyboard focus on every CTA, regardless of motion settings. */
+.brand-naming-offer-page .button:focus-visible {
+  outline: 3px solid rgba(213, 168, 67, 0.7);
+  outline-offset: 3px;
+}
+
+/* Interactive concept demo. Adapted from the free Animated Tabs interaction pattern:
+   https://ui.aceternity.com/components/tabs (Aceternity License).
+   The implementation and all styling here are original to Dewank. */
+.name-identity { min-width: 0; color: var(--offer-navy); }
+.name-identity-intro { margin-bottom: 18px; }
+.name-identity-eyebrow { display: block; color: #977022; font-size: 10px; font-weight: 800; letter-spacing: .1em; }
+.name-identity-intro h3 { margin: 9px 0; color: var(--offer-navy); font-size: clamp(24px, 2.5vw, 32px); line-height: 1.28; }
+.name-identity-intro p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.name-identity-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 10px; }
+.name-identity-tabs button {
+  min-width: 0; min-height: 60px; padding: 9px 6px; border: 1px solid rgba(6,26,51,.16); border-radius: 13px;
+  background: rgba(255,255,255,.75); color: var(--offer-navy); cursor: pointer;
+  font: inherit; font-size: 13px; font-weight: 800; text-align: center;
+}
+.name-identity-tabs button span, .name-identity-tabs button small { display: block; }
+.name-identity-tabs button small { margin-top: 2px; color: var(--muted); font-size: 10px; font-weight: 500; }
+.name-identity-tabs button[aria-selected="true"] { border-color: #b99554; background: #102941; color: #fff; box-shadow: inset 0 -3px #d8b98a; }
+.name-identity-tabs button[aria-selected="true"] small { color: #e4d3b1; }
+.name-identity-tabs button:focus-visible, .name-identity-action:focus-visible, .name-identity-reset:focus-visible, .name-identity-stage:focus-visible { outline: 3px solid #bd8529; outline-offset: 3px; }
+.name-identity-stage {
+  overflow: hidden; min-height: 330px; border: 1px solid rgba(213,168,67,.55); border-radius: 24px;
+  background: linear-gradient(150deg,#18314c,#07192d 74%); color: #f5f0e7;
+  box-shadow: 0 24px 54px rgba(2,15,30,.18);
+}
+.name-identity-choice { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-height: 330px; padding: clamp(22px,4vw,36px); }
+.name-identity-stage-label { display: block; color: #e0bd75; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+.name-identity-wordmark { margin: 17px 0 8px; font-family: Georgia,serif; font-size: clamp(52px,8vw,96px); line-height: 1; letter-spacing: -.05em; }
+.name-identity-choice p { max-width: 29ch; margin: 0 0 25px; color: #d9dfdf; font-size: 14px; line-height: 1.7; }
+.name-identity-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 48px; padding: 10px 18px; border: 0; border-radius: 999px; background: #d8b98a; color: #07192d; cursor: pointer; font: inherit; font-size: 13px; font-weight: 800; }
+.name-identity-action span { font-size: 17px; }
+.name-identity-result { padding: clamp(18px,3vw,28px); }
+.name-identity-result-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.name-identity-result-head p { margin: 5px 0 0; color: #f5f0e7; font-size: 13px; line-height: 1.6; }
+.name-identity-reset { flex: none; padding: 7px 0; border: 0; border-bottom: 1px solid #e0bd75; background: none; color: #e0bd75; cursor: pointer; font: inherit; font-size: 11px; font-weight: 700; }
+.name-identity-result-grid { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: 15px; }
+.name-identity-application { display: flex; flex-direction: column; min-width: 0; min-height: 270px; padding: 14px; border-radius: 17px; background: var(--concept-ink); }
+.name-identity-application > span { color: var(--concept-paper); font-size: 10px; }
+.name-identity-card { display: flex; flex-direction: column; align-items: center; justify-content: center; width: min(80%,230px); min-height: 178px; margin: auto; padding: 22px; background: var(--concept-paper); color: var(--concept-ink); box-shadow: 10px 14px 0 color-mix(in srgb,var(--concept-accent) 75%,transparent); text-align: center; }
+.name-identity-card b { font-family: Georgia,serif; font-size: clamp(30px,3vw,44px); font-weight: 500; letter-spacing: -.04em; }
+.name-identity-card i { width: 55px; height: 2px; margin: 13px 0; background: var(--concept-accent); }
+.name-identity-card small { font-size: 11px; }
+.name-identity-details { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
+.name-identity-details p { margin: 7px 0 0; color: #f5f0e7; font-size: 12px; line-height: 1.75; }
+.name-identity-swatches { display: flex; gap: 8px; margin-top: 9px; }
+.name-identity-swatches > div { flex: 1; min-width: 0; }
+.name-identity-swatches span { display: block; width: 100%; height: 30px; border: 1px solid rgba(255,255,255,.24); border-radius: 6px; }
+.name-identity-swatches small { display: block; margin-top: 4px; color: #dbe0df; font-size: 10px; line-height: 1.4; }
+.name-identity-swatches b { font-size: 9px; font-weight: 500; }
+.name-identity-disclaimer { margin: 11px 2px 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+
+@media (max-width: 620px) {
+  .name-identity-intro h3 { font-size: 24px; }
+  .name-identity-tabs { gap: 5px; }
+  .name-identity-tabs button { min-height: 57px; font-size: 11px; }
+  .name-identity-stage, .name-identity-choice { min-height: 300px; }
+  .name-identity-result-grid { grid-template-columns: 1fr; }
+  .name-identity-application { min-height: 245px; }
+  .name-identity-card { min-height: 155px; }
+  .name-identity-result-head { flex-wrap: wrap; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .name-identity-tabs button, .name-identity-action { transition: background-color .2s ease, color .2s ease, transform .2s ease; }
+  .name-identity-tabs button:active, .name-identity-action:active { transform: scale(.98); }
+  .name-identity-result { animation: name-identity-enter .3s ease-out both; }
+}
+@keyframes name-identity-enter { from { opacity: .35; transform: translateY(8px); } to { opacity: 1; transform: none; } }
