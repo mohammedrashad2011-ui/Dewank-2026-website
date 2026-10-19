@@ -9,7 +9,7 @@ import "../offer-trust.css";
 import "./whatsapp-starter.css";
 import "./whatsapp-cinematic.css";
 
-const title = "أتمتة واتساب للشركات Starter بـ 890 ريال";
+const title = "أتمتة واتساب للشركات: باقة تأسيسية بـ 890 ريال";
 const description = "باقة تأسيس أتمتة واتساب للشركات: رد آلي، تأهيل العملاء، جمع البيانات، تحويل للموظف، متابعة أساسية واختبار قبل التشغيل. تبدأ من 890 ريال.";
 
 export const metadata: Metadata = createMetadata({
@@ -31,12 +31,12 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["كم سعر باقة أتمتة واتساب التأسيسية؟", "تبدأ الباقة من 890 ريال حسب السوق المحلي المعروض على الموقع، وتشمل تأسيس المسار الأساسي والاختبار والتشغيل ضمن النطاق الموضح. رسوم واتساب أو الأدوات الخارجية منفصلة إذا كانت مطلوبة"],
+  ["كم سعر باقة أتمتة واتساب التأسيسية؟", "تبدأ الباقة من 890 ريال حسب السوق المحلي المعروض على الموقع، وتشمل تأسيس المسار الأساسي والاختبار والتشغيل ضمن النطاق الموضح، ورسوم واتساب أو الأدوات الخارجية منفصلة إذا كانت مطلوبة"],
   ["ماذا تشمل باقة أتمتة واتساب التأسيسية؟", "تشمل إعداد مسار أساسي للرد والتأهيل وجمع البيانات والتحويل للموظف والمتابعة الأساسية، مع اختبار قبل التشغيل ودعم أولي بعد الإطلاق"],
-  ["هل تشمل نظامًا كاملًا لإدارة العملاء؟", "لا. تشمل سجلًا بسيطًا ومنظمًا ضمن نطاق التأسيسية. إذا كنت تحتاج نظام إدارة العملاء كاملًا ومراحل مبيعات ولوحات متابعة وحجزًا وتكاملات متعددة فالأفضل مراجعة خدمة أتمتة واتساب الكاملة"],
-  ["هل الردود تعتمد على الذكاء الاصطناعي؟", "يمكن استخدام قواعد ثابتة أو ردود مدعومة بالذكاء الاصطناعي حسب طبيعة النشاط، لكن الهدف في التأسيسية هو بناء رحلة واضحة ومستقرة قبل إضافة تعقيد غير ضروري"],
-  ["هل يمكن للموظف التدخل في أي وقت؟", "نعم. نحدد نقاط التحويل للموظف بوضوح ويمكن جعل بعض الحالات تنتقل مباشرة للفريق بدل استمرار الأتمتة"],
-  ["هل تشمل رسوم واتساب أو الأدوات الخارجية؟", "لا. أي رسوم تفرضها منصات واتساب أو مزودو الربط أو الأدوات الخارجية تكون منفصلة، ونوضحها قبل بدء التنفيذ إذا كانت مطلوبة"],
+  ["هل تشمل نظامًا كاملًا لإدارة العملاء؟", "لا، تشمل سجلًا بسيطًا ومنظمًا ضمن نطاق الباقة التأسيسية. إذا كنت تحتاج نظامًا كاملًا لإدارة العملاء ومراحل مبيعات ولوحات متابعة وحجزًا وتكاملات متعددة فالأفضل مراجعة خدمة أتمتة واتساب الكاملة"],
+  ["هل الردود تعتمد على الذكاء الاصطناعي؟", "يمكن استخدام قواعد ثابتة أو ردود مدعومة بالذكاء الاصطناعي حسب طبيعة النشاط، لكن الهدف في الباقة التأسيسية هو بناء رحلة واضحة ومستقرة قبل إضافة تعقيد غير ضروري"],
+  ["هل يمكن للموظف التدخل في أي وقت؟", "نعم، نحدد نقاط التحويل للموظف بوضوح ويمكن جعل بعض الحالات تنتقل مباشرة للفريق بدل استمرار الأتمتة"],
+  ["هل تشمل رسوم واتساب أو الأدوات الخارجية؟", "لا، أي رسوم تفرضها منصات واتساب أو مزودو الربط أو الأدوات الخارجية تكون منفصلة، ونوضحها قبل بدء التنفيذ إذا كانت مطلوبة"],
   ["كم يستغرق التنفيذ؟", "التنفيذ المعتاد من 3 إلى 5 أيام عمل بعد استلام معلومات النشاط والردود الأساسية واعتماد مسار المحادثة"],
 ];
 
@@ -45,7 +45,7 @@ export default function WhatsAppAutomationStarterOffer() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": `${url}#service`, name: "باقة أتمتة واتساب Starter", alternateName: "WhatsApp Automation Starter", description, serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", price: "890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url }, url },
+      { "@type": "Service", "@id": `${url}#service`, name: "باقة أتمتة واتساب التأسيسية", alternateName: "WhatsApp Automation Starter", description, serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", price: "890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url }, url },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "العروض", item: `${siteUrl}/offers` }, { "@type": "ListItem", position: 3, name: "أتمتة واتساب التأسيسية", item: url }] },
     ],
@@ -60,21 +60,21 @@ export default function WhatsAppAutomationStarterOffer() {
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
           <h1>أتمتة واتساب للشركات<br/><em>ابدأ بالمسار الذي يمنع ضياع العميل المحتمل</em></h1>
           <p>نجهز لك مسار أتمتة واتساب يرد على الأسئلة الأساسية، يؤهّل العميل، يجمع بياناته، ويتابع الخطوة التالية قبل تحويله للموظف المناسب</p>
-          <div className="whatsapp-starter-answer" aria-label="الإجابة المختصرة"><b>الإجابة المختصرة</b><span>هذه باقة تأسيسية، وليست نظامًا كاملًا لإدارة العملاء. مناسبة لو مشكلتك الأساسية هي بطء الرد وتكرار الأسئلة وضياع العملاء قبل وصولهم للفريق</span></div>
+          <div className="whatsapp-starter-answer" aria-label="الإجابة المختصرة"><b>الإجابة المختصرة</b><span>هذه باقة تأسيسية وليست نظامًا كاملًا لإدارة العملاء، ومناسبة لو مشكلتك الأساسية هي بطء الرد وتكرار الأسئلة وضياع العملاء قبل وصولهم للفريق</span></div>
           <AutomationHeroArt locale="ar" />
         </div>
-        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><WhatsAppStarterPrice /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل. لا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink className="button primary" label="ابدأ أتمتة واتساب" /></aside>
+        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><WhatsAppStarterPrice /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل، ولا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink className="button primary" label="ابدأ أتمتة واتساب" /></aside>
       </section>
 
       <AutomationJourney locale="ar" />
 
       <section className="shell offer-deliverables whatsapp-starter-deliverables"><div><span className="section-label">ماذا تستلم؟</span><h2>نطاق واضح<br/>من غير نظام معقد لإدارة العملاء</h2><p>نبدأ بالمسار الضروري فقط حتى يكون سريع الفهم وسهل التشغيل والتطوير لاحقًا</p></div><div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div></section>
 
-      <section className="shell whatsapp-starter-fit"><div className="whatsapp-starter-fit-head"><span className="section-label">هل تناسبك؟</span><h2>التأسيسية أم نظام واتساب + إدارة العملاء كامل؟</h2></div><div className="offer-fit-grid"><article className="offer-fit-card good"><h3>التأسيسية مناسبة لك إذا</h3><ul><li>تستقبل نفس الأسئلة يوميًا</li><li>يتأخر الرد بسبب انشغال الفريق</li><li>تريد جمع بيانات العميل قبل الموظف</li><li>تحتاج نقطة بداية قبل نظام متكامل لإدارة العملاء</li></ul></article><article className="offer-fit-card limits"><h3>تحتاج النظام الكامل إذا</h3><ul><li>لديك عدة فروع أو فرق مبيعات</li><li>تحتاج نظامًا كاملًا لإدارة العملاء ومراحل بيع</li><li>تحتاج حجزًا وتذكيرات وتكاملات متعددة</li><li>تحتاج تقارير أو ذكاء اصطناعي وقاعدة معرفة أوسع</li></ul></article></div></section>
+      <section className="shell whatsapp-starter-fit"><div className="whatsapp-starter-fit-head"><span className="section-label">هل تناسبك؟</span><h2>الباقة التأسيسية أم نظام كامل لإدارة العملاء عبر واتساب؟</h2></div><div className="offer-fit-grid"><article className="offer-fit-card good"><h3>التأسيسية مناسبة لك إذا</h3><ul><li>تستقبل نفس الأسئلة يوميًا</li><li>يتأخر الرد بسبب انشغال الفريق</li><li>تريد جمع بيانات العميل قبل الموظف</li><li>تحتاج نقطة بداية قبل نظام متكامل لإدارة العملاء</li></ul></article><article className="offer-fit-card limits"><h3>تحتاج النظام الكامل إذا</h3><ul><li>لديك عدة فروع أو فرق مبيعات</li><li>تحتاج نظامًا كاملًا لإدارة العملاء ومراحل بيع</li><li>تحتاج حجزًا وتذكيرات وتكاملات متعددة</li><li>تحتاج تقارير أو ذكاء اصطناعي وقاعدة معرفة أوسع</li></ul></article></div></section>
 
       <AutomationContrast locale="ar" />
 
-      <section className="shell whatsapp-starter-process"><div className="whatsapp-starter-process-head"><span className="section-label">طريقة التنفيذ</span><h2>نفهم. نبني. نختبر. نشغّل</h2></div><div className="whatsapp-starter-process-grid"><article><h3>تحليل الأسئلة</h3><p>نحدد النوايا والردود الأساسية وما يجب جمعه من العميل</p></article><article><h3>بناء المسار</h3><p>نرتب الرد والتأهيل والمتابعة ونقاط التحويل للموظف</p></article><article><h3>الاختبار</h3><p>نجرب الحالات الطبيعية والاستثنائية قبل تشغيل النظام</p></article><article><h3>الإطلاق</h3><p>نشغل المسار ونراجع الملاحظات التقنية خلال أول 7 أيام</p></article></div></section>
+      <section className="shell whatsapp-starter-process"><div className="whatsapp-starter-process-head"><span className="section-label">طريقة التنفيذ</span><h2>نفهم احتياجك، ونبني المسار، ونختبره ثم نشغّله</h2></div><div className="whatsapp-starter-process-grid"><article><h3>تحليل الأسئلة</h3><p>نحدد النوايا والردود الأساسية وما يجب جمعه من العميل</p></article><article><h3>بناء المسار</h3><p>نرتب الرد والتأهيل والمتابعة ونقاط التحويل للموظف</p></article><article><h3>الاختبار</h3><p>نجرب الحالات الطبيعية والاستثنائية قبل تشغيل النظام</p></article><article><h3>الإطلاق</h3><p>نشغل المسار ونراجع الملاحظات التقنية خلال أول 7 أيام</p></article></div></section>
 
       <section className="shell offer-confidence whatsapp-starter-confidence"><div><span className="section-label">قبل الشراء</span><h2>اعرف بالضبط<br/>ما الذي تدفع مقابله</h2></div><div className="offer-confidence-list"><p><b>الباقة التأسيسية:</b> نقطة دخول منخفضة الاحتكاك لأتمتة الرد والتأهيل والتحويل</p><p><b>لا تشمل:</b> نظامًا كاملًا لإدارة العملاء، وحجزًا متقدمًا، تكاملات متعددة، رسوم واتساب أو الأدوات الخارجية</p><p><b>لو تحتاج نظامًا أكبر:</b> راجع <Link href="/whatsapp-automation">خدمة أتمتة واتساب وإدارة العملاء</Link> أو اقرأ <Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">دليل تكلفة أتمتة واتساب في السعودية</Link></p></div></section>
 
