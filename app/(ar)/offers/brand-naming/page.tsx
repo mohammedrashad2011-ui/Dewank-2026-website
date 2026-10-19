@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { BrandNamingOfferPrice, BrandNamingWhatsApp } from "./localized-brand-naming-offer";
+import { NameToIdentity } from "./name-to-identity";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./brand-naming-offer.css";
@@ -119,12 +120,7 @@ export default function BrandNamingOfferPage() {
           <h2>الاسم الجيد يمر عبر أكثر من ذوق.</h2>
           <p>نقارن الخيارات وفق التميز، سهولة النطق، قابلية التذكر، ملاءمة السوق، المرونة المستقبلية، والتوفر الرقمي. الهدف ليس اسمًا يعجبنا فقط، بل اسمًا يمكن بناء علامة حوله.</p>
         </div>
-        <div className="brand-direction-board" aria-label="نموذج توضيحي لاتجاه العلامة">
-          <div className="brand-direction-top"><span>نموذج التوجه الأولي للعلامة</span><small>بعد اختيار الاسم</small></div>
-          <div className="brand-direction-name">NOVA<span>FIELD</span></div>
-          <div className="brand-direction-tags"><span>واضح</span><span>واثق</span><span>حديث</span><span>قابل للتوسع</span></div>
-          <div className="brand-direction-grid"><article><small>نبرة التواصل</small><b>مباشر · ذكي · هادئ</b></article><article><small>المزاج البصري</small><b>بسيط · تحريري · جريء</b></article><article><small>التموضع</small><b>علامة مرنة تنمو مع النشاط</b></article></div>
-        </div>
+        <NameToIdentity locale="ar" />
       </section>
 
       <section className="shell offer-deliverables brand-naming-deliverables">
