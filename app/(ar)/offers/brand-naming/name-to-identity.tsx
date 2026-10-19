@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 
 type Locale = "ar" | "en";
 
@@ -84,9 +84,14 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
   const [selected, setSelected] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const tabs = useRef<Array<HTMLButtonElement | null>>([]);
+  const panel = useRef<HTMLDivElement | null>(null);
   const words = copy[locale];
   const concept = concepts[selected];
   const prefix = `name-to-identity-${locale}`;
+
+  useEffect(() => {
+    if (revealed) panel.current?.focus();
+  }, [revealed]);
 
   function choose(index: number, focus = false) {
     setSelected(index);
@@ -135,11 +140,12 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
       </div>
       <div
         className={`name-identity-stage${revealed ? " is-revealed" : ""}`}
+        ref={panel}
         role="tabpanel"
         id={`${prefix}-panel`}
         aria-labelledby={`${prefix}-tab-${concept.id}`}
+        aria-live="polite"
         tabIndex={0}
-        key={concept.id}
       >
         {!revealed ? (
           <div className="name-identity-choice">
@@ -149,7 +155,7 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
             <button type="button" className="name-identity-action" onClick={() => setRevealed(true)}>{words.transform}<span aria-hidden="true">↗</span></button>
           </div>
         ) : (
-          <div className="name-identity-result" key={`${concept.id}-result`} aria-live="polite">
+          <div className="name-identity-result" key={`${concept.id}-result`}>
             <div className="name-identity-result-head">
               <div><span className="name-identity-stage-label">{words.meaning}</span><p>{concept.meaning[locale]}</p></div>
               <button type="button" className="name-identity-reset" onClick={() => setRevealed(false)}>{words.change}</button>
