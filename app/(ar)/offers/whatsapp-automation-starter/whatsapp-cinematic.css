@@ -43,7 +43,7 @@
 .wa-cinema-page button:focus-visible{outline:3px solid #c19747;outline-offset:3px}
 .wa-cinema-stepper{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:0 0 15px}
 .wa-cinema-stepper button{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0;min-height:106px;padding:15px 16px;border:1px solid rgba(94,136,136,.24);border-radius:16px 16px 6px 6px;background:#f6f8f4;text-align:start;cursor:pointer;color:#516460;font:inherit;transition:background .2s,transform .2s,border-color .2s}
-.wa-cinema-stepper button b{font-size:10px;letter-spacing:.16em;color:#77958c}
+.wa-cinema-stepper button b{font-size:20px;line-height:1;letter-spacing:0;color:#49876c}
 .wa-cinema-stepper button span{font-size:14px;font-weight:850;color:#243c40}
 .wa-cinema-stepper button small{font-size:11px;line-height:1.45;color:#536961}
 .wa-cinema-stepper button.is-passed{border-color:rgba(45,120,90,.4)}
@@ -108,7 +108,7 @@
 .wa-cinema-scatter span:nth-child(4){bottom:20%;inset-inline-end:5%;transform:rotate(-6deg)}
 .wa-cinema-ordered{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:10px}
 .wa-cinema-ordered span{display:flex;align-items:center;gap:12px;min-height:65px;padding:13px;border:1px solid rgba(117,240,189,.2);border-radius:15px;background:rgba(117,240,189,.075);color:#ecfff4;font-weight:750;font-size:13px}
-.wa-cinema-ordered i{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:#a8f5c9;color:#124438;font-size:9px;font-style:normal}
+.wa-cinema-ordered i{display:grid;place-items:center;flex:none;width:28px;height:28px;border-radius:50%;background:#a8f5c9;color:#124438;font-size:15px;font-style:normal}
 .wa-cinema-contrast-grid h3{font-size:clamp(24px,2.5vw,35px);line-height:1.2;margin:14px 0 9px}
 .wa-cinema-contrast-grid p{font-size:14px;line-height:1.8;margin:0;max-width:55ch}
 .wa-cinema-before p{color:#6b5751}
