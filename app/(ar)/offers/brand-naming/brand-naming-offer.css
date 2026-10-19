@@ -211,3 +211,87 @@
   .brand-naming-case { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
   .brand-naming-case h2 { font-size: 24px; }
 }
+
+/* Motion pilot (Brand Naming, Arabic and English). CSS only: no JavaScript and no new dependencies.
+   The default state is fully readable. Motion is added only where the browser supports scroll timelines and the visitor
+   has not asked for reduced motion. Animations use transform and opacity only, so they do not change layout, and the
+   H1 and the CTA are never hidden. */
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero: one restrained entrance for the price panel. The H1 and the answer box stay static. */
+  .brand-naming-hero .brand-naming-price-panel {
+    animation: brand-naming-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
+  }
+
+  /* Tactile CTA feedback, on touch and keyboard as well as pointer. */
+  .brand-naming-offer-page .button.primary:active {
+    transform: translateY(0) scale(0.985);
+  }
+}
+
+@keyframes brand-naming-rise {
+  from { transform: translate3d(0, 14px, 0); }
+  to { transform: none; }
+}
+
+/* Scroll-led storytelling. Applied only where view timelines exist; otherwise the proof and process content simply
+   renders in its final state. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* The proof board is the centrepiece: it settles into place as it enters. */
+    .brand-naming-proof .brand-direction-board {
+      animation: brand-naming-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 36%;
+    }
+
+    /* The board reads in order: name, tags, then the three cells. */
+    .brand-direction-name,
+    .brand-direction-tags,
+    .brand-direction-grid article {
+      animation: brand-naming-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 8% cover 42%;
+    }
+    .brand-direction-tags { animation-range: entry 14% cover 48%; }
+    .brand-direction-grid article:nth-child(2) { animation-range: entry 18% cover 52%; }
+    .brand-direction-grid article:nth-child(3) { animation-range: entry 24% cover 58%; }
+
+    /* The three steps unfold in sequence. */
+    .brand-naming-process-grid article {
+      animation: brand-naming-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+    .brand-naming-process-grid article:nth-child(2) { animation-range: entry 6% cover 46%; }
+    .brand-naming-process-grid article:nth-child(3) { animation-range: entry 12% cover 52%; }
+  }
+}
+
+@keyframes brand-naming-reveal {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Hover lift and arrow nudge only where a pointer can hover. Touch devices get the press state above instead. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .brand-naming-offer-page .button.primary {
+    transition: transform 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+  }
+  .brand-naming-offer-page .button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(2, 15, 30, 0.22);
+  }
+  .brand-naming-offer-page .button.primary span {
+    display: inline-block;
+    transition: transform 0.22s ease;
+  }
+  .brand-naming-offer-page .button.primary:hover span { transform: translateX(3px); }
+  :dir(rtl) .brand-naming-offer-page .button.primary:hover span { transform: translateX(-3px); }
+}
+
+/* Keyboard focus on every CTA, regardless of motion settings. */
+.brand-naming-offer-page .button:focus-visible {
+  outline: 3px solid rgba(213, 168, 67, 0.7);
+  outline-offset: 3px;
+}
