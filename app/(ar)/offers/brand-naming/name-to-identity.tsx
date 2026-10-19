@@ -51,9 +51,6 @@ const concepts = [
 
 const copy = {
   ar: {
-    eyebrow: "FROM IDEAS TO IDENTITY · تجربة توضيحية",
-    title: "اختر اسمًا. وشاهد كيف يبدأ اتجاه العلامة.",
-    instruction: "اختر واحدًا من 3 أسماء افتراضية، ثم اكشف قصة الاسم ومزاجه البصري ومثالًا تطبيقيًا.",
     tabs: "أسماء تجريبية",
     selected: "الاسم المختار",
     transform: "حوّل الاسم إلى اتجاه بصري",
@@ -64,9 +61,6 @@ const copy = {
     sample: "مثال تطبيقي",
   },
   en: {
-    eyebrow: "FROM IDEAS TO IDENTITY · ILLUSTRATIVE DEMO",
-    title: "Choose a name. See a direction take shape.",
-    instruction: "Pick one of three fictional names, then reveal its story, visual mood and a sample application.",
     tabs: "Sample names",
     selected: "Selected name",
     transform: "Reveal the visual direction",
@@ -112,11 +106,6 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
 
   return (
     <div className="name-identity" dir={locale === "ar" ? "rtl" : "ltr"}>
-      <div className="name-identity-intro">
-        <span className="name-identity-eyebrow">{words.eyebrow}</span>
-        <h3>{words.title}</h3>
-        <p>{words.instruction}</p>
-      </div>
       <div className="name-identity-tabs" role="tablist" aria-label={words.tabs}>
         {concepts.map((item, index) => (
           <button
