@@ -37,7 +37,7 @@
 .wa-cinema-section-head h2 em{font-style:normal;color:#31856a}
 .wa-cinema-section-head p{max-width:740px;color:var(--muted);font-size:clamp(15px,1.35vw,18px);line-height:1.9}
 .wa-cinema-industry{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:23px}
-.wa-cinema-industry button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:11px 18px;border:1px solid #c5d8d2;border-radius:999px;background:#fbfcf9;color:#193f3e;font:700 13px/1.5 inherit;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.wa-cinema-industry button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:11px 18px;border:1px solid #c5d8d2;border-radius:999px;background:#fbfcf9;color:#193f3e;font-family:inherit;font-size:13px;font-weight:700;line-height:1.5;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
 .wa-cinema-industry button span{font-size:19px}
 .wa-cinema-industry button[aria-pressed=true]{background:#0b3640;border-color:#0b3640;color:#fff;box-shadow:0 10px 25px rgba(10,52,56,.16)}
 .wa-cinema-page button:focus-visible{outline:3px solid #c19747;outline-offset:3px}
