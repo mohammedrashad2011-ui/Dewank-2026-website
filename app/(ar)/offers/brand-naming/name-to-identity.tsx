@@ -137,12 +137,13 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
         {!revealed ? (
           <div className="name-identity-choice">
             <span className="name-identity-stage-label">{words.selected} / 0{selected + 1}</span>
+            <div className="name-identity-cinema" aria-hidden="true"><span className="name-identity-orbit name-identity-orbit-one"/><span className="name-identity-orbit name-identity-orbit-two"/><span className="name-identity-ghost">01 / 03</span><span className="name-identity-glint"/></div>
             <div className="name-identity-wordmark" dir="ltr">{concept.name}</div>
             <p>{concept.meaning[locale]}</p>
             <button type="button" className="name-identity-action" onClick={() => setRevealed(true)}>{words.transform}<span aria-hidden="true">↗</span></button>
           </div>
         ) : (
-          <div className="name-identity-result" key={`${concept.id}-result`}>
+          <div className="name-identity-result name-identity-cinematic-result" key={`${concept.id}-result`}>
             <div className="name-identity-result-head">
               <div><span className="name-identity-stage-label">{words.meaning}</span><p>{concept.meaning[locale]}</p></div>
               <button type="button" className="name-identity-reset" onClick={() => setRevealed(false)}>{words.change}</button>
@@ -150,9 +151,23 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
             <div className="name-identity-result-grid">
               <div className="name-identity-application" style={{ "--concept-ink": concept.palette[0].hex, "--concept-accent": concept.palette[1].hex, "--concept-paper": concept.palette[2].hex } as CSSProperties}>
                 <span>{words.sample} · {concept.application[locale]}</span>
-                <div className="name-identity-card"><b dir="ltr">{concept.name}</b><i aria-hidden="true" /><small>{concept.line[locale]}</small></div>
+                <div className="name-identity-art-scene" aria-label={locale === "ar" ? "عرض توضيحي للهوية البصرية" : "Illustrative visual identity concept"}>
+                  <div className="name-identity-halo" aria-hidden="true" />
+                  <div className="name-identity-packaging-shadow" aria-hidden="true" />
+                  <div className="name-identity-packaging">
+                    <div className="name-identity-packaging-edge" aria-hidden="true" />
+                    <div className="name-identity-packaging-face">
+                      <span className="name-identity-packaging-index">DEWANK / CONCEPT 0{selected + 1}</span>
+                      <b dir="ltr">{concept.name}</b>
+                      <i aria-hidden="true" />
+                      <small>{concept.line[locale]}</small>
+                      <span className="name-identity-packaging-bottom" dir="ltr">{concept.arabic} &nbsp; ✳ &nbsp; {concept.name}</span>
+                    </div>
+                  </div>
+                  <div className="name-identity-orbit-chip" aria-hidden="true">{concept.name.slice(0,1)}</div>
+                </div>
               </div>
-              <div className="name-identity-details">
+              <div className="name-identity-details name-identity-details-cinematic">
                 <div><span className="name-identity-stage-label">{words.story}</span><p>{concept.story[locale]}</p></div>
                 <div><span className="name-identity-stage-label">{words.palette}</span><div className="name-identity-swatches">{concept.palette.map((colour) => <div key={colour.hex}><span style={{ backgroundColor: colour.hex }} /><small>{colour.label[locale]}<br/><b dir="ltr">{colour.hex}</b></small></div>)}</div></div>
               </div>
