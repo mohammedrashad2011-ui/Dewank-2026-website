@@ -13,7 +13,11 @@ console.log(
 
 const result = spawnSync(process.execPath, args, {
   stdio: "inherit",
-  env: process.env,
+  env: {
+    ...process.env,
+    // Bound the native runtime as well as Next's page workers on shared hosts.
+    ...(useWebpack ? { TOKIO_WORKER_THREADS: process.env.TOKIO_WORKER_THREADS || "2" } : {}),
+  },
 });
 
 if (result.error) throw result.error;
