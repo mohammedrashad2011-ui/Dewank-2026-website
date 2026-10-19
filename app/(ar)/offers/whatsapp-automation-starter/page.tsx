@@ -9,8 +9,8 @@ import "../offer-trust.css";
 import "./whatsapp-starter.css";
 import "./whatsapp-cinematic.css";
 
-const title = "أتمتة واتساب للشركات: باقة تأسيسية بـ 890 ريال";
-const description = "باقة تأسيس أتمتة واتساب للشركات: رد آلي، تأهيل العملاء، جمع البيانات، تحويل للموظف، متابعة أساسية واختبار قبل التشغيل. تبدأ من 890 ريال.";
+const title = "أتمتة واتساب للشركات | الباقة التأسيسية";
+const description = "باقة تأسيس أتمتة واتساب للشركات تشمل الرد والتأهيل وجمع البيانات والتحويل للموظف والمتابعة الأساسية والاختبار قبل التشغيل. تعرّف على السعر المعروض حسب السوق.";
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
@@ -31,7 +31,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["كم سعر باقة أتمتة واتساب التأسيسية؟", "تبدأ الباقة من 890 ريال حسب السوق المحلي المعروض على الموقع، وتشمل تأسيس المسار الأساسي والاختبار والتشغيل ضمن النطاق الموضح، ورسوم واتساب أو الأدوات الخارجية منفصلة إذا كانت مطلوبة"],
+  ["كم تكلفة باقة أتمتة واتساب التأسيسية؟", "السعر المبدئي ظاهر في بطاقة السعر أعلى الصفحة، وقد يختلف حسب السوق. تشمل الباقة إعداد مسار الرد والتأهيل وجمع البيانات وتحويل المحادثة للموظف والاختبار قبل التشغيل، وتبقى رسوم واتساب والأدوات الخارجية منفصلة عند الحاجة"],
   ["ماذا تشمل باقة أتمتة واتساب التأسيسية؟", "تشمل إعداد مسار أساسي للرد والتأهيل وجمع البيانات والتحويل للموظف والمتابعة الأساسية، مع اختبار قبل التشغيل ودعم أولي بعد الإطلاق"],
   ["هل تشمل نظامًا كاملًا لإدارة العملاء؟", "لا، تشمل سجلًا بسيطًا ومنظمًا ضمن نطاق الباقة التأسيسية. إذا كنت تحتاج نظامًا كاملًا لإدارة العملاء ومراحل مبيعات ولوحات متابعة وحجزًا وتكاملات متعددة فالأفضل مراجعة خدمة أتمتة واتساب الكاملة"],
   ["هل الردود تعتمد على الذكاء الاصطناعي؟", "يمكن استخدام قواعد ثابتة أو ردود مدعومة بالذكاء الاصطناعي حسب طبيعة النشاط، لكن الهدف في الباقة التأسيسية هو بناء رحلة واضحة ومستقرة قبل إضافة تعقيد غير ضروري"],
@@ -45,7 +45,7 @@ export default function WhatsAppAutomationStarterOffer() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": `${url}#service`, name: "باقة أتمتة واتساب التأسيسية", alternateName: "WhatsApp Automation Starter", description, serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", price: "890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url }, url },
+      { "@type": "Service", "@id": `${url}#service`, name: "باقة أتمتة واتساب التأسيسية", alternateName: "WhatsApp Automation Starter", description, serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"], provider: { "@id": organizationId }, areaServed: servedMarkets, url },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "العروض", item: `${siteUrl}/offers` }, { "@type": "ListItem", position: 3, name: "أتمتة واتساب التأسيسية", item: url }] },
     ],
