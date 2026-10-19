@@ -31,7 +31,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["How much does the WhatsApp automation starter cost?", "The package starts at the price shown above, in US dollars by default or in your country's approved price where one exists. It covers setting up the basic path, testing and going live within the scope described. WhatsApp fees and external tools are separate where they are needed"],
+  ["How much does the WhatsApp automation starter cost?", "The starting price is shown in the pricing panel above, based on available market pricing. It covers the basic reply path, lead qualification, data capture, human handover and testing within the defined scope. WhatsApp and external tools may have separate fees"],
   ["What does the WhatsApp automation starter include?", "It includes setting up a basic reply path, qualification, data capture, handover to a person and basic follow-up, with testing before launch and initial support after launch"],
   ["Does it include a full CRM?", "No. It includes a simple, organised record within the starter scope. If you need a full CRM, sales stages, dashboards, booking and several integrations, our full WhatsApp automation service is the better option"],
   ["Do the replies use AI?", "Replies can use fixed rules or AI-supported responses, depending on the business. In the starter, the aim is to build a clear, stable journey before adding unnecessary complexity"],
