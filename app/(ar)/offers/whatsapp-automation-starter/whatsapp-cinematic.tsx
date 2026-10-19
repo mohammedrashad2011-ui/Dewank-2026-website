@@ -97,9 +97,9 @@ export function AutomationJourney({ locale }: { locale: Locale }) {
   return (
     <section className="shell wa-cinema-journey" aria-labelledby={"wa-cinema-journey-title-" + locale} dir={ar ? "rtl" : "ltr"}>
       <div className="wa-cinema-section-head">
-        <span className="wa-cinema-eyebrow"><span className="wa-cinema-live" /> {ar ? "تجربة تفاعلية" : "Interactive experience"} / 01</span>
-        <h2 id={"wa-cinema-journey-title-" + locale}>{ar ? "من رسالة تائهة." : "From a scattered message."}<br /><em>{ar ? "إلى مسار واضح." : "To a clear next step."}</em></h2>
-        <p>{ar ? "اختَر نوع النشاط، ثم انتقل بين المراحل. كل ما تراه مثال توضيحي على رحلة يمكن بناؤها ضمن نطاق الباقة التأسيسية." : "Choose a business, then step through the journey. This is a conceptual demonstration of what a starter flow can do."}</p>
+        <span className="wa-cinema-eyebrow"><span className="wa-cinema-live" /> {ar ? "تجربة تفاعلية" : "Interactive experience"}</span>
+        <h2 id={"wa-cinema-journey-title-" + locale}>{ar ? "من رسالة تائهة" : "From a scattered message"}<br /><em>{ar ? "إلى مسار واضح" : "To a clear next step"}</em></h2>
+        <p>{ar ? "اختر نوع النشاط وتنقل بين المراحل لتشوف مثالًا توضيحيًا لمسار يمكن بناؤه ضمن نطاق الباقة التأسيسية" : "Choose a business and step through a conceptual demonstration of what a starter flow can do"}</p>
       </div>
 
       <div className="wa-cinema-industry" aria-label={ar ? "اختر نوع النشاط" : "Choose a business type"}>
@@ -108,13 +108,13 @@ export function AutomationJourney({ locale }: { locale: Locale }) {
 
       <div className="wa-cinema-stepper" aria-label={ar ? "مراحل المسار التجريبي" : "Example journey steps"}>
         {steps.map((step, index) => <button type="button" key={step.number} aria-current={index === stage ? "step" : undefined} onClick={() => setStage(index)} className={index <= stage ? "is-passed" : ""}>
-          <b>{step.number}</b><span>{t(step.title, locale)}</span><small>{t(step.detail, locale)}</small>
+          <b aria-hidden="true">{["✉", "↩", "◎", "⇢", "✓"][index]}</b><span>{t(step.title, locale)}</span><small>{t(step.detail, locale)}</small>
         </button>)}
       </div>
 
       <div className="wa-cinema-console">
         <div className="wa-cinema-console-top">
-          <span><span className="wa-cinema-live" /> DEWANK / FLOW LAB</span>
+          <span><span className="wa-cinema-live" /> {ar ? "ديوانك | تجربة المسار" : "DEWANK / FLOW LAB"}</span>
           <span>{ar ? "محاكاة، لا محادثات حقيقية" : "Simulation, not live conversations"}</span>
         </div>
         <div className="wa-cinema-console-grid">
@@ -128,23 +128,23 @@ export function AutomationJourney({ locale }: { locale: Locale }) {
               {showHandover && <div className="wa-cinema-bubble is-handover"><span>↗</span> {t(scenario.handover, locale)}</div>}
               {showFollowup && <div className="wa-cinema-bubble is-system"><span className="wa-cinema-bot-tag">{ar ? "متابعة أساسية" : "Basic follow-up"}</span>{t(scenario.followup, locale)}</div>}
             </div>
-            <div className="wa-cinema-chat-compose" aria-hidden="true"><span>{ar ? "اكتب رسالة..." : "Type a message..."}</span><b>➤</b></div>
+            <div className="wa-cinema-chat-compose" aria-hidden="true"><span>{ar ? "اكتب رسالة" : "Type a message"}</span><b>➤</b></div>
           </div>
           <div className="wa-cinema-transfer" aria-hidden="true"><span className="wa-cinema-transfer-pulse" /><span>➜</span><small>{ar ? "تنظيم" : "ROUTE"}</small></div>
           <div className="wa-cinema-lead" key={"lead-" + scenario.id + "-" + stage}>
-            <div className="wa-cinema-lead-top"><span>{ar ? "سجل الطلب" : "Enquiry record"}</span><span>STARTER / DEMO</span></div>
+            <div className="wa-cinema-lead-top"><span>{ar ? "سجل الطلب" : "Enquiry record"}</span><span>{ar ? "عرض تجريبي" : "STARTER / DEMO"}</span></div>
             <div className="wa-cinema-lead-icon">◎</div>
             <h3>{showLead ? t(scenario.record, locale) : (ar ? "في انتظار التفاصيل" : "Waiting for details")}</h3>
             <div className="wa-cinema-meta"><span>{ar ? "المرحلة" : "Stage"}</span><strong aria-live="polite">{t(steps[stage].title, locale)}</strong></div>
             <div className="wa-cinema-meta"><span>{ar ? "النشاط" : "Business"}</span><strong>{t(scenario.name, locale)}</strong></div>
             <div className="wa-cinema-meta"><span>{ar ? "تحويل بشري" : "Human handover"}</span><strong className={showHandover ? "wa-cinema-status-ready" : ""}>{showHandover ? (ar ? "جاهز" : "Ready") : (ar ? "عند الحاجة" : "If needed")}</strong></div>
             <div className="wa-cinema-lead-progress"><span style={{ width: ((stage + 1) / steps.length) * 100 + "%" }} /></div>
-            <p>{ar ? "مثال لتجميع بيانات أساسية، وليس لوحة CRM كاملة." : "Illustrative basic record, not a full CRM dashboard."}</p>
+            <p>{ar ? "مثال لتجميع بيانات أساسية وليس نظامًا كاملًا لإدارة العملاء" : "Illustrative basic record, not a full CRM dashboard"}</p>
           </div>
         </div>
         <div className="wa-cinema-console-bottom">
           <span>◉ {ar ? "مسار تجريبي، بيانات افتراضية" : "Demo flow, fictional data"}</span>
-          <div><button type="button" onClick={() => setStage(stage === 0 ? steps.length - 1 : stage - 1)} aria-label={ar ? "الخطوة السابقة" : "Previous step"}>←</button><span>{String(stage + 1).padStart(2,"0")} / 05</span><button type="button" onClick={() => setStage((stage + 1) % steps.length)} aria-label={ar ? "الخطوة التالية" : "Next step"}>→</button></div>
+          <div><button type="button" onClick={() => setStage(stage === 0 ? steps.length - 1 : stage - 1)} aria-label={ar ? "الخطوة السابقة" : "Previous step"}>←</button><span aria-live="polite">{t(steps[stage].title, locale)}</span><button type="button" onClick={() => setStage((stage + 1) % steps.length)} aria-label={ar ? "الخطوة التالية" : "Next step"}>→</button></div>
         </div>
       </div>
     </section>
@@ -156,13 +156,13 @@ export function AutomationContrast({ locale }: { locale: Locale }) {
   return (
     <section className="shell wa-cinema-contrast" aria-labelledby={"wa-cinema-contrast-title-" + locale} dir={ar ? "rtl" : "ltr"}>
       <div className="wa-cinema-section-head">
-        <span className="wa-cinema-eyebrow">{ar ? "الفرق الحقيقي" : "The operational difference"} / 02</span>
-        <h2 id={"wa-cinema-contrast-title-" + locale}>{ar ? "نفس الرسائل." : "The same enquiries."}<br/><em>{ar ? "طريقة تعامل مختلفة." : "A different way to handle them."}</em></h2>
-        <p>{ar ? "الفكرة مش إن الروبوت يبيع بدل فريقك. الفكرة إن الفريق يستلم محادثة أوضح، في الوقت المناسب." : "Automation is not here to replace your team. It helps people take over with a clearer picture."}</p>
+        <span className="wa-cinema-eyebrow">{ar ? "الفرق الحقيقي" : "The operational difference"}</span>
+        <h2 id={"wa-cinema-contrast-title-" + locale}>{ar ? "نفس الرسائل" : "The same enquiries"}<br/><em>{ar ? "طريقة تعامل مختلفة" : "A different way to handle them"}</em></h2>
+        <p>{ar ? "الأتمتة مش بديل لفريقك، لكنها تساعد الموظف يستلم محادثة أوضح في الوقت المناسب" : "Automation is not here to replace your team, it helps people take over with a clearer picture"}</p>
       </div>
       <div className="wa-cinema-contrast-grid">
         <article className="wa-cinema-before">
-          <div className="wa-cinema-contrast-label"><span>01 / {ar ? "بدون مسار" : "Without a flow"}</span><b>×</b></div>
+          <div className="wa-cinema-contrast-label"><span>{ar ? "بدون مسار" : "Without a flow"}</span><b>×</b></div>
           <div className="wa-cinema-scatter" aria-hidden="true">
             <span>{ar ? "ممكن الأسعار؟" : "Price?"}</span>
             <span>{ar ? "لسه في حد؟" : "Anyone there?"}</span>
@@ -170,21 +170,21 @@ export function AutomationContrast({ locale }: { locale: Locale }) {
             <span>{ar ? "متى تردون؟" : "Any update?"}</span>
           </div>
           <h3>{ar ? "استفسارات متناثرة" : "Scattered conversations"}</h3>
-          <p>{ar ? "الأسئلة تتكرر، والمعلومات ناقصة، والفريق يبدأ كل مرة من الصفر." : "Questions repeat, details go missing, and every conversation starts over."}</p>
+          <p>{ar ? "الأسئلة تتكرر، والمعلومات ناقصة، والفريق يبدأ كل مرة من الصفر" : "Questions repeat, details go missing, and every conversation starts over"}</p>
         </article>
         <article className="wa-cinema-after">
-          <div className="wa-cinema-contrast-label"><span>02 / {ar ? "بمسار Starter" : "With Starter"}</span><b>✓</b></div>
+          <div className="wa-cinema-contrast-label"><span>{ar ? "بالمسار التأسيسي" : "With Starter"}</span><b>✓</b></div>
           <div className="wa-cinema-ordered" aria-hidden="true">
-            <span><i>01</i>{ar ? "رد واضح" : "First reply"}</span>
-            <span><i>02</i>{ar ? "تفاصيل أساسية" : "Key details"}</span>
-            <span><i>03</i>{ar ? "تسليم للموظف" : "Human handover"}</span>
-            <span><i>04</i>{ar ? "متابعة عند الحاجة" : "Follow-up"}</span>
+            <span><i aria-hidden="true">✓</i>{ar ? "رد واضح" : "First reply"}</span>
+            <span><i aria-hidden="true">✓</i>{ar ? "تفاصيل أساسية" : "Key details"}</span>
+            <span><i aria-hidden="true">✓</i>{ar ? "تسليم للموظف" : "Human handover"}</span>
+            <span><i aria-hidden="true">✓</i>{ar ? "متابعة عند الحاجة" : "Follow-up"}</span>
           </div>
           <h3>{ar ? "رحلة مفهومة" : "An organised journey"}</h3>
-          <p>{ar ? "من أول سؤال حتى تحويل المحادثة، تعرف الخطوة التالية بدل التخمين." : "From the first question to the right handover, there is a defined next step."}</p>
+          <p>{ar ? "من أول سؤال حتى تحويل المحادثة، تعرف الخطوة التالية بدل التخمين" : "From the first question to the right handover, there is a defined next step"}</p>
         </article>
       </div>
-      <p className="wa-cinema-scope-note">{ar ? "مشهد توضيحي فقط. باقة Starter لا تشمل CRM كاملًا أو نظام حجز متقدم؛ هذه الخدمات تُناقش بشكل منفصل." : "Illustrative experience only. Starter does not include a full CRM or advanced booking system; these require a separate scope."}</p>
+      <p className="wa-cinema-scope-note">{ar ? "المشهد توضيحي فقط، والباقة التأسيسية لا تشمل نظامًا كاملًا لإدارة العملاء أو حجزًا متقدمًا، وتُناقش هذه الخدمات بشكل منفصل" : "Illustrative experience only, Starter does not include a full CRM or advanced booking system; these require a separate scope"}</p>
     </section>
   );
 }
