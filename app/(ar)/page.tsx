@@ -113,7 +113,7 @@ export default function Home() {
       </section>
 
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
-        <div className="home-work-head"><div><span className="section-label">أعمال مختارة</span><h2 id="home-work-title">لا نعرض الشكل فقط<br/><em>نعرض القرار خلفه</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
+        <div className="home-work-head"><div><h2 id="home-work-title">لا نعرض الشكل فقط<br/><em>نعرض القرار خلفه</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
         <div className="home-work-grid">
           {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
         </div>
@@ -131,7 +131,6 @@ export default function Home() {
       </section>
 
       <section className="home-growth-summary shell" aria-labelledby="home-growth-summary-title">
-        <span className="section-label">منظومة ديوانك</span>
         <h2 id="home-growth-summary-title">من أول انطباع إلى متابعة ما بعد الاستفسار</h2>
         <p>نربط استراتيجية العلامة والمحتوى والإعلانات والموقع وSEO وواتساب وCRM بحيث تخدم كل خطوة ما بعدها، بدل تشغيل خدمات متفرقة يصعب معرفة أثرها.</p>
         <div className="home-growth-links"><Link href="/branding">البراند <span>↗</span></Link><Link href="/paid-ads">الإعلانات <span>↗</span></Link><Link href="/website-design">المواقع <span>↗</span></Link><Link href="/whatsapp-automation">الأتمتة <span>↗</span></Link></div>
