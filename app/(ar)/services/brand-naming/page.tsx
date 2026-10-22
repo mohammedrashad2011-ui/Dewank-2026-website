@@ -1,3 +1,4 @@
+import NamingDecisionMotion from "../../../components/naming-decision-motion";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -55,6 +56,8 @@ export default function BrandNamingPage() {
     <section className="shell brand-diagnosis"><div><span className="section-label">[ المشكلة ]</span><h2>الاسم الضعيف<br/><em>تكلفته تظهر لاحقًا.</em></h2></div><div className="brand-diagnosis-copy"><p>اسم يصعب نطقه، أو يشبه منافسًا، أو لا يملك نطاقًا مناسبًا قد يستهلك ميزانية الهوية والتسويق ثم يجبرك على التغيير. لذلك نعامل التسمية كقرار بحث واستراتيجية، لا جلسة عصف ذهني فقط.</p><div className="brand-symptoms"><p>اسم عام يصعب امتلاكه</p><p>تشابه يربك العميل</p><p>معنى سلبي في سوق آخر</p><p>دومين وحسابات غير متاحة</p></div></div></section>
 
     <section className="shell brand-deliverables"><div className="brand-section-head"><div><span className="section-label">[ ما الذي تستلمه ]</span><h2>من فكرة المشروع<br/><em>إلى قائمة قابلة للقرار.</em></h2></div></div><div className="brand-deliverables-grid">{deliverables.map(([item, text], i) => <article key={item}><span>{String(i + 1).padStart(2, "0")}</span><div><h3>{item}</h3><p>{text}</p></div></article>)}</div></section>
+
+    <NamingDecisionMotion locale="ar" />
 
     <BithanProofCard variant="naming" />
 
