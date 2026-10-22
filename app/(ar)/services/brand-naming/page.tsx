@@ -6,7 +6,7 @@ import { BithanProofCard } from "../../../components/bithan-proof-card";
 import "../../branding/branding-page.css";
 
 const title = "خدمة اقتراح أسماء تجارية وفحص العلامة والدومين";
-const description = "خدمة تسمية العلامات التجارية في السعودية والخليج: اقتراح أسماء مدروسة، فحص لغوي وثقافي، بحث مبدئي عن العلامات المشابهة، والتحقق من الدومين وحسابات التواصل.";
+const description = "اختيار اسم تجاري تبدأ من 490 ريال: 10–15 اسمًا مدروسًا وأفضل 3 ترشيحات، فحص لغوي وثقافي ومبدئي للتشابه والدومين، وتوجه أولي للعلامة، وتسليم خلال 3–5 أيام عمل.";
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
