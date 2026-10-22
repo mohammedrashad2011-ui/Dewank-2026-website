@@ -82,7 +82,7 @@ export default function MiniVisualIdentityOffer() {
       <section className="shell offer-detail-hero mini-identity-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-          <h1>ليست مجرد شعار.<br/><em>بداية شكل يُعرَف به مشروعك.</em></h1>
+          <h1>ليست مجرد شعار<br/><em>بداية شكل يُعرَف به مشروعك</em></h1>
           <p>نجهز لك أساسًا بصريًا متماسكًا يجعل علامتك تظهر بصورة احترافية من أول يوم، من الشعار والألوان إلى الخطوط والتطبيقات الأساسية.</p>
           <div className="mini-identity-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
@@ -101,7 +101,7 @@ export default function MiniVisualIdentityOffer() {
       <section className="shell mini-identity-proof">
         <div className="mini-identity-proof-copy">
           <span className="section-label">[ لماذا هوية مصغرة؟ ]</span>
-          <h2>لأن الشكل المرتجل<br/>يتعب العلامة بسرعة.</h2>
+          <h2>لأن الشكل المرتجل<br/>يتعب العلامة بسرعة</h2>
           <p>المشروع في بدايته لا يحتاج دائمًا إلى نظام براند ضخم. لكنه يحتاج قواعد بصرية كافية تمنع كل تصميم جديد من أن يبدو وكأنه تابع لشركة مختلفة.</p>
         </div>
         <div className="identity-board" aria-label="نموذج توضيحي لمكونات الهوية البصرية">
@@ -117,12 +117,12 @@ export default function MiniVisualIdentityOffer() {
       </section>
 
       <section className="shell offer-deliverables mini-identity-deliverables">
-        <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>الأساس الذي يحتاجه<br/>مشروعك ليظهر بثبات.</h2><p>نركز على العناصر التي ستستخدمها فعلًا في بداية العلامة، بدل تضخيم الباقة بعناصر لا تحتاجها الآن.</p></div>
+        <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>الأساس الذي يحتاجه<br/>مشروعك ليظهر بثبات</h2><p>نركز على العناصر التي ستستخدمها فعلًا في بداية العلامة، بدل تضخيم الباقة بعناصر لا تحتاجها الآن.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell mini-identity-process">
-        <div className="mini-identity-process-head"><span className="section-label">[ 3 مراحل ]</span><h2>نفهم. نحدد الاتجاه. ثم نبني النظام.</h2></div>
+        <div className="mini-identity-process-head"><span className="section-label">[ 3 مراحل ]</span><h2>نفهم. نحدد الاتجاه. ثم نبني النظام</h2></div>
         <div className="mini-identity-process-grid">
           <article><b>01</b><h3>نفهم المشروع</h3><p>النشاط، الجمهور، المنافسون، شخصية العلامة وما يجب أن يشعر به العميل عند رؤيتها.</p></article>
           <article><b>02</b><h3>نحدد الاتجاه</h3><p>نقترح توجهًا بصريًا يربط الشعار بالألوان والخطوط بدل تصميم كل عنصر بشكل منفصل.</p></article>
@@ -131,16 +131,16 @@ export default function MiniVisualIdentityOffer() {
       </section>
 
       <section className="shell offer-confidence mini-identity-confidence">
-        <div className="offer-confidence-head"><span className="section-label">[ مناسبة لمن؟ ]</span><h2>بداية قوية بدون تعقيد الهوية الكاملة.</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">[ مناسبة لمن؟ ]</span><h2>بداية قوية بدون تعقيد الهوية الكاملة</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>مشروع جديد لديه اسم معتمد ويحتاج شكلًا احترافيًا قبل الإطلاق.</span></article><article><b>02</b><span>نشاط صغير يستخدم شعارًا ضعيفًا أو غير متناسق ويريد أساسًا أوضح.</span></article><article><b>03</b><span>مؤسس يريد توحيد شكل الموقع والسوشيال ميديا والعروض قبل التوسع.</span></article></div>
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل استراتيجية براند متكاملة، بحث تسمية، كتابة نظام رسائل، دليل هوية تفصيلي، موشن جرافيك، تغليف منتجات، تصميم موقع، إدارة سوشيال ميديا أو عددًا مفتوحًا من التطبيقات والتعديلات.</p></details>
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن نرسم أول خط.</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن نرسم أول خط</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta mini-identity-final">
         <span className="offer-kicker">هوية بصرية مصغرة · 7–10 أيام</span>
-        <h2>اجعل مشروعك يبدو كعلامة، لا كمجموعة تصميمات منفصلة.</h2>
+        <h2>اجعل مشروعك يبدو كعلامة، لا كمجموعة تصميمات منفصلة</h2>
         <p>أرسل نوع النشاط والاسم والسوق المستهدف، ونبدأ بتحديد الاتجاه قبل تصميم الشعار.</p>
         <MiniIdentityWhatsApp className="button primary" label="ابدأ الهوية البصرية" />
         <div className="mini-identity-links"><Link href="/branding">خدمة البراند والهوية الكاملة</Link><Link href="/guides/branding-identity-cost-saudi-arabia">كم تكلفة الهوية الكاملة؟</Link><Link href="/offers/brand-naming">لم تختر الاسم بعد؟</Link><Link href="/offers">العودة إلى العروض</Link></div>

@@ -38,16 +38,16 @@ export default function ContactPage() {
       <section className="cp-hero shell">
         <span className="cp-eyebrow">ابدأ من هنا</span>
         <h1>
-          أخبرنا أين تريد أن تصل.
+          أخبرنا أين تريد أن تصل
           <br />
-          <em>ونبدأ.</em>
+          <em>ونبدأ</em>
         </h1>
         <p className="cp-lead">شاركنا نبذة مختصرة عن المشروع. كلما كان الهدف أوضح، كانت توصيتنا أدق.</p>
       </section>
 
       <section className="cp-brief shell" aria-labelledby="cp-brief-title">
         <div className="cp-brief-head">
-          <h2 id="cp-brief-title">أرسل موجزك.</h2>
+          <h2 id="cp-brief-title">أرسل موجزك</h2>
           <p>نحتاج دقيقتين تقريبًا. الأسعار في صفحات العروض نقطة بداية، ويُحدد السعر النهائي بعد فهم النطاق.</p>
         </div>
 
@@ -79,7 +79,7 @@ export default function ContactPage() {
 
       <section className="cp-channels shell" aria-labelledby="cp-channels-title">
         <span className="cp-eyebrow">طرق أخرى للتواصل</span>
-        <h2 id="cp-channels-title">بريد أو واتساب.</h2>
+        <h2 id="cp-channels-title">بريد أو واتساب</h2>
         <div className="cp-channel-grid">
           <article className="cp-card">
             <span className="cp-tag">البريد الإلكتروني</span>
