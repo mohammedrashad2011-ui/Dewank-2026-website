@@ -1,4 +1,4 @@
-import "../../../(ar)/services/social-media-content/content-visual-rhythm.css";
+import "../../../(ar)/services/social-media-content/content-service.css";
 import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
@@ -7,9 +7,6 @@ import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic social media page's layout and styles, reused unchanged. English-only direction and type overrides follow.
-import "../../../(ar)/services/social-media-content/social-media-content.css";
-import "../../../(ar)/services/social-media-content/content-spacing-fix.css";
-import "../../../(ar)/services/social-media-content/content-guides.css";
 import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 

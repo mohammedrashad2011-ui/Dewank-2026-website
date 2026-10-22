@@ -1,12 +1,9 @@
-import "./content-visual-rhythm.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
 import { Footer, Header } from "../../../components/site-shell";
 import { offerPricing } from "../../offers/offer-pricing";
-import "./social-media-content.css";
-import "./content-spacing-fix.css";
-import "./content-guides.css";
+import "./content-service.css";
 
 export const metadata: Metadata = createMetadata({
   title: "إدارة السوشيال ميديا وصناعة المحتوى في السعودية | ديوانك",
