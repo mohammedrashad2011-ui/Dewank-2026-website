@@ -80,7 +80,7 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell offer-detail-hero google-ads-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> working days</span></div>
-          <h1>Set up and run Google Ads.<br/><em>A Search campaign that starts measured.</em></h1>
+          <h1>Set up and run Google Ads<br/><em>A Search campaign that starts measured</em></h1>
           <p>We build a Google Search campaign from scratch: buyer-intent keywords, suitable ads, negative keywords, basic conversion tracking, and a full check before the budget starts running.</p>
           <div className="google-ads-answer" aria-label="The short answer">
             <b>The short answer</b>
@@ -99,7 +99,7 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell google-ads-proof">
         <div className="google-ads-proof-copy">
           <span className="section-label">What we build</span>
-          <h2>From the customer&apos;s search.<br/>To a measurable step.</h2>
+          <h2>From the customer&apos;s search<br/>To a measurable step</h2>
           <p>We arrange the core journey so the ad appears when a customer searches for the service, leads to your current page, and records the action that matters most, such as a WhatsApp click, a form or a call.</p>
         </div>
         <div className="google-search-card" aria-label="Simplified example of a Google search ad journey">
@@ -115,12 +115,12 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell offer-deliverables google-ads-deliverables">
-        <div><span className="section-label">What you receive</span><h2>A campaign ready to launch.<br/>With a clear scope.</h2><p>We set the limits from the start, so the setup package does not turn into unplanned monthly management.</p></div>
+        <div><span className="section-label">What you receive</span><h2>A campaign ready to launch<br/>With a clear scope</h2><p>We set the limits from the start, so the setup package does not turn into unplanned monthly management.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell google-ads-fit">
-        <div className="google-ads-fit-head"><span className="section-label">Is it right for you?</span><h2>Not every campaign needs the same start.</h2></div>
+        <div className="google-ads-fit-head"><span className="section-label">Is it right for you?</span><h2>Not every campaign needs the same start</h2></div>
         <div className="offer-fit-grid">
           <article className="offer-fit-card good"><h3>It suits you if</h3><ul><li>You have a working site or page</li><li>People already search on Google for your service</li><li>You want one defined Search campaign, not broad settings</li><li>You need a correct setup before a monthly management service</li></ul></article>
           <article className="offer-fit-card limits"><h3>You need a larger service if</h3><ul><li>You need a new landing page</li><li>You want a month of daily management and optimisation</li><li>You need several campaigns or many markets</li><li>You need Performance Max, Shopping or advanced measurement integrations</li></ul></article>
@@ -128,7 +128,7 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell google-ads-process">
-        <div className="google-ads-process-head"><span className="section-label">How it is delivered</span><h2>Understand the request. Choose the keywords. Build. Then launch.</h2></div>
+        <div className="google-ads-process-head"><span className="section-label">How it is delivered</span><h2>Understand the request. Choose the keywords. Build. Then launch</h2></div>
         <div className="google-ads-process-grid">
           <article><b>01</b><h3>Define the goal</h3><p>We choose the main conversion, the offer, the market and the page that will receive the visitors.</p></article>
           <article><b>02</b><h3>Research keywords</h3><p>We arrange the keywords by search intent and leave out those likely to spend budget without return.</p></article>
@@ -138,7 +138,7 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell offer-confidence google-ads-confidence">
-        <div><span className="section-label">Package limits</span><h2>A fixed fee for setup and launch,<br/>not for a full month of management.</h2></div>
+        <div><span className="section-label">Package limits</span><h2>A fixed fee for setup and launch,<br/>not for a full month of management</h2></div>
         <div className="offer-confidence-list">
           <p><b>Not included:</b> the Google ad budget, a new landing page, monthly management, Display or video ads, Merchant Center, or advanced CRM and measurement integrations.</p>
           <p><b>Required from you:</b> a Google Ads account that can take payment, a working page, access to the account and measurement, and a service or offer you want to promote.</p>
@@ -147,12 +147,12 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell offer-faq google-ads-faq" id="faq">
-        <div><span className="section-label">Quick questions</span><h2>Before you start.</h2></div>
+        <div><span className="section-label">Quick questions</span><h2>Before you start</h2></div>
         <div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="shell offer-final-cta google-ads-final">
-        <div><span className="section-label">Ready to launch?</span><h2>Make your first spend on Google<br/>begin with a measured setup.</h2><p>Send us your business, your target market and the link to your current page, and we will check whether it is suitable before the campaign begins.</p></div>
+        <div><span className="section-label">Ready to launch?</span><h2>Make your first spend on Google<br/>begin with a measured setup</h2><p>Send us your business, your target market and the link to your current page, and we will check whether it is suitable before the campaign begins.</p></div>
         <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start on WhatsApp <span>→</span></a>
         <div className="google-ads-links"><Link href="/en/paid-advertising">Need ongoing Google Ads management?</Link><Link href="/en/offers/landing-page-package">Need a landing page first?</Link></div>
       </section>

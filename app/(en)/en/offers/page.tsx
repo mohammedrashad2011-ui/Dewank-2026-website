@@ -60,7 +60,7 @@ export default function OffersPage() {
 
       <section className="shell offers-hero offers-overview-hero">
         <span className="offers-hero-eyebrow">Offers</span>
-        <h1>Clear offers.<br /><em>To help you start now.</em></h1>
+        <h1>Clear offers<br /><em>To help you start now</em></h1>
         <p>Choose the offer that fits your business, with a defined scope and a known starting price. Review the details and start directly on WhatsApp, without long subscriptions or unclear services.</p>
       </section>
 
@@ -101,7 +101,7 @@ export default function OffersPage() {
           <article data-filter="web" data-category="Audit and conversion" className="offer-card compact-offer-card cro-offer-card">
             <Link className="offer-card-hit" href="/en/conversion-rate-optimization#pricing" aria-label="View the conversion audit packages" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> one-time packages</span></div>
-            <h2>Conversion check and funnel audit.<br /><em>See where visits stop.</em></h2>
+            <h2>Conversion check and funnel audit<br /><em>See where visits stop</em></h2>
             <p>Three one-time packages with defined limits, from a single-page check to a deeper journey analysis. Each package states what it includes and how long delivery takes before you pay.</p>
             <div className="offer-card-meta"><div><small>Starting from</small><OfferPrice offerKey="cro-snapshot" className="cro-price" /></div><span className="button primary">Packages <span>→</span></span></div>
           </article>
@@ -109,7 +109,7 @@ export default function OffersPage() {
           <aside className="offers-note offers-overview-note">
             <div>
               <small>Not sure yet?</small>
-              <h2>Tell us your goal.<br />We will suggest the right starting point.</h2>
+              <h2>Tell us your goal<br />We will suggest the right starting point</h2>
               <p>Send us your business and the result you want, and we will recommend the offer closest to your need, without buying services you do not need. Prices are shown in US dollars by default, and in your country&apos;s approved price where one exists.</p>
             </div>
             <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Ask Dewank on WhatsApp <span>→</span></a>
