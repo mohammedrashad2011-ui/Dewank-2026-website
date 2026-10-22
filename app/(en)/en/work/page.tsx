@@ -83,7 +83,7 @@ export default function WorkPage() {
 
       <section className="work-hero shell">
         <span className="section-label">Selected work</span>
-        <h1>The result matters.<br /><em>The decision that produced it matters more.</em></h1>
+        <h1>The result matters<br /><em>The decision that produced it matters more</em></h1>
         <p>We do not only show attractive visuals. For each project we explain the challenge, the decision, what was built and what changed, or was targeted, so you can see how we think before you start a project with us.</p>
         <div className="work-hero-actions">
           <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss a similar project <span>↗</span></a>
@@ -101,7 +101,7 @@ export default function WorkPage() {
       <section className="proof-paths shell" aria-labelledby="proof-paths-title">
         <div className="proof-paths-head">
           <span className="section-label">Choose the kind of proof</span>
-          <h2 id="proof-paths-title">Do not browse everything.<br /><em>Go to the case closest to your challenge.</em></h2>
+          <h2 id="proof-paths-title">Do not browse everything<br /><em>Go to the case closest to your challenge</em></h2>
         </div>
         <div className="proof-path-grid">
           {proofPaths.map((item) => <a href={item.href} className="proof-path-card" key={item.no}><small>{item.no} · {item.label}</small><h3>{item.title}</h3><p>{item.text}</p><span>View the section ↓</span></a>)}
@@ -112,7 +112,7 @@ export default function WorkPage() {
         <div className="real-case-grid">
           <div className="real-case-copy">
             <span className="section-label">Real case study · Bahrain · anonymised</span>
-            <h2>From scattered messages<br />to a follow-up journey you can measure.</h2>
+            <h2>From scattered messages<br />to a follow-up journey you can measure</h2>
             <p>A cosmetic clinic whose enquiries came from campaigns, but whose follow-up depended on manual replies. Replies were slow, good enquiries were lost and appointment reminders were irregular.</p>
             <div className="case-facts">
               {clinicFacts.map((fact) => <div key={fact.label}><b>{fact.label}</b><span>{fact.text}</span></div>)}
@@ -136,7 +136,7 @@ export default function WorkPage() {
       <section className="bithan-work-feature shell" aria-labelledby="bithan-work-title">
         <div className="bithan-work-copy">
           <span className="section-label">Real case study · Naming and identity · Qatar · 2026</span>
-          <h2 id="bithan-work-title">From a naming strategy<br /><em>to a complete fine jewellery identity.</em></h2>
+          <h2 id="bithan-work-title">From a naming strategy<br /><em>to a complete fine jewellery identity</em></h2>
           <p>BITHAN began with positioning, naming territories and a curated shortlist with preliminary checks. It ended with a name chosen by the client, followed by an original sketch, a logo suite, an identity system and premium applications.</p>
           <div className="bithan-work-journey"><span>Naming</span><i>→</i><span>Selection</span><i>→</i><span>Identity</span><i>→</i><span>Applications</span></div>
           <Link className="button primary" href="/en/work/bithan">View the full case study <span>→</span></Link>
@@ -151,7 +151,7 @@ export default function WorkPage() {
         <div className="identity-work-head">
           <div>
             <span className="section-label">Selected identity work</span>
-            <h2 id="identity-work-title">Brands we have built<br />a presence that is easy to remember.</h2>
+            <h2 id="identity-work-title">Brands we have built<br />a presence that is easy to remember</h2>
           </div>
           <p>Examples of our identity work across different sectors. Select any project to view it larger.</p>
         </div>
@@ -166,7 +166,7 @@ export default function WorkPage() {
         <div className="shell">
           <div className="testimonials-head">
             <span className="section-label">Client feedback</span>
-            <h2 id="testimonials-title">Trust is not designed in isolation.<br /><em>We earn it with every project.</em></h2>
+            <h2 id="testimonials-title">Trust is not designed in isolation<br /><em>We earn it with every project</em></h2>
           </div>
           <div className="testimonials-grid">
             {testimonials.map((testimonial, index) => (
@@ -188,7 +188,7 @@ export default function WorkPage() {
           <div className="concepts-head">
             <div>
               <span className="section-label">Strategic thinking</span>
-              <h2>We test the way of thinking,<br />not only the look of the logo.</h2>
+              <h2>We test the way of thinking,<br />not only the look of the logo</h2>
               <p>These are concept projects, not client engagements. We use them to show how we approach positioning, identity and experience.</p>
             </div>
           </div>
@@ -213,7 +213,7 @@ export default function WorkPage() {
 
       <section className="work-method shell">
         <span className="section-label">How we work</span>
-        <h2>From the challenge to a system<br />you can run and measure.</h2>
+        <h2>From the challenge to a system<br />you can run and measure</h2>
         <div className="work-method-grid">
           {method.map((step) => <div key={step.no}><span>{step.no}</span><h3>{step.title}</h3><p>{step.text}</p></div>)}
         </div>
@@ -223,7 +223,7 @@ export default function WorkPage() {
       <section className="work-final">
         <div>
           <span className="section-label">Next step</span>
-          <h2>You have seen the evidence.<br /><em>Now let us define what fits your project.</em></h2>
+          <h2>You have seen the evidence<br /><em>Now let us define what fits your project</em></h2>
         </div>
         <div>
           <p>Send us your business and the current challenge. We will say whether you need a brand, a website, advertising, automation, or a smaller combination that serves the result.</p>

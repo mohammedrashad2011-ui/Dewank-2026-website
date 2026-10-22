@@ -70,7 +70,7 @@ export default function AboutPage() {
       <section className="about-hero shell">
         <div>
           <span className="section-label">About Dewank</span>
-          <h1>We are not a list of services.<br /><em>We build a clearer growth system.</em></h1>
+          <h1>We are not a list of services<br /><em>We build a clearer growth system</em></h1>
           <p>We bring brand strategy, marketing, websites, data and automation into one route, because growth is rarely blocked by a missing service. It is blocked when the services are not connected to each other.</p>
           <div className="about-hero-actions">
             <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss your challenge on WhatsApp <span>↗</span></a>
@@ -115,7 +115,7 @@ export default function AboutPage() {
       <section className="about-origin shell">
         <div className="about-origin-copy">
           <span className="section-label">Why Dewank</span>
-          <h2>The idea started from a problem we see every day.</h2>
+          <h2>The idea started from a problem we see every day</h2>
           <p>A company works with a designer who does not know the marketing goal, a marketer who does not understand the brand, a developer who builds a site with no conversion path, and an automation that runs apart from sales. The result is a lot of effort and many tools, but a customer journey that is still broken into pieces.</p>
           <p>Dewank was built to connect the strategic decision with execution, technology and measurement in one system.</p>
         </div>
@@ -131,7 +131,7 @@ export default function AboutPage() {
 
       <section className="about-services-map shell" aria-labelledby="about-services-title">
         <div className="about-services-head">
-          <div><span className="section-label">What Dewank offers</span><h2 id="about-services-title">Seven routes.<br /><em>One goal: clearer growth.</em></h2></div>
+          <div><span className="section-label">What Dewank offers</span><h2 id="about-services-title">Seven routes<br /><em>One goal: clearer growth</em></h2></div>
           <Link href="/en/services">All services <span>→</span></Link>
         </div>
         <div className="about-services-grid">
@@ -148,7 +148,7 @@ export default function AboutPage() {
 
       <section className="about-values shell">
         <span className="section-label">What sets us apart</span>
-        <h2>Clear decisions before execution.</h2>
+        <h2>Clear decisions before execution</h2>
         <div className="values-grid">
           {values.map((value) => (
             <article className="value-card" key={value.no}>
@@ -162,7 +162,7 @@ export default function AboutPage() {
         <div className="shell market-grid">
           <div>
             <span className="section-label">Market experience</span>
-            <h2>Experience built in the market,<br />not in presentations.</h2>
+            <h2>Experience built in the market,<br />not in presentations</h2>
             <p>Dewank brings practical experience in brand strategy, digital marketing, website development, campaign management, the customer journey, CRM and automation, with delivery experience in Saudi Arabia, Bahrain and the UAE.</p>
             <p>We link marketing with sales and customer service, and turn scattered touchpoints into systems that are easier to measure and improve.</p>
             <div className="market-tags">
@@ -180,10 +180,10 @@ export default function AboutPage() {
 
       <section className="about-fit shell">
         <span className="section-label">Are we the right fit?</span>
-        <h2>A good partnership starts with clear expectations.</h2>
+        <h2>A good partnership starts with clear expectations</h2>
         <div className="fit-grid">
           <div className="fit-box">
-            <h3>Dewank is a good fit when...</h3>
+            <h3>Dewank is a good fit when..</h3>
             <ul>
               <li>You have a good service, but its message is not clear.</li>
               <li>You spend on marketing without a coherent system.</li>
@@ -192,7 +192,7 @@ export default function AboutPage() {
             </ul>
           </div>
           <div className="fit-box dark">
-            <h3>We may not be the right choice when...</h3>
+            <h3>We may not be the right choice when..</h3>
             <ul>
               <li>You want fast delivery without diagnosis or strategy.</li>
               <li>You want the lowest price rather than the solution closest to the problem.</li>
@@ -205,7 +205,7 @@ export default function AboutPage() {
 
       <section className="about-faq shell" aria-labelledby="about-faq-title">
         <span className="section-label">Quick answers</span>
-        <h2 id="about-faq-title">Questions that help you understand Dewank quickly.</h2>
+        <h2 id="about-faq-title">Questions that help you understand Dewank quickly</h2>
         <div className="about-faq-grid">
           {faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
         </div>
@@ -214,7 +214,7 @@ export default function AboutPage() {
       <section className="about-final about-final-upgraded">
         <div>
           <span className="section-label">Next step</span>
-          <h2>You do not need another service.<br /><em>You need to know where to start.</em></h2>
+          <h2>You do not need another service<br /><em>You need to know where to start</em></h2>
         </div>
         <div>
           <p>Share your current challenge, and we will help you find the shortest practical route, instead of spreading your budget across separate solutions.</p>

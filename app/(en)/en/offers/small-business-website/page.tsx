@@ -101,7 +101,7 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> working days</span></div>
-          <h1>A small website.<br/><em>Ready to work under your name.</em></h1>
+          <h1>A small website<br/><em>Ready to work under your name</em></h1>
           <p>A clear package for businesses that need a professional company website without a large project: up to five pages, responsive design and development, WhatsApp and a contact form, analytics, basic SEO and a full pre-launch setup.</p>
           <div className="small-website-answer"><b>What do you get?</b><span>A complete company website with a defined scope. It is not a single landing page, and it is not an online shop.</span></div>
         </div>
@@ -116,7 +116,7 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell small-website-proof">
         <div className="small-website-proof-copy">
           <span className="section-label">A clear scope</span>
-          <h2>Not every project<br/><em>needs a large website.</em></h2>
+          <h2>Not every project<br/><em>needs a large website</em></h2>
           <p>Often what a business needs is a well-ordered site that explains who it is, what it offers, and how a customer can contact it. The package closes that gap quickly, without paying for features you will not use.</p>
         </div>
         <div className="small-site-map" aria-label="Example structure of a small website">
@@ -128,18 +128,18 @@ export default function SmallBusinessWebsiteOfferPage() {
       </section>
 
       <section className="shell offer-deliverables small-website-deliverables">
-        <div><span className="section-label">What the package includes</span><h2>All the essentials.<br/><em>Nothing padded.</em></h2></div>
+        <div><span className="section-label">What the package includes</span><h2>All the essentials<br/><em>Nothing padded</em></h2></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell small-website-process">
-        <div className="small-website-process-head"><span className="section-label">How it is delivered</span><h2>From the first page.<br/><em>To launch.</em></h2></div>
+        <div className="small-website-process-head"><span className="section-label">How it is delivered</span><h2>From the first page<br/><em>To launch</em></h2></div>
         <div className="small-website-process-grid">{process.map(([number, title, text]) => <article key={number}><b>{number}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell offer-fit small-website-fit">
         <span className="section-label">Is the package right for you?</span>
-        <h2>Suited to a company website.<br/><em>Not to every type of project.</em></h2>
+        <h2>Suited to a company website<br/><em>Not to every type of project</em></h2>
         <div className="offer-fit-grid">
           <article className="offer-fit-card good"><h3>Suits you if</h3><ul>{fitFor.map((item) => <li key={item}>{item}</li>)}</ul></article>
           <article className="offer-fit-card limits"><h3>Not included</h3><ul>{exclusions.map((item) => <li key={item}>{item}</li>)}</ul></article>
@@ -147,19 +147,19 @@ export default function SmallBusinessWebsiteOfferPage() {
       </section>
 
       <section className="shell small-website-scope-note">
-        <div><span className="section-label">Before you start</span><h2>If your needs are bigger,<br/><em>we will not squeeze them into a small package.</em></h2></div>
+        <div><span className="section-label">Before you start</span><h2>If your needs are bigger,<br/><em>we will not squeeze them into a small package</em></h2></div>
         <div><p>If you need a shop, a booking system, memberships, a CRM, automation, a large number of pages or a full website strategy, it is better to move to our website design and development service than to stretch this package until it loses its clarity.</p><Link href="/en/website-design">See the website design and development service <span>→</span></Link></div>
       </section>
 
       <section className="shell offer-faq small-website-faq">
         <span className="section-label">Frequently asked questions</span>
-        <h2>Before you book.</h2>
+        <h2>Before you book</h2>
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="shell offer-final-cta small-website-final">
         <span className="section-label">Ready to start?</span>
-        <h2>Give your business<br/><em>a real digital address.</em></h2>
+        <h2>Give your business<br/><em>a real digital address</em></h2>
         <p>Start with a clear, fast website, and expand it only when the business actually needs it.</p>
         <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website now <span>→</span></a>
         <div className="small-website-links"><Link href="/en/offers/landing-page-package">Need a landing page only?</Link><Link href="/en/website-design">Need a larger website?</Link></div>
