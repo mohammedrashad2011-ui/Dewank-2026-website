@@ -209,3 +209,81 @@ html[lang="ar"] .sa-truth-grid .sa-label { justify-self: end; }
     background: rgba(224,234,255,.6);
   }
 }
+
+
+/* FINAL CONTRAST & FIT: all visible Arabic section-title chips are only as wide
+   as their text, even inside full-width CSS grid slots. Dark navy text on a
+   near-opaque icy-glass surface remains readable on cream, blue and black. */
+html[lang="ar"] main :is(
+  .section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+  .ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,
+  .legal-eyebrow,.bithan-eyebrow,.bithan-kicker,.metric-kicker,
+  .concept-label,.brand-lab-kicker,.offers-hero-eyebrow,
+  .eyebrow,.offer-eyebrow
+),
+html[lang="ar"] :is(
+  .pa-hero-copy > .pa-kicker,.wd-hero-copy > .wd-kicker,
+  .dm-hero-copy > .dm-kicker,.sa-hero-copy > .sa-kicker,
+  .cv-hero-copy > .cv-kicker
+),
+html[lang="ar"] main .brand-hero-copy > .section-label {
+  width: max-content;
+  max-width: 100%;
+  justify-self: start;
+  align-self: start;
+  flex: 0 0 auto;
+  text-align: start;
+  color: #092345 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  background: linear-gradient(125deg,rgba(255,255,255,.96),rgba(226,236,255,.91)) !important;
+  border-color: rgba(43,75,150,.38) !important;
+  box-shadow: 0 5px 18px rgba(4,23,59,.12),inset 0 1px 0 rgba(255,255,255,.97);
+  font-size: clamp(13px,1.08vw,15px);
+  letter-spacing: 0;
+  line-height: 1.6;
+  border-radius: 999px;
+  white-space: normal;
+}
+/* Avoid a long glass strip for grid headings whose label occupies one grid row. */
+html[lang="ar"] .primary-paths-head > .section-label {grid-column:1 / -1; justify-self:start;}
+html[lang="ar"] .sa-truth-grid .sa-label {justify-self:end;}
+/* High-opacity glass on dark and saturated-blue sections. */
+html[lang="ar"] :is(
+  .brand-system-section,.brand-cta,.final-cta,.home-final-conversion,
+  .services-final-cta,.problem-chooser,.pa-final,.sa-final,.dm-final,
+  .cv-final,.wd-final,.offer-final-cta,.offer-price-panel,
+  .sales-final-cta
+) :is(.section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+      .sales-eyebrow,.offer-kicker,.ai-label,.eyebrow) {
+  color:#071d3d !important;
+  background:linear-gradient(120deg,rgba(255,255,255,.98),rgba(231,240,255,.94)) !important;
+  border-color:rgba(255,255,255,.75) !important;
+  box-shadow:0 5px 18px rgba(0,0,0,.14),inset 0 1px 0 #fff;
+}
+/* No empty bubbles, even if a component renders an unpopulated label. */
+html[lang="ar"] main :is(.section-label,.pa-label,.sa-label,.dm-label,
+  .wd-label,.cv-label,.ai-label,.guides-label,.offer-kicker,
+  .sales-eyebrow,.eyebrow):empty {display:none!important;}
+/* Services catalogue: decorative counters belong to the CMS, not the UI.
+   Remove both explicit service sequence markers and CSS pseudo-numbering. */
+html[lang="ar"] .services-page .service-detail .detail-top > span:first-child {
+  display:none!important;
+}
+html[lang="ar"] .services-page .primary-path-card::before {
+  content:none!important;
+  display:none!important;
+}
+html[lang="ar"] .services-page .primary-path-card h3 {margin-top:20px;}
+html[lang="ar"] .services-page .service-detail .detail-top {
+  justify-content:flex-start;gap:0;
+}
+/* The homepage work tiles have decorative '01' labels, not useful metrics. */
+html[lang="ar"] .home-work-card > small:first-child {display:none!important;}
+@media (max-width:640px) {
+  html[lang="ar"] main :is(.section-label,.pa-label,.sa-label,.dm-label,
+    .wd-label,.cv-label,.ai-label,.guides-label,.offer-kicker,
+    .sales-eyebrow,.cp-eyebrow,.legal-eyebrow,.bithan-eyebrow,
+    .bithan-kicker,.metric-kicker,.concept-label,.brand-lab-kicker,
+    .eyebrow) {width:max-content;max-width:100%;line-height:1.65;}
+}
