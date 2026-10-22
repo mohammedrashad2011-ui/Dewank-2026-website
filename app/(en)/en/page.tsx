@@ -219,7 +219,7 @@ export default function Home() {
             {services.map((service) => (
               <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
                 <div className="card-top">
-                  <span>{service.n}</span>
+                  
                   <small>{service.en}</small>
                   <b>↗</b>
                 </div>
@@ -257,7 +257,7 @@ export default function Home() {
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
         <div className="home-work-head">
           <div>
-            <span className="section-label">Selected work</span>
+            
             <h2 id="home-work-title">
               We don&rsquo;t just show the look.
               <br />
@@ -272,7 +272,7 @@ export default function Home() {
           {selectedWork.map((item) => (
             <Link className="home-work-card" href={item.href} key={item.n}>
               <small>
-                {item.n} / {item.label}
+                {item.label}
               </small>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
@@ -301,9 +301,8 @@ export default function Home() {
             </p>
           </div>
           <div className="method-list">
-            {method.map(([no, title, text]) => (
-              <div key={no}>
-                <span>{no}</span>
+            {method.map(([, title, text]) => (
+              <div key={title}>
                 <strong>{title}</strong>
                 <p>{text}</p>
               </div>
@@ -313,7 +312,7 @@ export default function Home() {
       </section>
 
       <section className="home-growth-summary shell" aria-labelledby="home-growth-summary-title">
-        <span className="section-label">The Dewank system</span>
+        
         <h2 id="home-growth-summary-title">From the first impression to the follow-up after the enquiry.</h2>
         <p>
           We connect brand strategy, content, ads, websites, SEO, WhatsApp and CRM so each step serves the next, rather
