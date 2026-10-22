@@ -1,3 +1,4 @@
+import "./hero-size.en.css";
 import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
