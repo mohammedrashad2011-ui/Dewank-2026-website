@@ -1,0 +1,24 @@
+/* English delivery cards have no number column: give copy the full card width. */
+.bithan-case-page.en-service .bithan-delivery-grid {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.bithan-case-page.en-service .bithan-delivery-grid article {
+  display:block;
+  min-width:0;
+  padding:clamp(20px,2.4vw,32px);
+}
+.bithan-case-page.en-service .bithan-delivery-grid article>div {min-width:0;max-width:65ch}
+.bithan-case-page.en-service .bithan-delivery-grid h3 {
+  font-size:clamp(16px,1.4vw,20px);
+  line-height:1.4;
+  margin:0 0 10px;
+  overflow-wrap:break-word;
+}
+.bithan-case-page.en-service .bithan-delivery-grid p {
+  font-size:clamp(13px,1.1vw,15px);
+  line-height:1.75;
+  overflow-wrap:break-word;
+}
+@media(max-width:760px){
+  .bithan-case-page.en-service .bithan-delivery-grid{grid-template-columns:minmax(0,1fr)}
+}
