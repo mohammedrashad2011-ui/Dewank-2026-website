@@ -54,18 +54,18 @@ export default function BrandNamingPage() {
       <div className="brand-hero-actions"><Link className="button whatsapp" href="/offers/brand-naming">شاهد باقة 490 ريال <span>←</span></Link><Link className="button primary" href="/guides/how-to-choose-brand-name-saudi-arabia">اقرأ دليل اختيار الاسم <span>←</span></Link></div>
     </div><div className="brand-diagnosis-copy naming-service-package"><span className="section-label">الباقة الجاهزة</span><h2>تبدأ من<br/><em>490 ريال سعودي</em></h2><p>يشمل السعر الأساسي التسمية والفحص المبدئي وBrand Direction أولي. يتغير السعر النهائي إذا توسع نطاق الأسواق أو اللغات.</p></div></section>
 
-    <section className="shell brand-diagnosis"><div><span className="section-label">المشكلة</span><h2>الاسم الضعيف<br/><em>تكلفته تظهر لاحقًا.</em></h2></div><div className="brand-diagnosis-copy"><p>اسم يصعب نطقه، أو يشبه منافسًا، أو لا يملك نطاقًا مناسبًا قد يستهلك ميزانية الهوية والتسويق ثم يجبرك على التغيير. لذلك نعامل التسمية كقرار بحث واستراتيجية، لا جلسة عصف ذهني فقط.</p><div className="brand-symptoms"><p>اسم عام يصعب امتلاكه</p><p>تشابه يربك العميل</p><p>معنى سلبي في سوق آخر</p><p>دومين وحسابات غير متاحة</p></div></div></section>
+    <section className="shell brand-diagnosis"><div><h2>الاسم الضعيف<br/><em>تكلفته تظهر لاحقًا.</em></h2></div><div className="brand-diagnosis-copy"><p>اسم يصعب نطقه، أو يشبه منافسًا، أو لا يملك نطاقًا مناسبًا قد يستهلك ميزانية الهوية والتسويق ثم يجبرك على التغيير. لذلك نعامل التسمية كقرار بحث واستراتيجية، لا جلسة عصف ذهني فقط.</p><div className="brand-symptoms"><p>اسم عام يصعب امتلاكه</p><p>تشابه يربك العميل</p><p>معنى سلبي في سوق آخر</p><p>دومين وحسابات غير متاحة</p></div></div></section>
 
-    <section className="shell brand-deliverables"><div className="brand-section-head"><div><span className="section-label">ما الذي تستلمه</span><h2>من فكرة المشروع<br/><em>إلى قائمة قابلة للقرار.</em></h2></div></div><div className="brand-deliverables-grid">{deliverables.map(([item, text], i) => <article key={item}><span>{String(i + 1).padStart(2, "0")}</span><div><h3>{item}</h3><p>{text}</p></div></article>)}</div></section>
+    <section className="shell brand-deliverables"><div className="brand-section-head"><div><h2>من فكرة المشروع<br/><em>إلى قائمة قابلة للقرار.</em></h2></div></div><div className="brand-deliverables-grid">{deliverables.map(([item, text], i) => <article key={item}><span>{String(i + 1).padStart(2, "0")}</span><div><h3>{item}</h3><p>{text}</p></div></article>)}</div></section>
 
     <NamingDecisionMotion locale="ar" />
 
     <BithanProofCard variant="naming" />
 
-    <section className="brand-process"><div className="shell"><div className="brand-section-head brand-process-head"><div><span className="section-label">حدود البحث</span><h2>نقلّل المخاطر.<br/><em>ولا نبيع ضمانًا وهميًا.</em></h2></div></div><p className="brand-process-intro">البحث الذي نقدمه مبدئي وإبداعي وتجاري. قرار قبول الاسم أو تسجيل العلامة يظل للجهة الرسمية المختصة، كما أن توفر الدومين أو الحسابات قد يتغير حتى لحظة الحجز.</p></div></section>
+    <section className="brand-process"><div className="shell"><div className="brand-section-head brand-process-head"><div><h2>نقلّل المخاطر.<br/><em>ولا نبيع ضمانًا وهميًا.</em></h2></div></div><p className="brand-process-intro">البحث الذي نقدمه مبدئي وإبداعي وتجاري. قرار قبول الاسم أو تسجيل العلامة يظل للجهة الرسمية المختصة، كما أن توفر الدومين أو الحسابات قد يتغير حتى لحظة الحجز.</p></div></section>
 
-    <section className="shell brand-faq"><span className="section-label">أسئلة شائعة</span><div className="brand-section-head"><div><h2>وضوح قبل<br/><em>بدء البحث.</em></h2></div></div>{faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</section>
-    <section className="shell brand-cta"><div><span className="section-label">ابدأ الآن</span><h2>ابنِ اسمًا يمكن<br/>لعلامتك أن تكبر داخله.</h2></div><div><p>أرسل نوع النشاط والسوق المستهدف وطموح التوسع، ونحدد لك نطاق الخدمة المناسب قبل البدء.</p><a className="button" href={whatsapp} target="_blank" rel="noopener noreferrer">ابدأ عبر واتساب <span>↗</span></a></div></section>
+    <section className="shell brand-faq"><div className="brand-section-head"><div><h2>وضوح قبل<br/><em>بدء البحث.</em></h2></div></div>{faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</section>
+    <section className="shell brand-cta"><div><h2>ابنِ اسمًا يمكن<br/>لعلامتك أن تكبر داخله.</h2></div><div><p>أرسل نوع النشاط والسوق المستهدف وطموح التوسع، ونحدد لك نطاق الخدمة المناسب قبل البدء.</p><a className="button" href={whatsapp} target="_blank" rel="noopener noreferrer">ابدأ عبر واتساب <span>↗</span></a></div></section>
     <Footer />
   </main>;
 }
