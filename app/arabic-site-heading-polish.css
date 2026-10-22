@@ -287,3 +287,15 @@ html[lang="ar"] .home-work-card > small:first-child {display:none!important;}
     .bithan-kicker,.metric-kicker,.concept-label,.brand-lab-kicker,
     .eyebrow) {width:max-content;max-width:100%;line-height:1.65;}
 }
+
+/* Remove the phantom numbering column when there is no longer a decorative index. */
+html[lang="ar"] .studio-home .method-list > div {
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(12px,3vw,28px);
+}
+html[lang="ar"] .studio-home .method-list > div > p {grid-column:auto;}
+html[lang="ar"] .studio-home .home-work-card h3 {margin-top:15px;}
+@media(max-width:640px) {
+  html[lang="ar"] .studio-home .method-list > div {grid-template-columns:minmax(0,1fr);gap:8px;}
+  html[lang="ar"] .studio-home .method-list > div > p {grid-column:1;}
+}
