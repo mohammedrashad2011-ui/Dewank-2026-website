@@ -1,0 +1,55 @@
+/* Digital marketing refinement, limited to its two localized pages. */
+.dm-page .dm-hero h1 {
+  font-size: clamp(2.8rem, 5vw, 5.6rem);
+  line-height: 1.28;
+  letter-spacing: -0.012em;
+  max-width: 18ch;
+}
+.dm-page .dm-truth h2,
+.dm-page .dm-section-head h2,
+.dm-page .dm-sticky-copy h2,
+.dm-page .dm-fit h2,
+.dm-page .dm-faq h2,
+.dm-page .dm-final h2 {
+  font-size: clamp(2.1rem, 3.7vw, 4.25rem);
+  line-height: 1.36;
+  letter-spacing: -0.01em;
+}
+.dm-page .dm-deliverables-layout {
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.dm-page .dm-deliverables-layout > *,
+.dm-page .dm-deliverables-list,
+.dm-page .dm-deliverables-list > div {min-width: 0}
+.dm-page .dm-deliverables-list p {
+  min-width: 0;
+  width: auto;
+  max-width: 70ch;
+  overflow-wrap: break-word;
+  line-height: 1.8;
+}
+/* The English rows contain no numeric label; don't reserve a 58px grid column. */
+.dm-page.en-service .dm-deliverables-list > div {
+  display: block;
+  grid-template-columns: none;
+  padding-block: 1.35rem;
+}
+.dm-page.en-service .dm-deliverables-list p {
+  display: block;
+  grid-column: auto;
+}
+@media (max-width: 900px) {
+  .dm-page .dm-deliverables-layout {grid-template-columns: minmax(0, 1fr)}
+  .dm-page .dm-sticky-copy {position: static}
+}
+@media (max-width: 760px) {
+  .dm-page .dm-hero h1 {font-size: clamp(2.25rem, 9vw, 3.3rem);line-height: 1.37;max-width: 100%}
+  .dm-page .dm-truth h2,
+  .dm-page .dm-section-head h2,
+  .dm-page .dm-sticky-copy h2,
+  .dm-page .dm-fit h2,
+  .dm-page .dm-faq h2,
+  .dm-page .dm-final h2 {font-size: clamp(1.9rem, 7vw, 2.75rem);line-height: 1.45}
+  .dm-page .dm-deliverables-list > div {gap: .85rem}
+}

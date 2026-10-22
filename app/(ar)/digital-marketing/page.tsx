@@ -4,6 +4,7 @@ import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import "./digital-marketing-page.css";
 import "./digital-marketing-guides.css";
+import "./digital-marketing-refinement.css";
 
 export const metadata: Metadata = createMetadata({
   title: "التسويق الإلكتروني واستراتيجية التسويق الرقمي | ديوانك",
