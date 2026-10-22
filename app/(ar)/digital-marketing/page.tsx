@@ -1,3 +1,4 @@
+import "./digital-marketing-visual-audit.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";

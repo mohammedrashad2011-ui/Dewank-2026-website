@@ -1,0 +1,2 @@
+.en-service.content-service-page .content-hero-copy h1{font-size:clamp(1.92rem,3.04vw,2.84rem);line-height:1.32;letter-spacing:-.018em;text-wrap:balance}
+@media(max-width:620px){.en-service.content-service-page .content-hero-copy h1{font-size:clamp(1.6rem,6.4vw,2rem);line-height:1.38}}
