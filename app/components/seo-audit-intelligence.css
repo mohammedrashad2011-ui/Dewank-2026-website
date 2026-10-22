@@ -47,6 +47,7 @@
 .seo-intelligence-card-copy { margin-top: auto; padding-top: 20px; }
 .seo-intelligence-card-copy h3 { margin: 0; color: #f5f6f1; font-size: clamp(17px, 1.5vw, 21px); font-weight: 750; line-height: 1.5; overflow-wrap: anywhere; }
 .seo-intelligence-card-copy p { margin: 7px 0 0; color: var(--si-muted); font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+html body .en-service .seo-intelligence-card-copy h3 { line-height: 1.5; }
 
 .seo-intelligence-browser, .seo-intelligence-checks, .seo-intelligence-priority-stack, .seo-intelligence-paper { margin-top: 19px; min-height: 158px; }
 .seo-intelligence-browser { overflow: hidden; border: 1px solid rgba(151, 210, 211, .35); border-radius: 12px; background: #0a2b40; }
