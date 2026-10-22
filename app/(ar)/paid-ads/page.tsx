@@ -90,7 +90,7 @@ export default function PaidAdsPage() {
       <section className="pa-hero shell">
         <div className="pa-hero-copy">
           <div className="pa-kicker"><span>GOOGLE ADS</span><span>META ADS</span><span>PERFORMANCE</span></div>
-          <h1>إدارة Google Ads في السعودية.<br/><em>ميزانية أوضح. وعميل قابل للقياس.</em></h1>
+          <h1>إدارة Google Ads في السعودية<br/><em>ميزانية أوضح. وعميل قابل للقياس</em></h1>
           <p>ندير الحملات من الكلمة والإعلان إلى الصفحة والتتبع والمتابعة، لتعرف أي إنفاق يصنع عميلًا فعلًا، وأين تحتاج الحملة إصلاحًا قبل زيادة الميزانية.</p>
           <div className="pa-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">راجع حملتك على واتساب <span>↗</span></a><Link href="/offers/google-ads-launch">تحتاج تشغيل حملة فقط؟</Link><a href="#journey">استعرض النظام</a></div>
         </div>
@@ -112,14 +112,14 @@ export default function PaidAdsPage() {
         </div>
       </section>
 
-      <section className="pa-truth"><div className="shell pa-truth-grid"><div><span className="pa-label">[ الفكرة الأساسية ]</span><h2>الإعلان ليس حملة منفصلة.<br/><em>إنه جزء من منظومة البيع.</em></h2></div><div><p>عندما يكون العرض ضعيفًا أو التتبع ناقصًا أو صفحة الوصول مربكة، تصبح الزيادة في الإنفاق مجرد زيادة في الهدر.</p><p>لذلك نربط القناة بالرسالة والجمهور والتحويل والمتابعة حتى نعرف ما الذي يعمل ولماذا.</p></div></div></section>
+      <section className="pa-truth"><div className="shell pa-truth-grid"><div><span className="pa-label">الفكرة الأساسية</span><h2>الإعلان ليس حملة منفصلة<br/><em>إنه جزء من منظومة البيع</em></h2></div><div><p>عندما يكون العرض ضعيفًا أو التتبع ناقصًا أو صفحة الوصول مربكة، تصبح الزيادة في الإنفاق مجرد زيادة في الهدر.</p><p>لذلك نربط القناة بالرسالة والجمهور والتحويل والمتابعة حتى نعرف ما الذي يعمل ولماذا.</p></div></div></section>
 
-      <section className="pa-channels shell"><div className="pa-section-head"><div><span className="pa-label">[ اختيار القناة ]</span><h2>Google يلتقط الطلب.<br/><em>Meta يصنع الاهتمام.</em></h2></div><p>إذا كان العميل يبحث الآن عن الخدمة أو المنتج، يميل Google لأن يكون البداية المنطقية. وإذا كنت تحتاج خلق اهتمام أو اختبار زوايا ورسائل أو إعادة استهداف، قد تكون Meta أنسب. القرار يعتمد على نية العميل، لا شهرة المنصة.</p></div><div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
+      <section className="pa-channels shell"><div className="pa-section-head"><div><span className="pa-label">اختيار القناة</span><h2>Google يلتقط الطلب<br/><em>Meta يصنع الاهتمام</em></h2></div><p>إذا كان العميل يبحث الآن عن الخدمة أو المنتج، يميل Google لأن يكون البداية المنطقية. وإذا كنت تحتاج خلق اهتمام أو اختبار زوايا ورسائل أو إعادة استهداف، قد تكون Meta أنسب. القرار يعتمد على نية العميل، لا شهرة المنصة.</p></div><div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
 
-      <section className="pa-scope"><div className="shell"><div className="pa-section-head"><div><span className="pa-label">[ نطاق الإدارة ]</span><h2>حملات تخدم الهدف.<br/><em>لا قائمة منصات.</em></h2></div><p>نحدد المزيج حسب البيانات والميزانية والسوق، ونبني الاختبارات بالتدريج.</p></div><div className="pa-scope-grid">{scope.map((item, index) => <article key={item[0]}><b>{String(index + 1).padStart(2,"0")}</b><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></div></section>
+      <section className="pa-scope"><div className="shell"><div className="pa-section-head"><div><span className="pa-label">نطاق الإدارة</span><h2>حملات تخدم الهدف<br/><em>لا قائمة منصات</em></h2></div><p>نحدد المزيج حسب البيانات والميزانية والسوق، ونبني الاختبارات بالتدريج.</p></div><div className="pa-scope-grid">{scope.map((item, index) => <article key={item[0]}><b>{String(index + 1).padStart(2,"0")}</b><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></div></section>
 
       <section className="pa-cost-breakdown shell" aria-labelledby="pa-cost-title">
-        <div className="pa-section-head"><div><span className="pa-label">[ أين تذهب التكلفة؟ ]</span><h2 id="pa-cost-title">ميزانية الإعلان ليست هي أتعاب الإدارة.</h2></div><p>افصل البنود قبل المقارنة حتى تعرف ماذا تدفع للمنصة، وماذا تدفع للتأسيس والإدارة والتحويل.</p></div>
+        <div className="pa-section-head"><div><span className="pa-label">أين تذهب التكلفة؟</span><h2 id="pa-cost-title">ميزانية الإعلان ليست هي أتعاب الإدارة</h2></div><p>افصل البنود قبل المقارنة حتى تعرف ماذا تدفع للمنصة، وماذا تدفع للتأسيس والإدارة والتحويل.</p></div>
         <div className="pa-cost-breakdown-grid">
           <article><small>01</small><h3>ميزانية Google</h3><p>المبلغ المدفوع مباشرة للمنصة مقابل النقرات والظهور.</p></article>
           <article><small>02</small><h3>التأسيس أو الإدارة</h3><p>بناء الحملات أو تحسينها ومتابعة الكلمات والإعلانات والميزانية.</p></article>
@@ -128,19 +128,19 @@ export default function PaidAdsPage() {
         </div>
       </section>
 
-      <section className="pa-conversion-bridge shell"><div><span className="pa-label">[ قبل زيادة الميزانية ]</span><h2>الإعلان يوصل الزيارة.<br/><em>الصفحة والتتبع يحسمان النتيجة.</em></h2><p>إذا كانت Search Terms جيدة والإعلان يجلب نقرات لكن التحويل ضعيف، فالمشكلة غالبًا بعد النقرة. لذلك نراجع صفحة الهبوط، سرعة القرار، CTA والتتبع قبل أن نطلب من المنصة ميزانية أكبر.</p></div><div className="pa-conversion-links"><Link href="/offers/landing-page-package">راجع باقة صفحة الهبوط <span>↗</span></Link><Link href="/website-design">راجع تصميم المواقع <span>↗</span></Link></div></section>
+      <section className="pa-conversion-bridge shell"><div><span className="pa-label">قبل زيادة الميزانية</span><h2>الإعلان يوصل الزيارة<br/><em>الصفحة والتتبع يحسمان النتيجة</em></h2><p>إذا كانت Search Terms جيدة والإعلان يجلب نقرات لكن التحويل ضعيف، فالمشكلة غالبًا بعد النقرة. لذلك نراجع صفحة الهبوط، سرعة القرار، CTA والتتبع قبل أن نطلب من المنصة ميزانية أكبر.</p></div><div className="pa-conversion-links"><Link href="/offers/landing-page-package">راجع باقة صفحة الهبوط <span>↗</span></Link><Link href="/website-design">راجع تصميم المواقع <span>↗</span></Link></div></section>
 
-      <section className="pa-journey shell" id="journey"><div className="pa-section-head"><div><span className="pa-label">[ من الإنفاق إلى النتيجة ]</span><h2>كل خطوة تحمي الميزانية.<br/><em>وكل رقم يقود إلى قرار.</em></h2></div><p>نحوّل إدارة الإعلانات من رد فعل يومي إلى نظام اختبار وقياس وتحسين.</p></div><div className="pa-journey-list">{journey.map((item) => <article key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div></section>
+      <section className="pa-journey shell" id="journey"><div className="pa-section-head"><div><span className="pa-label">من الإنفاق إلى النتيجة</span><h2>كل خطوة تحمي الميزانية<br/><em>وكل رقم يقود إلى قرار</em></h2></div><p>نحوّل إدارة الإعلانات من رد فعل يومي إلى نظام اختبار وقياس وتحسين.</p></div><div className="pa-journey-list">{journey.map((item) => <article key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div></section>
 
-      <section className="pa-measure"><div className="shell pa-measure-grid"><div><span className="pa-label">[ القياس الحقيقي ]</span><h2>لا نحتفل بعدد النقرات.<br/><em>نقيس قيمة النتيجة.</em></h2></div><div className="pa-measure-list">{metrics.map((item, index) => <p key={item}><span>{String(index + 1).padStart(2,"0")}</span>{item}</p>)}</div></div></section>
+      <section className="pa-measure"><div className="shell pa-measure-grid"><div><span className="pa-label">القياس الحقيقي</span><h2>لا نحتفل بعدد النقرات<br/><em>نقيس قيمة النتيجة</em></h2></div><div className="pa-measure-list">{metrics.map((item, index) => <p key={item}><span>{String(index + 1).padStart(2,"0")}</span>{item}</p>)}</div></div></section>
 
-      <section className="pa-deliverables shell"><div className="pa-section-head"><div><span className="pa-label">[ ما الذي تستلمه ]</span><h2>إدارة كاملة.<br/><em>ورؤية أوضح.</em></h2></div><p>تعرف أين تذهب الميزانية، وما الذي يتم اختباره، وما القرار التالي.</p></div><div className="pa-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2,"0")}</b><p>{item}</p></div>)}</div></section>
+      <section className="pa-deliverables shell"><div className="pa-section-head"><div><span className="pa-label">ما الذي تستلمه</span><h2>إدارة كاملة<br/><em>ورؤية أوضح</em></h2></div><p>تعرف أين تذهب الميزانية، وما الذي يتم اختباره، وما القرار التالي.</p></div><div className="pa-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2,"0")}</b><p>{item}</p></div>)}</div></section>
 
-      <section className="pa-fit"><div className="shell pa-fit-grid"><div><span className="pa-label">[ لمن تناسب الخدمة ]</span><h2>عندما تصبح الإعلانات<br/><em>استثمارًا يحتاج إدارة.</em></h2></div><div>{fitFor.map((item) => <p key={item}>{item}</p>)}</div></div></section>
+      <section className="pa-fit"><div className="shell pa-fit-grid"><div><span className="pa-label">لمن تناسب الخدمة</span><h2>عندما تصبح الإعلانات<br/><em>استثمارًا يحتاج إدارة</em></h2></div><div>{fitFor.map((item) => <p key={item}>{item}</p>)}</div></div></section>
 
       <section className="pa-readiness shell" aria-labelledby="pa-readiness-title">
         <small>هل حملتك جاهزة للتوسع؟</small>
-        <h2 id="pa-readiness-title">لا تزد الميزانية قبل أن تتأكد من هذه النقاط الأربع.</h2>
+        <h2 id="pa-readiness-title">لا تزد الميزانية قبل أن تتأكد من هذه النقاط الأربع</h2>
         <p>إذا كانت واحدة منها مكسورة، فزيادة الإنفاق قد تكبّر المشكلة بدل أن تكبّر النتيجة.</p>
         <div className="pa-readiness-grid">
           <article><b>Search Terms</b><span>هل النقرات قادمة من نية شراء حقيقية أم بحث غير مناسب؟</span></article>
@@ -152,14 +152,14 @@ export default function PaidAdsPage() {
       </section>
 
       <section className="pa-cluster shell" aria-labelledby="pa-cluster-title">
-        <div className="pa-cluster-head"><div><span className="pa-label">[ قبل تشغيل الميزانية ]</span><h2 id="pa-cluster-title">افهم تكلفة Google Ads.<em>ثم اختر بين الإطلاق والإدارة.</em></h2></div><p>إذا كنت ما زلت تحدد الميزانية، ابدأ بدليل التكلفة. وإذا كنت تحتاج حملة Search واحدة فقط فابدأ بباقة الإطلاق، أما الحسابات التي تحتاج تحسينًا مستمرًا فهذه صفحة الإدارة المناسبة لها.</p></div>
+        <div className="pa-cluster-head"><div><span className="pa-label">قبل تشغيل الميزانية</span><h2 id="pa-cluster-title">افهم تكلفة Google Ads.<em>ثم اختر بين الإطلاق والإدارة</em></h2></div><p>إذا كنت ما زلت تحدد الميزانية، ابدأ بدليل التكلفة. وإذا كنت تحتاج حملة Search واحدة فقط فابدأ بباقة الإطلاق، أما الحسابات التي تحتاج تحسينًا مستمرًا فهذه صفحة الإدارة المناسبة لها.</p></div>
         <div className="pa-guide-grid">{paidAdsGuides.map((guide) => <Link className="pa-guide-card" href={guide.href} key={guide.href}><small>{guide.label}</small><h3>{guide.title}</h3><p>{guide.text}</p><span>اقرأ الدليل ↗</span></Link>)}</div>
         <div className="pa-offer-row"><div className="pa-offer-copy"><small>إذا كنت تحتاج تشغيل حملة Google Search فقط</small><h3>باقة إطلاق Google Ads</h3><p>حملة Search واحدة بنطاق واضح، بحث كلمات وإعلانات وكلمات سلبية وتتبع تحويل أساسي، بدون خلطها بإدارة شهرية كاملة.</p></div><Link className="pa-offer-price-card" href="/offers/google-ads-launch"><GoogleAdsLaunchPrice /><b>شاهد عرض الإطلاق ↗</b></Link></div>
       </section>
 
-      <section className="pa-faq shell"><div className="pa-section-head"><div><span className="pa-label">[ أسئلة شائعة ]</span><h2>إدارة Google Ads بدون غموض.</h2></div><p>إجابات مباشرة عن التكلفة والميزانية والإطلاق والإدارة والتتبع.</p></div><div className="pa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></section>
+      <section className="pa-faq shell"><div className="pa-section-head"><div><span className="pa-label">أسئلة شائعة</span><h2>إدارة Google Ads بدون غموض</h2></div><p>إجابات مباشرة عن التكلفة والميزانية والإطلاق والإدارة والتتبع.</p></div><div className="pa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div></section>
 
-      <section className="pa-final shell"><div><span className="pa-label">[ الخطوة التالية ]</span><h2>أرسل حسابك الحالي<br/><em>أو تفاصيل النشاط.</em></h2></div><div><p>سنحدد هل تحتاج إدارة Google Ads مستمرة، تأسيس حملة Search فقط، أو إصلاح الصفحة والتتبع قبل زيادة الميزانية.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ابدأ مراجعة حملتك <span>↗</span></a></div></section>
+      <section className="pa-final shell"><div><span className="pa-label">الخطوة التالية</span><h2>أرسل حسابك الحالي<br/><em>أو تفاصيل النشاط</em></h2></div><div><p>سنحدد هل تحتاج إدارة Google Ads مستمرة، تأسيس حملة Search فقط، أو إصلاح الصفحة والتتبع قبل زيادة الميزانية.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ابدأ مراجعة حملتك <span>↗</span></a></div></section>
       <Footer />
     </main>
   );

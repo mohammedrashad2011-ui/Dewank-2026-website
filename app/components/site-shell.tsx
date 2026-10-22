@@ -63,6 +63,6 @@ export function Footer() {
   );
 }
 
-export function PageHero({ eyebrow, title, text }: { eyebrow: string; title: React.ReactNode; text: string }) {
-  return <section className="page-hero shell"><span className="eyebrow">[ {eyebrow} ]</span><h1>{title}</h1><p>{text}</p></section>;
+export function PageHero({ eyebrow, title, text, plainEyebrow = false }: { eyebrow: string; title: React.ReactNode; text: string; plainEyebrow?: boolean }) {
+  return <section className="page-hero shell"><span className="eyebrow">{plainEyebrow ? eyebrow : `[ ${eyebrow} ]`}</span><h1>{title}</h1><p>{text}</p></section>;
 }

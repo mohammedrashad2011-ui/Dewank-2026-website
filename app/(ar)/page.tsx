@@ -70,7 +70,7 @@ export default function Home() {
 
       <section className="hybrid-hero shell">
         <div className="hero-copy">
-          <h1><span>نصنع العلامة.</span><span>نحرّك الطلب.</span><span><em>ونؤتمت النمو.</em></span></h1>
+          <h1><span>نصنع العلامة</span><span>نحرّك الطلب</span><span><em>ونؤتمت النمو</em></span></h1>
           <p>ديوانك يجمع البراندينج والتسويق والمواقع والأتمتة في منظومة واحدة، حتى يعرف العميل لماذا يختارك، يصل إليك أسرع، ويتحرك نحو قرار واضح.</p>
           <div className="hero-actions">
             <a className="button primary home-whatsapp-primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل نشاطك والتحدي الحالي <span>↗</span></a>
@@ -84,7 +84,7 @@ export default function Home() {
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
-          <h2 id="home-proof-title">النتيجة مهمة.<br/><em>وطريقة الوصول لها أهم.</em></h2>
+          <h2 id="home-proof-title">النتيجة مهمة<br/><em>وطريقة الوصول لها أهم</em></h2>
           <p>في مشروع فعلي بالقطاع الطبي، ربطنا التسويق بالمحادثة والحجز والمتابعة بدل ترك كل خطوة تعمل وحدها.</p>
           <div className="home-proof-actions"><Link href="/work">شاهد دراسة الحالة كاملة <span>←</span></Link><Link href="/whatsapp-automation">استكشف أتمتة واتساب <span>←</span></Link></div>
         </div>
@@ -98,7 +98,7 @@ export default function Home() {
 
       <section className="bento-section home-core-paths">
         <div className="shell">
-          <div className="section-head"><div><span className="section-label">اختر نقطة البداية</span><h2>أربع بوابات.<br/><em>ونظام واحد خلفها.</em></h2></div><Link className="text-link" href="/services">استكشف كل الخدمات <span>←</span></Link></div>
+          <div className="section-head"><div><span className="section-label">اختر نقطة البداية</span><h2>أربع بوابات<br/><em>ونظام واحد خلفها</em></h2></div><Link className="text-link" href="/services">استكشف كل الخدمات <span>←</span></Link></div>
           <div className="service-bento">
             {services.map((service) => (
               <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
@@ -113,9 +113,9 @@ export default function Home() {
       </section>
 
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
-        <div className="home-work-head"><div><span className="section-label">أعمال مختارة</span><h2 id="home-work-title">لا نعرض الشكل فقط.<br/><em>نعرض القرار خلفه.</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
+        <div className="home-work-head"><div><h2 id="home-work-title">لا نعرض الشكل فقط<br/><em>نعرض القرار خلفه</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
         <div className="home-work-grid">
-          {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><small>{item.n}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
+          {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
         </div>
       </section>
 
@@ -123,29 +123,28 @@ export default function Home() {
 
       <section className="method-section home-method-section">
         <div className="shell method-layout">
-          <div className="method-intro"><span className="section-label">كيف نعمل</span><h2>أقل خطوات.<br/><em>قرارات أوضح.</em></h2><p>نبدأ بالمشكلة التجارية، ثم نحدد أقصر مسار يمكن تنفيذه وقياسه قبل إضافة أي طبقات لا تحتاجها.</p></div>
+          <div className="method-intro"><span className="section-label">كيف نعمل</span><h2>أقل خطوات<br/><em>قرارات أوضح</em></h2><p>نبدأ بالمشكلة التجارية، ثم نحدد أقصر مسار يمكن تنفيذه وقياسه قبل إضافة أي طبقات لا تحتاجها.</p></div>
           <div className="method-list">
-            {[["01","نفهم","السياق والجمهور ومكان التعطل."],["02","نحدد","الفرصة والرسالة والأولوية التجارية."],["03","نبني","البراند أو الموقع أو الحملة أو النظام المناسب."],["04","نقيس","نراجع ما يحدث ونحسن ما يصنع النتيجة."]].map(([n,t,p]) => <div key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p></div>)}
+            {[["نفهم","السياق والجمهور ومكان التعطل."],["نحدد","الفرصة والرسالة والأولوية التجارية."],["نبني","البراند أو الموقع أو الحملة أو النظام المناسب."],["نقيس","نراجع ما يحدث ونحسن ما يصنع النتيجة."]].map(([t,p]) => <div key={t}><h3>{t}</h3><p>{p}</p></div>)}
           </div>
         </div>
       </section>
 
       <section className="home-growth-summary shell" aria-labelledby="home-growth-summary-title">
-        <span className="section-label">منظومة ديوانك</span>
-        <h2 id="home-growth-summary-title">من أول انطباع إلى متابعة ما بعد الاستفسار.</h2>
+        <h2 id="home-growth-summary-title">من أول انطباع إلى متابعة ما بعد الاستفسار</h2>
         <p>نربط استراتيجية العلامة والمحتوى والإعلانات والموقع وSEO وواتساب وCRM بحيث تخدم كل خطوة ما بعدها، بدل تشغيل خدمات متفرقة يصعب معرفة أثرها.</p>
         <div className="home-growth-links"><Link href="/branding">البراند <span>↗</span></Link><Link href="/paid-ads">الإعلانات <span>↗</span></Link><Link href="/website-design">المواقع <span>↗</span></Link><Link href="/whatsapp-automation">الأتمتة <span>↗</span></Link></div>
       </section>
 
       <section className="home-selected-offers shell" aria-labelledby="home-offers-title">
-        <div className="home-selected-offers-head"><div><span className="section-label">بدايات جاهزة</span><h2 id="home-offers-title">لو احتياجك واضح، ابدأ بنطاق محدد.</h2></div></div>
+        <div className="home-selected-offers-head"><div><span className="section-label">بدايات جاهزة</span><h2 id="home-offers-title">لو احتياجك واضح، ابدأ بنطاق محدد</h2></div></div>
         <HomeSelectedOffers />
         <div className="home-selected-offers-all"><Link href="/offers">استعرض كل العروض <span>←</span></Link></div>
       </section>
 
       <section className="faq-section shell" aria-labelledby="home-faq-title">
         <span className="section-label">قبل أن تبدأ</span>
-        <h2 id="home-faq-title">ثلاثة أسئلة تختصر الطريق.</h2>
+        <h2 id="home-faq-title">ثلاثة أسئلة تختصر الطريق</h2>
         <div className="faq-grid">
           <details><summary>أنا محتاج أبدأ بإيه؟</summary><p>ابدأ بالمشكلة الأقرب للإيراد أو فقدان العملاء. إذا كان الطلب ضعيفًا نراجع الجذب، وإذا الزيارات موجودة ولا تتحول نراجع العرض والموقع، وإذا الاستفسارات تضيع نراجع المتابعة والأتمتة.</p></details>
           <details><summary>هل لازم أطلب أكثر من خدمة؟</summary><p>لا. نفضل البدء بأصغر نطاق يمكنه حل المشكلة الحالية وقياس أثره، ثم نضيف ما يلزم فقط عندما تظهر حاجة واضحة.</p></details>
@@ -154,7 +153,7 @@ export default function Home() {
       </section>
 
       <section className="final-cta shell home-final-conversion">
-        <div><span className="section-label">الخطوة التالية</span><h2>أرسل نشاطك.<br/><em>وقل لنا أين يتوقف النمو.</em></h2></div>
+        <div><span className="section-label">الخطوة التالية</span><h2>أرسل نشاطك<br/><em>وقل لنا أين يتوقف النمو</em></h2></div>
         <div><p>بدل اختيار خدمة بالاسم، أرسل لنا نشاطك والتحدي الحالي وسنحدد معك أقصر نقطة بداية عملية.</p><div className="final-actions"><a className="button primary home-whatsapp-primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ابدأ على واتساب <span>↗</span></a><Link className="button secondary" href="/work">راجع الأعمال أولًا <span>←</span></Link></div><small className="cta-expectation">محادثة قصيرة لفهم المشروع وتحديد نقطة البداية المناسبة.</small></div>
       </section>
       <Footer />

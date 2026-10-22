@@ -208,7 +208,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-hero shell">
           <div className="bithan-hero-copy">
             <span className="bithan-kicker" dir="ltr">FINE JEWELRY · QATAR · 2026</span>
-            <h1>دراسة حالة BITHAN:<br/><em>من تسمية علامة مجوهرات إلى هوية بصرية متكاملة.</em></h1>
+            <h1>دراسة حالة BITHAN:<br/><em>من تسمية علامة مجوهرات إلى هوية بصرية متكاملة</em></h1>
             <p className="bithan-hero-lede">مشروع لدار مجوهرات راقية في قطر بدأ من استراتيجية التسمية والفحص والتطوير، ثم انتقل بعد اختيار الاسم إلى بناء هوية عربية وإنجليزية قابلة للعمل على التغليف والطباعة والحضور الرقمي والتوسع المستقبلي.</p>
             <div className="bithan-hero-actions">
               <a className="button primary" href="#case-overview">شاهد دراسة الحالة <span>↓</span></a>
@@ -247,7 +247,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-overview shell" id="case-overview">
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow" dir="ltr">01 / THE CHALLENGE</span>
-            <h2>الهدف لم يكن العثور على اسم جميل.<br/><em>بل بناء أصل يمكن للعلامة أن تكبر داخله.</em></h2>
+            <h2>الهدف لم يكن العثور على اسم جميل<br/><em>بل بناء أصل يمكن للعلامة أن تكبر داخله</em></h2>
             <p>كان المشروع لعلامة مجوهرات راقية تنطلق رقميًا في قطر، مع طموح للتوسع إلى حضور تجاري ومادي أوسع. لذلك كان الاسم مطلوبًا أن يحمل الهيبة، يعمل لفظيًا وبصريًا، ويظل مناسبًا مع نمو العلامة.</p>
           </div>
           <div className="bithan-criteria-grid">
@@ -260,7 +260,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-naming" id="naming">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow" dir="ltr">02 / NAMING STRATEGY</span><h2>أربع مساحات استراتيجية<br/><em>قبل أن تبدأ الأسماء.</em></h2></div>
+              <div><span className="bithan-eyebrow" dir="ltr">02 / NAMING STRATEGY</span><h2>أربع مساحات استراتيجية<br/><em>قبل أن تبدأ الأسماء</em></h2></div>
               <p>بدل القفز مباشرة إلى توليد أسماء، حدد المشروع أولًا أنواع المساحات اللغوية والعاطفية التي تستحق الاستكشاف. هذا جعل العمل أكثر تماسكًا، وجعل ملاحظات العميل تغيّر منطق التسمية نفسه لا مجرد ترتيب القائمة.</p>
             </div>
 
@@ -273,7 +273,7 @@ export default function BithanCaseStudyPage() {
             <div className="bithan-process-block">
               <div>
                 <span className="bithan-eyebrow" dir="ltr">PROCESS &amp; SCREENING</span>
-                <h3>نولّد على نطاق واسع.<br/>نستبعد بقسوة.<br/>ونعرض بانتقائية.</h3>
+                <h3>نولّد على نطاق واسع<br/>نستبعد بقسوة<br/>ونعرض بانتقائية</h3>
                 <p>تم استبعاد الأسماء قبل عرضها إذا ضعفت في النطق، ملاءمة الفئة، التوسع، التميز أو التوفر العملي.</p>
               </div>
               <ol>
@@ -308,7 +308,7 @@ export default function BithanCaseStudyPage() {
           </figure>
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow" dir="ltr">03 / ORIGINAL SKETCH</span>
-            <h2>بدأت الهوية بخط يدوي.<br/><em>وانتهت بنظام أكثر دقة ولمعانًا.</em></h2>
+            <h2>بدأت الهوية بخط يدوي<br/><em>وانتهت بنظام أكثر دقة ولمعانًا</em></h2>
             <p>حافظت الهوية النهائية على الروح العربية والشكل المميز للاتجاه الأول، ثم تم ضبط البناء والنسب والتفاصيل ليصبح التعبير أكثر معاصرة وملاءمة لعالم المجوهرات الراقية.</p>
             <div className="bithan-principles">
               <div><b dir="ltr">GEOMETRIC</b><span>بناء منظم ونِسب أوضح</span></div>
@@ -322,7 +322,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-dark-panel" id="logo-suite">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow" dir="ltr">04 / FINAL LOGO SUITE</span><h2>توقيع واحد.<br/><em>وسبع صيغ قابلة للاستخدام.</em></h2></div>
+              <div><span className="bithan-eyebrow" dir="ltr">04 / FINAL LOGO SUITE</span><h2>توقيع واحد<br/><em>وسبع صيغ قابلة للاستخدام</em></h2></div>
               <p>النظام النهائي يعطي الهوية مرونة للعمل على التغليف الفاخر، الطباعة، السوشيال، المساحات الرقمية الصغيرة والخلفيات الفاتحة أو الداكنة من دون فقد التعرف على العلامة.</p>
             </div>
             <figure className="bithan-page-visual on-dark">
@@ -342,7 +342,7 @@ export default function BithanCaseStudyPage() {
 
         <section className="bithan-palette-section shell" id="palette">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow" dir="ltr">05 / MASTER PALETTE &amp; PRINT SPECS</span><h2>ألوان معتمدة<br/><em>للطباعة والاستخدام الرقمي.</em></h2></div>
+            <div><span className="bithan-eyebrow" dir="ltr">05 / MASTER PALETTE &amp; PRINT SPECS</span><h2>ألوان معتمدة<br/><em>للطباعة والاستخدام الرقمي</em></h2></div>
             <p>تعتمد الهوية على الأزرق الياقوتي العميق (Deep Sapphire) ودرجات أفتح من الأزرق لتكوين إحساس بارد وبلوري، مع الأسود والأبيض لتحقيق التباين والمرونة في الاستخدام.</p>
           </div>
           <figure className="bithan-page-visual palette-page">
@@ -372,7 +372,7 @@ export default function BithanCaseStudyPage() {
           <div className="shell bithan-variants-grid">
             <div className="bithan-section-copy">
               <span className="bithan-eyebrow" dir="ltr">06 / FINAL FLAT COLOR VARIANTS</span>
-              <h2>استخدام معتمد للشعار<br/><em>على الخلفيات الداكنة والفاتحة.</em></h2>
+              <h2>استخدام معتمد للشعار<br/><em>على الخلفيات الداكنة والفاتحة</em></h2>
               <p>العلامة الأساسية المعتمدة (Hero Mark) هي النسخة التي تحتوي على الكسرة في حرف الباء. أما النسخة من دون الكسرة فهي بديل معتمد عند وجود ضرورة تقنية أو قيود في المساحة.</p>
               <div className="bithan-usage-note">
                 <b>Primary</b><span>بالكسرة — الاستخدام الأساسي والمفضّل</span>
@@ -393,7 +393,7 @@ export default function BithanCaseStudyPage() {
           </figure>
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow" dir="ltr">07 / SKETCH TO FINAL EVOLUTION</span>
-            <h2>من الفكرة الأصلية<br/><em>إلى علامة أكثر دقة وقابلية للاستخدام.</em></h2>
+            <h2>من الفكرة الأصلية<br/><em>إلى علامة أكثر دقة وقابلية للاستخدام</em></h2>
             <div className="bithan-evolution-notes">
               <article><b dir="ltr">GEOMETRIC CONSTRUCTION</b><p>نِسب أكثر دقة وبناء بصري متوازن.</p></article>
               <article><b dir="ltr">JEWEL-LIKE FACETS</b><p>تفاصيل بلورية تربط العلامة بعالم المجوهرات الراقية.</p></article>
@@ -406,7 +406,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-applications" id="applications">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow" dir="ltr">08 / BRAND APPLICATIONS</span><h2>تطبيقات فاخرة (Premium)<br/><em>تثبت أن النظام يعمل خارج ملف العرض.</em></h2></div>
+              <div><span className="bithan-eyebrow" dir="ltr">08 / BRAND APPLICATIONS</span><h2>تطبيقات فاخرة (Premium)<br/><em>تثبت أن النظام يعمل خارج ملف العرض</em></h2></div>
               <p>تم اختبار الهوية على نقاط تواصل أساسية للتأكد من أن العلامة واللون والإحساس الفاخر يظلون متماسكين في الاستخدام الواقعي.</p>
             </div>
             <figure className="bithan-page-visual on-dark">
@@ -422,7 +422,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-mid-cta shell" aria-label="ابدأ مشروعًا مشابهًا">
           <div>
             <span className="bithan-eyebrow">هل تعمل على اسم أو هوية جديدة؟</span>
-            <h2>نقدر نبدأ من قرار الاسم، أو من البراند الموجود بالفعل.</h2>
+            <h2>نقدر نبدأ من قرار الاسم، أو من البراند الموجود بالفعل</h2>
             <p>إذا كنت تحتاج إلى تسمية، استراتيجية علامة تجارية (Brand Strategy) أو هوية بصرية (Visual Identity)، أرسل لنا نبذة قصيرة عن المشروع لنحدد أنسب نقطة بداية.</p>
           </div>
           <BithanTrackedLink className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer" eventName="bithan_cta_click" eventLocation="mid_whatsapp">ناقش مشروعك <span>↗</span></BithanTrackedLink>
@@ -430,7 +430,7 @@ export default function BithanCaseStudyPage() {
 
         <section className="bithan-delivery shell" id="delivery">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow" dir="ltr">09 / FINAL DELIVERY</span><h2>أصول العلامة المعتمدة<br/><em>جاهزة للاستخدام الفعلي.</em></h2></div>
+            <div><span className="bithan-eyebrow" dir="ltr">09 / FINAL DELIVERY</span><h2>أصول العلامة المعتمدة<br/><em>جاهزة للاستخدام الفعلي</em></h2></div>
             <p>التسليم النهائي لم يتوقف عند الشعار، بل شمل النسخ المعدنية والمسطحة والأحادية، مواصفات الطباعة، التطبيقات وملفات المصدر.</p>
           </div>
           <figure className="bithan-page-visual delivery-page">
@@ -444,7 +444,7 @@ export default function BithanCaseStudyPage() {
 
         <section className="bithan-faq shell" aria-labelledby="bithan-faq-title">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow" dir="ltr">10 / CASE STUDY FAQ</span><h2 id="bithan-faq-title">أسئلة مهمة<br/><em>قبل بدء مشروع تسمية أو هوية.</em></h2></div>
+            <div><span className="bithan-eyebrow" dir="ltr">10 / CASE STUDY FAQ</span><h2 id="bithan-faq-title">أسئلة مهمة<br/><em>قبل بدء مشروع تسمية أو هوية</em></h2></div>
             <p>إجابات مباشرة على أهم النقاط التي يحتاجها عميل يقارن بين خدمات تسمية العلامات (Naming)، استراتيجية العلامة (Brand Strategy) والهوية البصرية (Visual Identity).</p>
           </div>
           <div className="bithan-faq-list">
@@ -460,7 +460,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-outcome shell">
           <div>
             <span className="bithan-eyebrow" dir="ltr">THE RESULT</span>
-            <h2>مشروع بدأ من قرار اسم.<br/><em>وانتهى بنظام علامة متكامل.</em></h2>
+            <h2>مشروع بدأ من قرار اسم<br/><em>وانتهى بنظام علامة متكامل</em></h2>
           </div>
           <div>
             <p>انتقل BITHAN من تحدي تسمية إلى اسم اختاره العميل، ثم إلى هوية كاملة بتوقيع عربي مميز، استخدام ثنائي اللغة، نسخ شعار مضبوطة، مواصفات ألوان للإنتاج وتطبيقات فاخرة.</p>

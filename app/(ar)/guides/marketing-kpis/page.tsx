@@ -63,7 +63,7 @@ export default function MarketingKpisGuide() {
           <p>حدد مؤشرًا رئيسيًا واحدًا لكل هدف، ومجموعة صغيرة من المؤشرات التشخيصية. إذا كانت شركتك تحتاج نظامًا أشمل، ابدأ من <Link className="article-link" href="/digital-marketing">استراتيجية التسويق الرقمي</Link> أو راجع <Link className="article-link" href="/services">خدمات ديوانك</Link>.</p>
         <ArticleShare lang="ar" title={title} path="/guides/marketing-kpis" />
         </div>
-        <aside className="article-aside"><div className="article-aside-card"><small>الأرقام كثيرة؟</small><h3>اربط القياس بالقرار.</h3><p>نحدد ما يستحق القياس وما الذي يجب تجاهله حتى تصبح التقارير أداة نمو لا أرشيفًا.</p><Link className="button primary" href="/contact">ناقش القياس <span>←</span></Link></div></aside>
+        <aside className="article-aside"><div className="article-aside-card"><small>الأرقام كثيرة؟</small><h3>اربط القياس بالقرار</h3><p>نحدد ما يستحق القياس وما الذي يجب تجاهله حتى تصبح التقارير أداة نمو لا أرشيفًا.</p><Link className="button primary" href="/contact">ناقش القياس <span>←</span></Link></div></aside>
       </div>
     </article>
     <Footer />

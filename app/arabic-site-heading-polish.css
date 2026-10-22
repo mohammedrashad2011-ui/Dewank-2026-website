@@ -1,0 +1,328 @@
+/* Arabic-site decorative typography, scoped to service/offer hero labels.
+   Keep all body copy, pricing, SEO metadata and English pages untouched. */
+html[lang="ar"] :is(
+  .pa-hero-copy > .pa-kicker,
+  .wd-hero-copy > .wd-kicker,
+  .dm-hero-copy > .dm-kicker,
+  .sa-hero-copy > .sa-kicker,
+  .cv-hero-copy > .cv-kicker,
+  .wa-hero-copy > .eyebrow,
+  .ai-hero-copy > .ai-label,
+  .sales-hero-copy > .sales-eyebrow,
+  .offers-overview-hero > .offers-hero-eyebrow,
+  .offer-detail-hero .sales-eyebrow,
+  .offer-detail-hero .section-label,
+  .services-hero .section-label
+),
+html[lang="ar"] main:not(.naming-service-page) .brand-hero-copy > .section-label {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 100%;
+  min-height: 33px;
+  padding: 7px 13px;
+  border: 1px solid rgba(65,103,212,.19);
+  border-radius: 999px;
+  background: linear-gradient(130deg,rgba(255,255,255,.62),rgba(230,236,253,.27));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.52),0 5px 16px rgba(14,31,65,.055);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: clamp(12.5px,1.05vw,15px);
+  font-weight: 750;
+  line-height: 1.55;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+/* Decorative 01/02/03 markers inside known offer & service cards only.
+   Do not hide numeric prices, dates, counts in prose, or guide steps. */
+html[lang="ar"] :is(
+  .brand-system-grid,
+  .brand-deliverables-grid,
+  .brand-process-list,
+  .pa-channel-grid,
+  .pa-cost-breakdown-grid,
+  .pa-scope-grid,
+  .wd-foundations-grid,
+  .wd-capabilities-grid,
+  .method-list,
+  .sa-service-grid,
+  .brand-naming-process-grid,
+  .google-ads-process-grid,
+  .offer-confidence-grid,
+  .sales-risk-grid
+) > :is(article,div) > :is(span,b,small,strong):first-child,
+html[lang="ar"] .sales-pain-card > b:first-child {
+  display: none !important;
+}
+
+/* Collapse the numbering column where the original component uses CSS grid. */
+html[lang="ar"] .brand-deliverables-grid article {grid-template-columns: minmax(0,1fr);}
+html[lang="ar"] .brand-deliverables-grid article > div {min-width:0;}
+html[lang="ar"] .brand-process-list article {grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr);}
+html[lang="ar"] .brand-process-list article > p {grid-column:auto;}
+@media(max-width:720px){
+  html[lang="ar"] .brand-process-list article {grid-template-columns:minmax(0,1fr);gap:9px;}
+  html[lang="ar"] .brand-process-list article > p {grid-column:1;}
+  html[lang="ar"] :is(.pa-hero-copy > .pa-kicker,.wd-hero-copy > .wd-kicker,.dm-hero-copy > .dm-kicker,.sa-hero-copy > .sa-kicker,.cv-hero-copy > .cv-kicker){font-size:12.5px;padding:6px 10px;}
+}
+
+/* Additional verified index-only patterns on Arabic service pages. */
+html[lang="ar"] .service-card .card-top > span:first-child,
+html[lang="ar"] :is(
+  .pa-measure-list,
+  .wd-fit-list,
+  .sa-measure-list,
+  .cv-fit-list
+) > p > span:first-child,
+html[lang="ar"] .sa-fit-grid p > span:first-child:not(.cro-fit-text),
+html[lang="ar"] :is(
+  .pa-deliverables-list,
+  .wd-deliverables-list,
+  .wd-method-list,
+  .dm-deliverables-list,
+  .dm-method-list,
+  .sa-deliverables-list,
+  .cv-deliverables-list
+) > div > :is(b,span,small,strong):first-child,
+html[lang="ar"] :is(
+  .wd-foundation-grid,
+  .wd-capability-grid,
+  .dm-capability-grid,
+  .cv-service-grid,
+  .cv-process-list,
+  .ai-flow,
+  .mini-identity-process-grid,
+  .seo-audit-delivery-grid
+) > article > :is(b,span,small,strong):first-child {
+  display:none !important;
+}
+/* Grid alignment after hiding number badges. */
+html[lang="ar"] :is(
+  .pa-channel-grid,
+  .pa-scope-grid,
+  .wd-foundation-grid,
+  .wd-capability-grid,
+  .dm-capability-grid,
+  .cv-service-grid,
+  .cv-process-list,
+  .ai-flow,
+  .mini-identity-process-grid,
+  .seo-audit-delivery-grid,
+  .brand-naming-process-grid,
+  .google-ads-process-grid
+) > article {
+  grid-template-columns:minmax(0,1fr);
+}
+html[lang="ar"] :is(
+  .pa-deliverables-list,
+  .wd-deliverables-list,
+  .wd-method-list,
+  .dm-deliverables-list,
+  .dm-method-list,
+  .sa-deliverables-list,
+  .cv-deliverables-list
+) > div {
+  grid-template-columns:minmax(0,1fr);
+}
+html[lang="ar"] .offer-confidence-grid > article,
+html[lang="ar"] .sales-risk-grid > article {grid-template-columns:minmax(0,1fr);}
+
+/* Site-wide Arabic section eyebrows: same restrained glass system as hero labels.
+   Scoped to presentation labels, NEVER form labels / metrics / arbitrary spans. */
+html[lang="ar"] main :is(
+  .section-label,
+  .pa-label,
+  .sa-label,
+  .dm-label,
+  .wd-label,
+  .cv-label,
+  .ai-label,
+  .guides-label,
+  .offer-kicker,
+  .sales-eyebrow,
+  .cp-eyebrow,
+  .legal-eyebrow,
+  .bithan-eyebrow,
+  .bithan-kicker,
+  .metric-kicker,
+  .concept-label,
+  .brand-lab-kicker
+) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-height: 30px;
+  padding: 6px 13px;
+  margin-inline: 0;
+  border: 1px solid rgba(105,134,202,.28);
+  border-radius: 999px;
+  background: linear-gradient(120deg,rgba(223,234,255,.37),rgba(255,255,255,.17));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.26),0 4px 14px rgba(22,43,82,.05);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  font-size: clamp(13px,1.07vw,15.5px);
+  font-weight: 750;
+  line-height: 1.62;
+  letter-spacing: 0;
+  white-space: normal;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  vertical-align: middle;
+}
+/* The small highlighted "الأكثر طلبًا" tag keeps its blue accent. */
+html[lang="ar"] .home-offer-signals > b {
+  display: inline-flex;
+  align-items: center;
+  min-height: 31px;
+  padding: 7px 12px;
+  border: 1px solid rgba(49,85,255,.38);
+  border-radius: 999px;
+  background: linear-gradient(115deg,rgba(49,85,255,.14),rgba(255,255,255,.62));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65),0 4px 12px rgba(49,85,255,.08);
+  color: #244be0;
+  font-size: clamp(12px,1vw,14px);
+  font-weight: 800;
+  line-height: 1.5;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+/* Preserve compact eyebrow geometry in the two-column SEO label panel. */
+html[lang="ar"] .sa-truth-grid .sa-label { justify-self: end; }
+/* Never allow decorative glass to force horizontal scroll on small phones. */
+@media (max-width: 640px) {
+  html[lang="ar"] main :is(
+    .section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+    .ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,
+    .legal-eyebrow,.bithan-eyebrow,.bithan-kicker,.metric-kicker,
+    .concept-label,.brand-lab-kicker
+  ) { min-height: 28px; padding: 6px 11px; font-size: 13px; }
+  html[lang="ar"] .home-offer-signals > b {font-size: 12px;padding: 6px 10px;}
+}
+@media (prefers-reduced-transparency: reduce) {
+  html[lang="ar"] main :is(.section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,.ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,.legal-eyebrow,.bithan-eyebrow,.bithan-kicker,.metric-kicker,.concept-label,.brand-lab-kicker) {
+    -webkit-backdrop-filter: none;backdrop-filter: none;
+    background: rgba(224,234,255,.6);
+  }
+}
+
+
+/* FINAL CONTRAST & FIT: all visible Arabic section-title chips are only as wide
+   as their text, even inside full-width CSS grid slots. Dark navy text on a
+   near-opaque icy-glass surface remains readable on cream, blue and black. */
+html[lang="ar"] main :is(
+  .section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+  .ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,
+  .legal-eyebrow,.bithan-eyebrow,.bithan-kicker,.metric-kicker,
+  .concept-label,.brand-lab-kicker,.offers-hero-eyebrow,
+  .eyebrow,.offer-eyebrow
+),
+html[lang="ar"] :is(
+  .pa-hero-copy > .pa-kicker,.wd-hero-copy > .wd-kicker,
+  .dm-hero-copy > .dm-kicker,.sa-hero-copy > .sa-kicker,
+  .cv-hero-copy > .cv-kicker
+),
+html[lang="ar"] main .brand-hero-copy > .section-label {
+  width: max-content;
+  max-width: 100%;
+  justify-self: start;
+  align-self: start;
+  flex: 0 0 auto;
+  text-align: start;
+  color: #092345 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+  background: linear-gradient(125deg,rgba(255,255,255,.96),rgba(226,236,255,.91)) !important;
+  border-color: rgba(43,75,150,.38) !important;
+  box-shadow: 0 5px 18px rgba(4,23,59,.12),inset 0 1px 0 rgba(255,255,255,.97);
+  font-size: clamp(13px,1.08vw,15px);
+  letter-spacing: 0;
+  line-height: 1.6;
+  border-radius: 999px;
+  white-space: normal;
+}
+/* Avoid a long glass strip for grid headings whose label occupies one grid row. */
+html[lang="ar"] .primary-paths-head > .section-label {grid-column:1 / -1; justify-self:start;}
+html[lang="ar"] .sa-truth-grid .sa-label {justify-self:end;}
+/* High-opacity glass on dark and saturated-blue sections. */
+html[lang="ar"] :is(
+  .brand-system-section,.brand-cta,.final-cta,.home-final-conversion,
+  .services-final-cta,.problem-chooser,.pa-final,.sa-final,.dm-final,
+  .cv-final,.wd-final,.offer-final-cta,.offer-price-panel,
+  .sales-final-cta
+) :is(.section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+      .sales-eyebrow,.offer-kicker,.ai-label,.eyebrow) {
+  color:#071d3d !important;
+  background:linear-gradient(120deg,rgba(255,255,255,.98),rgba(231,240,255,.94)) !important;
+  border-color:rgba(255,255,255,.75) !important;
+  box-shadow:0 5px 18px rgba(0,0,0,.14),inset 0 1px 0 #fff;
+}
+/* No empty bubbles, even if a component renders an unpopulated label. */
+html[lang="ar"] main :is(.section-label,.pa-label,.sa-label,.dm-label,
+  .wd-label,.cv-label,.ai-label,.guides-label,.offer-kicker,
+  .sales-eyebrow,.eyebrow):empty {display:none!important;}
+/* Services catalogue: decorative counters belong to the CMS, not the UI.
+   Remove both explicit service sequence markers and CSS pseudo-numbering. */
+html[lang="ar"] .services-page .service-detail .detail-top > span:first-child {
+  display:none!important;
+}
+html[lang="ar"] .services-page .primary-path-card::before {
+  content:none!important;
+  display:none!important;
+}
+html[lang="ar"] .services-page .primary-path-card h3 {margin-top:20px;}
+html[lang="ar"] .services-page .service-detail .detail-top {
+  justify-content:flex-start;gap:0;
+}
+/* The homepage work tiles have decorative '01' labels, not useful metrics. */
+html[lang="ar"] .home-work-card > small:first-child {display:none!important;}
+@media (max-width:640px) {
+  html[lang="ar"] main :is(.section-label,.pa-label,.sa-label,.dm-label,
+    .wd-label,.cv-label,.ai-label,.guides-label,.offer-kicker,
+    .sales-eyebrow,.cp-eyebrow,.legal-eyebrow,.bithan-eyebrow,
+    .bithan-kicker,.metric-kicker,.concept-label,.brand-lab-kicker,
+    .eyebrow) {width:max-content;max-width:100%;line-height:1.65;}
+}
+
+/* Remove the phantom numbering column when there is no longer a decorative index. */
+html[lang="ar"] .studio-home .method-list > div {
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(12px,3vw,28px);
+}
+html[lang="ar"] .studio-home .method-list > div > p {grid-column:auto;}
+html[lang="ar"] .studio-home .home-work-card h3 {margin-top:15px;}
+@media(max-width:640px) {
+  html[lang="ar"] .studio-home .method-list > div {grid-template-columns:minmax(0,1fr);gap:8px;}
+  html[lang="ar"] .studio-home .method-list > div > p {grid-column:1;}
+}
+
+/* Remaining documented decorative 01 badges in Arabic service steps. */
+html[lang="ar"] :is(.content-step-grid,.content-scope-grid,.content-deliverables-grid,.pa-journey-list) > :is(article,div) > :is(span,b,small,strong):first-child {
+  display:none!important;
+}
+html[lang="ar"] .content-step-grid article h3 {margin-top:22px;}
+html[lang="ar"] .pa-journey-list > :is(article,div) {grid-template-columns:minmax(0,1fr);}
+html[lang="ar"] .pa-journey-list > :is(article,div) > :is(h3,p) {grid-column:auto;}
+@media (max-width:640px) {
+  /* Opaque gradient retains glass appearance without mobile blur compositing. */
+  html[lang="ar"] main :is(.section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+    .ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,.legal-eyebrow,
+    .bithan-eyebrow,.bithan-kicker,.metric-kicker,.concept-label,.brand-lab-kicker,
+    .eyebrow) {backdrop-filter:none;-webkit-backdrop-filter:none;}
+}
+
+/* WhatsApp's methodology uses the same shared 3-column numbered list:
+   once the number is hidden, let the title and description occupy both tracks. */
+html[lang="ar"] .wa-page .method-list > div {
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(12px,3vw,28px);
+}
+html[lang="ar"] .wa-page .method-list > div > p {grid-column:auto;}
+@media(max-width:640px){
+  html[lang="ar"] .wa-page .method-list > div {grid-template-columns:minmax(0,1fr);gap:8px;}
+  html[lang="ar"] .wa-page .method-list > div > p {grid-column:1;}
+}

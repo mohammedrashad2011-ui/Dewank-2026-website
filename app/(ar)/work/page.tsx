@@ -97,7 +97,7 @@ export default function WorkPage() {
 
       <section className="work-hero shell">
         <span className="section-label">أعمال ديوانك</span>
-        <h1>النتيجة مهمة.<br/><em>لكن القرار الذي صنعها أهم.</em></h1>
+        <h1>النتيجة مهمة<br/><em>لكن القرار الذي صنعها أهم</em></h1>
         <p>هنا لا نعرض لقطات جميلة فقط. نوضح التحدي، القرار، ما تم تنفيذه، وما الذي تغيّر أو كان مستهدفًا، حتى ترى طريقة التفكير قبل أن تبدأ مشروعك معنا.</p>
         <div className="work-hero-actions">
           <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعًا مشابهًا <span>↗</span></a>
@@ -115,7 +115,7 @@ export default function WorkPage() {
       <section className="proof-paths shell" aria-labelledby="proof-paths-title">
         <div className="proof-paths-head">
           <span className="section-label">اختر نوع الدليل</span>
-          <h2 id="proof-paths-title">لا تتصفح كل شيء.<br/><em>اذهب لما يشبه تحديك.</em></h2>
+          <h2 id="proof-paths-title">لا تتصفح كل شيء<br/><em>اذهب لما يشبه تحديك</em></h2>
         </div>
         <div className="proof-path-grid">
           {proofPaths.map((item) => <a href={item.href} className="proof-path-card" key={item.no}><small>{item.no} · {item.label}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد القسم ↓</span></a>)}
@@ -126,7 +126,7 @@ export default function WorkPage() {
         <div className="real-case-grid">
           <div className="real-case-copy">
             <span className="section-label">دراسة حالة فعلية · البحرين</span>
-            <h2>من رسائل متفرقة<br/>إلى رحلة متابعة قابلة للقياس.</h2>
+            <h2>من رسائل متفرقة<br/>إلى رحلة متابعة قابلة للقياس</h2>
             <p>عيادة تجميل كانت تعتمد على الرد والمتابعة اليدوية عبر واتساب، ما تسبب في بطء الاستجابة وضياع فرص وعدم انتظام التذكير بالمواعيد.</p>
             <div className="case-facts">
               <div><b>التحدي</b><span>عملاء يصلون من الحملات، لكن الرحلة بعد الرسالة لم تكن موحدة أو قابلة للمتابعة.</span></div>
@@ -153,7 +153,7 @@ export default function WorkPage() {
       <section className="bithan-work-feature shell" aria-labelledby="bithan-work-title">
         <div className="bithan-work-copy">
           <span className="section-label">دراسة حالة فعلية · Naming + Identity · 2026</span>
-          <h2 id="bithan-work-title">من استراتيجية التسمية<br/><em>إلى هوية Fine Jewelry مكتملة.</em></h2>
+          <h2 id="bithan-work-title">من استراتيجية التسمية<br/><em>إلى هوية Fine Jewelry مكتملة</em></h2>
           <p>BITHAN بدأ بتموضع ومساحات تسمية وقوائم منتقاة وفحص مبدئي، وانتهى باسم اختاره العميل ثم Original Sketch وLogo Suite ونظام هوية وتطبيقات Premium.</p>
           <div className="bithan-work-journey"><span>Naming</span><i>→</i><span>Selection</span><i>→</i><span>Identity</span><i>→</i><span>Applications</span></div>
           <Link className="button primary" href="/work/bithan">شاهد دراسة الحالة كاملة <span>←</span></Link>
@@ -168,7 +168,7 @@ export default function WorkPage() {
         <div className="identity-work-head">
           <div>
             <span className="section-label">أعمال هوية بصرية مختارة</span>
-            <h2 id="identity-work-title">علامات بنينا لها<br/>حضورًا يمكن تذكّره.</h2>
+            <h2 id="identity-work-title">علامات بنينا لها<br/>حضورًا يمكن تذكّره</h2>
           </div>
           <p>نماذج من أعمال ديوانك الفعلية في تصميم وتطوير الهوية البصرية لقطاعات متنوعة. اضغط على أي مشروع لعرضه بجودة أكبر.</p>
         </div>
@@ -183,7 +183,7 @@ export default function WorkPage() {
         <div className="shell">
           <div className="testimonials-head">
             <span className="section-label">آراء العملاء</span>
-            <h2 id="testimonials-title">الثقة لا نصممها.<br/><em>نبنيها مع كل مشروع.</em></h2>
+            <h2 id="testimonials-title">الثقة لا نصممها<br/><em>نبنيها مع كل مشروع</em></h2>
           </div>
           <div className="testimonials-grid">
             {testimonials.map((testimonial, index) => (
@@ -206,7 +206,7 @@ export default function WorkPage() {
           <div className="concepts-head">
             <div>
               <span className="section-label">استراتيجية التفكير</span>
-              <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط.</h2>
+              <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط</h2>
             </div>
           </div>
 
@@ -230,7 +230,7 @@ export default function WorkPage() {
 
       <section className="work-method shell">
         <span className="section-label">كيف نعمل</span>
-        <h2>من التحدي إلى نظام<br/>يمكن تنفيذه وقياسه.</h2>
+        <h2>من التحدي إلى نظام<br/>يمكن تنفيذه وقياسه</h2>
         <div className="work-method-grid">
           <div><span>01</span><h3>نفهم التحدي</h3><p>نحدد أين يتوقف النمو وما الذي يحتاجه العميل فعلًا.</p></div>
           <div><span>02</span><h3>نختار القرار</h3><p>نحدد التموضع والرسالة والأولوية قبل الدخول في التنفيذ.</p></div>
@@ -243,7 +243,7 @@ export default function WorkPage() {
       <section className="work-final">
         <div>
           <span className="section-label">الخطوة التالية</span>
-          <h2>شاهدت الدليل.<br/><em>الآن نحدد ما يناسب مشروعك.</em></h2>
+          <h2>شاهدت الدليل<br/><em>الآن نحدد ما يناسب مشروعك</em></h2>
         </div>
         <div>
           <p>أرسل لنا نشاطك والتحدي الحالي. سنحدد هل تحتاج براند، موقع، إعلانات، أتمتة أو مزيجًا أصغر يخدم النتيجة فعلًا.</p>
