@@ -100,10 +100,10 @@ export default function ServicesPage() {
 
   const renderCard = (card: Card) => (
     <article className={`service-detail ${card.tone}`} id={card.id} key={card.id}>
-      <div className="detail-top"><span>{card.no}</span><small>{card.label}</small></div>
+      <div className="detail-top"><small>{card.label}</small></div>
       <div className={`service-symbol ${card.visual}`} aria-hidden="true"><i /><i /><i /></div>
       <div className="detail-copy">
-        <h2>{card.title}<br /><em>{card.hook}</em></h2>
+        <h2>{card.title.replace(/\.$/, "")}<br /><em>{card.hook.replace(/\.$/, "")}</em></h2>
         <p>{card.text}</p>
         <div className="tag-row">{card.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
       </div>
@@ -146,9 +146,9 @@ export default function ServicesPage() {
           <p>Instead of reading a long list, begin with the result closest to what you need to fix now.</p>
         </div>
         <div className="primary-path-grid">
-          {paths.map((path, index) => (
+          {paths.map((path) => (
             <Link href={path.href} className="primary-path-card" key={path.href}>
-              <small>0{index + 1} · {path.label}</small>
+              <small>{path.label}</small>
               <h3>{path.title}</h3>
               <p>{path.text}</p>
               <span>{path.cta} ↗</span>
