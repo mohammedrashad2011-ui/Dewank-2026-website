@@ -8,6 +8,7 @@ import { whatsappHref, briefMailto } from "../../_en/lib/site";
 import "../../../../(ar)/work/bithan/bithan-case-study.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
+import "./delivery-layout.en.css";
 
 export const metadata = enMetadata(
   "BITHAN case study: naming and fine jewellery identity",
