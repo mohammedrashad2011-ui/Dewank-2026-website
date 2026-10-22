@@ -4,8 +4,8 @@ import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import "./ai-automation.css";
 
-const title = "أتمتة الأعمال بالذكاء الاصطناعي للشركات في السعودية | ديوانك";
-const description = "حلول أتمتة الأعمال بالذكاء الاصطناعي للشركات: أتمتة واتساب وخدمة العملاء، تأهيل العملاء، CRM، المتابعة، الطلبات والتقارير عبر سير عمل واضح وقابل للقياس.";
+const title = "أتمتة العمليات والأعمال بالذكاء الاصطناعي للشركات في السعودية | ديوانك";
+const description = "حلول أتمتة العمليات والأعمال بالذكاء الاصطناعي للشركات: أتمتة واتساب وخدمة العملاء، تأهيل العملاء، CRM، المتابعة، الطلبات والتقارير عبر سير عمل واضح وقابل للقياس.";
 
 export const metadata: Metadata = createMetadata({
   title,
@@ -100,7 +100,7 @@ export default function AiAutomationPage() {
       <section className="ai-hero shell">
         <div className="ai-hero-copy">
           <span className="ai-label">AI AUTOMATION / BUSINESS WORKFLOWS</span>
-          <h1>أتمتة أعمالك بالذكاء الاصطناعي.<br/><em>دون أن تضيف AI إلى الفوضى.</em></h1>
+          <h1>أتمتة العمليات والأعمال بالذكاء الاصطناعي.<br/><em>دون أن تضيف AI إلى الفوضى.</em></h1>
           <p>نحلل العملية أولًا، ثم نربط واتساب وCRM والمبيعات وخدمة العملاء والعمليات داخل سير عمل واضح يقلل التكرار وضياع العملاء ويجعل المتابعة أسرع وأسهل في القياس.</p>
           <div className="ai-actions">
             <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش عملية تريد أتمتتها <span>↗</span></a>
@@ -122,7 +122,7 @@ export default function AiAutomationPage() {
 
       <section className="ai-answer shell" id="quick-answer">
         <span className="ai-label">QUICK ANSWER</span>
-        <h2>ما الذي نقصده بأتمتة الأعمال بالذكاء الاصطناعي؟</h2>
+        <h2>ما الذي نقصده بأتمتة العمليات والأعمال بالذكاء الاصطناعي؟</h2>
         <p><strong>هي ربط خطوات العمل في سير واضح لشركتك، واستخدام الذكاء الاصطناعي فقط في الخطوة التي تحتاج فهمًا أو تصنيفًا أو تلخيصًا.</strong> نخدم الشركات في السعودية ودول الخليج، ونبدأ بعملية واحدة ذات أثر واضح، ونبقي القرارات الحساسة والاستثناءات بيد الفريق.</p>
         <p>إذا كنت تقارن بين «وكيل ذكاء اصطناعي» وأتمتة تقليدية، فاقرأ <Link className="ai-link" href="/guides/ai-agent-vs-workflow-automation">الفرق بين وكيل الذكاء الاصطناعي وأتمتة سير العمل</Link> قبل أن تقرر.</p>
       </section>
