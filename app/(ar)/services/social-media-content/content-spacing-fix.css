@@ -1,0 +1,19 @@
+.content-service-page .content-hero-copy h1 em,
+.content-service-page .content-section-head h2 em,
+.content-service-page .content-system h2 em,
+.content-service-page .content-offer h2 em,
+.content-service-page .content-final h2 em {
+  display: block;
+  margin-top: .28em;
+  line-height: 1.08;
+}
+
+@media (max-width: 620px) {
+  .content-service-page .content-hero-copy h1 em,
+  .content-service-page .content-section-head h2 em,
+  .content-service-page .content-system h2 em,
+  .content-service-page .content-offer h2 em,
+  .content-service-page .content-final h2 em {
+    margin-top: .34em;
+  }
+}
