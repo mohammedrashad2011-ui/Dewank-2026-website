@@ -1,3 +1,4 @@
+import "./content-visual-rhythm.css";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
