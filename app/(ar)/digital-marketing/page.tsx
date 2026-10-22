@@ -208,7 +208,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       <section className="dm-truth shell">
-        <span className="dm-label">[ المشكلة التي نحلها ]</span>
+        <span className="dm-label">المشكلة التي نحلها</span>
         <div className="dm-truth-grid">
           <h2>كثرة النشر لا تعني نموًا<br/><em>وكثرة الوصول لا تعني طلبًا</em></h2>
           <div>
@@ -221,7 +221,7 @@ export default function DigitalMarketingPage() {
       <section className="dm-guides dm-route shell" id="dm-route" aria-labelledby="dm-route-title">
         <div className="dm-guides-head">
           <div>
-            <span className="dm-label">[ من أين تبدأ؟ ]</span>
+            <span className="dm-label">من أين تبدأ؟</span>
             <h2 id="dm-route-title">اعرف المشكلة أولًا<br/><em>ثم اختر الخدمة المناسبة</em></h2>
           </div>
           <p>التسويق الرقمي، ويسميه بعض أصحاب الأنشطة الدعاية الرقمية، ليس قناة واحدة ولا يبدأ دائمًا بإعلان. حدّد المشكلة التي تواجهك، ثم انتقل إلى الخدمة المتخصصة التي تغطيها بنطاقها الخاص.</p>
@@ -241,7 +241,7 @@ export default function DigitalMarketingPage() {
       <section className="dm-journey">
         <div className="shell">
           <div className="dm-section-head">
-            <div><span className="dm-label">[ من المحتوى إلى الطلب ]</span><h2>كل قطعة محتوى لها وظيفة<br/><em>داخل الرحلة</em></h2></div>
+            <div><span className="dm-label">من المحتوى إلى الطلب</span><h2>كل قطعة محتوى لها وظيفة<br/><em>داخل الرحلة</em></h2></div>
             <p>لا نقيس نجاح المنشور بمعزل عن دوره: هل جذب؟ شرح؟ بنى ثقة؟ حرّك قرارًا؟ أم أعاد العميل؟</p>
           </div>
           <div className="dm-journey-grid">
@@ -258,7 +258,7 @@ export default function DigitalMarketingPage() {
 
       <section className="dm-capabilities shell">
         <div className="dm-section-head">
-          <div><span className="dm-label">[ ماذا نبني ]</span><h2>ليس حسابًا ممتلئًا<br/><em>بل نظام تسويق متماسك</em></h2></div>
+          <div><span className="dm-label">ماذا نبني</span><h2>ليس حسابًا ممتلئًا<br/><em>بل نظام تسويق متماسك</em></h2></div>
           <p>نختار ما يخدم الهدف ونستبعد ما يضيف ضوضاء أو عبئًا دون أثر تجاري.</p>
         </div>
         <div className="dm-capability-grid">
@@ -275,7 +275,7 @@ export default function DigitalMarketingPage() {
       <section className="dm-deliverables">
         <div className="shell dm-deliverables-layout">
           <div className="dm-sticky-copy">
-            <span className="dm-label">[ ما الذي تستلمه ]</span>
+            <span className="dm-label">ما الذي تستلمه</span>
             <h2>مخرجات يمكن لفريقك<br/><em>استخدامها غدًا</em></h2>
             <p>لا نقدم ملفًا نظريًا ينتهي في البريد. كل مخرج مصمم ليقود قرارًا أو يسهل تنفيذًا أو يحسن قياسًا.</p>
           </div>
@@ -287,7 +287,7 @@ export default function DigitalMarketingPage() {
 
       <section className="dm-method shell" id="dm-method">
         <div className="dm-section-head">
-          <div><span className="dm-label">[ طريقة العمل ]</span><h2>من التشخيص<br/><em>إلى نظام قابل للتحسين</em></h2></div>
+          <div><span className="dm-label">طريقة العمل</span><h2>من التشخيص<br/><em>إلى نظام قابل للتحسين</em></h2></div>
           <p>كل مرحلة تجيب عن سؤال تجاري قبل الانتقال إلى التنفيذ التالي.</p>
         </div>
         <div className="dm-method-list">
@@ -299,7 +299,7 @@ export default function DigitalMarketingPage() {
 
       <section className="dm-fit">
         <div className="shell dm-fit-layout">
-          <div><span className="dm-label">[ لمن تناسب ]</span><h2>هذه الخدمة مناسبة<br/><em>عندما يكون النشاط أكبر من محتواه</em></h2></div>
+          <div><span className="dm-label">لمن تناسب</span><h2>هذه الخدمة مناسبة<br/><em>عندما يكون النشاط أكبر من محتواه</em></h2></div>
           <div className="dm-fit-list">
             {fitFor.map((item) => <p key={item}><span>↙</span>{item}</p>)}
           </div>
@@ -309,7 +309,7 @@ export default function DigitalMarketingPage() {
       <section className="dm-guides shell" aria-labelledby="dm-guides-title">
         <div className="dm-guides-head">
           <div>
-            <span className="dm-label">[ أدلة قبل القرار ]</span>
+            <span className="dm-label">أدلة قبل القرار</span>
             <h2 id="dm-guides-title">افهم أين المشكلة<br/><em>ثم اختر نطاق التسويق المناسب</em></h2>
           </div>
           <p>ثلاثة أدلة تساعدك على تشخيص ضعف التحويل، فهم تكلفة إدارة الحسابات، ومقارنة نطاقات التسويق قبل التعاقد.</p>
@@ -326,7 +326,7 @@ export default function DigitalMarketingPage() {
       </section>
 
       <section className="dm-faq shell">
-        <span className="dm-label">[ أسئلة شائعة ]</span>
+        <span className="dm-label">أسئلة شائعة</span>
         <div className="dm-faq-head"><h2>إجابات مباشرة<br/><em>قبل أن نبدأ</em></h2><p>نحدد النطاق بناءً على المشكلة والموارد، لا بناءً على باقة جاهزة للجميع.</p></div>
         <div className="dm-faq-grid">
           {faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}
@@ -335,7 +335,7 @@ export default function DigitalMarketingPage() {
 
       <section className="dm-final shell">
         <div>
-          <span className="dm-label">[ الخطوة التالية ]</span>
+          <span className="dm-label">الخطوة التالية</span>
           <h2>لا تبدأ بمزيد من المحتوى<br/><em>ابدأ بسبب واضح لكل محتوى</em></h2>
         </div>
         <div className="dm-final-actions">

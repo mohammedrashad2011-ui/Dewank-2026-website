@@ -125,7 +125,7 @@ export default function SeoAuditOfferPage() {
 
       <section className="shell seo-audit-proof" aria-labelledby="audit-preview-title">
         <div className="seo-audit-proof-copy">
-          <span className="section-label">[ شكل النتيجة ]</span>
+          <span className="section-label">شكل النتيجة</span>
           <h2 id="audit-preview-title">تقرير يفهمه صاحب المشروع<br/>وليس قائمة أخطاء بلا نهاية</h2>
           <p>نرتب ما وجدناه حسب التأثير، ونوضح ما يحتاج تدخلًا عاجلًا وما يمكن تأجيله، حتى تتحول المراجعة إلى قرارات قابلة للتنفيذ. الأرقام في النموذج المجاور توضيحية فقط وليست نتيجة موقع فعلي.</p>
         </div>
@@ -146,28 +146,28 @@ export default function SeoAuditOfferPage() {
       </section>
 
       <section className="shell offer-deliverables seo-audit-areas">
-        <div><span className="section-label">[ ماذا نفحص؟ ]</span><h2>خمسة محاور<br/>صورة واحدة واضحة</h2><p>الفحص لا يتوقف عند الكلمات المفتاحية. نراجع ما يساعد جوجل على الوصول والفهم وما يساعد الزائر على اتخاذ الإجراء.</p></div>
+        <div><span className="section-label">ماذا نفحص؟</span><h2>خمسة محاور<br/>صورة واحدة واضحة</h2><p>الفحص لا يتوقف عند الكلمات المفتاحية. نراجع ما يساعد جوجل على الوصول والفهم وما يساعد الزائر على اتخاذ الإجراء.</p></div>
         <div className="deliverable-list">{auditAreas.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell seo-audit-delivery">
-        <div className="seo-audit-delivery-head"><span className="section-label">[ ماذا تستلم؟ ]</span><h2>من التشخيص إلى خطة التنفيذ</h2></div>
+        <div className="seo-audit-delivery-head"><span className="section-label">ماذا تستلم؟</span><h2>من التشخيص إلى خطة التنفيذ</h2></div>
         <div className="seo-audit-delivery-grid">{deliverables.map(([title, text], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell seo-audit-process">
-        <div className="seo-audit-process-head"><span className="section-label">[ كيف تعمل؟ ]</span><h2>ثلاث خطوات فقط</h2></div>
+        <div className="seo-audit-process-head"><span className="section-label">كيف تعمل؟</span><h2>ثلاث خطوات فقط</h2></div>
         <div className="seo-audit-process-grid">{processSteps.map(([n, title, text]) => <article key={n}><b>{n}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell offer-confidence seo-audit-confidence">
-        <div className="offer-confidence-head"><span className="section-label">[ نطاق واضح ]</span><h2>الفحص يحدد المشكلة<br/>والتنفيذ قرار منفصل</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">نطاق واضح</span><h2>الفحص يحدد المشكلة<br/>والتنفيذ قرار منفصل</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>لا نبيعك تنفيذًا قبل أن نعرف ما يحتاجه الموقع فعلًا.</span></article><article><b>02</b><span>التقرير يوضح ما يمكنك إصلاحه بنفسك وما يحتاج متخصصًا.</span></article><article><b>03</b><span>يمكن تنفيذ التوصيات مع ديوانك أو أي فريق تختاره.</span></article></div>
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل تعديل الكود أو كتابة صفحات كاملة أو بناء روابط خارجية أو إدارة SEO شهرية أو ضمان ترتيب محدد في جوجل. هذه خدمات منفصلة تُحدد فقط بعد ظهور نتائج الفحص.</p></details>
       </section>
 
       <section className="shell offer-faq" id="faq">
-        <div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن ترسل الموقع</h2></div>
+        <div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن ترسل الموقع</h2></div>
         <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 

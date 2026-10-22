@@ -79,12 +79,12 @@ export default function LandingPageOffer() {
       </section>
 
       <section className="shell offer-deliverables">
-        <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>كل ما تحتاجه لتبدأ البيع</h2><p>التسليم خلال 7–10 أيام عمل بعد استلام المعلومات واعتماد الاتجاه.</p></div>
+        <div><span className="section-label">ماذا تستلم؟</span><h2>كل ما تحتاجه لتبدأ البيع</h2><p>التسليم خلال 7–10 أيام عمل بعد استلام المعلومات واعتماد الاتجاه.</p></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell offer-fit">
-        <span className="section-label">[ اختر ما يناسبك ]</span>
+        <span className="section-label">اختر ما يناسبك</span>
         <h2>صفحة فقط<br/>أو انطلاقة كاملة</h2>
         <div className="offer-fit-grid landing-package-grid">
           <article className="offer-fit-card good landing-package-card">
@@ -105,12 +105,12 @@ export default function LandingPageOffer() {
       </section>
 
       <section className="shell offer-confidence">
-        <div className="offer-confidence-head"><span className="section-label">[ ملكية واضحة ]</span><h2>الدومين باسمك. والقرار في يدك</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">ملكية واضحة</span><h2>الدومين باسمك. والقرار في يدك</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>نسجّل الدومين باسم العميل وبريده الإلكتروني.</span></article><article><b>02</b><span>نجهز الاستضافة ونربط SSL وننشر الصفحة.</span></article><article><b>03</b><span>نسلم بيانات الدخول وتعليمات التجديد بوضوح.</span></article></div>
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل متجرًا إلكترونيًا، بوابة دفع، تعدد اللغات، نظام حجز مخصص، كتابة صفحات إضافية، إدارة الإعلانات، أو رسوم تجديد الدومين والاستضافة بعد السنة الأولى.</p></details>
       </section>
 
-      <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن تبدأ</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن تبدأ</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta">
         <span className="offer-kicker">صفحة مخصصة · تسليم خلال 7–10 أيام</span>

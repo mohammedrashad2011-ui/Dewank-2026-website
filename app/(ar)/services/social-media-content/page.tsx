@@ -84,7 +84,7 @@ export default function SocialMediaContentPage() {
 
       <section className="content-hero shell">
         <div className="content-hero-copy">
-          <span className="section-label">[ إدارة السوشيال ميديا وصناعة المحتوى ]</span>
+          <span className="section-label">إدارة السوشيال ميديا وصناعة المحتوى</span>
           <h1>إدارة سوشيال ميديا<br/><em>تبني حضورًا وطلبًا</em></h1>
           <p>نحوّل حسابك من منشورات متفرقة إلى منظومة محتوى واضحة: رسالة، أفكار، تصميم، كابشنات وخطة نشر تخدم هدفًا تجاريًا، لا مجرد ملء التقويم.</p>
           <div className="content-actions">
@@ -96,35 +96,35 @@ export default function SocialMediaContentPage() {
       </section>
 
       <section className="content-steps shell">
-        <div className="content-section-head"><span className="section-label">[ ماذا تشمل الخدمة؟ ]</span><h2>من الاستراتيجية إلى النشر<br/><em>كل خطوة لها وظيفة</em></h2></div>
+        <div className="content-section-head"><span className="section-label">ماذا تشمل الخدمة؟</span><h2>من الاستراتيجية إلى النشر<br/><em>كل خطوة لها وظيفة</em></h2></div>
         <div className="content-step-grid">{deliverables.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="content-steps content-scope shell" aria-labelledby="content-scope-title">
-        <div className="content-section-head"><span className="section-label">[ قبل التعاقد ]</span><h2 id="content-scope-title">نطاق واضح مكتوب<br/><em>قبل أن تدفع أي شيء</em></h2></div>
+        <div className="content-section-head"><span className="section-label">قبل التعاقد</span><h2 id="content-scope-title">نطاق واضح مكتوب<br/><em>قبل أن تدفع أي شيء</em></h2></div>
         <div className="content-step-grid">{scopeItems.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="content-system shell">
-        <div><span className="section-label">[ طريقة العمل ]</span><h2>المحتوى جزء من رحلة العميل،<br/><em>وليس جزيرة منفصلة</em></h2></div>
+        <div><span className="section-label">طريقة العمل</span><h2>المحتوى جزء من رحلة العميل،<br/><em>وليس جزيرة منفصلة</em></h2></div>
         <div className="content-system-card"><p>نربط ما تنشره بما تريد أن يفعله العميل بعد المشاهدة: متابعة، حفظ، استفسار، زيارة موقع أو طلب خدمة. لذلك تبدأ الخطة من الهدف التجاري، لا من عدد المنشورات.</p><Link href="/digital-marketing">اكتشف استراتيجية التسويق الرقمي <span>←</span></Link></div>
       </section>
 
       <section className="content-offer shell">
-        <div><span className="section-label">[ إدارة شهرية أم بداية محددة؟ ]</span><h2>اختر النطاق على حسب احتياجك<br/><em>لا على عدد البوستات فقط</em></h2></div>
+        <div><span className="section-label">إدارة شهرية أم بداية محددة؟</span><h2>اختر النطاق على حسب احتياجك<br/><em>لا على عدد البوستات فقط</em></h2></div>
         <div className="content-offer-card"><strong>باقة محتوى 30 يومًا · {contentPackagePrice} ريالًا</strong><p>إذا كان احتياجك الأساسي أفكارًا وتصميمًا وكابشنات وخطة نشر، ابدأ بالباقة المحددة. وإذا كان لديك حساب قائم يحتاج ترتيبًا فقط، فباقة تطوير الحساب خلال 14 يومًا بسعر {instagramUpgradePrice} ريالًا. أما إذا كنت تحتاج نشرًا مستمرًا ومتابعة وتقارير وإدارة أوسع، فنحدد لك نطاق الإدارة الشهرية بعد مراجعة حسابك. الأسعار المعلنة بالريال السعودي وتظهر بعملة بلدك داخل صفحة كل باقة.</p><Link className="button primary" href="/offers/30-day-content-package">شاهد باقة 30 يومًا <span>←</span></Link><br/><Link href="/offers/instagram-14-day-upgrade">شاهد باقة تطوير الحساب 14 يومًا</Link><br/><Link href="/guides/social-media-management-cost-saudi-arabia">قارن الأسعار والنطاقات</Link></div>
       </section>
 
       <section className="content-guides shell" aria-labelledby="content-guides-title">
         <div className="content-guides-head">
-          <div><span className="section-label">[ أدلة قبل القرار ]</span><h2 id="content-guides-title">ابدأ بالسؤال الذي يواجهك<br/><em>ثم اختر نطاق المحتوى المناسب</em></h2></div>
+          <div><span className="section-label">أدلة قبل القرار</span><h2 id="content-guides-title">ابدأ بالسؤال الذي يواجهك<br/><em>ثم اختر نطاق المحتوى المناسب</em></h2></div>
           <p>إذا بحثك يبدأ من السعر، أو من مشكلة ضعف العملاء، أو من ميزانية التسويق كاملة، هذه الأدلة تنقلك للصفحة المناسبة بدل خلط النوايا في عرض واحد.</p>
         </div>
         <div className="content-guides-grid">{guideLinks.map((guide, index) => <Link className="content-guide-card" href={guide.href} key={guide.href}><div className="content-guide-top"><span>دليل 0{index + 1}</span><span className="content-guide-arrow" aria-hidden="true">↗</span></div><h3>{guide.title}</h3><p>{guide.text}</p></Link>)}</div>
       </section>
 
       <section className="content-faq shell">
-        <span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن تختار الباقة</h2>
+        <span className="section-label">أسئلة شائعة</span><h2>قبل أن تختار الباقة</h2>
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 

@@ -100,7 +100,7 @@ export default function MiniVisualIdentityOffer() {
 
       <section className="shell mini-identity-proof">
         <div className="mini-identity-proof-copy">
-          <span className="section-label">[ لماذا هوية مصغرة؟ ]</span>
+          <span className="section-label">لماذا هوية مصغرة؟</span>
           <h2>لأن الشكل المرتجل<br/>يتعب العلامة بسرعة</h2>
           <p>المشروع في بدايته لا يحتاج دائمًا إلى نظام براند ضخم. لكنه يحتاج قواعد بصرية كافية تمنع كل تصميم جديد من أن يبدو وكأنه تابع لشركة مختلفة.</p>
         </div>
@@ -117,12 +117,12 @@ export default function MiniVisualIdentityOffer() {
       </section>
 
       <section className="shell offer-deliverables mini-identity-deliverables">
-        <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>الأساس الذي يحتاجه<br/>مشروعك ليظهر بثبات</h2><p>نركز على العناصر التي ستستخدمها فعلًا في بداية العلامة، بدل تضخيم الباقة بعناصر لا تحتاجها الآن.</p></div>
+        <div><span className="section-label">ماذا تستلم؟</span><h2>الأساس الذي يحتاجه<br/>مشروعك ليظهر بثبات</h2><p>نركز على العناصر التي ستستخدمها فعلًا في بداية العلامة، بدل تضخيم الباقة بعناصر لا تحتاجها الآن.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell mini-identity-process">
-        <div className="mini-identity-process-head"><span className="section-label">[ 3 مراحل ]</span><h2>نفهم. نحدد الاتجاه. ثم نبني النظام</h2></div>
+        <div className="mini-identity-process-head"><span className="section-label">3 مراحل</span><h2>نفهم. نحدد الاتجاه. ثم نبني النظام</h2></div>
         <div className="mini-identity-process-grid">
           <article><b>01</b><h3>نفهم المشروع</h3><p>النشاط، الجمهور، المنافسون، شخصية العلامة وما يجب أن يشعر به العميل عند رؤيتها.</p></article>
           <article><b>02</b><h3>نحدد الاتجاه</h3><p>نقترح توجهًا بصريًا يربط الشعار بالألوان والخطوط بدل تصميم كل عنصر بشكل منفصل.</p></article>
@@ -131,12 +131,12 @@ export default function MiniVisualIdentityOffer() {
       </section>
 
       <section className="shell offer-confidence mini-identity-confidence">
-        <div className="offer-confidence-head"><span className="section-label">[ مناسبة لمن؟ ]</span><h2>بداية قوية بدون تعقيد الهوية الكاملة</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">مناسبة لمن؟</span><h2>بداية قوية بدون تعقيد الهوية الكاملة</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>مشروع جديد لديه اسم معتمد ويحتاج شكلًا احترافيًا قبل الإطلاق.</span></article><article><b>02</b><span>نشاط صغير يستخدم شعارًا ضعيفًا أو غير متناسق ويريد أساسًا أوضح.</span></article><article><b>03</b><span>مؤسس يريد توحيد شكل الموقع والسوشيال ميديا والعروض قبل التوسع.</span></article></div>
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل استراتيجية براند متكاملة، بحث تسمية، كتابة نظام رسائل، دليل هوية تفصيلي، موشن جرافيك، تغليف منتجات، تصميم موقع، إدارة سوشيال ميديا أو عددًا مفتوحًا من التطبيقات والتعديلات.</p></details>
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">[ أسئلة شائعة ]</span><h2>قبل أن نرسم أول خط</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن نرسم أول خط</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta mini-identity-final">
         <span className="offer-kicker">هوية بصرية مصغرة · 7–10 أيام</span>

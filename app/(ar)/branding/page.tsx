@@ -124,7 +124,7 @@ export default function BrandingPage() {
 
       <section className="shell brand-hero">
         <div className="brand-hero-copy">
-          <span className="section-label">[ BRAND STRATEGY &amp; IDENTITY ]</span>
+          <span className="section-label">BRAND STRATEGY &amp; IDENTITY</span>
           <h1>استراتيجية براند تجعل علامتك<em>واضحة، مختلفة، وجديرة بالاختيار</em></h1>
           <p>نساعد الشركات في السعودية والخليج على بناء استراتيجية البراند والتموضع والهوية البصرية كنظام واحد—حتى يفهم العميل قيمتك، يتذكرك، ويثق بك قبل أن تبدأ المقارنة بالسعر.</p>
           <div className="brand-hero-actions">
@@ -136,7 +136,7 @@ export default function BrandingPage() {
       </section>
 
       <section className="shell brand-diagnosis">
-        <div><span className="section-label">[ المشكلة التي نحلها ]</span><h2>السوق يراك<br/><em>لكن هل يفهمك؟</em></h2></div>
+        <div><span className="section-label">المشكلة التي نحلها</span><h2>السوق يراك<br/><em>لكن هل يفهمك؟</em></h2></div>
         <div className="brand-diagnosis-copy">
           <p>عندما لا تمتلك العلامة تموضعًا ورسالة وهوية متماسكة، تبدو مثل غيرها، حتى لو كانت خدمتها أفضل. النتيجة عادةً محتوى متغير، حملات أغلى، وفريق يشرح المشروع كل مرة من الصفر.</p>
           <div className="brand-symptoms">
@@ -149,7 +149,7 @@ export default function BrandingPage() {
       <section className="brand-system-section">
         <div className="shell">
           <div className="brand-section-head">
-            <div><span className="section-label">[ النتيجة ]</span><h2>لا نسلمك شعارًا<br/><em>نبني نظام علامة</em></h2></div>
+            <div><span className="section-label">النتيجة</span><h2>لا نسلمك شعارًا<br/><em>نبني نظام علامة</em></h2></div>
             <p>كل عنصر مرتبط بقرار استراتيجي، حتى تعمل الهوية في التسويق والمبيعات وتجربة العميل، وليس في ملف العرض فقط.</p>
           </div>
           <div className="brand-system-grid">{outcomes.map(([title,text],i)=><article className="brand-system-card" key={title}><b>0{i+1}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
@@ -157,7 +157,7 @@ export default function BrandingPage() {
       </section>
 
       <section className="shell brand-deliverables">
-        <div className="brand-section-head"><div><span className="section-label">[ ما الذي تتضمنه الخدمة ]</span><h2>من الفكرة الغامضة<br/><em>إلى نظام قابل للاستخدام</em></h2></div></div>
+        <div className="brand-section-head"><div><span className="section-label">ما الذي تتضمنه الخدمة</span><h2>من الفكرة الغامضة<br/><em>إلى نظام قابل للاستخدام</em></h2></div></div>
         <div className="brand-deliverables-grid">{deliverables.map(([title,text],i)=><article key={title}><span>0{i+1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
       </section>
 
@@ -165,14 +165,14 @@ export default function BrandingPage() {
 
       <section className="brand-process">
         <div className="shell">
-          <div className="brand-section-head brand-process-head"><div><span className="section-label">[ مراحل بناء الهوية ]</span><h2>استراتيجية أولًا<br/><em>تصميم له سبب</em></h2></div></div>
+          <div className="brand-section-head brand-process-head"><div><span className="section-label">مراحل بناء الهوية</span><h2>استراتيجية أولًا<br/><em>تصميم له سبب</em></h2></div></div>
           <p className="brand-process-intro">نقاط اعتماد واضحة تقلل التخمين والتعديلات العشوائية، وتضمن أن كل مرحلة مبنية على قرار سابق.</p>
           <div className="brand-process-list">{process.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
         </div>
       </section>
 
       <section className="shell brand-fit">
-        <div><span className="section-label">[ لمن تناسب الخدمة ]</span><h2>الوقت المناسب<br/><em>لبناء البراند</em></h2></div>
+        <div><span className="section-label">لمن تناسب الخدمة</span><h2>الوقت المناسب<br/><em>لبناء البراند</em></h2></div>
         <div className="brand-fit-list">
           <p>مشروع جديد يحتاج أساسًا قويًا قبل الإطلاق.</p>
           <p>شركة نمت لكن صورتها لم تعد تعكس حجمها أو سعرها.</p>
@@ -184,7 +184,7 @@ export default function BrandingPage() {
       <section className="shell brand-guides" aria-labelledby="brand-guides-title">
         <div className="brand-guides-head">
           <div>
-            <span className="section-label">[ أدلة قبل القرار ]</span>
+            <span className="section-label">أدلة قبل القرار</span>
             <h2 id="brand-guides-title">افهم ما تحتاجه أولًا.<em>ثم اختر النطاق المناسب</em></h2>
           </div>
           <p className="brand-guides-intro">دليلان يساعدانك على فهم تكلفة الهوية واتخاذ قرار الاسم قبل الاستثمار في التصميم والإطلاق.</p>
@@ -201,7 +201,7 @@ export default function BrandingPage() {
       </section>
 
       <section className="shell brand-faq" aria-labelledby="branding-faq-title">
-        <span className="section-label">[ أسئلة شائعة ]</span>
+        <span className="section-label">أسئلة شائعة</span>
         <div className="brand-section-head"><div><h2 id="branding-faq-title">إجابات واضحة<br/><em>قبل أن نبدأ</em></h2></div></div>
         {faqs.map(([q,a])=><details key={q}><summary>{q}</summary><p>{a}</p></details>)}
         <div className="brand-related">
@@ -213,7 +213,7 @@ export default function BrandingPage() {
 
       <section className="shell brand-offers" aria-labelledby="brand-offers-title">
         <div className="brand-offers-head">
-          <div><span className="section-label">[ بدايات جاهزة ]</span><h2 id="brand-offers-title">إذا كنت لا تحتاج المشروع الكامل،<br/><em>ابدأ بالنطاق المناسب</em></h2></div>
+          <div><span className="section-label">بدايات جاهزة</span><h2 id="brand-offers-title">إذا كنت لا تحتاج المشروع الكامل،<br/><em>ابدأ بالنطاق المناسب</em></h2></div>
           <p>اختيارات أصغر بنطاق وسعر واضحين، تساعدك تبدأ من المرحلة التي تحتاجها فعلًا بدل شراء خدمة أكبر من احتياجك.</p>
         </div>
         <div className="brand-offers-grid">
@@ -232,7 +232,7 @@ export default function BrandingPage() {
       </section>
 
       <section className="shell brand-cta">
-        <div><span className="section-label">[ نقطة البداية ]</span><h2>علامتك تستحق<br/>سببًا يجعلها الاختيار</h2></div>
+        <div><span className="section-label">نقطة البداية</span><h2>علامتك تستحق<br/>سببًا يجعلها الاختيار</h2></div>
         <div><p>أخبرنا أين تقف علامتك الآن، وسنحدد معك هل تحتاج استراتيجية كاملة، تطوير الهوية الحالية، أم بداية أصغر وأكثر منطقية.</p><Link className="button" href="/contact">ابدأ محادثة قصيرة <span>←</span></Link></div>
       </section>
       <Footer />

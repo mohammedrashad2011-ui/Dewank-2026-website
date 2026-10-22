@@ -125,7 +125,7 @@ export default function SmallBusinessWebsiteOfferPage() {
 
       <section className="shell small-website-proof">
         <div className="small-website-proof-copy">
-          <span className="section-label">[ نطاق واضح ]</span>
+          <span className="section-label">نطاق واضح</span>
           <h2>ليس كل مشروع<br/><em>يحتاج موقعًا ضخمًا</em></h2>
           <p>أحيانًا ما تحتاجه فعلًا هو موقع مرتب يشرح من أنت، ماذا تقدم، وكيف يتواصل العميل معك. تسدّ الباقة هذه الفجوة بسرعة دون أن تدفع مقابل خصائص لن تستخدمها.</p>
         </div>
@@ -138,17 +138,17 @@ export default function SmallBusinessWebsiteOfferPage() {
       </section>
 
       <section className="shell offer-deliverables small-website-deliverables">
-        <div><span className="section-label">[ ماذا تشمل الباقة؟ ]</span><h2>كل الأساسيات<br/><em>دون حشو</em></h2></div>
+        <div><span className="section-label">ماذا تشمل الباقة؟</span><h2>كل الأساسيات<br/><em>دون حشو</em></h2></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell small-website-process">
-        <div className="small-website-process-head"><span className="section-label">[ طريقة التنفيذ ]</span><h2>من أول صفحة<br/><em>حتى الإطلاق</em></h2></div>
+        <div className="small-website-process-head"><span className="section-label">طريقة التنفيذ</span><h2>من أول صفحة<br/><em>حتى الإطلاق</em></h2></div>
         <div className="small-website-process-grid">{process.map(([number, title, text]) => <article key={number}><b>{number}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell offer-fit small-website-fit">
-        <span className="section-label">[ هل الباقة مناسبة لك؟ ]</span>
+        <span className="section-label">هل الباقة مناسبة لك؟</span>
         <h2>مناسبة للموقع التعريفي<br/><em>وليست لكل نوع مشروع</em></h2>
         <div className="offer-fit-grid">
           <article className="offer-fit-card good"><h3>مناسبة إذا</h3><ul>{fitFor.map((item) => <li key={item}>{item}</li>)}</ul></article>
@@ -157,18 +157,18 @@ export default function SmallBusinessWebsiteOfferPage() {
       </section>
 
       <section className="shell small-website-scope-note">
-        <div><span className="section-label">[ قبل أن تبدأ ]</span><h2>إذا كان احتياجك أكبر،<br/><em>فلن نضغطه داخل باقة صغيرة</em></h2></div>
+        <div><span className="section-label">قبل أن تبدأ</span><h2>إذا كان احتياجك أكبر،<br/><em>فلن نضغطه داخل باقة صغيرة</em></h2></div>
         <div><p>إذا كنت تحتاج متجرًا، نظام حجز، عضويات، CRM، أتمتة، عدد صفحات كبير أو استراتيجية موقع كاملة، الأفضل الانتقال إلى خدمة تصميم وتطوير المواقع بدل توسيع هذه الباقة حتى تفقد وضوحها.</p><Link href="/website-design">شاهد خدمة تصميم وتطوير المواقع <span>←</span></Link></div>
       </section>
 
       <section className="shell offer-faq small-website-faq">
-        <span className="section-label">[ أسئلة شائعة ]</span>
+        <span className="section-label">أسئلة شائعة</span>
         <h2>قبل حجز الباقة</h2>
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="shell offer-final-cta small-website-final">
-        <span className="section-label">[ جاهز للبدء؟ ]</span>
+        <span className="section-label">جاهز للبدء؟</span>
         <h2>اجعل لمشروعك<br/><em>عنوانًا رقميًا حقيقيًا</em></h2>
         <p>ابدأ بموقع واضح وسريع، وبعدها وسّعه فقط عندما يحتاج المشروع فعلًا.</p>
         <SmallWebsiteWhatsApp className="button primary" label="ابدأ موقعك الآن" />
