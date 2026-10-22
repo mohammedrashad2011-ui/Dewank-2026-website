@@ -15,3 +15,29 @@
 @media(prefers-reduced-motion:reduce){.wd-path-grid article{transition:none}}
 
 .wd-path-grid .wd-path-facts{margin:0 0 22px;padding:0 18px 0 0;list-style:disc;color:rgba(16,26,43,.7);font-size:14px;line-height:1.8}.wd-path-grid .wd-path-facts li{margin:4px 0}
+
+
+/* Website Design: the fit list has text-only rows, not counter + text rows.
+   Shared by AR and EN so neither language collapses into a 32px column. */
+.wd-page .wd-fit-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+}
+.wd-page .wd-fit-layout > div,
+.wd-page .wd-fit-list { min-width: 0; }
+.wd-page .wd-fit-list p {
+  display: block;
+  grid-template-columns: none;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(1rem, 1.8vw, 1.5rem) 0;
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+  line-height: 1.85;
+  overflow-wrap: break-word;
+}
+@media (max-width: 900px) {
+  .wd-page .wd-fit-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
