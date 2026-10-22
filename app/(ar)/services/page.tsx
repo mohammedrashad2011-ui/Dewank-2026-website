@@ -162,7 +162,7 @@ export default function ServicesPage() {
 
       <section className="shell primary-service-paths" aria-labelledby="primary-paths-title">
         <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">أربع بوابات لمعظم مشاكل النمو</h2><p>بدل استعراض قائمة طويلة، ابدأ بالنتيجة الأقرب لما تريد إصلاحه الآن.</p></div>
-        <div className="primary-path-grid">{primaryPaths.map((path,index)=><Link href={path.href} className="primary-path-card" key={path.href}><small>0{index+1} · {path.label}</small><h3>{path.title}</h3><p>{path.text}</p><span>{path.cta} ↗</span></Link>)}</div>
+        <div className="primary-path-grid">{primaryPaths.map((path)=><Link href={path.href} className="primary-path-card" key={path.href}><small>{path.label}</small><h3>{path.title}</h3><p>{path.text}</p><span>{path.cta} ↗</span></Link>)}</div>
         <p className="services-decision-note">قاعدة سريعة: تحتاج Leads؟ ابدأ بالإعلانات. الزيارات لا تتحول؟ ابدأ بالموقع. الرد والمتابعة يضيعان؟ ابدأ بواتساب وCRM. الحضور نفسه غير واضح؟ ابدأ بالمحتوى أو البراند.</p>
       </section>
 
