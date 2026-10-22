@@ -377,7 +377,7 @@
 /* Phone */
 @media (max-width: 620px) {
   .content-service-page .content-hero-copy h1 {
-    font-size: clamp(2.1rem, 9vw, 2.75rem);
+    font-size: clamp(2.25rem, 10vw, 2.75rem);
     line-height: 1.3;
   }
   /* Smaller rings keep the decorative orbit inside the screen and clear of the actions above it. */
