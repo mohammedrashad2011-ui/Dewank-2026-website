@@ -1,3 +1,4 @@
+import "../../../(ar)/digital-marketing/digital-marketing-visual-audit.css";
 import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
