@@ -41,7 +41,7 @@ export default function GuidesHubPage() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       <section className="guides-hero shell">
-        <div><span className="guides-label">[ Guides ]</span><h1>Clarity before the decision.<br/><em>Growth after it.</em></h1></div>
+        <div><span className="guides-label">Guides</span><h1>Clarity before the decision<br/><em>Growth after it</em></h1></div>
         <p>Practical content for business owners and decision-makers. Each guide explains a choice, a cost or a common problem in plain language, and links it to the service that solves it.</p>
       </section>
       <section className="guides-grid shell" aria-label="Dewank guides">
@@ -56,7 +56,7 @@ export default function GuidesHubPage() {
         ))}
       </section>
       <section className="guides-note shell">
-        <h2>These are not news articles.</h2>
+        <h2>These are not news articles</h2>
         <p>Each guide is built around a real question that comes before a business decision, and links to a clear service. We update the guides when the facts change, and state the limits of each recommendation.</p>
       </section>
       <Footer />
