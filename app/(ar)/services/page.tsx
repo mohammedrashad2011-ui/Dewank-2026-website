@@ -133,7 +133,7 @@ export default function ServicesPage() {
 
   const renderCard = (service: Service) => (
     <article className={`service-detail ${service.tone}`} key={service.no}>
-      <div className="detail-top"><span>{service.no}</span><small>{service.en}</small></div>
+      <div className="detail-top"><small>{service.en}</small></div>
       {service.visual === "ai" ? <AiWorkflowVisual /> : <div className={`service-symbol ${service.visual}`} aria-hidden="true"><i/><i/><i/></div>}
       <div className="detail-copy"><h2>{service.title}<br/><em>{service.hook}</em></h2><p>{service.text}</p><div className="tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
       <Link className="detail-link" href={service.href}>{service.cta || "اكتشف الخدمة"} <span>←</span></Link>
