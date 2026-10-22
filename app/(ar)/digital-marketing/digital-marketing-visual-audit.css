@@ -1,0 +1,41 @@
+/* Focused redesign for Digital Marketing AR/EN only. */
+.dm-page{--dm-space:clamp(4.5rem,7vw,7rem)}
+.dm-page .dm-hero{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(2rem,5vw,5rem);padding-block:clamp(6rem,9vw,8rem)}
+.dm-page .dm-hero h1{font-size:clamp(2.7rem,4.7vw,5.3rem);line-height:1.32;letter-spacing:-.012em;max-width:17ch}
+.dm-page .dm-hero-copy>p{max-width:60ch;font-size:clamp(1rem,1.25vw,1.17rem);line-height:1.9;margin-top:1.4rem}
+.dm-page .dm-truth,.dm-page .dm-capabilities,.dm-page .dm-method,.dm-page .dm-faq{padding-block:var(--dm-space)}
+.dm-page .dm-truth h2,.dm-page .dm-section-head h2,.dm-page .dm-sticky-copy h2,.dm-page .dm-fit h2,.dm-page .dm-faq h2,.dm-page .dm-final h2{font-size:clamp(2.05rem,3.5vw,4rem);line-height:1.37;letter-spacing:-.012em;text-wrap:balance}
+.dm-page .dm-section-head{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(1.5rem,4vw,4rem);margin-bottom:clamp(1.5rem,3vw,2.5rem)}
+.dm-page .dm-section-head>*,.dm-page .dm-truth-grid>*,.dm-page .dm-fit-layout>*,.dm-page .dm-final>*{min-width:0}
+.dm-page .dm-section-head>p,.dm-page .dm-sticky-copy>p{max-width:65ch;line-height:1.85}
+.dm-page .dm-journey{padding-block:var(--dm-space)}
+.dm-page .dm-journey-grid article{min-height:260px;padding:clamp(1.1rem,1.8vw,1.5rem)}
+.dm-page .dm-journey-grid h3{font-size:clamp(1.05rem,1.7vw,1.5rem);line-height:1.45}
+.dm-page .dm-capability-grid article{min-height:230px;padding:clamp(1.15rem,2vw,1.5rem)}
+.dm-page .dm-capability-grid h3{margin-top:2rem;line-height:1.45}
+.dm-page .dm-deliverables{padding-block:var(--dm-space)}
+.dm-page .dm-deliverables-layout{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(2rem,5vw,5rem)}
+.dm-page .dm-deliverables-layout>*,.dm-page .dm-deliverables-list,.dm-page .dm-deliverables-list>div,.dm-page .dm-deliverables-list p{min-width:0}
+.dm-page .dm-deliverables-list p{width:auto;max-width:65ch;overflow-wrap:break-word;line-height:1.8}
+.dm-page.en-service .dm-deliverables-list>div{display:block;grid-template-columns:none;padding-block:1.25rem}
+.dm-page.en-service .dm-deliverables-list p{display:block;grid-column:auto}
+.dm-page .dm-method-list>div{grid-template-columns:minmax(0,.32fr) minmax(0,.65fr) minmax(0,1fr);gap:clamp(1rem,2.5vw,2.5rem)}
+.dm-page .dm-method-list>*{min-width:0}
+.dm-page .dm-fit{padding-block:var(--dm-space)}
+.dm-page .dm-fit-list p{line-height:1.8}
+@media(max-width:1100px){
+.dm-page .dm-hero{grid-template-columns:minmax(0,1fr)}
+.dm-page .dm-deliverables-layout{grid-template-columns:minmax(0,1fr)}
+.dm-page .dm-sticky-copy{position:static}
+}
+@media(max-width:760px){
+.dm-page{--dm-space:clamp(3.5rem,10vw,5rem)}
+.dm-page .dm-hero{padding-block:6rem 4rem}
+.dm-page .dm-hero h1{font-size:clamp(2.2rem,9vw,3.2rem);line-height:1.42;max-width:100%}
+.dm-page .dm-truth h2,.dm-page .dm-section-head h2,.dm-page .dm-sticky-copy h2,.dm-page .dm-fit h2,.dm-page .dm-faq h2,.dm-page .dm-final h2{font-size:clamp(1.85rem,7vw,2.65rem);line-height:1.47}
+.dm-page .dm-section-head,.dm-page .dm-truth-grid,.dm-page .dm-fit-layout,.dm-page .dm-final{grid-template-columns:minmax(0,1fr);gap:1.5rem}
+.dm-page .dm-journey-grid article{min-height:0}
+.dm-page .dm-capability-grid article{min-height:0}
+.dm-page .dm-method-list>div{grid-template-columns:minmax(0,1fr);gap:.65rem}
+.dm-page .dm-method-list p{grid-column:1}
+}
