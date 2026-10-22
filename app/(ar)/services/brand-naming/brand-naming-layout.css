@@ -95,3 +95,53 @@
   .naming-service-page .brand-section-head {margin-bottom:18px}
   .naming-service-page .brand-cta {padding-top:42px;padding-bottom:42px}
 }
+
+/* Typography hierarchy and spacing: override inherited brand-page display rules. */
+.naming-service-page .naming-service-hero .brand-hero-copy h1{
+ font-size:clamp(30px,3vw,46px);line-height:1.58;letter-spacing:0;max-width:660px;margin:15px 0 20px;
+}
+.naming-service-page .naming-service-hero .brand-hero-copy h1 em{
+ display:block;line-height:1.65;margin-top:3px;letter-spacing:0;
+}
+.naming-service-page .brand-diagnosis h2,
+.naming-service-page .brand-section-head h2,
+.naming-service-page .brand-faq h2,
+.naming-service-page .brand-cta h2{
+ font-size:clamp(27px,2.7vw,40px);line-height:1.58;letter-spacing:0;
+}
+.naming-service-page .brand-diagnosis h2 em,
+.naming-service-page .brand-section-head h2 em,
+.naming-service-page .brand-cta h2 em {
+ display:block;line-height:1.7;margin-top:2px;letter-spacing:0;
+}
+.naming-service-page .naming-service-package{min-width:0}
+.naming-service-page .naming-service-package h2{
+ font-size:clamp(25px,2.5vw,35px);line-height:1.55;margin:14px 0 17px;
+}
+.naming-service-page .naming-service-package h2 em{display:block;font-style:normal;line-height:1.55;margin-top:6px}
+.naming-service-page .naming-localized-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:5px 10px;line-height:1.55;word-break:normal}
+.naming-service-page .naming-localized-price b{font-weight:750;font-variant-numeric:tabular-nums;white-space:nowrap}
+.naming-service-page .naming-localized-price span{font-size:.77em;white-space:normal}
+.naming-service-page .naming-service-package p{font-size:clamp(14px,1vw,16px);line-height:2}
+.naming-service-page .brand-diagnosis-copy>p{line-height:1.95}
+.naming-service-page .brand-section-head{margin-bottom:18px}
+.naming-service-page .brand-deliverables-grid{margin-top:16px}
+.naming-service-page .brand-process-head h2,.naming-service-page .brand-process-head h2 em{line-height:1.74}
+.naming-service-page .brand-process-intro{line-height:2;max-width:780px}
+.naming-service-page .brand-diagnosis,.naming-service-page .brand-deliverables,.naming-service-page .brand-faq{padding-block:clamp(36px,4vw,62px)}
+.naming-service-page .brand-process{padding-block:clamp(38px,4vw,65px)}
+.naming-service-page .brand-cta{padding-block:clamp(42px,4vw,68px)}
+@media(max-width:600px){
+ .naming-service-page .naming-service-hero .brand-hero-copy h1{font-size:clamp(28px,7.1vw,33px);line-height:1.65;margin:12px 0 16px}
+ .naming-service-page .naming-service-hero .brand-hero-copy h1 em{line-height:1.75}
+ .naming-service-page .brand-diagnosis h2,
+ .naming-service-page .brand-section-head h2,
+ .naming-service-page .brand-faq h2,
+ .naming-service-page .brand-cta h2{font-size:clamp(26px,6.6vw,31px);line-height:1.7}
+ .naming-service-page .brand-process-head h2,.naming-service-page .brand-process-head h2 em{line-height:1.82}
+ .naming-service-page .naming-service-package h2{font-size:clamp(24px,6vw,30px)}
+ .naming-service-page .naming-localized-price{gap:4px 9px}
+ .naming-service-page .brand-diagnosis,.naming-service-page .brand-deliverables,.naming-service-page .brand-faq{padding-block:36px}
+ .naming-service-page .brand-process{padding-block:38px}
+ .naming-service-page .brand-cta{padding-block:42px}
+}
