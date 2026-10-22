@@ -314,3 +314,15 @@ html[lang="ar"] .pa-journey-list > :is(article,div) > :is(h3,p) {grid-column:aut
     .bithan-eyebrow,.bithan-kicker,.metric-kicker,.concept-label,.brand-lab-kicker,
     .eyebrow) {backdrop-filter:none;-webkit-backdrop-filter:none;}
 }
+
+/* WhatsApp's methodology uses the same shared 3-column numbered list:
+   once the number is hidden, let the title and description occupy both tracks. */
+html[lang="ar"] .wa-page .method-list > div {
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(12px,3vw,28px);
+}
+html[lang="ar"] .wa-page .method-list > div > p {grid-column:auto;}
+@media(max-width:640px){
+  html[lang="ar"] .wa-page .method-list > div {grid-template-columns:minmax(0,1fr);gap:8px;}
+  html[lang="ar"] .wa-page .method-list > div > p {grid-column:1;}
+}
