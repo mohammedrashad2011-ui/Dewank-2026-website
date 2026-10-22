@@ -259,9 +259,9 @@ export default function ConversionRateOptimizationPage() {
           <p>أدلة قصيرة تشرح أين تتسرب الفرص في الزيارة والاستفسار والمتابعة.</p>
         </div>
         <div className="sa-guide-grid">
-          {relatedGuides.map((guide, index) => (
+          {relatedGuides.map((guide) => (
             <Link className="sa-guide-card" href={guide.href} key={guide.href}>
-              <div className="sa-guide-top"><span>دليل 0{index + 1}</span><span className="sa-guide-arrow" aria-hidden="true">↗</span></div>
+              <div className="sa-guide-top"><span>دليل</span><span className="sa-guide-arrow" aria-hidden="true">↗</span></div>
               <h3>{guide.title}</h3>
               <p>{guide.text}</p>
             </Link>
