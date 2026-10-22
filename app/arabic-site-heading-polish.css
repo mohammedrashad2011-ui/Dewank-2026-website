@@ -299,3 +299,18 @@ html[lang="ar"] .studio-home .home-work-card h3 {margin-top:15px;}
   html[lang="ar"] .studio-home .method-list > div {grid-template-columns:minmax(0,1fr);gap:8px;}
   html[lang="ar"] .studio-home .method-list > div > p {grid-column:1;}
 }
+
+/* Remaining documented decorative 01 badges in Arabic service steps. */
+html[lang="ar"] :is(.content-step-grid,.content-scope-grid,.content-deliverables-grid,.pa-journey-list) > :is(article,div) > :is(span,b,small,strong):first-child {
+  display:none!important;
+}
+html[lang="ar"] .content-step-grid article h3 {margin-top:22px;}
+html[lang="ar"] .pa-journey-list > :is(article,div) {grid-template-columns:minmax(0,1fr);}
+html[lang="ar"] .pa-journey-list > :is(article,div) > :is(h3,p) {grid-column:auto;}
+@media (max-width:640px) {
+  /* Opaque gradient retains glass appearance without mobile blur compositing. */
+  html[lang="ar"] main :is(.section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+    .ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,.legal-eyebrow,
+    .bithan-eyebrow,.bithan-kicker,.metric-kicker,.concept-label,.brand-lab-kicker,
+    .eyebrow) {backdrop-filter:none;-webkit-backdrop-filter:none;}
+}
