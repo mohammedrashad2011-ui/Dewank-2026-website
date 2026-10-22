@@ -67,3 +67,64 @@ html[lang="ar"] .brand-process-list article > p {grid-column:auto;}
   html[lang="ar"] .brand-process-list article > p {grid-column:1;}
   html[lang="ar"] :is(.pa-hero-copy > .pa-kicker,.wd-hero-copy > .wd-kicker,.dm-hero-copy > .dm-kicker,.sa-hero-copy > .sa-kicker,.cv-hero-copy > .cv-kicker){font-size:12.5px;padding:6px 10px;}
 }
+
+/* Additional verified index-only patterns on Arabic service pages. */
+html[lang="ar"] .service-card .card-top > span:first-child,
+html[lang="ar"] :is(
+  .pa-measure-list,
+  .wd-fit-list,
+  .sa-measure-list,
+  .cv-fit-list
+) > p > span:first-child,
+html[lang="ar"] .sa-fit-grid p > span:first-child:not(.cro-fit-text),
+html[lang="ar"] :is(
+  .pa-deliverables-list,
+  .wd-deliverables-list,
+  .wd-method-list,
+  .dm-deliverables-list,
+  .dm-method-list,
+  .sa-deliverables-list,
+  .cv-deliverables-list
+) > div > :is(b,span,small,strong):first-child,
+html[lang="ar"] :is(
+  .wd-foundation-grid,
+  .wd-capability-grid,
+  .dm-capability-grid,
+  .cv-service-grid,
+  .cv-process-list,
+  .ai-flow,
+  .mini-identity-process-grid,
+  .seo-audit-delivery-grid
+) > article > :is(b,span,small,strong):first-child {
+  display:none !important;
+}
+/* Grid alignment after hiding number badges. */
+html[lang="ar"] :is(
+  .pa-channel-grid,
+  .pa-scope-grid,
+  .wd-foundation-grid,
+  .wd-capability-grid,
+  .dm-capability-grid,
+  .cv-service-grid,
+  .cv-process-list,
+  .ai-flow,
+  .mini-identity-process-grid,
+  .seo-audit-delivery-grid,
+  .brand-naming-process-grid,
+  .google-ads-process-grid
+) > article {
+  grid-template-columns:minmax(0,1fr);
+}
+html[lang="ar"] :is(
+  .pa-deliverables-list,
+  .wd-deliverables-list,
+  .wd-method-list,
+  .dm-deliverables-list,
+  .dm-method-list,
+  .sa-deliverables-list,
+  .cv-deliverables-list
+) > div {
+  grid-template-columns:minmax(0,1fr);
+}
+html[lang="ar"] .offer-confidence-grid > article,
+html[lang="ar"] .sales-risk-grid > article {grid-template-columns:minmax(0,1fr);}
