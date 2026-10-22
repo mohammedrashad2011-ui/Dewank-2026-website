@@ -22,3 +22,74 @@
 .wd-cinema-site-copy h3{line-height:1.48!important;overflow:visible;padding-block:.08em .15em}
 .wd-cinema-site-copy h3 em{display:inline-block;margin-top:.16em;line-height:1.4;padding-bottom:.08em}
 @media(max-width:640px){.wd-cinema-site-copy h3{line-height:1.52!important}.wd-cinema-site-copy h3 em{margin-top:.2em}}
+
+
+/* Keep the finished site's action and footer in separate, non-overlapping rows. */
+.wd-cinema .wd-cinema-canvas{height:clamp(370px,44vw,505px)}
+.wd-cinema .wd-cinema-reveal{
+  display:grid;
+  grid-template-rows:auto minmax(0,1fr) auto;
+}
+.wd-cinema .wd-cinema-site-nav{min-width:0}
+.wd-cinema .wd-cinema-site-nav>div{min-width:0;margin-inline-end:auto}
+.wd-cinema .wd-cinema-site-main{
+  height:auto;
+  min-height:0;
+  align-items:stretch;
+  padding-block:clamp(14px,2.4vw,30px);
+}
+.wd-cinema .wd-cinema-site-copy{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  min-height:0;
+}
+.wd-cinema .wd-cinema-site-copy h3{
+  font-size:clamp(17px,2.7vw,37px);
+  line-height:1.36!important;
+  padding-block:0;
+}
+.wd-cinema .wd-cinema-site-copy h3 em{
+  display:block;
+  margin-top:.12em;
+  line-height:1.36;
+  padding:0;
+}
+.wd-cinema .wd-cinema-site-copy p{margin-block:clamp(8px,1vw,13px)}
+.wd-cinema .wd-cinema-site-cta{
+  position:relative;
+  z-index:1;
+  flex:none;
+  margin-top:clamp(5px,.7vw,10px);
+}
+.wd-cinema .wd-cinema-art{height:100%;min-height:0}
+.wd-cinema .wd-cinema-site-footer{
+  height:auto;
+  min-height:42px;
+  position:relative;
+  z-index:2;
+  background:#f8f5ee;
+  gap:clamp(10px,2vw,24px);
+  flex-wrap:nowrap;
+}
+.wd-cinema .wd-cinema-site-footer span{white-space:nowrap}
+@media(max-width:640px){
+  .wd-cinema .wd-cinema-canvas{height:345px}
+  .wd-cinema .wd-cinema-site-main{
+    padding:15px 12px;
+    grid-template-columns:minmax(0,1fr) minmax(0,.75fr);
+    gap:10px;
+  }
+  .wd-cinema .wd-cinema-site-copy h3{
+    font-size:clamp(13px,3.6vw,21px);
+    line-height:1.4!important;
+  }
+  .wd-cinema .wd-cinema-site-copy h3 em{line-height:1.4}
+  .wd-cinema .wd-cinema-kicker{font-size:7px}
+  .wd-cinema .wd-cinema-site-copy p{font-size:8px;line-height:1.55}
+  .wd-cinema .wd-cinema-site-cta{font-size:8px;padding:7px 8px}
+  .wd-cinema .wd-cinema-site-footer{min-height:38px;padding-inline:12px}
+  .wd-cinema .wd-cinema-site-footer span{font-size:clamp(7px,1.8vw,10px)}
+  .wd-cinema .wd-cinema-art{min-height:0}
+}
