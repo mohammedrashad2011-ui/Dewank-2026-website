@@ -90,7 +90,7 @@ export default function AiAutomationPage() {
       <section className="ai-hero shell">
         <div className="ai-hero-copy">
           <span className="ai-label">AI automation for business workflows</span>
-          <h1>Automate your business with AI.<br /><em>Without adding AI to the mess.</em></h1>
+          <h1>Automate your business with AI<br /><em>Without adding AI to the mess</em></h1>
           <p>We analyse the process first, then connect WhatsApp, the CRM, sales, customer service and operations into a clear workflow that reduces repetition, prevents lost customers and makes follow-up faster and easier to measure.</p>
           <div className="ai-actions">
             <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss a process you want to automate <span>↗</span></a>
@@ -120,7 +120,7 @@ export default function AiAutomationPage() {
       <section className="ai-usecases shell">
         <div className="ai-section-head">
           <span className="ai-label">Use cases</span>
-          <h2>Where does automation really help?<br /><em>Where time or customers are being lost.</em></h2>
+          <h2>Where does automation really help?<br /><em>Where time or customers are being lost</em></h2>
           <p>Rather than buying more tools, we start from the process itself and choose the simplest system that achieves the result you need.</p>
         </div>
         <div className="ai-usecase-grid">
@@ -131,17 +131,17 @@ export default function AiAutomationPage() {
       <section className="ai-workflow shell">
         <div className="ai-section-head compact">
           <span className="ai-label">Workflow example</span>
-          <h2>From the first message<br /><em>to the booking or order.</em></h2>
+          <h2>From the first message<br /><em>to the booking or order</em></h2>
         </div>
         <div className="ai-flow">
-          {workflow.map(([heading, text], index) => <article key={heading}><span>0{index + 1}</span><div><h3>{heading}</h3><p>{text}</p></div></article>)}
+          {workflow.map(([heading, text], index) => <article key={heading}><div><h3>{heading}</h3><p>{text}</p></div></article>)}
         </div>
       </section>
 
       <section className="ai-logic shell">
         <div className="ai-logic-copy">
           <span className="ai-label">AI or automation?</span>
-          <h2>Not everything needs AI.</h2>
+          <h2>Not everything needs AI</h2>
           <p>The simple rule: if the decision is fixed and clear, conventional automation is usually enough. If the system needs to understand text, classify intent, summarise or handle varied inputs, AI may add real value.</p>
         </div>
         <div className="ai-logic-grid">
@@ -167,7 +167,7 @@ export default function AiAutomationPage() {
       <section className="ai-outcomes shell">
         <div className="ai-section-head">
           <span className="ai-label">Business outcomes</span>
-          <h2>The goal is not &ldquo;building a bot&rdquo;.<br /><em>The goal is a process that works better.</em></h2>
+          <h2>The goal is not &ldquo;building a bot&rdquo;<br /><em>The goal is a process that works better</em></h2>
         </div>
         <div className="ai-outcome-grid">
           <article><strong>Faster replies</strong><p>The enquiry reaches the right step, instead of waiting for manual routing.</p></article>
@@ -180,7 +180,7 @@ export default function AiAutomationPage() {
       <section className="ai-bridge shell">
         <div>
           <span className="ai-label">Start with one process</span>
-          <h2>Is there a step that repeats every day?<br /><em>It is often the best place to start.</em></h2>
+          <h2>Is there a step that repeats every day?<br /><em>It is often the best place to start</em></h2>
           <p>Send us the process as it runs today, even if it is messy. We will review where time is lost, what can be automated, and what should stay with your team.</p>
         </div>
         <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Send the process on WhatsApp <span>↗</span></a>
@@ -189,7 +189,7 @@ export default function AiAutomationPage() {
       <section className="ai-related shell">
         <div className="ai-section-head compact">
           <span className="ai-label">Related services</span>
-          <h2>If the problem is more specific than “AI”.</h2>
+          <h2>If the problem is more specific than “AI”</h2>
         </div>
         <div className="ai-related-grid">
           <Link href="/en/whatsapp-crm-automation"><small>WhatsApp and CRM</small><h3>WhatsApp automation and customer service</h3><p>If your biggest loss point is in messages, qualification, booking or follow-up.</p><span>See the service →</span></Link>
@@ -200,13 +200,13 @@ export default function AiAutomationPage() {
 
       <section className="ai-faq shell" id="faq">
         <span className="ai-label">FAQ</span>
-        <h2>Questions before building automation.</h2>
+        <h2>Questions before building automation</h2>
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="ai-final shell">
         <span className="ai-label">Next step</span>
-        <h2>Do not start with the tool.<br /><em>Start with the process.</em></h2>
+        <h2>Do not start with the tool<br /><em>Start with the process</em></h2>
         <p>Tell us what happens from the moment a customer or order arrives to the moment it closes, and we will show where automation is worth the investment.</p>
         <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss automation with Dewank <span>↗</span></a>
       </section>

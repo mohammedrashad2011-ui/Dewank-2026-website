@@ -129,7 +129,7 @@ export default function DigitalMarketingPage() {
       <section className="dm-hero shell">
         <div className="dm-hero-copy">
           <div className="dm-kicker"><span>DIGITAL MARKETING</span><span>CONTENT SYSTEMS</span></div>
-          <h1>Content that does more than fill a calendar.<br /><em>It moves the customer towards a decision.</em></h1>
+          <h1>Content that does more than fill a calendar<br /><em>It moves the customer towards a decision</em></h1>
           <p>We build a digital marketing strategy and plan that link your business goals, audience behaviour, messages, channels, content and conversion path into one measurable system, so marketing works as a business decision rather than a publishing schedule.</p>
           <div className="dm-actions">
             <Link className="button primary" href={contactLink}>Discuss your marketing strategy <span>→</span></Link>
@@ -150,7 +150,7 @@ export default function DigitalMarketingPage() {
       <section className="dm-truth shell">
         <span className="dm-label">The problem we solve</span>
         <div className="dm-truth-grid">
-          <h2>More posting does not mean growth.<br /><em>More reach does not mean demand.</em></h2>
+          <h2>More posting does not mean growth<br /><em>More reach does not mean demand</em></h2>
           <div>
             <p>When content works without a clear positioning, message or journey, it becomes daily effort that creates movement on the screen but not movement in sales.</p>
             <p>We identify where the customer stops, what they need to understand or believe, and then build content, channels and pages that lead them to the next step.</p>
@@ -162,7 +162,7 @@ export default function DigitalMarketingPage() {
         <div className="dm-guides-head">
           <div>
             <span className="dm-label">Where to start</span>
-            <h2 id="dm-route-title">Know the problem first.<br /><em>Then choose the right service.</em></h2>
+            <h2 id="dm-route-title">Know the problem first<br /><em>Then choose the right service</em></h2>
           </div>
           <p>Digital marketing is not one channel, and it does not always begin with an advert. Identify the problem you face, then move to the specialist service that covers it within its own scope.</p>
         </div>
@@ -181,7 +181,7 @@ export default function DigitalMarketingPage() {
       <section className="dm-journey">
         <div className="shell">
           <div className="dm-section-head">
-            <div><span className="dm-label">From content to demand</span><h2>Every piece of content has a job<br /><em>inside the journey.</em></h2></div>
+            <div><span className="dm-label">From content to demand</span><h2>Every piece of content has a job<br /><em>inside the journey</em></h2></div>
             <p>We do not judge a post on its own. Did it attract attention? Explain? Build trust? Move a decision? Or bring a customer back?</p>
           </div>
           <div className="dm-journey-grid">
@@ -198,13 +198,13 @@ export default function DigitalMarketingPage() {
 
       <section className="dm-capabilities shell">
         <div className="dm-section-head">
-          <div><span className="dm-label">What we build</span><h2>Not a full account.<br /><em>A coherent marketing system.</em></h2></div>
+          <div><span className="dm-label">What we build</span><h2>Not a full account<br /><em>A coherent marketing system</em></h2></div>
           <p>We choose what serves the goal, and leave out whatever adds noise or effort without a business effect.</p>
         </div>
         <div className="dm-capability-grid">
           {capabilities.map(([title, text], index) => (
             <article key={title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
+              
               <h3>{title}</h3>
               <p>{text}</p>
             </article>
@@ -216,30 +216,30 @@ export default function DigitalMarketingPage() {
         <div className="shell dm-deliverables-layout">
           <div className="dm-sticky-copy">
             <span className="dm-label">What you receive</span>
-            <h2>Outputs your team can use<br /><em>from tomorrow.</em></h2>
+            <h2>Outputs your team can use<br /><em>from tomorrow</em></h2>
             <p>We do not deliver a theory document that ends up unread. Each output is designed to support a decision, make execution easier or improve measurement.</p>
           </div>
           <div className="dm-deliverables-list">
-            {deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2, "0")}</b><p>{item}</p></div>)}
+            {deliverables.map((item, index) => <div key={item}><p>{item}</p></div>)}
           </div>
         </div>
       </section>
 
       <section className="dm-method shell" id="dm-method">
         <div className="dm-section-head">
-          <div><span className="dm-label">How we work</span><h2>From diagnosis<br /><em>to a system you can improve.</em></h2></div>
+          <div><span className="dm-label">How we work</span><h2>From diagnosis<br /><em>to a system you can improve</em></h2></div>
           <p>Each stage answers a business question before the next stage of execution begins.</p>
         </div>
         <div className="dm-method-list">
           {process.map(([title, text], index) => (
-            <div key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></div>
+            <div key={title}><h3>{title}</h3><p>{text}</p></div>
           ))}
         </div>
       </section>
 
       <section className="dm-fit">
         <div className="shell dm-fit-layout">
-          <div><span className="dm-label">Who this is for</span><h2>This service fits<br /><em>when the business is bigger than its content.</em></h2></div>
+          <div><span className="dm-label">Who this is for</span><h2>This service fits<br /><em>when the business is bigger than its content</em></h2></div>
           <div className="dm-fit-list">
             {fitFor.map((item) => <p key={item}><span>↙</span>{item}</p>)}
           </div>
@@ -250,7 +250,7 @@ export default function DigitalMarketingPage() {
         <div className="dm-guides-head">
           <div>
             <span className="dm-label">Before you decide</span>
-            <h2 id="dm-guides-title">Understand where the problem is.<br /><em>Then choose the right scope.</em></h2>
+            <h2 id="dm-guides-title">Understand where the problem is<br /><em>Then choose the right scope</em></h2>
           </div>
           <p>Three short pages help you diagnose weak conversion, understand the cost of managing accounts, and compare marketing scopes before you commit.</p>
         </div>
@@ -267,7 +267,7 @@ export default function DigitalMarketingPage() {
 
       <section className="dm-faq shell">
         <span className="dm-label">Frequently asked questions</span>
-        <div className="dm-faq-head"><h2>Direct answers.<br /><em>Before we start.</em></h2><p>We define the scope from the problem and your resources, not from a package built for everyone.</p></div>
+        <div className="dm-faq-head"><h2>Direct answers<br /><em>Before we start</em></h2><p>We define the scope from the problem and your resources, not from a package built for everyone.</p></div>
         <div className="dm-faq-grid">
           {faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}
         </div>
@@ -276,7 +276,7 @@ export default function DigitalMarketingPage() {
       <section className="dm-final shell">
         <div>
           <span className="dm-label">Next step</span>
-          <h2>Do not start with more content.<br /><em>Start with a clear reason for each piece.</em></h2>
+          <h2>Do not start with more content<br /><em>Start with a clear reason for each piece</em></h2>
         </div>
         <div className="dm-final-actions">
           <p>A short conversation to understand the business and the goal, and whether the priority is strategy, execution or fixing the conversion path.</p>
