@@ -1,0 +1,25 @@
+/* CSS-only illustration: no animation libraries, images, timers or network requests. */
+.naming-motion-section{padding:clamp(54px,8vw,110px) 0;background:#011127;color:#fcf6ea;overflow:hidden}
+.naming-motion-layout{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:clamp(24px,5vw,84px);align-items:center}
+.naming-motion-copy .section-label{color:#ebb02e}
+.naming-motion-copy h2{font-size:clamp(30px,3.5vw,56px);line-height:1.32;margin:22px 0}
+.naming-motion-copy h2 em{display:block;font-style:normal;color:#ebb02e;line-height:1.38}
+.naming-motion-copy p{font-size:clamp(15px,1.2vw,18px);line-height:1.9;max-width:540px;color:#e0dfdc}
+.naming-motion-copy small{display:block;margin-top:20px;font-size:11px;line-height:1.7;color:#a6b2bf}
+.naming-motion-stage{position:relative;min-height:355px;padding:24px clamp(16px,2vw,32px);border:1px solid rgba(235,176,46,.3);border-radius:25px;background:radial-gradient(ellipse at 50% 80%,rgba(235,176,46,.09),transparent 55%),#071a31;overflow:hidden;contain:layout paint}
+.naming-motion-stage-top,.naming-motion-stage-footer{display:flex;justify-content:space-between;gap:12px;color:#9ba9b8;font:600 10px/1.4 Arial,sans-serif;letter-spacing:.12em}
+.naming-motion-stage-footer{position:absolute;bottom:22px;left:24px;right:24px;justify-content:center}
+.naming-motion-candidates{display:flex;justify-content:center;align-content:center;flex-wrap:wrap;gap:10px;min-height:123px;max-width:425px;margin:28px auto 12px;direction:ltr}
+.naming-motion-candidate{display:inline-flex;justify-content:center;min-width:70px;padding:10px 12px;border-radius:99px;border:1px solid rgba(252,246,234,.24);font-size:15px;font-weight:700;color:#fcf6ea;background:rgba(255,255,255,.04);animation:naming-filter 9s ease-in-out infinite}
+.naming-motion-candidate-0{animation-delay:.08s}.naming-motion-candidate-1{animation-delay:.18s}.naming-motion-candidate-2{animation-delay:.28s}.naming-motion-candidate-3{animation-delay:.38s}.naming-motion-candidate-4{animation-delay:.48s}.naming-motion-candidate-5{animation-delay:.58s}
+.naming-motion-divider{display:flex;align-items:center;justify-content:center;gap:14px;color:#ebb02e;font:700 10px/1.4 Arial,sans-serif;letter-spacing:.08em;text-align:center}
+.naming-motion-divider span{height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(235,176,46,.4))}
+.naming-motion-divider span:last-child{transform:scaleX(-1)}
+.naming-motion-winner{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:116px}
+.naming-motion-winner-kicker{font:700 9px/1.4 Arial,sans-serif;letter-spacing:.16em;color:#c6d1db}
+.naming-motion-winner strong{font-size:clamp(32px,3vw,46px);line-height:1.5;color:#ebb02e;animation:naming-select 9s ease-in-out infinite}
+.naming-motion-winner-rule{height:2px;width:65px;background:#ebb02e;border-radius:4px;animation:naming-select 9s ease-in-out infinite}
+@keyframes naming-filter{0%,23%,92%,100%{opacity:1;filter:blur(0);transform:translateY(0) scale(1)}43%,78%{opacity:.22;filter:blur(1px);transform:translateY(-6px) scale(.96)}}
+@keyframes naming-select{0%,34%,100%{opacity:.75;transform:scale(.97)}55%,85%{opacity:1;transform:scale(1.045)}}
+@media(max-width:760px){.naming-motion-layout{grid-template-columns:1fr}.naming-motion-section{padding:55px 0}.naming-motion-copy h2{margin:14px 0}.naming-motion-stage{min-height:330px;padding:18px}.naming-motion-candidates{margin-top:21px}.naming-motion-stage-footer{bottom:17px}}
+@media(prefers-reduced-motion:reduce){.naming-motion-section .naming-motion-candidate,.naming-motion-section .naming-motion-winner strong,.naming-motion-section .naming-motion-winner-rule{animation:none!important;transform:none!important;filter:none!important;opacity:1!important}}
