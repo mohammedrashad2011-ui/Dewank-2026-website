@@ -113,7 +113,7 @@ export default function ConversionRateOptimizationPage() {
       <section className="sa-hero shell">
         <div className="sa-hero-copy">
           <div className="sa-kicker"><span>CRO</span><span>مسار التحويل</span><span>استفسارات مؤهلة</span></div>
-          <h1>تحسين معدل التحويل ومسارات العملاء.<br/><em>حوّل الزيارات المؤهلة إلى فرص بيع.</em></h1>
+          <h1>تحسين معدل التحويل ومسارات العملاء<br/><em>حوّل الزيارات المؤهلة إلى فرص بيع</em></h1>
           <p>إذا كان موقعك يستقبل زيارات من أشخاص مهتمين، لكنها لا تتحول إلى استفسارات أو حجوزات، فالمشكلة غالبًا ليست في عدد الزيارات. نشخّص أين يتوقف الزائر: في الرسالة، أو الثقة، أو الخطوة التالية، أو طريقة متابعة الاستفسار بعد وصوله.</p>
           <div className="sa-actions">
             <a className="button primary" href="#pricing">اختر الباقة المناسبة <span>←</span></a>
@@ -125,7 +125,7 @@ export default function ConversionRateOptimizationPage() {
 
       <section className="sa-truth">
         <div className="shell sa-truth-grid">
-          <div><span className="sa-label">[ الفكرة ]</span><h2>الزيارة ليست الهدف.<br/><em>الاستفسار المؤهل هو الهدف.</em></h2></div>
+          <div><span className="sa-label">[ الفكرة ]</span><h2>الزيارة ليست الهدف<br/><em>الاستفسار المؤهل هو الهدف</em></h2></div>
           <div>
             <p>كثير من الشركات تنفق على الوصول إلى الجمهور، ثم تفقد الفرصة بعد الزيارة مباشرة: رسالة لا تطابق الحاجة، أو خطوة غير واضحة، أو استفسار لا يجد من يرد عليه بسرعة.</p>
             <p>نفحص هذا المسار كاملًا، ونقدم خطة تحسين مرتبة حسب الأثر، بدون وعود بترتيب أو نتائج محددة.</p>
@@ -134,14 +134,14 @@ export default function ConversionRateOptimizationPage() {
       </section>
 
       <section className="sa-services shell">
-        <div className="sa-section-head"><div><span className="sa-label">[ أين تضيع الفرص ]</span><h2>ستة أماكن تتسرب منها الاستفسارات.<br/><em>عادةً ما يكون أحدها.</em></h2></div><p>هذه أكثر الأسباب شيوعًا، وليست قائمة تتحقق منها بشكل آلي. التدقيق يحدد أيها يخص موقعك فعلًا.</p></div>
+        <div className="sa-section-head"><div><span className="sa-label">[ أين تضيع الفرص ]</span><h2>ستة أماكن تتسرب منها الاستفسارات<br/><em>عادةً ما يكون أحدها</em></h2></div><p>هذه أكثر الأسباب شيوعًا، وليست قائمة تتحقق منها بشكل آلي. التدقيق يحدد أيها يخص موقعك فعلًا.</p></div>
         <div className="sa-service-grid">{wrongPlaces.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
       </section>
 
       <section className="sa-fit">
         <div className="shell">
           <div className="sa-fit-grid">
-            <div><span className="sa-label">[ لمن؟ ]</span><h2>لمن هذه الخدمة؟<br/><em>ولمن ليست مناسبة.</em></h2></div>
+            <div><span className="sa-label">[ لمن؟ ]</span><h2>لمن هذه الخدمة؟<br/><em>ولمن ليست مناسبة</em></h2></div>
             <div>
               <p><span>01</span><span className="cro-fit-text">مواقع وصفحات هبوط تستقبل زيارات من إعلانات أو بحث أو وسائل تواصل، ولا تنتج استفسارات كافية.</span></p>
               <p><span>02</span><span className="cro-fit-text">شركات تستقبل استفسارات واتساب أو نماذج، لكن نسبة ضعيفة منها تتحول إلى مواعيد أو مبيعات.</span></p>
@@ -154,14 +154,14 @@ export default function ConversionRateOptimizationPage() {
 
       <section id="process" className="sa-process">
         <div className="shell">
-          <div className="sa-section-head"><div><span className="sa-label">[ المنهج ]</span><h2>نتتبع الرحلة قبل أن نقترح أي تعديل.<br/><em>ثم نرتب ما يستحق الإصلاح.</em></h2></div><p>لا نبدأ بتغيير الألوان أو النصوص. نبدأ بمعرفة أين يخرج الزائر، ولماذا.</p></div>
+          <div className="sa-section-head"><div><span className="sa-label">[ المنهج ]</span><h2>نتتبع الرحلة قبل أن نقترح أي تعديل<br/><em>ثم نرتب ما يستحق الإصلاح</em></h2></div><p>لا نبدأ بتغيير الألوان أو النصوص. نبدأ بمعرفة أين يخرج الزائر، ولماذا.</p></div>
           <div className="sa-process-list">{steps.map((item) => <article key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div>
         </div>
       </section>
 
       <section id="audit" className="sa-deliverables shell cro-audit" aria-labelledby="cro-audit-title">
         <div className="sa-section-head">
-          <div><span className="sa-label">[ التدقيق المدفوع ]</span><h2 id="cro-audit-title">تدقيق الموقع ومسار التحويل.<br/><em>لمسار محدد، لا لكل الموقع.</em></h2></div>
+          <div><span className="sa-label">[ التدقيق المدفوع ]</span><h2 id="cro-audit-title">تدقيق الموقع ومسار التحويل<br/><em>لمسار محدد، لا لكل الموقع</em></h2></div>
           <p>نختار معًا المسار الذي يستحق الفحص، من أول نقطة دخول حتى الاستفسار أو الحجز. هكذا يكون التقرير قابلًا للتنفيذ ولا يتحول إلى قائمة ملاحظات عامة. حدود كل مسار تحددها الباقة التي تختارها، والباقات في قسم الأسعار أدناه.</p>
         </div>
         <div className="cro-scope-grid">
@@ -204,7 +204,7 @@ export default function ConversionRateOptimizationPage() {
 
       <section id="pricing" className="shell cro-pricing" aria-labelledby="cro-pricing-title">
         <div className="sa-section-head">
-          <div><span className="sa-label">[ الباقات ]</span><h2 id="cro-pricing-title">ثلاث باقات لمرة واحدة.<br/><em>كل باقة تحدد حدودها قبل البدء.</em></h2></div>
+          <div><span className="sa-label">[ الباقات ]</span><h2 id="cro-pricing-title">ثلاث باقات لمرة واحدة<br/><em>كل باقة تحدد حدودها قبل البدء</em></h2></div>
           <p>اختر حسب حجم المسار الذي تريد فحصه. السعر يظهر بالعملة المحلية لدولتك، وبالدولار الأمريكي للدول الأخرى. إذا كنت خارج دول الخليج الست، قد يتحول السعر إلى الدولار الأمريكي بعد لحظات من تحميل الصفحة.</p>
         </div>
         <div className="cro-package-grid">
@@ -230,7 +230,7 @@ export default function ConversionRateOptimizationPage() {
 
       <section className="shell cro-order" aria-labelledby="cro-order-title">
         <div className="sa-section-head">
-          <div><span className="sa-label">[ كيف يتم الطلب ]</span><h2 id="cro-order-title">من الباقة إلى التسليم.<br/><em>أربع خطوات بالترتيب.</em></h2></div>
+          <div><span className="sa-label">[ كيف يتم الطلب ]</span><h2 id="cro-order-title">من الباقة إلى التسليم<br/><em>أربع خطوات بالترتيب</em></h2></div>
           <p>الضغط على زر واتساب يفتح محادثة لتأكيد النطاق. هذه الخطوة ليست طلبًا مؤكدًا ولا دفعًا ولا عميلًا مؤهلًا، والعمل لا يبدأ إلا بعد الخطوة الثالثة.</p>
         </div>
         <ol className="cro-steps cro-order-steps">
@@ -244,7 +244,7 @@ export default function ConversionRateOptimizationPage() {
       <section className="sa-fit">
         <div className="shell">
           <div className="sa-fit-grid">
-            <div><span className="sa-label">[ بعد التدقيق ]</span><h2>التدقيق يحدد الخطوة.<br/><em>التنفيذ قرار منفصل.</em></h2></div>
+            <div><span className="sa-label">[ بعد التدقيق ]</span><h2>التدقيق يحدد الخطوة<br/><em>التنفيذ قرار منفصل</em></h2></div>
             <div>
               <p className="cro-fit-intro">لا نقترح تنفيذًا قبل أن تفهم المشكلة. بعد التقرير، قد تكون إحدى هذه الخدمات مناسبة، وقد لا تحتاج أيًا منها:</p>
               {afterAudit.map((item, index) => <p key={item[0]}><span>0{index + 1}</span><span className="cro-fit-text"><Link href={item[2]}>{item[0]}</Link>: {item[1]}</span></p>)}
@@ -255,7 +255,7 @@ export default function ConversionRateOptimizationPage() {
 
       <section className="sa-cluster shell" aria-labelledby="cro-guides-title">
         <div className="sa-cluster-head">
-          <div><span className="sa-label">[ قبل القرار ]</span><h2 id="cro-guides-title">افهم المشكلة أولًا.<em>ثم قرر ما يستحق الإصلاح.</em></h2></div>
+          <div><span className="sa-label">[ قبل القرار ]</span><h2 id="cro-guides-title">افهم المشكلة أولًا.<em>ثم قرر ما يستحق الإصلاح</em></h2></div>
           <p>أدلة قصيرة تشرح أين تتسرب الفرص في الزيارة والاستفسار والمتابعة.</p>
         </div>
         <div className="sa-guide-grid">
@@ -270,12 +270,12 @@ export default function ConversionRateOptimizationPage() {
       </section>
 
       <section className="sa-faq shell">
-        <div className="sa-section-head"><div><span className="sa-label">[ الأسئلة الشائعة ]</span><h2>قبل أن تطلب التدقيق.<br/><em>هذه أهم الإجابات.</em></h2></div><p>التفاصيل النهائية تتحدد بعد تحديد النطاق، وليس بقائمة عامة.</p></div>
+        <div className="sa-section-head"><div><span className="sa-label">[ الأسئلة الشائعة ]</span><h2>قبل أن تطلب التدقيق<br/><em>هذه أهم الإجابات</em></h2></div><p>التفاصيل النهائية تتحدد بعد تحديد النطاق، وليس بقائمة عامة.</p></div>
         <div className="sa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
       <section className="sa-final shell">
-        <div><span className="sa-label">[ الخطوة التالية ]</span><h2>أرسل رابط الصفحة.<br/><em>لنحدد أين تتوقف الزيارة.</em></h2></div>
+        <div><span className="sa-label">[ الخطوة التالية ]</span><h2>أرسل رابط الصفحة<br/><em>لنحدد أين تتوقف الزيارة</em></h2></div>
         <div>
           <p>أرسل رابط الموقع أو الصفحة ونوع النشاط، وسنحدد معك المسار الأنسب للفحص وما يحتاجه التدقيق.</p>
           <a className="button primary" href={whatsappAudit} target="_blank" rel="noreferrer">تحدث معنا عن الباقة المناسبة <span>←</span></a>

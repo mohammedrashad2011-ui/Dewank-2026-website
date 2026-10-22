@@ -75,8 +75,8 @@ export default function WhatsAppAutomation() {
           <div className="wa-hero-copy">
             <span className="eyebrow">WHATSAPP AUTOMATION + CRM</span>
             <h1>
-              <span className="wa-hero-line">خلّي واتساب يرد ويؤهّل ويتابع.</span>
-              <em className="wa-hero-line wa-hero-line-accent">والفريق يدخل وقت ما يحتاجه العميل.</em>
+              <span className="wa-hero-line">خلّي واتساب يرد ويؤهّل ويتابع</span>
+              <em className="wa-hero-line wa-hero-line-accent">والفريق يدخل وقت ما يحتاجه العميل</em>
             </h1>
             <p>نبني نظام أتمتة واتساب يربط المحادثة بالحجز وCRM والمتابعة، حتى لا يضيع العميل بين أول رسالة وآخر خطوة، ولا يكرر الفريق العمل نفسه يدويًا.</p>
             <div className="wa-hero-actions">
@@ -104,14 +104,14 @@ export default function WhatsAppAutomation() {
 
       <section className="shell flow-section wa-flow-section">
         <span className="section-label">رحلة العميل</span>
-        <h2>من أول «مرحبًا»<br/>إلى <mark>إجراء قابل للقياس.</mark></h2>
+        <h2>من أول «مرحبًا»<br/>إلى <mark>إجراء قابل للقياس</mark></h2>
         <p className="wa-section-intro">الأتمتة ليست مجرد رد تلقائي. الهدف أن تعرف كل رسالة الخطوة التالية، ومتى ينتقل العميل إلى الموظف.</p>
         <AutomationFlow />
       </section>
 
       <section className="automation-core wa-connected">
         <div className="shell core-grid">
-          <div className="core-copy"><span className="section-label">نظام واحد متصل</span><h2>المحادثة في المنتصف.<br/><mark>وكل خطوة حولها متصلة.</mark></h2><p>يبقى واتساب واجهة العميل، ويعمل خلفه نظام CRM والحجز والمتابعة والتقارير.</p></div>
+          <div className="core-copy"><span className="section-label">نظام واحد متصل</span><h2>المحادثة في المنتصف<br/><mark>وكل خطوة حولها متصلة</mark></h2><p>يبقى واتساب واجهة العميل، ويعمل خلفه نظام CRM والحجز والمتابعة والتقارير.</p></div>
           <ConnectedSystem />
         </div>
       </section>
@@ -123,7 +123,7 @@ export default function WhatsAppAutomation() {
       </section>
 
       <section className="shell wa-commercial" aria-labelledby="wa-commercial-title">
-        <div className="wa-section-head"><div><span className="section-label">اختر نقطة البداية</span><h2 id="wa-commercial-title">ليس كل نشاط يحتاج النظام نفسه.</h2></div><p>ابدأ بأقل نطاق يحل المشكلة الحالية. لو احتجت CRM أو حجز أو تكاملات أوسع، نوسّع النظام بعد أن تتضح الرحلة.</p></div>
+        <div className="wa-section-head"><div><span className="section-label">اختر نقطة البداية</span><h2 id="wa-commercial-title">ليس كل نشاط يحتاج النظام نفسه</h2></div><p>ابدأ بأقل نطاق يحل المشكلة الحالية. لو احتجت CRM أو حجز أو تكاملات أوسع، نوسّع النظام بعد أن تتضح الرحلة.</p></div>
         <div className="wa-choice-grid">
           <article className="wa-choice wa-choice-featured"><small>STARTER</small><h3>رد + تأهيل + تحويل للموظف</h3><p>مناسب لو أكبر مشكلة عندك هي بطء الرد، تكرار الأسئلة، أو وصول العميل للموظف بدون بيانات كافية.</p><WhatsAppStarterPrice /><ul><li>أسئلة وردود أساسية</li><li>جمع بيانات وتأهيل</li><li>تحويل واضح للموظف</li></ul><div className="wa-choice-actions"><Link className="button primary" href="/offers/whatsapp-automation-starter">شاهد باقة Starter</Link><Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">افهم التكلفة</Link></div></article>
           <article className="wa-choice"><small>FULL SYSTEM</small><h3>WhatsApp + CRM + حجز + متابعة</h3><p>مناسب لو عندك فريق أو مراحل مبيعات أو حجوزات، وتحتاج أن تبقى المحادثة جزءًا من نظام التشغيل والقياس.</p><div className="wa-system-tags"><span>CRM</span><span>Booking</span><span>Follow-up</span><span>Reports</span></div><ul><li>تحديث مراحل العميل</li><li>حجز وتذكير ومتابعة</li><li>تكاملات وتقارير حسب النطاق</li></ul><div className="wa-choice-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش النظام الكامل</a><Link href="/guides/whatsapp-crm-automation">كيف يعمل؟</Link></div></article>
@@ -132,7 +132,7 @@ export default function WhatsAppAutomation() {
 
       <section className="shell wa-crm-decision" aria-labelledby="wa-crm-decision-title">
         <small>أتمتة فقط أم CRM؟</small>
-        <h2 id="wa-crm-decision-title">ابدأ بالمشكلة، وليس باسم الأداة.</h2>
+        <h2 id="wa-crm-decision-title">ابدأ بالمشكلة، وليس باسم الأداة</h2>
         <p>لو الهدف فقط الرد السريع وجمع البيانات وتحويل المحادثة، قد يكفي نطاق Starter. لو عندك فريق ومراحل بيع وحجوزات ومتابعات متكررة، فالـCRM يصبح جزءًا من الحل وليس إضافة تجميلية.</p>
         <div className="wa-crm-grid">
           <article><h3>Automation فقط</h3><p>أنسب عندما تحتاج ردودًا وتأهيلًا وتسليمًا للموظف بدون إدارة مراحل معقدة أو سجل متابعة موسع.</p></article>
@@ -144,14 +144,14 @@ export default function WhatsAppAutomation() {
 
       <section className="method-section wa-method">
         <div className="shell method-layout">
-          <div className="method-intro"><span className="section-label">طريقة التنفيذ</span><h2>لا نبدأ بالبوت.<br/><em>نبدأ برحلة العميل.</em></h2><p>نراجع المحادثات الحالية، ونحدد أين يتكرر الشغل وأين يضيع العميل، ثم نبني المسار الأقل تعقيدًا الذي يحل المشكلة.</p></div>
+          <div className="method-intro"><span className="section-label">طريقة التنفيذ</span><h2>لا نبدأ بالبوت<br/><em>نبدأ برحلة العميل</em></h2><p>نراجع المحادثات الحالية، ونحدد أين يتكرر الشغل وأين يضيع العميل، ثم نبني المسار الأقل تعقيدًا الذي يحل المشكلة.</p></div>
           <div className="method-list"><div><span>01</span><h3>نحلل المحادثات</h3><p>الأسئلة المتكررة، نقاط التعطّل، ونوايا العملاء الأساسية.</p></div><div><span>02</span><h3>نصمم المسارات</h3><p>الرد، التأهيل، الحجز، المتابعة والتحويل للموظف.</p></div><div><span>03</span><h3>نربط ونختبر</h3><p>واتساب وCRM والحجز والإشعارات حسب النطاق.</p></div><div><span>04</span><h3>نحسن</h3><p>تطوير الردود والقواعد على أساس المحادثات الحقيقية.</p></div></div>
         </div>
       </section>
 
       <section className="shell wa-readiness" aria-labelledby="wa-readiness-title">
         <small>متى تكون الأتمتة مفيدة فعلًا؟</small>
-        <h2 id="wa-readiness-title">لو المشكلة تتكرر يوميًا، غالبًا تستحق الأتمتة.</h2>
+        <h2 id="wa-readiness-title">لو المشكلة تتكرر يوميًا، غالبًا تستحق الأتمتة</h2>
         <p>الأتمتة تكون أكثر قيمة عندما تحذف تكرارًا واضحًا أو تمنع فرصة بيع من الضياع، وليس فقط لأنها تقنية جديدة.</p>
         <div className="wa-readiness-grid">
           <article><b>الرد بطيء</b><p>العميل ينتظر، أو السؤال نفسه يتكرر عشرات المرات.</p></article>
@@ -163,24 +163,24 @@ export default function WhatsAppAutomation() {
       </section>
 
       <section className="shell wa-usecases">
-        <div className="wa-section-head"><div><span className="section-label">حالات الاستخدام</span><h2>عندما تكون المحادثة جزءًا من البيع،<br/><em>لا يجب أن تضيع بعد أول رد.</em></h2></div><p>أتمتة واتساب مفيدة أكثر عندما تتكرر الأسئلة، التأهيل، الحجز أو المتابعة يوميًا.</p></div>
+        <div className="wa-section-head"><div><span className="section-label">حالات الاستخدام</span><h2>عندما تكون المحادثة جزءًا من البيع،<br/><em>لا يجب أن تضيع بعد أول رد</em></h2></div><p>أتمتة واتساب مفيدة أكثر عندما تتكرر الأسئلة، التأهيل، الحجز أو المتابعة يوميًا.</p></div>
         <div className="wa-usecase-grid">{useCases.map(([number, heading, text]) => <article key={number}><small>{number}</small><h3>{heading}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="wa-ai-bridge shell">
-        <div><span className="section-label">أبعد من واتساب؟</span><h2>واتساب هو القناة.<br/>لكن الأتمتة ممكن تربط العملية كلها.</h2><p>لو المشكلة تمتد للمبيعات أو العمليات أو التقارير أو أكثر من نظام، راجع صفحة أتمتة الأعمال بالذكاء الاصطناعي.</p></div>
+        <div><span className="section-label">أبعد من واتساب؟</span><h2>واتساب هو القناة<br/>لكن الأتمتة ممكن تربط العملية كلها</h2><p>لو المشكلة تمتد للمبيعات أو العمليات أو التقارير أو أكثر من نظام، راجع صفحة أتمتة الأعمال بالذكاء الاصطناعي.</p></div>
         <Link className="button primary" href="/ai-automation">استكشف AI Automation</Link>
       </section>
 
       <section className="shell wa-guides" aria-labelledby="wa-guides-title">
-        <div className="wa-section-head"><div><span className="section-label">أدلة قبل القرار</span><h2 id="wa-guides-title">قبل ما تشتري أداة،<br/><em>افهم النظام والتكلفة.</em></h2></div><p>لو سؤالك الآن عن CRM أو الأسعار أو طريقة الربط، ابدأ بالدليل الأقرب لقرارك.</p></div>
+        <div className="wa-section-head"><div><span className="section-label">أدلة قبل القرار</span><h2 id="wa-guides-title">قبل ما تشتري أداة،<br/><em>افهم النظام والتكلفة</em></h2></div><p>لو سؤالك الآن عن CRM أو الأسعار أو طريقة الربط، ابدأ بالدليل الأقرب لقرارك.</p></div>
         <div className="wa-guide-grid">{guideLinks.map((guide, index) => <Link className="wa-guide-card" href={guide.href} key={guide.href}><div className="wa-guide-card-top"><span>دليل 0{index + 1}</span><span className="wa-guide-arrow" aria-hidden="true">↗</span></div><h3>{guide.title}</h3><p>{guide.text}</p></Link>)}</div>
         <p>تأتي رسائلك من إعلانات؟ راجع <Link href="/guides/ad-to-whatsapp-booking-journey">رحلة العميل من الإعلان إلى واتساب ثم الحجز</Link>.</p>
       </section>
 
-      <section className="wa-faq shell" id="faq"><span className="section-label">أسئلة شائعة</span><h2>قبل أن تؤتمت واتساب.</h2><div className="faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
+      <section className="wa-faq shell" id="faq"><span className="section-label">أسئلة شائعة</span><h2>قبل أن تؤتمت واتساب</h2><div className="faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
 
-      <section className="wa-final"><div className="shell"><p>ابدأ من المشكلة التي تريد إزالتها، لا من اسم الأداة.</p><h2>خلّي واتساب يقود العميل<br/><mark>إلى الخطوة التالية.</mark></h2><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش خريطة الأتمتة <span>↗</span></a></div></section>
+      <section className="wa-final"><div className="shell"><p>ابدأ من المشكلة التي تريد إزالتها، لا من اسم الأداة.</p><h2>خلّي واتساب يقود العميل<br/><mark>إلى الخطوة التالية</mark></h2><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش خريطة الأتمتة <span>↗</span></a></div></section>
       <Footer />
     </main>
   );
