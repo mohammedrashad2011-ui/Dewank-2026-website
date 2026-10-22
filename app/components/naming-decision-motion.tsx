@@ -10,7 +10,7 @@ export default function NamingDecisionMotion({ locale }: NamingDecisionMotionPro
       <div className="shell naming-motion-layout">
         <div className="naming-motion-copy">
           <span className="section-label">{ar ? "من الخيارات إلى القرار" : "FROM OPTIONS TO DECISION"}</span>
-          <h2>{ar ? "مش كل اسم ينفع" : "Not every name fits."}<em>{ar ? "نختار الاسم لسبب" : "The right one earns its place."}</em></h2>
+          <h2>{ar ? "مش كل اسم ينفع" : "Not every name fits"}<em>{ar ? "نختار الاسم لسبب" : "The right one earns its place"}</em></h2>
           <p>{ar ? "نبدأ باتجاهات متنوعة، ونختبر المعنى والنطق والتميّز وإمكانية الاستخدام، ثم نضيّق الخيارات نحو قرار يمكن الدفاع عنه." : "We explore different directions, check meaning, pronunciation and distinctiveness, then narrow the shortlist toward a defensible decision."}</p>
           <small>{ar ? "عرض توضيحي لعملية الاختيار، وليس نتيجة بحث أو فحص قانوني." : "Illustrative process only, not a trademark or legal clearance."}</small>
         </div>
