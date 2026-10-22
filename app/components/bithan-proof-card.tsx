@@ -8,7 +8,7 @@ type BithanProofCardProps = {
 const copy = {
   naming: {
     eyebrow: "دراسة حالة فعلية · Fine Jewelry · قطر",
-    title: "BITHAN: من استراتيجية التسمية إلى الاسم الذي اختاره العميل.",
+    title: "BITHAN: من استراتيجية التسمية إلى الاسم الذي اختاره العميل",
     text: "تموضع أولًا، أربع مساحات تسمية، قوائم منتقاة، فحص مبدئي، جولات refinement ثم اختيار BITHAN قبل الانتقال إلى الهوية.",
     journey: ["Positioning", "Naming", "Screening", "Selection"],
   },
