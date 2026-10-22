@@ -144,7 +144,7 @@ export default function ServicesPage() {
     <main className="inner-page services-page services-page-refined services-conversion-hub">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <PageHero eyebrow="خدمات ديوانك" title={<>لا تبدأ من اسم الخدمة.<br/><em>ابدأ من النتيجة التي تحتاجها.</em></>} text="إعلانات، مواقع، محتوى، براند وأتمتة تعمل كمنظومة واحدة. اختر نقطة الاختناق الحالية، وخذ أقصر طريق للخدمة المناسبة." />
+      <PageHero plainEyebrow eyebrow="خدمات ديوانك" title={<>لا تبدأ من اسم الخدمة<br/><em>ابدأ من النتيجة التي تحتاجها</em></>} text="إعلانات، مواقع، محتوى، براند وأتمتة تعمل كمنظومة واحدة. اختر نقطة الاختناق الحالية، وخذ أقصر طريق للخدمة المناسبة." />
 
       <section className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
         <small>الإجابة السريعة</small>
