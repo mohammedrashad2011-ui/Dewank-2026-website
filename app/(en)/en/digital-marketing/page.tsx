@@ -9,6 +9,7 @@ import "../../../(ar)/digital-marketing/digital-marketing-page.css";
 import "../../../(ar)/digital-marketing/digital-marketing-guides.css";
 import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
+import "../../../(ar)/digital-marketing/digital-marketing-refinement.css";
 
 export const metadata = enMetadata(
   "Digital marketing strategy and content",
