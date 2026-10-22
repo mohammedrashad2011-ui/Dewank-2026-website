@@ -141,13 +141,13 @@ export default function GuidesPage() {
     <Header />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <section className="guides-hero shell">
-      <div><span className="guides-label">[ أدلة النمو ]</span><h1>وضوح قبل القرار.<br/><em>ونمو بعده.</em></h1></div>
+      <div><span className="guides-label">[ أدلة النمو ]</span><h1>وضوح قبل القرار<br/><em>ونمو بعده</em></h1></div>
       <p>محتوى عملي لأصحاب الأعمال وصنّاع القرار؛ يشرح التكلفة والاختيار والمشكلات الشائعة بلغة واضحة، ويربط كل سؤال بالخطوة المناسبة.</p>
     </section>
     <section className="guides-grid shell" aria-label="أدلة ديوانك">
       {guides.map((guide) => <article className="guide-card" key={guide.href}><small>{guide.category}</small><h2>{guide.title}</h2><p>{guide.description}</p><Link href={guide.href}>اقرأ الدليل <span>←</span></Link></article>)}
     </section>
-    <section className="guides-note shell"><h2>هذه ليست مدونة أخبار.</h2><p>كل دليل مبني حول سؤال حقيقي يسبق قرارًا تجاريًا، ويرتبط بخدمة واضحة. نحدّث ما يستحق التحديث ولا ننشر لمجرد زيادة عدد الصفحات.</p></section>
+    <section className="guides-note shell"><h2>هذه ليست مدونة أخبار</h2><p>كل دليل مبني حول سؤال حقيقي يسبق قرارًا تجاريًا، ويرتبط بخدمة واضحة. نحدّث ما يستحق التحديث ولا ننشر لمجرد زيادة عدد الصفحات.</p></section>
     <Footer />
   </main>;
 }

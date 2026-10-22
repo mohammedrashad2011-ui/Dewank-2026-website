@@ -129,7 +129,7 @@ export default function SocialMediaManagementCostGuide() {
 
           <section className="cost-mid-cta" aria-label="اختيار النطاق المناسب">
             <span>قبل أن تختار الباقة</span>
-            <h2>لا تدفع لإدارة كاملة إذا كان احتياجك محتوى فقط.</h2>
+            <h2>لا تدفع لإدارة كاملة إذا كان احتياجك محتوى فقط</h2>
             <p>قارن النطاق أولًا: محتوى فقط، إدارة شهرية، أو إعلانات. إذا كان هدفك تجهيز شهر كامل من المحتوى، راجع الباقة المحددة قبل التزام شهري أكبر.</p>
             <div><Link className="button primary" href="/offers/30-day-content-package">شاهد باقة 30 يومًا</Link><Link className="cost-text-link" href="/services/social-media-content">أحتاج إدارة شهرية كاملة</Link></div>
           </section>

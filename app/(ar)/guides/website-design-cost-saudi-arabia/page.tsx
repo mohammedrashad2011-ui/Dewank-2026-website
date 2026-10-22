@@ -283,7 +283,7 @@ export default function WebsiteDesignCostGuide() {
 
             <section className="guide-lead-bridge website-lead-bridge" aria-labelledby="quote-check-title">
               <small>تحويل البحث عن السعر إلى قرار واضح</small>
-              <h2 id="quote-check-title">أرسل نشاطك، ونحدد لك نوع الموقع قبل السعر.</h2>
+              <h2 id="quote-check-title">أرسل نشاطك، ونحدد لك نوع الموقع قبل السعر</h2>
               <p>اكتب نوع النشاط + السوق + الهدف + الصفحات المتوقعة + اللغات + أي حجز أو دفع أو CRM. بهذه البيانات نستطيع تحديد هل تحتاج صفحة هبوط، موقع شركة صغيرًا، أم مشروعًا مخصصًا.</p>
               <div className="guide-lead-actions">
                 <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">اعرف النطاق المناسب عبر واتساب <span>↗</span></a>
