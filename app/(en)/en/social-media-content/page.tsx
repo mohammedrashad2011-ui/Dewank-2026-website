@@ -1,3 +1,4 @@
+import "../../../(ar)/services/social-media-content/content-visual-rhythm.css";
 import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
