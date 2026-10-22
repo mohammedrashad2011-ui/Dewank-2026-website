@@ -1,4 +1,5 @@
 import NamingDecisionMotion from "../../../components/naming-decision-motion";
+import { NamingLocalizedPrice, NamingLocalizedOfferLink, NamingLocalizedPriceAnswer } from "./localized-naming-price";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -29,7 +30,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["كم سعر خدمة اقتراح الأسماء التجارية؟", "تبدأ الباقة الجاهزة من 490 ريال سعودي وتشمل 10–15 اسمًا مع المعاني والفحص المبدئي والدومين وأفضل الترشيحات وBrand Direction أولي. يتغير السعر عند تعدد الأسواق أو اللغات أو الحاجة إلى بحث أوسع."],
+  ["كم سعر خدمة اقتراح الأسماء التجارية؟", "تبدأ الباقة الجاهزة من 490 ريال سعودي وتشمل 10–15 اسمًا مع المعاني والفحص المبدئي والدومين وأفضل الترشيحات والتوجّه الأولي للعلامة. يتغير السعر عند تعدد الأسواق أو اللغات أو الحاجة إلى بحث أوسع."],
   ["هل تضمنون قبول الاسم أو تسجيل العلامة؟", "لا. نجري بحثًا مبدئيًا لتقليل احتمالات التعارض أو الرفض، لكن القبول النهائي من اختصاص الجهة الرسمية ولا يمكن ضمانه قبل تقديم الطلب وفحصه رسميًا."],
   ["هل تشمل الخدمة حجز الدومين أو تسجيل العلامة؟", "تشمل التحقق من التوفر وقت البحث. شراء الدومين وإجراءات تسجيل العلامة والرسوم الرسمية ليست ضمن السعر الأساسي إلا إذا ذُكرت صراحة في عرض مستقل."],
   ["ما الفرق بين التسمية والهوية البصرية؟", "التسمية تحدد الاسم والتوجه الأولي للعلامة. تصميم الشعار والهوية البصرية الكاملة خدمة منفصلة بعد اعتماد الاسم، ولا يدخل في السعر الأساسي للتسمية."],
@@ -51,8 +52,8 @@ export default function BrandNamingPage() {
       <span className="section-label">تسمية العلامات التجارية</span>
       <h1>اسم علامتك ليس كلمة جميلة.<em>هو أصل تجاري يجب أن يتحمل النمو.</em></h1>
       <p>نطوّر أسماء علامات تجارية مبنية على فهم النشاط والجمهور والسوق، ثم نفحصها لغويًا وثقافيًا ونبحث مبدئيًا عن التشابه وتوفر الدومين قبل أن تستثمر في الهوية والإطلاق.</p>
-      <div className="brand-hero-actions"><Link className="button whatsapp" href="/offers/brand-naming">شاهد باقة 490 ريال <span>←</span></Link><Link className="button primary" href="/guides/how-to-choose-brand-name-saudi-arabia">اقرأ دليل اختيار الاسم <span>←</span></Link></div>
-    </div><div className="brand-diagnosis-copy naming-service-package"><span className="section-label">الباقة الجاهزة</span><h2>تبدأ من<br/><em>490 ريال سعودي</em></h2><p>يشمل السعر الأساسي التسمية والفحص المبدئي وBrand Direction أولي. يتغير السعر النهائي إذا توسع نطاق الأسواق أو اللغات.</p></div></section>
+      <div className="brand-hero-actions"><NamingLocalizedOfferLink /><Link className="button primary" href="/guides/how-to-choose-brand-name-saudi-arabia">اقرأ دليل اختيار الاسم <span>←</span></Link></div>
+    </div><div className="brand-diagnosis-copy naming-service-package"><span className="section-label">الباقة الجاهزة</span><h2>تبدأ من<em><NamingLocalizedPrice /></em></h2><p>يشمل السعر الأساسي التسمية والفحص المبدئي والتوجّه الأولي للعلامة. يتغير السعر النهائي إذا توسع نطاق الأسواق أو اللغات.</p></div></section>
 
     <section className="shell brand-diagnosis"><div><h2>الاسم الضعيف<br/><em>تكلفته تظهر لاحقًا.</em></h2></div><div className="brand-diagnosis-copy"><p>اسم يصعب نطقه، أو يشبه منافسًا، أو لا يملك نطاقًا مناسبًا قد يستهلك ميزانية الهوية والتسويق ثم يجبرك على التغيير. لذلك نعامل التسمية كقرار بحث واستراتيجية، لا جلسة عصف ذهني فقط.</p><div className="brand-symptoms"><p>اسم عام يصعب امتلاكه</p><p>تشابه يربك العميل</p><p>معنى سلبي في سوق آخر</p><p>دومين وحسابات غير متاحة</p></div></div></section>
 
@@ -64,7 +65,7 @@ export default function BrandNamingPage() {
 
     <section className="brand-process"><div className="shell"><div className="brand-section-head brand-process-head"><div><h2>نقلّل المخاطر.<br/><em>ولا نبيع ضمانًا وهميًا.</em></h2></div></div><p className="brand-process-intro">البحث الذي نقدمه مبدئي وإبداعي وتجاري. قرار قبول الاسم أو تسجيل العلامة يظل للجهة الرسمية المختصة، كما أن توفر الدومين أو الحسابات قد يتغير حتى لحظة الحجز.</p></div></section>
 
-    <section className="shell brand-faq"><div className="brand-section-head"><div><h2>وضوح قبل<br/><em>بدء البحث.</em></h2></div></div>{faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</section>
+    <section className="shell brand-faq"><div className="brand-section-head"><div><h2>وضوح قبل<br/><em>بدء البحث.</em></h2></div></div>{faqs.map(([q, a], i) => <details key={q}><summary>{q}</summary>{i === 0 ? <NamingLocalizedPriceAnswer /> : <p>{a}</p>}</details>)}</section>
     <section className="shell brand-cta"><div><h2>ابنِ اسمًا يمكن<br/>لعلامتك أن تكبر داخله.</h2></div><div><p>أرسل نوع النشاط والسوق المستهدف وطموح التوسع، ونحدد لك نطاق الخدمة المناسب قبل البدء.</p><a className="button" href={whatsapp} target="_blank" rel="noopener noreferrer">ابدأ عبر واتساب <span>↗</span></a></div></section>
     <Footer />
   </main>;
