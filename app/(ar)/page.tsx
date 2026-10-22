@@ -115,7 +115,7 @@ export default function Home() {
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
         <div className="home-work-head"><div><span className="section-label">أعمال مختارة</span><h2 id="home-work-title">لا نعرض الشكل فقط<br/><em>نعرض القرار خلفه</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
         <div className="home-work-grid">
-          {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><small>{item.n}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
+          {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
         </div>
       </section>
 
@@ -125,7 +125,7 @@ export default function Home() {
         <div className="shell method-layout">
           <div className="method-intro"><span className="section-label">كيف نعمل</span><h2>أقل خطوات<br/><em>قرارات أوضح</em></h2><p>نبدأ بالمشكلة التجارية، ثم نحدد أقصر مسار يمكن تنفيذه وقياسه قبل إضافة أي طبقات لا تحتاجها.</p></div>
           <div className="method-list">
-            {[["01","نفهم","السياق والجمهور ومكان التعطل."],["02","نحدد","الفرصة والرسالة والأولوية التجارية."],["03","نبني","البراند أو الموقع أو الحملة أو النظام المناسب."],["04","نقيس","نراجع ما يحدث ونحسن ما يصنع النتيجة."]].map(([n,t,p]) => <div key={n}><span>{n}</span><h3>{t}</h3><p>{p}</p></div>)}
+            {[["نفهم","السياق والجمهور ومكان التعطل."],["نحدد","الفرصة والرسالة والأولوية التجارية."],["نبني","البراند أو الموقع أو الحملة أو النظام المناسب."],["نقيس","نراجع ما يحدث ونحسن ما يصنع النتيجة."]].map(([t,p]) => <div key={t}><h3>{t}</h3><p>{p}</p></div>)}
           </div>
         </div>
       </section>
