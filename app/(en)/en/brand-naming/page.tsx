@@ -1,3 +1,4 @@
+import NamingDecisionMotion from "../../../components/naming-decision-motion";
 import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
@@ -110,6 +111,8 @@ export default function BrandNamingPage() {
         <div className="brand-section-head"><div><span className="section-label">What you receive</span><h2>From the brief<br /><em>to a decision you can defend.</em></h2></div></div>
         <div className="brand-deliverables-grid">{deliverables.map(([title, text], i) => <article key={title}><span>{String(i + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
       </section>
+
+      <NamingDecisionMotion locale="en" />
 
       <section className="shell brand-fit" aria-labelledby="proof-title">
         <div><span className="section-label">Proof</span><h2 id="proof-title">A name chosen by the client,<br /><em>then a complete identity.</em></h2></div>
