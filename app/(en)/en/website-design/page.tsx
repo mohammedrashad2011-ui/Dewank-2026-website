@@ -1,3 +1,4 @@
+import { WebsiteBuildMotion } from "../../../components/website-build-motion";
 import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
@@ -225,6 +226,7 @@ export default function WebsiteDesignPage() {
 
       <section className="wd-method shell" id="process">
         <div className="wd-section-head"><div><span className="wd-label">How we work</span><h2>From the business goal<br /><em>to a site that works</em></h2></div><p>We do not start with colours. We start with the role of the site, the message and the path, then build the technology around them.</p></div>
+        <WebsiteBuildMotion locale="en" />
         <div className="wd-method-list">{process.map((step, index) => <div key={step[0]}><h3>{step[0]}</h3><p>{step[1]}</p></div>)}</div>
       </section>
 
