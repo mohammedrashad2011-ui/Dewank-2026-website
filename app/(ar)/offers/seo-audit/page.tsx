@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
+import { SeoAuditIntelligence } from "../../../components/seo-audit-intelligence";
 import { SeoAuditOfferPrice, SeoAuditWhatsApp } from "./localized-seo-audit-offer";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -127,22 +128,9 @@ export default function SeoAuditOfferPage() {
         <div className="seo-audit-proof-copy">
           <span className="section-label">شكل النتيجة</span>
           <h2 id="audit-preview-title">تقرير يفهمه صاحب المشروع<br/>وليس قائمة أخطاء بلا نهاية</h2>
-          <p>نرتب ما وجدناه حسب التأثير، ونوضح ما يحتاج تدخلًا عاجلًا وما يمكن تأجيله، حتى تتحول المراجعة إلى قرارات قابلة للتنفيذ. الأرقام في النموذج المجاور توضيحية فقط وليست نتيجة موقع فعلي.</p>
+          <p>نرتب ما وجدناه حسب التأثير، ونوضح ما يحتاج تدخلًا عاجلًا وما يمكن تأجيله، حتى تتحول المراجعة إلى قرارات قابلة للتنفيذ. المشهد التالي يوضح طريقة العمل ولا يعرض نتائج موقع فعلي.</p>
         </div>
-        <div className="seo-report-mockup" role="img" aria-label="تصور لتقرير SEO يعرض درجة الموقع ومشكلات حرجة وفرص تحسين">
-          <div className="seo-report-top"><span>DEWANK SEO AUDIT</span><small>REPORT / 01</small></div>
-          <div className="seo-score-row">
-            <div className="seo-score-ring"><strong>64</strong><span>/100</span></div>
-            <div><small>OVERALL SCORE</small><b>أساس جيد، لكن توجد فرص واضحة للتحسين.</b></div>
-          </div>
-          <div className="seo-report-bars">
-            <div><span>Technical SEO</span><i><em style={{ width: "72%" }} /></i><b>72</b></div>
-            <div><span>Content & On-page</span><i><em style={{ width: "61%" }} /></i><b>61</b></div>
-            <div><span>Performance</span><i><em style={{ width: "54%" }} /></i><b>54</b></div>
-            <div><span>AEO & Structure</span><i><em style={{ width: "68%" }} /></i><b>68</b></div>
-          </div>
-          <div className="seo-report-flags"><span><i />3 حرجة</span><span><i />5 مهمة</span><span><i />8 فرص تحسين</span></div>
-        </div>
+        <SeoAuditIntelligence locale="ar" />
       </section>
 
       <section className="shell offer-deliverables seo-audit-areas">

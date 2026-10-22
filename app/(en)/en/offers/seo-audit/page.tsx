@@ -4,6 +4,7 @@ import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
+import { SeoAuditIntelligence } from "../../../../components/seo-audit-intelligence";
 // The Arabic SEO audit offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -111,22 +112,9 @@ export default function SeoAuditOfferPage() {
         <div className="seo-audit-proof-copy">
           <span className="section-label">What the result looks like</span>
           <h2 id="audit-preview-title">A report the business owner can understand<br/>Not an endless list of errors</h2>
-          <p>We rank what we find by impact, and show what needs urgent attention and what can wait, so the review becomes decisions you can act on. The figures in the example beside this text are illustrative only, not the result of a real site.</p>
+          <p>We rank what we find by impact, and show what needs urgent attention and what can wait, so the review becomes decisions you can act on. The scene below illustrates our process and shows no real site results.</p>
         </div>
-        <div className="seo-report-mockup" role="img" aria-label="Illustrative example of an SEO report showing an overall score, critical issues and improvement opportunities">
-          <div className="seo-report-top"><span>DEWANK SEO AUDIT</span><small>REPORT / 01</small></div>
-          <div className="seo-score-row">
-            <div className="seo-score-ring"><strong>64</strong><span>/100</span></div>
-            <div><small>OVERALL SCORE</small><b>A sound base, with clear room to improve.</b></div>
-          </div>
-          <div className="seo-report-bars">
-            <div><span>Technical SEO</span><i><em style={{ width: "72%" }} /></i><b>72</b></div>
-            <div><span>Content and on-page</span><i><em style={{ width: "61%" }} /></i><b>61</b></div>
-            <div><span>Performance</span><i><em style={{ width: "54%" }} /></i><b>54</b></div>
-            <div><span>AEO and structure</span><i><em style={{ width: "68%" }} /></i><b>68</b></div>
-          </div>
-          <div className="seo-report-flags"><span><i />3 critical</span><span><i />5 important</span><span><i />8 improvements</span></div>
-        </div>
+        <SeoAuditIntelligence locale="en" />
       </section>
 
       <section className="shell offer-deliverables seo-audit-areas">
