@@ -1,0 +1,121 @@
+/* English design parity with Arabic PR #180. Presentation-only. No new JS or assets.
+   Short, readable glass labels on light and dark surfaces. */
+html[lang="en"] main:not(.naming-service-page) :is(
+  .section-label,.eyebrow,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+  .ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,
+  .legal-eyebrow,.bithan-eyebrow,.bithan-kicker,.metric-kicker,
+  .concept-label,.brand-lab-kicker,.offers-hero-eyebrow,
+  .pa-kicker,.dm-kicker,.wd-kicker,.sa-kicker,.cv-kicker
+) {
+  display:inline-flex;
+  align-items:center;
+  justify-content:flex-start;
+  flex:0 0 auto;
+  width:max-content;
+  max-width:100%;
+  min-height:32px;
+  padding:7px 13px;
+  border:1px solid rgba(43,75,150,.35);
+  border-radius:999px;
+  background:linear-gradient(120deg,rgba(255,255,255,.96),rgba(230,239,255,.92));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.96),0 5px 16px rgba(4,23,59,.10);
+  color:#082447;
+  opacity:1;
+  font-size:clamp(12.5px,1.05vw,15px);
+  font-weight:750;
+  line-height:1.55;
+  letter-spacing:.015em;
+  text-align:left;
+  white-space:normal;
+  overflow-wrap:break-word;
+  vertical-align:middle;
+  justify-self:start;
+  align-self:start;
+  text-shadow:none;
+}
+/* Retain high-contrast pale glass when labels sit on dark navy or saturated blue. */
+html[lang="en"] main:not(.naming-service-page) :is(
+  .brand-system-section,.brand-cta,.final-cta,.home-final-conversion,
+  .services-final-cta,.problem-chooser,.pa-final,.sa-final,.dm-final,
+  .cv-final,.wd-final,.offer-final-cta,.offer-price-panel,.sales-final-cta,
+  .method-section
+) :is(.section-label,.eyebrow,.pa-label,.sa-label,.dm-label,.wd-label,
+      .cv-label,.sales-eyebrow,.offer-kicker,.ai-label) {
+  color:#081e3c!important;
+  background:linear-gradient(120deg,#fff,#eaf1ff)!important;
+  border-color:rgba(255,255,255,.7)!important;
+  box-shadow:0 5px 16px rgba(0,0,0,.14),inset 0 1px 0 #fff;
+}
+html[lang="en"] main :is(.section-label,.eyebrow,.pa-label,.sa-label,.dm-label,
+  .wd-label,.cv-label,.ai-label,.guides-label,.sales-eyebrow,.offer-kicker):empty {
+  display:none!important;
+}
+/* The most popular tag carries a readable, softly-glazed blue accent. */
+html[lang="en"] .home-offer-signals > b {
+  background:linear-gradient(115deg,#eef3ff,#fff)!important;
+  color:#2444c7!important;
+  border:1px solid rgba(49,85,255,.39);
+  border-radius:999px;
+  box-shadow:0 5px 13px rgba(49,85,255,.10),inset 0 1px 0 #fff;
+  font-size:clamp(12px,1vw,14px);
+  line-height:1.5;
+  min-height:31px;
+  padding:6px 12px;
+  opacity:1;
+}
+/* Only decorative counters in known service/process cards; not figures or prices. */
+html[lang="en"] .service-card .card-top > span:first-child,
+html[lang="en"] :is(.brand-system-grid,.brand-deliverables-grid,
+  .brand-process-list,.pa-channel-grid,.pa-cost-breakdown-grid,.pa-scope-grid,
+  .wd-foundation-grid,.wd-capability-grid,.dm-capability-grid,.cv-service-grid,
+  .cv-process-list,.ai-flow,.sa-service-grid,.content-step-grid,
+  .content-scope-grid,.content-deliverables-grid,.google-ads-process-grid,
+  .offer-confidence-grid,.sales-risk-grid)
+  > :is(article,div) > :is(span,b,small,strong):first-child,
+html[lang="en"] .sales-pain-card > b:first-child {
+  display:none!important;
+}
+html[lang="en"] .services-page .primary-path-card::before {
+  content:none!important;display:none!important;
+}
+html[lang="en"] .services-page .primary-path-card h3 {margin-top:20px;}
+html[lang="en"] .home-work-card h3 {margin-top:17px;}
+/* Layout must close the empty numeric track. */
+html[lang="en"] :is(.brand-deliverables-grid,.brand-process-list,.method-list) > :is(article,div) {
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:clamp(12px,3vw,28px);
+}
+html[lang="en"] .brand-deliverables-grid article {grid-template-columns:minmax(0,1fr);}
+html[lang="en"] :is(.brand-process-list,.method-list) > :is(article,div) > p {grid-column:auto;}
+html[lang="en"] .content-step-grid article h3 {margin-top:20px;}
+/* Some service kicker containers hold several individual tags: preserve their row. */
+html[lang="en"] main :is(.pa-kicker,.dm-kicker,.wd-kicker,.sa-kicker,.cv-kicker) {
+  display:flex;width:auto;max-width:100%;padding:0;min-height:0;
+  border:0;background:none;box-shadow:none;filter:none;backdrop-filter:none;
+}
+html[lang="en"] main :is(.pa-kicker,.dm-kicker,.wd-kicker,.sa-kicker,.cv-kicker) > span {
+  display:inline-flex;align-items:center;padding:7px 12px;
+  background:linear-gradient(120deg,#fff,#eaf1ff);
+  color:#092447;min-height:31px;
+  border:1px solid rgba(43,75,150,.35);border-radius:999px;
+  box-shadow:inset 0 1px 0 #fff,0 4px 13px rgba(4,23,59,.1);
+  font-size:clamp(12px,1vw,14px);line-height:1.5;
+}
+@media(max-width:640px){
+  html[lang="en"] main:not(.naming-service-page) :is(
+    .section-label,.eyebrow,.pa-label,.sa-label,.dm-label,.wd-label,
+    .cv-label,.ai-label,.guides-label,.offer-kicker,.sales-eyebrow,
+    .cp-eyebrow,.legal-eyebrow,.bithan-eyebrow,.bithan-kicker,.metric-kicker,
+    .concept-label,.brand-lab-kicker,.offers-hero-eyebrow
+  ) {font-size:13px;min-height:29px;padding:6px 11px;backdrop-filter:none;-webkit-backdrop-filter:none;}
+  html[lang="en"] :is(.brand-process-list,.method-list) > :is(article,div) {
+    grid-template-columns:minmax(0,1fr);gap:8px;
+  }
+  html[lang="en"] :is(.brand-process-list,.method-list) > :is(article,div) > p {grid-column:1;}
+}
+@media(prefers-reduced-transparency:reduce){
+  html[lang="en"] main:not(.naming-service-page) :is(
+    .section-label,.eyebrow,.pa-label,.sa-label,.dm-label,.wd-label,
+    .cv-label,.ai-label,.guides-label,.offer-kicker,.sales-eyebrow
+  ){backdrop-filter:none;-webkit-backdrop-filter:none;background:#ecf2ff;}
+}

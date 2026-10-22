@@ -18,3 +18,59 @@ html body .en-service .sa-label::before,
 html body .en-service .sa-label::after {
   content: none !important;
 }
+
+
+/* English branding deliverables: remove the empty counter track and protect text gutters. */
+html body .en-service.branding-page .brand-deliverables-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(2rem, 4vw, 4.5rem);
+}
+html body .en-service.branding-page .brand-deliverables-grid article {
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+  padding-inline: 0;
+  gap: 0;
+  border-inline-start: 0;
+}
+html body .en-service.branding-page .brand-deliverables-grid article > div {
+  min-width: 0;
+}
+html body .en-service.branding-page .brand-deliverables-grid p {
+  overflow-wrap: break-word;
+  line-height: 1.65;
+  max-width: 65ch;
+}
+
+/* CRO after-audit links: full-width reading lines, never the inherited number/text grid. */
+html body .en-service.cro-page .cro-after-audit .sa-fit-grid > div {
+  min-width: 0;
+}
+html body .en-service.cro-page .cro-after-audit .sa-fit-grid > div:last-child > p {
+  display: block;
+  grid-template-columns: none;
+  min-width: 0;
+  padding: 1.2rem 0;
+  line-height: 1.7;
+}
+html body .en-service.cro-page .cro-after-audit .sa-fit-grid .cro-fit-text {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+  font-size: inherit;
+  line-height: inherit;
+}
+html body .en-service.cro-page .cro-after-audit .cro-fit-text a {
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+@media (max-width: 760px) {
+  html body .en-service.branding-page .brand-deliverables-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  html body .en-service.cro-page .cro-after-audit .sa-fit-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

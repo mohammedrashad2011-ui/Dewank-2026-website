@@ -7,6 +7,7 @@ import "../service-pages-fix.css";
 import "../mobile-refinement.css";
 import "../desktop-cleanup.css";
 import "../home-final-cta-label-fix.css";
+import "../english-site-heading-polish.css";
 import { defaultDescription, siteName, siteUrl } from "../lib/seo";
 import DeferredClientLayer from "../components/deferred-client-layer";
 

@@ -78,7 +78,7 @@ export default function Instagram14DayUpgradeOffer() {
       <section className="shell offer-detail-hero instagram-upgrade-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> focused days</span></div>
-          <h1>Your account exists.<br/><em>But does it convince the customer?</em></h1>
+          <h1>Your account exists<br/><em>But does it convince the customer?</em></h1>
           <p>We put your Instagram account in order from the inside out: the bio, the call to action, the highlights, the content themes and the visual direction, then six designs and a 14-day implementation plan.</p>
           <div className="instagram-upgrade-answer" aria-label="The short answer">
             <b>The short answer</b>
@@ -97,7 +97,7 @@ export default function Instagram14DayUpgradeOffer() {
       <section className="shell instagram-upgrade-proof">
         <div className="instagram-upgrade-proof-copy">
           <span className="section-label">Where the problem sits</span>
-          <h2>The visitor arrives at the account.<br/>And decides within seconds.</h2>
+          <h2>The visitor arrives at the account<br/>And decides within seconds</h2>
           <p>If the message is unclear, if the bio does not say what you offer, if the highlights are random and the feed has no direction, you can lose the customer before they read a single post. The package puts these points in order as one journey.</p>
         </div>
         <div className="instagram-profile-card" aria-label="Simplified illustration of an Instagram profile before and after an upgrade">
@@ -109,12 +109,12 @@ export default function Instagram14DayUpgradeOffer() {
       </section>
 
       <section className="shell offer-deliverables instagram-upgrade-deliverables">
-        <div><span className="section-label">What you receive</span><h2>Not a cosmetic edit.<br/>A reorganised account.</h2><p>Each element of the package has a defined role in making the account clearer, easier to browse, and easier to act on.</p></div>
+        <div><span className="section-label">What you receive</span><h2>Not a cosmetic edit<br/>A reorganised account</h2><p>Each element of the package has a defined role in making the account clearer, easier to browse, and easier to act on.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell instagram-upgrade-fit">
-        <div className="instagram-upgrade-fit-head"><span className="section-label">Is it right for you?</span><h2>Suited to an existing account.<br/>Not a project starting from zero.</h2></div>
+        <div className="instagram-upgrade-fit-head"><span className="section-label">Is it right for you?</span><h2>Suited to an existing account<br/>Not a project starting from zero</h2></div>
         <div className="offer-fit-grid">
           <article className="offer-fit-card good"><h3>It suits you if</h3><ul><li>The account exists but its look is disorganised</li><li>The bio and the message are unclear</li><li>You do not know what to post or how to structure the content</li><li>You need a practical direction before a monthly management service</li></ul></article>
           <article className="offer-fit-card limits"><h3>Choose another service if</h3><ul><li>You need management and posting all month</li><li>The account is brand new and has not launched yet</li><li>You need photography or reels in large volumes</li><li>Your main goal is running paid advertising</li></ul></article>
@@ -122,7 +122,7 @@ export default function Instagram14DayUpgradeOffer() {
       </section>
 
       <section className="shell instagram-upgrade-process">
-        <div className="instagram-upgrade-process-head"><span className="section-label">The 14 days</span><h2>Review. Arrange. Design. Settle the direction.</h2></div>
+        <div className="instagram-upgrade-process-head"><span className="section-label">The 14 days</span><h2>Review. Arrange. Design. Settle the direction</h2></div>
         <div className="instagram-upgrade-process-grid">
           <article><b>Days 1–3</b><h3>Account diagnosis</h3><p>We review the account, the audience, the offer and the competitors, and set the priority of the issues.</p></article>
           <article><b>Days 4–6</b><h3>Profile structure</h3><p>The bio, the call to action, the highlights, the content themes and the core visual direction.</p></article>
@@ -132,7 +132,7 @@ export default function Instagram14DayUpgradeOffer() {
       </section>
 
       <section className="shell offer-confidence instagram-upgrade-confidence">
-        <div><span className="section-label">Package limits</span><h2>Clear from the start.</h2></div>
+        <div><span className="section-label">Package limits</span><h2>Clear from the start</h2></div>
         <div className="offer-confidence-grid">
           <article><b>Included</b><p>Account review, bio and call-to-action improvements, highlights, content themes, a visual direction, six designs, a 14-day plan and a closing review.</p></article>
           <article><b>Not included</b><p>Daily management, continuous posting, replies to comments and messages, paid advertising, photography, reels, influencers or a full month of content production.</p></article>
@@ -141,12 +141,12 @@ export default function Instagram14DayUpgradeOffer() {
       </section>
 
       <section className="shell offer-faq">
-        <span className="section-label">Frequently asked questions</span><h2>Before you start.</h2>
+        <span className="section-label">Frequently asked questions</span><h2>Before you start</h2>
         <div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="shell offer-final instagram-upgrade-final">
-        <div><small>14-day Instagram upgrade</small><h2>Make the first visit to the account<br/><em>say that you are organised and ready.</em></h2><p>If the account exists but does not reflect the level of your business, this is a focused starting point before you pay for more content or more advertising.</p></div>
+        <div><small>14-day Instagram upgrade</small><h2>Make the first visit to the account<br/><em>say that you are organised and ready</em></h2><p>If the account exists but does not reflect the level of your business, this is a focused starting point before you pay for more content or more advertising.</p></div>
         <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start the account upgrade <span>→</span></a>
         <div className="instagram-upgrade-links"><Link href="/en/offers/30-day-content-package">Need a full month of content?</Link><Link href="/en/social-media-content">Need ongoing social media management?</Link></div>
       </section>

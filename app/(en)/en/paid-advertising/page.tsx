@@ -95,7 +95,7 @@ export default function PaidAdvertisingPage() {
       <section className="pa-hero shell">
         <div className="pa-hero-copy">
           <div className="pa-kicker"><span>GOOGLE ADS</span><span>META ADS</span><span>PERFORMANCE</span></div>
-          <h1>Google Ads management.<br /><em>A clearer budget. Customers you can measure.</em></h1>
+          <h1>Google Ads management<br /><em>A clearer budget. Customers you can measure</em></h1>
           <p>We manage campaigns from keyword and advert to landing page, tracking and follow-up, so you can see which spend produces customers and where a campaign needs fixing before the budget grows.</p>
           <div className="pa-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Review your campaign on WhatsApp <span>↗</span></a><Link href="#launch">Only need a launch?</Link><a href="#journey">See our process</a></div>
         </div>
@@ -119,7 +119,7 @@ export default function PaidAdvertisingPage() {
 
       <section className="pa-truth">
         <div className="shell pa-truth-grid">
-          <div><span className="pa-label">The core idea</span><h2>Advertising is not a separate campaign.<br /><em>It is part of the sales system.</em></h2></div>
+          <div><span className="pa-label">The core idea</span><h2>Advertising is not a separate campaign<br /><em>It is part of the sales system</em></h2></div>
           <div>
             <p>When the offer is weak, the tracking is incomplete or the landing page is confusing, more spend simply means more waste.</p>
             <p>So we connect the channel to the message, the audience, the conversion and the follow-up, so you know what works and why.</p>
@@ -128,59 +128,59 @@ export default function PaidAdvertisingPage() {
       </section>
 
       <section className="pa-channels shell">
-        <div className="pa-section-head"><div><span className="pa-label">Choosing a channel</span><h2>Google captures demand.<br /><em>Meta creates interest.</em></h2></div><p>If a customer is already searching for your service or product, Google is usually the logical starting point. If you need to create interest, test angles and messages, or retarget people, Meta may be the better fit. The decision depends on what the customer is doing, not on which platform is most popular.</p></div>
-        <div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
+        <div className="pa-section-head"><div><span className="pa-label">Choosing a channel</span><h2>Google captures demand<br /><em>Meta creates interest</em></h2></div><p>If a customer is already searching for your service or product, Google is usually the logical starting point. If you need to create interest, test angles and messages, or retarget people, Meta may be the better fit. The decision depends on what the customer is doing, not on which platform is most popular.</p></div>
+        <div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
       </section>
 
       <section className="pa-scope">
         <div className="shell">
-          <div className="pa-section-head"><div><span className="pa-label">Scope of management</span><h2>Campaigns built for the goal.<br /><em>Not a list of platforms.</em></h2></div><p>We choose the mix from your data, budget and market, and test in stages.</p></div>
-          <div className="pa-scope-grid">{scope.map((item, index) => <article key={item[0]}><b>{String(index + 1).padStart(2, "0")}</b><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
+          <div className="pa-section-head"><div><span className="pa-label">Scope of management</span><h2>Campaigns built for the goal<br /><em>Not a list of platforms</em></h2></div><p>We choose the mix from your data, budget and market, and test in stages.</p></div>
+          <div className="pa-scope-grid">{scope.map((item, index) => <article key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
         </div>
       </section>
 
       <section className="pa-cost-breakdown shell" aria-labelledby="pa-cost-title">
-        <div className="pa-section-head"><div><span className="pa-label">Where the cost goes</span><h2 id="pa-cost-title">The advertising budget is not the management fee.</h2></div><p>Separate the items before you compare offers, so you know what you pay the platform, and what you pay for set-up, management and conversion work.</p></div>
+        <div className="pa-section-head"><div><span className="pa-label">Where the cost goes</span><h2 id="pa-cost-title">The advertising budget is not the management fee</h2></div><p>Separate the items before you compare offers, so you know what you pay the platform, and what you pay for set-up, management and conversion work.</p></div>
         <div className="pa-cost-breakdown-grid">
-          <article><small>01</small><h3>Platform budget</h3><p>Paid directly to Google or Meta for clicks and impressions.</p></article>
-          <article><small>02</small><h3>Set-up or management</h3><p>Building and improving campaigns, and monitoring keywords, adverts and budget.</p></article>
-          <article><small>03</small><h3>Landing page</h3><p>Added when the current page does not convert the traffic well enough.</p></article>
-          <article><small>04</small><h3>Tracking and measurement</h3><p>GA4, conversions and events needed to connect spend to real results.</p></article>
+          <article><h3>Platform budget</h3><p>Paid directly to Google or Meta for clicks and impressions.</p></article>
+          <article><h3>Set-up or management</h3><p>Building and improving campaigns, and monitoring keywords, adverts and budget.</p></article>
+          <article><h3>Landing page</h3><p>Added when the current page does not convert the traffic well enough.</p></article>
+          <article><h3>Tracking and measurement</h3><p>GA4, conversions and events needed to connect spend to real results.</p></article>
         </div>
       </section>
 
       <section className="pa-conversion-bridge shell">
-        <div><span className="pa-label">Before you raise the budget</span><h2>The advert brings the visit.<br /><em>The page and tracking decide the result.</em></h2><p>If the search terms are relevant and the adverts earn clicks but conversions are weak, the problem is usually after the click. We review the landing page, the speed of decision, the call to action and the tracking before asking for a bigger budget.</p></div>
+        <div><span className="pa-label">Before you raise the budget</span><h2>The advert brings the visit<br /><em>The page and tracking decide the result</em></h2><p>If the search terms are relevant and the adverts earn clicks but conversions are weak, the problem is usually after the click. We review the landing page, the speed of decision, the call to action and the tracking before asking for a bigger budget.</p></div>
         <div className="pa-conversion-links"><Link href="/en/website-design">Review website and landing pages <span>↗</span></Link><Link href="/en/seo-geo-aeo">Compare with search visibility <span>↗</span></Link></div>
       </section>
 
       <section className="pa-journey shell" id="journey">
-        <div className="pa-section-head"><div><span className="pa-label">From spend to result</span><h2>Every step protects the budget.<br /><em>Every number leads to a decision.</em></h2></div><p>We turn advertising management from a daily reaction into a system of testing, measurement and improvement.</p></div>
+        <div className="pa-section-head"><div><span className="pa-label">From spend to result</span><h2>Every step protects the budget<br /><em>Every number leads to a decision</em></h2></div><p>We turn advertising management from a daily reaction into a system of testing, measurement and improvement.</p></div>
         <div className="pa-journey-list">{journey.map((item) => <article key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div>
       </section>
 
       <section className="pa-measure">
         <div className="shell pa-measure-grid">
-          <div><span className="pa-label">Real measurement</span><h2>We do not celebrate click counts.<br /><em>We measure the value of the result.</em></h2></div>
-          <div className="pa-measure-list">{metrics.map((item, index) => <p key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</p>)}</div>
+          <div><span className="pa-label">Real measurement</span><h2>We do not celebrate click counts<br /><em>We measure the value of the result</em></h2></div>
+          <div className="pa-measure-list">{metrics.map((item, index) => <p key={item}>{item}</p>)}</div>
         </div>
       </section>
 
       <section className="pa-deliverables shell">
-        <div className="pa-section-head"><div><span className="pa-label">What you receive</span><h2>Full management.<br /><em>And clearer visibility.</em></h2></div><p>You know where the budget goes, what is being tested and what the next decision is.</p></div>
-        <div className="pa-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2, "0")}</b><p>{item}</p></div>)}</div>
+        <div className="pa-section-head"><div><span className="pa-label">What you receive</span><h2>Full management<br /><em>And clearer visibility</em></h2></div><p>You know where the budget goes, what is being tested and what the next decision is.</p></div>
+        <div className="pa-deliverables-list">{deliverables.map((item, index) => <div key={item}><p>{item}</p></div>)}</div>
       </section>
 
       <section className="pa-fit">
         <div className="shell pa-fit-grid">
-          <div><span className="pa-label">Who this is for</span><h2>When advertising becomes<br /><em>an investment that needs management.</em></h2></div>
+          <div><span className="pa-label">Who this is for</span><h2>When advertising becomes<br /><em>an investment that needs management</em></h2></div>
           <div>{fitFor.map((item) => <p key={item}>{item}</p>)}</div>
         </div>
       </section>
 
       <section className="pa-readiness shell" aria-labelledby="pa-readiness-title">
         <small>Is your campaign ready to scale?</small>
-        <h2 id="pa-readiness-title">Check these four points before you raise the budget.</h2>
+        <h2 id="pa-readiness-title">Check these four points before you raise the budget</h2>
         <p>If one of them is broken, more spend can make the problem bigger rather than the result.</p>
         <div className="pa-readiness-grid">
           <article><b>Search terms</b><span>Do the clicks come from real purchase intent, or from irrelevant searches?</span></article>
@@ -193,7 +193,7 @@ export default function PaidAdvertisingPage() {
 
       <section className="pa-cluster shell" aria-labelledby="pa-cluster-title" id="launch">
         <div className="pa-cluster-head">
-          <div><span className="pa-label">Before you set a budget</span><h2 id="pa-cluster-title">Understand the cost of Google Ads.<em>Then choose between a launch and management.</em></h2></div>
+          <div><span className="pa-label">Before you set a budget</span><h2 id="pa-cluster-title">Understand the cost of Google Ads.<em>Then choose between a launch and management</em></h2></div>
           <p>If you are still setting the budget, start with the related pages below. If you need one Google Search campaign only, a launch package is the most direct route. Accounts that need ongoing optimisation are better suited to monthly management.</p>
         </div>
         <div className="pa-guide-grid">
@@ -206,12 +206,12 @@ export default function PaidAdvertisingPage() {
       </section>
 
       <section className="pa-faq shell">
-        <div className="pa-section-head"><div><span className="pa-label">Frequently asked questions</span><h2>Google Ads management, without the guesswork.</h2></div><p>Direct answers on cost, budget, launches, management and tracking.</p></div>
+        <div className="pa-section-head"><div><span className="pa-label">Frequently asked questions</span><h2>Google Ads management, without the guesswork</h2></div><p>Direct answers on cost, budget, launches, management and tracking.</p></div>
         <div className="pa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
       <section className="pa-final shell">
-        <div><span className="pa-label">Next step</span><h2>Send your current account<br /><em>or the details of your business.</em></h2></div>
+        <div><span className="pa-label">Next step</span><h2>Send your current account<br /><em>or the details of your business</em></h2></div>
         <div><p>We will say whether you need ongoing management, a single launch, or a fix to the page and tracking before increasing the budget.</p><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start a campaign review <span>↗</span></a></div>
       </section>
       <RelatedGuides guides={[{ href: "/en/guides/google-ads-clicks-no-leads", title: "Why Google Ads brings clicks but not customers" }, { href: "/en/guides/google-ads-vs-meta-ads", title: "Google Ads or Meta Ads: which is right for your business?" }]} />

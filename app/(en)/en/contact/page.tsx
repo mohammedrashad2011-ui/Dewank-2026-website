@@ -24,7 +24,7 @@ function ContactPage() {
     <>
       <section className="hero shell">
         <span className="eyebrow">Contact</span>
-        <h1>Tell us the goal. We reply with the next step.</h1>
+        <h1>Tell us the goal. We reply with the next step</h1>
         <p className="lead">
           Send a short brief through the form, by email, or on WhatsApp. Whichever you choose, we reply after reviewing
           your brief.
@@ -33,7 +33,7 @@ function ContactPage() {
 
       <section className="section shell" aria-labelledby="form-title">
         <span className="eyebrow">Project brief</span>
-        <h2 id="form-title">Send your brief.</h2>
+        <h2 id="form-title">Send your brief</h2>
         <p className="lead">About two minutes. Pricing is custom, and we reply with a scoped proposal, not a fixed package.</p>
         <div className="form-layout">
           <ContactForm enabled={formEnabled} />
@@ -56,7 +56,7 @@ function ContactPage() {
 
       <section className="section shell" aria-labelledby="channels-title">
         <span className="eyebrow">Other ways to reach us</span>
-        <h2 id="channels-title">Email or WhatsApp.</h2>
+        <h2 id="channels-title">Email or WhatsApp</h2>
         <div className="grid two" style={{ marginTop: 28 }}>
           <article className="card">
             <span className="tag">Email</span>

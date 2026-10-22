@@ -97,7 +97,7 @@ export default function SeoAeoPage() {
       <section className="sa-hero shell">
         <div className="sa-hero-copy">
           <div className="sa-kicker"><span>SEO</span><span>GEO</span><span>AEO</span></div>
-          <h1>Not chasing rankings alone.<br /><em>Building visibility that is understood and chosen.</em></h1>
+          <h1>Not chasing rankings alone<br /><em>Building visibility that is understood and chosen</em></h1>
           <p>We improve how your website appears in Google and how clearly it answers questions for AI and answer engines, through technical SEO, structured content, schema and measurement that links visibility to enquiries.</p>
           <div className="sa-actions"><Link className="button primary" href="/en/contact">Request a website review <span>→</span></Link><a href="#process">See our approach</a></div>
         </div>
@@ -111,7 +111,7 @@ export default function SeoAeoPage() {
 
       <section className="sa-truth">
         <div className="shell sa-truth-grid">
-          <div><span className="sa-label">What has changed</span><h2>SEO brings the visit.<br /><em>AEO helps your content become the answer.</em></h2></div>
+          <div><span className="sa-label">What has changed</span><h2>SEO brings the visit<br /><em>AEO helps your content become the answer</em></h2></div>
           <div>
             <p>Visibility is no longer only a list of links. Someone may get a direct answer before opening any website.</p>
             <p>So we build pages that are clear to people and to systems, connect them to credible proof, and lead to a clear next step.</p>
@@ -121,46 +121,46 @@ export default function SeoAeoPage() {
       </section>
 
       <section className="sa-services shell">
-        <div className="sa-section-head"><div><span className="sa-label">Scope of work</span><h2>From technical structure to content.<br /><em>From understanding to conversion.</em></h2></div><p>Results come from a system of pages, topics and signals that work together, not from changing one title.</p></div>
-        <div className="sa-service-grid">{services.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
+        <div className="sa-section-head"><div><span className="sa-label">Scope of work</span><h2>From technical structure to content<br /><em>From understanding to conversion</em></h2></div><p>Results come from a system of pages, topics and signals that work together, not from changing one title.</p></div>
+        <div className="sa-service-grid">{services.map((item, index) => <article key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
       </section>
 
       <section id="process" className="sa-process">
         <div className="shell">
-          <div className="sa-section-head"><div><span className="sa-label">How we work</span><h2>We set priorities.<br /><em>Then we implement what makes the difference.</em></h2></div><p>We do not spread effort evenly. We start with what blocks visibility or weakens the pages that matter most commercially.</p></div>
+          <div className="sa-section-head"><div><span className="sa-label">How we work</span><h2>We set priorities<br /><em>Then we implement what makes the difference</em></h2></div><p>We do not spread effort evenly. We start with what blocks visibility or weakens the pages that matter most commercially.</p></div>
           <div className="sa-process-list">{process.map((item) => <article key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div>
         </div>
       </section>
 
       <section className="sa-measure">
         <div className="shell sa-measure-grid">
-          <div><span className="sa-label">Measurement</span><h2>Visits alone are not enough.<br /><em>We measure the visibility that supports growth.</em></h2></div>
-          <div className="sa-measure-list">{["Growth in visibility for valuable queries", "Qualified clicks and visits", "Pages that generate enquiries", "Better indexing and rich-result eligibility", "Conversions from organic search", "Clarity of content for answer systems"].map((item, index) => <p key={item}><span>0{index + 1}</span>{item}</p>)}</div>
+          <div><span className="sa-label">Measurement</span><h2>Visits alone are not enough<br /><em>We measure the visibility that supports growth</em></h2></div>
+          <div className="sa-measure-list">{["Growth in visibility for valuable queries", "Qualified clicks and visits", "Pages that generate enquiries", "Better indexing and rich-result eligibility", "Conversions from organic search", "Clarity of content for answer systems"].map((item, index) => <p key={item}>{item}</p>)}</div>
         </div>
       </section>
 
       <section className="sa-deliverables shell">
-        <div className="sa-section-head"><div><span className="sa-label">What you receive</span><h2>A plan you can act on.<br /><em>Not a report that sits unused.</em></h2></div><p>Each deliverable has a priority, an owner and a clear next step.</p></div>
-        <div className="sa-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>0{index + 1}</b><p>{item}</p></div>)}</div>
+        <div className="sa-section-head"><div><span className="sa-label">What you receive</span><h2>A plan you can act on<br /><em>Not a report that sits unused</em></h2></div><p>Each deliverable has a priority, an owner and a clear next step.</p></div>
+        <div className="sa-deliverables-list">{deliverables.map((item, index) => <div key={item}><p>{item}</p></div>)}</div>
       </section>
 
       <section className="sa-fit">
         <div className="shell sa-fit-grid">
-          <div><span className="sa-label">Who this is for</span><h2>When you have a website.<br /><em>But search does not work for you.</em></h2></div>
-          <div>{fitFor.map((item, index) => <p key={item}><span>0{index + 1}</span>{item}</p>)}</div>
+          <div><span className="sa-label">Who this is for</span><h2>When you have a website<br /><em>But search does not work for you</em></h2></div>
+          <div>{fitFor.map((item, index) => <p key={item}>{item}</p>)}</div>
         </div>
       </section>
 
       <section className="sa-fit" aria-labelledby="sa-expect-title">
         <div className="shell sa-fit-grid">
-          <div><span className="sa-label">Before you start</span><h2 id="sa-expect-title">What to expect.<br /><em>What we will not promise.</em></h2></div>
-          <div>{expectations.map((item, index) => <p key={item}><span>0{index + 1}</span>{item}</p>)}</div>
+          <div><span className="sa-label">Before you start</span><h2 id="sa-expect-title">What to expect<br /><em>What we will not promise</em></h2></div>
+          <div>{expectations.map((item, index) => <p key={item}>{item}</p>)}</div>
         </div>
       </section>
 
       <section className="sa-cluster shell" aria-labelledby="sa-cluster-title">
         <div className="sa-cluster-head">
-          <div><span className="sa-label">Before you decide</span><h2 id="sa-cluster-title">Diagnose visibility first.<em>Then choose the level of work.</em></h2></div>
+          <div><span className="sa-label">Before you decide</span><h2 id="sa-cluster-title">Diagnose visibility first.<em>Then choose the level of work</em></h2></div>
           <p>Read two short explanations of SEO and AEO and when the problem is visibility or conversion. If you need demand sooner, see paid advertising. If you want a specific starting point, the audit is the most direct step.</p>
         </div>
         <div className="sa-guide-grid">
@@ -181,12 +181,12 @@ export default function SeoAeoPage() {
       </section>
 
       <section className="sa-faq shell" id="faq">
-        <div className="sa-section-head"><div><span className="sa-label">Frequently asked questions</span><h2>Before you start.<br /><em>The most useful answers.</em></h2></div><p>We define the scope after reviewing the site, the market and the goal, not from a generic package.</p></div>
+        <div className="sa-section-head"><div><span className="sa-label">Frequently asked questions</span><h2>Before you start<br /><em>The most useful answers</em></h2></div><p>We define the scope after reviewing the site, the market and the goal, not from a generic package.</p></div>
         <div className="sa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
       <section className="sa-final shell">
-        <div><span className="sa-label">Next step</span><h2>Send your website address.<br /><em>We will show where visibility is lost.</em></h2></div>
+        <div><span className="sa-label">Next step</span><h2>Send your website address<br /><em>We will show where visibility is lost</em></h2></div>
         <div>
           <p>Tell us the type of business and the markets you serve, and we will start by reviewing the most important problems and opportunities.</p>
           <Link className="button primary" href="/en/contact">Start a website review <span>→</span></Link>

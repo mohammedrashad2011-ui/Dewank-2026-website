@@ -80,7 +80,7 @@ export default function BrandNamingOfferPage() {
       <section className="shell offer-detail-hero brand-naming-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> working days</span></div>
-          <h1>A name that does more than fill a space.<br/><em>It opens room to grow.</em></h1>
+          <h1>A name that does more than fill a space<br/><em>It opens room to grow</em></h1>
           <p>We develop a brand name you can understand, remember and use, then give you an initial brand direction so the identity does not start from nothing.</p>
           <div className="brand-naming-answer" aria-label="The short answer">
             <b>The short answer</b>
@@ -100,7 +100,7 @@ export default function BrandNamingOfferPage() {
       <section className="shell brand-naming-case" aria-labelledby="brand-naming-case-title">
         <div>
           <span className="section-label">A real naming project</span>
-          <h2 id="brand-naming-case-title">BITHAN: a fine jewellery brand in Qatar.</h2>
+          <h2 id="brand-naming-case-title">BITHAN: a fine jewellery brand in Qatar</h2>
           <p>The client chose the name BITHAN after a strategic brief, a short list, a development round, and a preliminary domain and similarity check. That check is not a legal clearance. The visual identity that followed the name is outside the scope of this package.</p>
         </div>
         <div>
@@ -114,19 +114,19 @@ export default function BrandNamingOfferPage() {
       <section className="shell brand-naming-proof">
         <div className="brand-naming-proof-copy">
           <span className="section-label">How we decide</span>
-          <h2>A good name passes more than one taste test.</h2>
+          <h2>A good name passes more than one taste test</h2>
           <p>We compare the options on distinctiveness, ease of pronunciation, memorability, fit with the market, future flexibility and digital availability. The goal is not a name we like, but a name a brand can be built around.</p>
         </div>
         <NameToIdentity locale="en" />
       </section>
 
       <section className="shell offer-deliverables brand-naming-deliverables">
-        <div><span className="section-label">What you receive</span><h2>From the idea.<br/>To a decision you can defend.</h2><p>Every element is designed to reduce guesswork before you start the logo, the identity and the launch.</p></div>
+        <div><span className="section-label">What you receive</span><h2>From the idea<br/>To a decision you can defend</h2><p>Every element is designed to reduce guesswork before you start the logo, the identity and the launch.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell brand-naming-process">
-        <div className="brand-naming-process-head"><span className="section-label">Three steps</span><h2>A short summary. Deep research. A clear decision.</h2></div>
+        <div className="brand-naming-process-head"><span className="section-label">Three steps</span><h2>A short summary. Deep research. A clear decision</h2></div>
         <div className="brand-naming-process-grid">
           <article><b>01</b><h3>We understand the business</h3><p>The activity, the market, the audience, the competitors, the kind of name needed and the growth ambitions.</p></article>
           <article><b>02</b><h3>We research and build</h3><p>We create different naming directions, then filter them by meaning, pronunciation, similarity and digital availability.</p></article>
@@ -135,16 +135,16 @@ export default function BrandNamingOfferPage() {
       </section>
 
       <section className="shell offer-confidence brand-naming-confidence">
-        <div className="offer-confidence-head"><span className="section-label">Clear limits</span><h2>Research reduces the risk. It does not remove it.</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">Clear limits</span><h2>Research reduces the risk. It does not remove it</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>The legal check we provide is preliminary. It is not legal advice or a guarantee of registration.</span></article><article><b>02</b><span>Domain and handle availability is checked at the time of the search and may change before you buy.</span></article><article><b>03</b><span>The logo and the full visual identity are a separate service, after the name is approved.</span></article></div>
         <details className="offer-policy"><summary>What the offer does not include</summary><p>It does not include official government fees, trademark registration, domain purchase, logo or full identity design, or specialist legal research across several classes and markets.</p></details>
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you choose your name.</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you choose your name</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta brand-naming-final">
         <span className="offer-kicker">Brand naming · initial brand direction</span>
-        <h2>Before you design the logo, choose a name worth putting it on.</h2>
+        <h2>Before you design the logo, choose a name worth putting it on</h2>
         <p>Send us your business type and target market, and we will start with a short summary of your project before the research.</p>
         <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start choosing your brand name <span>→</span></a>
         <div className="brand-naming-links"><Link href="/en/brand-naming">Details of the naming service</Link><Link href="/en/branding">Brand strategy and identity</Link><Link href="/en/offers">Back to offers</Link></div>

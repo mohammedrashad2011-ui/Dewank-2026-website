@@ -113,7 +113,7 @@ export default function BrandingPage() {
       <section className="shell brand-hero">
         <div className="brand-hero-copy">
           <span className="section-label">Brand strategy and identity</span>
-          <h1>A brand strategy that makes your business<em>clear, distinctive and worth choosing.</em></h1>
+          <h1>A brand strategy that makes your business<em>clear, distinctive and worth choosing</em></h1>
           <p>We help businesses worldwide build positioning, brand strategy and visual identity as one system, so customers understand your value, remember you and trust you before they start comparing prices.</p>
           <div className="brand-hero-actions">
             <Link className="button primary" href="/en/contact">Discuss your brand project <span>→</span></Link>
@@ -124,7 +124,7 @@ export default function BrandingPage() {
       </section>
 
       <section className="shell brand-diagnosis">
-        <div><span className="section-label">The problem we solve</span><h2>The market sees you.<br /><em>But does it understand you?</em></h2></div>
+        <div><span className="section-label">The problem we solve</span><h2>The market sees you<br /><em>But does it understand you?</em></h2></div>
         <div className="brand-diagnosis-copy">
           <p>When a brand has no clear positioning, message or cohesive identity, it looks like others, even when its service is better. The result is usually inconsistent content, more expensive campaigns, and a team that explains the business from zero every time.</p>
           <div className="brand-symptoms">
@@ -137,7 +137,7 @@ export default function BrandingPage() {
       <section className="brand-system-section">
         <div className="shell">
           <div className="brand-section-head">
-            <div><span className="section-label">The outcome</span><h2>We do not hand over a logo.<br /><em>We build a brand system.</em></h2></div>
+            <div><span className="section-label">The outcome</span><h2>We do not hand over a logo<br /><em>We build a brand system</em></h2></div>
             <p>Each element is tied to a strategic decision, so the identity works in marketing, sales and the customer experience, not only in a presentation file.</p>
           </div>
           <div className="brand-system-grid">{outcomes.map(([title, text], i) => <article className="brand-system-card" key={title}><b>0{i + 1}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
@@ -145,12 +145,12 @@ export default function BrandingPage() {
       </section>
 
       <section className="shell brand-deliverables">
-        <div className="brand-section-head"><div><span className="section-label">What the service includes</span><h2>From an unclear idea<br /><em>to a system you can use.</em></h2></div></div>
+        <div className="brand-section-head"><div><span className="section-label">What the service includes</span><h2>From an unclear idea<br /><em>to a system you can use</em></h2></div></div>
         <div className="brand-deliverables-grid">{deliverables.map(([title, text], i) => <article key={title}><span>0{i + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
       </section>
 
       <section className="shell brand-fit" aria-labelledby="brand-proof-title">
-        <div><span className="section-label">Verified work</span><h2 id="brand-proof-title">A naming and identity project,<br /><em>from decision to application.</em></h2></div>
+        <div><span className="section-label">Verified work</span><h2 id="brand-proof-title">A naming and identity project,<br /><em>from decision to application</em></h2></div>
         <div className="brand-fit-list">
           <p>See how the BITHAN project moved from positioning and naming checks to a complete identity with applications.</p>
           <Link className="button secondary" href="/en/work/bithan">Read the BITHAN case study <span>→</span></Link>
@@ -159,14 +159,14 @@ export default function BrandingPage() {
 
       <section className="brand-process">
         <div className="shell">
-          <div className="brand-section-head brand-process-head"><div><span className="section-label">How identity is built</span><h2>Strategy first.<br /><em>Design with a reason.</em></h2></div></div>
+          <div className="brand-section-head brand-process-head"><div><span className="section-label">How identity is built</span><h2>Strategy first<br /><em>Design with a reason</em></h2></div></div>
           <p className="brand-process-intro">Clear approval points reduce guesswork and random revisions, and make sure each stage is built on the decision before it.</p>
           <div className="brand-process-list">{process.map(([title, text], i) => <article key={title}><span>0{i + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
         </div>
       </section>
 
       <section className="shell brand-fit">
-        <div><span className="section-label">Who this is for</span><h2>The right time<br /><em>to build a brand.</em></h2></div>
+        <div><span className="section-label">Who this is for</span><h2>The right time<br /><em>to build a brand</em></h2></div>
         <div className="brand-fit-list">
           <p>A new business that needs a strong foundation before launch.</p>
           <p>A company that has grown, but whose image no longer reflects its size or its price.</p>
@@ -179,7 +179,7 @@ export default function BrandingPage() {
         <div className="brand-guides-head">
           <div>
             <span className="section-label">Before you decide</span>
-            <h2 id="brand-guides-title">Understand what you need first.<em>Then choose the right scope.</em></h2>
+            <h2 id="brand-guides-title">Understand what you need first.<em>Then choose the right scope</em></h2>
           </div>
           <p className="brand-guides-intro">Two short explanations to help you understand the cost of an identity and the naming decision, before you invest in design and launch.</p>
         </div>
@@ -199,7 +199,7 @@ export default function BrandingPage() {
 
       <section className="shell brand-faq" aria-labelledby="branding-faq-title" id="faq">
         <span className="section-label">Frequently asked questions</span>
-        <div className="brand-section-head"><div><h2 id="branding-faq-title">Clear answers<br /><em>before we start.</em></h2></div></div>
+        <div className="brand-section-head"><div><h2 id="branding-faq-title">Clear answers<br /><em>before we start</em></h2></div></div>
         {faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}
         <div className="brand-related">
           <Link href="/en/website-design">Company website design</Link>
@@ -210,7 +210,7 @@ export default function BrandingPage() {
 
       <section className="shell brand-offers" aria-labelledby="brand-offers-title" id="brand-offers">
         <div className="brand-offers-head">
-          <div><span className="section-label">Defined starting points</span><h2 id="brand-offers-title">If you do not need the full project,<br /><em>start with the right scope.</em></h2></div>
+          <div><span className="section-label">Defined starting points</span><h2 id="brand-offers-title">If you do not need the full project,<br /><em>start with the right scope</em></h2></div>
           <p>Smaller options with a defined scope and price help you start at the stage you need, rather than buying a larger service than the situation requires.</p>
         </div>
         <div className="brand-offers-grid">
@@ -229,7 +229,7 @@ export default function BrandingPage() {
       </section>
 
       <section className="shell brand-cta">
-        <div><span className="section-label">Starting point</span><h2>Your brand deserves<br />a reason to be chosen.</h2></div>
+        <div><span className="section-label">Starting point</span><h2>Your brand deserves<br />a reason to be chosen</h2></div>
         <div><p>Tell us where your brand stands today, and we will suggest whether you need a full strategy, a development of your current identity, or a smaller and more practical start.</p><Link className="button" href="/en/contact">Start a short conversation <span>→</span></Link></div>
       </section>
       <Footer />

@@ -155,7 +155,7 @@ export default function WebsiteDesignPage() {
       <section className="wd-hero shell">
         <div className="wd-hero-copy">
           <div className="wd-kicker"><span>WEBSITE DESIGN</span><span>UX / SEO / CRO</span></div>
-          <h1>Your website is not only a showcase.<br /><em>It should help the customer take a step.</em></h1>
+          <h1>Your website is not only a showcase<br /><em>It should help the customer take a step</em></h1>
           <p>Dewank designs and builds websites for businesses that need the message, trust, speed, search foundations and conversion path to work together, so visits from search and advertising become enquiries, sales or bookings.</p>
           <div className="wd-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss your project on WhatsApp <span>↗</span></a><a className="wd-text-link" href="#choose-path">Choose the type of site</a></div>
         </div>
@@ -163,7 +163,7 @@ export default function WebsiteDesignPage() {
           <div className="wd-browser-top"><div><i></i><i></i><i></i></div><span>yourbusiness.com</span></div>
           <div className="wd-browser-nav"><b>D</b><div><span>Services</span><span>Work</span><span>About</span></div><button type="button">Start a project</button></div>
           <div className="wd-browser-grid">
-            <div className="wd-screen-copy"><small>01 / CLARITY</small><strong>Value<br /><em>before decoration.</em></strong><p>A clear message, proof of trust, and a path that leads to action.</p><span className="wd-demo-cta">Explore the solution →</span></div>
+            <div className="wd-screen-copy"><small>CLARITY</small><strong>Value<br /><em>before decoration.</em></strong><p>A clear message, proof of trust, and a path that leads to action.</p><span className="wd-demo-cta">Explore the solution →</span></div>
             <div className="wd-screen-cards"><article><b>Clear message</b><span>What do you offer?</span></article><article><b>Proof of trust</b><span>Why choose you?</span></article><article><b>Next step</b><span>What should they do now?</span></article></div>
           </div>
           <div className="wd-browser-foot"><span>UX STRATEGY</span><span>RESPONSIVE</span><span>CONVERSION</span></div>
@@ -174,7 +174,7 @@ export default function WebsiteDesignPage() {
         <div className="shell">
           <span className="wd-label wd-truth-label">The core idea</span>
           <div className="wd-truth-grid wd-truth-grid-revised">
-            <div className="wd-truth-primary"><h2>Appearance attracts attention.<br /><em>The decision needs more than appearance.</em></h2></div>
+            <div className="wd-truth-primary"><h2>Appearance attracts attention<br /><em>The decision needs more than appearance</em></h2></div>
             <div className="wd-truth-secondary">
               <p>If a visitor does not understand the service quickly, has no reason to trust you, or does not know what to do next, a beautiful site is still only a catalogue.</p>
               <p>So we connect the design with content, user experience, speed and tracking, so the site serves search, advertising and sales at the same time.</p>
@@ -184,7 +184,7 @@ export default function WebsiteDesignPage() {
       </section>
 
       <section className="wd-paths shell" id="choose-path">
-        <div className="wd-section-head"><div><span className="wd-label">Choose a starting point</span><h2>Not every project needs the same site.<br /><em>Start with the scope that serves the goal.</em></h2></div><p>Choosing between a landing page, a company website and a custom project keeps cost and complexity under control without reducing the result you need.</p></div>
+        <div className="wd-section-head"><div><span className="wd-label">Choose a starting point</span><h2>Not every project needs the same site<br /><em>Start with the scope that serves the goal</em></h2></div><p>Choosing between a landing page, a company website and a custom project keeps cost and complexity under control without reducing the result you need.</p></div>
         <div className="wd-path-grid">
           {servicePaths.map((path, index) => (
             <article key={path.title} id={path.id}>
@@ -200,43 +200,43 @@ export default function WebsiteDesignPage() {
 
       <section className="wd-journey">
         <div className="shell">
-          <div className="wd-section-head"><div><span className="wd-label">From visit to result</span><h2>Every page has a job.<br /><em>Every step reduces hesitation.</em></h2></div><p>We build the journey from the visitor’s first question to the action that serves the business goal.</p></div>
+          <div className="wd-section-head"><div><span className="wd-label">From visit to result</span><h2>Every page has a job<br /><em>Every step reduces hesitation</em></h2></div><p>We build the journey from the visitor’s first question to the action that serves the business goal.</p></div>
           <div className="wd-journey-list">{stages.map((stage) => <article key={stage.n}><div className="wd-stage-id"><span>{stage.n}</span><small>{stage.en}</small></div><h3>{stage.title}</h3><p>{stage.text}</p></article>)}</div>
         </div>
       </section>
 
       <section className="wd-foundation shell" id="foundations">
-        <div className="wd-section-head"><div><span className="wd-label">Beyond the design</span><h2>SEO, speed, conversion and tracking.<br /><em>Not add-ons after launch.</em></h2></div><p>If the site will receive visits from search or campaigns, the technical foundation and the conversion path must be built from the start.</p></div>
-        <div className="wd-foundation-grid">{foundations.map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
+        <div className="wd-section-head"><div><span className="wd-label">Beyond the design</span><h2>SEO, speed, conversion and tracking<br /><em>Not add-ons after launch</em></h2></div><p>If the site will receive visits from search or campaigns, the technical foundation and the conversion path must be built from the start.</p></div>
+        <div className="wd-foundation-grid">{foundations.map((item, index) => <article key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
         <div className="wd-foundation-links"><Link href="/en/seo-geo-aeo">See SEO, GEO and AEO <span>↗</span></Link><Link href="/en/paid-advertising">See paid advertising <span>↗</span></Link></div>
       </section>
 
       <section className="wd-capabilities shell">
-        <div className="wd-section-head"><div><span className="wd-label">Scope of work</span><h2>Design, development and conversion<br /><em>in one system.</em></h2></div><p>We define the scope from the needs of the project, rather than adding features the user or the result does not need.</p></div>
-        <div className="wd-capability-grid">{capabilities.map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
+        <div className="wd-section-head"><div><span className="wd-label">Scope of work</span><h2>Design, development and conversion<br /><em>in one system</em></h2></div><p>We define the scope from the needs of the project, rather than adding features the user or the result does not need.</p></div>
+        <div className="wd-capability-grid">{capabilities.map((item, index) => <article key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
       </section>
 
       <section className="wd-deliverables">
         <div className="shell wd-deliverables-layout">
-          <div className="wd-sticky-copy"><span className="wd-label">What you receive</span><h2>Working deliverables.<br /><em>Not only a link.</em></h2><p>From planning to testing, you know what is being built, why, and how it will serve the business after launch.</p></div>
-          <div className="wd-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2, "0")}</b><p>{item}</p></div>)}</div>
+          <div className="wd-sticky-copy"><span className="wd-label">What you receive</span><h2>Working deliverables<br /><em>Not only a link</em></h2><p>From planning to testing, you know what is being built, why, and how it will serve the business after launch.</p></div>
+          <div className="wd-deliverables-list">{deliverables.map((item, index) => <div key={item}><p>{item}</p></div>)}</div>
         </div>
       </section>
 
       <section className="wd-method shell" id="process">
-        <div className="wd-section-head"><div><span className="wd-label">How we work</span><h2>From the business goal<br /><em>to a site that works.</em></h2></div><p>We do not start with colours. We start with the role of the site, the message and the path, then build the technology around them.</p></div>
-        <div className="wd-method-list">{process.map((step, index) => <div key={step[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{step[0]}</h3><p>{step[1]}</p></div>)}</div>
+        <div className="wd-section-head"><div><span className="wd-label">How we work</span><h2>From the business goal<br /><em>to a site that works</em></h2></div><p>We do not start with colours. We start with the role of the site, the message and the path, then build the technology around them.</p></div>
+        <div className="wd-method-list">{process.map((step, index) => <div key={step[0]}><h3>{step[0]}</h3><p>{step[1]}</p></div>)}</div>
       </section>
 
       <section className="wd-fit">
         <div className="shell wd-fit-layout">
-          <div><span className="wd-label">Who this is for</span><h2>You need a new website<br /><em>when the current one is in the way.</em></h2></div>
-          <div className="wd-fit-list">{fitFor.map((item, index) => <p key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</p>)}</div>
+          <div><span className="wd-label">Who this is for</span><h2>You need a new website<br /><em>when the current one is in the way</em></h2></div>
+          <div className="wd-fit-list">{fitFor.map((item, index) => <p key={item}>{item}</p>)}</div>
         </div>
       </section>
 
       <section className="wd-cluster shell" aria-labelledby="wd-cluster-title">
-        <div className="wd-cluster-head"><div><span className="wd-label">Before you decide</span><h2 id="wd-cluster-title">Understand what the site needs.<em>Then choose the right scope.</em></h2></div><p>Read the short guides on this page first. Move to a package only when its scope suits your stage.</p></div>
+        <div className="wd-cluster-head"><div><span className="wd-label">Before you decide</span><h2 id="wd-cluster-title">Understand what the site needs.<em>Then choose the right scope</em></h2></div><p>Read the short guides on this page first. Move to a package only when its scope suits your stage.</p></div>
         <div className="wd-guide-grid">
           {relatedPages.map((guide, index) => (
             <Link className="wd-guide-card" href={guide.href} key={guide.href}>
@@ -263,12 +263,12 @@ export default function WebsiteDesignPage() {
       </section>
 
       <section className="wd-faq shell">
-        <div className="wd-faq-head"><div><span className="wd-label">Frequently asked questions</span><h2>Before we start.</h2></div><p>Direct answers on scope, timelines, content, development and connections.</p></div>
+        <div className="wd-faq-head"><div><span className="wd-label">Frequently asked questions</span><h2>Before we start</h2></div><p>Direct answers on scope, timelines, content, development and connections.</p></div>
         <div className="wd-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
       <section className="wd-final shell">
-        <div><span className="wd-label">Next step</span><h2>Send your current website address.<br /><em>Or describe the project.</em></h2></div>
+        <div><span className="wd-label">Next step</span><h2>Send your current website address<br /><em>Or describe the project</em></h2></div>
         <div className="wd-final-actions">
           <p>We will say whether a landing page, a company website, an update to your current site or a custom project suits you, before you commit to a larger cost than needed.</p>
           <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss your website on WhatsApp <span>↗</span></a>

@@ -133,10 +133,10 @@ export default function Home() {
       <section className="hybrid-hero shell">
         <div className="hero-copy">
           <h1>
-            <span>We build the brand.</span>
-            <span>We drive the demand.</span>
+            <span>We build the brand</span>
+            <span>We drive the demand</span>
             <span>
-              <em>We automate the growth.</em>
+              <em>We automate the growth</em>
             </span>
           </h1>
           <p>
@@ -162,7 +162,7 @@ export default function Home() {
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
           <h2 id="home-proof-title">
-            Results from a live clinic project.
+            Results from a live clinic project
           </h2>
           <p>
             In a live project for a cosmetic clinic, we connected marketing with conversations, booking and follow-up,
@@ -206,9 +206,9 @@ export default function Home() {
             <div>
               <span className="section-label">Choose a starting point</span>
               <h2>
-                Four starting points.
+                Four starting points
                 <br />
-                <em>One system behind them.</em>
+                <em>One system behind them</em>
               </h2>
             </div>
             <Link className="text-link" href="/en/services">
@@ -219,7 +219,7 @@ export default function Home() {
             {services.map((service) => (
               <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
                 <div className="card-top">
-                  <span>{service.n}</span>
+                  
                   <small>{service.en}</small>
                   <b>↗</b>
                 </div>
@@ -257,11 +257,11 @@ export default function Home() {
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
         <div className="home-work-head">
           <div>
-            <span className="section-label">Selected work</span>
+            
             <h2 id="home-work-title">
-              We don&rsquo;t just show the look.
+              We don&rsquo;t just show the look
               <br />
-              <em>We show the decision behind it.</em>
+              <em>We show the decision behind it</em>
             </h2>
           </div>
           <Link href="/en/work">
@@ -272,7 +272,7 @@ export default function Home() {
           {selectedWork.map((item) => (
             <Link className="home-work-card" href={item.href} key={item.n}>
               <small>
-                {item.n} / {item.label}
+                {item.label}
               </small>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
@@ -291,9 +291,9 @@ export default function Home() {
           <div className="method-intro">
             <span className="section-label">How we work</span>
             <h2>
-              Fewer steps.
+              Fewer steps
               <br />
-              <em>Clearer decisions.</em>
+              <em>Clearer decisions</em>
             </h2>
             <p>
               We start with the business problem, then identify the shortest path that can be executed and measured.
@@ -301,9 +301,8 @@ export default function Home() {
             </p>
           </div>
           <div className="method-list">
-            {method.map(([no, title, text]) => (
-              <div key={no}>
-                <span>{no}</span>
+            {method.map(([, title, text]) => (
+              <div key={title}>
                 <strong>{title}</strong>
                 <p>{text}</p>
               </div>
@@ -313,8 +312,8 @@ export default function Home() {
       </section>
 
       <section className="home-growth-summary shell" aria-labelledby="home-growth-summary-title">
-        <span className="section-label">The Dewank system</span>
-        <h2 id="home-growth-summary-title">From the first impression to the follow-up after the enquiry.</h2>
+        
+        <h2 id="home-growth-summary-title">From the first impression to the follow-up after the enquiry</h2>
         <p>
           We connect brand strategy, content, ads, websites, SEO, WhatsApp and CRM so each step serves the next, rather
           than running separate services whose effect is hard to see.
@@ -339,7 +338,7 @@ export default function Home() {
         <div className="home-selected-offers-head">
           <div>
             <span className="section-label">Ready starting points</span>
-            <h2 id="home-offers-title">If your need is clear, start with a defined scope.</h2>
+            <h2 id="home-offers-title">If your need is clear, start with a defined scope</h2>
           </div>
         </div>
         <HomeSelectedOffers />
@@ -362,7 +361,7 @@ export default function Home() {
       <section className="faq-section shell" aria-labelledby="home-faq-title">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
         <span className="section-label">Before you start</span>
-        <h2 id="home-faq-title">Three questions that shorten the path.</h2>
+        <h2 id="home-faq-title">Three questions that shorten the path</h2>
         <div className="faq-grid">
           {faqs.map((f) => (
             <details key={f.q}>
@@ -377,9 +376,9 @@ export default function Home() {
         <div>
           <span className="section-label">Next step</span>
           <h2>
-            Send us your business.
+            Send us your business
             <br />
-            <em>Tell us where growth stops.</em>
+            <em>Tell us where growth stops</em>
           </h2>
         </div>
         <div>

@@ -133,7 +133,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-hero shell">
           <div className="bithan-hero-copy">
             <span className="bithan-kicker">FINE JEWELRY · QATAR · 2026</span>
-            <h1>BITHAN case study:<br /><em>from naming a jewellery brand to a complete visual identity.</em></h1>
+            <h1>BITHAN case study:<br /><em>from naming a jewellery brand to a complete visual identity</em></h1>
             <p className="bithan-hero-lede">A project for a fine jewellery house in Qatar. It started with naming strategy, checks and development. After the client chose the name, the work moved on to an Arabic and English identity that works across packaging, print, the digital presence and future growth.</p>
             <div className="bithan-hero-actions">
               <a className="button primary" href="#case-overview">View the case study <span>↓</span></a>
@@ -172,7 +172,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-overview shell" id="case-overview">
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow">01 / The challenge</span>
-            <h2>The goal was not to find a beautiful name.<br /><em>It was to build an asset the brand could grow into.</em></h2>
+            <h2>The goal was not to find a beautiful name<br /><em>It was to build an asset the brand could grow into</em></h2>
             <p>The project was for a fine jewellery brand launching digitally in Qatar, with ambitions to grow into a wider commercial and physical presence. The name had to carry prestige, work when spoken and read, and remain right as the brand grows.</p>
           </div>
           <div className="bithan-criteria-grid">
@@ -185,7 +185,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-naming" id="naming">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow">02 / Naming strategy</span><h2>Four strategic territories<br /><em>before the names begin.</em></h2></div>
+              <div><span className="bithan-eyebrow">02 / Naming strategy</span><h2>Four strategic territories<br /><em>before the names begin</em></h2></div>
               <p>Rather than jumping straight to generating names, the project first defined the linguistic and emotional territories worth exploring. That kept the work coherent, and client feedback changed the logic of the naming itself, not just the order of a list.</p>
             </div>
 
@@ -198,11 +198,11 @@ export default function BithanCaseStudyPage() {
             <div className="bithan-process-block">
               <div>
                 <span className="bithan-eyebrow">Process and screening</span>
-                <h3>We generate broadly.<br />We reject firmly.<br />We present selectively.</h3>
+                <h3>We generate broadly<br />We reject firmly<br />We present selectively</h3>
                 <p>Names were removed before presentation if they were weak in pronunciation, poor in category fit, limited in how far they could extend, lacking distinctiveness, or not practically available.</p>
               </div>
               <ol>
-                {namingProcess.map((step, index) => <li key={step}><b>{String(index + 1).padStart(2, "0")}</b><span>{step}</span></li>)}
+                {namingProcess.map((step, index) => <li key={step}><span>{step}</span></li>)}
               </ol>
             </div>
 
@@ -233,7 +233,7 @@ export default function BithanCaseStudyPage() {
           </figure>
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow">03 / Original sketch</span>
-            <h2>The identity began with a hand-drawn line.<br /><em>It finished as a more precise, luminous system.</em></h2>
+            <h2>The identity began with a hand-drawn line<br /><em>It finished as a more precise, luminous system</em></h2>
             <p>The final identity kept the Arabic spirit and the distinctive shape of the first direction. Its construction, proportions and details were then refined, so the expression feels more contemporary and suits the world of fine jewellery.</p>
             <div className="bithan-principles">
               <div><b>GEOMETRIC</b><span>Organised construction and clearer proportions</span></div>
@@ -247,7 +247,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-dark-panel" id="logo-suite">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow">04 / Final logo suite</span><h2>One signature.<br /><em>Seven usable versions.</em></h2></div>
+              <div><span className="bithan-eyebrow">04 / Final logo suite</span><h2>One signature<br /><em>Seven usable versions</em></h2></div>
               <p>The final system gives the identity the flexibility to work on premium packaging, print, social media, small digital spaces and both light and dark backgrounds, without losing recognition.</p>
             </div>
             <figure className="bithan-page-visual on-dark">
@@ -267,7 +267,7 @@ export default function BithanCaseStudyPage() {
 
         <section className="bithan-palette-section shell" id="palette">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow">05 / Master palette and print specs</span><h2>Approved colours<br /><em>for print and digital use.</em></h2></div>
+            <div><span className="bithan-eyebrow">05 / Master palette and print specs</span><h2>Approved colours<br /><em>for print and digital use</em></h2></div>
             <p>The identity is built on deep sapphire and lighter blues for a cool, crystalline feel, with black and white for contrast and flexibility.</p>
           </div>
           <figure className="bithan-page-visual palette-page">
@@ -297,7 +297,7 @@ export default function BithanCaseStudyPage() {
           <div className="shell bithan-variants-grid">
             <div className="bithan-section-copy">
               <span className="bithan-eyebrow">06 / Final flat colour variants</span>
-              <h2>Approved use of the logo<br /><em>on dark and light backgrounds.</em></h2>
+              <h2>Approved use of the logo<br /><em>on dark and light backgrounds</em></h2>
               <p>The primary mark is the version with the kasra (the vowel mark) on the letter ba. The version without the kasra is an approved alternative, used only where there is a technical need or a space constraint.</p>
               <div className="bithan-usage-note">
                 <b>Primary</b><span>With the kasra: the main, preferred use</span>
@@ -318,7 +318,7 @@ export default function BithanCaseStudyPage() {
           </figure>
           <div className="bithan-section-copy">
             <span className="bithan-eyebrow">07 / Sketch to final evolution</span>
-            <h2>From the original idea<br /><em>to a more precise, usable mark.</em></h2>
+            <h2>From the original idea<br /><em>to a more precise, usable mark</em></h2>
             <div className="bithan-evolution-notes">
               <article><b>GEOMETRIC CONSTRUCTION</b><p>More precise proportions and a balanced visual structure.</p></article>
               <article><b>JEWEL-LIKE FACETS</b><p>Crystalline details that link the mark to fine jewellery.</p></article>
@@ -331,7 +331,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-applications" id="applications">
           <div className="shell">
             <div className="bithan-section-head">
-              <div><span className="bithan-eyebrow">08 / Brand applications</span><h2>Premium applications<br /><em>that show the system works beyond the presentation file.</em></h2></div>
+              <div><span className="bithan-eyebrow">08 / Brand applications</span><h2>Premium applications<br /><em>that show the system works beyond the presentation file</em></h2></div>
               <p>The identity was tested on core touchpoints to confirm that the mark, the colour and the premium feel hold together in real use.</p>
             </div>
             <figure className="bithan-page-visual on-dark">
@@ -339,7 +339,7 @@ export default function BithanCaseStudyPage() {
               <a className="bithan-visual-zoom" href="/en/work/bithan/applications.svg" target="_blank" rel="noopener noreferrer">View the full-size design <span>↗</span></a>
             </figure>
             <div className="bithan-application-captions">
-              {applications.map(([name, category], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><h3>{name}</h3><p>{category}</p></article>)}
+              {applications.map(([name, category], index) => <article key={name}><h3>{name}</h3><p>{category}</p></article>)}
             </div>
           </div>
         </section>
@@ -347,7 +347,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-mid-cta shell" aria-label="Start a similar project">
           <div>
             <span className="bithan-eyebrow">Starting a naming or identity project?</span>
-            <h2>We can start from the naming decision, or from a brand that already exists.</h2>
+            <h2>We can start from the naming decision, or from a brand that already exists</h2>
             <p>If you need naming, brand strategy or a visual identity, send a short summary of your project and we will suggest the best starting point.</p>
           </div>
           <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss your project <span>↗</span></a>
@@ -355,7 +355,7 @@ export default function BithanCaseStudyPage() {
 
         <section className="bithan-delivery shell" id="delivery">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow">09 / Final delivery</span><h2>Brand assets, approved<br /><em>and ready to use.</em></h2></div>
+            <div><span className="bithan-eyebrow">09 / Final delivery</span><h2>Brand assets, approved<br /><em>and ready to use</em></h2></div>
             <p>The final delivery was not limited to the logo. It included metallic, flat and monochrome versions, print specifications, applications and source files.</p>
           </div>
           <figure className="bithan-page-visual delivery-page">
@@ -363,13 +363,13 @@ export default function BithanCaseStudyPage() {
             <a className="bithan-visual-zoom" href="/work/bithan/delivery-logos.svg" target="_blank" rel="noopener noreferrer">View the full-size design <span>↗</span></a>
           </figure>
           <div className="bithan-delivery-grid">
-            {delivery.map(([name, text], index) => <article key={name}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{name}</h3><p>{text}</p></div></article>)}
+            {delivery.map(([name, text], index) => <article key={name}><div><h3>{name}</h3><p>{text}</p></div></article>)}
           </div>
         </section>
 
         <section className="bithan-faq shell" aria-labelledby="bithan-faq-title">
           <div className="bithan-section-head">
-            <div><span className="bithan-eyebrow">10 / Case study FAQ</span><h2 id="bithan-faq-title">Important questions<br /><em>before a naming or identity project.</em></h2></div>
+            <div><span className="bithan-eyebrow">10 / Case study FAQ</span><h2 id="bithan-faq-title">Important questions<br /><em>before a naming or identity project</em></h2></div>
             <p>Direct answers to the points a client weighs when comparing naming, brand strategy and visual identity services.</p>
           </div>
           <div className="bithan-faq-list">
@@ -385,7 +385,7 @@ export default function BithanCaseStudyPage() {
         <section className="bithan-outcome shell">
           <div>
             <span className="bithan-eyebrow">The result</span>
-            <h2>A project that began with a naming decision.<br /><em>It ended as a complete brand system.</em></h2>
+            <h2>A project that began with a naming decision<br /><em>It ended as a complete brand system</em></h2>
           </div>
           <div>
             <p>BITHAN moved from a naming challenge to a name chosen by the client, then to a complete identity with a distinctive Arabic signature, bilingual use, controlled logo versions, production colour specifications and premium applications.</p>

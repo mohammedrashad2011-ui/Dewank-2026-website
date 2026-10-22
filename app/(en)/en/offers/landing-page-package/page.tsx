@@ -66,7 +66,7 @@ export default function LandingPageOffer() {
       <section className="shell offer-detail-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> working days</span></div>
-          <h1>One page.<br/><em>That turns a visitor into a customer.</em></h1>
+          <h1>One page<br/><em>That turns a visitor into a customer</em></h1>
           <p>We design a professional landing page that presents your service clearly, builds trust, and directs the customer straight to contact or booking.</p>
         </div>
         <aside className="offer-price-panel">
@@ -79,13 +79,13 @@ export default function LandingPageOffer() {
       </section>
 
       <section className="shell offer-deliverables">
-        <div><span className="section-label">What you receive</span><h2>Everything you need to start selling.</h2><p>Delivery in 7–10 working days after we receive the information and approve the direction.</p></div>
+        <div><span className="section-label">What you receive</span><h2>Everything you need to start selling</h2><p>Delivery in 7–10 working days after we receive the information and approve the direction.</p></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell offer-fit">
         <span className="section-label">Choose what suits you</span>
-        <h2>The page only.<br/>Or a full launch.</h2>
+        <h2>The page only<br/>Or a full launch</h2>
         <div className="offer-fit-grid landing-package-grid">
           <article className="offer-fit-card good landing-package-card">
             <small>If you already have a domain and hosting</small>
@@ -105,16 +105,16 @@ export default function LandingPageOffer() {
       </section>
 
       <section className="shell offer-confidence">
-        <div className="offer-confidence-head"><span className="section-label">Clear ownership</span><h2>The domain is in your name. The decision is yours.</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">Clear ownership</span><h2>The domain is in your name. The decision is yours</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>We register the domain in the client&apos;s name and under the client&apos;s email address.</span></article><article><b>02</b><span>We prepare the hosting, connect SSL and publish the page.</span></article><article><b>03</b><span>We hand over access details and renewal instructions clearly.</span></article></div>
         <details className="offer-policy"><summary>What the offer does not include</summary><p>It does not include an online shop, a payment gateway, multiple languages, a custom booking system, additional pages, advertising management, or domain and hosting renewal fees after the first year.</p></details>
       </section>
 
-      <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you start.</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta">
         <span className="offer-kicker">Custom page · delivery in 7–10 days</span>
-        <h2>Make your service clear before you ask a customer to buy it.</h2>
+        <h2>Make your service clear before you ask a customer to buy it</h2>
         <p>Choose the package that suits you, and we will ask about your business and the goal of the page before production begins.</p>
         <a className="button primary" href={contactBase} target="_blank" rel="noopener noreferrer">Start with a page that sells your service <span>→</span></a>
         <div><Link href="/en/offers/small-business-website">Need a website with several pages?</Link> · <Link href="/en/website-design">Compare website design services</Link> · <Link href="/en/offers">← Back to all offers</Link></div>

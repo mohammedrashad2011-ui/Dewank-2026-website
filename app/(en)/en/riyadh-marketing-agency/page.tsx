@@ -208,7 +208,7 @@ export default function RiyadhMarketingAgencyPage() {
       <section className="re-hero re-shell">
         <div className="re-hero-copy">
           <div className="re-kicker"><span>RIYADH</span><span>SAUDI ARABIA</span><span>GCC</span></div>
-          <h1>Marketing agency for Riyadh businesses that need <em>growth, not disconnected activity.</em></h1>
+          <h1>Marketing agency for Riyadh businesses that need <em>growth, not disconnected activity</em></h1>
           <p className="re-lead">Dewank connects brand strategy, digital marketing, paid media, websites, SEO, content and automation into one measurable growth system for companies in Riyadh and across Saudi Arabia.</p>
           <div className="re-actions">
             <a className="re-button" href={whatsappHref} target="_blank" rel="noopener noreferrer">Talk about your growth goal <span>↗</span></a>
@@ -233,13 +233,13 @@ export default function RiyadhMarketingAgencyPage() {
       <section className="re-intro re-shell">
         <span className="re-label">THE POSITIONING</span>
         <div className="re-intro-grid">
-          <h2>Not another list of marketing services.<br/><em>A connected commercial system.</em></h2>
+          <h2>Not another list of marketing services<br/><em>A connected commercial system</em></h2>
           <div><p>Many businesses do not have a traffic problem. They have a connection problem: the ad says one thing, the website says another, tracking stops at the click, and the lead disappears after the first message.</p><p>We start with the bottleneck closest to the business result, then build the smallest useful system around it.</p></div>
         </div>
       </section>
 
       <section id="services" className="re-services re-shell">
-        <div className="re-section-head"><div><span className="re-label">CAPABILITIES</span><h2>One partner across the parts<br/><em>that shape the decision.</em></h2></div><p>Start with one workstream or combine them when the customer journey genuinely requires it.</p></div>
+        <div className="re-section-head"><div><span className="re-label">CAPABILITIES</span><h2>One partner across the parts<br/><em>that shape the decision</em></h2></div><p>Start with one workstream or combine them when the customer journey genuinely requires it.</p></div>
         <div className="re-service-grid">
           {capabilities.map((service) => (
             <Link href={service.href} className="re-service-card" key={service.no}>
@@ -252,27 +252,27 @@ export default function RiyadhMarketingAgencyPage() {
       <section id="fit" className="re-fit">
         <div className="re-shell">
           <div className="re-section-head"><div><span className="re-label">WHEN DEWANK FITS</span><h2>The issue is rarely<br/><em>“we need more posts.”</em></h2></div><p>We are most useful when the business problem crosses more than one marketing touchpoint.</p></div>
-          <div className="re-fit-list">{fit.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+          <div className="re-fit-list">{fit.map(([title, text], index) => <article key={title}><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
         </div>
       </section>
 
       <section className="re-saudi re-shell">
-        <div><span className="re-label">RIYADH / SAUDI ARABIA</span><h2>Built for the market.<br/><em>Designed around the customer journey.</em></h2></div>
+        <div><span className="re-label">RIYADH / SAUDI ARABIA</span><h2>Built for the market<br/><em>Designed around the customer journey</em></h2></div>
         <div><p>Dewank supports Saudi businesses with Arabic and English customer journeys, local-market messaging, performance acquisition, conversion pages and follow-up systems.</p><p>If you are comparing a marketing agency, digital marketing partner or branding agency in Riyadh, our model is built around one thing: connecting strategy and execution to measurable commercial outcomes.</p><Link href="/services">View the full Arabic services hub <span>↗</span></Link></div>
       </section>
 
       <section id="process" className="re-process re-shell">
-        <div className="re-section-head"><div><span className="re-label">PROCESS</span><h2>Less theatre.<br/><em>More sequence.</em></h2></div><p>The scope follows the bottleneck, not a pre-built package.</p></div>
+        <div className="re-section-head"><div><span className="re-label">PROCESS</span><h2>Less theatre<br/><em>More sequence</em></h2></div><p>The scope follows the bottleneck, not a pre-built package.</p></div>
         <div className="re-process-grid">{process.map(([no, title, text]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section id="faq" className="re-faq re-shell">
-        <div className="re-section-head"><div><span className="re-label">FAQ</span><h2>Before you shortlist<br/><em>a Riyadh marketing agency.</em></h2></div><p>Clear answers about location, language, scope and delivery.</p></div>
+        <div className="re-section-head"><div><span className="re-label">FAQ</span><h2>Before you shortlist<br/><em>a Riyadh marketing agency</em></h2></div><p>Clear answers about location, language, scope and delivery.</p></div>
         <div className="re-faq-list">{faqs.map((faq) => <details key={faq.q}><summary>{faq.q}<span>+</span></summary><p>{faq.a}</p></details>)}</div>
       </section>
 
       <section className="re-final re-shell">
-        <div><span className="re-label">NEXT STEP</span><h2>Tell us the business goal.<br/><em>We will find the bottleneck.</em></h2></div>
+        <div><span className="re-label">NEXT STEP</span><h2>Tell us the business goal<br/><em>We will find the bottleneck</em></h2></div>
         <div><p>Share your business type, market and current challenge. We will recommend the most focused next step instead of starting with the largest scope.</p><a className="re-button" href={whatsappHref} target="_blank" rel="noopener noreferrer">Start on WhatsApp <span>↗</span></a></div>
       </section>
 

@@ -118,7 +118,7 @@ export default function ConversionRateOptimizationEnglishPage() {
       <section className="sa-hero shell">
         <div className="sa-hero-copy">
           <div className="sa-kicker"><span>CRO</span><span>Conversion path</span><span>Qualified enquiries</span></div>
-          <h1>Conversion Rate Optimisation (CRO).<br/><em>Turn qualified visits into real opportunities.</em></h1>
+          <h1>Conversion Rate Optimisation (CRO)<br/><em>Turn qualified visits into real opportunities</em></h1>
           <p>If people who need your service reach your website but do not enquire, book or buy, the problem is rarely the number of visits. We trace where a visitor stops: the message, the trust, the next step, or the follow-up after an enquiry arrives.</p>
           <div className="sa-actions">
             <a className="button primary" href="#pricing">Choose the right package <span>→</span></a>
@@ -130,7 +130,7 @@ export default function ConversionRateOptimizationEnglishPage() {
 
       <section className="sa-truth">
         <div className="shell sa-truth-grid">
-          <div><span className="sa-label">[ The idea ]</span><h2>A visit is not the goal.<br/><em>A qualified enquiry is.</em></h2></div>
+          <div><span className="sa-label">The idea</span><h2>A visit is not the goal<br/><em>A qualified enquiry is</em></h2></div>
           <div>
             <p>Many businesses spend to reach an audience, then lose the opportunity right after the visit: a message that does not match the need, an unclear next step, or an enquiry that nobody answers quickly.</p>
             <p>We review that path from start to finish and give you a plan ranked by impact. We make no promises about rankings or specific results.</p>
@@ -139,14 +139,14 @@ export default function ConversionRateOptimizationEnglishPage() {
       </section>
 
       <section className="sa-services shell">
-        <div className="sa-section-head"><div><span className="sa-label">[ Where opportunities leak ]</span><h2>Six places where enquiries get lost.<br/><em>Usually one of them is the cause.</em></h2></div><p>These are the most common causes. They are not a checklist we run automatically. The audit shows which ones apply to your business.</p></div>
-        <div className="sa-service-grid">{wrongPlaces.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
+        <div className="sa-section-head"><div><span className="sa-label">Where opportunities leak</span><h2>Six places where enquiries get lost<br/><em>Usually one of them is the cause</em></h2></div><p>These are the most common causes. They are not a checklist we run automatically. The audit shows which ones apply to your business.</p></div>
+        <div className="sa-service-grid">{wrongPlaces.map((item, index) => <article key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
       </section>
 
       <section className="sa-fit">
         <div className="shell">
           <div className="sa-fit-grid">
-            <div><span className="sa-label">[ Who it is for ]</span><h2>Who this service is for.<br/><em>And who it is not for.</em></h2></div>
+            <div><span className="sa-label">Who it is for</span><h2>Who this service is for<br/><em>And who it is not for</em></h2></div>
             <div>
               <p><span>01</span><span className="cro-fit-text">Websites and landing pages that receive traffic from adverts, search or social media, but produce too few enquiries.</span></p>
               <p><span>02</span><span className="cro-fit-text">Businesses that receive WhatsApp messages or form enquiries, but only a weak share of them turn into bookings or sales.</span></p>
@@ -159,14 +159,14 @@ export default function ConversionRateOptimizationEnglishPage() {
 
       <section id="process" className="sa-process">
         <div className="shell">
-          <div className="sa-section-head"><div><span className="sa-label">[ Method ]</span><h2>We trace the journey before suggesting changes.<br/><em>Then we rank what deserves fixing.</em></h2></div><p>We do not start by changing colours or copy. We start by finding where the visitor leaves, and why.</p></div>
+          <div className="sa-section-head"><div><span className="sa-label">Method</span><h2>We trace the journey before suggesting changes<br/><em>Then we rank what deserves fixing</em></h2></div><p>We do not start by changing colours or copy. We start by finding where the visitor leaves, and why.</p></div>
           <div className="sa-process-list">{steps.map((item) => <article key={item[0]}><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div>
         </div>
       </section>
 
       <section id="audit" className="sa-deliverables shell cro-audit" aria-labelledby="cro-audit-title">
         <div className="sa-section-head">
-          <div><span className="sa-label">[ Paid diagnostic ]</span><h2 id="cro-audit-title">Website & Conversion Funnel Audit.<br/><em>For one defined path, not the whole site.</em></h2></div>
+          <div><span className="sa-label">Paid diagnostic</span><h2 id="cro-audit-title">Website & Conversion Funnel Audit<br/><em>For one defined path, not the whole site</em></h2></div>
           <p>We agree together which path deserves review, from the first point of contact to the enquiry or booking. The report stays practical instead of becoming a long list of general notes. Each package sets its own limits; see the packages below.</p>
         </div>
         <div className="cro-scope-grid">
@@ -209,7 +209,7 @@ export default function ConversionRateOptimizationEnglishPage() {
 
       <section id="pricing" className="shell cro-pricing" aria-labelledby="cro-pricing-title">
         <div className="sa-section-head">
-          <div><span className="sa-label">[ Packages ]</span><h2 id="cro-pricing-title">Three <span className="cro-nowrap">one-time</span> packages.<br/><em>Each one sets its limits before we start.</em></h2></div>
+          <div><span className="sa-label">Packages</span><h2 id="cro-pricing-title">Three <span className="cro-nowrap">one-time</span> packages<br/><em>Each one sets its limits before we start</em></h2></div>
           <p>Choose by the size of the journey you want reviewed. Prices appear in the approved currency of your saved country where one exists, and in US dollars elsewhere.</p>
         </div>
         <div className="cro-package-grid">
@@ -235,7 +235,7 @@ export default function ConversionRateOptimizationEnglishPage() {
 
       <section className="shell cro-order" aria-labelledby="cro-order-title">
         <div className="sa-section-head">
-          <div><span className="sa-label">[ How ordering works ]</span><h2 id="cro-order-title">From package to delivery.<br/><em>Four steps, in order.</em></h2></div>
+          <div><span className="sa-label">How ordering works</span><h2 id="cro-order-title">From package to delivery<br/><em>Four steps, in order</em></h2></div>
           <p>Pressing the WhatsApp button opens a conversation to confirm the scope. That step is not a confirmed order, a payment or a qualified lead, and no work begins until step three.</p>
         </div>
         <ol className="cro-steps cro-order-steps">
@@ -246,13 +246,13 @@ export default function ConversionRateOptimizationEnglishPage() {
         </ol>
       </section>
 
-      <section className="sa-fit">
+      <section className="sa-fit cro-after-audit">
         <div className="shell">
           <div className="sa-fit-grid">
-            <div><span className="sa-label">[ After the audit ]</span><h2>The audit identifies the next step.<br/><em>Implementation is a separate decision.</em></h2></div>
+            <div><span className="sa-label">After the audit</span><h2>The audit identifies the next step<br/><em>Implementation is a separate decision</em></h2></div>
             <div>
               <p className="cro-fit-intro">We do not recommend implementation before you understand the problem. After the report, one of these may fit, or none may be needed:</p>
-              {afterAudit.map((item, index) => <p key={item[0]}><span>0{index + 1}</span><span className="cro-fit-text"><Link href={item[2]}>{item[0]}</Link>: {item[1]}</span></p>)}
+              {afterAudit.map((item, index) => <p key={item[0]}><span className="cro-fit-text"><Link href={item[2]}>{item[0]}</Link>: {item[1]}</span></p>)}
             </div>
           </div>
         </div>
@@ -260,7 +260,7 @@ export default function ConversionRateOptimizationEnglishPage() {
 
       <section className="sa-cluster shell" aria-labelledby="cro-guides-title">
         <div className="sa-cluster-head">
-          <div><span className="sa-label">[ Before you decide ]</span><h2 id="cro-guides-title">Understand the problem first.<em>Then decide what deserves fixing.</em></h2></div>
+          <div><span className="sa-label">Before you decide</span><h2 id="cro-guides-title">Understand the problem first.<em>Then decide what deserves fixing</em></h2></div>
           <p>Short guides that explain where opportunities leak between the visit, the enquiry and the follow-up.</p>
         </div>
         <div className="sa-guide-grid">
@@ -275,12 +275,12 @@ export default function ConversionRateOptimizationEnglishPage() {
       </section>
 
       <section className="sa-faq shell">
-        <div className="sa-section-head"><div><span className="sa-label">[ Questions ]</span><h2>Before you request the audit.<br/><em>These are the most useful answers.</em></h2></div><p>The final details are set once the scope is agreed, not from a generic list.</p></div>
+        <div className="sa-section-head"><div><span className="sa-label">Questions</span><h2>Before you request the audit<br/><em>These are the most useful answers</em></h2></div><p>The final details are set once the scope is agreed, not from a generic list.</p></div>
         <div className="sa-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
       <section className="sa-final shell">
-        <div><span className="sa-label">[ Next step ]</span><h2>Send us the page link.<br/><em>We will show where the visit stops.</em></h2></div>
+        <div><span className="sa-label">Next step</span><h2>Send us the page link<br/><em>We will show where the visit stops</em></h2></div>
         <div>
           <p>Send the website or page link and your business type. We will agree the most useful path to review and what the audit needs.</p>
           <a className="button primary" href={whatsappAudit} target="_blank" rel="noreferrer">Talk to us about the right package <span>→</span></a>

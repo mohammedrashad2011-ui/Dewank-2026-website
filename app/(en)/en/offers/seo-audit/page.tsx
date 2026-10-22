@@ -91,7 +91,7 @@ export default function SeoAuditOfferPage() {
       <section className="shell offer-detail-hero seo-audit-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>48</strong> hours to deliver</span></div>
-          <h1>Your website exists.<br/><em>But does Google understand it?</em></h1>
+          <h1>Your website exists<br/><em>But does Google understand it?</em></h1>
           <p>A full SEO audit shows what is holding back your visibility, what needs fixing first, and where the growth opportunities are, before you spend more on marketing.</p>
           <div className="seo-audit-answer" aria-label="Short answer">
             <b>The short answer</b>
@@ -110,7 +110,7 @@ export default function SeoAuditOfferPage() {
       <section className="shell seo-audit-proof" aria-labelledby="audit-preview-title">
         <div className="seo-audit-proof-copy">
           <span className="section-label">What the result looks like</span>
-          <h2 id="audit-preview-title">A report the business owner can understand.<br/>Not an endless list of errors.</h2>
+          <h2 id="audit-preview-title">A report the business owner can understand<br/>Not an endless list of errors</h2>
           <p>We rank what we find by impact, and show what needs urgent attention and what can wait, so the review becomes decisions you can act on. The figures in the example beside this text are illustrative only, not the result of a real site.</p>
         </div>
         <div className="seo-report-mockup" role="img" aria-label="Illustrative example of an SEO report showing an overall score, critical issues and improvement opportunities">
@@ -130,34 +130,34 @@ export default function SeoAuditOfferPage() {
       </section>
 
       <section className="shell offer-deliverables seo-audit-areas">
-        <div><span className="section-label">What we audit</span><h2>Five areas.<br/>One clear picture.</h2><p>The audit does not stop at keywords. We review what helps Google reach and understand your site, and what helps a visitor take the next step.</p></div>
+        <div><span className="section-label">What we audit</span><h2>Five areas<br/>One clear picture</h2><p>The audit does not stop at keywords. We review what helps Google reach and understand your site, and what helps a visitor take the next step.</p></div>
         <div className="deliverable-list">{auditAreas.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell seo-audit-delivery">
-        <div className="seo-audit-delivery-head"><span className="section-label">What you receive</span><h2>From diagnosis to an implementation plan.</h2></div>
-        <div className="seo-audit-delivery-grid">{deliverables.map(([title, text], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div className="seo-audit-delivery-head"><span className="section-label">What you receive</span><h2>From diagnosis to an implementation plan</h2></div>
+        <div className="seo-audit-delivery-grid">{deliverables.map(([title, text], index) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell seo-audit-process">
-        <div className="seo-audit-process-head"><span className="section-label">How it works</span><h2>Three steps only.</h2></div>
+        <div className="seo-audit-process-head"><span className="section-label">How it works</span><h2>Three steps only</h2></div>
         <div className="seo-audit-process-grid">{processSteps.map(([n, title, text]) => <article key={n}><b>{n}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell offer-confidence seo-audit-confidence">
-        <div className="offer-confidence-head"><span className="section-label">A clear scope</span><h2>The audit identifies the problem.<br/>Implementation is a separate decision.</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">A clear scope</span><h2>The audit identifies the problem<br/>Implementation is a separate decision</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>We do not sell implementation before we know what the site actually needs.</span></article><article><b>02</b><span>The report shows what you can fix yourself and what needs a specialist.</span></article><article><b>03</b><span>The recommendations can be carried out with Dewank or with any team you choose.</span></article></div>
         <details className="offer-policy"><summary>What the offer does not include</summary><p>It does not include code changes, writing complete pages, building external links, ongoing monthly SEO, or a guaranteed ranking position on Google. These are separate services, and they are scoped only after the audit results are known.</p></details>
       </section>
 
       <section className="shell offer-faq" id="faq">
-        <div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you send your website.</h2></div>
+        <div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you send your website</h2></div>
         <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="shell offer-final-cta seo-audit-final">
         <span className="offer-kicker">SEO + AEO · PDF report · within 48 hours</span>
-        <h2>Find where you are losing visibility before you pay more to bring visitors in.</h2>
+        <h2>Find where you are losing visibility before you pay more to bring visitors in</h2>
         <p>Send us your website address, your business type and your target market. We will start the audit from the big picture and move to the details that affect results.</p>
         <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Audit my website now <span>→</span></a>
         <div className="seo-audit-links"><Link href="/en/guides/seo-vs-aeo">Want to understand the difference between SEO and AEO?</Link><Link href="/en/seo-geo-aeo">Need ongoing implementation after the audit?</Link><Link href="/en/offers">← Back to all offers</Link></div>

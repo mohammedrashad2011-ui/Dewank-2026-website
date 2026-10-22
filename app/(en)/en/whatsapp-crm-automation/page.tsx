@@ -65,8 +65,8 @@ export default function WhatsAppAutomationPage() {
           <div className="wa-hero-copy">
             <span className="eyebrow">WHATSAPP AUTOMATION + CRM</span>
             <h1>
-              <span className="wa-hero-line">Let WhatsApp reply, qualify and follow up.</span>
-              <em className="wa-hero-line wa-hero-line-accent">Your team steps in when the customer needs them.</em>
+              <span className="wa-hero-line">Let WhatsApp reply, qualify and follow up</span>
+              <em className="wa-hero-line wa-hero-line-accent">Your team steps in when the customer needs them</em>
             </h1>
             <p>We build WhatsApp automation that connects the conversation to booking, a CRM and follow-up, so no customer is lost between the first message and the next step, and your team stops repeating the same manual work.</p>
             <div className="wa-hero-actions">
@@ -94,14 +94,14 @@ export default function WhatsAppAutomationPage() {
 
       <section className="shell flow-section wa-flow-section">
         <span className="section-label">The customer journey</span>
-        <h2>From the first &ldquo;hello&rdquo;<br />to a <mark>measurable action.</mark></h2>
+        <h2>From the first &ldquo;hello&rdquo;<br />to a <mark>measurable action</mark></h2>
         <p className="wa-section-intro">Automation is not just an automatic reply. The aim is for every message to know its next step, and for the customer to reach a person at the right moment.</p>
         <AutomationFlow />
       </section>
 
       <section className="automation-core wa-connected">
         <div className="shell core-grid">
-          <div className="core-copy"><span className="section-label">One connected system</span><h2>The conversation at the centre.<br /><mark>Every step around it connected.</mark></h2><p>WhatsApp remains the customer’s interface. Behind it, the CRM, booking, follow-up and reporting work together.</p></div>
+          <div className="core-copy"><span className="section-label">One connected system</span><h2>The conversation at the centre<br /><mark>Every step around it connected</mark></h2><p>WhatsApp remains the customer’s interface. Behind it, the CRM, booking, follow-up and reporting work together.</p></div>
           <ConnectedSystem />
         </div>
       </section>
@@ -113,7 +113,7 @@ export default function WhatsAppAutomationPage() {
       </section>
 
       <section className="shell wa-commercial" aria-labelledby="wa-commercial-title" id="starter">
-        <div className="wa-section-head"><div><span className="section-label">Choose a starting point</span><h2 id="wa-commercial-title">Not every business needs the same system.</h2></div><p>Start with the smallest scope that solves the current problem. If you need a CRM, booking or wider integrations, we extend the system once the journey is clear.</p></div>
+        <div className="wa-section-head"><div><span className="section-label">Choose a starting point</span><h2 id="wa-commercial-title">Not every business needs the same system</h2></div><p>Start with the smallest scope that solves the current problem. If you need a CRM, booking or wider integrations, we extend the system once the journey is clear.</p></div>
         <div className="wa-choice-grid">
           <article className="wa-choice wa-choice-featured">
             <small>STARTER</small>
@@ -136,7 +136,7 @@ export default function WhatsAppAutomationPage() {
 
       <section className="shell wa-crm-decision" aria-labelledby="wa-crm-decision-title">
         <small>Automation only, or a CRM?</small>
-        <h2 id="wa-crm-decision-title">Start with the problem, not the tool.</h2>
+        <h2 id="wa-crm-decision-title">Start with the problem, not the tool</h2>
         <p>If the goal is only fast replies, data collection and handing over to a person, the Starter scope may be enough. If you have a team, sales stages, bookings and repeated follow-up, the CRM becomes part of the solution rather than a decoration.</p>
         <div className="wa-crm-grid">
           <article><h3>Automation only</h3><p>Best when you need replies, qualification and a handover to a person, without managing complex sales stages or an extended follow-up history.</p></article>
@@ -147,19 +147,19 @@ export default function WhatsAppAutomationPage() {
 
       <section className="method-section wa-method">
         <div className="shell method-layout">
-          <div className="method-intro"><span className="section-label">How we deliver</span><h2>We do not start with a bot.<br /><em>We start with the customer journey.</em></h2><p>We review your current conversations, find where work repeats and where customers drop out, then build the simplest route that solves the problem.</p></div>
+          <div className="method-intro"><span className="section-label">How we deliver</span><h2>We do not start with a bot<br /><em>We start with the customer journey</em></h2><p>We review your current conversations, find where work repeats and where customers drop out, then build the simplest route that solves the problem.</p></div>
           <div className="method-list">
-            <div><span>01</span><h3>Analyse conversations</h3><p>Repeated questions, the points where things break, and the main intentions of customers.</p></div>
-            <div><span>02</span><h3>Design the flows</h3><p>Reply, qualification, booking, follow-up and handover to a person.</p></div>
-            <div><span>03</span><h3>Connect and test</h3><p>WhatsApp, the CRM, booking and notifications, within the agreed scope.</p></div>
-            <div><span>04</span><h3>Improve</h3><p>We refine replies and rules based on real conversations.</p></div>
+            <div><h3>Analyse conversations</h3><p>Repeated questions, the points where things break, and the main intentions of customers.</p></div>
+            <div><h3>Design the flows</h3><p>Reply, qualification, booking, follow-up and handover to a person.</p></div>
+            <div><h3>Connect and test</h3><p>WhatsApp, the CRM, booking and notifications, within the agreed scope.</p></div>
+            <div><h3>Improve</h3><p>We refine replies and rules based on real conversations.</p></div>
           </div>
         </div>
       </section>
 
       <section className="shell wa-readiness" aria-labelledby="wa-readiness-title">
         <small>When is automation worth it?</small>
-        <h2 id="wa-readiness-title">If the problem repeats every day, automation is usually worth considering.</h2>
+        <h2 id="wa-readiness-title">If the problem repeats every day, automation is usually worth considering</h2>
         <p>Automation is most valuable when it removes a clear repetition or stops a sales opportunity from being lost, not simply because the technology is new.</p>
         <div className="wa-readiness-grid">
           <article><b>Slow replies</b><p>The customer waits, or the same question is asked dozens of times.</p></article>
@@ -171,17 +171,17 @@ export default function WhatsAppAutomationPage() {
       </section>
 
       <section className="shell wa-usecases">
-        <div className="wa-section-head"><div><span className="section-label">Use cases</span><h2>When the conversation is part of the sale,<br /><em>it should not get lost after the first reply.</em></h2></div><p>WhatsApp automation is most useful when questions, qualification, booking or follow-up repeat every day.</p></div>
+        <div className="wa-section-head"><div><span className="section-label">Use cases</span><h2>When the conversation is part of the sale,<br /><em>it should not get lost after the first reply</em></h2></div><p>WhatsApp automation is most useful when questions, qualification, booking or follow-up repeat every day.</p></div>
         <div className="wa-usecase-grid">{useCases.map(([number, heading, text]) => <article key={number}><small>{number}</small><h3>{heading}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="wa-ai-bridge shell">
-        <div><span className="section-label">Beyond WhatsApp</span><h2>WhatsApp is the channel.<br />Automation can connect the whole process.</h2><p>If the problem reaches sales, operations, reporting or several systems, see our AI automation service.</p></div>
+        <div><span className="section-label">Beyond WhatsApp</span><h2>WhatsApp is the channel<br />Automation can connect the whole process</h2><p>If the problem reaches sales, operations, reporting or several systems, see our AI automation service.</p></div>
         <Link className="button primary" href="/en/ai-automation">Explore AI automation</Link>
       </section>
 
       <section className="shell wa-guides" aria-labelledby="wa-guides-title">
-        <div className="wa-section-head"><div><span className="section-label">Before you decide</span><h2 id="wa-guides-title">Before you buy a tool,<br /><em>understand the system and the cost.</em></h2></div><p>If your question is about a CRM, prices or how the connections work, start with the page closest to your decision.</p></div>
+        <div className="wa-section-head"><div><span className="section-label">Before you decide</span><h2 id="wa-guides-title">Before you buy a tool,<br /><em>understand the system and the cost</em></h2></div><p>If your question is about a CRM, prices or how the connections work, start with the page closest to your decision.</p></div>
         <div className="wa-guide-grid">
           {guides.map((guide, index) => (
             <Link className="wa-guide-card" href={guide.href} key={guide.href}>
@@ -193,12 +193,12 @@ export default function WhatsAppAutomationPage() {
         </div>
       </section>
 
-      <section className="wa-faq shell" id="faq"><span className="section-label">Frequently asked questions</span><h2>Before you automate WhatsApp.</h2><div className="faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
+      <section className="wa-faq shell" id="faq"><span className="section-label">Frequently asked questions</span><h2>Before you automate WhatsApp</h2><div className="faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
 
       <section className="wa-final">
         <div className="shell">
           <p>Start from the problem you want to remove, not from the name of a tool.</p>
-          <h2>Let WhatsApp lead the customer<br /><mark>to the next step.</mark></h2>
+          <h2>Let WhatsApp lead the customer<br /><mark>to the next step</mark></h2>
           <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss your automation map <span>↗</span></a>
         </div>
       </section>

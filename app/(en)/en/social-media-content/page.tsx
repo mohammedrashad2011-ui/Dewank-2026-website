@@ -78,7 +78,7 @@ export default function SocialMediaContentPage() {
       <section className="content-hero shell">
         <div className="content-hero-copy">
           <span className="section-label">Social media management and content</span>
-          <h1>Social media that builds<br /><em>presence and demand.</em></h1>
+          <h1>Social media that builds<br /><em>presence and demand</em></h1>
           <p>We turn your accounts from scattered posts into a content system with a clear message, ideas, design, captions and a publishing plan that serves a business goal, not only a filled calendar.</p>
           <div className="content-actions">
             <Link className="button primary" href="/en/contact">Request a management scope <span>→</span></Link>
@@ -89,22 +89,22 @@ export default function SocialMediaContentPage() {
       </section>
 
       <section className="content-steps shell">
-        <div className="content-section-head"><span className="section-label">What the service includes</span><h2>From strategy to publishing.<br /><em>Every step has a purpose.</em></h2></div>
-        <div className="content-step-grid">{deliverables.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div className="content-section-head"><span className="section-label">What the service includes</span><h2>From strategy to publishing<br /><em>Every step has a purpose</em></h2></div>
+        <div className="content-step-grid">{deliverables.map(([title, text], index) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="content-steps content-scope shell" aria-labelledby="content-scope-title">
-        <div className="content-section-head"><span className="section-label">Before you commit</span><h2 id="content-scope-title">A clear written scope.<br /><em>Before you pay for anything.</em></h2></div>
-        <div className="content-step-grid">{scopeItems.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <div className="content-section-head"><span className="section-label">Before you commit</span><h2 id="content-scope-title">A clear written scope<br /><em>Before you pay for anything</em></h2></div>
+        <div className="content-step-grid">{scopeItems.map(([title, text], index) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="content-system shell">
-        <div><span className="section-label">How we work</span><h2>Content is part of the customer journey,<br /><em>not a separate island.</em></h2></div>
+        <div><span className="section-label">How we work</span><h2>Content is part of the customer journey,<br /><em>not a separate island</em></h2></div>
         <div className="content-system-card"><p>We connect what you publish to what you want the audience to do after watching: follow, save, enquire, visit the website or request a service. That is why the plan starts from the business goal, not the number of posts.</p><Link href="/en/digital-marketing">See digital marketing strategy <span>→</span></Link></div>
       </section>
 
       <section className="content-offer shell" id="pricing">
-        <div><span className="section-label">Monthly management or a defined start?</span><h2>Choose the scope by your need.<br /><em>Not by the number of posts alone.</em></h2></div>
+        <div><span className="section-label">Monthly management or a defined start?</span><h2>Choose the scope by your need<br /><em>Not by the number of posts alone</em></h2></div>
         <div className="content-offer-card">
           <strong>30-day content package · <OfferPrice offerKey="30-day-content-package" className="content-offer-price" /></strong>
           <p>If your main need is ideas, design, captions and a publishing plan, start with the defined package. If your account needs only tidying, the 14-day account upgrade is a better fit: <OfferPrice offerKey="instagram-14-day-upgrade" className="content-offer-price" />. If you need continuous publishing, monitoring and reporting, we will define a monthly management scope after reviewing your account.</p>
@@ -117,7 +117,7 @@ export default function SocialMediaContentPage() {
 
       <section className="content-guides shell" aria-labelledby="content-guides-title">
         <div className="content-guides-head">
-          <div><span className="section-label">Before you decide</span><h2 id="content-guides-title">Start with the question you face.<br /><em>Then choose the right scope of content.</em></h2></div>
+          <div><span className="section-label">Before you decide</span><h2 id="content-guides-title">Start with the question you face<br /><em>Then choose the right scope of content</em></h2></div>
           <p>If your search starts with price, with weak enquiries, or with the whole marketing budget, these pages take you to the right place rather than mixing intentions in one offer.</p>
         </div>
         <div className="content-guides-grid">
@@ -132,11 +132,11 @@ export default function SocialMediaContentPage() {
       </section>
 
       <section className="content-faq shell">
-        <span className="section-label">Frequently asked questions</span><h2>Before you choose a package.</h2>
+        <span className="section-label">Frequently asked questions</span><h2>Before you choose a package</h2>
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="content-final shell"><h2>Make content work<br /><em>inside a clear plan.</em></h2><Link className="button primary" href={contactLink}>Discuss your needs <span>→</span></Link></section>
+      <section className="content-final shell"><h2>Make content work<br /><em>inside a clear plan</em></h2><Link className="button primary" href={contactLink}>Discuss your needs <span>→</span></Link></section>
       <RelatedGuides guides={[{ href: "/en/guides/social-media-not-generating-leads", title: "Your account looks good but does not bring customers" }]} />
       <Footer />
     </main>
