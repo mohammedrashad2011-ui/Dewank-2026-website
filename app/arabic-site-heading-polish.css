@@ -1,0 +1,69 @@
+/* Arabic-site decorative typography, scoped to service/offer hero labels.
+   Keep all body copy, pricing, SEO metadata and English pages untouched. */
+html[lang="ar"] :is(
+  .pa-hero-copy > .pa-kicker,
+  .wd-hero-copy > .wd-kicker,
+  .dm-hero-copy > .dm-kicker,
+  .sa-hero-copy > .sa-kicker,
+  .cv-hero-copy > .cv-kicker,
+  .wa-hero-copy > .eyebrow,
+  .ai-hero-copy > .ai-label,
+  .sales-hero-copy > .sales-eyebrow,
+  .offers-overview-hero > .offers-hero-eyebrow,
+  .offer-detail-hero .sales-eyebrow,
+  .offer-detail-hero .section-label,
+  .services-hero .section-label
+),
+html[lang="ar"] main:not(.naming-service-page) .brand-hero-copy > .section-label {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 100%;
+  min-height: 33px;
+  padding: 7px 13px;
+  border: 1px solid rgba(65,103,212,.19);
+  border-radius: 999px;
+  background: linear-gradient(130deg,rgba(255,255,255,.62),rgba(230,236,253,.27));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.52),0 5px 16px rgba(14,31,65,.055);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  font-size: clamp(12.5px,1.05vw,15px);
+  font-weight: 750;
+  line-height: 1.55;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+/* Decorative 01/02/03 markers inside known offer & service cards only.
+   Do not hide numeric prices, dates, counts in prose, or guide steps. */
+html[lang="ar"] :is(
+  .brand-system-grid,
+  .brand-deliverables-grid,
+  .brand-process-list,
+  .pa-channel-grid,
+  .pa-cost-breakdown-grid,
+  .pa-scope-grid,
+  .wd-foundations-grid,
+  .wd-capabilities-grid,
+  .method-list,
+  .sa-service-grid,
+  .brand-naming-process-grid,
+  .google-ads-process-grid,
+  .offer-confidence-grid,
+  .sales-risk-grid
+) > :is(article,div) > :is(span,b,small,strong):first-child,
+html[lang="ar"] .sales-pain-card > b:first-child {
+  display: none !important;
+}
+
+/* Collapse the numbering column where the original component uses CSS grid. */
+html[lang="ar"] .brand-deliverables-grid article {grid-template-columns: minmax(0,1fr);}
+html[lang="ar"] .brand-deliverables-grid article > div {min-width:0;}
+html[lang="ar"] .brand-process-list article {grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr);}
+html[lang="ar"] .brand-process-list article > p {grid-column:auto;}
+@media(max-width:720px){
+  html[lang="ar"] .brand-process-list article {grid-template-columns:minmax(0,1fr);gap:9px;}
+  html[lang="ar"] .brand-process-list article > p {grid-column:1;}
+  html[lang="ar"] :is(.pa-hero-copy > .pa-kicker,.wd-hero-copy > .wd-kicker,.dm-hero-copy > .dm-kicker,.sa-hero-copy > .sa-kicker,.cv-hero-copy > .cv-kicker){font-size:12.5px;padding:6px 10px;}
+}
