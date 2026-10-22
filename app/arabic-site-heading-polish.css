@@ -128,3 +128,84 @@ html[lang="ar"] :is(
 }
 html[lang="ar"] .offer-confidence-grid > article,
 html[lang="ar"] .sales-risk-grid > article {grid-template-columns:minmax(0,1fr);}
+
+/* Site-wide Arabic section eyebrows: same restrained glass system as hero labels.
+   Scoped to presentation labels, NEVER form labels / metrics / arbitrary spans. */
+html[lang="ar"] main :is(
+  .section-label,
+  .pa-label,
+  .sa-label,
+  .dm-label,
+  .wd-label,
+  .cv-label,
+  .ai-label,
+  .guides-label,
+  .offer-kicker,
+  .sales-eyebrow,
+  .cp-eyebrow,
+  .legal-eyebrow,
+  .bithan-eyebrow,
+  .bithan-kicker,
+  .metric-kicker,
+  .concept-label,
+  .brand-lab-kicker
+) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-height: 30px;
+  padding: 6px 13px;
+  margin-inline: 0;
+  border: 1px solid rgba(105,134,202,.28);
+  border-radius: 999px;
+  background: linear-gradient(120deg,rgba(223,234,255,.37),rgba(255,255,255,.17));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.26),0 4px 14px rgba(22,43,82,.05);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  font-size: clamp(13px,1.07vw,15.5px);
+  font-weight: 750;
+  line-height: 1.62;
+  letter-spacing: 0;
+  white-space: normal;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  vertical-align: middle;
+}
+/* The small highlighted "الأكثر طلبًا" tag keeps its blue accent. */
+html[lang="ar"] .home-offer-signals > b {
+  display: inline-flex;
+  align-items: center;
+  min-height: 31px;
+  padding: 7px 12px;
+  border: 1px solid rgba(49,85,255,.38);
+  border-radius: 999px;
+  background: linear-gradient(115deg,rgba(49,85,255,.14),rgba(255,255,255,.62));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.65),0 4px 12px rgba(49,85,255,.08);
+  color: #244be0;
+  font-size: clamp(12px,1vw,14px);
+  font-weight: 800;
+  line-height: 1.5;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+/* Preserve compact eyebrow geometry in the two-column SEO label panel. */
+html[lang="ar"] .sa-truth-grid .sa-label { justify-self: end; }
+/* Never allow decorative glass to force horizontal scroll on small phones. */
+@media (max-width: 640px) {
+  html[lang="ar"] main :is(
+    .section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,
+    .ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,
+    .legal-eyebrow,.bithan-eyebrow,.bithan-kicker,.metric-kicker,
+    .concept-label,.brand-lab-kicker
+  ) { min-height: 28px; padding: 6px 11px; font-size: 13px; }
+  html[lang="ar"] .home-offer-signals > b {font-size: 12px;padding: 6px 10px;}
+}
+@media (prefers-reduced-transparency: reduce) {
+  html[lang="ar"] main :is(.section-label,.pa-label,.sa-label,.dm-label,.wd-label,.cv-label,.ai-label,.guides-label,.offer-kicker,.sales-eyebrow,.cp-eyebrow,.legal-eyebrow,.bithan-eyebrow,.bithan-kicker,.metric-kicker,.concept-label,.brand-lab-kicker) {
+    -webkit-backdrop-filter: none;backdrop-filter: none;
+    background: rgba(224,234,255,.6);
+  }
+}
