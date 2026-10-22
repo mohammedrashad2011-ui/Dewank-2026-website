@@ -315,9 +315,9 @@ export default function DigitalMarketingPage() {
           <p>ثلاثة أدلة تساعدك على تشخيص ضعف التحويل، فهم تكلفة إدارة الحسابات، ومقارنة نطاقات التسويق قبل التعاقد.</p>
         </div>
         <div className="dm-guides-grid">
-          {guideLinks.map((guide, index) => (
+          {guideLinks.map((guide) => (
             <Link className="dm-guide-card" href={guide.href} key={guide.href}>
-              <div className="dm-guide-card-top"><span>دليل 0{index + 1}</span><span className="dm-guide-arrow" aria-hidden="true">↗</span></div>
+              <div className="dm-guide-card-top"><span>دليل</span><span className="dm-guide-arrow" aria-hidden="true">↗</span></div>
               <h3>{guide.title}</h3>
               <p>{guide.text}</p>
             </Link>
