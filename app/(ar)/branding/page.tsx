@@ -190,9 +190,9 @@ export default function BrandingPage() {
           <p className="brand-guides-intro">دليلان يساعدانك على فهم تكلفة الهوية واتخاذ قرار الاسم قبل الاستثمار في التصميم والإطلاق.</p>
         </div>
         <div className="brand-guides-grid">
-          {brandGuides.map((guide, index) => (
+          {brandGuides.map((guide) => (
             <Link className="brand-guide-card" href={guide.href} key={guide.href}>
-              <div className="brand-guide-top"><span>دليل 0{index + 1}</span><span className="brand-guide-arrow" aria-hidden="true">↗</span></div>
+              <div className="brand-guide-top"><span>دليل</span><span className="brand-guide-arrow" aria-hidden="true">↗</span></div>
               <h3>{guide.title}</h3>
               <p>{guide.text}</p>
             </Link>
