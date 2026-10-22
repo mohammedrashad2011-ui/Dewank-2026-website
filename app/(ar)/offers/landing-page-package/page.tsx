@@ -1,3 +1,4 @@
+import { LandingConversionMotion } from "../../../components/landing-conversion-motion";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -78,6 +79,7 @@ export default function LandingPageOffer() {
         </aside>
       </section>
 
+      <LandingConversionMotion locale="ar" />
       <section className="shell offer-deliverables">
         <div><span className="section-label">ماذا تستلم؟</span><h2>كل ما تحتاجه لتبدأ البيع</h2><p>التسليم خلال 7–10 أيام عمل بعد استلام المعلومات واعتماد الاتجاه.</p></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>

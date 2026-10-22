@@ -71,3 +71,12 @@
     grid-column: 1 / -1;
   }
 }
+
+
+/* Landing package deliverables: text-only items must not inherit numbered-grid columns. */
+.offers-page .offer-deliverables .deliverable-list {min-width:0}
+.offers-page .offer-deliverables .deliverable-item {min-width:0;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(1rem,2.5vw,2.5rem);align-items:start}
+.offers-page .offer-deliverables .deliverable-item>*{min-width:0}
+.offers-page .offer-deliverables .deliverable-item b{font-size:clamp(1rem,1.35vw,1.22rem);line-height:1.65;overflow-wrap:break-word}
+.offers-page .offer-deliverables .deliverable-item p{display:block;grid-column:auto;width:auto;max-width:65ch;min-width:0;line-height:1.8;overflow-wrap:break-word;margin:0}
+@media(max-width:760px){.offers-page .offer-deliverables .deliverable-item{grid-template-columns:minmax(0,1fr);gap:.45rem}}

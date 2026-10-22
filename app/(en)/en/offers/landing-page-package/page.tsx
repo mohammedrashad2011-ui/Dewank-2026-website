@@ -1,3 +1,4 @@
+import { LandingConversionMotion } from "../../../../components/landing-conversion-motion";
 import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -78,6 +79,7 @@ export default function LandingPageOffer() {
         </aside>
       </section>
 
+      <LandingConversionMotion locale="en" />
       <section className="shell offer-deliverables">
         <div><span className="section-label">What you receive</span><h2>Everything you need to start selling</h2><p>Delivery in 7–10 working days after we receive the information and approve the direction.</p></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
