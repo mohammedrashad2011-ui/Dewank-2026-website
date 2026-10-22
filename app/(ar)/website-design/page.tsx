@@ -1,3 +1,4 @@
+import { WebsiteBuildMotion } from "../../components/website-build-motion";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
@@ -189,7 +190,8 @@ export default function WebsiteDesignPage() {
 
       <section className="wd-deliverables"><div className="shell wd-deliverables-layout"><div className="wd-sticky-copy"><span className="wd-label">ما الذي تستلمه</span><h2>مخرجات حقيقية<br/><em>لا مجرد رابط</em></h2><p>من التخطيط إلى الاختبار، تعرف ما يتم بناؤه ولماذا وكيف سيخدم عملك بعد الإطلاق.</p></div><div className="wd-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2, "0")}</b><p>{item}</p></div>)}</div></div></section>
 
-      <section className="wd-method shell" id="process"><div className="wd-section-head"><div><span className="wd-label">طريقة العمل</span><h2>من الهدف التجاري<br/><em>إلى موقع يعمل</em></h2></div><p>لا نبدأ بالألوان. نبدأ بدور الموقع والرسالة والمسار، ثم نبني التقنية حولها.</p></div><div className="wd-method-list">{process.map((step, index) => <div key={step[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{step[0]}</h3><p>{step[1]}</p></div>)}</div></section>
+      <section className="wd-method shell" id="process"><div className="wd-section-head"><div><span className="wd-label">طريقة العمل</span><h2>من الهدف التجاري<br/><em>إلى موقع يعمل</em></h2></div><p>لا نبدأ بالألوان. نبدأ بدور الموقع والرسالة والمسار، ثم نبني التقنية حولها.</p></div><WebsiteBuildMotion locale="ar" />
+        <div className="wd-method-list">{process.map((step, index) => <div key={step[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{step[0]}</h3><p>{step[1]}</p></div>)}</div></section>
 
       <section className="wd-fit"><div className="shell wd-fit-layout"><div><span className="wd-label">لمن تناسب الخدمة</span><h2>تحتاج موقعًا جديدًا<br/><em>عندما يصبح الحالي عائقًا</em></h2></div><div className="wd-fit-list">{fitFor.map((item, index) => <p key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</p>)}</div></div></section>
 
