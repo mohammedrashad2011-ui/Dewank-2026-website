@@ -120,7 +120,7 @@ export default function SocialMediaContentPage() {
           <div><span className="section-label">أدلة قبل القرار</span><h2 id="content-guides-title">ابدأ بالسؤال الذي يواجهك<br/><em>ثم اختر نطاق المحتوى المناسب</em></h2></div>
           <p>إذا بحثك يبدأ من السعر، أو من مشكلة ضعف العملاء، أو من ميزانية التسويق كاملة، هذه الأدلة تنقلك للصفحة المناسبة بدل خلط النوايا في عرض واحد.</p>
         </div>
-        <div className="content-guides-grid">{guideLinks.map((guide, index) => <Link className="content-guide-card" href={guide.href} key={guide.href}><div className="content-guide-top"><span>دليل 0{index + 1}</span><span className="content-guide-arrow" aria-hidden="true">↗</span></div><h3>{guide.title}</h3><p>{guide.text}</p></Link>)}</div>
+        <div className="content-guides-grid">{guideLinks.map((guide) => <Link className="content-guide-card" href={guide.href} key={guide.href}><div className="content-guide-top"><span>دليل</span><span className="content-guide-arrow" aria-hidden="true">↗</span></div><h3>{guide.title}</h3><p>{guide.text}</p></Link>)}</div>
       </section>
 
       <section className="content-faq shell">
