@@ -174,7 +174,7 @@ export default function WhatsAppAutomation() {
 
       <section className="shell wa-guides" aria-labelledby="wa-guides-title">
         <div className="wa-section-head"><div><span className="section-label">أدلة قبل القرار</span><h2 id="wa-guides-title">قبل ما تشتري أداة،<br/><em>افهم النظام والتكلفة</em></h2></div><p>لو سؤالك الآن عن CRM أو الأسعار أو طريقة الربط، ابدأ بالدليل الأقرب لقرارك.</p></div>
-        <div className="wa-guide-grid">{guideLinks.map((guide, index) => <Link className="wa-guide-card" href={guide.href} key={guide.href}><div className="wa-guide-card-top"><span>دليل 0{index + 1}</span><span className="wa-guide-arrow" aria-hidden="true">↗</span></div><h3>{guide.title}</h3><p>{guide.text}</p></Link>)}</div>
+        <div className="wa-guide-grid">{guideLinks.map((guide) => <Link className="wa-guide-card" href={guide.href} key={guide.href}><div className="wa-guide-card-top"><span>دليل</span><span className="wa-guide-arrow" aria-hidden="true">↗</span></div><h3>{guide.title}</h3><p>{guide.text}</p></Link>)}</div>
         <p>تأتي رسائلك من إعلانات؟ راجع <Link href="/guides/ad-to-whatsapp-booking-journey">رحلة العميل من الإعلان إلى واتساب ثم الحجز</Link>.</p>
       </section>
 
