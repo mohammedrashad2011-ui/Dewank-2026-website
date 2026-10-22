@@ -246,7 +246,7 @@ export default function ConversionRateOptimizationEnglishPage() {
         </ol>
       </section>
 
-      <section className="sa-fit">
+      <section className="sa-fit cro-after-audit">
         <div className="shell">
           <div className="sa-fit-grid">
             <div><span className="sa-label">After the audit</span><h2>The audit identifies the next step<br/><em>Implementation is a separate decision</em></h2></div>
