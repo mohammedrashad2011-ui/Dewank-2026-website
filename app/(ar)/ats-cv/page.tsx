@@ -106,7 +106,7 @@ export default function AtsCvPage() {
       <section className="cv-hero shell">
         <div className="cv-hero-copy">
           <div className="cv-kicker"><span>ATS CV</span><span>LINKEDIN</span><span>CAREER BRANDING</span></div>
-          <h1>خبرتك قد تكون قوية.<br/><em>لكن طريقة عرضها تحسم الانطباع الأول.</em></h1>
+          <h1>خبرتك قد تكون قوية<br/><em>لكن طريقة عرضها تحسم الانطباع الأول</em></h1>
           <p>نكتب ونصمم سيرة ذاتية احترافية ومتوافقة مع ATS، ونوحّدها مع LinkedIn وCover Letter لتقدم صورة مهنية واضحة ومقنعة للوظائف في السعودية والخليج.</p>
           <div className="cv-actions"><Link className="button primary" href="/contact">اطلب تقييم سيرتك <span>←</span></Link><a className="cv-text-link" href="#process">استعرض طريقة العمل</a></div>
         </div>
@@ -137,7 +137,7 @@ export default function AtsCvPage() {
             <p>عندما تكون السيرة عامة، مزدحمة، أو مبنية على وصف المهام فقط، يصعب على مسؤول التوظيف رؤية قيمتك بسرعة.</p>
             <p>لذلك نربط خبرتك بالدور المستهدف، ونحوّل المسؤوليات إلى إنجازات وأثر، مع تنسيق واضح يخدم الإنسان ونظام ATS معًا.</p>
           </div>
-          <div className="cv-truth-title"><span className="cv-label">[ الفكرة الأساسية ]</span><h2>السيرة ليست أرشيفًا للماضي.<br/><em>إنها حجة مهنية للخطوة القادمة.</em></h2></div>
+          <div className="cv-truth-title"><span className="cv-label">[ الفكرة الأساسية ]</span><h2>السيرة ليست أرشيفًا للماضي<br/><em>إنها حجة مهنية للخطوة القادمة</em></h2></div>
         </div>
       </section>
 
@@ -145,40 +145,40 @@ export default function AtsCvPage() {
         <div className="shell">
           <span className="cv-label">[ من المهام إلى القيمة ]</span>
           <div className="cv-compare">
-            <article><small>BEFORE</small><h3>سيرة تصف ما فعلته.</h3><ul><li>مسؤول عن إدارة الحملات.</li><li>متابعة العملاء والفريق.</li><li>إعداد التقارير الشهرية.</li></ul></article>
-            <article><small>AFTER</small><h3>سيرة توضح لماذا يهم ما فعلته.</h3><ul><li>إدارة حملات مرتبطة بالتكلفة والتحويل والعائد.</li><li>بناء متابعة تقلل الفرص الضائعة وتحسن الحجز.</li><li>تحويل البيانات إلى قرارات قابلة للتنفيذ.</li></ul></article>
+            <article><small>BEFORE</small><h3>سيرة تصف ما فعلته</h3><ul><li>مسؤول عن إدارة الحملات.</li><li>متابعة العملاء والفريق.</li><li>إعداد التقارير الشهرية.</li></ul></article>
+            <article><small>AFTER</small><h3>سيرة توضح لماذا يهم ما فعلته</h3><ul><li>إدارة حملات مرتبطة بالتكلفة والتحويل والعائد.</li><li>بناء متابعة تقلل الفرص الضائعة وتحسن الحجز.</li><li>تحويل البيانات إلى قرارات قابلة للتنفيذ.</li></ul></article>
           </div>
         </div>
       </section>
 
       <section className="cv-services shell">
-        <div className="cv-section-head"><div><span className="cv-label">[ نطاق الخدمة ]</span><h2>سيرة، LinkedIn، ورسالة مهنية<br/><em>تعمل في اتجاه واحد.</em></h2></div><p>نحدد النطاق حسب الوظائف المستهدفة والمرحلة المهنية بدل تقديم قالب ثابت للجميع.</p></div>
+        <div className="cv-section-head"><div><span className="cv-label">[ نطاق الخدمة ]</span><h2>سيرة، LinkedIn، ورسالة مهنية<br/><em>تعمل في اتجاه واحد</em></h2></div><p>نحدد النطاق حسب الوظائف المستهدفة والمرحلة المهنية بدل تقديم قالب ثابت للجميع.</p></div>
         <div className="cv-service-grid">{services.map((item, index) => <article key={item[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
       </section>
 
       <section className="cv-deliverables">
         <div className="shell cv-deliverables-layout">
-          <div className="cv-sticky"><span className="cv-label">[ ما الذي تستلمه ]</span><h2>مخرجات قابلة للاستخدام.<br/><em>لا ملف جميل فقط.</em></h2><p>كل عنصر يتم بناؤه ليدعم التقديم والتخصيص والمقابلة، لا لمجرد ملء الصفحات.</p></div>
+          <div className="cv-sticky"><span className="cv-label">[ ما الذي تستلمه ]</span><h2>مخرجات قابلة للاستخدام<br/><em>لا ملف جميل فقط</em></h2><p>كل عنصر يتم بناؤه ليدعم التقديم والتخصيص والمقابلة، لا لمجرد ملء الصفحات.</p></div>
           <div className="cv-deliverables-list">{deliverables.map((item, index) => <div key={item}><b>{String(index + 1).padStart(2, "0")}</b><p>{item}</p></div>)}</div>
         </div>
       </section>
 
       <section className="cv-process shell" id="process">
-        <div className="cv-section-head"><div><span className="cv-label">[ طريقة العمل ]</span><h2>من تاريخك المهني<br/><em>إلى قصة توظيف واضحة.</em></h2></div><p>لا نبدأ بالقالب. نبدأ بالهدف والدليل ثم نبني الصياغة والترتيب والتصميم حولهما.</p></div>
+        <div className="cv-section-head"><div><span className="cv-label">[ طريقة العمل ]</span><h2>من تاريخك المهني<br/><em>إلى قصة توظيف واضحة</em></h2></div><p>لا نبدأ بالقالب. نبدأ بالهدف والدليل ثم نبني الصياغة والترتيب والتصميم حولهما.</p></div>
         <div className="cv-process-list">{process.map((step, index) => <article key={step[0]}><span>{String(index + 1).padStart(2, "0")}</span><h3>{step[0]}</h3><p>{step[1]}</p></article>)}</div>
       </section>
 
       <section className="cv-fit">
-        <div className="shell cv-fit-grid"><div><span className="cv-label">[ لمن تناسب الخدمة ]</span><h2 className="cv-section-head">تحتاج إعادة بناء سيرتك<br/><em>عندما لا تعكس مستواك الحقيقي.</em></h2></div><div className="cv-fit-list">{fitFor.map((item, index) => <p key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</p>)}</div></div>
+        <div className="shell cv-fit-grid"><div><span className="cv-label">[ لمن تناسب الخدمة ]</span><h2 className="cv-section-head">تحتاج إعادة بناء سيرتك<br/><em>عندما لا تعكس مستواك الحقيقي</em></h2></div><div className="cv-fit-list">{fitFor.map((item, index) => <p key={item}><span>{String(index + 1).padStart(2, "0")}</span>{item}</p>)}</div></div>
       </section>
 
       <section className="cv-faq shell">
-        <div className="cv-section-head"><div><span className="cv-label">[ أسئلة شائعة ]</span><h2>قبل أن نبدأ.</h2></div><p>إجابات مباشرة عن ATS والتخصيص واللغة والتصميم وLinkedIn.</p></div>
+        <div className="cv-section-head"><div><span className="cv-label">[ أسئلة شائعة ]</span><h2>قبل أن نبدأ</h2></div><p>إجابات مباشرة عن ATS والتخصيص واللغة والتصميم وLinkedIn.</p></div>
         <div className="cv-faq-grid">{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span>+</span></summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
       <section className="cv-final shell">
-        <div><span className="cv-label">[ الخطوة التالية ]</span><h2>لا تترك خبرتك<br/><em>تُقرأ بأقل من قيمتها.</em></h2></div>
+        <div><span className="cv-label">[ الخطوة التالية ]</span><h2>لا تترك خبرتك<br/><em>تُقرأ بأقل من قيمتها</em></h2></div>
         <div className="cv-final-copy"><p>أرسل سيرتك الحالية والوظائف المستهدفة، وسنحدد نقاط الضعف والنطاق الأنسب للتطوير.</p><Link className="button primary" href="/contact">ابدأ مراجعة سيرتك <span>←</span></Link><div className="cv-related"><Link href="/branding">البراند الشخصي</Link><Link href="/digital-marketing">التسويق والمحتوى</Link><Link href="/contact">تواصل معنا</Link></div></div>
       </section>
       <Footer />

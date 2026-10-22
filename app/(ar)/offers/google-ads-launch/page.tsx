@@ -94,7 +94,7 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell offer-detail-hero google-ads-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> أيام عمل</span></div>
-          <h1>إعداد وتشغيل Google Ads.<br/><em>حملة Search تبدأ بشكل محسوب.</em></h1>
+          <h1>إعداد وتشغيل Google Ads<br/><em>حملة Search تبدأ بشكل محسوب</em></h1>
           <p>نجهز لك حملة Google Search من الصفر: كلمات بنية شراء، إعلانات مناسبة، كلمات سلبية، تتبع تحويل أساسي، وفحص كامل قبل تشغيل الميزانية.</p>
           <div className="google-ads-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
@@ -113,7 +113,7 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell google-ads-proof">
         <div className="google-ads-proof-copy">
           <span className="section-label">[ ماذا نبني؟ ]</span>
-          <h2>من بحث العميل.<br/>إلى خطوة قابلة للقياس.</h2>
+          <h2>من بحث العميل<br/>إلى خطوة قابلة للقياس</h2>
           <p>نرتب الرحلة الأساسية بحيث يظهر الإعلان عندما يبحث العميل عن الخدمة، يصل إلى صفحتك الحالية، ثم نسجل الإجراء الأهم مثل واتساب أو النموذج أو المكالمة.</p>
         </div>
         <div className="google-search-card" aria-label="نموذج مبسط لرحلة إعلان بحث Google">
@@ -129,12 +129,12 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell offer-deliverables google-ads-deliverables">
-        <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>حملة جاهزة للإطلاق.<br/>بنطاق واضح.</h2><p>نحدد الحدود من البداية حتى لا تتحول باقة التأسيس إلى إدارة شهرية غير محسوبة.</p></div>
+        <div><span className="section-label">[ ماذا تستلم؟ ]</span><h2>حملة جاهزة للإطلاق<br/>بنطاق واضح</h2><p>نحدد الحدود من البداية حتى لا تتحول باقة التأسيس إلى إدارة شهرية غير محسوبة.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell google-ads-fit">
-        <div className="google-ads-fit-head"><span className="section-label">[ هل تناسبك؟ ]</span><h2>ليست كل حملة تحتاج نفس البداية.</h2></div>
+        <div className="google-ads-fit-head"><span className="section-label">[ هل تناسبك؟ ]</span><h2>ليست كل حملة تحتاج نفس البداية</h2></div>
         <div className="offer-fit-grid">
           <article className="offer-fit-card good"><h3>مناسبة لك إذا</h3><ul><li>لديك صفحة أو موقع جاهز</li><li>الناس تبحث عن خدمتك على Google</li><li>تريد حملة Search محددة بدل إعدادات واسعة</li><li>تحتاج تأسيسًا صحيحًا قبل الإدارة الشهرية</li></ul></article>
           <article className="offer-fit-card limits"><h3>تحتاج خدمة أكبر إذا</h3><ul><li>تحتاج Landing Page جديدة</li><li>تريد إدارة وتحسينًا يوميًا لمدة شهر</li><li>تحتاج حملات متعددة أو أسواق كثيرة</li><li>تحتاج Performance Max أو Shopping أو تكاملات قياس معقدة</li></ul></article>
@@ -142,7 +142,7 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell google-ads-process">
-        <div className="google-ads-process-head"><span className="section-label">[ طريقة التنفيذ ]</span><h2>نفهم الطلب. نختار الكلمات. نبني. ثم نطلق.</h2></div>
+        <div className="google-ads-process-head"><span className="section-label">[ طريقة التنفيذ ]</span><h2>نفهم الطلب. نختار الكلمات. نبني. ثم نطلق</h2></div>
         <div className="google-ads-process-grid">
           <article><b>01</b><h3>تحديد الهدف</h3><p>نختار التحويل الرئيسي والعرض والسوق والصفحة التي ستستقبل الزيارات.</p></article>
           <article><b>02</b><h3>بحث الكلمات</h3><p>نرتب الكلمات حسب نية البحث ونستبعد ما قد يستهلك الميزانية دون جدوى.</p></article>
@@ -152,7 +152,7 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell offer-confidence google-ads-confidence">
-        <div><span className="section-label">[ حدود الباقة ]</span><h2>790 ريال للتأسيس والإطلاق،<br/>وليس لإدارة شهر كامل.</h2></div>
+        <div><span className="section-label">[ حدود الباقة ]</span><h2>790 ريال للتأسيس والإطلاق،<br/>وليس لإدارة شهر كامل</h2></div>
         <div className="offer-confidence-list">
           <p><b>لا تشمل:</b> ميزانية Google، تصميم Landing Page، إدارة شهرية، تصميمات Display أو فيديو، Merchant Center، أو تكاملات CRM وقياس متقدمة.</p>
           <p><b>المطلوب:</b> حساب Google Ads صالح للدفع، صفحة تعمل، وصول للحساب والقياس، وخدمة أو عرض واضح نعلن عنه.</p>
@@ -161,12 +161,12 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell offer-faq google-ads-faq" id="faq">
-        <div><span className="section-label">[ أسئلة سريعة ]</span><h2>قبل أن تبدأ.</h2></div>
+        <div><span className="section-label">[ أسئلة سريعة ]</span><h2>قبل أن تبدأ</h2></div>
         <div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="shell offer-final-cta google-ads-final">
-        <div><span className="section-label">[ جاهز للإطلاق؟ ]</span><h2>اجعل أول صرف على Google<br/>يبدأ بإعداد محسوب.</h2><p>أرسل لنا نشاطك، السوق المستهدف، ورابط الصفحة الحالية ونراجع ملاءمتها قبل بدء الحملة.</p></div>
+        <div><span className="section-label">[ جاهز للإطلاق؟ ]</span><h2>اجعل أول صرف على Google<br/>يبدأ بإعداد محسوب</h2><p>أرسل لنا نشاطك، السوق المستهدف، ورابط الصفحة الحالية ونراجع ملاءمتها قبل بدء الحملة.</p></div>
         <GoogleAdsLaunchLink className="button primary" label="ابدأ عبر واتساب" />
         <div className="google-ads-links"><Link href="/guides/google-ads-cost-saudi-arabia">تريد فهم التكلفة والميزانية أولًا؟</Link><Link href="/paid-ads">تحتاج إدارة Google Ads مستمرة؟</Link><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link></div>
       </section>

@@ -100,7 +100,7 @@ export default function AiAutomationPage() {
       <section className="ai-hero shell">
         <div className="ai-hero-copy">
           <span className="ai-label">AI AUTOMATION / BUSINESS WORKFLOWS</span>
-          <h1>أتمتة العمليات والأعمال بالذكاء الاصطناعي.<br/><em>دون أن تضيف AI إلى الفوضى.</em></h1>
+          <h1>أتمتة العمليات والأعمال بالذكاء الاصطناعي<br/><em>دون أن تضيف AI إلى الفوضى</em></h1>
           <p>نحلل العملية أولًا، ثم نربط واتساب وCRM والمبيعات وخدمة العملاء والعمليات داخل سير عمل واضح يقلل التكرار وضياع العملاء ويجعل المتابعة أسرع وأسهل في القياس.</p>
           <div className="ai-actions">
             <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش عملية تريد أتمتتها <span>↗</span></a>
@@ -130,7 +130,7 @@ export default function AiAutomationPage() {
       <section className="ai-usecases shell">
         <div className="ai-section-head">
           <span className="ai-label">USE CASES</span>
-          <h2>أين تدخل الأتمتة فعلًا؟<br/><em>في النقاط التي يضيع فيها الوقت أو العميل.</em></h2>
+          <h2>أين تدخل الأتمتة فعلًا؟<br/><em>في النقاط التي يضيع فيها الوقت أو العميل</em></h2>
           <p>بدل شراء أدوات أكثر، نبدأ من العملية نفسها ونختار أقل نظام يحقق النتيجة المطلوبة.</p>
         </div>
         <div className="ai-usecase-grid">
@@ -141,7 +141,7 @@ export default function AiAutomationPage() {
       <section className="ai-workflow shell">
         <div className="ai-section-head compact">
           <span className="ai-label">WORKFLOW EXAMPLE</span>
-          <h2>من أول رسالة<br/><em>حتى الحجز أو الطلب.</em></h2>
+          <h2>من أول رسالة<br/><em>حتى الحجز أو الطلب</em></h2>
         </div>
         <div className="ai-flow">
           {workflow.map(([heading, text], index) => <article key={heading}><span>0{index + 1}</span><div><h3>{heading}</h3><p>{text}</p></div></article>)}
@@ -151,7 +151,7 @@ export default function AiAutomationPage() {
       <section className="ai-logic shell">
         <div className="ai-logic-copy">
           <span className="ai-label">AI OR AUTOMATION?</span>
-          <h2>ليس كل شيء يحتاج AI.</h2>
+          <h2>ليس كل شيء يحتاج AI</h2>
           <p>القاعدة البسيطة: إذا كان القرار ثابتًا وواضحًا فغالبًا تكفي Automation عادية. وإذا احتاج النظام إلى فهم نص أو تصنيف نية أو تلخيص أو التعامل مع مدخلات متغيرة، فقد يضيف AI قيمة حقيقية.</p>
         </div>
         <div className="ai-logic-grid">
@@ -177,7 +177,7 @@ export default function AiAutomationPage() {
       <section className="ai-outcomes shell">
         <div className="ai-section-head">
           <span className="ai-label">BUSINESS OUTCOMES</span>
-          <h2>الهدف ليس «بناء بوت».<br/><em>الهدف أن تعمل العملية بشكل أفضل.</em></h2>
+          <h2>الهدف ليس «بناء بوت»<br/><em>الهدف أن تعمل العملية بشكل أفضل</em></h2>
         </div>
         <div className="ai-outcome-grid">
           <article><strong>رد أسرع</strong><p>يصل الاستفسار للخطوة الصحيحة بدل انتظار النقل اليدوي.</p></article>
@@ -190,7 +190,7 @@ export default function AiAutomationPage() {
       <section className="ai-bridge shell">
         <div>
           <span className="ai-label">ابدأ بعملية واحدة</span>
-          <h2>هل لديك خطوة تتكرر كل يوم؟<br/><em>غالبًا هي نقطة البداية.</em></h2>
+          <h2>هل لديك خطوة تتكرر كل يوم؟<br/><em>غالبًا هي نقطة البداية</em></h2>
           <p>أرسل لنا العملية كما تعمل الآن، حتى لو كانت فوضوية. نراجع أين يضيع الوقت، وما الذي يمكن أتمتته، وما الذي يجب أن يبقى بيد الموظف.</p>
         </div>
         <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل العملية على واتساب <span>↗</span></a>
@@ -199,7 +199,7 @@ export default function AiAutomationPage() {
       <section className="ai-related shell">
         <div className="ai-section-head compact">
           <span className="ai-label">RELATED SOLUTIONS</span>
-          <h2>إذا كانت المشكلة أوضح من كلمة “AI”.</h2>
+          <h2>إذا كانت المشكلة أوضح من كلمة “AI”</h2>
         </div>
         <div className="ai-related-grid">
           <Link href="/whatsapp-automation"><small>واتساب + CRM</small><h3>أتمتة واتساب وخدمة العملاء</h3><p>إذا كانت أكبر نقطة تسرب لديك في الرسائل أو التأهيل أو الحجز أو المتابعة.</p><span>راجع الخدمة ←</span></Link>
@@ -210,13 +210,13 @@ export default function AiAutomationPage() {
 
       <section className="ai-faq shell" id="faq">
         <span className="ai-label">FAQ</span>
-        <h2>أسئلة قبل بناء الأتمتة.</h2>
+        <h2>أسئلة قبل بناء الأتمتة</h2>
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="ai-final shell">
         <span className="ai-label">NEXT STEP</span>
-        <h2>لا تبدأ من الأداة.<br/><em>ابدأ من العملية.</em></h2>
+        <h2>لا تبدأ من الأداة<br/><em>ابدأ من العملية</em></h2>
         <p>أخبرنا ماذا يحدث من لحظة دخول العميل أو الطلب إلى لحظة الإغلاق، وسنحدد أين تستحق الأتمتة الاستثمار.</p>
         <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش الأتمتة مع ديوانك <span>↗</span></a>
       </section>

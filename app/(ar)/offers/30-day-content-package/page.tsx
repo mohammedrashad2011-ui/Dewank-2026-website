@@ -95,7 +95,7 @@ export default function ContentOfferPage() {
       <section className="shell offer-detail-hero sales-hero">
         <div className="sales-hero-copy">
           <span className="sales-eyebrow">باقة صناعة محتوى السوشيال ميديا</span>
-          <h1>محتوى 30 يومًا.<br/><em>بسعر ونطاق واضحين.</em></h1>
+          <h1>محتوى 30 يومًا<br/><em>بسعر ونطاق واضحين</em></h1>
           <p className="sales-hero-lead">نحوّل نشاطك إلى 16 قطعة محتوى جاهزة للنشر: أفكار، تصميم، كابشنات وخطة 30 يومًا. مناسبة إذا كان احتياجك هو المحتوى نفسه، بدون عقد إدارة حساب شهري كامل.</p>
           <div className="sales-proof-strip" aria-label="ملخص الباقة"><span>12 بوست</span><span>3 ستوري</span><span>1 ريل</span><span>خطة 30 يومًا</span></div>
           <p className="sales-fit-note"><strong>مهم:</strong> إذا كنت تبحث عن نشر يومي أو إدارة رسائل أو تقارير شهرية مستمرة أو حملات إعلانية، فراجع <Link href="/services/social-media-content">خدمة إدارة السوشيال ميديا</Link> بدل هذه الباقة.</p>
@@ -113,23 +113,23 @@ export default function ContentOfferPage() {
       <OfferVisualProof />
 
       <section className="shell sales-problem-solution" aria-labelledby="sales-problem-title">
-        <div className="sales-section-head"><span className="section-label">إذا هذا يصير عندك</span><h2 id="sales-problem-title">المشكلة مو في خدمتك.<br/>المشكلة إن حسابك ما يوضح قيمتها باستمرار.</h2><p>الباقة مصممة لمعالجة 3 أسباب تخلي الحساب يتوقف أو يظهر بصورة أقل من قيمة مشروعك.</p></div>
+        <div className="sales-section-head"><span className="section-label">إذا هذا يصير عندك</span><h2 id="sales-problem-title">المشكلة مو في خدمتك<br/>المشكلة إن حسابك ما يوضح قيمتها باستمرار</h2><p>الباقة مصممة لمعالجة 3 أسباب تخلي الحساب يتوقف أو يظهر بصورة أقل من قيمة مشروعك.</p></div>
         <div className="sales-three-grid">{painToOutcome.map(([title, text], index) => <article className="sales-pain-card" key={title}><b>0{index + 1}</b><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell sales-outcomes" aria-labelledby="sales-outcomes-title">
-        <div className="sales-section-head compact"><span className="section-label">القيمة اللي تحصل عليها</span><h2 id="sales-outcomes-title">مو 16 تصميمًا وبس.<br/>أنت تحصل على شهر جاهز للحضور.</h2></div>
+        <div className="sales-section-head compact"><span className="section-label">القيمة اللي تحصل عليها</span><h2 id="sales-outcomes-title">مو 16 تصميمًا وبس<br/>أنت تحصل على شهر جاهز للحضور</h2></div>
         <div className="sales-outcome-grid">{afterDelivery.map(([title, text]) => <article key={title}><span>✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
         <div className="sales-mid-cta"><p>إذا هذا اللي ناقص حسابك، خلّنا نتأكد من ملاءمة الباقة قبل ما تدفع أي شيء.</p><LocalizedWhatsAppLink className="button primary" label="راجع الباقة معي على واتساب" /></div>
       </section>
 
       <section className="shell offer-deliverables sales-deliverables">
-        <div><span className="section-label">ماذا تستلم؟</span><h2>كل قطعة لها وظيفة.<br/>مو مجرد تعبئة للجدول.</h2><p>التسليم عادة خلال 10–14 يوم عمل بعد استلام المعلومات والمواد المطلوبة واعتماد الاتجاه.</p></div>
+        <div><span className="section-label">ماذا تستلم؟</span><h2>كل قطعة لها وظيفة<br/>مو مجرد تعبئة للجدول</h2><p>التسليم عادة خلال 10–14 يوم عمل بعد استلام المعلومات والمواد المطلوبة واعتماد الاتجاه.</p></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
       </section>
 
       <section className="shell sales-risk-reversal" aria-labelledby="sales-risk-title">
-        <div><span className="section-label">قرار أسهل</span><h2 id="sales-risk-title">ما نطلب منك تثق بوعود كبيرة.</h2><p>نقلل قدر الإمكان من مخاطرة القرار: نراجع نشاطك أولًا، نحدد الاتجاه، وتبدأ بنصف قيمة الباقة فقط.</p></div>
+        <div><span className="section-label">قرار أسهل</span><h2 id="sales-risk-title">ما نطلب منك تثق بوعود كبيرة</h2><p>نقلل قدر الإمكان من مخاطرة القرار: نراجع نشاطك أولًا، نحدد الاتجاه، وتبدأ بنصف قيمة الباقة فقط.</p></div>
         <div className="sales-risk-grid"><article><strong>01</strong><h3>نتأكد من الملاءمة</h3><p>إذا احتياجك خارج نطاق الباقة، نقول لك قبل الدفع.</p></article><article><strong>02</strong><h3>تعتمد الاتجاه</h3><p>ما نتوسع في التنفيذ قبل ما يكون الاتجاه واضحًا ومناسبًا لك.</p></article><article><strong>03</strong><h3>50% للبدء</h3><p>الدفعة الثانية بعد اعتماد الاتجاه وقبل تسليم الملفات النهائية.</p></article><article><strong>04</strong><h3>سياسة استرجاع واضحة</h3><p>استرداد كامل قبل بدء التنفيذ، وبعد البدء يُخصم فقط مقابل الجزء المنفذ.</p></article></div>
       </section>
 
@@ -142,18 +142,18 @@ export default function ContentOfferPage() {
       </section>
 
       <section className="shell offer-confidence sales-confidence" aria-labelledby="offer-confidence-title">
-        <div className="offer-confidence-head"><span className="section-label">3 خطوات فقط</span><h2 id="offer-confidence-title">من الرسالة الأولى إلى بداية التنفيذ.</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">3 خطوات فقط</span><h2 id="offer-confidence-title">من الرسالة الأولى إلى بداية التنفيذ</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>ترسل نوع نشاطك وهدفك على واتساب.</span></article><article><b>02</b><span>نتأكد من ملاءمة الباقة ونرسل رابط الدفع الرسمي.</span></article><article><b>03</b><span>نبدأ بعد 50% واعتماد الاتجاه الأولي.</span></article></div>
       </section>
 
       <section className="shell offer-faq sales-faq" aria-labelledby="offer-faq-title">
-        <div className="offer-faq-head"><span className="section-label">أسئلة قبل القرار</span><h2 id="offer-faq-title">السعر والنطاق قبل ما تبدأ.</h2></div>
+        <div className="offer-faq-head"><span className="section-label">أسئلة قبل القرار</span><h2 id="offer-faq-title">السعر والنطاق قبل ما تبدأ</h2></div>
         <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
         <p><Link href="/guides/social-media-management-cost-saudi-arabia">قارن أسعار إدارة السوشيال ميديا والإدارة الشهرية</Link></p>
       </section>
 
       <section className="shell offer-final-cta sales-final-cta">
-        <LocalizedOfferKicker /><h2>إذا تحتاج المحتوى، لا تدفع مقابل إدارة كاملة ما تحتاجها.</h2><p>أرسل لنا نوع نشاطك. نراجع هل باقة 30 يومًا هي الأنسب، أو تحتاج إدارة شهرية أوسع، ثم نوضح لك الخطوة التالية.</p><LocalizedWhatsAppLink className="button primary" label="أرسل نشاطي وأتأكد من الخيار المناسب" /><small>لا التزام قبل المراجعة · 50% فقط عند بدء التنفيذ</small>
+        <LocalizedOfferKicker /><h2>إذا تحتاج المحتوى، لا تدفع مقابل إدارة كاملة ما تحتاجها</h2><p>أرسل لنا نوع نشاطك. نراجع هل باقة 30 يومًا هي الأنسب، أو تحتاج إدارة شهرية أوسع، ثم نوضح لك الخطوة التالية.</p><LocalizedWhatsAppLink className="button primary" label="أرسل نشاطي وأتأكد من الخيار المناسب" /><small>لا التزام قبل المراجعة · 50% فقط عند بدء التنفيذ</small>
       </section>
 
       <div className="sales-mobile-sticky" aria-label="تواصل سريع عبر واتساب"><LocalizedWhatsAppLink className="button primary" label="اسأل عن باقة 30 يوم" /></div>
