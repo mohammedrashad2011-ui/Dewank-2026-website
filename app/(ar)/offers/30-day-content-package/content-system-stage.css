@@ -9,7 +9,6 @@
 .csys-stage {
   --csys-paper: #f6f0e8;
   --csys-gold: #d8b36a;
-  --csys-warm: #c96f3b;
   --csys-scatter: 1;
   position: relative;
   isolation: isolate;
@@ -95,10 +94,11 @@
   line-height: 1.6;
 }
 
-/* The work: a profile grid of posts, then a story and a reel, on a gently tilted plane. */
+/* The work: a profile grid of posts (one of them a reel) beside a story, on a gently tilted plane. Every piece keeps
+   the 4:5 ratio of its artwork: the story column is proportioned so that spanning two rows of posts gives it 4:5 too. */
 .csys-plane {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.82fr) minmax(0, 0.82fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 2.1fr);
   grid-template-rows: auto auto;
   gap: clamp(8px, 1vw, 14px);
   min-width: 0;
@@ -123,50 +123,17 @@
   object-fit: cover;
 }
 
-.csys-story,
-.csys-reel {
+.csys-story {
+  grid-column: -2;
   grid-row: 1 / span 2;
   aspect-ratio: auto;
 }
 
-.csys-story {
-  grid-column: 4;
+/* Laid over the card, so the image never stretches the rows it spans. */
+.csys-story img {
+  position: absolute;
+  inset: 0;
 }
-
-.csys-reel {
-  grid-column: 5;
-}
-
-/* A caption post: typography rather than imagery, so the grid reads as a planned mix. */
-.csys-caption {
-  display: grid;
-  align-content: end;
-  padding: clamp(10px, 1.2vw, 16px);
-  background: linear-gradient(160deg, var(--csys-paper), #efe3d2);
-}
-
-.csys-caption-lines {
-  display: grid;
-  gap: 8px;
-}
-
-.csys-caption-lines b {
-  width: 28px;
-  height: 4px;
-  margin-bottom: 6px;
-  border-radius: 2px;
-  background: var(--csys-warm);
-}
-
-.csys-caption-lines i {
-  height: 7px;
-  border-radius: 4px;
-  background: rgba(15, 27, 45, 0.24);
-}
-
-.csys-caption-lines i:nth-child(2) { width: 92%; }
-.csys-caption-lines i:nth-child(3) { width: 74%; }
-.csys-caption-lines i:nth-child(4) { width: 56%; }
 
 /* Story progress: three segments for the three stories. */
 .csys-segments {
@@ -316,7 +283,7 @@
   100% { opacity: 0; transform: translateX(55%); }
 }
 
-/* Tablet and phone: the work leads, the story line follows; the reel steps out to keep tiles legible. */
+/* Tablet and phone: the work leads, the story line follows; two posts step out to keep the rest legible. */
 @media (max-width: 760px) {
   .csys-stage {
     --csys-scatter: 0.45;
@@ -327,12 +294,16 @@
 
   .csys-plane {
     order: -1;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.9fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 2.1fr);
     transform: none;
   }
 
-  .csys-reel {
+  .csys-desktop-only {
     display: none;
+  }
+
+  .csys-play {
+    transform: scale(0.72);
   }
 
   .csys-steps {

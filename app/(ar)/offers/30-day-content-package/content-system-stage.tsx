@@ -21,18 +21,27 @@ const copy = {
   },
 } as const;
 
-type Tile = { kind: "post" | "caption" | "story" | "reel"; image?: string; sx: number; sy: number; sz: number; sr: number };
+type Tile = {
+  kind: "post" | "reel" | "story";
+  image: string;
+  desktopOnly?: boolean;
+  sx: number;
+  sy: number;
+  sz: number;
+  sr: number;
+};
 
-// Scatter vectors (px, deg) describe where each piece starts before it settles into place.
+// Every tile is genuine Dewank work at its native 4:5 ratio, so nothing is cropped. Six sit in the profile grid (the
+// reel carries the grid's reel mark); the story is the large card beside them. On phones the two desktopOnly posts
+// step out to keep the rest legible. Scatter vectors (px, deg) describe where each piece starts before it settles.
 const tiles: Tile[] = [
   { kind: "post", image: "/showcase/content/bunnah.webp", sx: -90, sy: -60, sz: 60, sr: -12 },
   { kind: "post", image: "/showcase/content/rihla.webp", sx: 40, sy: -110, sz: 20, sr: 9 },
-  { kind: "post", image: "/showcase/content/qrmsha.webp", sx: 120, sy: -40, sz: 80, sr: 14 },
+  { kind: "post", image: "/showcase/content/qrmsha.webp", desktopOnly: true, sx: 120, sy: -40, sz: 80, sr: 14 },
   { kind: "post", image: "/showcase/content/buno.webp", sx: -130, sy: 50, sz: 40, sr: 8 },
-  { kind: "caption", sx: 10, sy: 90, sz: 100, sr: -6 },
-  { kind: "post", image: "/showcase/content/madar.webp", sx: 100, sy: 70, sz: 30, sr: -14 },
-  { kind: "story", image: "/showcase/content/calm-root.webp", sx: 150, sy: -20, sz: 60, sr: 10 },
-  { kind: "reel", image: "/showcase/content/nova-play.webp", sx: 180, sy: 60, sz: 90, sr: -9 },
+  { kind: "reel", image: "/showcase/content/nova-play.webp", sx: 10, sy: 90, sz: 100, sr: -6 },
+  { kind: "post", image: "/showcase/content/madar.webp", desktopOnly: true, sx: 100, sy: 70, sz: 30, sr: -14 },
+  { kind: "story", image: "/showcase/content/calm-root.webp", sx: 160, sy: -10, sz: 70, sr: 9 },
 ];
 
 // Sixteen publishing days spread across thirty (zero-based). dayOrder gives each publishing day its place in the
@@ -70,15 +79,17 @@ export default function ContentSystemStage({ locale }: { locale: Locale }) {
         {tiles.map((tile, index) => (
           <div
             key={`${tile.kind}-${index}`}
-            className={`csys-tile csys-${tile.kind}`}
+            className={`csys-tile csys-${tile.kind}${tile.desktopOnly ? " csys-desktop-only" : ""}`}
             style={vars({ "--i": index, "--sx": `${tile.sx}px`, "--sy": `${tile.sy}px`, "--sz": `${tile.sz}px`, "--sr": `${tile.sr}deg` })}
           >
-            {tile.image ? (
-              <Image src={tile.image} alt="" width={1122} height={1402} quality={70} sizes="(max-width: 760px) 26vw, 160px" />
-            ) : null}
-            {tile.kind === "caption" ? (
-              <span className="csys-caption-lines"><b /><i /><i /><i /></span>
-            ) : null}
+            <Image
+              src={tile.image}
+              alt=""
+              width={1122}
+              height={1402}
+              quality={70}
+              sizes={tile.kind === "story" ? "(max-width: 760px) 40vw, 320px" : "(max-width: 760px) 20vw, 160px"}
+            />
             {tile.kind === "story" ? (
               <span className="csys-segments"><i /><i /><i /></span>
             ) : null}
