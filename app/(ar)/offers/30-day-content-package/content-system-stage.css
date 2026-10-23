@@ -1,0 +1,363 @@
+/* 30-day content package: hero stage (Arabic and English). CSS only, no runtime library.
+   The default state is the finished composition. Motion is added only for visitors who have not asked for reduced
+   motion, and animates transform and opacity (plus a short blur on desktop). */
+
+.sales-hero > .csys-stage {
+  grid-column: 1 / -1;
+}
+
+.csys-stage {
+  --csys-paper: #f6f0e8;
+  --csys-gold: #d8b36a;
+  --csys-warm: #c96f3b;
+  --csys-scatter: 1;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+  padding: clamp(26px, 3.6vw, 52px);
+  border: 1px solid rgba(216, 179, 106, 0.26);
+  border-radius: clamp(24px, 2.8vw, 38px);
+  background:
+    radial-gradient(110% 90% at 100% 0%, rgba(216, 179, 106, 0.14), transparent 55%),
+    radial-gradient(80% 90% at 0% 100%, rgba(201, 111, 59, 0.12), transparent 60%),
+    linear-gradient(158deg, #14233b 0%, #0b1526 72%);
+  box-shadow: 0 40px 90px rgba(15, 27, 45, 0.2);
+  color: var(--csys-paper);
+}
+
+/* One slow sheen crosses the stage once, behind the work. */
+.csys-light {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(100deg, transparent 38%, rgba(255, 236, 196, 0.09) 50%, transparent 62%);
+  opacity: 0;
+}
+
+/* Story line: the four stages named in the hero copy, then the 30-day plan. */
+.csys-story-line {
+  display: grid;
+  gap: clamp(22px, 3vw, 38px);
+  min-width: 0;
+}
+
+.csys-steps {
+  display: grid;
+}
+
+.csys-step {
+  display: block;
+  padding-block: clamp(10px, 1.2vw, 15px);
+  border-bottom: 1px solid rgba(246, 240, 232, 0.12);
+  color: rgba(246, 240, 232, 0.86);
+  font-size: clamp(1.15rem, 1.9vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.csys-step:last-child {
+  border-bottom: 0;
+  color: var(--csys-gold);
+}
+
+.csys-plan {
+  display: grid;
+  gap: 12px;
+}
+
+.csys-days {
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.csys-days i {
+  display: block;
+  height: 22px;
+  border-radius: 3px;
+  background: rgba(246, 240, 232, 0.1);
+}
+
+.csys-days i.on {
+  background: var(--csys-gold);
+}
+
+.csys-plan-label {
+  color: rgba(246, 240, 232, 0.66);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* The work: a profile grid of posts, then a story and a reel, on a gently tilted plane. */
+.csys-plane {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.82fr) minmax(0, 0.82fr);
+  grid-template-rows: auto auto;
+  gap: clamp(8px, 1vw, 14px);
+  min-width: 0;
+  transform: perspective(1400px) rotateX(6deg);
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+}
+
+.csys-tile {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: clamp(10px, 1.1vw, 16px);
+  background: #1d2c45;
+  box-shadow: 0 18px 40px rgba(3, 10, 20, 0.35);
+}
+
+.csys-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.csys-story,
+.csys-reel {
+  grid-row: 1 / span 2;
+  aspect-ratio: auto;
+}
+
+.csys-story {
+  grid-column: 4;
+}
+
+.csys-reel {
+  grid-column: 5;
+}
+
+/* A caption post: typography rather than imagery, so the grid reads as a planned mix. */
+.csys-caption {
+  display: grid;
+  align-content: end;
+  padding: clamp(10px, 1.2vw, 16px);
+  background: linear-gradient(160deg, var(--csys-paper), #efe3d2);
+}
+
+.csys-caption-lines {
+  display: grid;
+  gap: 8px;
+}
+
+.csys-caption-lines b {
+  width: 28px;
+  height: 4px;
+  margin-bottom: 6px;
+  border-radius: 2px;
+  background: var(--csys-warm);
+}
+
+.csys-caption-lines i {
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(15, 27, 45, 0.24);
+}
+
+.csys-caption-lines i:nth-child(2) { width: 92%; }
+.csys-caption-lines i:nth-child(3) { width: 74%; }
+.csys-caption-lines i:nth-child(4) { width: 56%; }
+
+/* Story progress: three segments for the three stories. */
+.csys-segments {
+  position: absolute;
+  top: 8px;
+  inset-inline: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.csys-segments i {
+  position: relative;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.csys-segments i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform-origin: left;
+}
+
+.csys-stage:dir(rtl) .csys-segments i::after {
+  transform-origin: right;
+}
+
+/* Reel play mark. */
+.csys-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 38px;
+  height: 38px;
+  margin: -19px 0 0 -19px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  background: rgba(15, 27, 45, 0.6);
+}
+
+.csys-play::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 14px;
+  border-style: solid;
+  border-width: 7px 0 7px 11px;
+  border-color: transparent transparent transparent #fff;
+}
+
+/* Choreography: the plane settles, the pieces gather into place, the stages light in order, the plan fills, the
+   story segments run, and one sheen passes. About three seconds, once. It runs only after the client marks the stage
+   (data-motion), holds on its first frame while "armed", and plays when the stage comes into view. */
+@media (prefers-reduced-motion: no-preference) {
+  .csys-stage[data-motion] .csys-plane {
+    animation: csys-camera 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) 0.1s both;
+  }
+
+  .csys-stage[data-motion] .csys-tile {
+    animation: csys-gather 1.3s cubic-bezier(0.16, 0.84, 0.24, 1) both;
+    animation-delay: calc(0.25s + var(--i) * 0.09s);
+  }
+
+  .csys-stage[data-motion] .csys-step {
+    animation: csys-word 0.7s ease-out both;
+    animation-delay: calc(0.35s + var(--s) * 0.42s);
+  }
+
+  .csys-stage[data-motion] .csys-days i.on {
+    animation: csys-day 0.5s ease-out both;
+    animation-delay: calc(1.5s + var(--n) * 0.06s);
+  }
+
+  .csys-stage[data-motion] .csys-segments i::after {
+    animation: csys-segment 0.6s ease-in-out both;
+  }
+  .csys-stage[data-motion] .csys-segments i:nth-child(1)::after { animation-delay: 1.9s; }
+  .csys-stage[data-motion] .csys-segments i:nth-child(2)::after { animation-delay: 2.4s; }
+  .csys-stage[data-motion] .csys-segments i:nth-child(3)::after { animation-delay: 2.9s; }
+
+  .csys-stage[data-motion] .csys-light {
+    animation: csys-sweep 1.8s ease-in-out 2.1s both;
+  }
+
+  /* Hold every piece on its first frame until the stage is in view. Same specificity as the rules above, and later,
+     because the animation shorthand resets the play state. */
+  .csys-stage[data-motion="armed"] .csys-plane,
+  .csys-stage[data-motion="armed"] .csys-tile,
+  .csys-stage[data-motion="armed"] .csys-step,
+  .csys-stage[data-motion="armed"] .csys-days i.on,
+  .csys-stage[data-motion="armed"] .csys-segments i::after,
+  .csys-stage[data-motion="armed"] .csys-light {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes csys-camera {
+  from { transform: perspective(1400px) rotateX(20deg) rotateZ(-2deg) scale(0.94); }
+  to { transform: perspective(1400px) rotateX(6deg); }
+}
+
+@keyframes csys-gather {
+  from {
+    opacity: 0;
+    transform: translate3d(calc(var(--sx) * var(--csys-scatter)), calc(var(--sy) * var(--csys-scatter)), var(--sz)) rotate(var(--sr)) scale(0.84);
+    filter: blur(6px);
+  }
+  55% { opacity: 1; filter: blur(0); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes csys-gather-lite {
+  from {
+    opacity: 0;
+    transform: translate3d(calc(var(--sx) * var(--csys-scatter)), calc(var(--sy) * var(--csys-scatter)), 0) rotate(var(--sr)) scale(0.88);
+  }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes csys-camera-lite {
+  from { transform: perspective(1000px) rotateX(10deg) scale(0.97); }
+  to { transform: none; }
+}
+
+@keyframes csys-word {
+  from { opacity: 0.18; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes csys-day {
+  from { background: rgba(246, 240, 232, 0.1); transform: scaleY(0.4); }
+  to { background: var(--csys-gold); transform: none; }
+}
+
+@keyframes csys-segment {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes csys-sweep {
+  0% { opacity: 0; transform: translateX(-55%); }
+  40% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(55%); }
+}
+
+/* Tablet and phone: the work leads, the story line follows; the reel steps out to keep tiles legible. */
+@media (max-width: 760px) {
+  .csys-stage {
+    --csys-scatter: 0.45;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    padding: 18px;
+  }
+
+  .csys-plane {
+    order: -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 0.9fr);
+    transform: none;
+  }
+
+  .csys-reel {
+    display: none;
+  }
+
+  .csys-steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+  }
+
+  .csys-step {
+    padding: 0;
+    border: 0;
+    font-size: 1rem;
+  }
+
+  .csys-days i {
+    height: 16px;
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .csys-stage[data-motion] .csys-plane {
+    animation-name: csys-camera-lite;
+  }
+
+  .csys-stage[data-motion] .csys-tile {
+    animation-name: csys-gather-lite;
+  }
+}
