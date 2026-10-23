@@ -65,7 +65,7 @@ const selectedWork = [
 
 export default function Home() {
   return (
-    <main className="studio-home home-conversion-page arabic-home-polish">
+    <main className="studio-home home-conversion-page arabic-home-polish growth-home-experiment">
       <Header />
 
       <section className="hybrid-hero shell">
