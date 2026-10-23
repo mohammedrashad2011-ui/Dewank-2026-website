@@ -285,13 +285,13 @@
 .studio-home .method-section .section-label,.studio-home .method-list>div>span{color:#4a4d55!important}
 /* Explicitly override old 620px orbit proportions without affecting other site sections. */
 @media(min-width:1280px) {
-  html body .studio-home .hybrid-hero:has(.growth-experience) {
+  html body .studio-home.growth-home-experiment .hybrid-hero {
     grid-template-columns:minmax(0,1fr) minmax(0,650px)!important;
     gap:clamp(30px,4vw,72px);
   }
 }
 @media(max-width:1279px) {
-  html body .studio-home .hybrid-hero:has(.growth-experience) {
+  html body .studio-home.growth-home-experiment .hybrid-hero {
     grid-template-columns:minmax(0,1fr)!important;
   }
   .studio-home .growth-experience{max-width:700px}
@@ -411,4 +411,11 @@
   .growth-experience .ge-received-pill {
     opacity:1!important;transform:none!important;filter:none!important;
   }
+}
+
+/* English homepage's RTL-to-LTR parity rule forces start alignment globally. */
+html body .en-parity.studio-home .growth-experience .ge-reactor-center,
+html body .en-parity.studio-home .growth-experience .ge-scene-button,
+html body .en-parity.studio-home .growth-experience .ge-illustration-note {
+  text-align:center!important;
 }
