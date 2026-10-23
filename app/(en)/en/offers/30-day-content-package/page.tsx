@@ -5,12 +5,14 @@ import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
 import OfferVisualProof from "./offer-visual-proof";
+import ContentSystemStage from "../../../../(ar)/offers/30-day-content-package/content-system-stage";
 // The Arabic 30-day offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/30-day-content-package/offer-visual-proof.css";
 import "../../../../(ar)/offers/30-day-content-package/sales-machine.css";
 import "../../../../(ar)/offers/30-day-content-package/sales-machine-arabic-polish.css";
+import "../../../../(ar)/offers/30-day-content-package/content-system-stage.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
@@ -102,6 +104,8 @@ export default function ContentOfferPage() {
           <a className="button primary sales-primary-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Check the package fits your business <span>→</span></a>
           <small className="sales-cta-note">WhatsApp, direct · No payment before we review your business</small>
         </aside>
+
+        <ContentSystemStage locale="en" />
       </section>
 
       <OfferVisualProof />

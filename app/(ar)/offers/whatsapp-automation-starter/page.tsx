@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { WhatsAppStarterLink, WhatsAppStarterPrice } from "./localized-whatsapp-starter";
-import { AutomationHeroArt, AutomationJourney, AutomationContrast } from "./whatsapp-cinematic";
+import { AutomationJourney, AutomationContrast } from "./whatsapp-cinematic";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./whatsapp-starter.css";
@@ -61,7 +61,6 @@ export default function WhatsAppAutomationStarterOffer() {
           <h1>أتمتة واتساب للشركات<br/><em>ابدأ بالمسار الذي يمنع ضياع العميل المحتمل</em></h1>
           <p>نجهز لك مسار أتمتة واتساب يرد على الأسئلة الأساسية، يؤهّل العميل، يجمع بياناته، ويتابع الخطوة التالية قبل تحويله للموظف المناسب</p>
           <div className="whatsapp-starter-answer" aria-label="الإجابة المختصرة"><b>الإجابة المختصرة</b><span>هذه باقة تأسيسية وليست نظامًا كاملًا لإدارة العملاء، ومناسبة لو مشكلتك الأساسية هي بطء الرد وتكرار الأسئلة وضياع العملاء قبل وصولهم للفريق</span></div>
-          <AutomationHeroArt locale="ar" />
         </div>
         <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><WhatsAppStarterPrice /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل، ولا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink className="button primary" label="ابدأ أتمتة واتساب" /></aside>
       </section>

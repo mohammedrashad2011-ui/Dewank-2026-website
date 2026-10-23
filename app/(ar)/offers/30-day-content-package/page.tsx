@@ -4,11 +4,13 @@ import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets, serviceId } from "../../../lib/seo";
 import { LocalizedOfferKicker, LocalizedOfferPrice, LocalizedWhatsAppLink } from "../localized-offer";
 import OfferVisualProof from "./offer-visual-proof";
+import ContentSystemStage from "./content-system-stage";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./offer-visual-proof.css";
 import "./sales-machine.css";
 import "./sales-machine-arabic-polish.css";
+import "./content-system-stage.css";
 
 export const metadata: Metadata = createMetadata({
   title: "باقة سوشيال ميديا 30 يوم | صناعة محتوى بسعر واضح | ديوانك",
@@ -108,6 +110,8 @@ export default function ContentOfferPage() {
           <LocalizedWhatsAppLink className="button primary sales-primary-cta" label="تأكد أن الباقة مناسبة لنشاطك" />
           <small className="sales-cta-note">واتساب مباشر · ما تحتاج تدفع قبل مراجعة نشاطك</small>
         </aside>
+
+        <ContentSystemStage locale="ar" />
       </section>
 
       <OfferVisualProof />
