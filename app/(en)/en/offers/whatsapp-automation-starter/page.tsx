@@ -4,7 +4,7 @@ import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
-import { AutomationHeroArt, AutomationJourney, AutomationContrast } from "../../../../(ar)/offers/whatsapp-automation-starter/whatsapp-cinematic";
+import { AutomationJourney, AutomationContrast } from "../../../../(ar)/offers/whatsapp-automation-starter/whatsapp-cinematic";
 // The Arabic WhatsApp automation starter offer's layout and styles, reused unchanged. English-only overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -84,7 +84,6 @@ export default function WhatsAppAutomationStarterOffer() {
           <h1>WhatsApp automation for businesses<br/><em>Start with the path that stops leads being lost</em></h1>
           <p>We build a WhatsApp automation path that answers the basic questions, qualifies the customer, captures their details and follows up on the next step before passing them to the right person</p>
           <div className="whatsapp-starter-answer" aria-label="The short answer"><b>The short answer</b><span>This is a foundation package, not a full CRM, and it suits you if your main problems are slow replies, the same questions repeated, and customers lost before they reach the team</span></div>
-          <AutomationHeroArt locale="en" />
         </div>
         <aside className="offer-price-panel whatsapp-starter-price-panel"><small>Foundation package from</small><OfferPrice offerKey="whatsapp-automation-starter" className="offer-price" /><div className="offer-trust-inline"><span>Reply and qualify</span><span>Handover to a person</span><span>7-day support</span></div><p>Includes setting up the basic path, testing and going live, while WhatsApp fees, external tools and a full CRM are not included</p><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start WhatsApp automation <span>→</span></a></aside>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { flushSync } from "react-dom";
 
 type Locale = "ar" | "en";
 type Text = { ar: string; en: string };
@@ -53,46 +54,95 @@ const scenarios = [
   },
 ] as const;
 
-const steps = [
-  { number: "01", title: { ar: "الرسالة", en: "Enquiry" }, detail: { ar: "استفسار يصل", en: "A message arrives" } },
-  { number: "02", title: { ar: "الرد", en: "Reply" }, detail: { ar: "رد أساسي فوري", en: "A first response" } },
-  { number: "03", title: { ar: "التأهيل", en: "Qualify" }, detail: { ar: "نفهم الاحتياج", en: "Understand the need" } },
-  { number: "04", title: { ar: "التسليم", en: "Handover" }, detail: { ar: "الإنسان يتولى", en: "A person takes over" } },
-  { number: "05", title: { ar: "المتابعة", en: "Follow-up" }, detail: { ar: "لا يتوقف الحوار", en: "Keep the conversation moving" } },
+// The demonstration in four beats: the enquiry and its first reply, the details captured in the record, then a handover
+// to a person or a basic follow-up, and finally the next step. Beat lengths (ms) set the autoplay pace.
+const chapters = [
+  { title: { ar: "الرسالة", en: "Enquiry" }, detail: { ar: "استفسار يصل", en: "A message arrives" } },
+  { title: { ar: "التأهيل", en: "Qualify" }, detail: { ar: "نفهم الاحتياج", en: "Understand the need" } },
+  { title: { ar: "التسليم", en: "Handover" }, detail: { ar: "الإنسان يتولى", en: "A person takes over" } },
+  { title: { ar: "الخطوة التالية", en: "Next step" }, detail: { ar: "بدل التخمين", en: "Defined, not guessed" } },
 ] as const;
+const followupChapter = { title: { ar: "المتابعة", en: "Follow-up" }, detail: { ar: "لا يتوقف الحوار", en: "Keep the conversation moving" } };
+const beats = [3600, 3600, 3400];
+const last = chapters.length - 1;
 
-export function AutomationHeroArt({ locale }: { locale: Locale }) {
-  const ar = locale === "ar";
-  return (
-    <div className="wa-cinema-hero-art" aria-label={ar ? "تصور تخطيطي لمسار استقبال الرسائل وتنظيمها" : "Illustration of organising customer enquiries"}>
-      <div className="wa-cinema-hero-grid" aria-hidden="true" />
-      <div className="wa-cinema-orbit wa-cinema-orbit-a" aria-hidden="true" />
-      <div className="wa-cinema-orbit wa-cinema-orbit-b" aria-hidden="true" />
-      <div className="wa-cinema-floating wa-cinema-incoming">
-        <span className="wa-cinema-mini-dot" />
-        <span>{ar ? "رسالة جديدة" : "New message"}</span>
-        <b>{ar ? "ممكن التفاصيل؟" : "Can I get details?"}</b>
-      </div>
-      <div className="wa-cinema-routing" aria-hidden="true"><span>↗</span><span>✧</span><span>↘</span></div>
-      <div className="wa-cinema-floating wa-cinema-resolved">
-        <span className="wa-cinema-mini-dot" />
-        <span>{ar ? "مسار منظم" : "Organised flow"}</span>
-        <b>{ar ? "مؤهل ← للموظف" : "Qualified → Team"}</b>
-      </div>
-      <div className="wa-cinema-hero-caption"><span className="wa-cinema-caption-light" /> {ar ? "رد • تأهيل • تحويل بشري" : "Reply • Qualify • Human handover"}</div>
-    </div>
-  );
-}
+type Branch = "handover" | "followup";
+const at = (delay: string) => ({ "--at": delay }) as CSSProperties;
 
 export function AutomationJourney({ locale }: { locale: Locale }) {
   const [industry, setIndustry] = useState(0);
-  const [stage, setStage] = useState(2);
+  // The server renders the finished flow, so without JavaScript or with reduced motion the whole journey is visible.
+  const [chapter, setChapter] = useState<number>(last);
+  const [branch, setBranch] = useState<Branch>("handover");
+  const [playing, setPlaying] = useState(false);
+  const [run, setRun] = useState(0);
+  const film = useRef<HTMLDivElement | null>(null);
+  const motion = useRef(false);
   const ar = locale === "ar";
   const scenario = scenarios[industry];
-  const showBot = stage >= 1;
-  const showLead = stage >= 2;
-  const showHandover = stage >= 3;
-  const showFollowup = stage >= 4;
+  const followup = branch === "followup";
+  const routed = chapter >= 2;
+  const handedOver = routed && !followup;
+  const focus = chapter === 0 ? "phone" : chapter === 1 ? "record" : chapter === 2 ? (followup ? "phone" : "team") : "all";
+  const inFocus = (station: string) => (focus === station || focus === "all" ? " is-focus" : "");
+  const chapterText = (index: number) => (index === 2 && followup ? followupChapter : chapters[index]);
+  const ready = handedOver ? (ar ? "جاهز" : "Ready") : (ar ? "عند الحاجة" : "If needed");
+
+  // Holds the film below the fold (data-motion "armed") and plays it once, when it is a third visible. With reduced
+  // motion nothing is armed and the finished flow stays on screen.
+  useEffect(() => {
+    const node = film.current;
+    if (!node || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    motion.current = true;
+    node.dataset.motion = "armed";
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        flushSync(() => {
+          setChapter(0);
+          setPlaying(true);
+        });
+        node.dataset.motion = "play";
+      },
+      { threshold: 0.35 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  // Advances one beat at a time while playing, and holds on the last.
+  useEffect(() => {
+    if (!playing) return;
+    const id = window.setTimeout(() => {
+      setChapter(chapter + 1);
+      if (chapter + 1 >= last) setPlaying(false);
+    }, beats[chapter]);
+    return () => window.clearTimeout(id);
+  }, [playing, chapter]);
+
+  function restart() {
+    setRun((count) => count + 1);
+    setChapter(0);
+    setPlaying(motion.current);
+  }
+
+  function show(index: number) {
+    setPlaying(false);
+    setChapter(index);
+  }
+
+  function choosePath(next: Branch) {
+    setPlaying(false);
+    setBranch(next);
+    setChapter(2);
+  }
+
+  function chooseIndustry(index: number) {
+    setIndustry(index);
+    if (motion.current) restart();
+  }
 
   return (
     <section className="shell wa-cinema-journey" aria-labelledby={"wa-cinema-journey-title-" + locale} dir={ar ? "rtl" : "ltr"}>
@@ -103,48 +153,83 @@ export function AutomationJourney({ locale }: { locale: Locale }) {
       </div>
 
       <div className="wa-cinema-industry" aria-label={ar ? "اختر نوع النشاط" : "Choose a business type"}>
-        {scenarios.map((s, index) => <button key={s.id} type="button" aria-pressed={index === industry} onClick={() => { setIndustry(index); setStage(2); }}><span aria-hidden="true">{s.glyph}</span> {t(s.name, locale)}</button>)}
+        {scenarios.map((s, index) => <button key={s.id} type="button" aria-pressed={index === industry} onClick={() => chooseIndustry(index)}><span aria-hidden="true">{s.glyph}</span> {t(s.name, locale)}</button>)}
       </div>
 
-      <div className="wa-cinema-stepper" aria-label={ar ? "مراحل المسار التجريبي" : "Example journey steps"}>
-        {steps.map((step, index) => <button type="button" key={step.number} aria-current={index === stage ? "step" : undefined} onClick={() => setStage(index)} className={index <= stage ? "is-passed" : ""}>
-          <b aria-hidden="true">{["✉", "↩", "◎", "⇢", "✓"][index]}</b><span>{t(step.title, locale)}</span><small>{t(step.detail, locale)}</small>
-        </button>)}
-      </div>
-
-      <div className="wa-cinema-console">
+      <div className="wa-flow" ref={film} data-chapter={chapter} data-focus={focus} data-branch={branch}>
         <div className="wa-cinema-console-top">
           <span><span className="wa-cinema-live" /> {ar ? "ديوانك | تجربة المسار" : "DEWANK / FLOW LAB"}</span>
           <span>{ar ? "محاكاة، لا محادثات حقيقية" : "Simulation, not live conversations"}</span>
         </div>
-        <div className="wa-cinema-console-grid">
-          <div className="wa-cinema-chat" key={scenario.id + "-" + stage}>
-            <div className="wa-cinema-chat-head"><div className="wa-cinema-chat-avatar">✳</div><div><strong>{ar ? "خدمة العملاء" : "Customer care"}</strong><small>{ar ? "مسار استقبال الطلبات" : "Enquiry flow"}</small></div><span>●●●</span></div>
-            <div className="wa-cinema-chat-body">
-              <div className="wa-cinema-chat-day">{ar ? "اليوم · سيناريو تجريبي" : "Today · sample scenario"}</div>
-              <div className="wa-cinema-bubble is-customer">{t(scenario.customer, locale)}</div>
-              {showBot && <div className="wa-cinema-bubble is-system"><span className="wa-cinema-bot-tag">{ar ? "رد أساسي" : "Basic response"}</span>{t(scenario.reply, locale)}</div>}
-              {showLead && <div className="wa-cinema-bubble is-choice"><span>✓</span> {t(scenario.detail, locale)}</div>}
-              {showHandover && <div className="wa-cinema-bubble is-handover"><span>↗</span> {t(scenario.handover, locale)}</div>}
-              {showFollowup && <div className="wa-cinema-bubble is-system"><span className="wa-cinema-bot-tag">{ar ? "متابعة أساسية" : "Basic follow-up"}</span>{t(scenario.followup, locale)}</div>}
+
+        <div className="wa-flow-stage">
+          <div className="wa-flow-spot" aria-hidden="true" />
+          <div className="wa-flow-world" key={scenario.id + "-" + run}>
+            <div className={"wa-flow-station wa-flow-phone" + inFocus("phone")}>
+              <div className="wa-flow-screen">
+                <div className="wa-flow-chat-head"><span className="wa-flow-avatar" aria-hidden="true">✳</span><div><strong>{ar ? "خدمة العملاء" : "Customer care"}</strong><small>{ar ? "مسار استقبال الطلبات" : "Enquiry flow"}</small></div></div>
+                <div className="wa-flow-thread">
+                  <span className="wa-flow-day">{ar ? "اليوم · سيناريو تجريبي" : "Today · sample scenario"}</span>
+                  <p className="wa-flow-bubble is-in" data-at="0" style={at(".25s")}>{t(scenario.customer, locale)}</p>
+                  <div className="wa-flow-out">
+                    {chapter === 0 && <span className="wa-flow-typing" aria-hidden="true"><i /><i /><i /></span>}
+                    <p className="wa-flow-bubble" data-at="0" style={at("1.65s")}><span className="wa-flow-tag">{ar ? "رد أساسي" : "Basic response"}</span>{t(scenario.reply, locale)}</p>
+                  </div>
+                  {chapter >= 1 && <p className="wa-flow-bubble is-in is-choice" data-at="1" style={at(".2s")}><span aria-hidden="true">✓</span> {t(scenario.detail, locale)}</p>}
+                  {routed && followup && <div className="wa-flow-out"><p className="wa-flow-bubble" data-at="2" style={at("1.25s")}><span className="wa-flow-tag">{ar ? "متابعة أساسية" : "Basic follow-up"}</span>{t(scenario.followup, locale)}</p></div>}
+                </div>
+                <div className="wa-flow-compose" aria-hidden="true"><span>{ar ? "اكتب رسالة" : "Type a message"}</span><b>➤</b></div>
+              </div>
             </div>
-            <div className="wa-cinema-chat-compose" aria-hidden="true"><span>{ar ? "اكتب رسالة" : "Type a message"}</span><b>➤</b></div>
-          </div>
-          <div className="wa-cinema-transfer" aria-hidden="true"><span className="wa-cinema-transfer-pulse" /><span>➜</span><small>{ar ? "تنظيم" : "ROUTE"}</small></div>
-          <div className="wa-cinema-lead" key={"lead-" + scenario.id + "-" + stage}>
-            <div className="wa-cinema-lead-top"><span>{ar ? "سجل الطلب" : "Enquiry record"}</span><span>{ar ? "عرض تجريبي" : "STARTER / DEMO"}</span></div>
-            <div className="wa-cinema-lead-icon">◎</div>
-            <h3>{showLead ? t(scenario.record, locale) : (ar ? "في انتظار التفاصيل" : "Waiting for details")}</h3>
-            <div className="wa-cinema-meta"><span>{ar ? "المرحلة" : "Stage"}</span><strong aria-live="polite">{t(steps[stage].title, locale)}</strong></div>
-            <div className="wa-cinema-meta"><span>{ar ? "النشاط" : "Business"}</span><strong>{t(scenario.name, locale)}</strong></div>
-            <div className="wa-cinema-meta"><span>{ar ? "تحويل بشري" : "Human handover"}</span><strong className={showHandover ? "wa-cinema-status-ready" : ""}>{showHandover ? (ar ? "جاهز" : "Ready") : (ar ? "عند الحاجة" : "If needed")}</strong></div>
-            <div className="wa-cinema-lead-progress"><span style={{ width: ((stage + 1) / steps.length) * 100 + "%" }} /></div>
-            <p>{ar ? "مثال لتجميع بيانات أساسية وليس نظامًا كاملًا لإدارة العملاء" : "Illustrative basic record, not a full CRM dashboard"}</p>
+
+            <div className={"wa-flow-rail" + (chapter >= 1 ? " is-live" : "")} data-rail="in" aria-hidden="true"><i /></div>
+
+            <div className={"wa-flow-station wa-flow-record" + inFocus("record")}>
+              <div className="wa-flow-card-head"><span>{ar ? "سجل الطلب" : "Enquiry record"}</span><small>{ar ? "عرض تجريبي" : "STARTER / DEMO"}</small></div>
+              <h3 className="wa-flow-value" key={"record-" + (chapter >= 1)} style={at(chapter === 1 ? "1.35s" : "0s")}>{chapter >= 1 ? t(scenario.record, locale) : (ar ? "في انتظار التفاصيل" : "Waiting for details")}</h3>
+              <dl className="wa-flow-fields">
+                <div><dt>{ar ? "النشاط" : "Business"}</dt><dd>{t(scenario.name, locale)}</dd></div>
+                <div><dt>{ar ? "التفاصيل" : "Details"}</dt><dd className="wa-flow-value" key={"detail-" + (chapter >= 1)} style={at(chapter === 1 ? "1.55s" : "0s")}>{chapter >= 1 ? t(scenario.detail, locale) : "—"}</dd></div>
+                <div><dt>{ar ? "المرحلة" : "Stage"}</dt><dd className="wa-flow-value" key={"stage-" + chapter + branch} style={at(chapter === 0 ? "0s" : "1.1s")} aria-live="polite">{t(chapterText(chapter).title, locale)}</dd></div>
+                <div><dt>{ar ? "تحويل بشري" : "Human handover"}</dt><dd className={"wa-flow-value" + (handedOver ? " is-ready" : "")} key={"handover-" + handedOver} style={at(handedOver && chapter === 2 ? "1.2s" : "0s")}>{ready}</dd></div>
+              </dl>
+              <div className={"wa-flow-next" + (chapter === last ? " is-on" : "")} data-at="3" style={at(".55s")} aria-hidden={chapter !== last}>
+                <span>{ar ? "الخطوة التالية" : "Next step"}</span>
+                <b>{followup ? t(followupChapter.title, locale) + " · " + t(followupChapter.detail, locale) : t(scenario.handover, locale)}</b>
+              </div>
+              <p className="wa-flow-scope">{ar ? "مثال لتجميع بيانات أساسية وليس نظامًا كاملًا لإدارة العملاء" : "Illustrative basic record, not a full CRM dashboard"}</p>
+            </div>
+
+            <div className={"wa-flow-rail" + (handedOver ? " is-live" : "")} data-rail="out" aria-hidden="true"><i /></div>
+
+            <div className={"wa-flow-station wa-flow-team" + inFocus("team") + (handedOver ? " is-ready" : "")}>
+              <div className="wa-flow-card-head"><span>{ar ? "تحويل بشري" : "Human handover"}</span><b className="wa-flow-value" key={"team-" + handedOver} style={at(handedOver && chapter === 2 ? "1.1s" : "0s")}>{ready}</b></div>
+              <div className="wa-flow-person" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="24" cy="17" r="8" /><path d="M9 41c2-9 8-13 15-13s13 4 15 13" /></svg></div>
+              <p className="wa-flow-value" key={"team-text-" + handedOver} style={at(handedOver && chapter === 2 ? "1.3s" : "0s")}>{handedOver ? t(scenario.handover, locale) : (ar ? "ينتقل الحوار إلى شخص من الفريق عند الحاجة" : "The conversation moves to someone on your team when needed")}</p>
+            </div>
           </div>
         </div>
-        <div className="wa-cinema-console-bottom">
-          <span>◉ {ar ? "مسار تجريبي، بيانات افتراضية" : "Demo flow, fictional data"}</span>
-          <div><button type="button" onClick={() => setStage(stage === 0 ? steps.length - 1 : stage - 1)} aria-label={ar ? "الخطوة السابقة" : "Previous step"}>←</button><span aria-live="polite">{t(steps[stage].title, locale)}</span><button type="button" onClick={() => setStage((stage + 1) % steps.length)} aria-label={ar ? "الخطوة التالية" : "Next step"}>→</button></div>
+
+        <div className="wa-flow-controls">
+          <ol className="wa-flow-chapters" aria-label={ar ? "مراحل المسار التجريبي" : "Example journey steps"}>
+            {chapters.map((_, index) => (
+              <li key={index}>
+                <button type="button" aria-current={index === chapter ? "step" : undefined} className={index < chapter ? "is-passed" : undefined} onClick={() => show(index)}>
+                  <span>{t(chapterText(index).title, locale)}</span>
+                  <small>{t(chapterText(index).detail, locale)}</small>
+                  <i aria-hidden="true" key={index + "-" + run + "-" + playing} className={index === chapter && playing ? "is-running" : undefined} style={index === chapter && playing ? ({ "--beat": beats[index] + "ms" } as CSSProperties) : undefined} />
+                </button>
+              </li>
+            ))}
+          </ol>
+          <div className="wa-flow-actions">
+            <div className="wa-flow-paths" role="group" aria-label={ar ? "بعد جمع التفاصيل" : "After the details"}>
+              <button type="button" aria-pressed={!followup} onClick={() => choosePath("handover")}>{ar ? "تسليم للموظف" : "Human handover"}</button>
+              <button type="button" aria-pressed={followup} onClick={() => choosePath("followup")}>{ar ? "متابعة أساسية" : "Basic follow-up"}</button>
+            </div>
+            <button type="button" className="wa-flow-play" onClick={() => (playing ? setPlaying(false) : restart())}>{playing ? (ar ? "إيقاف مؤقت" : "Pause") : (ar ? "إعادة العرض" : "Replay")}</button>
+          </div>
+          <span className="wa-flow-note">◉ {ar ? "مسار تجريبي، بيانات افتراضية" : "Demo flow, fictional data"}</span>
         </div>
       </div>
     </section>
