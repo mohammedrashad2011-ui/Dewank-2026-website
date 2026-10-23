@@ -157,6 +157,7 @@ export default function GrowthExperience({ locale }: { locale: Locale }) {
     <section
       ref={sectionRef}
       className={"growth-experience" + (isVisible ? " ge-is-visible" : "")}
+      data-scene={sceneKey}
       dir={locale === "ar" ? "rtl" : "ltr"}
       aria-label={locale === "ar" ? "تجربة تفاعلية لمنظومة نمو ديوانك" : "Interactive Dewank growth system"}
     >
