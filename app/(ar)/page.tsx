@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
-import MotionSystem from "../components/motion-system";
+import GrowthExperience from "../components/growth-experience";
 import HomeTestimonials from "../components/home-testimonials";
 import HomeSelectedOffers from "../components/home-selected-offers";
 import { ServiceArt } from "../components/home-service-art";
@@ -79,7 +79,7 @@ export default function Home() {
           <p className="cta-expectation">محادثة قصيرة لفهم المشروع وتحديد أفضل نقطة بداية، بدون التزام.</p>
         </div>
 
-        <MotionSystem />
+        <GrowthExperience locale="ar" />
       </section>
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
