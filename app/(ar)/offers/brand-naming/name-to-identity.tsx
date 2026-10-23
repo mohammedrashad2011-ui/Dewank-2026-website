@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
+import { flushSync } from "react-dom";
 
 type Locale = "ar" | "en";
 
@@ -75,6 +76,8 @@ const copy = {
 export function NameToIdentity({ locale }: { locale: Locale }) {
   const [selected, setSelected] = useState(0);
   const [revealed, setRevealed] = useState(false);
+  const [morphed, setMorphed] = useState(false);
+  const root = useRef<HTMLDivElement | null>(null);
   const tabs = useRef<Array<HTMLButtonElement | null>>([]);
   const panel = useRef<HTMLDivElement | null>(null);
   const words = copy[locale];
@@ -85,10 +88,47 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
     if (revealed) panel.current?.focus();
   }, [revealed]);
 
+  // The typesetting plays once the demo is in view: data-motion is "armed", then "play". Without JavaScript or with
+  // reduced motion nothing is marked, so the composition simply renders in its final state.
+  useEffect(() => {
+    const node = root.current;
+    if (!node || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    node.dataset.motion = "armed";
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        node.dataset.motion = "play";
+        observer.disconnect();
+      },
+      { threshold: 0.35 },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   function choose(index: number, focus = false) {
     setSelected(index);
     setRevealed(false);
+    setMorphed(false);
     if (focus) tabs.current[index]?.focus();
+  }
+
+  // Where view transitions are supported, the wordmark travels from the stage onto the packaging while the identity
+  // floods in around it (data-morph names the two elements for the length of the transition). Elsewhere, and with
+  // reduced motion, the result simply enters.
+  function reveal() {
+    const node = root.current;
+    if (!node || node.dataset.motion !== "play" || !("startViewTransition" in document)) {
+      setRevealed(true);
+      return;
+    }
+    node.dataset.morph = "";
+    const transition = document.startViewTransition(() => flushSync(() => {
+      setMorphed(true);
+      setRevealed(true);
+    }));
+    transition.finished.finally(() => delete node.dataset.morph);
   }
 
   function onTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
@@ -105,7 +145,7 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
   }
 
   return (
-    <div className="name-identity" dir={locale === "ar" ? "rtl" : "ltr"}>
+    <div className="name-identity" ref={root} dir={locale === "ar" ? "rtl" : "ltr"}>
       <div className="name-identity-tabs" role="tablist" aria-label={words.tabs}>
         {concepts.map((item, index) => (
           <button
@@ -135,24 +175,32 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
         tabIndex={0}
       >
         {!revealed ? (
-          <div className="name-identity-choice">
+          <div className="name-identity-choice" key={concept.id}>
             <span className="name-identity-stage-label">{words.selected} / 0{selected + 1}</span>
-            <div className="name-identity-cinema" aria-hidden="true"><span className="name-identity-orbit name-identity-orbit-one"/><span className="name-identity-orbit name-identity-orbit-two"/><span className="name-identity-ghost">01 / 03</span><span className="name-identity-glint"/></div>
-            <div className="name-identity-wordmark" dir="ltr">{concept.name}</div>
+            <div className="name-identity-type">
+              <div className="name-identity-wordmark" dir="ltr">
+                <span className="name-identity-sr">{concept.name}</span>
+                <span className="name-identity-letters" aria-hidden="true">
+                  {[...concept.name].map((letter, index) => (
+                    <span key={index} style={{ "--i": index, "--d": index - (concept.name.length - 1) / 2 } as CSSProperties}>{letter}</span>
+                  ))}
+                </span>
+              </div>
+            </div>
+            <div className="name-identity-arabic" lang="ar" dir="rtl">{concept.arabic}</div>
             <p>{concept.meaning[locale]}</p>
-            <button type="button" className="name-identity-action" onClick={() => setRevealed(true)}>{words.transform}<span aria-hidden="true">↗</span></button>
+            <button type="button" className="name-identity-action" onClick={reveal}>{words.transform}<span aria-hidden="true">↗</span></button>
           </div>
         ) : (
-          <div className="name-identity-result name-identity-cinematic-result" key={`${concept.id}-result`}>
+          <div className={`name-identity-result name-identity-cinematic-result${morphed ? " is-morphed" : ""}`} key={`${concept.id}-result`}>
             <div className="name-identity-result-head">
               <div><span className="name-identity-stage-label">{words.meaning}</span><p>{concept.meaning[locale]}</p></div>
-              <button type="button" className="name-identity-reset" onClick={() => setRevealed(false)}>{words.change}</button>
+              <button type="button" className="name-identity-reset" onClick={() => { setRevealed(false); setMorphed(false); }}>{words.change}</button>
             </div>
             <div className="name-identity-result-grid">
               <div className="name-identity-application" style={{ "--concept-ink": concept.palette[0].hex, "--concept-accent": concept.palette[1].hex, "--concept-paper": concept.palette[2].hex } as CSSProperties}>
                 <span>{words.sample} · {concept.application[locale]}</span>
                 <div className="name-identity-art-scene" aria-label={locale === "ar" ? "عرض توضيحي للهوية البصرية" : "Illustrative visual identity concept"}>
-                  <div className="name-identity-halo" aria-hidden="true" />
                   <div className="name-identity-packaging-shadow" aria-hidden="true" />
                   <div className="name-identity-packaging">
                     <div className="name-identity-packaging-edge" aria-hidden="true" />
@@ -164,12 +212,11 @@ export function NameToIdentity({ locale }: { locale: Locale }) {
                       <span className="name-identity-packaging-bottom" dir="ltr">{concept.arabic} &nbsp; ✳ &nbsp; {concept.name}</span>
                     </div>
                   </div>
-                  <div className="name-identity-orbit-chip" aria-hidden="true">{concept.name.slice(0,1)}</div>
                 </div>
               </div>
               <div className="name-identity-details name-identity-details-cinematic">
                 <div><span className="name-identity-stage-label">{words.story}</span><p>{concept.story[locale]}</p></div>
-                <div><span className="name-identity-stage-label">{words.palette}</span><div className="name-identity-swatches">{concept.palette.map((colour) => <div key={colour.hex}><span style={{ backgroundColor: colour.hex }} /><small>{colour.label[locale]}<br/><b dir="ltr">{colour.hex}</b></small></div>)}</div></div>
+                <div><span className="name-identity-stage-label">{words.palette}</span><div className="name-identity-swatches">{concept.palette.map((colour, index) => <div key={colour.hex}><span style={{ backgroundColor: colour.hex, "--s": index } as CSSProperties} /><small>{colour.label[locale]}<br/><b dir="ltr">{colour.hex}</b></small></div>)}</div></div>
               </div>
             </div>
           </div>
