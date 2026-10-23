@@ -419,3 +419,16 @@ html body .en-parity.studio-home .growth-experience .ge-scene-button,
 html body .en-parity.studio-home .growth-experience .ge-illustration-note {
   text-align:center!important;
 }
+
+/* Each pathway changes the energy palette while keeping a shared visual language. */
+.growth-experience[data-scene="convert"] .ge-visual-frame {
+  background:radial-gradient(ellipse at 52% 47%,rgba(235,176,46,.18),transparent 39%),linear-gradient(150deg,#111d2c,#091421 60%,#24303a);
+}
+.growth-experience[data-scene="convert"] .ge-circuit-live{stroke:var(--ge-gold)}
+.growth-experience[data-scene="convert"] .ge-endpoint-output{border-color:rgba(1,221,241,.58)}
+.growth-experience[data-scene="convert"] .ge-reactor-center{border-color:rgba(1,221,241,.65)}
+.growth-experience[data-scene="follow"] .ge-visual-frame {
+  background:radial-gradient(ellipse at 52% 47%,rgba(1,221,241,.2),transparent 41%),linear-gradient(150deg,#071928,#07111f 60%,#092d39);
+}
+.growth-experience[data-scene="follow"] .ge-circuit-live{stroke:var(--ge-cyan)}
+.growth-experience[data-scene="follow"] .ge-endpoint-output{border-color:rgba(1,221,241,.58)}
