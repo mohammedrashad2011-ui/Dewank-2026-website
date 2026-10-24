@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { canonicalServiceNames, createMetadata, organizationId, serviceId, siteUrl } from "../../lib/seo";
-import { Footer, Header, PageHero } from "../../components/site-shell";
+import { Footer, Header } from "../../components/site-shell";
 import AiWorkflowVisual from "./ai-workflow-visual";
+import ServicesMotionStage from "./services-motion-stage";
+import ServicesMotionDirector from "./services-motion-director";
+import ServicePathSelector from "../../components/service-path-selector";
+import "../../components/service-path-selector.css";
 import "./ai-control-room.css";
 import "./services-overview.css";
 import "./services-conversion-hub.css";
 import "./services-aeo-upgrade.css";
 import "../conversion-rate-optimization/cro.css";
+import "./services-motion-stage.css";
+import "./services-editorial-chapters.css";
 
 export const metadata: Metadata = createMetadata({
   title: "شركة تسويق ووكالة تسويق في السعودية | خدمات ديوانك",
@@ -135,18 +141,19 @@ export default function ServicesPage() {
     <article className={`service-detail ${service.tone}`} key={service.no}>
       <div className="detail-top"><small>{service.en}</small></div>
       {service.visual === "ai" ? <AiWorkflowVisual /> : <div className={`service-symbol ${service.visual}`} aria-hidden="true"><i/><i/><i/></div>}
-      <div className="detail-copy"><h2>{service.title}<br/><em>{service.hook}</em></h2><p>{service.text}</p><div className="tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
+      <div className="detail-copy"><h2>{service.title.replace(/[.۔]$/, "")}<br/><em>{service.hook.replace(/[.۔]$/, "")}</em></h2><p>{service.text}</p><div className="tag-row">{service.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></div>
       <Link className="detail-link" href={service.href}>{service.cta || "اكتشف الخدمة"} <span>←</span></Link>
     </article>
   );
 
   return (
-    <main className="inner-page services-page services-page-refined services-conversion-hub">
+    <main className="inner-page services-page services-page-refined services-conversion-hub services-motion-premium">
       <Header />
+      <ServicesMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <PageHero plainEyebrow eyebrow="خدمات ديوانك" title={<>لا تبدأ من اسم الخدمة<br/><em>ابدأ من النتيجة التي تحتاجها</em></>} text="إعلانات، مواقع، محتوى، براند وأتمتة تعمل كمنظومة واحدة. اختر نقطة الاختناق الحالية، وخذ أقصر طريق للخدمة المناسبة." />
+      <ServicesMotionStage locale="ar" />
 
-      <section className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
+      <section id="services-explore" className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
         <small>الإجابة السريعة</small>
         <h2 id="services-aeo-title">شركة تسويق متكاملة أم خدمات منفصلة؟</h2>
         <p>ديوانك شركة تسويق ووكالة تسويق تخدم الشركات في السعودية والخليج عبر منظومة واحدة تجمع الاستراتيجية والإعلانات والمحتوى والويب والقياس والأتمتة. نبدأ من نقطة الاختناق التي تمنع النمو، ثم نختار الخدمة الأقرب للنتيجة بدل بيع باقة أكبر من الحاجة.</p>
@@ -163,6 +170,7 @@ export default function ServicesPage() {
       <section className="shell primary-service-paths" aria-labelledby="primary-paths-title">
         <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">أربع بوابات لمعظم مشاكل النمو</h2><p>بدل استعراض قائمة طويلة، ابدأ بالنتيجة الأقرب لما تريد إصلاحه الآن.</p></div>
         <div className="primary-path-grid">{primaryPaths.map((path)=><Link href={path.href} className="primary-path-card" key={path.href}><small>{path.label}</small><h3>{path.title}</h3><p>{path.text}</p><span>{path.cta} ↗</span></Link>)}</div>
+        <ServicePathSelector locale="ar" />
         <p className="services-decision-note">قاعدة سريعة: تحتاج Leads؟ ابدأ بالإعلانات. الزيارات لا تتحول؟ ابدأ بالموقع. الرد والمتابعة يضيعان؟ ابدأ بواتساب وCRM. الحضور نفسه غير واضح؟ ابدأ بالمحتوى أو البراند.</p>
       </section>
 
