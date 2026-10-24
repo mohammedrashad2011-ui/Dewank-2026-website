@@ -114,7 +114,7 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
         </div>
 
         <div className="wk-cinema-visual-column">
-        <div className="wk-cinema-scene" ref={stage} onPointerMove={move} onPointerLeave={reset}>
+        <div className={"wk-cinema-scene"+(active===0?" is-portrait":"")} ref={stage} onPointerMove={move} onPointerLeave={reset}>
           <div className="wk-cinema-ambient" aria-hidden="true">
             <div className="wk-cinema-orbit wk-cinema-orbit-first"/>
             <div className="wk-cinema-orbit wk-cinema-orbit-second"/>
@@ -126,12 +126,12 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
             <div className="wk-cinema-backplate wk-cinema-backplate-one"/>
             <div className="wk-cinema-backplate wk-cinema-backplate-two"/>
           </div>
-          <Link className="wk-cinema-stage" href={selected.href} aria-label={c.view+" — "+selected.name}
+          <Link className={"wk-cinema-stage"+(active===0?" is-portrait":"")} href={selected.href} aria-label={c.view+" — "+selected.name}
             onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}
             onFocus={()=>setPaused(true)} onBlur={()=>setPaused(false)}>
             {projects.map((project,index)=>(
               <div key={project.name} className={"wk-cinema-slide"+(active===index?" is-active":"")} aria-hidden={active!==index}>
-                <img src={project.image} alt="" width="1000" height="760" decoding="async" loading={index===0?"eager":"lazy"} fetchPriority={index===0?"high":"auto"}/>
+                <img src={project.image} alt="" width={index===0?1126:1200} height={index===0?1591:900} decoding="async" loading={index===0?"eager":"lazy"} fetchPriority={index===0?"high":"auto"}/>
               </div>
             ))}
           </Link>
