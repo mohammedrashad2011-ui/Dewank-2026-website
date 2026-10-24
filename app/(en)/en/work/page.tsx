@@ -4,11 +4,14 @@ import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
 import { whatsappHref, briefMailto } from "../_en/lib/site";
 import { IdentityShowcase } from "./identity-showcase";
+import WorkEditorialHero from "../../../(ar)/work/work-editorial-hero";
+import WorkMotionDirector from "../../../(ar)/work/work-motion-director";
 // The Arabic Work page's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../(ar)/work/work-page.css";
 import "../../../(ar)/work/work-proof-refinement.css";
 import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
+import "../../../(ar)/work/work-cinematic-experience.css";
 
 export const metadata = enMetadata(
   "Work and case studies",
@@ -77,19 +80,12 @@ export default function WorkPage() {
   };
 
   return (
-    <main id="main-content" className="work-page work-proof-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="work-page work-proof-page en-service work-cinematic" lang="en" dir="ltr">
       <Header />
+      <WorkMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
-      <section className="work-hero shell">
-        <span className="section-label">Selected work</span>
-        <h1>The result matters<br /><em>The decision that produced it matters more</em></h1>
-        <p>We do not only show attractive visuals. For each project we explain the challenge, the decision, what was built and what changed, or was targeted, so you can see how we think before you start a project with us.</p>
-        <div className="work-hero-actions">
-          <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss a similar project <span>↗</span></a>
-          <a className="button secondary" href="#case-studies">Start with a case study</a>
-        </div>
-      </section>
+      <WorkEditorialHero locale="en" whatsappHref={contactLink} />
 
       <section className="work-trust shell" aria-label="What sets our approach apart">
         <div>Strategy before design</div>
@@ -104,7 +100,7 @@ export default function WorkPage() {
           <h2 id="proof-paths-title">Do not browse everything<br /><em>Go to the case closest to your challenge</em></h2>
         </div>
         <div className="proof-path-grid">
-          {proofPaths.map((item) => <a href={item.href} className="proof-path-card" key={item.no}><small>{item.no} · {item.label}</small><h3>{item.title}</h3><p>{item.text}</p><span>View the section ↓</span></a>)}
+          {proofPaths.map((item) => <a href={item.href} className="proof-path-card" key={item.no}><small>{item.label}</small><h3>{item.title}</h3><p>{item.text}</p><span>View the section ↓</span></a>)}
         </div>
       </section>
 
@@ -215,7 +211,7 @@ export default function WorkPage() {
         <span className="section-label">How we work</span>
         <h2>From the challenge to a system<br />you can run and measure</h2>
         <div className="work-method-grid">
-          {method.map((step) => <div key={step.no}><span>{step.no}</span><h3>{step.title}</h3><p>{step.text}</p></div>)}
+          {method.map((step) => <div key={step.no}><h3>{step.title}</h3><p>{step.text}</p></div>)}
         </div>
         <div className="work-method-links"><Link href="/en/services">Explore all services</Link><Link href="/en/website-design">Website design</Link><Link href="/en/paid-advertising">Advertising management</Link><Link href="/en/whatsapp-crm-automation">WhatsApp automation</Link></div>
       </section>
