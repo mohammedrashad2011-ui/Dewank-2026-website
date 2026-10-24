@@ -186,3 +186,67 @@ html body .work-cinematic .wk-cinema-footer{
     transform:none!important;
   }
 }
+
+
+/* BITHAN is an approved vertical 1126x1591 cover, not a landscape crop.
+   Size the actual linked image frame to its intrinsic 1126:1591 proportions
+   and keep the full artwork visible across all viewports. */
+html body .work-cinematic .wk-cinema-scene {
+  min-height:clamp(630px,52vw,765px);
+}
+html body .work-cinematic .wk-cinema-scene.is-portrait {
+  aspect-ratio:auto;
+}
+html body .work-cinematic .wk-cinema-stage.is-portrait {
+  width:min(73%,475px);
+  height:auto;
+  min-height:0;
+  aspect-ratio:1126 / 1591;
+  flex:0 0 auto;
+  background:#030810;
+}
+html body .work-cinematic .wk-cinema-stage .wk-cinema-slide {
+  inset:0;
+  overflow:hidden;
+}
+html body .work-cinematic .wk-cinema-stage .wk-cinema-slide img {
+  display:block;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%;
+  object-fit:contain!important;
+  object-position:center center!important;
+  transform:none;
+}
+@media(max-width:1100px) {
+  html body .work-cinematic .wk-cinema-scene {
+    min-height:clamp(575px,65vw,725px);
+  }
+  html body .work-cinematic .wk-cinema-stage.is-portrait {
+    width:min(76%,455px);
+  }
+}
+@media(max-width:800px) {
+  html body .work-cinematic .wk-cinema-scene {
+    min-height:690px;
+    aspect-ratio:auto;
+  }
+  html body .work-cinematic .wk-cinema-stage.is-portrait {
+    width:min(76%,460px);
+  }
+}
+@media(max-width:480px) {
+  html body .work-cinematic .wk-cinema-scene {
+    min-height:clamp(405px,115vw,510px);
+    aspect-ratio:auto;
+    padding:8px;
+  }
+  html body .work-cinematic .wk-cinema-stage.is-portrait {
+    width:min(79%,325px);
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  html body .work-cinematic .wk-cinema-stage .wk-cinema-slide img {
+    transform:none!important;
+  }
+}
