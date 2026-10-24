@@ -12,8 +12,8 @@ const copy = {
   ar: {
     eyebrow: "ديوانك",
     signoff: "نمو بذكاء",
-    lead: "الفكرة الجيدة تحتاج حركة.",
-    choose: "حدد وجهتك",
+    lead: "البراند، الإعلانات، والأتمتة.",
+    choose: "ابدأ من هنا",
     discover: "اكتشف كيف نعمل",
     progress: "تصفّح التجربة",
     directions: {
@@ -46,8 +46,8 @@ const copy = {
   en: {
     eyebrow: "DEWANK",
     signoff: "GROWTH, INTELLIGENTLY",
-    lead: "Good ideas deserve to move.",
-    choose: "Choose your direction",
+    lead: "Brand, campaigns, and automation.",
+    choose: "Start here",
     discover: "Explore what we do",
     progress: "Explore the experience",
     directions: {
