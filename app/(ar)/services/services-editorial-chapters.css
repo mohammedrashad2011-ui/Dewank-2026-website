@@ -531,3 +531,59 @@ html body .services-motion-premium .decision-guides .primary-path-card{
     animation:none!important;transition:none!important;transform:none!important;
   }
 }
+
+/* Small cinematic reveals, applied only once and only after JS observes real geometry. */
+@media(prefers-reduced-motion:no-preference){
+  html body .services-motion-premium.sm-motion-ready .sm-reveal-target{
+    transition:opacity .87s cubic-bezier(.17,.82,.21,1),
+      translate .92s cubic-bezier(.17,.82,.21,1),
+      transform .48s cubic-bezier(.17,.82,.21,1),
+      box-shadow .48s ease!important;
+  }
+  html body .services-motion-premium.sm-motion-ready .sm-reveal-target:not(.sm-revealed){
+    opacity:0;translate:0 47px;
+  }
+  html body .services-motion-premium.sm-motion-ready .sm-reveal-target.sm-revealed{
+    opacity:1;translate:0 0;
+  }
+  html body .services-motion-premium .services-grid-refined .service-detail:nth-child(2n).sm-reveal-target{
+    transition-delay:.12s!important;
+  }
+  html body .services-motion-premium .services-aeo-grid article:nth-child(2n).sm-reveal-target{
+    transition-delay:.1s!important;
+  }
+  html body .services-motion-premium .services-aeo-grid article:nth-child(3n).sm-reveal-target{
+    transition-delay:.18s!important;
+  }
+}
+html body .services-motion-premium .service-jump-nav a.sm-current{
+  color:#4f3191;border-bottom-color:#8665c8;
+}
+html body .services-motion-premium .service-jump-nav a:focus-visible,
+html body .services-motion-premium .primary-path-card:focus-visible,
+html body .services-motion-premium .services-grid-refined .detail-link:focus-visible{
+  outline:3px solid #9576df;outline-offset:4px;
+}
+html body .services-motion-premium .service-group,
+html body .services-motion-premium .primary-service-paths{
+  scroll-margin-top:95px;
+}
+/* English pages use a much tighter Latin typeface. Respect its language-specific rhythm. */
+html body .en-services.services-motion-premium .services-aeo-answer h2,
+html body .en-services.services-motion-premium .primary-paths-head h2,
+html body .en-services.services-motion-premium .service-group-head h2,
+html body .en-services.services-motion-premium .problem-chooser h2,
+html body .en-services.services-motion-premium .services-final-cta h2{
+  line-height:1.13!important;
+}
+html body .en-services.services-motion-premium .services-grid-refined .detail-copy h2{
+  line-height:1.22!important;
+}
+html body .en-services.services-motion-premium .services-grid-refined .detail-copy h2 em{
+  line-height:1.24!important;margin-top:9px;
+}
+@media(max-width:760px){
+  html body .services-motion-premium .service-jump-nav a.sm-current{
+    border-bottom-color:#8665c8;
+  }
+}
