@@ -60,6 +60,7 @@
 .offers-filter-shell:has(#offers-content:checked) label[for="offers-content"],
 .offers-filter-shell:has(#offers-ads:checked) label[for="offers-ads"],
 .offers-filter-shell:has(#offers-web:checked) label[for="offers-web"],
+.offers-filter-shell:has(#offers-conversion:checked) label[for="offers-conversion"],
 .offers-filter-shell:has(#offers-brand:checked) label[for="offers-brand"],
 .offers-filter-shell:has(#offers-automation:checked) label[for="offers-automation"] {
   border-color: rgba(213,168,67,.72);
@@ -68,11 +69,12 @@
   box-shadow: inset 0 0 0 1px rgba(213,168,67,.16);
 }
 
-.offers-filter-shell:has(#offers-content:checked) .offers-overview-grid > article:not([data-filter="content"]),
-.offers-filter-shell:has(#offers-ads:checked) .offers-overview-grid > article:not([data-filter="ads"]),
-.offers-filter-shell:has(#offers-web:checked) .offers-overview-grid > article:not([data-filter="web"]),
-.offers-filter-shell:has(#offers-brand:checked) .offers-overview-grid > article:not([data-filter="brand"]),
-.offers-filter-shell:has(#offers-automation:checked) .offers-overview-grid > article:not([data-filter="automation"]) {
+.offers-filter-shell:has(#offers-content:checked) .offers-overview-grid > article:not([data-filter~="content"]),
+.offers-filter-shell:has(#offers-ads:checked) .offers-overview-grid > article:not([data-filter~="ads"]),
+.offers-filter-shell:has(#offers-web:checked) .offers-overview-grid > article:not([data-filter~="web"]),
+.offers-filter-shell:has(#offers-conversion:checked) .offers-overview-grid > article:not([data-filter~="conversion"]),
+.offers-filter-shell:has(#offers-brand:checked) .offers-overview-grid > article:not([data-filter~="brand"]),
+.offers-filter-shell:has(#offers-automation:checked) .offers-overview-grid > article:not([data-filter~="automation"]) {
   display: none !important;
 }
 
@@ -185,4 +187,19 @@
   background:
     radial-gradient(circle at 14% 6%, rgba(34, 205, 208, .16), transparent 25%),
     linear-gradient(145deg, #09284a, var(--offer-navy) 62%) !important;
+}
+
+/* The CRO audit and landing-page package belong to more than one logical journey.
+   Token-based category matching avoids hiding overlapping service offers. */
+.offers-filter-shell:has(#offers-conversion:checked) .offers-overview-grid > article[data-filter~="conversion"]{
+  display:flex!important;
+}
+.offers-filter-shell:has(#offers-conversion:checked) .offers-overview-grid > article:not([data-filter~="conversion"]){
+  display:none!important;
+}
+.offers-filter-shell:has(#offers-conversion:checked) .offers-overview-grid > .offers-overview-note{
+  display:grid!important;
+}
+.offers-filter-shell:has(input[type="radio"]:focus-visible) .offers-filter-controls{
+  outline:1px solid rgba(222,239,124,.58);outline-offset:6px;
 }
