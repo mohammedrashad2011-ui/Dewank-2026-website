@@ -795,3 +795,18 @@ html body .en-parity.studio-home .dw-ed-tail span:last-child{text-align:end!impo
     animation:none!important;
   }
 }
+
+/* The selected service also changes the typographic material, not merely a label. */
+.dw-editorial-hero[data-focus="demand"] .dw-ed-headline-mask-1 .dw-ed-headline-word {
+  background-image:linear-gradient(105deg,#ef411d,#d93854 33%,#ffb94f 68%,#e84528);
+}
+.dw-editorial-hero[data-focus="automation"] .dw-ed-headline-mask-1 .dw-ed-headline-word {
+  background-image:linear-gradient(110deg,#2a33a5,#2ca4bb 30%,#745add 67%,#184d95);
+}
+.dw-editorial-hero[data-focus="automation"] .dw-ed-running-type{
+  background:#6c71e5;color:#14131d;
+}
+.dw-editorial-hero[data-focus="automation"] .dw-ed-running-set i {
+  color:#e5e8ff;
+}
+.dw-editorial-hero[data-focus="automation"] .dw-ed-primary-cta:hover:before{background:#303eae}
