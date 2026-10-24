@@ -1,5 +1,6 @@
 import Link from "next/link";
 import OffersMotionStage from "../../../(ar)/offers/offers-motion-stage";
+import OffersMotionDirector from "../../../(ar)/offers/offers-motion-director";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
@@ -63,6 +64,7 @@ export default function OffersPage() {
   return (
     <main id="main-content" className="inner-page offers-page offers-overview-page en-service" lang="en" dir="ltr">
       <Header />
+      <OffersMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
       <OffersMotionStage locale="en" />
