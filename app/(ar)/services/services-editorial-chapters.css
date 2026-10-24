@@ -587,3 +587,20 @@ html body .en-services.services-motion-premium .services-grid-refined .detail-co
     border-bottom-color:#8665c8;
   }
 }
+
+/* The Arabic catalog originally used an LTR card grid; restore real RTL text flow
+   while English keeps the LTR parity override. */
+html body .services-motion-premium:not(.en-services) .services-grid-refined .service-detail,
+html body .services-motion-premium:not(.en-services) .services-grid-refined .detail-copy{
+  direction:rtl!important;text-align:start!important;
+}
+html body .services-motion-premium:not(.en-services) .services-grid-refined .detail-copy p{
+  margin-inline-start:0;margin-inline-end:0;
+}
+html body .services-motion-premium:not(.en-services) .services-grid-refined .detail-link{
+  direction:rtl!important;text-align:start!important;
+}
+html body .services-motion-premium .service-detail .detail-link:focus-visible,
+html body .services-motion-premium .sm-navigation a:focus-visible {
+  outline-offset:5px;
+}
