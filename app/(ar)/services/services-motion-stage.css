@@ -288,3 +288,28 @@
   .services-motion-premium .sm-flow-main,
   .services-motion-premium .sm-flow-secondary {stroke-dashoffset:0!important}
 }
+
+/* Arabic hero art direction: let the chromatic ribbons occupy the open left
+   side of the composition, keeping the title and CTA anchored in place.
+   The English stage is intentionally unchanged because its copy is LTR. */
+.services-motion-premium .sm-hero[dir="rtl"] .sm-visual-stage {
+  inset:-4% -10% -7% 14%;
+}
+.services-motion-premium .sm-hero[dir="rtl"] .sm-art-caption {
+  right:10%;
+}
+@media(max-width:1050px) {
+  .services-motion-premium .sm-hero[dir="rtl"] .sm-visual-stage {
+    inset:0 -20% 0 12%;
+  }
+}
+@media(max-width:740px) {
+  .services-motion-premium .sm-hero[dir="rtl"] .sm-visual-stage {
+    inset:3% -42% 0 12%;
+  }
+}
+@media(max-width:480px) {
+  .services-motion-premium .sm-hero[dir="rtl"] .sm-visual-stage {
+    inset:8% -58% 6% 10%;
+  }
+}
