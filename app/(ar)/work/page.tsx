@@ -203,13 +203,14 @@ export default function WorkPage() {
           <div className="concepts-head">
             <div>
               <span className="section-label">مشروعات مفاهيمية  ·  وليست مشروعات عملاء</span>
-              <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط</h2><p>هذه أمثلة تصورية لتوضيح المنهج الإبداعي وليست تنفيذًا لعملاء فعليين.</p>
+              <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط</h2>
             </div>
           </div>
 
           <div className="concept-grid">
             {concepts.map((item) => (
               <article className="concept-card" key={item.name}>
+                <div className="concept-visual" aria-hidden="true"><span className="cv-glow"/><span className="cv-shape"/><span className="cv-detail"/><span className="cv-track"/></div>
                 <span className="concept-label">{item.type}</span>
                 <h3 dir="ltr">{item.name}</h3>
                 <dl>
