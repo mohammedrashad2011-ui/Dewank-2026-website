@@ -137,14 +137,6 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
           </Link>
         </div>
         <div className="wk-cinema-selector" aria-label={c.picker} role="group">
-          <div className="wk-cinema-selector-top">
-            <span className="wk-cinema-selector-label">{c.picker}</span>
-            <Link className="wk-cinema-selected-link" href={selected.href}
-              onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}
-              onFocus={()=>setPaused(true)} onBlur={()=>setPaused(false)}>
-              {c.view}<span aria-hidden="true">↗</span>
-            </Link>
-          </div>
           <div className="wk-cinema-selector-list">
             {projects.map((project,index)=>(
               <button key={project.name} type="button"
