@@ -581,8 +581,8 @@ html body .growth-home-experiment .home-final-conversion.final-cta.shell{
 }
 .growth-home-experiment .home-final-conversion::after{
   content:"DEWANK";position:absolute;pointer-events:none;z-index:0;
-  top:2%;inset-inline-start:-5%;
-  width:auto;height:auto;left:auto;
+  top:2%;left:auto;right:auto;inset-inline-start:-5%;
+  width:auto;height:auto;
   border:0;border-radius:0;box-shadow:none;
   font:900 clamp(160px,28vw,470px)/1 Arial,Helvetica,sans-serif;
   letter-spacing:-.11em;white-space:nowrap;
