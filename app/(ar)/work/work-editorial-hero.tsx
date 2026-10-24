@@ -97,11 +97,6 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
       aria-label={c.sceneLabel}>
       <div className="wk-cinema-grain" aria-hidden="true"/>
       <div className="wk-cinema-aura" aria-hidden="true"/>
-      <div className="wk-cinema-header">
-        <span className="wk-cinema-eyebrow"><span className="wk-cinema-live" aria-hidden="true"/>{c.eyebrow}</span>
-        <span className="wk-cinema-signature">CREATIVE WORK / DEWANK</span>
-      </div>
-
       <div className="wk-cinema-grid">
         <div className="wk-cinema-copy">
           <div className="wk-cinema-kicker"><span className="wk-cinema-kicker-rule"/>{c.featured}</div>
@@ -115,23 +110,10 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
             <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="wk-cinema-action-quiet">{c.talk}<span aria-hidden="true">↗</span></a>
           </div>
 
-          <div className="wk-cinema-selector" aria-label={c.picker} role="group">
-            <span className="wk-cinema-selector-label">{c.picker}</span>
-            <div className="wk-cinema-selector-list">
-              {projects.map((project,index)=>(
-                <button key={project.name} type="button"
-                  className={"wk-cinema-choice"+(active===index?" is-active":"")}
-                  onClick={()=>choose(index)} onFocus={()=>setPaused(true)}
-                  onBlur={()=>setPaused(false)} aria-pressed={active===index}
-                  aria-label={project.name+" — "+project.sector}>
-                  <span className="wk-cinema-choice-mark" aria-hidden="true"/>
-                  <span className="wk-cinema-choice-name">{project.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
+
         </div>
 
+        <div className="wk-cinema-visual-column">
         <div className="wk-cinema-scene" ref={stage} onPointerMove={move} onPointerLeave={reset}>
           <div className="wk-cinema-ambient" aria-hidden="true">
             <div className="wk-cinema-orbit wk-cinema-orbit-first"/>
@@ -144,27 +126,38 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
             <div className="wk-cinema-backplate wk-cinema-backplate-one"/>
             <div className="wk-cinema-backplate wk-cinema-backplate-two"/>
           </div>
-          <div className="wk-cinema-stage" aria-live="off">
+          <Link className="wk-cinema-stage" href={selected.href} aria-label={c.view+" — "+selected.name}
+            onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}
+            onFocus={()=>setPaused(true)} onBlur={()=>setPaused(false)}>
             {projects.map((project,index)=>(
               <div key={project.name} className={"wk-cinema-slide"+(active===index?" is-active":"")} aria-hidden={active!==index}>
                 <img src={project.image} alt="" width="1000" height="760" decoding="async" loading={index===0?"eager":"lazy"} fetchPriority={index===0?"high":"auto"}/>
               </div>
             ))}
-          </div>
-          <div className="wk-cinema-scene-caption">
-            <div className="wk-cinema-caption-copy">
-              <span>{selected.sector}</span>
-              <strong>{selected.name}</strong>
-              <small>{selected.description}</small>
-            </div>
-            <Link className="wk-cinema-scene-link" href={selected.href} aria-label={c.view+" — "+selected.name}
+          </Link>
+        </div>
+        <div className="wk-cinema-selector" aria-label={c.picker} role="group">
+          <div className="wk-cinema-selector-top">
+            <span className="wk-cinema-selector-label">{c.picker}</span>
+            <Link className="wk-cinema-selected-link" href={selected.href}
               onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}
               onFocus={()=>setPaused(true)} onBlur={()=>setPaused(false)}>
-              <span aria-hidden="true">↗</span>
+              {c.view}<span aria-hidden="true">↗</span>
             </Link>
           </div>
-          <div className="wk-cinema-aside-stamp" aria-hidden="true">CREATIVE / WORK / STUDIO</div>
+          <div className="wk-cinema-selector-list">
+            {projects.map((project,index)=>(
+              <button key={project.name} type="button"
+                className={"wk-cinema-choice"+(active===index?" is-active":"")}
+                onClick={()=>choose(index)} onFocus={()=>setPaused(true)}
+                onBlur={()=>setPaused(false)} aria-pressed={active===index}
+                aria-label={project.name+" — "+project.sector}>
+                <span className="wk-cinema-choice-name">{project.name}</span>
+              </button>
+            ))}
+          </div>
         </div>
+      </div>
       </div>
       <div className="wk-cinema-footer">
         <span>{c.interaction}</span>
