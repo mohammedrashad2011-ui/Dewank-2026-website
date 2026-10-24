@@ -1,83 +1,172 @@
-import Link from "next/link";
+"use client";
 
-type Locale = "ar" | "en";
-const copy = {
-  ar: {
+import Link from "next/link";
+import {useEffect,useRef,useState,type PointerEvent} from "react";
+
+type Locale="ar"|"en";
+type Project={
+  name:string;sector:string;image:string;href:string;
+  color:string;glow:string;description:string;
+};
+
+const scenes:{
+  ar:Project[];
+  en:Project[];
+}={
+  ar:[
+    {name:"BITHAN",sector:"تسمية وهوية مجوهرات",image:"/work/bithan/hero.svg",href:"/work/bithan",color:"#f3d7a7",glow:"211,148,95",description:"من اختيار الاسم إلى الهوية المعتمدة وتطبيقاتها"},
+    {name:"ReachwayAD",sector:"هوية مؤسسية",image:"/work/reachwayad-remastered.webp",href:"#brand-identities",color:"#8adff2",glow:"76,193,231",description:"نظام بصري يعكس الثقة والحركة"},
+    {name:"Clinika",sector:"هوية الجمال والعناية",image:"/work/clinika-remastered.webp",href:"#brand-identities",color:"#f2add3",glow:"237,115,178",description:"تجربة بصرية هادئة تبني انطباعًا واثقًا"},
+    {name:"Arab Sun",sector:"هوية السفر والسياحة",image:"/work/arab-sun-remastered.webp",href:"#brand-identities",color:"#f8d17e",glow:"248,179,80",description:"لغة هوية تستلهم الشمس والحركة"}
+  ],
+  en:[
+    {name:"BITHAN",sector:"Jewellery naming and identity",image:"/en/work/bithan/hero.svg",href:"/en/work/bithan",color:"#f3d7a7",glow:"211,148,95",description:"From the chosen name to the approved visual identity"},
+    {name:"ReachwayAD",sector:"Corporate identity",image:"/en/work/reachwayad-remastered.webp",href:"#brand-identities",color:"#8adff2",glow:"76,193,231",description:"A visual system built around trust and movement"},
+    {name:"Clinika",sector:"Beauty and care identity",image:"/en/work/clinika-remastered.webp",href:"#brand-identities",color:"#f2add3",glow:"237,115,178",description:"Calm, considered brand applications"},
+    {name:"Arab Sun",sector:"Travel and tourism identity",image:"/en/work/arab-sun-remastered.webp",href:"#brand-identities",color:"#f8d17e",glow:"248,179,80",description:"Brand language inspired by the sun and movement"}
+  ]
+};
+
+const messages={
+  ar:{
     eyebrow:"ديوانك  /  أعمال مختارة",
-    label:"عمل حقيقي  ·  من التحدي للتنفيذ",
-    lineOne:"الفكرة لا تكفي",
-    lineTwo:"القرار يصنع الفارق",
-    intro:"من بناء الهوية والتسمية إلى أتمتة رحلة العميل، هنا تشوف الشغل وراء كل قرار، مش مجرد صور جميلة",
-    contact:"ناقش مشروعك",
-    explore:"استكشف المشاريع",
-    project:"BITHAN  /  Fine Jewelry",
-    projectDescription:"تسمية وهوية بصرية متكاملة  ·  مشروع عميل فعلي",
-    projectLink:"اكتشف دراسة الحالة",
-    bands:["استراتيجية","هوية","تسمية","أتمتة","نمو","تنفيذ"],
-    imageAlt:"الهوية المعتمدة لعلامة BITHAN للمجوهرات، من أعمال ديوانك",
-    otherImageAlt:"تصميم الهوية المؤسسية لمشروع ReachwayAD"
+    lead:"الفرق في التفاصيل",
+    headline:"والفكرة وراءها",
+    intro:"أعمال حقيقية، قرارات مدروسة، وتجارب بصرية لها قصة. استكشف المشاريع وشوف إزاي الفكرة بتتحول لحضور يستحق التذكر",
+    view:"اكتشف المشروع",
+    browse:"تصفح كل الأعمال",
+    talk:"ناقش مشروعك",
+    picker:"اختر مشروعًا",
+    featured:"من أعمالنا",
+    interaction:"حرّك المؤشر أو اختر مشروعًا",
+    sceneLabel:"معرض مختار من أعمال ديوانك"
   },
-  en: {
-    eyebrow:"DEWANK  /  SELECTED WORK",
-    label:"REAL WORK  ·  FROM THINKING TO EXECUTION",
-    lineOne:"BEYOND THE VISUAL",
-    lineTwo:"BUILT ON DECISIONS",
-    intro:"From brand naming and identity to connected customer journeys, explore the thinking, craft and execution behind the work",
-    contact:"Discuss your project",
-    explore:"Explore the work",
-    project:"BITHAN  /  Fine Jewelry",
-    projectDescription:"Naming and complete identity  ·  Real client engagement",
-    projectLink:"Explore the case study",
-    bands:["STRATEGY","IDENTITY","NAMING","AUTOMATION","GROWTH","CRAFT"],
-    imageAlt:"Approved BITHAN fine jewellery identity, a real Dewank client project",
-    otherImageAlt:"ReachwayAD corporate brand identity by Dewank"
+  en:{
+    eyebrow:"DEWANK / SELECTED WORK",
+    lead:"BEYOND THE IMAGE",
+    headline:"THE THINKING BEHIND IT",
+    intro:"Real projects, deliberate decisions and visual stories made to be remembered. Explore the craft behind every direction",
+    view:"Explore the project",
+    browse:"Explore all work",
+    talk:"Discuss your project",
+    picker:"Select a project",
+    featured:"Selected work",
+    interaction:"Move your pointer or choose a project",
+    sceneLabel:"Interactive showcase of selected Dewank projects"
   }
 } as const;
 
-export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;whatsappHref:string}) {
-  const c=copy[locale];
-  const prefix=locale==="ar"?"/work":"/en/work";
+export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;whatsappHref:string}){
+  const [active,setActive]=useState(0);
+  const [manual,setManual]=useState(false);
+  const [paused,setPaused]=useState(false);
+  const stage=useRef<HTMLDivElement>(null);
+  const c=messages[locale];
+  const projects=scenes[locale];
+  const selected=projects[active];
+
+  useEffect(()=>{
+    if(manual||paused||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    const timer=window.setInterval(()=>{
+      if(document.hidden)return;
+      setActive(current=>(current+1)%projects.length);
+    },7200);
+    return()=>window.clearInterval(timer);
+  },[manual,paused,projects.length]);
+
+  const choose=(index:number)=>{
+    setManual(true);
+    setActive(index);
+  };
+  const move=(event:PointerEvent<HTMLDivElement>)=>{
+    if(event.pointerType==="touch"||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    const rect=event.currentTarget.getBoundingClientRect();
+    const x=(event.clientX-rect.left)/rect.width-.5;
+    const y=(event.clientY-rect.top)/rect.height-.5;
+    stage.current?.style.setProperty("--wk-cursor-x",Math.round(x*18)+"px");
+    stage.current?.style.setProperty("--wk-cursor-y",Math.round(y*14)+"px");
+  };
+  const reset=()=>{
+    stage.current?.style.setProperty("--wk-cursor-x","0px");
+    stage.current?.style.setProperty("--wk-cursor-y","0px");
+  };
+
   return (
-    <section className="wk-intro" dir={locale==="ar"?"rtl":"ltr"} aria-label={locale==="ar"?"أعمال ديوانك المختارة":"Selected Dewank work"}>
-      <div className="wk-intro-shell">
-        <div className="wk-intro-topline">
-          <span className="wk-intro-eyebrow">{c.eyebrow}</span>
-          <span className="wk-intro-note">{c.label}</span>
-        </div>
-        <div className="wk-intro-grid">
-          <div className="wk-intro-content">
-            <div className="wk-intro-index" aria-hidden="true"><span className="wk-intro-index-line"/><span>DEWANK STUDIO</span></div>
-            <h1>
-              <span className="wk-intro-line"><span>{c.lineOne}</span></span>
-              <span className="wk-intro-line wk-intro-line-accent"><span>{c.lineTwo}</span></span>
-            </h1>
-            <p>{c.intro}</p>
-            <div className="wk-intro-actions">
-              <a className="wk-intro-primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">{c.contact}<span aria-hidden="true">↗</span></a>
-              <a className="wk-intro-secondary" href="#case-studies">{c.explore}<span aria-hidden="true">↓</span></a>
+    <section className="wk-cinema" dir={locale==="ar"?"rtl":"ltr"}
+      style={{"--wk-theme":selected.color,"--wk-rgb":selected.glow} as React.CSSProperties}
+      aria-label={c.sceneLabel} onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}>
+      <div className="wk-cinema-grain" aria-hidden="true"/>
+      <div className="wk-cinema-aura" aria-hidden="true"/>
+      <div className="wk-cinema-header">
+        <span className="wk-cinema-eyebrow"><span className="wk-cinema-live" aria-hidden="true"/>{c.eyebrow}</span>
+        <span className="wk-cinema-signature">CREATIVE WORK / DEWANK</span>
+      </div>
+
+      <div className="wk-cinema-grid">
+        <div className="wk-cinema-copy">
+          <div className="wk-cinema-kicker"><span className="wk-cinema-kicker-rule"/>{c.featured}</div>
+          <h1>
+            <span className="wk-cinema-title-line"><span>{c.lead}</span></span>
+            <span className="wk-cinema-title-line wk-cinema-title-color"><span>{c.headline}</span></span>
+          </h1>
+          <p>{c.intro}</p>
+          <div className="wk-cinema-actions">
+            <a href="#brand-identities" className="wk-cinema-action-main">{c.browse}<span aria-hidden="true">↘</span></a>
+            <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="wk-cinema-action-quiet">{c.talk}<span aria-hidden="true">↗</span></a>
+          </div>
+
+          <div className="wk-cinema-selector" aria-label={c.picker} role="group">
+            <span className="wk-cinema-selector-label">{c.picker}</span>
+            <div className="wk-cinema-selector-list">
+              {projects.map((project,index)=>(
+                <button key={project.name} type="button"
+                  className={"wk-cinema-choice"+(active===index?" is-active":"")}
+                  onClick={()=>choose(index)} onFocus={()=>setPaused(true)}
+                  onBlur={()=>setPaused(false)} aria-pressed={active===index}
+                  aria-label={project.name+" — "+project.sector}>
+                  <span className="wk-cinema-choice-mark" aria-hidden="true"/>
+                  <span className="wk-cinema-choice-name">{project.name}</span>
+                </button>
+              ))}
             </div>
           </div>
-          <div className="wk-intro-art">
-            <div className="wk-intro-art-halo" aria-hidden="true"/>
-            <Link href={prefix+"/bithan"} className="wk-intro-project" aria-label={c.projectLink}>
-              <div className="wk-intro-project-media">
-                <img src={locale==="ar"?"/work/bithan/hero.svg":"/en/work/bithan/hero.svg"} alt={c.imageAlt} width="860" height="1050" fetchPriority="high" decoding="async"/>
-              </div>
-              <div className="wk-intro-project-caption">
-                <div><strong>{c.project}</strong><span>{c.projectDescription}</span></div>
-                <span className="wk-intro-project-arrow" aria-hidden="true">↗</span>
-              </div>
-            </Link>
-            <div className="wk-intro-art-stamp" aria-hidden="true">IDENTITY / THINKING / CRAFT</div>
+        </div>
+
+        <div className="wk-cinema-scene" ref={stage} onPointerMove={move} onPointerLeave={reset}>
+          <div className="wk-cinema-ambient" aria-hidden="true">
+            <div className="wk-cinema-orbit wk-cinema-orbit-first"/>
+            <div className="wk-cinema-orbit wk-cinema-orbit-second"/>
+            <div className="wk-cinema-light wk-cinema-light-a"/>
+            <div className="wk-cinema-light wk-cinema-light-b"/>
+            <div className="wk-cinema-scan"/>
           </div>
+          <div className="wk-cinema-film-stack" aria-hidden="true">
+            <div className="wk-cinema-backplate wk-cinema-backplate-one"/>
+            <div className="wk-cinema-backplate wk-cinema-backplate-two"/>
+          </div>
+          <div className="wk-cinema-stage" aria-live="off">
+            {projects.map((project,index)=>(
+              <div key={project.name} className={"wk-cinema-slide"+(active===index?" is-active":"")} aria-hidden={active!==index}>
+                <img src={project.image} alt="" width="1000" height="760" decoding="async" loading={index===0?"eager":"lazy"} fetchPriority={index===0?"high":"auto"}/>
+              </div>
+            ))}
+          </div>
+          <div className="wk-cinema-scene-caption">
+            <div className="wk-cinema-caption-copy">
+              <span>{selected.sector}</span>
+              <strong>{selected.name}</strong>
+              <small>{selected.description}</small>
+            </div>
+            <Link className="wk-cinema-scene-link" href={selected.href} aria-label={c.view+" — "+selected.name}>
+              <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+          <div className="wk-cinema-aside-stamp" aria-hidden="true">CREATIVE / WORK / STUDIO</div>
         </div>
       </div>
-      <div className="wk-intro-band" aria-hidden="true">
-        <div className="wk-intro-band-runner">
-          {[0,1,2,3].map(i=><span className="wk-intro-band-unit" key={i}>
-            {c.bands.map(b=><span key={b}>{b}<i>/</i></span>)}
-          </span>)}
-        </div>
+      <div className="wk-cinema-footer">
+        <span>{c.interaction}</span>
+        <a href="#case-studies">{c.browse}<span aria-hidden="true">↓</span></a>
       </div>
     </section>
   );
