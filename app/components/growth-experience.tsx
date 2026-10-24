@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type PointerEvent } from "react";
 import Link from "next/link";
 import "./growth-experience.css";
 
@@ -35,7 +35,7 @@ const copy = {
       },
       automation: {
         label: "الأتمتة",
-        words: ["خلّي", "الشغل", "يتحرك"],
+        words: ["واصل", "رحلة", "النمو"],
         kicker: "الرحلة لا تنتهي عند الاستفسار",
         sub: "محادثات ومتابعة تعمل بانسجام.",
         url: "/whatsapp-automation",
@@ -109,17 +109,21 @@ export default function GrowthExperience({ locale }: { locale: Locale }) {
     return () => window.clearInterval(id);
   }, [inView, paused, reduced, direction]);
 
-  const movePointer = (event: React.PointerEvent<HTMLDivElement>) => {
+  const movePointer = (event: PointerEvent<HTMLDivElement>) => {
     if (reduced || event.pointerType === "touch") return;
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / bounds.width - .5;
     const y = (event.clientY - bounds.top) / bounds.height - .5;
     stageRef.current?.style.setProperty("--ge-x", `${(x * 24).toFixed(1)}px`);
     stageRef.current?.style.setProperty("--ge-y", `${(y * 20).toFixed(1)}px`);
+    stageRef.current?.style.setProperty("--ge-tx", `${(-x * 5).toFixed(1)}px`);
+    stageRef.current?.style.setProperty("--ge-ty", `${(-y * 4).toFixed(1)}px`);
   };
   const resetPointer = () => {
     stageRef.current?.style.setProperty("--ge-x", "0px");
     stageRef.current?.style.setProperty("--ge-y", "0px");
+    stageRef.current?.style.setProperty("--ge-tx", "0px");
+    stageRef.current?.style.setProperty("--ge-ty", "0px");
   };
 
   return (
@@ -206,6 +210,18 @@ export default function GrowthExperience({ locale }: { locale: Locale }) {
           ))}
         </div>
         <Link href={scene.url} className="ge-link">{text.discover}<span aria-hidden="true">↗</span></Link>
+      </div>
+    </div>
+  );
+}
+
+export function GrowthMarquee({locale}: {locale: Locale}) {
+  const slogan = locale === "ar" ? "نصنع العلامة" : "BUILD THE BRAND";
+  const response = locale === "ar" ? "نحرّك الطلب" : "MOVE THE DEMAND";
+  return (
+    <div className="ge-wide-ribbon" dir={locale === "ar" ? "rtl" : "ltr"} aria-hidden="true">
+      <div className="ge-wide-runner">
+        {[0,1,2,3].map(index=><span key={index}>{slogan}<i>✳</i>{response}<i>✳</i></span>)}
       </div>
     </div>
   );
