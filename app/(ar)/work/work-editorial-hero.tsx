@@ -70,7 +70,7 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
     const timer=window.setInterval(()=>{
       if(document.hidden)return;
       setActive(current=>(current+1)%projects.length);
-    },7200);
+    },5000);
     return()=>window.clearInterval(timer);
   },[manual,paused,projects.length]);
 
