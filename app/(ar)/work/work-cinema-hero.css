@@ -184,6 +184,7 @@
   aspect-ratio:1/.98;
   display:flex;align-items:center;justify-content:center;
   padding:clamp(28px,3vw,52px) clamp(23px,2.5vw,42px);
+  margin-bottom:clamp(28px,4vw,52px);
 }
 .work-cinematic .wk-cinema-ambient{
   position:absolute;z-index:-1;inset:-8%;pointer-events:none;
@@ -280,26 +281,29 @@
 }
 .work-cinematic .wk-cinema-scene-caption{
   position:absolute;z-index:4;
-  inset-inline:10% 10%;bottom:6%;
+  inset-inline:10% 10%;bottom:-3%;
   display:flex;justify-content:space-between;align-items:center;
   gap:14px;max-width:100%;
-  background:rgba(21,29,39,.93);
-  border:1px solid rgba(244,249,250,.21);border-radius:3px;
-  padding:clamp(13px,1.6vw,22px);
-  backdrop-filter:blur(13px);
-  box-shadow:0 17px 48px rgba(0,0,0,.2);
+  /* Opaque enough for legibility regardless of the active brand image. */
+  background:linear-gradient(140deg,rgba(12,22,34,.985),rgba(20,32,44,.975));
+  border:1px solid rgba(237,242,244,.46);border-radius:5px;
+  padding:clamp(14px,1.6vw,22px);
+  color:#fffaf3;
+  backdrop-filter:blur(12px) saturate(1.05);
+  -webkit-backdrop-filter:blur(12px) saturate(1.05);
+  box-shadow:0 22px 52px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.1);
 }
 .work-cinematic .wk-cinema-caption-copy{
   display:flex;flex-direction:column;gap:5px;min-width:0;
 }
 .work-cinematic .wk-cinema-caption-copy>span{
-  color:var(--wk-theme);font-size:clamp(10px,.85vw,13px);font-weight:820;line-height:1.5;
+  color:#f4dba9;font-size:clamp(11px,.9vw,14px);font-weight:850;line-height:1.65;
 }
 .work-cinematic .wk-cinema-caption-copy strong{
   color:#fffaf0;font:900 clamp(22px,2.2vw,34px)/1.2 Arial,sans-serif;
 }
 .work-cinematic .wk-cinema-caption-copy small{
-  color:#d0d8dc;font-size:clamp(10px,.85vw,13px);line-height:1.65;
+  color:#edf3f4;font-size:clamp(11px,.9vw,14px);font-weight:650;line-height:1.75;
 }
 .work-cinematic .wk-cinema-scene-link{
   display:grid;place-items:center;flex:none;
@@ -355,7 +359,7 @@
     aspect-ratio:1/1.02;padding:12px;
   }
   .work-cinematic .wk-cinema-stage{width:78%;height:72%}
-  .work-cinematic .wk-cinema-scene-caption{bottom:7%;inset-inline:9% 9%}
+  .work-cinematic .wk-cinema-scene-caption{bottom:-2%;inset-inline:9% 9%}
 }
 @media(max-width:480px){
   .work-cinematic .wk-cinema{padding:121px 17px 22px}
@@ -378,7 +382,7 @@
   }
   .work-cinematic .wk-cinema-stage{width:85%;height:71%}
   .work-cinematic .wk-cinema-scene-caption{
-    bottom:3%;inset-inline:3% 3%;
+    bottom:-4%;inset-inline:3% 3%;
     padding:12px;gap:8px;
   }
   .work-cinematic .wk-cinema-caption-copy strong{font-size:19px}
