@@ -94,7 +94,7 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
   return (
     <section className="wk-cinema" dir={locale==="ar"?"rtl":"ltr"}
       style={{"--wk-theme":selected.color,"--wk-rgb":selected.glow} as CSSProperties}
-      aria-label={c.sceneLabel} onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}>
+      aria-label={c.sceneLabel}>
       <div className="wk-cinema-grain" aria-hidden="true"/>
       <div className="wk-cinema-aura" aria-hidden="true"/>
       <div className="wk-cinema-header">
@@ -157,7 +157,9 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
               <strong>{selected.name}</strong>
               <small>{selected.description}</small>
             </div>
-            <Link className="wk-cinema-scene-link" href={selected.href} aria-label={c.view+" — "+selected.name}>
+            <Link className="wk-cinema-scene-link" href={selected.href} aria-label={c.view+" — "+selected.name}
+              onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}
+              onFocus={()=>setPaused(true)} onBlur={()=>setPaused(false)}>
               <span aria-hidden="true">↗</span>
             </Link>
           </div>
