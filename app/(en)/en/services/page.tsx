@@ -1,4 +1,6 @@
 import Link from "next/link";
+import ServicesMotionStage from "../../../(ar)/services/services-motion-stage";
+import ServicesMotionDirector from "../../../(ar)/services/services-motion-director";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
@@ -11,6 +13,8 @@ import "../../../(ar)/services/services-aeo-upgrade.css";
 import "../_en/parity/services-hub.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 import "../../../(ar)/conversion-rate-optimization/cro.css";
+import "../../../(ar)/services/services-motion-stage.css";
+import "../../../(ar)/services/services-editorial-chapters.css";
 
 export const metadata = enMetadata(
   "Services: brand, growth and automation",
@@ -112,17 +116,14 @@ export default function ServicesPage() {
   );
 
   return (
-    <main id="main-content" className="inner-page services-page services-page-refined services-conversion-hub en-services" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page services-page services-page-refined services-conversion-hub en-services services-motion-premium" lang="en" dir="ltr">
       <Header />
+      <ServicesMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
-      <section className="page-hero shell">
-        <span className="eyebrow">Services</span>
-        <h1>Start from the result you need, <em>not the service name.</em></h1>
-        <p>Advertising, websites, content, brand and automation work as one system. Choose the bottleneck first, then the shortest route to the right service.</p>
-      </section>
+      <ServicesMotionStage locale="en" />
 
-      <section className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
+      <section id="services-explore" className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
         <small>Quick answer</small>
         <h2 id="services-aeo-title">A full-service agency, or separate services?</h2>
         <p>
