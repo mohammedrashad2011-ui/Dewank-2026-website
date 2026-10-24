@@ -289,27 +289,31 @@
   .services-motion-premium .sm-flow-secondary {stroke-dashoffset:0!important}
 }
 
-/* Arabic hero art direction: let the chromatic ribbons occupy the open left
-   side of the composition, keeping the title and CTA anchored in place.
-   The English stage is intentionally unchanged because its copy is LTR. */
+/* RTL composition only: fill the vacant left edge with the chromatic
+   sculpture. Keep the heading, navigation and CTA physically stationary,
+   while softening artwork behind the Arabic text on the right. */
 .services-motion-premium .sm-hero[dir="rtl"] .sm-visual-stage {
-  inset:-4% -10% -7% 14%;
+  inset:-3% -8% -7% -8%;
+  -webkit-mask-image:linear-gradient(to right,#000 0%,#000 46%,rgba(0,0,0,.80) 72%,rgba(0,0,0,.4) 100%);
+  mask-image:linear-gradient(to right,#000 0%,#000 46%,rgba(0,0,0,.80) 72%,rgba(0,0,0,.4) 100%);
 }
 .services-motion-premium .sm-hero[dir="rtl"] .sm-art-caption {
-  right:10%;
+  right:9%;
 }
 @media(max-width:1050px) {
   .services-motion-premium .sm-hero[dir="rtl"] .sm-visual-stage {
-    inset:0 -20% 0 12%;
+    inset:0 -16% 0 -6%;
   }
 }
 @media(max-width:740px) {
   .services-motion-premium .sm-hero[dir="rtl"] .sm-visual-stage {
-    inset:3% -42% 0 12%;
+    inset:3% -34% 0 -7%;
+    opacity:.52;
   }
 }
 @media(max-width:480px) {
   .services-motion-premium .sm-hero[dir="rtl"] .sm-visual-stage {
-    inset:8% -58% 6% 10%;
+    inset:8% -48% 6% -10%;
+    opacity:.38;
   }
 }
