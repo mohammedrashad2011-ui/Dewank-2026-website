@@ -221,7 +221,7 @@ export default function GrowthArtifactCanvas({ mode }: { mode: number }) {
       resize();
       if (!canvas.width || !canvas.height) return;
       const progress = reduced ? 1 : Math.min((now-start)/1450,1);
-      sceneValue += (modeRef.current-sceneValue)*Math.min(progress*.13+.04,.21);
+      sceneValue = reduced ? modeRef.current : sceneValue + (modeRef.current-sceneValue)*Math.min(progress*.13+.04,.21);
       pointerX += (pointerRef.current.x-pointerX)*.055;
       pointerY += (pointerRef.current.y-pointerY)*.055;
       gl.useProgram(program);
