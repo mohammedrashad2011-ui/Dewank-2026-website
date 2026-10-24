@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import OffersMotionStage from "./offers-motion-stage";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, siteUrl } from "../../lib/seo";
 import { LocalizedOfferPrice } from "./localized-offer";
@@ -24,6 +25,8 @@ import { CroPackagePrice } from "../conversion-rate-optimization/cro-packages";
 import "../conversion-rate-optimization/cro.css";
 import "./offers-overview.css";
 import "./offers-overview-refine.css";
+import "./offers-motion-stage.css";
+import "./offers-cinematic-grid.css";
 
 export const metadata: Metadata = createMetadata({
   title: "عروض ديوانك | محتوى ومواقع وSEO وهوية وأتمتة وإعلانات",
@@ -47,6 +50,7 @@ export default function OffersPage() {
       { "@type": "ListItem", position: 7, name: "باقة إطلاق Google Ads", url: `${siteUrl}/offers/google-ads-launch` },
       { "@type": "ListItem", position: 8, name: "تطوير حساب إنستجرام خلال 14 يوم", url: `${siteUrl}/offers/instagram-14-day-upgrade` },
       { "@type": "ListItem", position: 9, name: "موقع صغير جاهز للإطلاق", url: `${siteUrl}/offers/small-business-website` },
+      { "@type": "ListItem", position: 10, name: "فحص التحويل وتدقيق المسار", url: `${siteUrl}/conversion-rate-optimization` },
     ],
   };
 
@@ -55,17 +59,14 @@ export default function OffersPage() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <section className="shell offers-hero offers-overview-hero">
-        <span className="offers-hero-eyebrow">عروض ديوانك</span>
-        <h1>عروض واضحة<br/><em>تساعدك تبدأ الآن</em></h1>
-        <p>اختر العرض المناسب لنشاطك بنطاق عمل محدد وسعر معروف من البداية. راجع التفاصيل وابدأ مباشرة عبر واتساب، من دون اشتراكات طويلة أو خدمات غامضة.</p>
-      </section>
+      <OffersMotionStage locale="ar" />
 
-      <section className="offers-filter-shell" aria-label="تصفية عروض ديوانك حسب نوع الخدمة">
+      <section id="offers-explore" className="offers-filter-shell" aria-label="تصفية عروض ديوانك حسب نوع الخدمة">
         <input defaultChecked type="radio" name="offers-filter" id="offers-all" />
         <input type="radio" name="offers-filter" id="offers-content" />
         <input type="radio" name="offers-filter" id="offers-ads" />
         <input type="radio" name="offers-filter" id="offers-web" />
+        <input type="radio" name="offers-filter" id="offers-conversion" />
         <input type="radio" name="offers-filter" id="offers-brand" />
         <input type="radio" name="offers-filter" id="offers-automation" />
 
@@ -76,6 +77,7 @@ export default function OffersPage() {
             <label htmlFor="offers-content">محتوى وإنستجرام</label>
             <label htmlFor="offers-ads">إعلانات</label>
             <label htmlFor="offers-web">مواقع وSEO</label>
+            <label htmlFor="offers-conversion">تحسين التحويل</label>
             <label htmlFor="offers-brand">هوية وبراند</label>
             <label htmlFor="offers-automation">أتمتة</label>
           </div>
@@ -90,7 +92,7 @@ export default function OffersPage() {
             <div className="offer-card-meta"><div><small>السعر التأسيسي</small><LocalizedOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
-          <article data-filter="web" data-category="ويب وتحويل" className="offer-card compact-offer-card landing-offer-card offer-priority">
+          <article data-filter="web conversion" data-category="ويب وتحويل" className="offer-card compact-offer-card landing-offer-card offer-priority">
             <Link className="offer-card-hit" href="/offers/landing-page-package" aria-label="شاهد تفاصيل باقة صفحة الهبوط" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
             <h2>صفحة واحدة<br/><em>تحوّل الزائر إلى عميل</em></h2>
@@ -154,7 +156,7 @@ export default function OffersPage() {
             <div className="offer-card-meta"><div><small>باقة الموقع من</small><SmallWebsitePrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
-          <article data-filter="web" data-category="تدقيق وتحويل" className="offer-card compact-offer-card cro-offer-card">
+          <article data-filter="web conversion" data-category="تدقيق وتحويل" className="offer-card compact-offer-card cro-offer-card">
             <Link className="offer-card-hit" href="/conversion-rate-optimization#pricing" aria-label="شاهد باقات فحص التحويل وتدقيق المسار" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> باقات لمرة واحدة</span></div>
             <h2>فحص التحويل وتدقيق المسار<br/><em>اعرف أين تتوقف الزيارات</em></h2>
