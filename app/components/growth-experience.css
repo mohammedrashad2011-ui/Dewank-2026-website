@@ -74,8 +74,10 @@
   transform:translate3d(0,var(--dw-scroll-shift),0);
   pointer-events:none;
 }
-.dw-editorial-hero .dw-ed-giant-orbit {
+.dw-editorial-hero .dw-ed-composition {
   --dw-pointer-x:0px;--dw-pointer-y:0px;
+}
+.dw-editorial-hero .dw-ed-giant-orbit {
   position:absolute;
   z-index:-1;
   width:clamp(340px,51vw,830px);
@@ -540,3 +542,12 @@
 html body .en-parity.studio-home .dw-ed-subline{text-align:end!important}
 html body .en-parity.studio-home .dw-ed-running-set>span{text-align:center!important}
 html body .en-parity.studio-home .dw-ed-tail span:last-child{text-align:end!important}
+
+/* Keep the Arabic outlined headline legible on small screens and avoid letter clipping. */
+@media(max-width:460px){
+  .dw-editorial-hero[dir="rtl"] .dw-ed-headline-mask-2 .dw-ed-headline-word{
+    color:#181413;
+    -webkit-text-stroke:0;
+    text-shadow:none;
+  }
+}
