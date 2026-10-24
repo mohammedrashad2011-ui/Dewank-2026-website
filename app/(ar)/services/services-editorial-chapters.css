@@ -604,3 +604,45 @@ html body .services-motion-premium .service-detail .detail-link:focus-visible,
 html body .services-motion-premium .sm-navigation a:focus-visible {
   outline-offset:5px;
 }
+
+/* Immersive chapter-scale kinetic editorial type. It never covers the copy or CTA. */
+html body .services-motion-premium .service-group[id]::after{
+  position:absolute;z-index:-1;pointer-events:none;user-select:none;
+  inset-inline-end:-5%;bottom:-.11em;
+  color:transparent;-webkit-text-stroke:1px rgba(32,29,45,.11);
+  font:950 clamp(140px,23vw,370px)/1 Arial Black,Arial,sans-serif;
+  letter-spacing:-.1em;white-space:nowrap;
+  animation:sm-word-drift 16s ease-in-out infinite alternate;
+}
+html body .services-motion-premium .service-group[id="brand"]::after,
+html body .services-motion-premium .service-group[id="brand-services"]::after{
+  content:"IDENTITY";
+}
+html body .services-motion-premium .service-group[id="content"]::after,
+html body .services-motion-premium .service-group[id="growth-services"]::after{
+  content:"MOMENTUM";animation-duration:18s;
+}
+html body .services-motion-premium .service-group[id="web"]::after,
+html body .services-motion-premium .service-group[id="web-services"]::after{
+  content:"CONVERT";animation-duration:20s;
+}
+html body .services-motion-premium .service-group[id="automation"]::after,
+html body .services-motion-premium .service-group[id="automation-services"]::after{
+  content:"CONNECT";-webkit-text-stroke-color:rgba(245,241,255,.12);
+}
+@keyframes sm-word-drift{
+  to{translate:-3vw -17px;rotate:-2deg}
+}
+@media(max-width:760px){
+  html body .services-motion-premium .service-group[id]::after{
+    font-size:clamp(115px,24vw,250px);
+  }
+}
+@media(max-width:480px){
+  html body .services-motion-premium .service-group[id]::after{
+    font-size:110px;opacity:.45;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body .services-motion-premium .service-group[id]::after{animation:none!important}
+}
