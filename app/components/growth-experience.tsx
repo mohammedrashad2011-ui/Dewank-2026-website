@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type PointerEvent } from "react";
 import Link from "next/link";
+import GrowthLiquidMotion from "./growth-liquid-motion";
 import "./growth-experience.css";
 
 type Locale = "ar" | "en";
@@ -13,14 +14,14 @@ const order: Focus[] = ["brand", "demand", "automation"];
 const language = {
   ar: {
     overline: "ديوانك / استوديو للنمو",
-    subline: "استراتيجية. إبداع. تنفيذ.",
-    headline: ["نصنع العلامة.", "نحرّك الطلب.", "ونؤتمت النمو."],
-    intro: "نربط الهوية بالإعلانات والموقع والمتابعة، حتى لا تضيع الفرصة بين أول زيارة وأول محادثة.",
+    subline: "استراتيجية / إبداع / تنفيذ",
+    headline: ["نصنع العلامة", "نحرّك الطلب", "ونؤتمت النمو"],
+    intro: "نربط الهوية بالإعلانات والموقع والمتابعة حتى لا تضيع الفرصة بين أول زيارة وأول محادثة",
     project: "احكِ لنا عن مشروعك",
     work: "شاهد أعمالنا",
     scroll: "اكتشف المزيد",
     selector: "على ماذا نعمل؟",
-    strap: "علامات لها حضور. تسويق يخلق طلبًا. متابعة لا تفوّت الفرص.",
+    strap: "علامات لها حضور  تسويق يخلق طلبًا  متابعة لا تفوّت الفرص",
     directions: {
       brand: { name: "البراند", statement: "هوية لا تُنسى", href: "/branding", accent: "IDENTITY" },
       demand: { name: "الطلب", statement: "وصول يتحوّل لفرص", href: "/paid-ads", accent: "DEMAND" },
@@ -31,14 +32,14 @@ const language = {
   },
   en: {
     overline: "DEWANK / THE GROWTH STUDIO",
-    subline: "STRATEGY. CREATIVE. EXECUTION.",
-    headline: ["WE BUILD BRANDS.", "WE DRIVE DEMAND.", "WE ENGINEER GROWTH."],
+    subline: "STRATEGY / CREATIVE / EXECUTION",
+    headline: ["BUILD BRANDS", "DRIVE DEMAND", "ENGINEER GROWTH"],
     intro: "From the first impression to the next conversation. We connect brand, marketing, websites and automation so every touchpoint has a purpose.",
     project: "Tell us about your project",
     work: "Explore selected work",
     scroll: "SCROLL TO EXPLORE",
     selector: "WHAT WE MOVE",
-    strap: "A stronger brand. Better demand. Smarter follow-through.",
+    strap: "Stronger brands  Greater demand  Smarter follow-through",
     directions: {
       brand: { name: "Brand", statement: "Made to stand apart", href: "/en/branding", accent: "IDENTITY" },
       demand: { name: "Demand", statement: "Attention into action", href: "/en/paid-advertising", accent: "DEMAND" },
@@ -144,15 +145,18 @@ export default function GrowthExperience({ locale, whatsappHref }: Props) {
 
       <div className="dw-ed-composition" ref={artRef} onPointerMove={onPointer} onPointerLeave={resetPointer}>
         <div className="dw-ed-light-field" aria-hidden="true" />
-        <div className="dw-ed-giant-orbit" aria-hidden="true">
-          <div className="dw-ed-orbit-shell" />
-          <div className="dw-ed-orbit-center" />
-          <div className="dw-ed-orbit-line dw-ed-orbit-line-a" />
-          <div className="dw-ed-orbit-line dw-ed-orbit-line-b" />
-          <span className="dw-ed-orbit-spark">✳</span>
+        <div className="dw-ed-liquid-field" aria-hidden="true">
+          <GrowthLiquidMotion focus={focus} reduced={reduceMotion} visible={isVisible} />
+          <span className="dw-ed-liquid-specular" />
         </div>
-        <div className="dw-ed-slanted-type" aria-hidden="true">
-          <span>MAKE</span><span>IT</span><span>MOVE</span>
+        <div className="dw-ed-speed-line dw-ed-speed-line-one" aria-hidden="true" />
+        <div className="dw-ed-speed-line dw-ed-speed-line-two" aria-hidden="true" />
+        <div className="dw-ed-cross-marquee" aria-hidden="true">
+          <div className="dw-ed-cross-lane">
+            {[0, 1, 2, 3].map(index => (
+              <span key={index}>DEWANK <i>/</i> CREATE <i>/</i> CONNECT <i>/</i> MOVE <i>/</i></span>
+            ))}
+          </div>
         </div>
         <div className="dw-ed-focus-ghost" key={focus} aria-hidden="true">
           {content.directions[focus].accent}
@@ -161,14 +165,14 @@ export default function GrowthExperience({ locale, whatsappHref }: Props) {
         <h1 className="dw-ed-headline">
           {content.headline.map((line, index) => (
             <span className={"dw-ed-headline-mask dw-ed-headline-mask-" + index} key={line}>
-              <span className="dw-ed-headline-word">{line}</span>
+              <span className="dw-ed-headline-word" data-line={line}>{line}</span>
             </span>
           ))}
         </h1>
         <div className="dw-ed-side-label" aria-hidden="true">
           <span>DEWANK STUDIO</span><i />
         </div>
-        <div className="dw-ed-asterisk" aria-hidden="true">✳</div>
+
       </div>
 
       <div className="dw-ed-foot">
@@ -211,7 +215,7 @@ export default function GrowthExperience({ locale, whatsappHref }: Props) {
           {[0, 1, 2, 3].map((loop) => (
             <span className="dw-ed-running-set" key={loop}>
               {content.marquee.map((word) => (
-                <span key={word}>{word}<i>✳</i></span>
+                <span key={word}>{word}<i>/</i></span>
               ))}
             </span>
           ))}
