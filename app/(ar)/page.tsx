@@ -2,17 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
-import MotionSystem from "../components/motion-system";
+import GrowthExperience from "../components/growth-experience";
+import HomeSectionChoreography from "../components/home-section-choreography";
+import "../home-hierarchy-refinement.css";
 import HomeTestimonials from "../components/home-testimonials";
+import HomeServiceExperience from "../components/home-service-experience";
 import HomeSelectedOffers from "../components/home-selected-offers";
-import { ServiceArt } from "../components/home-service-art";
-import { BidiText } from "../components/bidi-text";
 import "../home-growth-upgrade.css";
 import "../home-conversion-refinement.css";
 import "../home-mobile-service-cards.css";
 import "../arabic-home-polish.css";
 import "../arabic-service-cards.css";
 
+import "../home-editorial-sections.css";
 export const metadata: Metadata = createMetadata({
   title: "ديوانك | براند، تسويق، مواقع وأتمتة للشركات",
   description: "ديوانك يساعد الشركات في السعودية والخليج على بناء العلامة، جذب الطلب، تطوير المواقع، وتشغيل أتمتة واتساب وCRM ضمن منظومة نمو واحدة قابلة للقياس.",
@@ -22,41 +24,6 @@ export const metadata: Metadata = createMetadata({
 
 const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد مناقشة نمو مشروعي. النشاط: ");
 
-const services = [
-  {
-    n: "01",
-    title: "نجذب الطلب",
-    text: "Google وMeta مع تتبع واضح، صفحات هبوط، وقرارات تحسين مبنية على التحويل وليس عدد النقرات.",
-    tags: ["Google Ads", "Meta Ads", "Tracking"],
-    tone: "growth",
-    href: "/paid-ads",
-  },
-  {
-    n: "02",
-    title: "نبني المواقع",
-    text: "مواقع وصفحات هبوط سريعة تجمع الرسالة وSEO وCRO والتتبع لتقود الزائر نحو إجراء واضح.",
-    tags: ["Web Design", "CRO", "SEO"],
-    tone: "web",
-    href: "/website-design",
-  },
-  {
-    n: "03",
-    title: "نبني البراند والمحتوى",
-    text: "تموضع وهوية ومحتوى يجعل مشروعك أوضح في ذهن العميل وأكثر اتساقًا في كل نقطة تواصل.",
-    tags: ["Branding", "Content", "Social"],
-    tone: "brand",
-    href: "/branding",
-  },
-  {
-    n: "04",
-    title: "نؤتمت المتابعة",
-    text: "واتساب وCRM وأتمتة ذكية تربط المحادثة بالتأهيل والحجز والمتابعة وتقلل العمل اليدوي.",
-    tags: ["WhatsApp", "CRM", "AI"],
-    tone: "automation",
-    href: "/whatsapp-automation",
-  },
-];
-
 const selectedWork = [
   { n: "01", title: "من رسائل متفرقة إلى رحلة حجز قابلة للقياس", text: "نظام واتساب وCRM يربط الرد والتأهيل والحجز والتذكير والمتابعة.", href: "/work#case-studies" },
   { n: "02", title: "من قرار التسمية إلى هوية Fine Jewelry متكاملة", text: "BITHAN: تموضع وتسمية وفحص، ثم اسم اختاره العميل وهوية عربية-إنجليزية كاملة بتطبيقات Premium.", href: "/work/bithan" },
@@ -65,22 +32,11 @@ const selectedWork = [
 
 export default function Home() {
   return (
-    <main className="studio-home home-conversion-page arabic-home-polish">
+    <main className="studio-home home-conversion-page arabic-home-polish growth-home-experiment">
       <Header />
+      <HomeSectionChoreography />
 
-      <section className="hybrid-hero shell">
-        <div className="hero-copy">
-          <h1><span>نصنع العلامة</span><span>نحرّك الطلب</span><span><em>ونؤتمت النمو</em></span></h1>
-          <p>ديوانك يجمع البراندينج والتسويق والمواقع والأتمتة في منظومة واحدة، حتى يعرف العميل لماذا يختارك، يصل إليك أسرع، ويتحرك نحو قرار واضح.</p>
-          <div className="hero-actions">
-            <a className="button primary home-whatsapp-primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل نشاطك والتحدي الحالي <span>↗</span></a>
-            <Link className="button secondary" href="/work">شاهد الأعمال والنتائج <span>←</span></Link>
-          </div>
-          <p className="cta-expectation">محادثة قصيرة لفهم المشروع وتحديد أفضل نقطة بداية، بدون التزام.</p>
-        </div>
-
-        <MotionSystem />
-      </section>
+      <GrowthExperience locale="ar" whatsappHref={whatsappHref} />
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
@@ -99,15 +55,7 @@ export default function Home() {
       <section className="bento-section home-core-paths">
         <div className="shell">
           <div className="section-head"><div><span className="section-label">اختر نقطة البداية</span><h2>أربع بوابات<br/><em>ونظام واحد خلفها</em></h2></div><Link className="text-link" href="/services">استكشف كل الخدمات <span>←</span></Link></div>
-          <div className="service-bento">
-            {services.map((service) => (
-              <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
-                <div className="card-top"><span>{service.n}</span><b>↗</b></div>
-                <div className={`service-symbol ${service.tone}`} aria-hidden="true"><ServiceArt tone={service.tone} /></div>
-                <div className="card-copy"><h3>{service.title}</h3><p><BidiText text={service.text} /></p><div className="tag-row">{service.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div>
-              </Link>
-            ))}
-          </div>
+          <HomeServiceExperience locale="ar" />
           <nav className="growth-shortcuts" aria-label="مسارات إضافية"><Link href="/services/social-media-content">إدارة المحتوى <span>↗</span></Link><Link href="/seo-aeo">SEO وAEO <span>↗</span></Link><Link href="/ai-automation">أتمتة الأعمال بالذكاء الاصطناعي <span>↗</span></Link></nav>
         </div>
       </section>
@@ -119,7 +67,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="work-section shell home-trust-section"><HomeTestimonials /></div>
+      <div className="work-section shell home-trust-section"><HomeTestimonials locale="ar" /></div>
 
       <section className="method-section home-method-section">
         <div className="shell method-layout">
