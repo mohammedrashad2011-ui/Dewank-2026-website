@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
-import GrowthExperience from "../components/growth-experience";
+import GrowthExperience, { GrowthMarquee } from "../components/growth-experience";
 import HomeTestimonials from "../components/home-testimonials";
 import HomeSelectedOffers from "../components/home-selected-offers";
 import { ServiceArt } from "../components/home-service-art";
@@ -81,6 +81,8 @@ export default function Home() {
 
         <GrowthExperience locale="ar" />
       </section>
+
+      <GrowthMarquee locale="ar" />
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
