@@ -122,7 +122,7 @@ void main() {
   }
   float grain=(noise(gl_FragCoord.xy+uTime*.4)-.5)*.018;
   pixel+=grain;
-  pixel*=smoothstep(1.35,.28,vignette);
+  pixel*=1.-smoothstep(.28,1.35,vignette);
   pixel=max(pixel,vec3(0.));
   pixel=pow(pixel,vec3(.89));
   fragColor=vec4(pixel,1.);
@@ -216,7 +216,7 @@ export default function GrowthArtifactCanvas({ mode }: { mode: number }) {
       if(disposed) return;
       frame = window.requestAnimationFrame(render);
       if ((!visible || document.hidden) && !reduced) return;
-      if(!reduced && now-last < (window.innerWidth<700?38:22)) return;
+      if(now-last < (reduced ? 240 : (window.innerWidth<700 ? 42 : 24))) return;
       last = now;
       resize();
       if (!canvas.width || !canvas.height) return;
@@ -231,7 +231,7 @@ export default function GrowthArtifactCanvas({ mode }: { mode: number }) {
       gl.uniform2f(pointer,reduced?0:pointerX,reduced?0:pointerY);
       gl.uniform1f(scroll,reduced?0:scrollValue);
       gl.drawArrays(gl.TRIANGLE_STRIP,0,4);
-      if(reduced){window.cancelAnimationFrame(frame);frame=0;}
+      
     };
 
     const visibilityObserver = new IntersectionObserver(entries => {
