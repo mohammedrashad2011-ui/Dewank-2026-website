@@ -126,6 +126,15 @@ export default function HomeServiceExperience({locale}: {locale: Language}) {
           );
         })}
       </nav>
+      <div className="hm-services-stage-container">
+        <div className="hm-services-mobile-switch" role="group" aria-label={content.prompt}>
+          {order.map(key => (
+            <button key={key} type="button" aria-pressed={focus===key}
+              className={focus===key?"is-active":""} onClick={()=>setFocus(key)}>
+              {content.services[key].title}
+            </button>
+          ))}
+        </div>
       <div className="hm-services-theatre" ref={theatreRef} onPointerMove={onMove} onPointerLeave={reset}>
         <div className="hm-services-grid" aria-hidden="true"/>
         <div className="hm-services-sky" aria-hidden="true"/>
@@ -144,6 +153,7 @@ export default function HomeServiceExperience({locale}: {locale: Language}) {
           <Link className="hm-services-stage-link" href={item.url}>{content.action}<span aria-hidden="true">↗</span></Link>
         </div>
         <span className="hm-services-edge-label" aria-hidden="true">DEWANK</span>
+      </div>
       </div>
     </div>
   );
