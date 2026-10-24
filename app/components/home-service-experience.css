@@ -344,7 +344,7 @@
     border:0;border-inline-end:1px solid rgba(19,18,18,.13);
     border-bottom:3px solid transparent;
     background:transparent;color:#473c39;
-    text-align:center;font:800 clamp(10px,2vw,13px)/1.5 inherit;
+    text-align:center;font-family:inherit;font-size:clamp(10px,2vw,13px);font-weight:800;line-height:1.5;
     cursor:pointer;
   }
   .growth-home-experiment .hm-services-mobile-switch button:last-child{border-inline-end:0}
