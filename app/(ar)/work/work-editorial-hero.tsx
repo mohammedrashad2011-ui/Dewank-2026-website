@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {useEffect,useRef,useState,type PointerEvent} from "react";
+import {useEffect,useRef,useState,type PointerEvent,type CSSProperties} from "react";
 
 type Locale="ar"|"en";
 type Project={
@@ -93,7 +93,7 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
 
   return (
     <section className="wk-cinema" dir={locale==="ar"?"rtl":"ltr"}
-      style={{"--wk-theme":selected.color,"--wk-rgb":selected.glow} as React.CSSProperties}
+      style={{"--wk-theme":selected.color,"--wk-rgb":selected.glow} as CSSProperties}
       aria-label={c.sceneLabel} onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}>
       <div className="wk-cinema-grain" aria-hidden="true"/>
       <div className="wk-cinema-aura" aria-hidden="true"/>
