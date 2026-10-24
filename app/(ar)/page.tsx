@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
-import GrowthExperience, { GrowthMarquee } from "../components/growth-experience";
+import GrowthExperience from "../components/growth-experience";
+import "../home-hierarchy-refinement.css";
 import HomeTestimonials from "../components/home-testimonials";
 import HomeSelectedOffers from "../components/home-selected-offers";
 import { ServiceArt } from "../components/home-service-art";
@@ -68,21 +69,7 @@ export default function Home() {
     <main className="studio-home home-conversion-page arabic-home-polish growth-home-experiment">
       <Header />
 
-      <section className="hybrid-hero shell">
-        <div className="hero-copy">
-          <h1><span>نصنع العلامة</span><span>نحرّك الطلب</span><span><em>ونؤتمت النمو</em></span></h1>
-          <p>ديوانك يجمع البراندينج والتسويق والمواقع والأتمتة في منظومة واحدة، حتى يعرف العميل لماذا يختارك، يصل إليك أسرع، ويتحرك نحو قرار واضح.</p>
-          <div className="hero-actions">
-            <a className="button primary home-whatsapp-primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">أرسل نشاطك والتحدي الحالي <span>↗</span></a>
-            <Link className="button secondary" href="/work">شاهد الأعمال والنتائج <span>←</span></Link>
-          </div>
-          <p className="cta-expectation">محادثة قصيرة لفهم المشروع وتحديد أفضل نقطة بداية، بدون التزام.</p>
-        </div>
-
-        <GrowthExperience locale="ar" />
-      </section>
-
-      <GrowthMarquee locale="ar" />
+      <GrowthExperience locale="ar" whatsappHref={whatsappHref} />
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
