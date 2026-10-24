@@ -184,7 +184,7 @@ export default function WorkPage() {
         <div className="shell">
           <div className="concepts-head">
             <div>
-              <span className="section-label">Concept explorations · Not client projects</span>
+              <span className="section-label">From an idea to a meaningful identity</span>
               <h2>We test the way of thinking,<br />not only the look of the logo</h2>
               
             </div>
