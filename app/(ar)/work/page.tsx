@@ -3,8 +3,11 @@ import Link from "next/link";
 import { createMetadata } from "../../lib/seo";
 import { Footer, Header } from "../../components/site-shell";
 import { IdentityShowcase } from "./identity-showcase";
+import WorkEditorialHero from "./work-editorial-hero";
+import WorkMotionDirector from "./work-motion-director";
 import "./work-page.css";
 import "./work-proof-refinement.css";
+import "./work-cinematic-experience.css";
 
 export const metadata: Metadata = createMetadata({
   title: "أعمال ديوانك ودراسات حالة | براندينج، مواقع وأتمتة",
@@ -91,19 +94,12 @@ export default function WorkPage() {
   };
 
   return (
-    <main className="work-page work-proof-page" dir="rtl">
+    <main className="work-page work-proof-page work-cinematic" dir="rtl">
       <Header />
+      <WorkMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <section className="work-hero shell">
-        <span className="section-label">أعمال ديوانك</span>
-        <h1>النتيجة مهمة<br/><em>لكن القرار الذي صنعها أهم</em></h1>
-        <p>هنا لا نعرض لقطات جميلة فقط. نوضح التحدي، القرار، ما تم تنفيذه، وما الذي تغيّر أو كان مستهدفًا، حتى ترى طريقة التفكير قبل أن تبدأ مشروعك معنا.</p>
-        <div className="work-hero-actions">
-          <a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعًا مشابهًا <span>↗</span></a>
-          <a className="button secondary" href="#case-studies">ابدأ بدراسة الحالة</a>
-        </div>
-      </section>
+      <WorkEditorialHero locale="ar" whatsappHref={whatsappHref} />
 
       <section className="work-trust shell" aria-label="ما يميز طريقة عمل ديوانك">
         <div>استراتيجية قبل التصميم</div>
@@ -118,7 +114,7 @@ export default function WorkPage() {
           <h2 id="proof-paths-title">لا تتصفح كل شيء<br/><em>اذهب لما يشبه تحديك</em></h2>
         </div>
         <div className="proof-path-grid">
-          {proofPaths.map((item) => <a href={item.href} className="proof-path-card" key={item.no}><small>{item.no} · {item.label}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد القسم ↓</span></a>)}
+          {proofPaths.map((item) => <a href={item.href} className="proof-path-card" key={item.no}><small>{item.label}</small><h3>{item.title}</h3><p>{item.text}</p><span>شاهد القسم ↓</span></a>)}
         </div>
       </section>
 
@@ -188,7 +184,7 @@ export default function WorkPage() {
           <div className="testimonials-grid">
             {testimonials.map((testimonial, index) => (
               <figure className={`testimonial-card${index === 0 ? " featured" : ""}`} key={testimonial.name}>
-                <div className="testimonial-stars" aria-label="5 من 5 نجوم">★★★★★</div>
+                
                 <blockquote>«{testimonial.quote}»</blockquote>
                 <figcaption>
                   <span>{testimonial.name}</span>
@@ -205,8 +201,8 @@ export default function WorkPage() {
         <div className="shell">
           <div className="concepts-head">
             <div>
-              <span className="section-label">استراتيجية التفكير</span>
-              <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط</h2>
+              <span className="section-label">مشروعات مفاهيمية  ·  وليست مشروعات عملاء</span>
+              <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط</h2><p>هذه أمثلة تصورية لتوضيح المنهج الإبداعي وليست تنفيذًا لعملاء فعليين.</p>
             </div>
           </div>
 
@@ -232,10 +228,10 @@ export default function WorkPage() {
         <span className="section-label">كيف نعمل</span>
         <h2>من التحدي إلى نظام<br/>يمكن تنفيذه وقياسه</h2>
         <div className="work-method-grid">
-          <div><span>01</span><h3>نفهم التحدي</h3><p>نحدد أين يتوقف النمو وما الذي يحتاجه العميل فعلًا.</p></div>
-          <div><span>02</span><h3>نختار القرار</h3><p>نحدد التموضع والرسالة والأولوية قبل الدخول في التنفيذ.</p></div>
-          <div><span>03</span><h3>نبني النظام</h3><p>نحوّل القرار إلى هوية أو موقع أو محتوى أو أتمتة مترابطة.</p></div>
-          <div><span>04</span><h3>نقيس ونحسّن</h3><p>نراجع الأداء ونطوّر ما يرفع الوضوح والتحويل والكفاءة.</p></div>
+          <div><h3>نفهم التحدي</h3><p>نحدد أين يتوقف النمو وما الذي يحتاجه العميل فعلًا.</p></div>
+          <div><h3>نختار القرار</h3><p>نحدد التموضع والرسالة والأولوية قبل الدخول في التنفيذ.</p></div>
+          <div><h3>نبني النظام</h3><p>نحوّل القرار إلى هوية أو موقع أو محتوى أو أتمتة مترابطة.</p></div>
+          <div><h3>نقيس ونحسّن</h3><p>نراجع الأداء ونطوّر ما يرفع الوضوح والتحويل والكفاءة.</p></div>
         </div>
         <div className="work-method-links"><Link href="/services">استكشف كل الخدمات</Link><Link href="/website-design">تصميم المواقع</Link><Link href="/paid-ads">إدارة الإعلانات</Link><Link href="/whatsapp-automation">أتمتة واتساب</Link></div>
       </section>
