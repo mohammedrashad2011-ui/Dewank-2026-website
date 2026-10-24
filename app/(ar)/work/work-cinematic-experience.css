@@ -260,8 +260,6 @@ html body .work-cinematic .work-final .button.primary:hover{
   .work-cinematic.wk-motion-ready .identity-work-image img{transition-duration:.8s}
 }
 @media(max-width:1100px){
-  html body .work-cinematic .wk-intro-grid{grid-template-columns:1fr 1fr;gap:35px}
-  html body .work-cinematic .wk-intro-content h1{font-size:clamp(40px,5.4vw,58px)}
   html body .work-cinematic .proof-path-card{grid-template-columns:minmax(0,.5fr) minmax(0,1fr) auto}
   html body .work-cinematic .proof-path-card p{grid-column:2/-1}
   html body .work-cinematic .real-case-grid{gap:35px}
@@ -271,12 +269,6 @@ html body .work-cinematic .work-final .button.primary:hover{
   html body .work-cinematic .identity-work-card.wide{grid-column:span 6;margin-top:0}
 }
 @media(max-width:800px){
-  .work-cinematic .wk-intro-topline{gap:12px}
-  .work-cinematic .wk-intro-note{display:none}
-  .work-cinematic .wk-intro-grid{grid-template-columns:1fr;gap:35px}
-  .work-cinematic .wk-intro-content h1{font-size:clamp(42px,8vw,66px)}
-  .work-cinematic .wk-intro-art{min-height:440px}
-  .work-cinematic .wk-intro-project{width:min(76%,490px)}
   html body .work-cinematic .work-trust.shell{grid-template-columns:repeat(2,minmax(0,1fr))}
   html body .work-cinematic .work-trust>div{min-height:78px}
   html body .work-cinematic .proof-path-card{grid-template-columns:1fr auto;gap:8px 20px}
@@ -290,20 +282,6 @@ html body .work-cinematic .work-final .button.primary:hover{
   html body .work-cinematic .concept-card{min-height:0}
 }
 @media(max-width:580px){
-  .work-cinematic .wk-intro-shell{padding-inline:21px;padding-bottom:60px}
-  .work-cinematic .wk-intro-grid{padding-top:52px;min-height:0}
-  .work-cinematic .wk-intro-content h1{font-size:clamp(35px,9vw,48px);line-height:1.52}
-  .work-cinematic .wk-intro[dir="ltr"] .wk-intro-content h1{font-size:clamp(34px,8.3vw,43px);line-height:1.17}
-  .work-cinematic .wk-intro-content>p{font-size:14px}
-  .work-cinematic .wk-intro-actions{align-items:stretch}
-  .work-cinematic .wk-intro-primary,.work-cinematic .wk-intro-secondary{min-height:48px}
-  .work-cinematic .wk-intro-art{min-height:300px}
-  .work-cinematic .wk-intro-project{width:87%}
-  .work-cinematic .wk-intro-project-caption{padding:14px}
-  .work-cinematic .wk-intro-project-caption strong{font-size:16px}
-  .work-cinematic .wk-intro-art-stamp{display:none}
-  .work-cinematic .wk-intro-band{height:69px}
-  .work-cinematic .wk-intro-band-unit>span{font-size:29px}
   html body .work-cinematic .work-trust.shell{grid-template-columns:1fr 1fr;padding-inline:16px}
   html body .work-cinematic .work-trust>div{padding:18px 10px;font-size:11px}
   html body .work-cinematic .proof-paths.shell,
@@ -339,12 +317,6 @@ html body .work-cinematic .work-final .button.primary:hover{
   html body .work-cinematic .testimonial-card.featured{padding:29px 12px}
 }
 @media(prefers-reduced-motion:reduce){
-  .work-cinematic .wk-intro *,
-  .work-cinematic .wk-intro *::before,
-  .work-cinematic .wk-intro *::after{
-    animation:none!important;transition:none!important;transform:none!important;
-  }
-  .work-cinematic .wk-intro-line>span{opacity:1!important}
   .work-cinematic .identity-work-image img,
   .work-cinematic .identity-work-card:hover img{transform:none!important;transition:none!important}
 }
