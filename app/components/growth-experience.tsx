@@ -14,29 +14,29 @@ const translations = {
   ar: {
     signature: "ديوانك",
     eyebrow: "نمو بذكاء",
-    lead: "القيمة تبدأ عندما تتصل التفاصيل.",
-    choose: "ما الذي يحتاجه مشروعك الآن؟",
+    lead: "من أول انطباع إلى آخر متابعة.",
+    choose: "اختر نقطة البداية",
     link: "اكتشف الخدمة",
     routes: {
       demand: {
         tab: "اجذب الطلب",
         word: "تظهر",
-        title: "الحضور يبدأ بالفرق",
+        title: "لا يكفي مجرد الظهور",
         description: "رسالة واضحة تصل إلى الجمهور المناسب.",
         service: "/paid-ads",
       },
       conversion: {
         tab: "ارفع التحويل",
         word: "تقنع",
-        title: "من اهتمام إلى قرار",
-        description: "تجربة تجعل الخطوة التالية طبيعية.",
+        title: "حوّل الاهتمام إلى خطوة",
+        description: "صفحة تقود الزائر إلى إجراء واضح.",
         service: "/website-design",
       },
       continuity: {
         tab: "اربط المتابعة",
         word: "تتابع",
-        title: "لا تتوقف عند الاستفسار",
-        description: "محادثات وعلاقات تسير بنظام واحد.",
+        title: "الفرصة تبدأ بعد الاستفسار",
+        description: "متابعة منظمة من أول رسالة حتى الخطوة التالية.",
         service: "/whatsapp-automation",
       },
     },
@@ -44,8 +44,8 @@ const translations = {
   en: {
     signature: "Dewank",
     eyebrow: "GROWTH, INTELLIGENTLY",
-    lead: "The difference is how everything connects.",
-    choose: "Where should your business go next?",
+    lead: "From first impression to follow-up.",
+    choose: "Choose where to begin",
     link: "Explore the solution",
     routes: {
       demand: {
