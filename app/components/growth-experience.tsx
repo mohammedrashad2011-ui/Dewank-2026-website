@@ -1,132 +1,211 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import GrowthArtifactCanvas from "./growth-artifact-canvas";
-import "../home-hierarchy-refinement.css";
 import "./growth-experience.css";
 
 type Locale = "ar" | "en";
-type Route = "demand" | "conversion" | "continuity";
-const order: Route[] = ["demand", "conversion", "continuity"];
+type Direction = "brand" | "demand" | "automation";
+const order: Direction[] = ["brand", "demand", "automation"];
 
-const translations = {
+const copy = {
   ar: {
-    signature: "ديوانك",
-    eyebrow: "نمو بذكاء",
-    lead: "من أول انطباع إلى آخر متابعة.",
-    choose: "اختر نقطة البداية",
-    link: "اكتشف الخدمة",
-    routes: {
+    eyebrow: "ديوانك",
+    signoff: "نمو بذكاء",
+    lead: "الفكرة الجيدة تحتاج حركة.",
+    choose: "حدد وجهتك",
+    discover: "اكتشف كيف نعمل",
+    progress: "تصفّح التجربة",
+    directions: {
+      brand: {
+        label: "البراند",
+        words: ["اصنع", "هوية", "تُذكر"],
+        kicker: "الفرق يبدأ من الانطباع الأول",
+        sub: "تموضع واضح وهوية تترك أثرًا.",
+        url: "/branding",
+        ticker: ["هوية", "تموضع", "تجربة", "حضور"],
+      },
       demand: {
-        tab: "اجذب الطلب",
-        word: "تظهر",
-        title: "لا يكفي مجرد الظهور",
-        description: "رسالة واضحة تصل إلى الجمهور المناسب.",
-        service: "/paid-ads",
+        label: "جذب العملاء",
+        words: ["حرّك", "الطلب", "بذكاء"],
+        kicker: "المهم من يصل إليك، ولماذا",
+        sub: "حملات ورسائل تقرّب العميل من القرار.",
+        url: "/paid-ads",
+        ticker: ["بحث", "حملات", "وصول", "تحويل"],
       },
-      conversion: {
-        tab: "ارفع التحويل",
-        word: "تقنع",
-        title: "حوّل الاهتمام إلى خطوة",
-        description: "صفحة تقود الزائر إلى إجراء واضح.",
-        service: "/website-design",
-      },
-      continuity: {
-        tab: "اربط المتابعة",
-        word: "تتابع",
-        title: "الفرصة تبدأ بعد الاستفسار",
-        description: "متابعة منظمة من أول رسالة حتى الخطوة التالية.",
-        service: "/whatsapp-automation",
+      automation: {
+        label: "الأتمتة",
+        words: ["خلّي", "الشغل", "يتحرك"],
+        kicker: "الرحلة لا تنتهي عند الاستفسار",
+        sub: "محادثات ومتابعة تعمل بانسجام.",
+        url: "/whatsapp-automation",
+        ticker: ["محادثات", "عملاء", "متابعة", "نمو"],
       },
     },
   },
   en: {
-    signature: "Dewank",
-    eyebrow: "GROWTH, INTELLIGENTLY",
-    lead: "From first impression to follow-up.",
-    choose: "Choose where to begin",
-    link: "Explore the solution",
-    routes: {
+    eyebrow: "DEWANK",
+    signoff: "GROWTH, INTELLIGENTLY",
+    lead: "Good ideas deserve to move.",
+    choose: "Choose your direction",
+    discover: "Explore what we do",
+    progress: "Explore the experience",
+    directions: {
+      brand: {
+        label: "Brand",
+        words: ["MAKE", "IT", "ICONIC"],
+        kicker: "MAKE THE FIRST IMPRESSION COUNT",
+        sub: "Strategy and identity with staying power.",
+        url: "/en/branding",
+        ticker: ["IDENTITY", "STRATEGY", "PRESENCE", "IMPACT"],
+      },
       demand: {
-        tab: "Attract",
-        word: "BE SEEN",
-        title: "Stand out. Reach the right people.",
-        description: "A distinctive message, delivered with intent.",
-        service: "/en/paid-advertising",
+        label: "Demand",
+        words: ["TURN", "UP", "DEMAND"],
+        kicker: "BE FOUND. BE CHOSEN.",
+        sub: "Campaigns and messages that move people to act.",
+        url: "/en/paid-advertising",
+        ticker: ["SEARCH", "CREATIVE", "CONVERT", "DEMAND"],
       },
-      conversion: {
-        tab: "Convert",
-        word: "BE CHOSEN",
-        title: "Give attention somewhere to go.",
-        description: "A clearer experience. A more natural next step.",
-        service: "/en/website-design",
-      },
-      continuity: {
-        tab: "Connect",
-        word: "STAY CLOSE",
-        title: "Keep the conversation moving.",
-        description: "Enquiries and follow-ups working together.",
-        service: "/en/whatsapp-crm-automation",
+      automation: {
+        label: "Automation",
+        words: ["KEEP", "IT", "MOVING"],
+        kicker: "NEVER LOSE THE MOMENTUM",
+        sub: "From the first message to the next opportunity.",
+        url: "/en/whatsapp-crm-automation",
+        ticker: ["CONNECT", "RESPOND", "FOLLOW UP", "GROW"],
       },
     },
   },
 } as const;
 
-const modeByRoute: Record<Route, number> = { demand: 0, conversion: 1, continuity: 2 };
-
 export default function GrowthExperience({ locale }: { locale: Locale }) {
-  const [route, setRoute] = useState<Route>("demand");
-  const copy = translations[locale];
-  const active = copy.routes[route];
+  const [direction, setDirection] = useState<Direction>("brand");
+  const [inView, setInView] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [reduced, setReduced] = useState(true);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const text = copy[locale];
+  const scene = text.directions[direction];
+
+  useEffect(() => {
+    setReduced(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.1 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView || paused || reduced) return;
+    const id = window.setInterval(() => {
+      setDirection(prev => order[(order.indexOf(prev) + 1) % order.length]);
+    }, 6500);
+    return () => window.clearInterval(id);
+  }, [inView, paused, reduced, direction]);
+
+  const movePointer = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (reduced || event.pointerType === "touch") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - .5;
+    const y = (event.clientY - bounds.top) / bounds.height - .5;
+    stageRef.current?.style.setProperty("--ge-x", `${(x * 24).toFixed(1)}px`);
+    stageRef.current?.style.setProperty("--ge-y", `${(y * 20).toFixed(1)}px`);
+  };
+  const resetPointer = () => {
+    stageRef.current?.style.setProperty("--ge-x", "0px");
+    stageRef.current?.style.setProperty("--ge-y", "0px");
+  };
 
   return (
     <div
-      className="growth-experience"
-      data-scene={route}
+      ref={containerRef}
+      className={"growth-experience" + (inView ? " ge-visible" : "")}
+      data-scene={direction}
       dir={locale === "ar" ? "rtl" : "ltr"}
-      aria-label={locale === "ar" ? "منظومة نمو ديوانك" : "Dewank growth experience"}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setPaused(false);
+      }}
     >
-      <div className="ge-stage">
-        <GrowthArtifactCanvas mode={modeByRoute[route]} />
-        <div className="ge-stage-vignette" aria-hidden="true" />
-        <span className="ge-axis ge-axis-top" aria-hidden="true" />
-        <span className="ge-axis ge-axis-bottom" aria-hidden="true" />
-        <div className="ge-stage-header">
-          <span className="ge-signature">{copy.signature}</span>
-          <span className="ge-stage-kicker">{copy.eyebrow}</span>
+      <div className="ge-stage" ref={stageRef} onPointerMove={movePointer} onPointerLeave={resetPointer}>
+        <div className="ge-grain" aria-hidden="true" />
+        <div className="ge-spotlight" aria-hidden="true" />
+        <div className="ge-voltage" aria-hidden="true" />
+        <div className="ge-sculpture" aria-hidden="true">
+          <div className="ge-sculpture-edge" />
+          <div className="ge-sculpture-core" />
         </div>
-        <div className="ge-ghost-word" key={route + "-word"} aria-hidden="true">{active.word}</div>
-        <div className="ge-stage-caption" key={route + "-caption"} aria-live="polite" aria-atomic="true">
-          <span className="ge-stage-caption-rule" aria-hidden="true" />
-          <strong>{active.title}</strong>
-          <span>{active.description}</span>
+        <div className="ge-stage-top">
+          <span className="ge-wordmark">{text.eyebrow}</span>
+          <span className="ge-smallprint">{text.signoff}</span>
         </div>
-        <span className="ge-stage-symbol" aria-hidden="true">✦</span>
+        <div className="ge-kinetic" key={direction}>
+          <span className="ge-kinetic-kicker">{scene.kicker}</span>
+          <h2 className="ge-kinetic-title" aria-label={scene.words.join(" ")}>
+            {scene.words.map((word, i) => (
+              <span className={"ge-text-window ge-text-window-" + i} key={i} aria-hidden="true">
+                <span className="ge-text-word">{word}</span>
+              </span>
+            ))}
+          </h2>
+        </div>
+        <div className="ge-stamp" aria-hidden="true">
+          <span>✳</span>
+        </div>
+        <div className="ge-signal" aria-hidden="true"><span /><span /><span /><span /><span /></div>
+        <div className="ge-stage-bottom">
+          <div className="ge-stage-bottom-copy" key={direction+"-copy"}>
+            <strong>{scene.sub}</strong>
+          </div>
+          <span className="ge-arrow" aria-hidden="true">↗</span>
+        </div>
+        <div className="ge-track ge-track-front" aria-hidden="true">
+          <div className="ge-track-running">
+            {[0,1,2,3].map(i => (
+              <span className="ge-track-set" key={i}>
+                {scene.ticker.map(t => <span key={t}>{t}<i>✳</i></span>)}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="ge-track ge-track-back" aria-hidden="true">
+          <div className="ge-track-running">
+            {[0,1,2,3].map(i => (
+              <span className="ge-track-set" key={i}>
+                <span>DEWANK <i>✳</i> {locale === "ar" ? "نمو بذكاء" : "MAKE IT MOVE"} <i>✳</i></span>
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
-      <div className="ge-controller">
-        <div className="ge-controller-intro">
-          <span className="ge-micro-label">{copy.choose}</span>
-          <p>{copy.lead}</p>
+      <div className="ge-controls">
+        <div className="ge-controls-intro">
+          <strong>{text.choose}</strong>
+          <span>{text.lead}</span>
         </div>
-        <div className="ge-controller-tabs" role="group" aria-label={copy.choose}>
+        <div className="ge-tabs" role="group" aria-label={text.progress}>
           {order.map((item) => (
             <button
               key={item}
               type="button"
-              className={"ge-route" + (route === item ? " is-active" : "")}
-              aria-pressed={route === item}
-              onClick={() => setRoute(item)}
+              className={"ge-tab" + (direction === item ? " is-selected" : "")}
+              aria-pressed={direction === item}
+              onClick={() => setDirection(item)}
             >
-              <span>{copy.routes[item].tab}</span>
-              <span className="ge-route-indicator" aria-hidden="true" />
+              <span>{text.directions[item].label}</span>
+              <span className="ge-tab-progress" aria-hidden="true"><i /></span>
             </button>
           ))}
         </div>
-        <Link className="ge-action" href={active.service}>
-          <span>{copy.link}</span>
-          <span aria-hidden="true">↗</span>
-        </Link>
+        <Link href={scene.url} className="ge-link">{text.discover}<span aria-hidden="true">↗</span></Link>
       </div>
     </div>
   );
