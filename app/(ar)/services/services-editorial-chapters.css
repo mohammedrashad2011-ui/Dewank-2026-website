@@ -69,7 +69,7 @@ html body .services-motion-premium .primary-service-paths:not(.decision-guides) 
   grid-column:1/-1;color:#e7b6e5;font-size:12px;letter-spacing:.07em;
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-paths-head h2{
-  max-width:980px;font-size:clamp(43px,5.4vw,85px);
+  max-width:980px;font-size:clamp(36px,4.3vw,65px);
   font-weight:900;line-height:1.4;color:#fff7ef;letter-spacing:-.05em;
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-paths-head>p{
@@ -81,7 +81,7 @@ html body .services-motion-premium .primary-service-paths:not(.decision-guides) 
   border-top:1px solid rgba(255,255,255,.24);
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card{
-  position:relative;isolation:isolate;
+  position:relative;isolation:isolate;overflow:hidden;
   display:grid;grid-template-columns:minmax(180px,.35fr) minmax(0,.85fr) minmax(0,1.05fr) auto;
   gap:clamp(15px,3vw,48px);align-items:center;
   min-height:clamp(155px,14vw,220px);
@@ -92,42 +92,58 @@ html body .services-motion-premium .primary-service-paths:not(.decision-guides) 
   transition:background .4s,color .4s,padding .4s ease,transform .4s;
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card::before{
-  content:"";position:absolute;inset:0;z-index:-1;
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   width:auto;height:auto;left:auto;top:auto;
-  border-radius:0;background:#d9f579;
+  border-radius:0;
+  background:linear-gradient(115deg,#413255 0%,#3b3152 55%,#2b304f 100%);
   transform:scaleY(0);transform-origin:bottom;
   transition:transform .45s cubic-bezier(.16,.86,.2,1);
 }
-html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:hover::before{
+html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:hover::before,
+html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:focus-visible::before{
   transform:scaleY(1);
 }
-html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:hover{
+html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:hover,
+html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:focus-visible{
   padding-inline:clamp(18px,2.5vw,40px);
   background:transparent!important;
-  color:#221b31;transform:none;
+  color:#fff8f2!important;transform:none;
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card small{
+  position:relative;z-index:1;
   display:block;font-size:clamp(11px,.9vw,14px);
   font-weight:800;letter-spacing:0;color:#e5bae4;
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card h3{
-  margin:0;font-size:clamp(32px,4.3vw,69px);
+  position:relative;z-index:1;
+  margin:0;font-size:clamp(29px,3.3vw,49px);
   line-height:1.35;font-weight:900;letter-spacing:-.05em;
   color:inherit;
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card p{
+  position:relative;z-index:1;
   font-size:clamp(13px,1vw,16px);line-height:1.85;
-  max-width:42ch;color:#ccc3d5;margin:0;
+  max-width:42ch;color:#d7d0db;margin:0;
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card>span{
+  position:relative;z-index:1;
   white-space:nowrap;color:#e9f8a9;
   font-size:clamp(11px,.9vw,14px);font-weight:850;
   margin:0;align-self:center;
 }
-html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:hover small,
-html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:hover p,
-html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:hover>span{
-  color:#242134;
+/* No dark-text inversion on a dark moving surface.
+   Explicit descendant colours prevent legacy card rules from making text vanish. */
+html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:is(:hover,:focus-visible) h3{
+  color:#fffaf3!important;
+}
+html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:is(:hover,:focus-visible) small{
+  color:#f4bbd8!important;
+}
+html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:is(:hover,:focus-visible) p{
+  color:#e9e2f0!important;
+}
+html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card:is(:hover,:focus-visible)>span{
+  color:#e0ff95!important;
 }
 html body .services-motion-premium .primary-service-paths:not(.decision-guides) .services-decision-note{
   margin-top:35px;max-width:900px;color:#c6bcd2;
@@ -219,7 +235,7 @@ html body .services-motion-premium .service-group-head .section-label{
 }
 html body .services-motion-premium .service-group-head h2{
   max-width:1050px;
-  font-size:clamp(45px,5.8vw,92px);font-weight:900;
+  font-size:clamp(38px,4.75vw,72px);font-weight:900;
   letter-spacing:-.062em;line-height:1.35;color:#211c2a;margin:0;
 }
 html body .services-motion-premium .service-group-head p{
@@ -270,7 +286,7 @@ html body .services-motion-premium .services-grid-refined .service-detail:nth-ch
   column-gap:35px;
 }
 html body .services-motion-premium .services-grid-refined .service-detail:hover{
-  transform:translateY(-9px)!important;
+  transform:translateY(-5px)!important;
   box-shadow:0 38px 74px rgba(35,24,47,.12)!important;
 }
 html body .services-motion-premium .services-grid-refined .service-detail .detail-top{
@@ -289,14 +305,14 @@ html body .services-motion-premium .services-grid-refined .service-detail .ai-co
   transition:transform .55s cubic-bezier(.2,.78,.2,1),filter .5s;
 }
 html body .services-motion-premium .services-grid-refined .service-detail:hover .service-symbol{
-  transform:translateY(-10px) rotate(-4deg) scale(1.06);
+  transform:translateY(-5px) rotate(-2deg) scale(1.025);
 }
 html body .services-motion-premium .services-grid-refined .service-detail .detail-copy{
   z-index:3;grid-area:copy;align-self:end;direction:inherit;
   text-align:start;color:inherit;justify-self:stretch;
 }
 html body .services-motion-premium .services-grid-refined .service-detail .detail-copy h2{
-  font-size:clamp(28px,3vw,48px);
+  font-size:clamp(26px,2.55vw,41px);
   font-weight:900;line-height:1.44;
   margin:0 0 21px;color:inherit;
 }
@@ -466,7 +482,7 @@ html body .services-motion-premium .decision-guides .primary-path-card{
     grid-template-columns:1fr;
   }
   html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-paths-head h2{
-    font-size:clamp(39px,8vw,60px);
+    font-size:clamp(34px,7.2vw,51px);
   }
   html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card{
     display:grid;grid-template-columns:1fr auto!important;
@@ -478,7 +494,7 @@ html body .services-motion-premium .decision-guides .primary-path-card{
     grid-column:1/-1;
   }
   html body .services-motion-premium .primary-service-paths:not(.decision-guides) .primary-path-card h3{
-    font-size:clamp(28px,7vw,44px);
+    font-size:clamp(26px,6vw,38px);
   }
   html body .services-motion-premium .services-mid-cta.shell{grid-template-columns:1fr;padding:60px 22px}
   html body .services-motion-premium .service-jump-nav.shell{
@@ -486,7 +502,7 @@ html body .services-motion-premium .decision-guides .primary-path-card{
   }
   html body .services-motion-premium .service-group.shell{padding:85px 22px}
   html body .services-motion-premium .service-group-head h2{
-    font-size:clamp(39px,9vw,59px);
+    font-size:clamp(35px,7.5vw,52px);
   }
   html body .services-motion-premium .services-grid-refined{grid-template-columns:1fr;gap:18px}
   html body .services-motion-premium .services-grid-refined .service-detail,
@@ -541,7 +557,7 @@ html body .services-motion-premium .decision-guides .primary-path-card{
       box-shadow .48s ease!important;
   }
   html body .services-motion-premium.sm-motion-ready .sm-reveal-target:not(.sm-revealed){
-    opacity:0;translate:0 47px;
+    opacity:0;translate:0 25px;
   }
   html body .services-motion-premium.sm-motion-ready .sm-reveal-target.sm-revealed{
     opacity:1;translate:0 0;
