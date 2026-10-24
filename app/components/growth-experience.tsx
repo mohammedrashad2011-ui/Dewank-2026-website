@@ -191,7 +191,7 @@ export default function GrowthExperience({ locale, whatsappHref }: Props) {
               <button
                 type="button"
                 key={key}
-                onClick={() => setFocus(key)}
+                onClick={() => { setFocus(key); setInteractionPaused(true); }}
                 aria-pressed={focus === key}
                 className={"dw-ed-focus-button" + (focus === key ? " is-current" : "")}
               >
