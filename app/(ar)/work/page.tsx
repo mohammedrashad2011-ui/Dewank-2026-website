@@ -9,6 +9,7 @@ import "./work-page.css";
 import "./work-proof-refinement.css";
 import "./work-cinematic-experience.css";
 import "./work-cinema-hero.css";
+import "./work-hero-refinement.css";
 
 export const metadata: Metadata = createMetadata({
   title: "أعمال ديوانك ودراسات حالة | براندينج، مواقع وأتمتة",
