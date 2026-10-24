@@ -326,3 +326,35 @@
     animation:none!important;transition:none!important;scroll-behavior:auto!important;
   }
 }
+
+/* Touch gets a scene selector; desktop keeps the typographic hover index. */
+.growth-home-experiment .hm-services-stage-container{position:relative;min-width:0;display:flex;flex-direction:column}
+.growth-home-experiment .hm-services-stage-container .hm-services-theatre{flex:1}
+.growth-home-experiment .hm-services-mobile-switch{display:none}
+.growth-home-experiment .hm-services-line::before{transform-origin:left center}
+.growth-home-experiment .hm-services[dir="rtl"] .hm-services-line::before{transform-origin:right center}
+@media(max-width:780px){
+  .growth-home-experiment .hm-services-mobile-switch{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+    border:1px solid rgba(19,18,18,.2);border-bottom:0;
+    min-height:49px;
+  }
+  .growth-home-experiment .hm-services-mobile-switch button{
+    min-width:0;padding:9px 4px;
+    border:0;border-inline-end:1px solid rgba(19,18,18,.13);
+    border-bottom:3px solid transparent;
+    background:transparent;color:#473c39;
+    text-align:center;font:800 clamp(10px,2vw,13px)/1.5 inherit;
+    cursor:pointer;
+  }
+  .growth-home-experiment .hm-services-mobile-switch button:last-child{border-inline-end:0}
+  .growth-home-experiment .hm-services-mobile-switch button.is-active{
+    border-bottom-color:#df543f;background:#eaded1;color:#22191a;
+  }
+  .growth-home-experiment .hm-services-mobile-switch button:focus-visible{
+    outline:3px solid #b43424;outline-offset:-3px;
+  }
+}
+@media(max-width:420px){
+  .growth-home-experiment .hm-services-mobile-switch{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
