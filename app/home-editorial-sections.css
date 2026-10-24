@@ -278,29 +278,25 @@ html body .growth-home-experiment .home-core-paths .growth-shortcuts a:hover{
 }
 .growth-home-experiment .home-work-card:nth-child(2) {margin-top:clamp(45px,6vw,95px)}
 .growth-home-experiment .home-work-card:nth-child(3) {margin-top:clamp(90px,12vw,195px)}
-.growth-home-experiment .home-work-card::before{
-  content:"";display:block;position:relative;
+.growth-home-experiment .home-work-card .home-work-art{
+  display:block;position:relative;
   flex:none;width:100%;
   height:clamp(255px,25vw,365px);
   margin:0 0 22px;
   background-color:#232126;
-  background-image:url("/work/clinika-remastered.webp");
-  background-position:center;background-size:cover;
+  object-position:center;object-fit:cover;
   border-radius:4px;
   transition:transform .55s cubic-bezier(.16,.8,.2,1),filter .55s ease;
   filter:saturate(.8);
 }
-.growth-home-experiment .home-work-card:nth-child(2)::before{
-  background-image:url("/work/bithan/hero.svg");
+.growth-home-experiment .home-work-card:nth-child(2) .home-work-art{
   background-color:#132340;
-  background-size:contain;
-  background-repeat:no-repeat;
+  object-fit:contain;
 }
-.growth-home-experiment .home-work-card:nth-child(3)::before{
-  background-image:url("/work/arab-sun-remastered.webp");
+.growth-home-experiment .home-work-card:nth-child(3) .home-work-art{
   background-color:#dbc4a6;
 }
-.growth-home-experiment .home-work-card:hover::before{
+.growth-home-experiment .home-work-card:hover .home-work-art{
   transform:translateY(-10px);filter:saturate(1.12);
 }
 .growth-home-experiment .home-work-card small{
@@ -730,7 +726,7 @@ html body .growth-home-experiment .home-final-conversion .home-whatsapp-primary:
   .growth-home-experiment .home-work-card:nth-child(3){
     grid-column:1/-1;margin-top:0;min-height:0;
   }
-  .growth-home-experiment .home-work-card::before{
+  .growth-home-experiment .home-work-card .home-work-art{
     height:clamp(250px,72vw,350px);
     margin-bottom:22px;
   }
@@ -784,7 +780,7 @@ html body .growth-home-experiment .home-final-conversion .home-whatsapp-primary:
   .growth-home-experiment .hm-enter,
   .growth-home-experiment .home-proof-hub::before,
   .growth-home-experiment .home-proof-metrics strong,
-  .growth-home-experiment .home-work-card::before,
+  .growth-home-experiment .home-work-card .home-work-art,
   .growth-home-experiment .home-core-paths .service-card::after,
   .growth-home-experiment .home-growth-summary::before,
   .growth-home-experiment .home-final-conversion::before {
@@ -795,7 +791,7 @@ html body .growth-home-experiment .home-final-conversion .home-whatsapp-primary:
 /* The English homepage's parity styles enforce left alignment broadly.
    Editorial figures and artwork remain intentionally centered. */
 html body .en-parity.studio-home .home-proof-metrics strong{text-align:start!important}
-html body .en-parity.studio-home .home-work-card::before{text-align:center!important}
+html body .en-parity.studio-home .home-work-card .home-work-art{text-align:center!important}
 
 /* Native homepage styles previously made mobile shortcut labels pale on black.
    The services chapter is now light, so normalize its contrast for both languages. */
@@ -832,11 +828,11 @@ html body .en-parity.studio-home.growth-home-experiment .home-core-paths .growth
   .growth-home-experiment.hm-motion-ready .home-proof-metrics article:nth-child(3).hm-enter{
     transition-delay:.4s;
   }
-  .growth-home-experiment.hm-motion-ready .home-work-card.hm-enter::before{
+  .growth-home-experiment.hm-motion-ready .home-work-card.hm-enter .home-work-art{
     clip-path:inset(0 0 0 0);
     transition:clip-path .9s cubic-bezier(.15,.87,.19,1),transform .6s ease,filter .6s ease;
   }
-  .growth-home-experiment.hm-motion-ready .home-work-card.hm-enter:not(.hm-visible)::before{
+  .growth-home-experiment.hm-motion-ready .home-work-card.hm-enter:not(.hm-visible) .home-work-art{
     clip-path:inset(0 0 100% 0);
   }
   .growth-home-experiment.hm-motion-ready .home-work-card:nth-child(2).hm-enter{
