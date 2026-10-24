@@ -1,6 +1,7 @@
 import Link from "next/link";
 import OffersMotionStage from "../../../(ar)/offers/offers-motion-stage";
 import OffersMotionDirector from "../../../(ar)/offers/offers-motion-director";
+import OffersDecisionPanel, { type OfferChoice } from "../../../components/offers-decision-panel";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
@@ -23,6 +24,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 import "../../../(ar)/offers/offers-motion-stage.css";
 import "../../../(ar)/offers/offers-cinematic-grid.css";
+import "../../../components/offers-decision-panel.css";
 
 export const metadata = enMetadata(
   "Offers: defined starting points",
@@ -42,6 +44,11 @@ const offers = [
   { slug: "instagram-14-day-upgrade", filter: "content", category: "Instagram", priority: false, spots: "14", unit: "focused days", title: "Upgrade your Instagram.", hook: "Make it persuade the customer.", text: "A full review, improvements to the bio, call to action and highlights, content themes and a visual direction, six designs and a 14-day implementation plan.", label: "Upgrade package from", offerKey: "instagram-14-day-upgrade", cardClass: "offer-card compact-offer-card instagram-upgrade-offer-card", aria: "View the 14-day Instagram upgrade" },
   { slug: "small-business-website", filter: "web", category: "Websites", priority: false, spots: "Up to 5", unit: "pages", title: "A small website.", hook: "Ready to launch.", text: "Up to five pages, responsive design and development, a WhatsApp and contact form, basic analytics and SEO, and a full review before launch.", label: "Website package from", offerKey: "small-business-website", cardClass: "offer-card compact-offer-card small-website-offer-card", aria: "View the small business website package" },
 ] as const;
+
+const offerChoices: OfferChoice[] = [
+  ...offers.map((offer) => ({ id: offer.slug, title: `${offer.title} ${offer.hook}`, filter: offer.filter })),
+  { id: "cro-snapshot", title: "Conversion check and funnel audit", filter: "web conversion" },
+];
 
 export default function OffersPage() {
   const contactLink = whatsappHref("Hello Dewank, I would like help choosing the right offer for my business. My goal is: ");
@@ -90,6 +97,8 @@ export default function OffersPage() {
             <label htmlFor="offers-automation">Automation</label>
           </div>
         </div>
+
+        <OffersDecisionPanel locale="en" offers={offerChoices} />
 
         <section className="shell offers-grid offers-grid-nine offers-overview-grid" aria-label="Current Dewank offers">
           {offers.map((offer) => (

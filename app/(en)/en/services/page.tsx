@@ -1,6 +1,8 @@
 import Link from "next/link";
 import ServicesMotionStage from "../../../(ar)/services/services-motion-stage";
 import ServicesMotionDirector from "../../../(ar)/services/services-motion-director";
+import ServicePathSelector from "../../../components/service-path-selector";
+import "../../../components/service-path-selector.css";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
@@ -156,6 +158,7 @@ export default function ServicesPage() {
             </Link>
           ))}
         </div>
+        <ServicePathSelector locale="en" />
         <p className="services-decision-note">
           Rule of thumb: need enquiries? Start with advertising. Visits not converting? Start with the website. Replies or follow-up getting lost? Start with WhatsApp and CRM. Presence unclear? Start with content or brand.
         </p>

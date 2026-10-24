@@ -5,6 +5,8 @@ import { Footer, Header } from "../../components/site-shell";
 import AiWorkflowVisual from "./ai-workflow-visual";
 import ServicesMotionStage from "./services-motion-stage";
 import ServicesMotionDirector from "./services-motion-director";
+import ServicePathSelector from "../../components/service-path-selector";
+import "../../components/service-path-selector.css";
 import "./ai-control-room.css";
 import "./services-overview.css";
 import "./services-conversion-hub.css";
@@ -168,6 +170,7 @@ export default function ServicesPage() {
       <section className="shell primary-service-paths" aria-labelledby="primary-paths-title">
         <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">أربع بوابات لمعظم مشاكل النمو</h2><p>بدل استعراض قائمة طويلة، ابدأ بالنتيجة الأقرب لما تريد إصلاحه الآن.</p></div>
         <div className="primary-path-grid">{primaryPaths.map((path)=><Link href={path.href} className="primary-path-card" key={path.href}><small>{path.label}</small><h3>{path.title}</h3><p>{path.text}</p><span>{path.cta} ↗</span></Link>)}</div>
+        <ServicePathSelector locale="ar" />
         <p className="services-decision-note">قاعدة سريعة: تحتاج Leads؟ ابدأ بالإعلانات. الزيارات لا تتحول؟ ابدأ بالموقع. الرد والمتابعة يضيعان؟ ابدأ بواتساب وCRM. الحضور نفسه غير واضح؟ ابدأ بالمحتوى أو البراند.</p>
       </section>
 

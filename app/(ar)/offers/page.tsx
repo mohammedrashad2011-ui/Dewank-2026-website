@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import OffersMotionStage from "./offers-motion-stage";
 import OffersMotionDirector from "./offers-motion-director";
+import OffersDecisionPanel, { type OfferChoice } from "../../components/offers-decision-panel";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, siteUrl } from "../../lib/seo";
 import { LocalizedOfferPrice } from "./localized-offer";
@@ -28,6 +29,20 @@ import "./offers-overview.css";
 import "./offers-overview-refine.css";
 import "./offers-motion-stage.css";
 import "./offers-cinematic-grid.css";
+import "../../components/offers-decision-panel.css";
+
+const offerChoices: OfferChoice[] = [
+  { id: "30-day-content-package", title: "باقة محتوى شهر كامل", filter: "content" },
+  { id: "landing-page-package", title: "باقة صفحة الهبوط", filter: "web conversion" },
+  { id: "seo-audit", title: "فحص SEO وAEO", filter: "web" },
+  { id: "brand-naming", title: "باقة اختيار الاسم التجاري", filter: "brand" },
+  { id: "whatsapp-automation-starter", title: "باقة واتساب التأسيسية", filter: "automation" },
+  { id: "mini-visual-identity", title: "باقة الهوية البصرية المصغرة", filter: "brand" },
+  { id: "google-ads-launch", title: "باقة إطلاق Google Ads", filter: "ads" },
+  { id: "instagram-14-day-upgrade", title: "تطوير إنستجرام خلال 14 يوم", filter: "content" },
+  { id: "small-business-website", title: "باقة الموقع الصغير", filter: "web" },
+  { id: "cro-snapshot", title: "فحص التحويل وتدقيق المسار", filter: "web conversion" },
+];
 
 export const metadata: Metadata = createMetadata({
   title: "عروض ديوانك | محتوى ومواقع وSEO وهوية وأتمتة وإعلانات",
@@ -84,6 +99,8 @@ export default function OffersPage() {
             <label htmlFor="offers-automation">أتمتة</label>
           </div>
         </div>
+
+        <OffersDecisionPanel locale="ar" offers={offerChoices} />
 
         <section className="shell offers-grid offers-grid-nine offers-overview-grid" aria-label="عروض ديوانك الحالية">
           <article data-filter="content" data-category="محتوى" className="offer-card compact-offer-card offer-priority">

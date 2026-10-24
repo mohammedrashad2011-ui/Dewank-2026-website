@@ -1,0 +1,22 @@
+.offers-overview-page .offers-decision-panel{margin-block:20px 38px;padding:clamp(20px,3vw,38px);border-radius:24px;background:#221f2b;color:#f5f2ed;border:1px solid #514b5d}
+.offers-decision-heading{display:flex;align-items:start;gap:clamp(18px,3vw,40px);border-bottom:1px solid #6e6677;padding-bottom:20px}
+.offers-decision-index{white-space:nowrap;color:#ddff9a;font-size:12px;font-weight:700;letter-spacing:.12em;padding-top:8px}
+.offers-decision-heading h2{font-size:clamp(24px,3vw,40px);line-height:1.15;margin:0 0 8px;color:#f5f2ed}
+.offers-decision-heading p{margin:0;color:#dbd5de;line-height:1.6}
+.offers-decision-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.offers-decision-stage{min-width:0;padding:22px;border-inline-end:1px solid #6e6677;display:flex;flex-direction:column;gap:12px}
+.offers-decision-stage:first-child{padding-inline-start:0}.offers-decision-stage:last-child{padding-inline-end:0;border-inline-end:0}
+.offers-decision-stage small,.offers-decision-stage label{font-size:13px;color:#ddff9a;font-weight:700}
+.offers-decision-stage strong{font-size:clamp(20px,2vw,27px);line-height:1.3;color:#f5f2ed}
+.offers-decision-stage span{color:#dbd5de;font-size:13px}
+.offers-decision-stage select,.offers-decision-stage input{width:100%;min-width:0;min-height:44px;border:1px solid #9e96a8;border-radius:9px;background:#35313f;color:#fff;font:inherit;padding:9px 12px}
+.offers-decision-stage select{cursor:pointer}.offers-decision-stage input::placeholder{color:#c4bfca}
+.offers-decision-stage select:focus-visible,.offers-decision-stage input:focus-visible,.offers-decision-cta:focus-visible{outline:3px solid #ddff9a;outline-offset:3px}
+.offers-decision-fields{gap:7px}.offers-decision-fields label:not(:first-child){margin-top:8px}
+.offers-decision-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid #6e6677;padding-top:20px}
+.offers-decision-footer p{margin:0;color:#dbd5de;line-height:1.6}
+.offers-decision-cta{display:inline-flex;align-items:center;gap:14px;padding:12px 20px;border-radius:999px;background:#ddff9a;color:#211f2c;text-decoration:none;font-weight:700;line-height:1.3}
+.offers-decision-disabled{background:#514b5d;color:#d6d0dc;cursor:not-allowed}
+@media(max-width:800px){.offers-decision-flow{grid-template-columns:1fr}.offers-decision-stage,.offers-decision-stage:first-child,.offers-decision-stage:last-child{border-inline-end:0;border-bottom:1px solid #6e6677;padding:17px 0}.offers-decision-stage:last-child{border-bottom:0}.offers-decision-heading{flex-direction:column;gap:8px}.offers-decision-footer{align-items:stretch}.offers-decision-cta{justify-content:space-between;width:100%}}
+@media(prefers-reduced-motion:no-preference){.offers-decision-stage:first-child{animation:offer-choice-change .3s ease both}.offers-decision-cta:not(.offers-decision-disabled){transition:transform .25s,background .25s}.offers-decision-cta:not(.offers-decision-disabled):hover{transform:translateY(-2px);background:#edffbe}}
+@keyframes offer-choice-change{from{opacity:.55;transform:translateY(7px)}to{opacity:1;transform:none}}

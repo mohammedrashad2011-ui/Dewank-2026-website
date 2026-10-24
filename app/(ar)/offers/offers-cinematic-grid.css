@@ -244,7 +244,7 @@ html body .offers-overview-page .offers-grid article .offer-card-hit:focus-visib
 @media(max-width:760px){
   html body .offers-overview-page .offers-filter-shell{padding-top:54px}
   html body .offers-overview-page .offers-filter-bar{
-    width:calc(100% - 30px);top:0;margin-bottom:28px;
+    width:calc(100% - 30px);top:88px;margin-bottom:28px;
     padding:15px;border-radius:3px;
   }
   html body .offers-overview-page .offers-filter-controls{
