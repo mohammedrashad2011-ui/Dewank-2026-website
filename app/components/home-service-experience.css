@@ -46,20 +46,30 @@
 }
 .growth-home-experiment .hm-services-line-copy{
   display:flex;flex-direction:column;align-items:flex-start;
-  min-width:0;gap:5px;
+  min-width:0;gap:clamp(14px,1.35vw,19px);
 }
 .growth-home-experiment .hm-services-line strong{
+  display:block;
   font-size:clamp(28px,3.3vw,49px);
   font-weight:900;
-  line-height:1.42;
+  line-height:1.45;
   letter-spacing:-.046em;
   overflow-wrap:anywhere;
 }
 .growth-home-experiment .hm-services-line small{
+  display:block;
   font-size:clamp(11px,.93vw,13px);
-  line-height:1.5;
+  line-height:1.7;
   font-weight:680;
   opacity:.65;
+}
+/* Arabic glyphs need a little more vertical breathing room below the display title. */
+.growth-home-experiment .hm-services[dir="rtl"] .hm-services-line-copy{
+  gap:clamp(17px,1.65vw,23px);
+}
+.growth-home-experiment .hm-services[dir="rtl"] .hm-services-line strong{
+  line-height:1.6;
+  letter-spacing:normal;
 }
 .growth-home-experiment .hm-services-line-arrow{
   flex:none;display:grid;place-items:center;
@@ -312,6 +322,8 @@
   .growth-home-experiment .hm-services-theatre{min-height:440px}
   .growth-home-experiment .hm-services-line{padding:17px 7px;min-height:82px}
   .growth-home-experiment .hm-services-line strong{font-size:clamp(23px,6vw,31px)}
+  .growth-home-experiment .hm-services-line-copy{gap:13px}
+  .growth-home-experiment .hm-services[dir="rtl"] .hm-services-line-copy{gap:16px}
   .growth-home-experiment .hm-services-line-arrow{width:36px;height:36px;font-size:19px}
   .growth-home-experiment .hm-services-stage-copy{inset-inline:23px;bottom:25px}
   .growth-home-experiment .hm-services-stage-field{font-size:56px}
