@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import GrowthArtifactCanvas from "./growth-artifact-canvas";
+import "../home-hierarchy-refinement.css";
 import "./growth-experience.css";
 
 type Locale = "ar" | "en";
