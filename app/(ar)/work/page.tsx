@@ -8,6 +8,7 @@ import WorkMotionDirector from "./work-motion-director";
 import "./work-page.css";
 import "./work-proof-refinement.css";
 import "./work-cinematic-experience.css";
+import "./work-cinema-hero.css";
 
 export const metadata: Metadata = createMetadata({
   title: "أعمال ديوانك ودراسات حالة | براندينج، مواقع وأتمتة",
