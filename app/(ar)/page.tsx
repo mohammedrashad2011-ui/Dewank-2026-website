@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createMetadata } from "../lib/seo";
 import { Footer, Header } from "../components/site-shell";
 import GrowthExperience from "../components/growth-experience";
+import HomeSectionChoreography from "../components/home-section-choreography";
 import "../home-hierarchy-refinement.css";
 import HomeTestimonials from "../components/home-testimonials";
 import HomeSelectedOffers from "../components/home-selected-offers";
@@ -14,6 +15,7 @@ import "../home-mobile-service-cards.css";
 import "../arabic-home-polish.css";
 import "../arabic-service-cards.css";
 
+import "../home-editorial-sections.css";
 export const metadata: Metadata = createMetadata({
   title: "ديوانك | براند، تسويق، مواقع وأتمتة للشركات",
   description: "ديوانك يساعد الشركات في السعودية والخليج على بناء العلامة، جذب الطلب، تطوير المواقع، وتشغيل أتمتة واتساب وCRM ضمن منظومة نمو واحدة قابلة للقياس.",
@@ -29,6 +31,7 @@ const services = [
     title: "نجذب الطلب",
     text: "Google وMeta مع تتبع واضح، صفحات هبوط، وقرارات تحسين مبنية على التحويل وليس عدد النقرات.",
     tags: ["Google Ads", "Meta Ads", "Tracking"],
+    micro: "الإعلانات",
     tone: "growth",
     href: "/paid-ads",
   },
@@ -37,6 +40,7 @@ const services = [
     title: "نبني المواقع",
     text: "مواقع وصفحات هبوط سريعة تجمع الرسالة وSEO وCRO والتتبع لتقود الزائر نحو إجراء واضح.",
     tags: ["Web Design", "CRO", "SEO"],
+    micro: "المواقع",
     tone: "web",
     href: "/website-design",
   },
@@ -45,6 +49,7 @@ const services = [
     title: "نبني البراند والمحتوى",
     text: "تموضع وهوية ومحتوى يجعل مشروعك أوضح في ذهن العميل وأكثر اتساقًا في كل نقطة تواصل.",
     tags: ["Branding", "Content", "Social"],
+    micro: "البراند",
     tone: "brand",
     href: "/branding",
   },
@@ -53,6 +58,7 @@ const services = [
     title: "نؤتمت المتابعة",
     text: "واتساب وCRM وأتمتة ذكية تربط المحادثة بالتأهيل والحجز والمتابعة وتقلل العمل اليدوي.",
     tags: ["WhatsApp", "CRM", "AI"],
+    micro: "الأتمتة",
     tone: "automation",
     href: "/whatsapp-automation",
   },
@@ -68,6 +74,7 @@ export default function Home() {
   return (
     <main className="studio-home home-conversion-page arabic-home-polish growth-home-experiment">
       <Header />
+      <HomeSectionChoreography />
 
       <GrowthExperience locale="ar" whatsappHref={whatsappHref} />
 
@@ -91,7 +98,7 @@ export default function Home() {
           <div className="service-bento">
             {services.map((service) => (
               <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
-                <div className="card-top"><span>{service.n}</span><b>↗</b></div>
+                <div className="card-top"><small>{service.micro}</small><b>↗</b></div>
                 <div className={`service-symbol ${service.tone}`} aria-hidden="true"><ServiceArt tone={service.tone} /></div>
                 <div className="card-copy"><h3>{service.title}</h3><p><BidiText text={service.text} /></p><div className="tag-row">{service.tags.map(tag => <span key={tag}>{tag}</span>)}</div></div>
               </Link>
