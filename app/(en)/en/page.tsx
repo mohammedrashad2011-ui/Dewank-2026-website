@@ -3,7 +3,7 @@ import { enMetadata } from "./_en/metadata";
 import { CONTACT_EMAIL, briefMailto } from "@/app/(en)/en/_en/lib/site";
 import { Footer } from "./_en/parity/footer";
 import { Header } from "./_en/parity/header";
-import GrowthExperience from "../../components/growth-experience";
+import GrowthExperience, { GrowthMarquee } from "../../components/growth-experience";
 import HomeTestimonials from "./_en/parity/testimonials";
 import { HomeSelectedOffers } from "./_en/parity/offers";
 import { RelatedGuides } from "./_en/parity/related-guides";
@@ -158,6 +158,8 @@ export default function Home() {
 
         <GrowthExperience locale="en" />
       </section>
+
+      <GrowthMarquee locale="en" />
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
