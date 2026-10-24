@@ -1,7 +1,7 @@
 "use client";
 
 // English version of the Arabic identity showcase (app/work/identity-showcase.tsx): the same card grid and dialog.
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export type IdentityProject = {
   name: string;
@@ -13,15 +13,30 @@ export type IdentityProject = {
 
 export function IdentityShowcase({ projects }: { projects: IdentityProject[] }) {
   const [active, setActive] = useState<IdentityProject | null>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
+  const openProject = (project: IdentityProject) => {
+    openerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setActive(project);
+  };
 
   useEffect(() => {
     if (!active) return;
-    const close = (event: KeyboardEvent) => event.key === "Escape" && setActive(null);
+    const close = (event: KeyboardEvent) => {
+      if(event.key === "Escape"){ event.preventDefault(); setActive(null); }
+      // Keep keyboard focus in the dialog until dismissed.
+      if(event.key === "Tab" && closeRef.current){
+        event.preventDefault();
+        closeRef.current.focus();
+      }
+    };
+    closeRef.current?.focus();
     document.addEventListener("keydown", close);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", close);
       document.body.style.overflow = "";
+      openerRef.current?.focus();
     };
   }, [active]);
 
@@ -33,7 +48,7 @@ export function IdentityShowcase({ projects }: { projects: IdentityProject[] }) 
             <button
               className="identity-work-open"
               type="button"
-              onClick={() => setActive(project)}
+              onClick={() => openProject(project)}
               aria-label={`View the ${project.name} identity project`}
             >
               <div className="identity-work-image">
@@ -49,7 +64,7 @@ export function IdentityShowcase({ projects }: { projects: IdentityProject[] }) 
                   <b>{project.name}</b>
                   <span>{project.sector}</span>
                 </div>
-                <strong>0{index + 1}</strong>
+
               </div>
             </button>
           </article>
@@ -59,7 +74,7 @@ export function IdentityShowcase({ projects }: { projects: IdentityProject[] }) 
       {active && (
         <div className="identity-modal" role="dialog" aria-modal="true" aria-label={`${active.name} project`} onClick={() => setActive(null)}>
           <div className="identity-modal-card" onClick={(event) => event.stopPropagation()}>
-            <button className="identity-modal-close" type="button" onClick={() => setActive(null)} aria-label="Close">×</button>
+            <button ref={closeRef} className="identity-modal-close" type="button" onClick={() => setActive(null)} aria-label="Close">×</button>
             <img src={active.image} alt={`${active.name} identity applications`} />
             <div className="identity-modal-copy">
               <span>{active.sector}</span>
