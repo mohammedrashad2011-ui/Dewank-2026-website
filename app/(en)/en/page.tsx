@@ -3,7 +3,8 @@ import { enMetadata } from "./_en/metadata";
 import { CONTACT_EMAIL, briefMailto } from "@/app/(en)/en/_en/lib/site";
 import { Footer } from "./_en/parity/footer";
 import { Header } from "./_en/parity/header";
-import GrowthExperience, { GrowthMarquee } from "../../components/growth-experience";
+import GrowthExperience from "../../components/growth-experience";
+import "../../home-hierarchy-refinement.css";
 import HomeTestimonials from "./_en/parity/testimonials";
 import { HomeSelectedOffers } from "./_en/parity/offers";
 import { RelatedGuides } from "./_en/parity/related-guides";
@@ -130,36 +131,7 @@ export default function Home() {
     <main id="main-content" className="studio-home home-conversion-page en-parity growth-home-experiment" lang="en" dir="ltr">
       <Header />
 
-      <section className="hybrid-hero shell">
-        <div className="hero-copy">
-          <h1>
-            <span>We build the brand</span>
-            <span>We drive the demand</span>
-            <span>
-              <em>We automate the growth</em>
-            </span>
-          </h1>
-          <p>
-            Dewank brings branding, marketing, websites and automation into one system, so customers understand why to
-            choose you, reach you faster, and move towards a clear decision.
-          </p>
-          <div className="hero-actions">
-            <a className="button primary home-whatsapp-primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              Send us your business and challenge <span>↗</span>
-            </a>
-            <Link className="button secondary" href="/en/work">
-              See our work and results <span>→</span>
-            </Link>
-          </div>
-          <p className="cta-expectation">
-            A short conversation to understand the project and find the best starting point, with no obligation.
-          </p>
-        </div>
-
-        <GrowthExperience locale="en" />
-      </section>
-
-      <GrowthMarquee locale="en" />
+      <GrowthExperience locale="en" whatsappHref={whatsappHref} />
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
