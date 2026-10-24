@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import OffersMotionStage from "./offers-motion-stage";
+import OffersMotionDirector from "./offers-motion-director";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, siteUrl } from "../../lib/seo";
 import { LocalizedOfferPrice } from "./localized-offer";
@@ -57,6 +58,7 @@ export default function OffersPage() {
   return (
     <main className="inner-page offers-page offers-overview-page">
       <Header />
+      <OffersMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <OffersMotionStage locale="ar" />
