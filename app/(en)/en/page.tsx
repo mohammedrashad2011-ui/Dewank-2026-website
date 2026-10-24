@@ -6,7 +6,8 @@ import { Header } from "./_en/parity/header";
 import GrowthExperience from "../../components/growth-experience";
 import HomeSectionChoreography from "../../components/home-section-choreography";
 import "../../home-hierarchy-refinement.css";
-import HomeTestimonials from "./_en/parity/testimonials";
+import HomeTestimonials from "../../components/home-testimonials";
+import HomeServiceExperience from "../../components/home-service-experience";
 import { HomeSelectedOffers } from "./_en/parity/offers";
 import { RelatedGuides } from "./_en/parity/related-guides";
 // The Arabic homepage's visual system, reused unchanged. Every class below matches the Arabic homepage so the
@@ -25,46 +26,6 @@ const whatsappHref =
   "https://wa.me/97339066649?text=" + encodeURIComponent("Hello Dewank, I would like to discuss my growth. The business is: ");
 
 // Service entry points. Same four tones and order as the Arabic bento; English copy and English routes.
-const services = [
-  {
-    n: "01",
-    title: "Attract demand",
-    en: "PAID ADVERTISING",
-    text: "Google and Meta with clear tracking, landing pages and optimisation decisions based on conversions, not clicks.",
-    tags: ["Google Ads", "Meta Ads", "Tracking"],
-    tone: "growth",
-    href: "/en/paid-advertising",
-  },
-  {
-    n: "02",
-    title: "Build websites",
-    en: "WEBSITES",
-    text: "Fast websites and landing pages that turn your message and SEO into one clear action.",
-    tags: ["Web Design", "CRO", "SEO"],
-    tone: "web",
-    href: "/en/website-design",
-  },
-  {
-    n: "03",
-    title: "Brand and content",
-    en: "BRAND AND CONTENT",
-    text: "Positioning, identity and content that make your business clearer and more consistent everywhere.",
-    tags: ["Branding", "Content", "Social"],
-    tone: "brand",
-    href: "/en/services#brand",
-  },
-  {
-    n: "04",
-    title: "Automate follow-up",
-    en: "AUTOMATION",
-    text: "WhatsApp, CRM and automation that connect replies, qualification and follow-up.",
-    tags: ["WhatsApp", "CRM", "AI"],
-    tone: "automation",
-    href: "/en/whatsapp-crm-automation",
-  },
-];
-
-// Verified case work. Titles and descriptions follow the authentic case copy on the Work page.
 const selectedWork = [
   {
     n: "01",
@@ -192,31 +153,7 @@ export default function Home() {
               Explore all services <span>→</span>
             </Link>
           </div>
-          <div className="service-bento">
-            {services.map((service) => (
-              <Link id={`home-${service.tone}`} href={service.href} className={`service-card ${service.tone}`} key={service.n}>
-                <div className="card-top">
-                  
-                  <small>{service.en}</small>
-                  <b>↗</b>
-                </div>
-                <div className={`service-symbol ${service.tone}`} aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
-                </div>
-                <div className="card-copy">
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                  <div className="tag-row">
-                    {service.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <HomeServiceExperience locale="en" />
           <nav className="growth-shortcuts" aria-label="Additional routes">
             <Link href="/en/social-media-content">
               Social media content <span>↗</span>
@@ -260,7 +197,7 @@ export default function Home() {
       </section>
 
       <div className="work-section shell home-trust-section">
-        <HomeTestimonials />
+        <HomeTestimonials locale="en" />
       </div>
 
       <section className="method-section home-method-section">
