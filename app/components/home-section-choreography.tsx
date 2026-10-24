@@ -13,7 +13,7 @@ export default function HomeSectionChoreography() {
 
     const targets = Array.from(main.querySelectorAll<HTMLElement>(
       ".home-proof-intro, .home-proof-metrics article, " +
-      ".home-core-paths .section-head, .home-core-paths .service-card, " +
+      ".home-core-paths .section-head, .home-core-paths .hm-services-index, .home-core-paths .hm-services-stage-container, " +
       ".home-work-head, .home-work-card, " +
       ".home-trust-section .home-testimonials, " +
       ".home-method-section .method-intro, .home-method-section .method-list > div, " +
