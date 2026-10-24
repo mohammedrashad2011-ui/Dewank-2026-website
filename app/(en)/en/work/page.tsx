@@ -184,15 +184,16 @@ export default function WorkPage() {
         <div className="shell">
           <div className="concepts-head">
             <div>
-              <span className="section-label">Strategic thinking</span>
+              <span className="section-label">Concept explorations · Not client projects</span>
               <h2>We test the way of thinking,<br />not only the look of the logo</h2>
-              <p>These are concept projects, not client engagements. We use them to show how we approach positioning, identity and experience.</p>
+              
             </div>
           </div>
 
           <div className="concept-grid">
             {concepts.map((item) => (
               <article className="concept-card" key={item.name}>
+                <div className="concept-visual" aria-hidden="true"><span className="cv-glow"/><span className="cv-shape"/><span className="cv-detail"/><span className="cv-track"/></div>
                 <span className="concept-label">{item.type}</span>
                 <h3>{item.name}</h3>
                 <dl>
