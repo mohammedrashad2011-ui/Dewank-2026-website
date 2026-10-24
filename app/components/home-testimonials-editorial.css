@@ -11,8 +11,8 @@ html body .growth-home-experiment .home-trust-section .home-testimonials.hm-voic
    radial-gradient(ellipse at 13% 83%,rgba(119,92,213,.16),transparent 45%),
    linear-gradient(130deg,#16131c 0%,#211b2b 55%,#151822 100%)!important;
   color:#f9f1e8;
-  border:1px solid rgba(245,233,222,.14)!important;
-  border-radius:4px!important;
+  border:0!important;
+  border-radius:0!important;
   box-shadow:none!important;
 }
 .growth-home-experiment .hm-voices *,
@@ -245,3 +245,6 @@ html body .growth-home-experiment .home-trust-section .home-testimonials.hm-voic
 }
 html body .en-parity.studio-home .hm-voices .hm-voices-header,
 html body .en-parity.studio-home .hm-voices .hm-voices-feature{text-align:start!important}
+
+/* Let the quote theatre flow into the full-width dark chapter without a card frame. */
+.growth-home-experiment .home-trust-section::before{content:none!important}
