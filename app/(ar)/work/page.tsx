@@ -202,7 +202,7 @@ export default function WorkPage() {
         <div className="shell">
           <div className="concepts-head">
             <div>
-              <span className="section-label">مشروعات مفاهيمية  ·  وليست مشروعات عملاء</span>
+              <span className="section-label">من الفكرة إلى هوية لها معنى</span>
               <h2>نختبر طريقة التفكير،<br/>لا شكل الشعار فقط</h2>
             </div>
           </div>
