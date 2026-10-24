@@ -143,7 +143,7 @@ html body .growth-home-experiment .home-trust-section .home-testimonials.hm-voic
   text-align:start;font:inherit;cursor:pointer;
   transition:color .24s ease,padding .3s ease,background .3s ease;
 }
-.growth-home-experiment[dir="rtl"] .hm-voices-person{padding:clamp(15px,2vw,26px) 24px clamp(15px,2vw,26px) 4px}
+.growth-home-experiment .hm-voices[dir="rtl"] .hm-voices-person{padding:clamp(15px,2vw,26px) 24px clamp(15px,2vw,26px) 4px}
 .growth-home-experiment .hm-voices-person:last-child{border-bottom:0}
 .growth-home-experiment .hm-voices-person::before{
   content:"";position:absolute;
