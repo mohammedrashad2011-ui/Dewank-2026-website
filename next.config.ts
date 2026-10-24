@@ -58,11 +58,11 @@ const nextConfig: NextConfig = {
       // The homepage's below-fold project artwork changes infrequently.
       // Browsers can reuse it on repeat visits; leave HTML and API responses uncached.
       {
-        source: "/work/:path*\\.(webp|svg|png|jpe?g|avif)",
+        source: "/work/:path*.:ext(webp|svg|png|jpg|jpeg|avif)",
         headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
       },
       {
-        source: "/en/work/:path*\\.(webp|svg|png|jpe?g|avif)",
+        source: "/en/work/:path*.:ext(webp|svg|png|jpg|jpeg|avif)",
         headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
       },
     ];
