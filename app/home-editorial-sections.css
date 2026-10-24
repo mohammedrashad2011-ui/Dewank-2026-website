@@ -796,3 +796,27 @@ html body .growth-home-experiment .home-final-conversion .home-whatsapp-primary:
    Editorial figures and artwork remain intentionally centered. */
 html body .en-parity.studio-home .home-proof-metrics strong{text-align:start!important}
 html body .en-parity.studio-home .home-work-card::before{text-align:center!important}
+
+/* Native homepage styles previously made mobile shortcut labels pale on black.
+   The services chapter is now light, so normalize its contrast for both languages. */
+html body .growth-home-experiment .home-core-paths .growth-shortcuts::before{
+  color:#6a5550!important;
+}
+html body .en-parity.studio-home.growth-home-experiment .home-core-paths .growth-shortcuts a{
+  color:#282321!important;
+  background:transparent!important;
+}
+html body .en-parity.studio-home.growth-home-experiment .home-core-paths .growth-shortcuts a:hover{
+  background:#e0dacf!important;
+}
+@media(max-width:640px){
+  html body .en-parity.studio-home.growth-home-experiment .home-core-paths .growth-shortcuts::before{
+    content:none!important;
+  }
+  html body .growth-home-experiment .home-core-paths .service-card .tag-row{
+    flex-wrap:wrap!important;
+  }
+  html body .growth-home-experiment .home-core-paths .service-card .tag-row span{
+    font-size:10px!important;white-space:normal!important;
+  }
+}
