@@ -6,7 +6,8 @@ type Locale = "ar" | "en";
 const localeCopy = {
   ar: {
     name:"ديوانك  /  الخدمات",
-    signal:"استراتيجية  إبداع  تنفيذ",
+    signal:["استراتيجية","إبداع","تنفيذ"],
+    topMeta:"براند  /  تسويق  /  أتمتة",
     first:"لا تبدأ من",
     second:"اسم الخدمة",
     third:"ابدأ من النتيجة",
@@ -22,7 +23,8 @@ const localeCopy = {
   },
   en: {
     name:"DEWANK / CAPABILITIES",
-    signal:"STRATEGY  CREATIVE  EXECUTION",
+    signal:["STRATEGY","CREATIVE","EXECUTION"],
+    topMeta:"BRAND  /  MARKETING  /  AUTOMATION",
     first:"DON'T START",
     second:"WITH A SERVICE",
     third:"START WITH IMPACT",
@@ -58,7 +60,7 @@ export default function ServicesMotionStage({locale}:{locale:Locale}) {
       aria-label={locale==="ar"?"خدمات ديوانك":"Dewank services"}>
       <div className="sm-topline">
         <span className="sm-brand">{copy.name}</span>
-        <span className="sm-topline-meta">{copy.signal}</span>
+        <span className="sm-topline-meta">{copy.topMeta}</span>
       </div>
       <div className="sm-hero-world" ref={visualRef} onPointerMove={onMove} onPointerLeave={reset}>
         <div className="sm-visual-stage" aria-hidden="true">
@@ -82,7 +84,7 @@ export default function ServicesMotionStage({locale}:{locale:Locale}) {
           <span className="sm-art-caption">DEWANK / MOVEMENT</span>
         </div>
         <div className="sm-hero-copy">
-          <span className="sm-hero-kicker">{copy.signal}</span>
+          <span className="sm-hero-kicker">{copy.signal.map((word,index)=><span key={word} className={index===0?"sm-kicker-lead":""}>{word}</span>)}</span>
           <h1>
             <span className="sm-line"><span>{copy.first}</span></span>
             <span className="sm-line sm-line-outline"><span>{copy.second}</span></span>
