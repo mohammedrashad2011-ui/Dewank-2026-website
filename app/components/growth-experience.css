@@ -551,3 +551,35 @@ html body .en-parity.studio-home .dw-ed-tail span:last-child{text-align:end!impo
     text-shadow:none;
   }
 }
+
+/* Responsive editorial ghost word, re-cut whenever the focus changes. */
+.dw-editorial-hero .dw-ed-focus-ghost {
+  position:absolute;z-index:-1;
+  bottom:-.06em;inset-inline:-4%;
+  font:900 clamp(115px,21vw,340px)/1 Arial Black,Arial,sans-serif;
+  letter-spacing:-.1em;white-space:nowrap;
+  text-align:center;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(41,32,25,.16);
+  pointer-events:none;user-select:none;
+  animation:dw-ed-ghost-in .92s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes dw-ed-ghost-in {
+  from{transform:translateY(50%) skewY(5deg);opacity:0}
+  to{transform:none;opacity:1}
+}
+.dw-editorial-hero .dw-ed-headline-mask-1 {
+  transform:translateY(var(--dw-scroll-shift));
+}
+@media(max-width:760px){
+  .dw-editorial-hero .dw-ed-headline-mask-1 {transform:none}
+  .dw-editorial-hero .dw-ed-focus-ghost{
+    font-size:clamp(100px,27vw,180px);
+    bottom:0;
+    opacity:.3;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .dw-editorial-hero .dw-ed-focus-ghost{transform:none!important;opacity:1!important}
+  .dw-editorial-hero .dw-ed-headline-mask-1{transform:none!important}
+}
