@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, type FocusEvent, type PointerEvent } from "react";
+import { useRef, useState, type PointerEvent } from "react";
 import Link from "next/link";
-import { ServiceArt } from "./home-service-art";
 import "./home-service-experience.css";
 
 type Language = "ar" | "en";
@@ -89,18 +88,21 @@ const catalogue = {
 
 export default function HomeServiceExperience({locale}: {locale: Language}) {
   const [focus, setFocus] = useState<Focus>("growth");
-  const [pointer, setPointer] = useState({x:0,y:0});
+  const theatreRef=useRef<HTMLDivElement>(null);
   const content = catalogue[locale];
   const item = content.services[focus];
   const onMove = (event: PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "touch") return;
     const box=event.currentTarget.getBoundingClientRect();
-    setPointer({
-      x: Math.round((((event.clientX-box.left)/box.width)-.5)*20),
-      y: Math.round((((event.clientY-box.top)/box.height)-.5)*20),
-    });
+    const x=Math.round((((event.clientX-box.left)/box.width)-.5)*20);
+    const y=Math.round((((event.clientY-box.top)/box.height)-.5)*20);
+    theatreRef.current?.style.setProperty("--hm-pointer-x",x+"px");
+    theatreRef.current?.style.setProperty("--hm-pointer-y",y+"px");
   };
-  const reset = () => setPointer({x:0,y:0});
+  const reset = () => {
+    theatreRef.current?.style.setProperty("--hm-pointer-x","0px");
+    theatreRef.current?.style.setProperty("--hm-pointer-y","0px");
+  };
   return (
     <div className="hm-services" dir={locale === "ar" ? "rtl" : "ltr"} data-focus={focus}>
       <nav className="hm-services-index" aria-label={content.prompt}>
@@ -124,8 +126,7 @@ export default function HomeServiceExperience({locale}: {locale: Language}) {
           );
         })}
       </nav>
-      <div className="hm-services-theatre" onPointerMove={onMove} onPointerLeave={reset}
-           style={{"--hm-pointer-x":pointer.x+"px","--hm-pointer-y":pointer.y+"px"} as React.CSSProperties}>
+      <div className="hm-services-theatre" ref={theatreRef} onPointerMove={onMove} onPointerLeave={reset}>
         <div className="hm-services-grid" aria-hidden="true"/>
         <div className="hm-services-sky" aria-hidden="true"/>
         <div className="hm-services-graphic" key={focus} aria-hidden="true">
