@@ -4,6 +4,7 @@ import { CONTACT_EMAIL, briefMailto } from "@/app/(en)/en/_en/lib/site";
 import { Footer } from "./_en/parity/footer";
 import { Header } from "./_en/parity/header";
 import GrowthExperience from "../../components/growth-experience";
+import HomeSectionChoreography from "../../components/home-section-choreography";
 import "../../home-hierarchy-refinement.css";
 import HomeTestimonials from "./_en/parity/testimonials";
 import { HomeSelectedOffers } from "./_en/parity/offers";
@@ -19,6 +20,7 @@ import "./_en/parity/ltr.en.css";
 // Layout pass on the four service cards only. Scoped to .en-parity.studio-home.
 import "./_en/parity/service-cards.en.css";
 
+import "../../home-editorial-sections.css";
 const whatsappHref =
   "https://wa.me/97339066649?text=" + encodeURIComponent("Hello Dewank, I would like to discuss my growth. The business is: ");
 
@@ -130,6 +132,7 @@ export default function Home() {
   return (
     <main id="main-content" className="studio-home home-conversion-page en-parity growth-home-experiment" lang="en" dir="ltr">
       <Header />
+      <HomeSectionChoreography />
 
       <GrowthExperience locale="en" whatsappHref={whatsappHref} />
 
