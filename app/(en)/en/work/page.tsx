@@ -13,6 +13,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 import "../../../(ar)/work/work-cinematic-experience.css";
 import "../../../(ar)/work/work-cinema-hero.css";
+import "../../../(ar)/work/work-hero-refinement.css";
 
 export const metadata = enMetadata(
   "Work and case studies",
