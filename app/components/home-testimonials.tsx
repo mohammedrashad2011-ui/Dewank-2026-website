@@ -7,8 +7,8 @@ type Locale = "ar" | "en";
 const feedback = {
   ar: {
     label: "تجارب العملاء",
-    headline: "الكلام عن شغلنا يختلف لما ييجي من عملائنا",
-    sub: "من البراندينج إلى أبحاث السوق والتسمية، كل تجربة لها حكايتها",
+    headline: "الكلمة الأخيرة لعملائنا",
+    sub: "تجارب حقيقية في بناء الهوية والتسمية وأبحاث السوق",
     next: "الرأي التالي",
     previous: "الرأي السابق",
     select: "اقرأ رأي",
@@ -22,8 +22,8 @@ const feedback = {
   },
   en: {
     label: "CLIENT VOICES",
-    headline: "The work speaks differently through our clients",
-    sub: "From naming to identity and strategic research, these are the people behind the brief",
+    headline: "In our clients’ words",
+    sub: "Real experiences in naming, brand identity and market research",
     next: "Next testimonial",
     previous: "Previous testimonial",
     select: "Read feedback from",
