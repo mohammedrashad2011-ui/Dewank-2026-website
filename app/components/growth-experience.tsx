@@ -154,6 +154,9 @@ export default function GrowthExperience({ locale, whatsappHref }: Props) {
         <div className="dw-ed-slanted-type" aria-hidden="true">
           <span>MAKE</span><span>IT</span><span>MOVE</span>
         </div>
+        <div className="dw-ed-focus-ghost" key={focus} aria-hidden="true">
+          {content.directions[focus].accent}
+        </div>
 
         <h1 className="dw-ed-headline">
           {content.headline.map((line, index) => (
