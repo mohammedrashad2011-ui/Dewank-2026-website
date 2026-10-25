@@ -24,6 +24,8 @@ export const metadata: Metadata = createMetadata({
 
 const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أريد مناقشة نمو مشروعي. النشاط: ");
 
+const workImages = ["/work/clinika-remastered.webp", "/work/bithan/hero.svg", "/work/arab-sun-remastered.webp"] as const;
+
 const selectedWork = [
   { n: "01", title: "من رسائل متفرقة إلى رحلة حجز قابلة للقياس", text: "نظام واتساب وCRM يربط الرد والتأهيل والحجز والتذكير والمتابعة.", href: "/work#case-studies" },
   { n: "02", title: "من قرار التسمية إلى هوية Fine Jewelry متكاملة", text: "BITHAN: تموضع وتسمية وفحص، ثم اسم اختاره العميل وهوية عربية-إنجليزية كاملة بتطبيقات Premium.", href: "/work/bithan" },
@@ -63,7 +65,7 @@ export default function Home() {
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
         <div className="home-work-head"><div><h2 id="home-work-title">لا نعرض الشكل فقط<br/><em>نعرض القرار خلفه</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
         <div className="home-work-grid">
-          {selectedWork.map((item) => <Link className="home-work-card" href={item.href} key={item.n}><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
+          {selectedWork.map((item, index) => <Link className="home-work-card" href={item.href} key={item.n}><img className="home-work-art" src={workImages[index]} alt="" width={index === 1 ? 1126 : 1200} height={index === 1 ? 1591 : 900} loading="lazy" decoding="async" /><h3>{item.title}</h3><p>{item.text}</p><span>شاهد المشروع ↗</span></Link>)}
         </div>
       </section>
 

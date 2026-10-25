@@ -123,12 +123,9 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
   function loadGa(){
     if(state.ga) return;
     state.ga=true;
-    var s=document.createElement('script');
-    s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id='+GA;
-    document.head.appendChild(s);
-    gtag('js',new Date());
-    gtag('config',GA);
+    // GTM already loads the Google tag for this exact GA4 property in production.
+    // Do not request a second gtag.js copy or issue a second GA4 config/page_view.
+    // Keep all consent defaults/updates and existing conversion dataLayer events intact.
     lastRoute=routeKey();
   }
   function loadMeta(){

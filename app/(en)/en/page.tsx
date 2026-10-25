@@ -26,6 +26,8 @@ const whatsappHref =
   "https://wa.me/97339066649?text=" + encodeURIComponent("Hello Dewank, I would like to discuss my growth. The business is: ");
 
 // Service entry points. Same four tones and order as the Arabic bento; English copy and English routes.
+const workImages = ["/work/clinika-remastered.webp", "/work/bithan/hero.svg", "/work/arab-sun-remastered.webp"] as const;
+
 const selectedWork = [
   {
     n: "01",
@@ -183,8 +185,9 @@ export default function Home() {
           </Link>
         </div>
         <div className="home-work-grid">
-          {selectedWork.map((item) => (
+          {selectedWork.map((item, index) => (
             <Link className="home-work-card" href={item.href} key={item.n}>
+              <img className="home-work-art" src={workImages[index]} alt="" width={index === 1 ? 1126 : 1200} height={index === 1 ? 1591 : 900} loading="lazy" decoding="async" />
               <small>
                 {item.label}
               </small>
