@@ -857,3 +857,31 @@ html body .en-parity.studio-home.growth-home-experiment .home-core-paths .growth
     transition-delay:.24s;
   }
 }
+
+/* Offscreen homepage chapters do not need their full layout/paint on first render.
+   Intrinsic sizes reserve scroll space until each chapter approaches the viewport. */
+@supports (content-visibility:auto){
+  .growth-home-experiment .home-proof-hub,
+  .growth-home-experiment .home-core-paths,
+  .growth-home-experiment .home-work-preview,
+  .growth-home-experiment .home-trust-section,
+  .growth-home-experiment .home-growth-summary,
+  .growth-home-experiment .home-selected-offers,
+  .growth-home-experiment .faq-section,
+  .growth-home-experiment .home-final-conversion{
+    content-visibility:auto;
+    contain-intrinsic-size:auto 750px;
+  }
+  @media(max-width:640px){
+    .growth-home-experiment .home-proof-hub,
+    .growth-home-experiment .home-core-paths,
+    .growth-home-experiment .home-work-preview,
+    .growth-home-experiment .home-trust-section,
+    .growth-home-experiment .home-growth-summary,
+    .growth-home-experiment .home-selected-offers,
+    .growth-home-experiment .faq-section,
+    .growth-home-experiment .home-final-conversion{
+      contain-intrinsic-size:auto 900px;
+    }
+  }
+}

@@ -27,7 +27,8 @@ function ribbon(ctx: CanvasRenderingContext2D, w: number, h: number, time: numbe
   );
   ctx.save();
   ctx.lineJoin="round";ctx.lineCap="round";
-  ctx.shadowBlur=24*unit;ctx.shadowOffsetY=18*unit;ctx.shadowColor="rgba(54,25,38,.22)";
+  // One restrained shadow layer on wider screens; extra blur on every ribbon is costly on mobile.
+  ctx.shadowBlur=lane===0&&w>700?15*unit:0;ctx.shadowOffsetY=18*unit;ctx.shadowColor="rgba(54,25,38,.22)";
   ctx.strokeStyle="rgba(62,31,38,.1)";ctx.lineWidth=thickness+5*unit;ctx.stroke(sweep);
   ctx.shadowBlur=0;ctx.shadowOffsetY=0;
   const fill=ctx.createLinearGradient(cx-amplitude,cy-h*.55,cx+amplitude,cy+h*.6);
@@ -48,9 +49,12 @@ function ribbon(ctx: CanvasRenderingContext2D, w: number, h: number, time: numbe
 export default function GrowthLiquidMotion({focus,reduced,visible}:Props) {
   const canvasRef=useRef<HTMLCanvasElement>(null);
   const focusRef=useRef(focus),reducedRef=useRef(reduced),visibleRef=useRef(visible);
-  useEffect(()=>{focusRef.current=focus;},[focus]);
-  useEffect(()=>{reducedRef.current=reduced;},[reduced]);
-  useEffect(()=>{visibleRef.current=visible;},[visible]);
+  const wakeRef=useRef<()=>void>(()=>{});
+
+  // A focus change still redraws immediately, including for reduced-motion users.
+  useEffect(()=>{focusRef.current=focus;wakeRef.current();},[focus]);
+  useEffect(()=>{reducedRef.current=reduced;wakeRef.current();},[reduced]);
+  useEffect(()=>{visibleRef.current=visible;wakeRef.current();},[visible]);
 
   useEffect(()=>{
     const canvas=canvasRef.current;
@@ -59,30 +63,63 @@ export default function GrowthLiquidMotion({focus,reduced,visible}:Props) {
     let raf=0,last=0;
     let hidden=document.hidden;
     const started=performance.now();
-    const resize=()=>{
+
+    // Measure dimensions only when layout changes, never during the animation loop.
+    const measure=()=>{
       const rect=canvas.getBoundingClientRect();
       const scale=Math.min(window.devicePixelRatio||1,window.innerWidth<700?1:1.35);
       const w=Math.round(rect.width*scale),h=Math.round(rect.height*scale);
-      if(w>0&&h>0&&(w!==canvas.width||h!==canvas.height)){canvas.width=w;canvas.height=h;}
+      if(w>0&&h>0&&(w!==canvas.width||h!==canvas.height)){
+        canvas.width=w;
+        canvas.height=h;
+      }
+      wake();
     };
-    const onVisibility=()=>{hidden=document.hidden;};
-    const observer=typeof ResizeObserver==="undefined"?null:new ResizeObserver(resize);
-    observer?.observe(canvas);
-    document.addEventListener("visibilitychange",onVisibility);
-    resize();
-    const animate=(now:number)=>{
-      raf=requestAnimationFrame(animate);
-      if(hidden||!visibleRef.current||now-last<(reducedRef.current?250:38))return;
-      last=now;resize();
+
+    const frame=(now:number)=>{
+      raf=0;
+      if(hidden||!visibleRef.current)return;
+      const isReduced=reducedRef.current;
+      // Keep the artwork animated, but avoid expensive 26fps canvas work.
+      const minInterval=window.innerWidth<700?64:48;
+      if(!isReduced&&now-last<minInterval){
+        raf=requestAnimationFrame(frame);
+        return;
+      }
+      last=now;
       const w=canvas.width,h=canvas.height;
-      if(!w||!h)return;
-      ctx.clearRect(0,0,w,h);
-      const t=reducedRef.current?0.8:(now-started)/1000;
-      const palette=colors[focusRef.current];
-      for(let i=2;i>=0;i--)ribbon(ctx,w,h,t,i,palette);
+      if(w>0&&h>0){
+        ctx.clearRect(0,0,w,h);
+        const t=isReduced ? 0.8 : (now-started)/1000;
+        const palette=colors[focusRef.current];
+        for(let i=2;i>=0;i--)ribbon(ctx,w,h,t,i,palette);
+      }
+      // Reduced motion renders one still frame. Hidden/offscreen tabs schedule nothing.
+      if(!isReduced)raf=requestAnimationFrame(frame);
     };
-    raf=requestAnimationFrame(animate);
-    return()=>{cancelAnimationFrame(raf);observer?.disconnect();document.removeEventListener("visibilitychange",onVisibility);};
+    function wake(){
+      if(raf)cancelAnimationFrame(raf);
+      raf=0;
+      if(!hidden&&visibleRef.current)raf=requestAnimationFrame(frame);
+    }
+    const onVisibility=()=>{
+      hidden=document.hidden;
+      wake();
+    };
+
+    wakeRef.current=wake;
+    const observer=typeof ResizeObserver==="undefined"?null:new ResizeObserver(measure);
+    observer?.observe(canvas);
+    if(!observer)window.addEventListener("resize",measure,{passive:true});
+    document.addEventListener("visibilitychange",onVisibility);
+    measure();
+    return()=>{
+      if(raf)cancelAnimationFrame(raf);
+      observer?.disconnect();
+      if(!observer)window.removeEventListener("resize",measure);
+      document.removeEventListener("visibilitychange",onVisibility);
+      wakeRef.current=()=>{};
+    };
   },[]);
 
   return <canvas ref={canvasRef} className="dw-ed-liquid-canvas" aria-hidden="true"/>;
