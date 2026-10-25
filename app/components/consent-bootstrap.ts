@@ -120,15 +120,11 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     s.src='https://www.googletagmanager.com/gtm.js?id='+GTM;
     document.head.appendChild(s);
   }
+  // GA4 is loaded and configured by the GTM container (Google tag for G-5SKKT1NBHB, page view on All Pages), so the
+  // site does not request gtag.js or send a second config/page_view itself.
   function loadGa(){
     if(state.ga) return;
     state.ga=true;
-    var s=document.createElement('script');
-    s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id='+GA;
-    document.head.appendChild(s);
-    gtag('js',new Date());
-    gtag('config',GA);
     lastRoute=routeKey();
   }
   function loadMeta(){
