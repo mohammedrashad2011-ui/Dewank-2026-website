@@ -90,7 +90,7 @@ export default function GrowthLiquidMotion({focus,reduced,visible}:Props) {
       const w=canvas.width,h=canvas.height;
       if(w>0&&h>0){
         ctx.clearRect(0,0,w,h);
-        const t=isReduced?.8:(now-started)/1000;
+        const t=isReduced ? 0.8 : (now-started)/1000;
         const palette=colors[focusRef.current];
         for(let i=2;i>=0;i--)ribbon(ctx,w,h,t,i,palette);
       }
