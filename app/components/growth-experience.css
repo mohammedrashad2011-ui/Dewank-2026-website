@@ -320,7 +320,7 @@
   position:relative;
   padding:0 0 8px;border:0;
   border-bottom:2px solid transparent;
-  background:transparent;color:#7b6e67;
+  background:transparent;color:#62554e;
   font:inherit;font-size:clamp(13px,1.1vw,17px);font-weight:850;
   cursor:pointer;line-height:1.5;
   transition:color .2s ease,border-color .2s ease;
@@ -810,3 +810,13 @@ html body .en-parity.studio-home .dw-ed-tail span:last-child{text-align:end!impo
   color:#e5e8ff;
 }
 .dw-editorial-hero[data-focus="automation"] .dw-ed-primary-cta:hover:before{background:#303eae}
+
+/* Performance: keep the main H1 fully visible at first paint on slow mobile CPUs.
+   Desktop keeps the cinematic entrance; mobile retains the liquid and type motion. */
+@media(max-width:760px){
+  .dw-editorial-hero .dw-ed-headline-word{
+    animation:none!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+}
