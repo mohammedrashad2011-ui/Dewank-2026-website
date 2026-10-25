@@ -35,15 +35,12 @@ export default function HomeSectionChoreography() {
       }
     }, { threshold: 0.08, rootMargin: "0px 0px -3% 0px" });
 
+    // Observe once, without synchronously measuring every card and article.
+    // The hero is not a reveal target; these sections are already below the fold.
+    // IntersectionObserver schedules visibility changes outside the initial layout pass.
     for (const target of targets) {
-      const position = target.getBoundingClientRect();
       target.classList.add("hm-enter");
-      // Anything above or already within the viewport should never flash out.
-      if (position.top < window.innerHeight * 0.95) {
-        target.classList.add("hm-visible");
-      } else {
-        observer.observe(target);
-      }
+      observer.observe(target);
     }
     main.classList.add("hm-motion-ready");
 
