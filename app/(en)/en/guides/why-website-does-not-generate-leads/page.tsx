@@ -3,7 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
 const title = "Why your website does not generate leads";
-const description = "Why your website does not turn visits into enquiries or sales, and how to fix the message, trust, mobile experience, call to action and measurement with a practical plan.";
+const description = "Why a website does not turn visits into enquiries or sales, and how to fix the message, trust, mobile experience, call to action and measurement.";
 
 export const metadata = enMetadata(title, description, "/en/guides/why-website-does-not-generate-leads");
 

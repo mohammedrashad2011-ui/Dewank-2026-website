@@ -17,7 +17,7 @@ import "../../../(ar)/work/work-hero-refinement.css";
 
 export const metadata = enMetadata(
   "Work and case studies",
-  "Brand naming and identity for a fine jewellery brand in Qatar, a clinic follow-up automation case in Bahrain, and identity work across four sectors. Each project shows the challenge, the decision, what was delivered and the approximate results.",
+  "Brand naming and identity for a fine jewellery brand in Qatar, clinic follow-up automation in Bahrain, and identity work across four sectors, with results.",
   "/en/work",
 );
 

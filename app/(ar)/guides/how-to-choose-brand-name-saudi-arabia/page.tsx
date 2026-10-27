@@ -5,7 +5,7 @@ import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 
-const title = "كيف تختار اسمًا تجاريًا مميزًا وقابلًا للتسجيل في السعودية؟";
+const title = "كيف تختار اسمًا تجاريًا مميزًا وقابلًا للتسجيل بالسعودية؟";
 const description = "دليل عملي لاختيار اسم علامة تجارية في السعودية: معايير التسمية، الفحص اللغوي والثقافي، البحث المبدئي عن العلامات المشابهة، والدومين قبل الإطلاق.";
 export const metadata: Metadata = createMetadata({ title: `${title} | دليل ديوانك`, description, path: "/guides/how-to-choose-brand-name-saudi-arabia", keywords: ["اقتراح أسماء تجارية", "اختيار اسم علامة تجارية", "أسماء تجارية مميزة", "فحص اسم تجاري", "البحث عن علامة تجارية في السعودية", "التحقق من توفر الدومين"] });
 

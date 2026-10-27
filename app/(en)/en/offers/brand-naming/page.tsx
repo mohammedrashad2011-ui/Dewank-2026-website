@@ -13,7 +13,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Brand naming offer: 10–15 names, a top three and a brand direction",
+  "Brand naming offer: 10–15 names, a top three, a direction",
   "Brand naming with 10–15 considered names, linguistic and cultural checks, similarity and domain research, a top three and a brand direction.",
   "/en/offers/brand-naming",
 );

@@ -2,8 +2,8 @@ import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
-const title = "How to build a customer journey from advert to WhatsApp to booking";
-const description = "A practical guide to connecting an advert with WhatsApp, a CRM and bookings, and measuring where the journey leaks, from the click to attendance or sale, rather than counting messages.";
+const title = "From advert to WhatsApp to booking: build the journey";
+const description = "A practical guide to connecting an advert with WhatsApp, a CRM and bookings, and measuring where the journey leaks, from click to sale.";
 
 export const metadata = enMetadata(title, description, "/en/guides/ad-to-whatsapp-booking-journey");
 

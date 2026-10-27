@@ -10,7 +10,7 @@ import "./paid-ads-aeo-upgrade.css";
 
 export const metadata: Metadata = createMetadata({
   title: "إدارة Google Ads في السعودية | تحسين الحملات والتحويل | ديوانك",
-  description: "إدارة Google Ads للشركات في السعودية: بحث كلمات، تشغيل وتحسين الحملات، تتبع التحويل، صفحات الهبوط وقياس تكلفة العميل والعائد، مع Meta Ads عندما تناسب رحلة الشراء.",
+  description: "إدارة Google Ads للشركات في السعودية: بحث الكلمات، تشغيل وتحسين الحملات، تتبع التحويل، صفحات الهبوط، وقياس تكلفة العميل والعائد، مع Meta Ads عند الحاجة.",
   path: "/paid-ads",
   keywords: [
     "إدارة Google Ads في السعودية",

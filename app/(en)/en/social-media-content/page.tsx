@@ -15,7 +15,7 @@ import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
   "Social media management and content",
-  "Social media management and content creation for businesses worldwide: strategy, ideas, design, captions, publishing plans and reporting, with a 30-day content package to start.",
+  "Social media management and content for businesses worldwide: strategy, ideas, design, captions, publishing and reporting. Start with a 30-day package.",
   "/en/social-media-content",
 );
 

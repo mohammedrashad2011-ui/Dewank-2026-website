@@ -8,7 +8,7 @@ import "./seo-cluster.css";
 
 export const metadata: Metadata = createMetadata({
   title: "شركة سيو في السعودية | خدمات SEO وAEO | ديوانك",
-  description: "ديوانك شركة سيو في السعودية تقدم خدمات SEO وAEO (Answer Engine Optimization) لتحسين الظهور في Google ومحركات الإجابة عبر Technical SEO والمحتوى وSchema والربط الداخلي والقياس.",
+  description: "شركة SEO في السعودية تقدم خدمات SEO وAEO لتحسين الظهور في Google ومحركات الإجابة، عبر Technical SEO والمحتوى وSchema والربط الداخلي والقياس.",
   path: "/seo-aeo",
   keywords: ["شركة سيو", "شركة سيو في السعودية", "خدمات سيو", "خدمات SEO", "تحسين SEO في السعودية", "تحسين محركات البحث", "AEO", "تحسين الظهور في جوجل", "Technical SEO", "شركة SEO في السعودية", "Schema Markup"],
 });

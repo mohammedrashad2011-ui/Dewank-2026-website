@@ -6,7 +6,7 @@ import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
 
-const title = "وكيل ذكاء اصطناعي أم أتمتة سير عمل؟ كيف تقرر لشركتك في السعودية";
+const title = "وكيل ذكاء اصطناعي أم أتمتة سير عمل؟ كيف تقرر لشركتك";
 const description = "دليل عملي للفرق بين وكيل الذكاء الاصطناعي (AI Agent) وأتمتة سير العمل، ومتى تحتاج كلًا منهما، وحدود التسليم للموظف، وخصوصية بيانات العملاء قبل أن تبدأ.";
 const anthropicSource = "https://www.anthropic.com/engineering/building-effective-agents";
 const pdplSource = "https://dgp.sdaia.gov.sa/wps/portal/pdp/home";
