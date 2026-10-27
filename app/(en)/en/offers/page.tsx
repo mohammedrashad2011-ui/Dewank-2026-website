@@ -85,7 +85,7 @@ const faqSchema = {
 
 export const metadata = enMetadata(
   "Offers: defined starting points",
-  "Defined offers with a known starting price for content, landing pages, SEO and GEO audits, brand naming, WhatsApp automation, identity, Google Ads, Instagram, small business websites and conversion audits.",
+  "Offers with a known starting price: content, landing pages, SEO audits, naming, WhatsApp automation, identity, Google Ads, Instagram and websites.",
   "/en/offers",
 );
 

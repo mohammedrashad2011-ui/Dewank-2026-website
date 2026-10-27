@@ -15,7 +15,7 @@ import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
   "WhatsApp automation starter for businesses",
-  "A foundation WhatsApp automation package for businesses worldwide: an automatic first reply, lead qualification, data capture, handover to a team member, basic follow-up and testing before launch. Not a full CRM.",
+  "A WhatsApp automation foundation: automatic replies, lead qualification, data capture, team handover, basic follow-up and testing. Not a full CRM.",
   "/en/offers/whatsapp-automation-starter",
 );
 

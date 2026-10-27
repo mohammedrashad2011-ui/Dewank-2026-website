@@ -87,7 +87,7 @@ const faqJsonLd = JSON.stringify({
 
 export const metadata = enMetadata(
   "Brand, Growth and AI Automation",
-  "Dewank brings branding, digital marketing, websites and automation together in one growth system for businesses worldwide. Custom scopes for ambitious companies.",
+  "Dewank brings branding, digital marketing, websites and automation into one growth system for businesses worldwide.",
   "/en",
 );
 

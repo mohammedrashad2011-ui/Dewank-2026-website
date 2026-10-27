@@ -13,7 +13,7 @@ import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
   "Mini visual identity: a logo system and first applications",
-  "A mini visual identity package for businesses worldwide: a primary logo and a simplified version, a colour palette, suggested typefaces, a visual direction, three practical applications and a short guidelines file.",
+  "A mini visual identity: a primary logo and a simplified version, colour palette, typefaces, a visual direction and three applications.",
   "/en/offers/mini-visual-identity",
 );
 
