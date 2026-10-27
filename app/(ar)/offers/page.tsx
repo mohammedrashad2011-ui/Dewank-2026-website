@@ -25,6 +25,7 @@ import "./instagram-14-day-upgrade/instagram-upgrade.css";
 import "./small-business-website/small-business-website.css";
 import { CroPackagePrice } from "../conversion-rate-optimization/cro-packages";
 import "../conversion-rate-optimization/cro.css";
+import "./offer-trust.css";
 import "./offers-overview.css";
 import "./offers-overview-refine.css";
 import "./offers-motion-stage.css";
@@ -43,6 +44,62 @@ const offerChoices: OfferChoice[] = [
   { id: "small-business-website", title: "باقة الموقع الصغير", filter: "web" },
   { id: "cro-snapshot", title: "فحص التحويل وتدقيق المسار", filter: "web conversion" },
 ];
+
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "ما الفرق بين العروض والخدمة الكاملة؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "كل عرض له نطاق محدد وسعر يبدأ منه، وتجد في صفحته ما يشمله وما لا يشمله. الخدمات الأوسع، مثل إدارة السوشيال ميديا الشهرية أو إدارة الحملات، تُناقش بشكل منفصل."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "كيف أختار العرض المناسب لي؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "اختر حسب هدفك: محتوى، إعلانات، موقع، هوية، أو أتمتة. ولو لم تحدد هدفك بعد، أرسل نشاطك والنتيجة التي تريدها عبر واتساب، ونرشح لك البداية الأنسب."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل الأسعار المعروضة نهائية؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "السعر الظاهر في كل بطاقة هو سعر البداية، وتفاصيل كل عرض وما يشمله موضحة في صفحته. وقد تختلف الأسعار حسب السوق وطبيعة المشروع، وتؤكد قبل بدء التنفيذ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "كم تستغرق مدة التنفيذ؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تختلف المدة حسب العرض، وتظهر على كل بطاقة. تتراوح بين يومين و14 يوم عمل تقريبًا، ويبدأ التنفيذ بعد استلام المعلومات المطلوبة."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل تشمل الأسعار الدومين أو الاستضافة أو رسوم واتساب؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "في أغلب العروض لا تشمل. رسوم الدومين والاستضافة وأدوات واتساب ومنصات الإعلانات تكون منفصلة، ونوضحها قبل بدء أي تنفيذ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل تضمنون نتائج المبيعات أو ترتيب البحث؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لا نضمن أرقام المبيعات أو ترتيب محركات البحث، لكن كل عرض يحدد مخرجاته بوضوح، ونلتزم بالنطاق المتفق عليه."
+      }
+    }
+  ]
+};
 
 export const metadata: Metadata = createMetadata({
   title: "عروض ديوانك | محتوى ومواقع وSEO وهوية وأتمتة وإعلانات",
@@ -75,6 +132,7 @@ export default function OffersPage() {
       <Header />
       <OffersMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <OffersMotionStage locale="ar" />
 
@@ -185,6 +243,17 @@ export default function OffersPage() {
 
           <aside className="offers-note offers-overview-note"><div><small>لم تقرر بعد؟</small><h2>أخبرنا بهدفك<br/>ونرشح لك البداية المناسبة</h2><p>أرسل نشاطك والنتيجة التي تريد الوصول إليها، ونحدد لك أي عرض أقرب لاحتياجك دون أن تشتري خدمات لا تحتاجها.</p></div><Link className="button primary" href="https://wa.me/97339066649">اسأل ديوانك <span>←</span></Link></aside>
         </section>
+      </section>
+      <section className="shell offer-faq offers-hub-faq" id="offers-faq" aria-labelledby="offers-faq-title">
+        <div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2 id="offers-faq-title">أسئلة قبل أن تختار</h2><p>إجابات مختصرة عن العروض والأسعار ومدة التنفيذ.</p></div>
+        <div className="offer-faq-list">
+          <details><summary>ما الفرق بين العروض والخدمة الكاملة؟</summary><p>كل عرض له نطاق محدد وسعر يبدأ منه، وتجد في صفحته ما يشمله وما لا يشمله. الخدمات الأوسع، مثل إدارة السوشيال ميديا الشهرية أو إدارة الحملات، تُناقش بشكل منفصل.</p></details>
+          <details><summary>كيف أختار العرض المناسب لي؟</summary><p>اختر حسب هدفك: محتوى، إعلانات، موقع، هوية، أو أتمتة. ولو لم تحدد هدفك بعد، أرسل نشاطك والنتيجة التي تريدها عبر واتساب، ونرشح لك البداية الأنسب.</p></details>
+          <details><summary>هل الأسعار المعروضة نهائية؟</summary><p>السعر الظاهر في كل بطاقة هو سعر البداية، وتفاصيل كل عرض وما يشمله موضحة في صفحته. وقد تختلف الأسعار حسب السوق وطبيعة المشروع، وتؤكد قبل بدء التنفيذ.</p></details>
+          <details><summary>كم تستغرق مدة التنفيذ؟</summary><p>تختلف المدة حسب العرض، وتظهر على كل بطاقة. تتراوح بين يومين و14 يوم عمل تقريبًا، ويبدأ التنفيذ بعد استلام المعلومات المطلوبة.</p></details>
+          <details><summary>هل تشمل الأسعار الدومين أو الاستضافة أو رسوم واتساب؟</summary><p>في أغلب العروض لا تشمل. رسوم الدومين والاستضافة وأدوات واتساب ومنصات الإعلانات تكون منفصلة، ونوضحها قبل بدء أي تنفيذ.</p></details>
+          <details><summary>هل تضمنون نتائج المبيعات أو ترتيب البحث؟</summary><p>لا نضمن أرقام المبيعات أو ترتيب محركات البحث، لكن كل عرض يحدد مخرجاته بوضوح، ونلتزم بالنطاق المتفق عليه.</p></details>
+        </div>
       </section>
       <Footer />
     </main>

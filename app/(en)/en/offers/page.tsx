@@ -18,6 +18,7 @@ import "../../../(ar)/offers/google-ads-launch/google-ads-launch.css";
 import "../../../(ar)/offers/instagram-14-day-upgrade/instagram-upgrade.css";
 import "../../../(ar)/offers/small-business-website/small-business-website.css";
 import "../../../(ar)/conversion-rate-optimization/cro.css";
+import "../../../(ar)/offers/offer-trust.css";
 import "../../../(ar)/offers/offers-overview.css";
 import "../../../(ar)/offers/offers-overview-refine.css";
 import "../_en/parity/service-pages.en.css";
@@ -25,6 +26,62 @@ import "../_en/styles/hide-arabic-widgets.css";
 import "../../../(ar)/offers/offers-motion-stage.css";
 import "../../../(ar)/offers/offers-cinematic-grid.css";
 import "../../../components/offers-decision-panel.css";
+
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between an offer and a full service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each offer has a defined scope and a starting price, and its page shows what is included and what is not. Wider services, such as monthly social media management or campaign management, are discussed separately."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose the right offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose by your goal: content, ads, a website, identity, or automation. If you have not decided yet, send us your business and the result you want on WhatsApp, and we will recommend the best starting point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the prices shown final?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The price on each card is a starting price, and each offer page explains what it includes. Prices can vary by market and the nature of the project, and we confirm them before any work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does delivery take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the offer, and the timeline is shown on each card. Delivery ranges from about two to 14 working days, and work starts once we receive the information we need."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the prices include the domain, hosting or WhatsApp fees?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most offers they do not. Domain and hosting costs, WhatsApp tools and advertising platform fees are separate, and we explain them before any work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you guarantee sales results or search rankings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We do not guarantee sales figures or search engine rankings. Each offer states its deliverables clearly, and we work within the agreed scope."
+      }
+    }
+  ]
+};
 
 export const metadata = enMetadata(
   "Offers: defined starting points",
@@ -72,6 +129,7 @@ export default function OffersPage() {
     <main id="main-content" className="inner-page offers-page offers-overview-page en-service" lang="en" dir="ltr">
       <Header />
       <OffersMotionDirector />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
       <OffersMotionStage locale="en" />
@@ -131,6 +189,17 @@ export default function OffersPage() {
             <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Ask Dewank on WhatsApp <span>→</span></a>
           </aside>
         </section>
+      </section>
+      <section className="shell offer-faq offers-hub-faq" id="offers-faq" aria-labelledby="offers-faq-title">
+        <div className="offer-faq-head"><span className="section-label">Common questions</span><h2 id="offers-faq-title">Questions before you choose</h2><p>Short answers about offers, prices and delivery time.</p></div>
+        <div className="offer-faq-list">
+          <details><summary>What is the difference between an offer and a full service?</summary><p>Each offer has a defined scope and a starting price, and its page shows what is included and what is not. Wider services, such as monthly social media management or campaign management, are discussed separately.</p></details>
+          <details><summary>How do I choose the right offer?</summary><p>Choose by your goal: content, ads, a website, identity, or automation. If you have not decided yet, send us your business and the result you want on WhatsApp, and we will recommend the best starting point.</p></details>
+          <details><summary>Are the prices shown final?</summary><p>The price on each card is a starting price, and each offer page explains what it includes. Prices can vary by market and the nature of the project, and we confirm them before any work begins.</p></details>
+          <details><summary>How long does delivery take?</summary><p>It depends on the offer, and the timeline is shown on each card. Delivery ranges from about two to 14 working days, and work starts once we receive the information we need.</p></details>
+          <details><summary>Do the prices include the domain, hosting or WhatsApp fees?</summary><p>In most offers they do not. Domain and hosting costs, WhatsApp tools and advertising platform fees are separate, and we explain them before any work begins.</p></details>
+          <details><summary>Do you guarantee sales results or search rankings?</summary><p>We do not guarantee sales figures or search engine rankings. Each offer states its deliverables clearly, and we work within the agreed scope.</p></details>
+        </div>
       </section>
       <Footer />
     </main>
