@@ -5,7 +5,7 @@ import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../li
 import "./ai-automation.css";
 
 const title = "أتمتة الذكاء الاصطناعي للأعمال في السعودية | ديوانك";
-const description = "حلول أتمتة العمليات والأعمال بالذكاء الاصطناعي للشركات: واتساب وخدمة العملاء، تأهيل العملاء، CRM والمتابعة، عبر سير عمل واضح وقابل للقياس.";
+const description = "أتمتة الذكاء الاصطناعي للأعمال في السعودية: واتساب وخدمة العملاء، تأهيل العملاء، CRM والمتابعة، عبر سير عمل واضح وقابل للقياس.";
 
 export const metadata: Metadata = createMetadata({
   title,
