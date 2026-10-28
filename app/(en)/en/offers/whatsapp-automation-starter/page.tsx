@@ -14,7 +14,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "WhatsApp automation starter for businesses",
+  "WhatsApp automation for business: starter package",
   "A WhatsApp automation foundation: automatic replies, lead qualification, data capture, team handover, basic follow-up and testing. Not a full CRM.",
   "/en/offers/whatsapp-automation-starter",
 );

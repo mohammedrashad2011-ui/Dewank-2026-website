@@ -13,7 +13,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "SEO and AEO website audit with a 30-day plan",
+  "SEO audit service: SEO and AEO website audit",
   "A full SEO and AEO audit covering technical, content, speed, keywords and conversion, with a PDF report and a 30-day plan.",
   "/en/offers/seo-audit",
 );

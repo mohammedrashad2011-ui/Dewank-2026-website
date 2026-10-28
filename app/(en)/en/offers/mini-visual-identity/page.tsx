@@ -12,7 +12,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Visual identity package: a logo system and first applications",
+  "Visual identity design package: logo and applications",
   "A mini visual identity: a primary logo and a simplified version, colour palette, typefaces, a visual direction and three applications.",
   "/en/offers/mini-visual-identity",
 );
