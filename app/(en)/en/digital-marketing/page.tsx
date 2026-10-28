@@ -13,7 +13,7 @@ import "../_en/styles/hide-arabic-widgets.css";
 import "./hero-proportions.en.css";
 
 export const metadata = enMetadata(
-  "Digital marketing strategy for growing businesses",
+  "Digital marketing agency and strategy for growing businesses",
   "Digital marketing strategy for businesses worldwide: plans, messages, content, customer journeys, channels and measurement, routed to the right service.",
   "/en/digital-marketing",
 );

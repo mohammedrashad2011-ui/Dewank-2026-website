@@ -86,7 +86,7 @@ const faqJsonLd = JSON.stringify({
 }).replace(/</g, "\\u003c");
 
 export const metadata = enMetadata(
-  "Growth agency for brands: branding, marketing, automation",
+  "Branding and growth agency: marketing and automation",
   "Branding, digital marketing, websites and automation for businesses worldwide, in one growth system you can measure.",
   "/en",
 );
