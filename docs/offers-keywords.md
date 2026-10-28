@@ -80,6 +80,42 @@ No volume for WhatsApp automation (أتمتة واتساب) and the content pack
 - Small business website: "شركة تصميم موقع صغير جاهز للإطلاق بـ 1,990 ريال".
 - Instagram: "تطوير حساب انستقرام خلال 14 يوم" (the spelling people search for).
 
+## Gap check: phrases that were not measured before (28 Oct 2026)
+
+**English, worldwide** (US, Canada, Australia, UK, Germany, France). 5,591 ideas came back.
+
+| Phrase | Searches / month | Competition | Bid (low, EGP) |
+|---|---|---|---|
+| social media management | 50,000 | Medium | 176 |
+| website design for businesses | 5,000 | Low | 245 |
+| brand identity design | 5,000 | Low | 117 |
+| digital marketing strategy | 5,000 | Low | 140 |
+| answer engine optimization | 5,000 | Low | 353 |
+| ai search optimization | 5,000 | Medium | 791 |
+| marketing plan template | 5,000 | Low | 131 |
+| marketing plan example | 5,000 | Low | 89 |
+| local seo agency | 5,000 | Low | 326 |
+| whatsapp crm | 500 | Medium | 314 |
+| google ads vs meta ads | 500 | Low | 199 |
+| seo and aeo services | no data | Unknown | — |
+
+Not returned in this run: "website design", "seo agency". Check them on their own.
+
+**Arabic, Saudi Arabia** (175 ideas came back in the earlier run; this run returned 25).
+
+| Phrase | Searches / month | Competition | Bid (low, EGP) |
+|---|---|---|---|
+| ادارة حسابات سوشيال ميديا | 500 | Medium | 44 |
+| تصميم مواقع للشركات | 50 | Low | — |
+| خدمات التسويق الرقمي | 50 | Medium | — |
+| إدارة السوشيال ميديا | 50 | Medium | 51 |
+| تصميم صفحة هبوط | 50 | Medium | 35 |
+| واتساب للشركات | 50 | High | 127 |
+
+No volume: هوية بصرية للشركات، تسمية العلامة التجارية، أتمتة الذكاء الاصطناعي للشركات، تحسين محركات البحث للمواقع، إعلانات جوجل للشركات.
+
+**Not yet run:** the English groups "growth agency for brands", "generative engine optimization", "instagram content creation", "lead qualification automation", "business process automation", "conversion rate optimization", "website conversion audit", "seo vs aeo", "seo audit", "meta ads management", "brand strategy services", "logo design", "ai workflow automation", "whatsapp chatbot".
+
 ## Notes
 
 - **Strongest for volume and low competition:** "seo audit service", "landing page design", "small business website design". These have 5,000 searches each and low competition.
