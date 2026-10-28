@@ -18,7 +18,7 @@ import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
   "30-day social media content package",
-  "A 30-day social media content package for businesses worldwide: 12 custom posts, 3 story designs and one reel, with ideas, captions, a publishing plan and a bio and call-to-action review. Not a full monthly management contract.",
+  "A 30-day content package: 12 custom posts, 3 stories, one reel, captions, a publishing plan and a bio review. Not a monthly account contract.",
   "/en/offers/30-day-content-package",
 );
 

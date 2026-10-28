@@ -222,6 +222,8 @@
 .cro-page .sa-fit-grid p .cro-fit-text {
   color: inherit;
   font-size: inherit;
+  /* The shared grid puts the first child in a 38px column; the decorative number is hidden, so the text takes the full row. */
+  grid-column: 1 / -1;
 }
 
 /* One heading scale for the CRO pages, smaller than the shared SEO/AEO scale. Every section heading uses the same size,

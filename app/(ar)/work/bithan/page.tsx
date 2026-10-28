@@ -12,7 +12,7 @@ const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("م�
 const emailHref = "mailto:hello@dewank.com?subject=" + encodeURIComponent("استفسار مشروع براند — دراسة حالة BITHAN");
 
 const baseMetadata = createMetadata({
-  title: `${title} | ديوانك`,
+  title: "دراسة حالة تسمية وهوية بصرية للمجوهرات | BITHAN | ديوانك",
   description,
   path: "/work/bithan",
   socialImagePath,

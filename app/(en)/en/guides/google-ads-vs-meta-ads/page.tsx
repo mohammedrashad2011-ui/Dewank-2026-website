@@ -3,7 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
 const title = "Google Ads or Meta Ads: which is right for your business?";
-const description = "A practical comparison of Google Ads and Meta Ads by customer intent, type of offer, budget, purchase cycle and measurement, and how to choose the right channel for your business.";
+const description = "Google Ads versus Meta Ads by customer intent, offer type, budget, purchase cycle and measurement, and how to choose the right channel.";
 
 export const metadata = enMetadata(title, description, "/en/guides/google-ads-vs-meta-ads");
 

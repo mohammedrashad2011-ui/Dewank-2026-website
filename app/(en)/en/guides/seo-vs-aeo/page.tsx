@@ -3,7 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
 const title = "SEO vs AEO: how to appear in Google and AI answers";
-const description = "A practical guide to the difference between SEO and AEO, how they work together, and how to prepare a website to appear in search results, direct answers and AI tools, without unrealistic promises.";
+const description = "The difference between SEO and AEO, how they work together, and how to prepare a site for search results and AI answers, without unrealistic promises.";
 
 export const metadata = enMetadata(title, description, "/en/guides/seo-vs-aeo");
 

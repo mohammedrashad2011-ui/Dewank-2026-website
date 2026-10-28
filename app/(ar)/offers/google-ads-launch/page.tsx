@@ -7,11 +7,11 @@ import "../offers-page.css";
 import "../offer-trust.css";
 import "./google-ads-launch.css";
 
-const title = "إعداد وتشغيل حملة Google Ads في السعودية | 790 ريال";
+const title = "إدارة إعلانات جوجل وإعداد حملة Google Ads في السعودية | 790 ريال";
 const description = "باقة إعداد وتشغيل حملة Google Ads Search للشركات في السعودية: بحث كلمات، كتابة الإعلانات، كلمات سلبية، تتبع تحويل أساسي وإطلاق منظم بـ790 ريال، دون إدارة شهرية.";
 
 export const metadata: Metadata = createMetadata({
-  title: `${title} | ديوانك`,
+  title: "إدارة إعلانات Google في السعودية | 790 ريال | ديوانك",
   description,
   path: "/offers/google-ads-launch",
   keywords: [
@@ -94,7 +94,7 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell offer-detail-hero google-ads-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> أيام عمل</span></div>
-          <h1>إعداد وتشغيل Google Ads<br/><em>حملة Search تبدأ بشكل محسوب</em></h1>
+          <h1>إدارة إعلانات جوجل<br/><em>إعداد وتشغيل حملة Search تبدأ بشكل محسوب</em></h1>
           <p>نجهز لك حملة Google Search من الصفر: كلمات بنية شراء، إعلانات مناسبة، كلمات سلبية، تتبع تحويل أساسي، وفحص كامل قبل تشغيل الميزانية.</p>
           <div className="google-ads-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>

@@ -9,7 +9,7 @@ import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
   "Guides on marketing, measurement and lead generation",
-  "Practical guides for business owners on marketing plans, KPIs, Google Ads and Meta Ads, SEO and AEO, website conversion, social media leads, and WhatsApp automation with a CRM.",
+  "Practical guides for business owners on marketing plans, KPIs, Google and Meta Ads, SEO and AEO, website conversion, social leads and WhatsApp CRM.",
   "/en/guides",
 );
 

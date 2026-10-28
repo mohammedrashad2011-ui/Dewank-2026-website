@@ -19,7 +19,7 @@ import "../../../(ar)/services/services-motion-stage.css";
 import "../../../(ar)/services/services-editorial-chapters.css";
 
 export const metadata = enMetadata(
-  "Services: brand, growth and automation",
+  "Digital marketing services for growing businesses",
   "Brand, paid advertising, websites, SEO and GEO, social content, WhatsApp and AI automation, planned as one system. Start from the result you need.",
   "/en/services",
 );

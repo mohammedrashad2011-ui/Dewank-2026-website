@@ -14,7 +14,7 @@ import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
   "Landing page design: one page that sells your service",
-  "A professional landing page for businesses worldwide: custom copy and design, WhatsApp and form routes, analytics and conversion tracking, and basic SEO. Delivered in 7 to 10 working days, with a full option that includes a domain and hosting for one year.",
+  "A landing page built to sell one service: custom copy and design, WhatsApp and forms, analytics and basic SEO. Delivered in 7 to 10 working days.",
   "/en/offers/landing-page-package",
 );
 

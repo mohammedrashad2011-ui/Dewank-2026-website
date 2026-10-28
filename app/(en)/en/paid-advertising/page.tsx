@@ -14,7 +14,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Google Ads and Meta Ads management",
+  "Google Ads management agency and paid media",
   "Google Ads and Meta Ads for businesses worldwide: keyword research, campaign management, conversion tracking, landing pages and cost-per-result reporting.",
   "/en/paid-advertising",
 );

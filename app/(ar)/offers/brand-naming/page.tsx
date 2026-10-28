@@ -83,7 +83,7 @@ export default function BrandNamingOfferPage() {
       <section className="shell offer-detail-hero brand-naming-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
-          <h1>اسم لا يملأ خانة<br/><em>بل يفتح مساحة للنمو</em></h1>
+          <h1>اختيار اسم تجاري<br/><em>اسم يملأ خانة ويفتح مساحة للنمو</em></h1>
           <p>نطوّر لك اسمًا تجاريًا يمكن فهمه وتذكره واستخدامه، ثم نمنحك توجهًا أوليًا للعلامة حتى لا تبدأ الهوية من فراغ.</p>
           <div className="brand-naming-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>

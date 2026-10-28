@@ -6,11 +6,11 @@ import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
 import "../guides.css";
 import "../whatsapp-family-links.css";
 
-const title = "الفرق بين SEO وAEO: كيف تظهر في Google وإجابات الذكاء الاصطناعي؟";
+const title = "SEO مقابل AEO: الفرق وكيف تظهر في Google والإجابات الذكية";
 const description = "دليل عملي يشرح الفرق والتكامل بين SEO وAEO، وكيف تهيئ موقعك للظهور في نتائج البحث والإجابات المباشرة وأدوات الذكاء الاصطناعي دون وعود غير واقعية.";
 
 export const metadata: Metadata = createMetadata({
-  title: `${title} | دليل ديوانك`,
+  title: "SEO مقابل AEO: الفرق وطريقة الظهور | دليل ديوانك",
   description,
   path: "/guides/seo-vs-aeo",
   keywords: ["الفرق بين SEO وAEO", "تحسين محركات الإجابة", "الظهور في الذكاء الاصطناعي", "AEO بالعربي", "تحسين محركات البحث"],

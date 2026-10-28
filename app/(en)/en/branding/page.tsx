@@ -13,7 +13,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Brand strategy and visual identity",
+  "Branding agency and brand identity design",
   "Brand strategy, positioning, naming and visual identity for businesses worldwide: from the message and positioning to the logo, colours and a brand guide.",
   "/en/branding",
 );

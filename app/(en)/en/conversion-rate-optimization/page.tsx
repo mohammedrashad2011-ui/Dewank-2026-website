@@ -15,8 +15,8 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Conversion Rate Optimisation (CRO) services",
-  "Conversion rate optimisation for websites, landing pages and enquiry paths. A paid diagnostic that shows where qualified visitors stop, with prioritised fixes.",
+  "Conversion rate optimization audit services",
+  "Conversion rate optimization for websites, landing pages and enquiry paths: a paid diagnostic showing where visitors stop, with fixes.",
   "/en/conversion-rate-optimization",
 );
 

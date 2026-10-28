@@ -12,7 +12,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "SEO, GEO and AEO services",
+  "SEO and AEO services for search and AI answers",
   "Technical SEO, content structure and schema for search engines and AI answer systems. Clear, measurable work for businesses worldwide.",
   "/en/seo-geo-aeo",
 );

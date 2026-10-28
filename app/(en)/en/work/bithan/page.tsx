@@ -12,7 +12,7 @@ import "./delivery-layout.en.css";
 
 export const metadata = enMetadata(
   "BITHAN case study: naming and fine jewellery identity",
-  "BITHAN, a fine jewellery brand in Qatar: naming strategy and preliminary checks, the name chosen by the client, then a bilingual Arabic and English identity with applications and source files.",
+  "BITHAN, a fine jewellery brand in Qatar: naming strategy and preliminary checks, the client chosen name, then a bilingual identity with applications.",
   "/en/work/bithan",
 );
 

@@ -13,8 +13,8 @@ import "../_en/styles/hide-arabic-widgets.css";
 import "./brand-naming-layout.en.css";
 
 export const metadata = enMetadata(
-  "Brand naming and preliminary checks",
-  "Brand naming for businesses worldwide: 10–15 considered names, meaning and pronunciation checks, preliminary similarity research and domain availability, with a shortlist you can decide on.",
+  "Brand naming agency: names with checks and direction",
+  "Brand naming for businesses worldwide: 10–15 considered names, meaning and pronunciation checks, similarity and domain research, and a shortlist.",
   "/en/brand-naming",
 );
 

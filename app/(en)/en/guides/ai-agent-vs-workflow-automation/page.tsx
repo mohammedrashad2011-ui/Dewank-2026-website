@@ -2,8 +2,8 @@ import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
-const title = "AI agent or workflow automation? How to choose for your business";
-const description = "A practical guide to the difference between an AI agent and workflow automation, when each one fits, where people must stay in control, and what to check on data privacy before you start.";
+const title = "AI agent or workflow automation? How to choose";
+const description = "A practical guide to AI agents versus workflow automation: when each fits, where people must stay in control, and what to check on data privacy.";
 const anthropicSource = "https://www.anthropic.com/engineering/building-effective-agents";
 
 export const metadata = enMetadata(title, description, "/en/guides/ai-agent-vs-workflow-automation");

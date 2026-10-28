@@ -12,8 +12,8 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Google Ads launch package: a measured Search campaign",
-  "A Google Ads Search launch package for businesses worldwide: buyer-intent keyword research, ad copy, negative keywords, basic conversion tracking and a pre-launch check. A setup package, not monthly management. Ad spend is paid directly to Google.",
+  "Google Ads setup package: a measured Search campaign",
+  "Setup and launch of one Google Search campaign: buyer keywords, ad copy, negative keywords, conversion tracking and a pre-launch check.",
   "/en/offers/google-ads-launch",
 );
 

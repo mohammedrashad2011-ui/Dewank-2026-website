@@ -3,7 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
 const title = "Marketing KPIs: the key measures businesses should track";
-const description = "A practical guide to marketing KPIs: reach, CTR, conversion rate, cost per lead, CAC, ROAS and revenue, and how operational measures differ from business measures.";
+const description = "A practical guide to marketing KPIs: reach, CTR, conversion rate, cost per lead, CAC, ROAS and revenue, and how operational and business measures differ.";
 
 export const metadata = enMetadata(title, description, "/en/guides/marketing-kpis");
 

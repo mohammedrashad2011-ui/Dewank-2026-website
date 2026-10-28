@@ -7,8 +7,8 @@ import "../offers-page.css";
 import "../offer-trust.css";
 import "./mini-visual-identity.css";
 
-const title = "هوية بصرية مصغرة للشركات والمشاريع";
-const description = "باقة هوية بصرية مصغرة تشمل شعارًا أساسيًا، لوحة ألوان، خطوطًا مقترحة، واتجاهًا بصريًا مع 3 تطبيقات عملية. مناسبة للمشاريع التي تريد بداية احترافية واضحة دون بناء هوية كاملة.";
+const title = "تصميم هوية بصرية مصغرة للشركات والمشاريع";
+const description = "باقة هوية بصرية مصغرة: شعار أساسي، لوحة ألوان، خطوط مقترحة، اتجاه بصري و3 تطبيقات عملية، لبداية احترافية دون بناء هوية كاملة.";
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
@@ -82,7 +82,7 @@ export default function MiniVisualIdentityOffer() {
       <section className="shell offer-detail-hero mini-identity-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-          <h1>ليست مجرد شعار<br/><em>بداية شكل يُعرَف به مشروعك</em></h1>
+          <h1>تصميم هوية بصرية مصغرة<br/><em>ليست مجرد شعار، بداية شكل يُعرَف به مشروعك</em></h1>
           <p>نجهز لك أساسًا بصريًا متماسكًا يجعل علامتك تظهر بصورة احترافية من أول يوم، من الشعار والألوان إلى الخطوط والتطبيقات الأساسية.</p>
           <div className="mini-identity-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>

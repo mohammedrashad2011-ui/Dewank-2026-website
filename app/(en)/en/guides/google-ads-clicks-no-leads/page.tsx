@@ -3,7 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
 const title = "Why Google Ads brings clicks but not customers";
-const description = "A practical diagnosis of why Google Ads campaigns get clicks but no customers: search intent, the advert, the landing page, tracking, enquiry quality and follow-up speed.";
+const description = "Why Google Ads brings clicks but no customers: search intent, the advert, the landing page, tracking, enquiry quality and follow-up speed.";
 
 export const metadata = enMetadata(title, description, "/en/guides/google-ads-clicks-no-leads");
 

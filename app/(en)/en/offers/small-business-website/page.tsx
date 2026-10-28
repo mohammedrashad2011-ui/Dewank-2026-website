@@ -12,8 +12,8 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Small business website: up to five pages, ready to launch",
-  "A defined small business website for businesses worldwide: up to five pages, responsive design and development, WhatsApp and a contact form, basic analytics and SEO, and a full review before launch. Not an online shop.",
+  "Small business website design: five pages, ready to launch",
+  "A small company website of up to five pages, with WhatsApp and a contact form, basic analytics and SEO, and a pre-launch review.",
   "/en/offers/small-business-website",
 );
 

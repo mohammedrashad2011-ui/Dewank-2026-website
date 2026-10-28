@@ -2,8 +2,8 @@ import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
-const title = "A marketing plan template for businesses: steps and components";
-const description = "A practical template for a marketing plan: goal, audience, offer, channels, content, budget, measures of performance and an improvement cycle, connected in one plan you can carry out.";
+const title = "Marketing plan template: steps and components";
+const description = "A marketing plan template: goal, audience, offer, channels, content, budget, performance measures and an improvement cycle in one plan.";
 
 export const metadata = enMetadata(title, description, "/en/guides/marketing-plan-template");
 

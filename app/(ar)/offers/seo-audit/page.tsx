@@ -9,7 +9,7 @@ import "../offer-trust.css";
 import "./seo-audit-offer.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "فحص SEO شامل للموقع | تقرير وتحليل وخطة تحسين",
+  title: "فحص سيو شامل للموقع وتحسين محركات البحث | ديوانك",
   description: "فحص SEO شامل لموقعك خلال 48 ساعة: مشاكل الفهرسة والزحف والسرعة والمحتوى والكلمات المفتاحية والتحويل، مع تقرير PDF وخطة تحسين مرتبة حسب الأولوية.",
   path: "/offers/seo-audit",
   keywords: [
@@ -108,7 +108,7 @@ export default function SeoAuditOfferPage() {
       <section className="shell offer-detail-hero seo-audit-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>48</strong> ساعة للتسليم</span></div>
-          <h1>موقعك موجود<br/><em>لكن هل جوجل يفهمه؟</em></h1>
+          <h1>فحص سيو شامل لموقعك<br/><em>لكن هل جوجل يفهمه؟</em></h1>
           <p>فحص SEO شامل يكشف ما يعيق ظهور موقعك، ما الذي يحتاج إصلاحًا أولًا، وأين توجد فرص نمو يمكن استغلالها قبل إنفاق المزيد على التسويق.</p>
           <div className="seo-audit-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>

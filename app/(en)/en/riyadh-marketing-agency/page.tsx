@@ -12,7 +12,7 @@ const socialImage = `${siteUrl}/dewank-social-preview-2026-07.png`;
 export const metadata: Metadata = {
   title: { absolute: "Marketing Agency Riyadh | Branding & Growth | Dewank" },
   description:
-    "Dewank is a marketing agency serving Riyadh and Saudi businesses with brand strategy, digital marketing, paid media, websites, SEO, content, WhatsApp CRM and AI automation.",
+    "Marketing agency serving Riyadh and Saudi businesses: brand strategy, digital marketing, paid media, websites, SEO, WhatsApp CRM and AI automation.",
   keywords: [
     "marketing agency Riyadh",
     "digital marketing agency Riyadh",

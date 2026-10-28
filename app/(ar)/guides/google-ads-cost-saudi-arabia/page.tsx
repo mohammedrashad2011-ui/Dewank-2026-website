@@ -8,10 +8,10 @@ import "../guides.css";
 import "../whatsapp-family-links.css";
 
 const title = "كم تكلفة إعلانات Google وإدارة Google Ads في السعودية؟";
-const description = "دليل عملي لفهم تكلفة Google Ads في السعودية: ميزانية الإعلان، سعر إعداد وتشغيل الحملة، تكلفة الإدارة الشهرية، صفحة الهبوط والتتبع، ومتى تختار الإطلاق أو الإدارة.";
+const description = "دليل عملي لتكلفة Google Ads في السعودية: ميزانية الإعلان، سعر إعداد الحملة، تكلفة الإدارة الشهرية، صفحة الهبوط والتتبع، ومتى تختار الإطلاق أو الإدارة.";
 
 export const metadata: Metadata = createMetadata({
-  title: `${title} | دليل ديوانك`,
+  title: "تكلفة إعلانات Google وإدارتها في السعودية | دليل ديوانك",
   description,
   path: "/guides/google-ads-cost-saudi-arabia",
   keywords: [

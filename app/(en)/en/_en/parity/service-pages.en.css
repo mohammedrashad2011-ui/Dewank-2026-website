@@ -74,3 +74,9 @@ html body .en-service.cro-page .cro-after-audit .cro-fit-text a {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* English list rows: the shared grid puts the text in a narrow first column when the decorative number is hidden, so
+   each text paragraph takes the full row. */
+html body .en-service :is(.pa-deliverables-list, .wd-deliverables-list, .wd-method-list, .dm-deliverables-list, .dm-method-list, .sa-deliverables-list, .cv-deliverables-list) > div > p {
+  grid-column: 1 / -1;
+}

@@ -86,8 +86,8 @@ const faqJsonLd = JSON.stringify({
 }).replace(/</g, "\\u003c");
 
 export const metadata = enMetadata(
-  "Brand, Growth and AI Automation",
-  "Dewank brings branding, digital marketing, websites and automation together in one growth system for businesses worldwide. Custom scopes for ambitious companies.",
+  "Branding and growth agency: marketing and automation",
+  "Branding, digital marketing, websites and automation for businesses worldwide, in one growth system you can measure.",
   "/en",
 );
 

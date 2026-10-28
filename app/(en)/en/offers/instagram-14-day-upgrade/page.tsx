@@ -12,8 +12,8 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "14-day Instagram profile upgrade",
-  "A focused 14-day Instagram upgrade for an existing account: a full review, a stronger bio and call to action, highlights, content themes, a visual direction, six designs and a 14-day implementation plan. Not daily management.",
+  "Instagram profile audit and 14-day upgrade",
+  "A 14-day Instagram upgrade for an existing account: review, bio and call to action, highlights, content themes, six designs and a plan.",
   "/en/offers/instagram-14-day-upgrade",
 );
 

@@ -3,7 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
 const title = "How WhatsApp automation with a CRM reduces lost customers";
-const description = "A practical guide to connecting WhatsApp with a CRM to organise replies, qualification, follow-up, booking and reminders, with the measures to track and the mistakes that stop automation from having a business effect.";
+const description = "Connecting WhatsApp with a CRM for replies, qualification, follow-up, booking and reminders, with the measures to track and the mistakes to avoid.";
 const metaWhatsapp = "https://whatsappbusiness.com/products/business-app/";
 const metaPlatform = "https://whatsappbusiness.com/products/business-platform/";
 const metaPricing = "https://whatsappbusiness.com/products/platform-pricing/";

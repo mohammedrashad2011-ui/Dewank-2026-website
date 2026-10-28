@@ -4,8 +4,8 @@ import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import "./ai-automation.css";
 
-const title = "أتمتة العمليات والأعمال بالذكاء الاصطناعي للشركات في السعودية | ديوانك";
-const description = "حلول أتمتة العمليات والأعمال بالذكاء الاصطناعي للشركات: أتمتة واتساب وخدمة العملاء، تأهيل العملاء، CRM، المتابعة، الطلبات والتقارير عبر سير عمل واضح وقابل للقياس.";
+const title = "أتمتة الذكاء الاصطناعي للأعمال في السعودية | ديوانك";
+const description = "أتمتة الذكاء الاصطناعي للأعمال في السعودية: واتساب وخدمة العملاء، تأهيل العملاء، CRM والمتابعة، عبر سير عمل واضح وقابل للقياس.";
 
 export const metadata: Metadata = createMetadata({
   title,

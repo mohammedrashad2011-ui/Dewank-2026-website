@@ -2,8 +2,8 @@ import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { GuideArticle } from "../_en/guide-article";
 
-const title = "Your account looks good but does not bring customers: where is the problem?";
-const description = "A practical guide to diagnosing why social media accounts get engagement but few enquiries or sales, from the message, offer and trust to the call to action and the follow-up process.";
+const title = "Social media without enquiries: where the problem is";
+const description = "Why social accounts get engagement but few enquiries: the message, offer, trust, call to action and follow-up process, with a practical diagnosis.";
 
 export const metadata = enMetadata(title, description, "/en/guides/social-media-not-generating-leads");
 
