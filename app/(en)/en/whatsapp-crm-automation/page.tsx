@@ -14,7 +14,7 @@ import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
   "WhatsApp automation for business and CRM",
-  "WhatsApp automation for businesses: instant replies, lead qualification, bookings, follow-up and CRM, with a clear handover to your team.",
+  "WhatsApp chatbot and automation for businesses: instant replies, lead qualification, bookings, follow-up and CRM, with a clear handover to your team.",
   "/en/whatsapp-crm-automation",
 );
 

@@ -11,7 +11,7 @@ import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
   "AI automation agency for business workflows",
-  "AI and workflow automation for businesses worldwide: WhatsApp and customer service, lead qualification, CRM updates, orders and reporting.",
+  "AI workflow automation for businesses worldwide: WhatsApp and customer service, lead qualification, CRM updates, orders and reporting.",
   "/en/ai-automation",
 );
 
