@@ -16,7 +16,7 @@ const title = "أسعار إدارة السوشيال ميديا في السعو
 const description = "دليل أسعار إدارة السوشيال ميديا في السعودية: نطاقات التكلفة، الفرق بين الإدارة الشهرية وباقات المحتوى، وما الذي يدخل في السعر قبل التعاقد.";
 
 export const metadata: Metadata = createMetadata({
-  title: `${title} | دليل ديوانك`,
+  title: "أسعار إدارة السوشيال ميديا في السعودية | دليل ديوانك",
   description,
   path: "/guides/social-media-management-cost-saudi-arabia",
   keywords: [

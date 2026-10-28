@@ -10,7 +10,7 @@ const title = "SEO مقابل AEO: الفرق وكيف تظهر في Google وا
 const description = "دليل عملي يشرح الفرق والتكامل بين SEO وAEO، وكيف تهيئ موقعك للظهور في نتائج البحث والإجابات المباشرة وأدوات الذكاء الاصطناعي دون وعود غير واقعية.";
 
 export const metadata: Metadata = createMetadata({
-  title: `${title} | دليل ديوانك`,
+  title: "SEO مقابل AEO: الفرق وطريقة الظهور | دليل ديوانك",
   description,
   path: "/guides/seo-vs-aeo",
   keywords: ["الفرق بين SEO وAEO", "تحسين محركات الإجابة", "الظهور في الذكاء الاصطناعي", "AEO بالعربي", "تحسين محركات البحث"],

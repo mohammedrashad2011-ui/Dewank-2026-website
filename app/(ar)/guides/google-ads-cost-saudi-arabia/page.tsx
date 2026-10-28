@@ -11,7 +11,7 @@ const title = "كم تكلفة إعلانات Google وإدارة Google Ads ف�
 const description = "دليل عملي لتكلفة Google Ads في السعودية: ميزانية الإعلان، سعر إعداد الحملة، تكلفة الإدارة الشهرية، صفحة الهبوط والتتبع، ومتى تختار الإطلاق أو الإدارة.";
 
 export const metadata: Metadata = createMetadata({
-  title: `${title} | دليل ديوانك`,
+  title: "تكلفة إعلانات Google وإدارتها في السعودية | دليل ديوانك",
   description,
   path: "/guides/google-ads-cost-saudi-arabia",
   keywords: [

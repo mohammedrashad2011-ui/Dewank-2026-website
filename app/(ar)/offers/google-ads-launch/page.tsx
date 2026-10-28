@@ -11,7 +11,7 @@ const title = "إدارة إعلانات جوجل وإعداد حملة Google A
 const description = "باقة إعداد وتشغيل حملة Google Ads Search للشركات في السعودية: بحث كلمات، كتابة الإعلانات، كلمات سلبية، تتبع تحويل أساسي وإطلاق منظم بـ790 ريال، دون إدارة شهرية.";
 
 export const metadata: Metadata = createMetadata({
-  title: `${title} | ديوانك`,
+  title: "إدارة إعلانات Google في السعودية | 790 ريال | ديوانك",
   description,
   path: "/offers/google-ads-launch",
   keywords: [
