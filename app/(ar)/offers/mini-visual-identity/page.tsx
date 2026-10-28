@@ -7,7 +7,7 @@ import "../offers-page.css";
 import "../offer-trust.css";
 import "./mini-visual-identity.css";
 
-const title = "هوية بصرية مصغرة للشركات والمشاريع";
+const title = "تصميم هوية بصرية مصغرة للشركات والمشاريع";
 const description = "باقة هوية بصرية مصغرة: شعار أساسي، لوحة ألوان، خطوط مقترحة، اتجاه بصري و3 تطبيقات عملية، لبداية احترافية دون بناء هوية كاملة.";
 
 export const metadata: Metadata = createMetadata({

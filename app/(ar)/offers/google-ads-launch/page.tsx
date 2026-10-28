@@ -7,7 +7,7 @@ import "../offers-page.css";
 import "../offer-trust.css";
 import "./google-ads-launch.css";
 
-const title = "إعداد وتشغيل حملة Google Ads في السعودية | 790 ريال";
+const title = "إدارة إعلانات جوجل وإعداد حملة Google Ads في السعودية | 790 ريال";
 const description = "باقة إعداد وتشغيل حملة Google Ads Search للشركات في السعودية: بحث كلمات، كتابة الإعلانات، كلمات سلبية، تتبع تحويل أساسي وإطلاق منظم بـ790 ريال، دون إدارة شهرية.";
 
 export const metadata: Metadata = createMetadata({

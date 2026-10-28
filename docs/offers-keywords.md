@@ -36,6 +36,24 @@ Only phrases that fit a specific offer are listed. Competition is Google's label
 | 30-day content | social media posting packages | 50 | Medium | 150 |
 | Instagram upgrade | instagram profile audit | 50 | Medium | 106 |
 
+## Arabic offers (GCC: Saudi Arabia, UAE, Kuwait, Qatar, Bahrain, Oman)
+
+Source: Keyword Planner, Arabic, 28 Oct 2026. 57 ideas came back, 52 with volume.
+
+| Offer | Phrase | Searches / month | Competition | Bid (low, EGP) |
+|---|---|---|---|---|
+| Brand naming | اختيار اسم تجاري | 500 | Low | 18 |
+| Brand naming | اسم تجاري يلفت الانتباه | 500 | Low | 14 |
+| Visual identity | تصميم هوية بصرية | 500 | Medium | 38 |
+| Visual identity | تصميم الهوية البصرية | 500 | Medium | 38 |
+| Visual identity | هوية بصرية كاملة | 500 | Medium | 33 |
+| Landing page | تصميم صفحة هبوط | 50 | Medium | 32 |
+| Google Ads | إدارة إعلانات جوجل | 50 | Low | 54 |
+
+**No volume came back** for: SEO audit (فحص سيو للموقع), WhatsApp automation (أتمتة واتساب للشركات), Instagram (تطوير حساب إنستجرام), small website (تصميم موقع للشركات الصغيرة), content package (باقة محتوى سوشيال ميديا) and CRO (تحسين معدل التحويل). Do not treat these as zero: they need checking in Keyword Planner with a different country set or a broader seed.
+
+**Applied:** the mini visual identity title now starts with "تصميم هوية بصرية", and the Google Ads launch title includes "إدارة إعلانات جوجل". The other Arabic offer titles already contain their phrases or have no data.
+
 ## Notes
 
 - **Strongest for volume and low competition:** "seo audit service", "landing page design", "small business website design". These have 5,000 searches each and low competition.
