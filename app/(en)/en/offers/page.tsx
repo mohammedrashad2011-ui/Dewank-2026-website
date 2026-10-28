@@ -84,7 +84,7 @@ const faqSchema = {
 };
 
 export const metadata = enMetadata(
-  "Offers: defined starting points",
+  "Marketing offers with defined starting prices",
   "Offers with a known starting price: content, landing pages, SEO audits, naming, WhatsApp automation, identity, Google Ads, Instagram and websites.",
   "/en/offers",
 );

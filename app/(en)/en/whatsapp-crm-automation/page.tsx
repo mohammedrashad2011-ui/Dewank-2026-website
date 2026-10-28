@@ -13,8 +13,8 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "WhatsApp automation and CRM",
-  "WhatsApp automation for businesses worldwide: instant replies, lead qualification, bookings, follow-up and CRM connections, with a clear handover to your team.",
+  "WhatsApp automation for business and CRM",
+  "WhatsApp automation for businesses: instant replies, lead qualification, bookings, follow-up and CRM, with a clear handover to your team.",
   "/en/whatsapp-crm-automation",
 );
 

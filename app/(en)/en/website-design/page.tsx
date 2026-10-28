@@ -14,7 +14,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Website design and conversion",
+  "Website design for businesses that convert",
   "Website design and development for businesses worldwide: landing pages, company websites and custom projects, with UX, SEO, conversion work and tracking.",
   "/en/website-design",
 );

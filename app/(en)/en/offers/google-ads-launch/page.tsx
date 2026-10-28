@@ -12,7 +12,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Google Ads launch package: a measured Search campaign",
+  "Google Ads setup package: a measured Search campaign",
   "Setup and launch of one Google Search campaign: buyer keywords, ad copy, negative keywords, conversion tracking and a pre-launch check.",
   "/en/offers/google-ads-launch",
 );

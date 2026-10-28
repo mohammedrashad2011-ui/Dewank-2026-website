@@ -12,7 +12,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "About Dewank: brand, growth and automation as one system",
+  "Brand and growth agency: About Dewank",
   "Dewank is a growth company for businesses worldwide, connecting brand strategy, marketing, websites, SEO, WhatsApp, CRM and AI automation in one system.",
   "/en/about",
 );
