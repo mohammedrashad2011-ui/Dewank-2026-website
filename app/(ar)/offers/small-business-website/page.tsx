@@ -7,7 +7,7 @@ import "../offers-page.css";
 import "./small-business-website.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "موقع شركة صغير جاهز للإطلاق بـ 1,990 ريال | ديوانك",
+  title: "شركة تصميم موقع صغير جاهز للإطلاق بـ 1,990 ريال | ديوانك",
   description: "باقة موقع تعريفي صغير حتى 5 صفحات تشمل التصميم والتطوير المتجاوب وربط واتساب والنماذج والتحليلات وSEO أساسي وتجهيز الإطلاق.",
   path: "/offers/small-business-website",
   keywords: [

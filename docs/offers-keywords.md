@@ -54,6 +54,32 @@ Source: Keyword Planner, Arabic, 28 Oct 2026. 57 ideas came back, 52 with volume
 
 **Applied:** the mini visual identity title now starts with "تصميم هوية بصرية", and the Google Ads launch title includes "إدارة إعلانات جوجل". The other Arabic offer titles already contain their phrases or have no data.
 
+## Arabic offers, Saudi Arabia only (28 Oct 2026)
+
+Source: Keyword Planner, Arabic, Saudi Arabia, 175 ideas, 173 with volume. Broader seeds were used so offers with no GCC volume could be checked.
+
+| Offer | Phrase | Searches / month | Competition | Bid (low, EGP) |
+|---|---|---|---|---|
+| Small business website | شركة تصميم موقع | 500 | Medium | 118 |
+| Small business website | شركة تصميم مواقع | 500 | Medium | 118 |
+| Small business website | شركة تصميم مواقع الويب | 500 | Medium | 118 |
+| SEO audit | تحسين محركات البحث | 500 | Medium | 89 |
+| SEO audit | شركة سيو | 500 | Low | 90 |
+| SEO audit | فحص سيو | 50 | High | 54 |
+| Visual identity | تصميم هوية بصرية | 500 | Medium | 41 |
+| Visual identity | هوية بصرية كاملة | 500 | Medium | 34 |
+| Landing page | تصميم صفحة هبوط | 50 | Medium | 35 |
+| Google Ads | إدارة إعلانات جوجل | 50 | Low | 54 |
+| Instagram | تطوير حساب انستقرام | 50 | Unknown | — |
+| CRO | تحسين معدل التحويل | 50 | Unknown | — |
+
+No volume for WhatsApp automation (أتمتة واتساب) and the content package (باقة محتوى سوشيال ميديا).
+
+**Applied (titles only):**
+- SEO audit: "فحص سيو شامل للموقع وتحسين محركات البحث".
+- Small business website: "شركة تصميم موقع صغير جاهز للإطلاق بـ 1,990 ريال".
+- Instagram: "تطوير حساب انستقرام خلال 14 يوم" (the spelling people search for).
+
 ## Notes
 
 - **Strongest for volume and low competition:** "seo audit service", "landing page design", "small business website design". These have 5,000 searches each and low competition.

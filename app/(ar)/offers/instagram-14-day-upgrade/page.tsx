@@ -7,7 +7,7 @@ import "../offers-page.css";
 import "../offer-trust.css";
 import "./instagram-upgrade.css";
 
-const title = "تطوير حساب إنستجرام خلال 14 يوم";
+const title = "تطوير حساب انستقرام خلال 14 يوم";
 const description = "باقة تطوير حساب إنستجرام خلال 14 يوم: مراجعة الحساب، تحسين البايو والـCTA، الهايلايتس، محاور المحتوى، 6 تصميمات وخطة تنفيذ. تبدأ من 590 ريال.";
 
 export const metadata: Metadata = createMetadata({

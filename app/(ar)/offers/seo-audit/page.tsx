@@ -9,7 +9,7 @@ import "../offer-trust.css";
 import "./seo-audit-offer.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "فحص SEO شامل للموقع | تقرير وتحليل وخطة تحسين",
+  title: "فحص سيو شامل للموقع وتحسين محركات البحث | ديوانك",
   description: "فحص SEO شامل لموقعك خلال 48 ساعة: مشاكل الفهرسة والزحف والسرعة والمحتوى والكلمات المفتاحية والتحويل، مع تقرير PDF وخطة تحسين مرتبة حسب الأولوية.",
   path: "/offers/seo-audit",
   keywords: [
