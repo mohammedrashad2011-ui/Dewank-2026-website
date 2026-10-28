@@ -94,7 +94,7 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell offer-detail-hero google-ads-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> أيام عمل</span></div>
-          <h1>إعداد وتشغيل Google Ads<br/><em>حملة Search تبدأ بشكل محسوب</em></h1>
+          <h1>إدارة إعلانات جوجل<br/><em>إعداد وتشغيل حملة Search تبدأ بشكل محسوب</em></h1>
           <p>نجهز لك حملة Google Search من الصفر: كلمات بنية شراء، إعلانات مناسبة، كلمات سلبية، تتبع تحويل أساسي، وفحص كامل قبل تشغيل الميزانية.</p>
           <div className="google-ads-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>

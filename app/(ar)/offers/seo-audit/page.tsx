@@ -108,7 +108,7 @@ export default function SeoAuditOfferPage() {
       <section className="shell offer-detail-hero seo-audit-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>48</strong> ساعة للتسليم</span></div>
-          <h1>موقعك موجود<br/><em>لكن هل جوجل يفهمه؟</em></h1>
+          <h1>فحص سيو شامل لموقعك<br/><em>لكن هل جوجل يفهمه؟</em></h1>
           <p>فحص SEO شامل يكشف ما يعيق ظهور موقعك، ما الذي يحتاج إصلاحًا أولًا، وأين توجد فرص نمو يمكن استغلالها قبل إنفاق المزيد على التسويق.</p>
           <div className="seo-audit-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>

@@ -81,7 +81,7 @@ export default function Instagram14DayUpgradeOffer() {
       <section className="shell offer-detail-hero instagram-upgrade-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span></div>
-          <h1>حسابك موجود<br/><em>لكن هل يقنع العميل؟</em></h1>
+          <h1>تطوير حساب انستقرام<br/><em>حسابك موجود لكن هل يقنع العميل؟</em></h1>
           <p>نرتب حساب إنستجرام من الداخل للخارج: البايو، دعوة الإجراء، الهايلايتس، محاور المحتوى، الاتجاه البصري، ثم نعطيك 6 تصميمات وخطة تنفيذ لمدة 14 يومًا.</p>
           <div className="instagram-upgrade-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>

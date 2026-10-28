@@ -82,7 +82,7 @@ export default function MiniVisualIdentityOffer() {
       <section className="shell offer-detail-hero mini-identity-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-          <h1>ليست مجرد شعار<br/><em>بداية شكل يُعرَف به مشروعك</em></h1>
+          <h1>تصميم هوية بصرية مصغرة<br/><em>ليست مجرد شعار، بداية شكل يُعرَف به مشروعك</em></h1>
           <p>نجهز لك أساسًا بصريًا متماسكًا يجعل علامتك تظهر بصورة احترافية من أول يوم، من الشعار والألوان إلى الخطوط والتطبيقات الأساسية.</p>
           <div className="mini-identity-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>

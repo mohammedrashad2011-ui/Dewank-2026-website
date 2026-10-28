@@ -111,7 +111,7 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> يوم عمل</span></div>
-          <h1>موقع صغير<br/><em>لكنه جاهز للعمل باسمك</em></h1>
+          <h1>شركة تصميم موقع صغير<br/><em>جاهز للعمل باسمك</em></h1>
           <p>باقة واضحة للشركات والمشاريع التي تحتاج موقعًا تعريفيًا احترافيًا دون مشروع ضخم: حتى 5 صفحات، تصميم وتطوير متجاوب، واتساب ونموذج تواصل، تحليلات وSEO أساسي وتجهيز كامل للإطلاق.</p>
           <div className="small-website-answer"><b>ماذا تحصل عليه؟</b><span>موقع تعريفي متكامل بنطاق محدد، وليس قالب صفحة واحدة ولا متجرًا إلكترونيًا.</span></div>
         </div>
