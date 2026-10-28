@@ -67,7 +67,30 @@ Source: Keyword Planner, English, US, Canada, Australia, UK, Germany and France.
 | whatsapp automation for business | 50 | Medium | 423 | WhatsApp page |
 | social media content package | 50 | Medium | 139 | Social media content page |
 
-**Not in the export.** These phrases did not come back from Keyword Planner, so their volume is not measured yet. Do not treat them as zero: "website design", "landing page design", "SEO and AEO services", "marketing plan template", "marketing KPIs", "conversion rate optimization", "seo audit", "google ads vs meta ads", "seo vs aeo", "answer engine optimization", "generative engine optimization", "brand identity design", "brand naming", "growth agency for brands", "whatsapp crm", "lead qualification automation", "business process automation". Check each one separately in Keyword Planner before choosing it as a primary phrase.
+**Not in the export.** These phrases did not come back from Keyword Planner, so their volume is not measured yet. Do not treat them as zero: "website design", "landing page design", "SEO and AEO services", "marketing plan template", "marketing KPIs", "google ads vs meta ads", "answer engine optimization", "brand identity design", "brand naming", "growth agency for brands", "whatsapp crm". Check each one separately in Keyword Planner before choosing it as a primary phrase.
+
+## Second run: remaining English groups (28 Oct 2026)
+
+Same settings as above: English, US, Canada, Australia, UK, Germany and France. 2,081 ideas came back. Only the 14 seed phrases below are shown.
+
+| Phrase | Avg. monthly searches | Competition | Top bid (low, EGP) |
+|---|---|---|---|
+| logo design | 50,000 | Medium | 56 |
+| generative engine optimization | 5,000 | Medium | 365 |
+| business process automation | 5,000 | Low | 408 |
+| conversion rate optimization | 5,000 | Low | 319 |
+| seo audit | 5,000 | Medium | 177 |
+| seo vs aeo | 5,000 | Medium | 158 |
+| ai workflow automation | 5,000 | Low | 378 |
+| whatsapp chatbot | 5,000 | Low | 129 |
+| brand strategy services | 500 | Low | 252 |
+| meta ads management | 500 | Medium | 493 |
+| website conversion audit | 50 | Low | 475 |
+| instagram content creation | 50 | Medium | 99 |
+| lead qualification automation | 50 | Low | no bid range |
+| growth agency for brands | no data | Unknown | no bid range |
+
+**Reading:** "logo design" is the biggest volume in this set, but it is a generic term, so it fits a branding page better than an offer page. "seo audit" and "conversion rate optimization" each have 5,000 searches and low-to-medium competition, so they are the strongest candidates for the SEO audit and CRO pages.
 
 ## Arabic (GCC: Saudi Arabia, UAE, Kuwait, Qatar, Bahrain, Oman)
 
