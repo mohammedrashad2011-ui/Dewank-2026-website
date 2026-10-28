@@ -45,12 +45,55 @@ Target: English-speaking businesses in Europe, the US, Australia, Canada and oth
 | `/en/guides/ai-agent-vs-workflow-automation` | AI agent vs workflow automation | AI automation for business |
 | `/en/guides/ad-to-whatsapp-booking-journey` | ad to WhatsApp booking | customer journey from ad to booking |
 
+## Measured data (Google Keyword Planner, 28 Oct 2026)
+
+Source: Keyword Planner, English, US, Canada, Australia, UK, Germany and France. Volumes are Google's values, and small values are rounded (for example 50 or 500).
+
+| Phrase | Avg. monthly searches | Competition | Top bid (low, EGP) | Use |
+|---|---|---|---|---|
+| digital marketing agency | 50,000 | Low | 318 | Homepage, services (competitive) |
+| digital marketing services | 50,000 | Low | 362 | Services page |
+| branding agency | 50,000 | Low | 228 | Homepage, branding page |
+| digital marketing agency near me | 50,000 | Low | 303 | Local, low priority for worldwide |
+| marketing agency near me | 50,000 | Low | 264 | Local, low priority |
+| seo agency near me | 50,000 | Low | 520 | Local, low priority |
+| growth agency | 5,000 | Medium | 185 | Homepage |
+| ai automation agency | 5,000 | Medium | 337 | AI automation page |
+| google ads management | 5,000 | Low | 592 | Paid advertising page |
+| paid media agency | 500 | Medium | 526 | Paid advertising page |
+| whatsapp automation | 500 | Medium | 207 | WhatsApp page |
+| brand naming agency | 500 | Medium | 172 | Brand naming page |
+| naming agency | 500 | Medium | 160 | Brand naming page |
+| whatsapp automation for business | 50 | Medium | 423 | WhatsApp page |
+| social media content package | 50 | Medium | 139 | Social media content page |
+
+**Not in the export.** These phrases did not come back from Keyword Planner, so their volume is not measured yet. Do not treat them as zero: "website design", "landing page design", "SEO and AEO services", "marketing plan template", "marketing KPIs", "conversion rate optimization", "seo audit", "google ads vs meta ads", "seo vs aeo", "answer engine optimization", "generative engine optimization", "brand identity design", "brand naming", "growth agency for brands", "whatsapp crm", "lead qualification automation", "business process automation". Check each one separately in Keyword Planner before choosing it as a primary phrase.
+
+## Arabic (GCC: Saudi Arabia, UAE, Kuwait, Qatar, Bahrain, Oman)
+
+Only 98 ideas came back. Most have volume 50 or 500 (rounded). Results:
+
+| Phrase | Avg. monthly searches | Competition |
+|---|---|---|
+| وكالة تسويق رقمي | 500 | Medium |
+| شركة سيو | 500 | Low |
+| تحسين محركات البحث | 500 | Medium |
+| تحسين محركات البحث seo | 500 | Medium |
+| وكالة التسويق الرقمي | 50 | Low |
+| محركات البحث seo | 50 | Medium |
+| فحص سيو | 50 | Medium |
+| أتمتة الذكاء الاصطناعي | 50 | Medium |
+
+**No data (very low or no search):** أتمتة واتساب، وكالة براندينج، وكالة نمو، باقة محتوى سوشيال ميديا، تسمية العلامة التجارية.
+
+**Reading:** Arabic search is mostly about SEO and digital marketing. Searches for WhatsApp automation, branding and naming in Arabic are very small, so the Arabic pages should lean on SEO and digital marketing terms.
+
 ## Pages to leave out of this list
 - `/en/riyadh-marketing-agency`: this page is about Riyadh. Keep it as a local page, outside the worldwide English set.
 - `/en/work` and `/en/work/bithan`: use the case study names as keywords only, not generic phrases.
 - `/en/contact` and `/en/offers`: no new keywords needed.
 
 ## Next steps
-1. Check volume and competition for the primary phrases in Google Keyword Planner.
+1. Check the phrases marked "Not in the export" in Keyword Planner.
 2. Check the queries and pages in Search Console once the English pages have data.
 3. Pick the top 5 pages and align their titles and descriptions with the primary phrase, in a separate PR for review.
