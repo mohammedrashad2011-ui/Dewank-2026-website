@@ -7,7 +7,7 @@ import "./digital-marketing-page.css";
 import "./digital-marketing-guides.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "التسويق الإلكتروني واستراتيجية التسويق الرقمي | ديوانك",
+  title: "وكالة التسويق الرقمي واستراتيجية التسويق | ديوانك",
   description:
     "استراتيجية التسويق الرقمي للشركات في السعودية والخليج: خطة ورسائل ومحتوى ورحلة عميل واختيار القنوات والقياس، مع توجيهك للخدمة المناسبة.",
   path: "/digital-marketing",
