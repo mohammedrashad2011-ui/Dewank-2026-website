@@ -67,6 +67,7 @@ const faqs = [
   { question: "How long until results appear?", answer: "Early signals can appear quickly, but a reliable decision needs enough test data. The timeline depends on the market, the offer, the tracking and how long your customers take to decide." },
   { question: "Do you write the ad copy and produce creative?", answer: "Yes. The scope can include writing advertising copy and directing or producing the designs and short videos needed for testing." },
   { question: "Do I need a landing page?", answer: "If the current page is slow, unfocused or does not support the campaign goal, a dedicated landing page protects the budget and improves conversion." },
+  { question: "How does Dewank measure campaign success?", answer: "We choose metrics around the business goal, such as qualified enquiries and cost per qualified lead, plus bookings or sales when tracking data is available. We look beyond clicks to the landing page and the follow-up journey." },
   { question: "Can you manage an existing ad account?", answer: "Yes. We start by reviewing the structure, tracking, audiences and past results, then decide what to fix or rebuild." },
 ];
 
