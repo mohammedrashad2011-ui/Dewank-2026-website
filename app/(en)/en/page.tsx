@@ -60,13 +60,15 @@ const method = [
 ];
 
 const faqs = [
+  { q: "Does Dewank work with startups and small businesses?", a: "Yes. We work with startups, small and growing businesses, as well as established teams. We first understand the challenge and available resources, then define a practical scope rather than assuming every business needs a full marketing programme." },
+  { q: "Do I need a large marketing budget to work with Dewank?", a: "Not necessarily. You can start with a focused project such as brand identity, a landing page, a campaign or better lead follow-up. Pricing depends on the agreed deliverables and complexity, and the scope and cost are explained before paid work begins." },
   {
     q: "Where should I start?",
     a: "Start with the problem closest to revenue or lost customers. If demand is weak, we review attraction first. If visits arrive but do not convert, we look at the website and the offer.",
   },
   {
     q: "Do I need more than one service?",
-    a: "No. We prefer to start with the smallest scope that can solve the current problem and show its effect, then add only what the results justify.",
+    a: "No. We agree on a focused service with clear deliverables that addresses your current bottleneck. We expand only when there is a measurable reason to do so.",
   },
   {
     q: "When is automation the right step?",
@@ -278,7 +280,7 @@ export default function Home() {
       <section className="faq-section shell" aria-labelledby="home-faq-title">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqJsonLd }} />
         <span className="section-label">Before you start</span>
-        <h2 id="home-faq-title">Three questions that shorten the path</h2>
+        <h2 id="home-faq-title">Five questions that shorten the path</h2>
         <div className="faq-grid">
           {faqs.map((f) => (
             <details key={f.q}>

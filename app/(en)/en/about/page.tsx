@@ -38,7 +38,9 @@ const faqs = [
   { question: "What is Dewank?", answer: "Dewank is a growth company for businesses worldwide. It brings brand strategy, marketing, websites, SEO and GEO, data, WhatsApp and CRM, and AI automation into one system." },
   { question: "Where does Dewank work?", answer: "We have delivery experience with businesses in Saudi Arabia, Bahrain and the United Arab Emirates. Projects can be delivered remotely, and each scope is agreed individually." },
   { question: "How is Dewank different from a traditional marketing agency?", answer: "We start from the business problem and the point where the customer journey breaks, then choose the smallest practical scope, rather than selling separate services that do not work together." },
-  { question: "Can I start with one service?", answer: "Yes. You can start with one service, such as advertising, a website, content or WhatsApp automation, and extend the system when a clear, measured need appears." },
+  { question: "Can I start with one service?", answer: "Yes. Start with one clearly scoped service, such as a website, campaign, content or WhatsApp automation. Additional services are only proposed when a real need emerges." },  { question: "What experience does Dewank bring to client projects?", answer: "Our work draws on practical experience in brand strategy, digital marketing, websites, performance advertising, CRM and WhatsApp automation, including projects in healthcare and Gulf markets. Explore the work examples to understand the scope and deliverables." },
+  { question: "Does Dewank provide strategy only, or implementation too?", answer: "Both are available depending on the project. You may need a plan for your team, or hands-on delivery of a website, campaign, identity or automation workflow. Responsibilities and deliverables are agreed before work starts." },
+
 ];
 
 export default function AboutPage() {
