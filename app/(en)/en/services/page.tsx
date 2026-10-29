@@ -64,6 +64,7 @@ const paths = [
 const faqs = [
   ["What are Dewank's core services?", "Dewank combines brand strategy, naming and identity, digital marketing, paid advertising, website design and conversion work, SEO, GEO and AEO, social media and content, analytics, WhatsApp and CRM automation, and AI automation as one growth system."],
   ["How do I know which service fits my business?", "Start with the problem closest to revenue: not enough enquiries, visitors who do not act, inconsistent content, or slow follow-up. If the problem is not clear, we review the journey and propose the smallest scope that can show a result."],
+  ["What if marketing is underperforming but I do not know why?", "We review the available evidence across your offer, messaging, channels, website, enquiry journey and follow-up. The aim is to identify the bottleneck before proposing more services or spending; a targeted fix may be enough."],
   ["Can I start with one service?", "Yes. We identify the current bottleneck and propose the smallest practical scope with a clear outcome. The system can grow later, when the results justify it."],
   ["Do you manage social media and content?", "Yes. The work covers strategy, ideas, design, captions and a publishing plan. You can start with a defined content package for a month."],
   ["Do your website services include landing pages?", "Yes. We build full websites and separate landing pages for campaigns and offers, with WhatsApp or form routes and conversion tracking."],
