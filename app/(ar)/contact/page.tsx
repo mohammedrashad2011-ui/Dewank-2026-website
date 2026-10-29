@@ -77,6 +77,8 @@ export default function ContactPage() {
         </div>
       </section>
 
+      <section className="cp-brief shell" aria-labelledby="cp-commitment-title"><details><summary id="cp-commitment-title">هل التواصل الأول يلزمني بالتعاقد أو الدفع؟</summary><p>لا. تبدأ العملية بمحادثة لفهم نشاطك وهدفك، ولا يبدأ عمل مدفوع إلا بعد الاتفاق على النطاق والتكلفة وشروط التنفيذ.</p></details></section>
+
       <section className="cp-channels shell" aria-labelledby="cp-channels-title">
         <span className="cp-eyebrow">طرق أخرى للتواصل</span>
         <h2 id="cp-channels-title">بريد أو واتساب</h2>
