@@ -54,6 +54,8 @@ function ContactPage() {
         </div>
       </section>
 
+      <section className="section shell" aria-labelledby="first-contact-commitment"><details><summary id="first-contact-commitment">Does contacting Dewank commit me to a contract or payment?</summary><p>No. Your first enquiry helps us understand the business challenge. Paid work only begins after the scope, fees and terms are agreed.</p></details></section>
+
       <section className="section shell" aria-labelledby="channels-title">
         <span className="eyebrow">Other ways to reach us</span>
         <h2 id="channels-title">Email or WhatsApp</h2>
