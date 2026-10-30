@@ -171,20 +171,18 @@ export default function WebsiteDesignPage() {
         <div className="wd-hero-copy">
           <div className="wd-kicker"><span>WEBSITE DESIGN</span><span>UX / SEO / CRO</span></div>
           <h1>موقعك ليس مجرد واجهة<br/><em>يجب أن يساعد العميل على اتخاذ خطوة</em></h1>
-          <p>نحن في ديوانك شركة تصميم مواقع في السعودية، نصمم ونطوّر مواقع للشركات تربط الرسالة بالثقة والسرعة وSEO وCRO والتتبع، لتتحول الزيارة من Google أو الإعلانات إلى استفسار أو فرصة بيع أو حجز واضح.</p>
+          <p>ديوانك شركة تصميم مواقع في السعودية. نصمم ونطوّر مواقع الشركات وصفحات الهبوط بمحتوى واضح وUX متجاوب وأساس SEO ومسار CRO مباشر للتواصل أو الحجز أو الشراء.</p>
           <div className="wd-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش مشروعك على واتساب <span>↗</span></a><a className="wd-text-link" href="#choose-path">اختَر نوع الموقع</a></div>
         </div>
         <div className="wd-browser" aria-label="تصور تفاعلي لواجهة موقع احترافي"><div className="wd-browser-top"><div><i></i><i></i><i></i></div><span>dewank.com</span></div><div className="wd-browser-nav"><b>D</b><div><span>الخدمات</span><span>الأعمال</span><span>عن ديوانك</span></div><span className="wd-browser-demo-action" aria-hidden="true">ابدأ مشروعك</span></div><div className="wd-browser-grid"><div className="wd-screen-copy"><small>01 / CLARITY</small><strong>القيمة<br/><em>قبل الزخرفة.</em></strong><p>رسالة واضحة، دليل ثقة، ومسار يقود إلى الإجراء.</p><span className="wd-demo-cta">اكتشف الحل ←</span></div><div className="wd-screen-cards"><article><b>وضوح الرسالة</b><span>ما الذي تقدمه؟</span></article><article><b>دليل الثقة</b><span>لماذا يختارك العميل؟</span></article><article><b>خطوة تالية</b><span>ماذا يفعل الآن؟</span></article></div></div><div className="wd-browser-foot"><span>UX STRATEGY</span><span>RESPONSIVE</span><span>CONVERSION</span></div></div>
       </section>
 
       <section className="wd-paths shell" id="choose-path">
-        <div className="wd-section-head"><div><span className="wd-label">اختَر نقطة البداية</span><h2>ليس كل مشروع يحتاج الموقع نفسه<br/><em>ابدأ بالنطاق الذي يخدم الهدف</em></h2></div><p>الاختيار الصحيح بين Landing Page وموقع شركة ومشروع مخصص يوفر التكلفة والتعقيد دون أن يقلل النتيجة المطلوبة.</p></div>
+        <div className="wd-section-head"><div><span className="wd-label">اختَر نقطة البداية</span><h2>ليس كل مشروع يحتاج الموقع نفسه<br/><em>ابدأ بالنطاق الذي يخدم الهدف</em></h2></div><p>قارن النطاق والمدة وما يشمله كل خيار قبل طلب عرض السعر.</p></div>
         <div className="wd-path-grid">{servicePaths.map((path) => <article key={path.title}><small>{path.label}</small><h3>{path.title}</h3><p>{path.text}</p><ul className="wd-path-facts">{path.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>{path.href.startsWith("https://wa.me/") ? <a href={path.href} target="_blank" rel="noopener noreferrer">{path.cta} <span aria-hidden="true">↗</span></a> : <Link href={path.href}>{path.cta} <span aria-hidden="true">↗</span></Link>}</article>)}</div>
       </section>
 
       <ServiceConfidenceStrip locale="ar" service="website" />
-
-      <section className="wd-truth"><div className="shell"><span className="wd-label wd-truth-label">الفكرة الأساسية</span><div className="wd-truth-grid wd-truth-grid-revised"><div className="wd-truth-primary"><h2>الشكل يلفت النظر<br/><em>لكن القرار يحتاج أكثر من شكل</em></h2></div><div className="wd-truth-secondary"><p>إذا لم يفهم الزائر الخدمة بسرعة، أو لم يجد سببًا للثقة، أو لم يعرف ماذا يفعل بعد ذلك، يصبح الموقع مجرد كتالوج جميل.</p><p>لهذا نربط التصميم بالمحتوى وتجربة المستخدم والسرعة والتتبع، ليخدم الموقع البحث والإعلانات والمبيعات في وقت واحد.</p></div></div></div></section>
 
       <section className="wd-journey"><div className="shell"><div className="wd-section-head"><div><span className="wd-label">من الزيارة إلى النتيجة</span><h2>كل صفحة لها وظيفة<br/><em>وكل خطوة تقلل التردد</em></h2></div><p>نبني الرحلة من السؤال الأول في ذهن الزائر إلى الإجراء الذي يخدم هدف النشاط.</p></div><div className="wd-journey-list">{stages.map((stage) => <article key={stage.n}><div className="wd-stage-id"><span>{stage.n}</span><small>{stage.en}</small></div><h3>{stage.title}</h3><p>{stage.text}</p></article>)}</div></div></section>
 

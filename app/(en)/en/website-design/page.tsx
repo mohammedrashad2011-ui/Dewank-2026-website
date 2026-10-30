@@ -159,7 +159,7 @@ export default function WebsiteDesignPage() {
         <div className="wd-hero-copy">
           <div className="wd-kicker"><span>WEBSITE DESIGN</span><span>UX / SEO / CRO</span></div>
           <h1>Your website is not only a showcase<br /><em>It should help the customer take a step</em></h1>
-          <p>Dewank designs and builds websites for businesses that need the message, trust, speed, search foundations and conversion path to work together, so visits from search and advertising become enquiries, sales or bookings.</p>
+          <p>We design and develop company websites and landing pages with clear content, responsive UX, SEO foundations and a direct path to enquire, book or buy.</p>
           <div className="wd-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss your project on WhatsApp <span>↗</span></a><a className="wd-text-link" href="#choose-path">Choose the type of site</a></div>
         </div>
         <div className="wd-browser" aria-label="Illustration of a clear, conversion-focused website">
@@ -174,7 +174,7 @@ export default function WebsiteDesignPage() {
       </section>
 
       <section className="wd-paths shell" id="choose-path">
-        <div className="wd-section-head"><div><span className="wd-label">Choose a starting point</span><h2>Not every project needs the same site<br /><em>Start with the scope that serves the goal</em></h2></div><p>Choosing between a landing page, a company website and a custom project keeps cost and complexity under control without reducing the result you need.</p></div>
+        <div className="wd-section-head"><div><span className="wd-label">Choose a starting point</span><h2>Not every project needs the same site<br /><em>Start with the scope that serves the goal</em></h2></div><p>Compare the scope, timeline and inclusions before requesting a quote.</p></div>
         <div className="wd-path-grid">
           {servicePaths.map((path, index) => (
             <article key={path.title} id={path.id}>
@@ -189,19 +189,6 @@ export default function WebsiteDesignPage() {
       </section>
 
       <ServiceConfidenceStrip locale="en" service="website" />
-
-      <section className="wd-truth">
-        <div className="shell">
-          <span className="wd-label wd-truth-label">The core idea</span>
-          <div className="wd-truth-grid wd-truth-grid-revised">
-            <div className="wd-truth-primary"><h2>Appearance attracts attention<br /><em>The decision needs more than appearance</em></h2></div>
-            <div className="wd-truth-secondary">
-              <p>If a visitor does not understand the service quickly, has no reason to trust you, or does not know what to do next, a beautiful site is still only a catalogue.</p>
-              <p>So we connect the design with content, user experience, speed and tracking, so the site serves search, advertising and sales at the same time.</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="wd-journey">
         <div className="shell">

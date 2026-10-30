@@ -241,7 +241,7 @@ export default function OffersPage() {
             <div className="offer-card-meta"><div><small>يبدأ من</small><CroPackagePrice offerKey="cro-snapshot" /></div><span className="button primary">الباقات <span>←</span></span></div>
           </article>
 
-          <aside className="offers-note offers-overview-note"><div><small>لم تقرر بعد؟</small><h2>أخبرنا بهدفك<br/>ونرشح لك البداية المناسبة</h2><p>أرسل نشاطك والنتيجة التي تريد الوصول إليها، ونحدد لك أي عرض أقرب لاحتياجك دون أن تشتري خدمات لا تحتاجها.</p></div><Link className="button primary" href="https://wa.me/97339066649">اسأل ديوانك <span>←</span></Link></aside>
+          <aside className="offers-note offers-overview-note"><div><small>لم تقرر بعد؟</small><h2>أخبرنا بهدفك<br/>ونرشح لك البداية المناسبة</h2><p>أرسل نشاطك وهدفك لنرشح العرض الأقرب قبل الاتفاق على النطاق والسعر.</p></div><a className="button primary" href={"https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أحتاج مساعدة في اختيار عرض مناسب. نشاطي: . هدفي: ")} target="_blank" rel="noopener noreferrer">ناقش العرض على واتساب <span>↗</span></a></aside>
         </section>
       </section>
       <section className="shell offer-faq offers-hub-faq" id="offers-faq" aria-labelledby="offers-faq-title">

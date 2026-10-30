@@ -108,7 +108,7 @@ const offerChoices: OfferChoice[] = [
 ];
 
 export default function OffersPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like help choosing the right offer for my business. My goal is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like help choosing the right offer. My business is: . My goal is: ");
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -184,7 +184,7 @@ export default function OffersPage() {
             <div>
               <small>Not sure yet?</small>
               <h2>Tell us your goal<br />We will suggest the right starting point</h2>
-              <p>Send us your business and the result you want, and we will recommend the offer closest to your need, without buying services you do not need. Prices are shown in US dollars by default, and in your country&apos;s approved price where one exists.</p>
+              <p>Share your business and goal so we can recommend an offer before agreeing the scope and price. Prices default to US dollars, with local pricing where available.</p>
             </div>
             <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Ask Dewank on WhatsApp <span>→</span></a>
           </aside>

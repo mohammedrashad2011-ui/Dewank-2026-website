@@ -192,30 +192,9 @@ export default function ServicesPage() {
           to follow-up. We start with the bottleneck that limits growth, then recommend the service closest to the result,
           rather than selling a larger package than the business needs.
         </p>
-        <div className="services-aeo-grid">
-          <article><b>Attract customers</b><span>Google Ads and Meta Ads when you need measurable enquiries.</span></article>
-          <article><b>Convert visits</b><span>Websites, landing pages and conversion work when visitors do not take the next step.</span></article>
-          <article><b>Content and presence</b><span>Strategy, content and design when your visibility is irregular or unconvincing.</span></article>
-          <article><b>Brand</b><span>Positioning, naming and identity when the business needs more clarity and consistency.</span></article>
-          <article><b>Automation and follow-up</b><span>WhatsApp, CRM and AI when replies are slow or leads are lost.</span></article>
-        </div>
       </section>
 
-      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title">
-        <div>
-          <span className="section-label">If the problem is not clear yet</span>
-          <h2 id="problem-chooser-title">Tell us where the customer gets stuck.<br /><em>We will start there.</em></h2>
-          <p className="services-cro-link">Visits arrive but enquiries do not follow? <Link href="/en/conversion-rate-optimization#pricing">See the conversion audit packages →</Link></p>
-        </div>
-        <div className="problem-options">
-          <Link href="/en/services#brand-strategy"><b>The brand is unclear</b><span>Brand strategy and identity →</span></Link>
-          <Link href="/en/paid-advertising"><b>I need more customers</b><span>Paid advertising →</span></Link>
-          <Link href="/en/website-design"><b>Visits do not convert</b><span>Website and conversion →</span></Link>
-          <Link href="/en/whatsapp-crm-automation"><b>Follow-up is slow or lost</b><span>WhatsApp, CRM and automation →</span></Link>
-        </div>
-      </section>
-
-      <RelatedGuides
+<RelatedGuides
         guides={[
           { href: "/en/guides/seo-vs-aeo", title: "SEO vs AEO: how to appear in Google and AI answers" },
           { href: "/en/guides/google-ads-vs-meta-ads", title: "Google Ads or Meta Ads: which is right for your business?" },
@@ -243,7 +222,7 @@ export default function ServicesPage() {
           <h2>Not sure yet?<br /><em>Send the business and the problem only.</em></h2>
         </div>
         <div className="fit-card">
-          <p>We review where growth is blocked and suggest the smallest sensible scope, rather than a bigger service than the current problem needs.</p>
+          <p>Share your business and current challenge so we can define the scope before pricing.</p><p className="services-cro-link">Visits without enquiries? <Link href="/en/conversion-rate-optimization#pricing">See the conversion audit packages →</Link></p>
           <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss on WhatsApp <span>↗</span></a>
         </div>
       </section>

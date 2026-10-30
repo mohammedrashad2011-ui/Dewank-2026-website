@@ -169,17 +169,8 @@ export default function ServicesPage() {
         <small>الإجابة السريعة</small>
         <h2 id="services-aeo-title">شركة تسويق متكاملة أم خدمات منفصلة؟</h2>
         <p>ديوانك شركة تسويق ووكالة تسويق تخدم الشركات في السعودية والخليج عبر منظومة واحدة تجمع الاستراتيجية والإعلانات والمحتوى والويب والقياس والأتمتة. نبدأ من نقطة الاختناق التي تمنع النمو، ثم نختار الخدمة الأقرب للنتيجة بدل بيع باقة أكبر من الحاجة.</p>
-        <div className="services-aeo-grid">
-          <article><b>جذب العملاء</b><span>Google Ads وMeta Ads عندما تحتاج طلبًا أو Leads قابلة للقياس.</span></article>
-          <article><b>تحويل الزيارات</b><span>مواقع وصفحات هبوط وCRO عندما يدخل الزائر ولا يتخذ خطوة.</span></article>
-          <article><b>المحتوى والحضور</b><span>استراتيجية ومحتوى وتصميم عندما يكون الظهور غير منتظم أو غير مقنع.</span></article>
-          <article><b>العلامة</b><span>تموضع وهوية وتسمية عندما يحتاج المشروع وضوحًا واتساقًا أكبر.</span></article>
-          <article><b>الأتمتة والمتابعة</b><span>WhatsApp وCRM وAI عندما يتأخر الرد أو تضيع المتابعة والعملاء.</span></article>
-        </div>
         <p className="services-decision-note">تبحث عن شريك تسويق باللغة الإنجليزية في الرياض؟ <Link href="/en/riyadh-marketing-agency">Marketing Agency Riyadh ↗</Link></p>
       </section>
-
-      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title"><div><span className="section-label">إذا لم تتضح المشكلة بعد</span><h2 id="problem-chooser-title">أخبرنا أين يتعطل العميل<br/><em>ونبدأ من هناك</em></h2><p className="services-cro-link">زيارات تصل ولا تتحول إلى استفسارات؟ <Link href="/conversion-rate-optimization#pricing">اطّلع على باقات تدقيق التحويل ←</Link></p></div><div className="problem-options"><Link href="/branding"><b>العلامة غير واضحة</b><span>استراتيجية البراند والهوية ←</span></Link><Link href="/paid-ads"><b>أحتاج عملاء أكثر</b><span>الإعلانات واكتساب العملاء ←</span></Link><Link href="/website-design"><b>الزيارات لا تتحول</b><span>الموقع وCRO والقياس ←</span></Link><Link href="/whatsapp-automation"><b>المتابعة بطيئة أو تضيع</b><span>واتساب وCRM والأتمتة ←</span></Link></div></section>
 
       <section className="shell primary-service-paths decision-guides" aria-labelledby="decision-guides-title">
         <div className="primary-paths-head"><span className="section-label">قبل أن تطلب عرضًا</span><h2 id="decision-guides-title">افهم السعر والنطاق أولًا</h2><p>أدلة عملية تشرح ما يغيّر التكلفة وما يجب أن يشمله العرض في كل خدمة، قبل أن تقارن بين العروض.</p></div>
@@ -188,7 +179,7 @@ export default function ServicesPage() {
 
       <section className="seo-content shell services-faq" aria-labelledby="services-faq-title"><span className="section-label">أسئلة شائعة</span><h2 id="services-faq-title">صورة أوضح قبل أن تبدأ</h2><div className="services-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="fit-section shell services-final-cta"><div><span className="section-label">الخطوة التالية</span><h2>لم تقرر بعد؟<br/><em>أرسل النشاط والمشكلة فقط</em></h2></div><div className="fit-card"><p>نراجع أين توجد نقطة الاختناق ونرشح أصغر نطاق منطقي بدل تحميلك بخدمات أكبر من احتياجك الحالي.</p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">حدد الخدمة على واتساب <span>↗</span></a></div></section>
+      <section className="fit-section shell services-final-cta"><div><span className="section-label">الخطوة التالية</span><h2>لم تقرر بعد؟<br/><em>أرسل النشاط والمشكلة فقط</em></h2></div><div className="fit-card"><p>أرسل نشاطك والتحدي الحالي لنحدد نطاق العمل قبل التسعير.</p><p className="services-cro-link">زيارات تصل دون استفسارات؟ <Link href="/conversion-rate-optimization#pricing">اطّلع على باقات تدقيق التحويل ←</Link></p><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">حدد الخدمة على واتساب <span>↗</span></a></div></section>
       <Footer />
     </main>
   );

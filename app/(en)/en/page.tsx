@@ -104,7 +104,7 @@ export default function Home() {
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
           <h2 id="home-proof-title">
-            Results from a live clinic project
+            A live clinic workflow
           </h2>
           <p>
             In a live project for a cosmetic clinic, we connected marketing with conversations, booking and follow-up,
@@ -119,26 +119,13 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="proof-grid home-proof-metrics">
-          <article>
-            <strong>+30%</strong>
-            <h3>Approximate improvement in conversion to booking</h3>
-            <p>A clearer journey from enquiry to appointment.</p>
-          </article>
-          <article>
-            <strong>+25</strong>
-            <h3>Approximate points gained in attendance rate</h3>
-            <p>With more regular reminders and follow-up.</p>
-          </article>
-          <article>
-            <strong>−40%</strong>
-            <h3>Approximate reduction in reception workload</h3>
-            <p>After automating replies and repeated tasks.</p>
-          </article>
+        <div className="proof-grid home-proof-metrics home-proof-operations">
+          <article><strong>Reply</strong><h3>Organised WhatsApp enquiries</h3><p>Conversations linked to customer records in a CRM.</p></article>
+          <article><strong>Book</strong><h3>A clear appointment path</h3><p>Qualification connected to booking and reminders.</p></article>
+          <article><strong>Follow up</strong><h3>Contact beyond the first enquiry</h3><p>Organised follow-up and handover to the team.</p></article>
         </div>
         <p className="proof-note">
-          Approximate results from a previous project, not a guarantee of similar outcomes. Results vary with the
-          business, the offer, the data and the execution.
+          This example shows the scope delivered in a previous project. It does not establish a percentage improvement or guarantee similar results.
         </p>
       </section>
 
@@ -215,8 +202,7 @@ export default function Home() {
               <em>Clearer decisions</em>
             </h2>
             <p>
-              We start with the business problem, then identify the shortest path that can be executed and measured.
-              Every step leads to a clear decision, not an activity for its own sake.
+              We start with the business problem and connect the brand strategy, content, ads, website, SEO, WhatsApp and CRM work you need in a scope we can execute and measure.
             </p>
           </div>
           <div className="method-list">
@@ -227,29 +213,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="home-growth-summary shell" aria-labelledby="home-growth-summary-title">
-        
-        <h2 id="home-growth-summary-title">From the first impression to the follow-up after the enquiry</h2>
-        <p>
-          We connect brand strategy, content, ads, websites, SEO, WhatsApp and CRM so each step serves the next, rather
-          than running separate services whose effect is hard to see.
-        </p>
-        <div className="home-growth-links">
-          <Link href="/en/brand-naming">
-            Brand <span>↗</span>
-          </Link>
-          <Link href="/en/paid-advertising">
-            Ads <span>↗</span>
-          </Link>
-          <Link href="/en/website-design">
-            Websites <span>↗</span>
-          </Link>
-          <Link href="/en/whatsapp-crm-automation">
-            Automation <span>↗</span>
-          </Link>
         </div>
       </section>
 
