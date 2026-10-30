@@ -71,7 +71,7 @@ const catalogue = {
         strap: "Make it unmistakable",
         text: "Positioning, identity and content that give your business a distinctive, consistent presence.",
         tags: ["Branding", "Content", "Social"],
-        url: "/en/services#brand",
+        url: "/en/branding",
         field: "IDENTITY",
       },
       automation: {
