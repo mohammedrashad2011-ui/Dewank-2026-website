@@ -98,7 +98,7 @@ export default function PaidAdvertisingPage() {
           <div className="pa-kicker"><span>GOOGLE ADS</span><span>META ADS</span><span>PERFORMANCE</span></div>
           <h1>Google Ads management<br /><em>A clearer budget. Customers you can measure</em></h1>
           <p>We manage campaigns from keyword and advert to landing page, tracking and follow-up, so you can see which spend produces customers and where a campaign needs fixing before the budget grows.</p>
-          <div className="pa-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Review your campaign on WhatsApp <span>↗</span></a><Link href="#launch">Only need a launch?</Link><a href="#journey">See our process</a></div>
+          <div className="pa-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss ongoing management <span>↗</span></a><Link href="/en/offers/google-ads-launch">Need a one-time Search launch? <span aria-hidden="true">↗</span></Link></div>
         </div>
         <div className="pa-dashboard" aria-label="Illustration of the measures used to judge campaigns">
           <div className="pa-dashboard-top"><b>PAID MEDIA CONTROL</b><span>MEASUREMENT VIEW</span></div>
@@ -113,8 +113,8 @@ export default function PaidAdvertisingPage() {
         <h2 id="pa-answer-title">What does Google Ads management include, and when is a launch enough?</h2>
         <p>A launch suits you when you need one search campaign set up in an organised way. Monthly management suits accounts that need continuous testing of keywords, adverts, pages, budgets and tracking, and better lead quality over time.</p>
         <div className="pa-answer-grid">
-          <article><b>Launch only</b><span>Keyword research, a Search campaign, adverts, negative keywords and basic conversion tracking, delivered within a defined scope.</span></article>
-          <article><b>Monthly management</b><span>Ongoing review of search terms, adverts and budget, with weak spend paused and proven campaigns expanded.</span></article>
+          <article><b>Launch only</b><span>Keyword research, a Search campaign, adverts, negative keywords and basic conversion tracking, delivered within a defined scope.</span><Link className="pa-choice-link" href="/en/offers/google-ads-launch">View launch scope and price <span aria-hidden="true">↗</span></Link></article>
+          <article><b>Monthly management</b><span>Ongoing review of search terms, adverts and budget, with weak spend paused and proven campaigns expanded.</span><a className="pa-choice-link" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss an existing campaign <span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
 
@@ -202,7 +202,7 @@ export default function PaidAdvertisingPage() {
         </div>
         <div className="pa-offer-row">
           <div className="pa-offer-copy"><small>If you only need a Google Search campaign</small><h3>Google Ads launch</h3><p>One organised Search campaign with a defined scope: keyword research, adverts, negative keywords and basic conversion tracking, without bundling it into full monthly management.</p></div>
-          <Link className="pa-offer-price-card" href={contactLink}><OfferPrice offerKey="google-ads-launch" className="pa-offer-price-value" /><b>Request the launch package ↗</b></Link>
+          <Link className="pa-offer-price-card" href="/en/offers/google-ads-launch"><OfferPrice offerKey="google-ads-launch" className="pa-offer-price-value" /><b>View the launch package ↗</b></Link>
         </div>
       </section>
 
