@@ -6,13 +6,14 @@ Two decisions are made at build time, in two small modules:
 - `app/lib/site-environment.ts` decides whether the build is a **production** or **preview** site, for indexing.
 
 Vendor loading is decided in one place, the consent bootstrap (`app/components/consent-bootstrap.ts`), which is rendered
-by `app/components/root-document.tsx` in `<head>` before any other script. Nothing else loads GTM, GA4 or the Meta Pixel.
+by `app/components/root-document.tsx` at the start of `<body>`. It loads GTM and Meta Pixel when permitted; the published
+GTM container loads GA4. The site does not load a separate `gtag.js` or configure a second initial page view.
 
 ## The mode rule
 
 | Mode         | When it applies                                                                 | Vendor loading | dataLayer events |
 |--------------|----------------------------------------------------------------------------------|----------------|------------------|
-| `production` | Default. Vercel production, any non-Vercel host (for example the Hostinger site), local builds | Only after the visitor allows the matching category (see Consent) | Pushed in the browser, dropped until a category is allowed, then sent |
+| `production` | Default. Vercel production, any non-Vercel host (for example the Hostinger site), local builds | Usage measurement defaults on; advertising defaults off; stored preferences override both | Accepted while either category is on; event objects dropped when both are off |
 | `preview`    | Vercel preview and development deployments, or `DEWANK_ANALYTICS_MODE=preview`  | Never                                  | Pushed in the browser, sent nowhere |
 
 Decided at build time, in this order:
@@ -27,11 +28,12 @@ The mode is baked into the HTML at build time. Changing it needs a rebuild.
 
 ## Consent (production mode only)
 
-- Google Consent Mode v2 starts denied. Analytics storage follows the usage category. Ad storage, ad user data and ad
-  personalisation follow the advertising category.
+- With no stored choice, Google Consent Mode v2 starts with analytics storage granted and ad storage, ad user data and
+  ad personalisation denied. A stored choice replaces these defaults. This describes the current implementation,
+  not a legal assessment or a change to the production policy.
 - Usage measurement loads GTM (`GTM-PG525ZFN`) and GA4. Advertising measurement loads GTM and the Meta Pixel.
-- With no choice, or after Reject all, no vendor request is made, and `dataLayer` event objects are dropped. This means
-  no conversion event (for example `sitewide_whatsapp_click` or `contact_whatsapp_submit`) is recorded for those visitors.
+- With no choice, usage measurement loads. After Reject all (both categories off), no vendor loads on the next page
+  load and `dataLayer` event objects are dropped. Withdrawal reloads the page to stop already loaded vendors.
 - The choice is stored under `dewank-consent-v1`. Withdrawal reloads the page when a vendor had loaded, and measurement
   cookies are removed on every load where no category is allowed.
 - The full rules, the owner items and the verification results are in `docs/privacy-cookies-review.md`.
@@ -40,7 +42,7 @@ The mode is baked into the HTML at build time. Changing it needs a rebuild.
 
 | Environment | How it is built | Analytics mode | Site mode | Notes |
 |---|---|---|---|---|
-| Arabic production (Hostinger-served site) | No `VERCEL_ENV` | production | production | Existing IDs and events are preserved. Vendors load only after consent. |
+| Arabic production (Hostinger-served site) | No `VERCEL_ENV` | production | production | Existing IDs and events are preserved. Usage defaults on; stored preferences override it. |
 | Vercel production (if promoted) | `VERCEL_ENV=production` | production | production | Same as above. |
 | Vercel Preview (release candidate) | `VERCEL_ENV=preview` | preview | preview | No vendor loads. English pages are `noindex`. |
 | Local development (`next dev`) | `VERCEL_ENV` unset | production | production | Set `DEWANK_ANALYTICS_MODE=preview` locally to avoid any vendor request. |

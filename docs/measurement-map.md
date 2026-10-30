@@ -1,5 +1,12 @@
 # Measurement map (updated 13 October 2026)
 
+> Historical account snapshot. Do not use the v7 observations below as current configuration.
+> Read-only inspection on 30 October 2026 retrieved published GTM resource version 11. It contains a Google tag for
+> `G-5SKKT1NBHB`, active `whatsapp_click` and `contact_intent` link tags, and a paused legacy tag. The old
+> `whatsapp_click_790_offer` name remains in the conversion-marking rules but no active event tag emits it in this
+> resource. Account-side key-event/import settings and live delivery still need verification. Do not pause or publish
+> tags based on the historical recommendations below. See `pr204-performance-seo-analytics-2026-10-30.md`.
+
 Status key: **VERIFIED** (observed in an account or locally), **CONFIGURED BUT UNVERIFIED** (set up in the container or code,
 not observed live), **NEEDS OWNER ACCESS** (could not be read from the session).
 
