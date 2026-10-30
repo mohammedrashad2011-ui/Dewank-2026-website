@@ -298,7 +298,10 @@
   background:#ebb02e;border-color:#ebb02e;
 }
 .growth-home-experiment .hm-services-stage-contact:focus-visible{
-  outline:3px solid currentColor;outline-offset:4px;
+  outline:3px solid #011127;outline-offset:4px;
+}
+.growth-home-experiment .hm-services[data-focus="automation"] .hm-services-stage-link:focus-visible{
+  outline-color:#011127;
 }
 @media(max-width:480px){
   .growth-home-experiment .hm-services-stage-actions{gap:10px 14px}
