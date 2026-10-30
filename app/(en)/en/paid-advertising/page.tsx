@@ -6,6 +6,8 @@ import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic paid-advertising page's layout and styles, reused unchanged. English-only direction and type overrides follow.
+import ServiceConfidenceStrip from "../../../components/service-confidence-strip";
+import "../../../components/service-confidence-strip.css";
 import "../../../(ar)/paid-ads/paid-ads-page.css";
 import "../../../(ar)/paid-ads/paid-ads-cluster.css";
 import "../../../(ar)/paid-ads/paid-ads-refinement.css";
@@ -117,6 +119,8 @@ export default function PaidAdvertisingPage() {
           <article><b>Monthly management</b><span>Ongoing review of search terms, adverts and budget, with weak spend paused and proven campaigns expanded.</span><a className="pa-choice-link" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss an existing campaign <span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
+
+      <ServiceConfidenceStrip locale="en" service="ads" />
 
       <section className="pa-truth">
         <div className="shell pa-truth-grid">
