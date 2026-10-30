@@ -7,6 +7,8 @@ export const organizationId = `${siteUrl}/#organization`;
 export const defaultDescription =
   "ديوانك شركة تسويق رقمي واستوديو نمو للشركات في السعودية والخليج، يجمع استراتيجية البراند وتصميم المواقع والحملات وأتمتة واتساب وCRM في منظومة واحدة.";
 
+const organizationImage = `${siteUrl}/brand/dewank-organization-1200.png`;
+
 const socialImage = `${siteUrl}/dewank-social-preview-2026-07.png`;
 
 export function createMetadata({
@@ -112,8 +114,14 @@ export const organizationSchema = {
   name: organizationName,
   alternateName: organizationAlternateName,
   url: siteUrl,
-  logo: `${siteUrl}/dewank-logo.png`,
-  image: socialImage,
+  logo: {
+    "@type": "ImageObject",
+    url: organizationImage,
+    contentUrl: organizationImage,
+    width: 1200,
+    height: 1200,
+  },
+  image: organizationImage,
   description: defaultDescription,
   email: "hello@dewank.com",
   telephone: "+97339066649",
@@ -158,8 +166,14 @@ export const englishOrganizationSchema = {
   name: organizationAlternateName,
   alternateName: organizationName,
   url: siteUrl,
-  logo: `${siteUrl}/dewank-logo.png`,
-  image: socialImage,
+  logo: {
+    "@type": "ImageObject",
+    url: organizationImage,
+    contentUrl: organizationImage,
+    width: 1200,
+    height: 1200,
+  },
+  image: organizationImage,
   description: englishDescription,
   email: "hello@dewank.com",
   telephone: "+97339066649",
