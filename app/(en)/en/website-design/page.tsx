@@ -34,8 +34,8 @@ const servicePaths = [
     title: "A landing page for one campaign or service",
     text: "Best when you need a focused message, one offer and one call to action linked to an advert or a specific service.",
     facts: ["One page with one conversion goal.", "Usually delivered in 7–10 working days after the information is approved.", "Domain and hosting are included only in the full package, for one year."],
-    href: "/en/contact",
-    cta: "Request the landing page package",
+    href: "/en/offers/landing-page-package",
+    cta: "View the landing page package",
   },
   {
     id: "company-website",
@@ -43,8 +43,8 @@ const servicePaths = [
     title: "A company website that builds trust and explains the services",
     text: "For businesses that need a professional presence, clear service pages, and a link between search, advertising and contact.",
     facts: ["Up to 5 core pages.", "Usually delivered in 7–12 working days after the content is received.", "Domain and hosting are outside the basic package unless agreed separately."],
-    href: "/en/contact",
-    cta: "Request the company website package",
+    href: "/en/offers/small-business-website",
+    cta: "View the company website package",
   },
   {
     id: "custom-project",
@@ -52,8 +52,8 @@ const servicePaths = [
     title: "A custom project when the journey is more complex",
     text: "For projects that need more pages, a CRM, booking, automation, integrations or an experience that goes beyond a template.",
     facts: ["Pages and functions are defined before pricing.", "Stores, booking and integrations need a written scope.", "Timeline and price depend on the scope."],
-    href: "#process",
-    cta: "See how we deliver",
+    href: "https://wa.me/97339066649?text=" + encodeURIComponent("Hello Dewank, I need a custom website with additional features. My business is: "),
+    cta: "Discuss a custom website on WhatsApp",
   },
 ];
 
@@ -171,6 +171,21 @@ export default function WebsiteDesignPage() {
         </div>
       </section>
 
+      <section className="wd-paths shell" id="choose-path">
+        <div className="wd-section-head"><div><span className="wd-label">Choose a starting point</span><h2>Not every project needs the same site<br /><em>Start with the scope that serves the goal</em></h2></div><p>Choosing between a landing page, a company website and a custom project keeps cost and complexity under control without reducing the result you need.</p></div>
+        <div className="wd-path-grid">
+          {servicePaths.map((path, index) => (
+            <article key={path.title} id={path.id}>
+              <small>{String(index + 1).padStart(2, "0")} · {path.label}</small>
+              <h3>{path.title}</h3>
+              <p>{path.text}</p>
+              <ul className="wd-path-facts">{path.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
+              {path.href.startsWith("https://wa.me/") ? <a href={path.href} target="_blank" rel="noopener noreferrer">{path.cta} <span aria-hidden="true">↗</span></a> : <Link href={path.href}>{path.cta} <span aria-hidden="true">↗</span></Link>}
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="wd-truth">
         <div className="shell">
           <span className="wd-label wd-truth-label">The core idea</span>
@@ -181,21 +196,6 @@ export default function WebsiteDesignPage() {
               <p>So we connect the design with content, user experience, speed and tracking, so the site serves search, advertising and sales at the same time.</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="wd-paths shell" id="choose-path">
-        <div className="wd-section-head"><div><span className="wd-label">Choose a starting point</span><h2>Not every project needs the same site<br /><em>Start with the scope that serves the goal</em></h2></div><p>Choosing between a landing page, a company website and a custom project keeps cost and complexity under control without reducing the result you need.</p></div>
-        <div className="wd-path-grid">
-          {servicePaths.map((path, index) => (
-            <article key={path.title} id={path.id}>
-              <small>{String(index + 1).padStart(2, "0")} · {path.label}</small>
-              <h3>{path.title}</h3>
-              <p>{path.text}</p>
-              <ul className="wd-path-facts">{path.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
-              <Link href={path.href}>{path.cta} <span>↗</span></Link>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -249,17 +249,17 @@ export default function WebsiteDesignPage() {
           ))}
         </div>
         <div className="wd-offer-grid">
-          <Link className="wd-offer-card" href="/en/contact">
+          <Link className="wd-offer-card" href="/en/offers/landing-page-package">
             <small>For one campaign or service</small>
             <strong>Custom landing page</strong>
             <p>A focused path with one goal, including copy, design, the form or WhatsApp route and conversion tracking.</p>
-            <span className="wd-offer-price"><OfferPrice offerKey="landing-page-package" className="wd-offer-price-value" /><span className="wd-offer-link">Request this package →</span></span>
+            <span className="wd-offer-price"><OfferPrice offerKey="landing-page-package" className="wd-offer-price-value" /><span className="wd-offer-link">View the package →</span></span>
           </Link>
-          <Link className="wd-offer-card" href="/en/contact">
+          <Link className="wd-offer-card" href="/en/offers/small-business-website">
             <small>For a small company website</small>
             <strong>Company website, up to 5 pages</strong>
             <p>A ready starting point for businesses that need a professional presence without a large development project.</p>
-            <span className="wd-offer-price"><OfferPrice offerKey="small-business-website" className="wd-offer-price-value" /><span className="wd-offer-link">Request this package →</span></span>
+            <span className="wd-offer-price"><OfferPrice offerKey="small-business-website" className="wd-offer-price-value" /><span className="wd-offer-link">View the package →</span></span>
           </Link>
         </div>
       </section>
