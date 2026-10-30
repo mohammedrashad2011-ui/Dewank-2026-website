@@ -7,6 +7,8 @@ import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic website-design page's layout and styles, reused unchanged. English-only direction and type overrides follow.
+import ServiceConfidenceStrip from "../../../components/service-confidence-strip";
+import "../../../components/service-confidence-strip.css";
 import "../../../(ar)/website-design/website-design-page.css";
 import "../../../(ar)/website-design/website-cluster.css";
 import "../../../(ar)/website-design/website-design-refinement.css";
@@ -185,6 +187,8 @@ export default function WebsiteDesignPage() {
           ))}
         </div>
       </section>
+
+      <ServiceConfidenceStrip locale="en" service="website" />
 
       <section className="wd-truth">
         <div className="shell">
