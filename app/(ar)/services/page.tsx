@@ -148,7 +148,7 @@ export default function ServicesPage() {
       <ServicesMotionStage locale="ar" />
 
       <section id="services-explore" className="shell primary-service-paths" aria-labelledby="primary-paths-title">
-        <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">حدد المشكلة، وخد أقصر طريق للحل</h2><p>اختر التحدي الأقرب لنشاطك، وهتلاقي الخدمة المناسبة وخطوة تواصل مباشرة.</p></div>
+        <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">حدد المشكلة، واختر أقصر طريق للحل</h2><p>اختر التحدي الأقرب لنشاطك، لتصل إلى الخدمة المناسبة وخطوة تواصل مباشرة.</p></div>
         <ServicePathSelector locale="ar" />
       </section>
 
