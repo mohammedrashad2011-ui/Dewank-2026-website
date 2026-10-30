@@ -34,7 +34,7 @@ const selectedWork = [
     label: "AUTOMATION",
     title: "From scattered messages to a booking journey you can measure",
     text: "A WhatsApp and CRM system that connects replies, qualification, booking, reminders and follow-up.",
-    href: "/en/work#clinic",
+    href: "/en/work#case-studies",
   },
   {
     n: "02",
@@ -48,7 +48,7 @@ const selectedWork = [
     label: "STRATEGY",
     title: "Strategic decisions before execution",
     text: "Projects that show how we think about the challenge, positioning and experience before the final form.",
-    href: "/en/work#concepts",
+    href: "/en/work#concept-work",
   },
 ];
 
@@ -111,7 +111,7 @@ export default function Home() {
             instead of letting each step work on its own.
           </p>
           <div className="home-proof-actions">
-            <Link href="/en/work#clinic">
+            <Link href="/en/work#case-studies">
               Read the full case study <span>→</span>
             </Link>
             <Link href="/en/whatsapp-crm-automation">
