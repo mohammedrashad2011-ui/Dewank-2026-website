@@ -276,6 +276,42 @@
   border-radius:2px;opacity:.65;
   font:800 10px/1.4 Arial,sans-serif;
 }
+
+/* CRO: direct, service-specific enquiry without removing the detail route. */
+.growth-home-experiment .hm-services-stage-actions{
+  display:flex;align-items:center;flex-wrap:wrap;gap:14px 20px;
+}
+.growth-home-experiment .hm-services-stage-contact{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:12px 17px;min-height:44px;
+  background:#011127;border:1px solid #011127;border-radius:99px;
+  color:#fcf6ea!important;text-decoration:none;font-size:13px;font-weight:850;
+  transition:background .2s ease,color .2s ease,transform .2s ease;
+}
+.growth-home-experiment .hm-services-stage-contact:hover{
+  background:#172b45;transform:translateY(-2px);
+}
+.growth-home-experiment .hm-services[data-focus="automation"] .hm-services-stage-contact{
+  background:#fcf6ea;border-color:#fcf6ea;color:#011127!important;
+}
+.growth-home-experiment .hm-services[data-focus="automation"] .hm-services-stage-contact:hover{
+  background:#ebb02e;border-color:#ebb02e;
+}
+.growth-home-experiment .hm-services-stage-contact:focus-visible{
+  outline:3px solid #011127;outline-offset:4px;
+}
+.growth-home-experiment .hm-services[data-focus="automation"] .hm-services-stage-link:focus-visible{
+  outline-color:#011127;
+}
+@media(max-width:480px){
+  .growth-home-experiment .hm-services-stage-actions{gap:10px 14px}
+  .growth-home-experiment .hm-services-stage-contact{padding:10px 14px}
+}
+@media(prefers-reduced-motion:reduce){
+  .growth-home-experiment .hm-services-stage-contact{transition:none}
+  .growth-home-experiment .hm-services-stage-contact:hover{transform:none}
+}
+
 .growth-home-experiment .hm-services-stage-link{
   display:inline-flex;align-items:center;gap:20px;
   border-bottom:1px solid currentColor;padding-bottom:7px;

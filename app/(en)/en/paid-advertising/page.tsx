@@ -6,6 +6,8 @@ import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic paid-advertising page's layout and styles, reused unchanged. English-only direction and type overrides follow.
+import ServiceConfidenceStrip from "../../../components/service-confidence-strip";
+import "../../../components/service-confidence-strip.css";
 import "../../../(ar)/paid-ads/paid-ads-page.css";
 import "../../../(ar)/paid-ads/paid-ads-cluster.css";
 import "../../../(ar)/paid-ads/paid-ads-refinement.css";
@@ -98,7 +100,7 @@ export default function PaidAdvertisingPage() {
           <div className="pa-kicker"><span>GOOGLE ADS</span><span>META ADS</span><span>PERFORMANCE</span></div>
           <h1>Google Ads management<br /><em>A clearer budget. Customers you can measure</em></h1>
           <p>We manage campaigns from keyword and advert to landing page, tracking and follow-up, so you can see which spend produces customers and where a campaign needs fixing before the budget grows.</p>
-          <div className="pa-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Review your campaign on WhatsApp <span>↗</span></a><Link href="#launch">Only need a launch?</Link><a href="#journey">See our process</a></div>
+          <div className="pa-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss ongoing management <span>↗</span></a><Link href="/en/offers/google-ads-launch">Need a one-time Search launch? <span aria-hidden="true">↗</span></Link></div>
         </div>
         <div className="pa-dashboard" aria-label="Illustration of the measures used to judge campaigns">
           <div className="pa-dashboard-top"><b>PAID MEDIA CONTROL</b><span>MEASUREMENT VIEW</span></div>
@@ -111,25 +113,17 @@ export default function PaidAdvertisingPage() {
       <section className="pa-answer-block shell" aria-labelledby="pa-answer-title">
         <small>Quick answer</small>
         <h2 id="pa-answer-title">What does Google Ads management include, and when is a launch enough?</h2>
-        <p>A launch suits you when you need one search campaign set up in an organised way. Monthly management suits accounts that need continuous testing of keywords, adverts, pages, budgets and tracking, and better lead quality over time.</p>
+        <p>Choose a single campaign set-up or ongoing management. Platform spend is separate from our fees.</p>
         <div className="pa-answer-grid">
-          <article><b>Launch only</b><span>Keyword research, a Search campaign, adverts, negative keywords and basic conversion tracking, delivered within a defined scope.</span></article>
-          <article><b>Monthly management</b><span>Ongoing review of search terms, adverts and budget, with weak spend paused and proven campaigns expanded.</span></article>
+          <article><b>Launch only</b><span>Keyword research, a Search campaign, adverts, negative keywords and basic conversion tracking, delivered within a defined scope.</span><Link className="pa-choice-link" href="/en/offers/google-ads-launch">View launch scope and price <span aria-hidden="true">↗</span></Link></article>
+          <article><b>Monthly management</b><span>Ongoing review of search terms, adverts and budget, with weak spend paused and proven campaigns expanded.</span><a className="pa-choice-link" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss an existing campaign <span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
 
-      <section className="pa-truth">
-        <div className="shell pa-truth-grid">
-          <div><span className="pa-label">The core idea</span><h2>Advertising is not a separate campaign<br /><em>It is part of the sales system</em></h2></div>
-          <div>
-            <p>When the offer is weak, the tracking is incomplete or the landing page is confusing, more spend simply means more waste.</p>
-            <p>So we connect the channel to the message, the audience, the conversion and the follow-up, so you know what works and why.</p>
-          </div>
-        </div>
-      </section>
+      <ServiceConfidenceStrip locale="en" service="ads" />
 
       <section className="pa-channels shell">
-        <div className="pa-section-head"><div><span className="pa-label">Choosing a channel</span><h2>Google captures demand<br /><em>Meta creates interest</em></h2></div><p>If a customer is already searching for your service or product, Google is usually the logical starting point. If you need to create interest, test angles and messages, or retarget people, Meta may be the better fit. The decision depends on what the customer is doing, not on which platform is most popular.</p></div>
+        <div className="pa-section-head"><div><span className="pa-label">Choosing a channel</span><h2>Google captures demand<br /><em>Meta creates interest</em></h2></div><p>We choose the channel by customer intent, decision stage and available budget.</p></div>
         <div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div>
       </section>
 
@@ -189,7 +183,7 @@ export default function PaidAdvertisingPage() {
           <article><b>Landing page</b><span>Is the page fast, clear and leads the customer to one next step?</span></article>
           <article><b>Lead quality</b><span>Are the leads you get suitable, or only general enquiries?</span></article>
         </div>
-        <div className="pa-readiness-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Send your account and we will find the weak point <span>↗</span></a><Link className="button secondary" href="/en/seo-geo-aeo">Compare with SEO</Link></div>
+        <div className="pa-readiness-actions"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss your campaign review <span>↗</span></a><Link className="button secondary" href="/en/seo-geo-aeo">Compare with SEO</Link></div>
       </section>
 
       <section className="pa-cluster shell" aria-labelledby="pa-cluster-title" id="launch">
@@ -202,7 +196,7 @@ export default function PaidAdvertisingPage() {
         </div>
         <div className="pa-offer-row">
           <div className="pa-offer-copy"><small>If you only need a Google Search campaign</small><h3>Google Ads launch</h3><p>One organised Search campaign with a defined scope: keyword research, adverts, negative keywords and basic conversion tracking, without bundling it into full monthly management.</p></div>
-          <Link className="pa-offer-price-card" href={contactLink}><OfferPrice offerKey="google-ads-launch" className="pa-offer-price-value" /><b>Request the launch package ↗</b></Link>
+          <Link className="pa-offer-price-card" href="/en/offers/google-ads-launch"><OfferPrice offerKey="google-ads-launch" className="pa-offer-price-value" /><b>View the launch package ↗</b></Link>
         </div>
       </section>
 

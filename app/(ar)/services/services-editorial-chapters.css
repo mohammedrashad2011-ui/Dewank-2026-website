@@ -662,3 +662,28 @@ html body .services-motion-premium .service-group[id="automation-services"]::aft
 @media(prefers-reduced-motion:reduce){
   html body .services-motion-premium .service-group[id]::after{animation:none!important}
 }
+
+
+/* CRO #204: a single decision-first services path, with the existing full service overview later. */
+html body .services-motion-premium #services-explore.primary-service-paths{
+  padding-top:clamp(42px,5vw,72px);
+  padding-bottom:clamp(40px,5vw,72px);
+}
+html body .services-motion-premium #services-explore .primary-paths-head{
+  margin-bottom:clamp(20px,3vw,32px);
+}
+html body .services-motion-premium #services-explore .service-path-selector{
+  margin-block:0;
+}
+html body .services-motion-premium #services-overview.services-aeo-answer{
+  margin-top:clamp(45px,6vw,88px);
+}
+@media(max-width:640px){
+  html body .services-motion-premium #services-explore.primary-service-paths{
+    padding-top:28px;
+    padding-bottom:36px;
+  }
+  html body .services-motion-premium #services-explore .primary-paths-head{
+    margin-bottom:18px;
+  }
+}

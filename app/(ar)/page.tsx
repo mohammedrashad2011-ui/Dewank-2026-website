@@ -76,16 +76,16 @@ export default function Home() {
 
       <section className="home-proof-hub shell" aria-labelledby="home-proof-title">
         <div className="home-proof-intro">
-          <h2 id="home-proof-title">النتيجة مهمة<br/><em>وطريقة الوصول لها أهم</em></h2>
+          <h2 id="home-proof-title">حالة تشغيل فعلية<br/><em>من الاستفسار إلى المتابعة</em></h2>
           <p>في مشروع فعلي بالقطاع الطبي، ربطنا التسويق بالمحادثة والحجز والمتابعة بدل ترك كل خطوة تعمل وحدها.</p>
-          <div className="home-proof-actions"><Link href="/work">شاهد دراسة الحالة كاملة <span>←</span></Link><Link href="/whatsapp-automation">استكشف أتمتة واتساب <span>←</span></Link></div>
+          <div className="home-proof-actions"><Link href="/work#case-studies">شاهد دراسة الحالة كاملة <span>←</span></Link><Link href="/whatsapp-automation">استكشف أتمتة واتساب <span>←</span></Link></div>
         </div>
-        <div className="proof-grid home-proof-metrics">
-          <article><strong>+30%</strong><h3>تحسن تقريبي في التحويل إلى حجز</h3><p>رحلة أوضح من الاستفسار إلى الموعد.</p></article>
-          <article><strong>+25</strong><h3>نقطة تقريبًا في معدل الحضور</h3><p>مع تذكير ومتابعة أكثر انتظامًا.</p></article>
-          <article><strong>−40%</strong><h3>ضغط أقل تقريبًا على الاستقبال</h3><p>بعد أتمتة الردود والمهام المتكررة.</p></article>
+        <div className="proof-grid home-proof-metrics home-proof-operations">
+          <article><strong>رد</strong><h3>تنظيم استفسارات واتساب</h3><p>ربط المحادثة ببيانات العميل داخل CRM.</p></article>
+          <article><strong>حجز</strong><h3>مسار واضح للموعد</h3><p>ربط التأهيل بالحجز والتذكير.</p></article>
+          <article><strong>متابعة</strong><h3>استمرار التواصل بعد الاستفسار</h3><p>تنظيم المتابعة وتسليم المحادثة للفريق.</p></article>
         </div>
-        <p className="proof-note">نتائج تشغيل فعلية تقريبية من مشروع سابق، وليست ضمانًا لنتيجة مماثلة. تختلف النتائج حسب النشاط والعرض والبيانات والتنفيذ.</p>
+        <p className="proof-note">المثال يوضح نطاق التنفيذ في مشروع سابق؛ لا يثبت نسبة تحسن أو يضمن نتيجة مماثلة.</p>
       </section>
 
       <section className="bento-section home-core-paths">
@@ -107,17 +107,11 @@ export default function Home() {
 
       <section className="method-section home-method-section">
         <div className="shell method-layout">
-          <div className="method-intro"><span className="section-label">كيف نعمل</span><h2>أقل خطوات<br/><em>قرارات أوضح</em></h2><p>نبدأ بالمشكلة التجارية، ثم نحدد أقصر مسار يمكن تنفيذه وقياسه قبل إضافة أي طبقات لا تحتاجها.</p></div>
+          <div className="method-intro"><span className="section-label">كيف نعمل</span><h2>أقل خطوات<br/><em>قرارات أوضح</em></h2><p>نبدأ بالمشكلة التجارية، ونربط ما تحتاجه من استراتيجية العلامة والمحتوى والإعلانات والموقع وSEO وواتساب وCRM في نطاق يمكن تنفيذه وقياسه.</p></div>
           <div className="method-list">
             {[["نفهم","السياق والجمهور ومكان التعطل."],["نحدد","الفرصة والرسالة والأولوية التجارية."],["نبني","البراند أو الموقع أو الحملة أو النظام المناسب."],["نقيس","نراجع ما يحدث ونحسن ما يصنع النتيجة."]].map(([t,p]) => <div key={t}><h3>{t}</h3><p>{p}</p></div>)}
           </div>
         </div>
-      </section>
-
-      <section className="home-growth-summary shell" aria-labelledby="home-growth-summary-title">
-        <h2 id="home-growth-summary-title">من أول انطباع إلى متابعة ما بعد الاستفسار</h2>
-        <p>نربط استراتيجية العلامة والمحتوى والإعلانات والموقع وSEO وواتساب وCRM بحيث تخدم كل خطوة ما بعدها، بدل تشغيل خدمات متفرقة يصعب معرفة أثرها.</p>
-        <div className="home-growth-links"><Link href="/branding">البراند <span>↗</span></Link><Link href="/paid-ads">الإعلانات <span>↗</span></Link><Link href="/website-design">المواقع <span>↗</span></Link><Link href="/whatsapp-automation">الأتمتة <span>↗</span></Link></div>
       </section>
 
       <section className="home-selected-offers shell" aria-labelledby="home-offers-title">

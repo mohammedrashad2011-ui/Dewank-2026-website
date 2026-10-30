@@ -1,7 +1,7 @@
 /* Dewank editorial chapters / homepage only.
    Each chapter has a distinct rhythm: proof wall, asymmetric service gallery,
    image-led work folios, restrained testimonials, active process, bold closing.
-   Existing SEO copy, real metrics, offers, links and FAQ data are untouched. */
+   Service details, offers and FAQ data retain their existing visual system. */
 .growth-home-experiment {
   --hm-paper:#f2efe7;
   --hm-ink:#171516;
@@ -885,3 +885,13 @@ html body .en-parity.studio-home.growth-home-experiment .home-core-paths .growth
     }
   }
 }
+
+/* Operational case scope replaces unsupported headline percentages. */
+.growth-home-experiment .home-proof-operations strong {
+  font-family:inherit;
+  font-size:clamp(28px,3.2vw,46px);
+  line-height:1.3;
+  overflow-wrap:anywhere;
+}
+.growth-home-experiment .home-proof-operations article { min-height:0; }
+.growth-home-experiment .proof-grid.home-proof-operations { margin-top:36px; }

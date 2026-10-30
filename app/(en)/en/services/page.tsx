@@ -54,13 +54,6 @@ const cards: Card[] = [
   { id: "ai-automation", no: "12", label: "AI AUTOMATION", tone: "automation", visual: "ai", title: "Do not add AI to a messy process.", hook: "Organise the process, then automate it.", text: "Automation and AI workflows that connect marketing, sales, customer service and operations, reducing manual work and speeding decisions.", tags: ["AI agents", "Workflows", "Integrations"], href: "/en/ai-automation", cta: "See AI automation" },
 ];
 
-const paths = [
-  { label: "Attract customers", title: "Paid advertising", text: "Google Ads and Meta Ads with tracking and conversion-focused optimisation, not clicks alone.", href: "/en/paid-advertising", cta: "Explore paid advertising" },
-  { label: "Convert visits", title: "Website design", text: "A website or landing page that connects the message, trust, SEO and the call to action in one journey.", href: "/en/website-design", cta: "Explore websites" },
-  { label: "Build presence", title: "Content and social", text: "Strategy, ideas, design, captions and a publishing plan that make your accounts more consistent and clear.", href: "/en/social-media-content", cta: "Explore content" },
-  { label: "Speed up follow-up", title: "WhatsApp and automation", text: "Replies, qualification, booking and follow-up, connected to a CRM, then wider automation when it is needed.", href: "/en/whatsapp-crm-automation", cta: "Explore automation" },
-];
-
 const faqs = [
   ["What are Dewank's core services?", "Dewank combines brand strategy, naming and identity, digital marketing, paid advertising, website design and conversion work, SEO, GEO and AEO, social media and content, analytics, WhatsApp and CRM automation, and AI automation as one growth system."],
   ["How do I know which service fits my business?", "Start with the problem closest to revenue: not enough enquiries, visitors who do not act, inconsistent content, or slow follow-up. If the problem is not clear, we review the journey and propose the smallest scope that can show a result."],
@@ -126,43 +119,13 @@ export default function ServicesPage() {
 
       <ServicesMotionStage locale="en" />
 
-      <section id="services-explore" className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
-        <small>Quick answer</small>
-        <h2 id="services-aeo-title">A full-service agency, or separate services?</h2>
-        <p>
-          Dewank is a brand, marketing and automation agency for businesses that want a clear route from attention to enquiry
-          to follow-up. We start with the bottleneck that limits growth, then recommend the service closest to the result,
-          rather than selling a larger package than the business needs.
-        </p>
-        <div className="services-aeo-grid">
-          <article><b>Attract customers</b><span>Google Ads and Meta Ads when you need measurable enquiries.</span></article>
-          <article><b>Convert visits</b><span>Websites, landing pages and conversion work when visitors do not take the next step.</span></article>
-          <article><b>Content and presence</b><span>Strategy, content and design when your visibility is irregular or unconvincing.</span></article>
-          <article><b>Brand</b><span>Positioning, naming and identity when the business needs more clarity and consistency.</span></article>
-          <article><b>Automation and follow-up</b><span>WhatsApp, CRM and AI when replies are slow or leads are lost.</span></article>
-        </div>
-      </section>
-
-      <section className="shell primary-service-paths" aria-labelledby="primary-paths-title">
+      <section id="services-explore" className="shell primary-service-paths" aria-labelledby="primary-paths-title">
         <div className="primary-paths-head">
           <span className="section-label">Where to start</span>
-          <h2 id="primary-paths-title">Four starting points for most growth problems.</h2>
-          <p>Instead of reading a long list, begin with the result closest to what you need to fix now.</p>
-        </div>
-        <div className="primary-path-grid">
-          {paths.map((path) => (
-            <Link href={path.href} className="primary-path-card" key={path.href}>
-              <small>{path.label}</small>
-              <h3>{path.title}</h3>
-              <p>{path.text}</p>
-              <span>{path.cta} ↗</span>
-            </Link>
-          ))}
+          <h2 id="primary-paths-title">Choose the bottleneck. Find your next step.</h2>
+          <p>Choose the challenge closest to your business. Get a relevant service route and a direct way to talk.</p>
         </div>
         <ServicePathSelector locale="en" />
-        <p className="services-decision-note">
-          Rule of thumb: need enquiries? Start with advertising. Visits not converting? Start with the website. Replies or follow-up getting lost? Start with WhatsApp and CRM. Presence unclear? Start with content or brand.
-        </p>
       </section>
 
       <section className="shell services-mid-cta" aria-label="Choose the right service">
@@ -221,21 +184,18 @@ export default function ServicesPage() {
         <div className="services-detail-bento services-grid-refined">{cards.slice(10).map(renderCard)}</div>
       </section>
 
-      <section className="shell problem-chooser" aria-labelledby="problem-chooser-title">
-        <div>
-          <span className="section-label">If the problem is not clear yet</span>
-          <h2 id="problem-chooser-title">Tell us where the customer gets stuck.<br /><em>We will start there.</em></h2>
-          <p className="services-cro-link">Visits arrive but enquiries do not follow? <Link href="/en/conversion-rate-optimization#pricing">See the conversion audit packages →</Link></p>
-        </div>
-        <div className="problem-options">
-          <Link href="/en/services#brand-strategy"><b>The brand is unclear</b><span>Brand strategy and identity →</span></Link>
-          <Link href="/en/paid-advertising"><b>I need more customers</b><span>Paid advertising →</span></Link>
-          <Link href="/en/website-design"><b>Visits do not convert</b><span>Website and conversion →</span></Link>
-          <Link href="/en/whatsapp-crm-automation"><b>Follow-up is slow or lost</b><span>WhatsApp, CRM and automation →</span></Link>
-        </div>
+      <section id="services-overview" className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
+        <small>Quick answer</small>
+        <h2 id="services-aeo-title">A full-service agency, or separate services?</h2>
+        <p>
+          Dewank is a brand, marketing and automation agency for businesses that want a clear route from attention to enquiry
+          to follow-up. We start with the bottleneck that limits growth, then recommend the service closest to the result,
+          rather than selling a larger package than the business needs.
+        </p>
+        <p>We connect Google Ads and Meta Ads with generating enquiries; websites, landing pages and conversion work with visitor action; strategy, content and design with a consistent presence; positioning, naming and identity with brand clarity; and WhatsApp, CRM and AI with faster replies and follow-up.</p>
       </section>
 
-      <RelatedGuides
+<RelatedGuides
         guides={[
           { href: "/en/guides/seo-vs-aeo", title: "SEO vs AEO: how to appear in Google and AI answers" },
           { href: "/en/guides/google-ads-vs-meta-ads", title: "Google Ads or Meta Ads: which is right for your business?" },
@@ -263,7 +223,7 @@ export default function ServicesPage() {
           <h2>Not sure yet?<br /><em>Send the business and the problem only.</em></h2>
         </div>
         <div className="fit-card">
-          <p>We review where growth is blocked and suggest the smallest sensible scope, rather than a bigger service than the current problem needs.</p>
+          <p>Share your business and current challenge so we can define the scope before pricing.</p><p className="services-cro-link">Visits without enquiries? <Link href="/en/conversion-rate-optimization#pricing">See the conversion audit packages →</Link></p>
           <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Discuss on WhatsApp <span>↗</span></a>
         </div>
       </section>

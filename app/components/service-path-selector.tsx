@@ -14,10 +14,10 @@ const paths = {
     { problem: "المتابعة بطيئة أو تضيع", service: "واتساب وCRM والأتمتة", reason: "نظّم الرد والتأهيل والتسليم للفريق حتى لا تنقطع المحادثة.", href: "/whatsapp-automation", offer: "/offers/whatsapp-automation-starter", offerLabel: "عرض واتساب التأسيسي" },
   ],
   en: [
-    { problem: "The brand is unclear", service: "Brand strategy and identity", reason: "Clarify the promise, audience and difference before investing in more channels.", href: "/en/services#brand-strategy", offer: "/en/offers/brand-naming", offerLabel: "Naming offer" },
+    { problem: "The brand is unclear", service: "Brand strategy and identity", reason: "Clarify the promise, audience and difference before investing in more channels.", href: "/en/branding", offer: "/en/offers/brand-naming", offerLabel: "Naming offer" },
     { problem: "I need more customers", service: "Paid advertising", reason: "Connect the campaign to the page, tracking and follow-up so demand is measurable.", href: "/en/paid-advertising", offer: "/en/offers/google-ads-launch", offerLabel: "Google Ads launch offer" },
     { problem: "Visits do not convert", service: "Website and conversion", reason: "Review the message, trust and next step before paying for more traffic.", href: "/en/website-design", offer: "/en/conversion-rate-optimization#pricing", offerLabel: "Conversion audit packages" },
-    { problem: "Our presence is inconsistent", service: "Content and social media", reason: "Build a content plan that connects visibility to the information buyers need.", href: "/en/services/social-media-content", offer: "/en/offers/30-day-content-package", offerLabel: "30-day content offer" },
+    { problem: "Our presence is inconsistent", service: "Content and social media", reason: "Build a content plan that connects visibility to the information buyers need.", href: "/en/social-media-content", offer: "/en/offers/30-day-content-package", offerLabel: "30-day content offer" },
     { problem: "Follow-up is slow or lost", service: "WhatsApp, CRM and automation", reason: "Organise replies, qualification and handover so conversations keep moving.", href: "/en/whatsapp-crm-automation", offer: "/en/offers/whatsapp-automation-starter", offerLabel: "WhatsApp starter offer" },
   ],
 };

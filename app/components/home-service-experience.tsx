@@ -71,7 +71,7 @@ const catalogue = {
         strap: "Make it unmistakable",
         text: "Positioning, identity and content that give your business a distinctive, consistent presence.",
         tags: ["Branding", "Content", "Social"],
-        url: "/en/services#brand",
+        url: "/en/branding",
         field: "IDENTITY",
       },
       automation: {
@@ -91,6 +91,12 @@ export default function HomeServiceExperience({locale}: {locale: Language}) {
   const theatreRef=useRef<HTMLDivElement>(null);
   const content = catalogue[locale];
   const item = content.services[focus];
+  // The primary CTA opens a ready-to-send WhatsApp conversation about the selected service.
+  // No customer information is included in the URL, and the visitor still presses Send.
+  const enquiryText = locale === "ar"
+    ? `مرحبًا ديوانك، أريد مناقشة ${item.title} لنشاطي. نشاطي هو: `
+    : `Hello Dewank, I'd like to discuss ${item.title} for my business. My business is: `;
+  const enquiryHref = `https://wa.me/97339066649?text=${encodeURIComponent(enquiryText)}`;
   const onMove = (event: PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === "touch") return;
     const box=event.currentTarget.getBoundingClientRect();
@@ -150,7 +156,12 @@ export default function HomeServiceExperience({locale}: {locale: Language}) {
           <h3>{item.strap}</h3>
           <p>{item.text}</p>
           <div className="hm-services-tags">{item.tags.map(tag=><span key={tag}>{tag}</span>)}</div>
-          <Link className="hm-services-stage-link" href={item.url}>{content.action}<span aria-hidden="true">↗</span></Link>
+          <div className="hm-services-stage-actions">
+            <a className="hm-services-stage-contact" href={enquiryHref} target="_blank" rel="noopener noreferrer">
+              {locale === "ar" ? "ناقش احتياجك" : "Discuss your needs"}<span aria-hidden="true">↗</span>
+            </a>
+            <Link className="hm-services-stage-link" href={item.url}>{content.action}<span aria-hidden="true">↗</span></Link>
+          </div>
         </div>
         <span className="hm-services-edge-label" aria-hidden="true">DEWANK</span>
       </div>

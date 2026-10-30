@@ -8,6 +8,7 @@ import "../mobile-refinement.css";
 import "../desktop-cleanup.css";
 import "../home-final-cta-label-fix.css";
 import "../arabic-site-heading-polish.css";
+import "../review-visual-rhythm.css";
 import { defaultDescription, siteName, siteUrl } from "../lib/seo";
 import DeferredClientLayer from "../components/deferred-client-layer";
 

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import { GoogleAdsLaunchPrice } from "../offers/google-ads-launch/localized-google-ads-launch";
+import ServiceConfidenceStrip from "../../components/service-confidence-strip";
+import "../../components/service-confidence-strip.css";
 import "./paid-ads-page.css";
 import "./paid-ads-cluster.css";
 import "./paid-ads-refinement.css";
@@ -93,7 +95,7 @@ export default function PaidAdsPage() {
           <div className="pa-kicker"><span>GOOGLE ADS</span><span>META ADS</span><span>PERFORMANCE</span></div>
           <h1>إدارة Google Ads في السعودية<br/><em>ميزانية أوضح. وعميل قابل للقياس</em></h1>
           <p>ندير الحملات من الكلمة والإعلان إلى الصفحة والتتبع والمتابعة، لتعرف أي إنفاق يصنع عميلًا فعلًا، وأين تحتاج الحملة إصلاحًا قبل زيادة الميزانية.</p>
-          <div className="pa-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">راجع حملتك على واتساب <span>↗</span></a><Link href="/offers/google-ads-launch">تحتاج تشغيل حملة فقط؟</Link><a href="#journey">استعرض النظام</a></div>
+          <div className="pa-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش إدارة حملاتك <span>↗</span></a><Link href="/offers/google-ads-launch">تحتاج إطلاق حملة واحدة؟ <span aria-hidden="true">↗</span></Link></div>
         </div>
         <div className="pa-dashboard" aria-label="لوحة تصور عناصر قياس الحملات">
           <div className="pa-dashboard-top"><b>PAID MEDIA CONTROL</b><span>MEASUREMENT VIEW</span></div>
@@ -106,16 +108,16 @@ export default function PaidAdsPage() {
       <section className="pa-answer-block shell" aria-labelledby="pa-answer-title">
         <small>الإجابة السريعة</small>
         <h2 id="pa-answer-title">ماذا تشمل إدارة Google Ads؟ ومتى يكفي الإطلاق فقط؟</h2>
-        <p>الإطلاق يناسبك عندما تحتاج حملة Search واحدة بتأسيس منظم. أما الإدارة الشهرية فتناسب الحسابات التي تحتاج اختبارًا مستمرًا للكلمات والإعلانات والصفحات والميزانية والتتبع وتحسين جودة العملاء.</p>
+        <p>اختر تأسيس حملة واحدة أو إدارة مستمرة. ميزانية المنصة منفصلة عن أتعاب العمل.</p>
         <div className="pa-answer-grid">
-          <article><b>إطلاق فقط</b><span>بحث كلمات، بناء حملة Search، إعلانات، كلمات سلبية وتتبع أساسي، ثم تسليم نطاق واضح.</span></article>
-          <article><b>إدارة شهرية</b><span>مراجعة مستمرة للبحث والإعلانات والميزانية والتحويلات، مع إيقاف الضعيف وتوسيع ما يثبت فعاليته.</span></article>
+          <article><b>إطلاق فقط</b><span>بحث كلمات، بناء حملة Search، إعلانات، كلمات سلبية وتتبع أساسي، ثم تسليم نطاق واضح.</span><Link className="pa-choice-link" href="/offers/google-ads-launch">شاهد نطاق وسعر الإطلاق <span aria-hidden="true">↗</span></Link></article>
+          <article><b>إدارة شهرية</b><span>مراجعة مستمرة للبحث والإعلانات والميزانية والتحويلات، مع إيقاف الضعيف وتوسيع ما يثبت فعاليته.</span><a className="pa-choice-link" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش حملاتك الحالية <span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
 
-      <section className="pa-truth"><div className="shell pa-truth-grid"><div><span className="pa-label">الفكرة الأساسية</span><h2>الإعلان ليس حملة منفصلة<br/><em>إنه جزء من منظومة البيع</em></h2></div><div><p>عندما يكون العرض ضعيفًا أو التتبع ناقصًا أو صفحة الوصول مربكة، تصبح الزيادة في الإنفاق مجرد زيادة في الهدر.</p><p>لذلك نربط القناة بالرسالة والجمهور والتحويل والمتابعة حتى نعرف ما الذي يعمل ولماذا.</p></div></div></section>
+      <ServiceConfidenceStrip locale="ar" service="ads" />
 
-      <section className="pa-channels shell"><div className="pa-section-head"><div><span className="pa-label">اختيار القناة</span><h2>Google يلتقط الطلب<br/><em>Meta يصنع الاهتمام</em></h2></div><p>إذا كان العميل يبحث الآن عن الخدمة أو المنتج، يميل Google لأن يكون البداية المنطقية. وإذا كنت تحتاج خلق اهتمام أو اختبار زوايا ورسائل أو إعادة استهداف، قد تكون Meta أنسب. القرار يعتمد على نية العميل، لا شهرة المنصة.</p></div><div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
+      <section className="pa-channels shell"><div className="pa-section-head"><div><span className="pa-label">اختيار القناة</span><h2>Google يلتقط الطلب<br/><em>Meta يصنع الاهتمام</em></h2></div><p>نختار القناة حسب نية العميل ومرحلة القرار والميزانية المتاحة.</p></div><div className="pa-channel-grid">{channels.map((item, index) => <article key={item[0]}><span>0{index + 1}</span><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></section>
 
       <section className="pa-scope"><div className="shell"><div className="pa-section-head"><div><span className="pa-label">نطاق الإدارة</span><h2>حملات تخدم الهدف<br/><em>لا قائمة منصات</em></h2></div><p>نحدد المزيج حسب البيانات والميزانية والسوق، ونبني الاختبارات بالتدريج.</p></div><div className="pa-scope-grid">{scope.map((item, index) => <article key={item[0]}><b>{String(index + 1).padStart(2,"0")}</b><h3>{item[0]}</h3><p>{item[1]}</p></article>)}</div></div></section>
 

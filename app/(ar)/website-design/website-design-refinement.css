@@ -41,3 +41,20 @@
     gap: 2rem;
   }
 }
+
+/* CRO #204: show the three buying routes before long-form detail. */
+.wd-page #choose-path.wd-paths{
+  padding-top:clamp(42px,5vw,66px);
+  padding-bottom:clamp(44px,5vw,76px);
+  scroll-margin-top:110px;
+}
+.wd-page #choose-path .wd-path-grid article{min-height:0}
+.wd-page #choose-path .wd-path-grid h3{margin-top:clamp(16px,2vw,27px)}
+.wd-page #choose-path .wd-path-grid article>a{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:760px){
+  .wd-page #choose-path.wd-paths{
+    padding-top:30px;
+    padding-bottom:40px;
+    scroll-margin-top:72px;
+  }
+}

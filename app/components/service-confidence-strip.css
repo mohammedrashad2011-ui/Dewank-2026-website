@@ -1,0 +1,70 @@
+/* Compact, verifiable proof and next-step clarity on service landing pages. */
+.pa-page .service-confidence-strip,
+.wd-page .service-confidence-strip {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0;
+  margin-top:clamp(24px,3vw,40px);
+  margin-bottom:clamp(38px,5vw,64px);
+  padding:0;
+  border:1px solid rgba(16,26,43,.17);
+  border-radius:20px;
+  background:#fbf8f1;
+  color:#101a2b;
+  overflow:hidden;
+}
+.service-confidence-strip > div{
+  min-width:0;
+  padding:clamp(20px,2.5vw,30px);
+}
+.service-confidence-strip > div + div{
+  border-inline-start:1px solid rgba(16,26,43,.15);
+}
+.service-confidence-strip small{
+  display:block;
+  color:#80502a;
+  font-size:12px;
+  font-weight:800;
+  margin:0 0 10px;
+}
+.service-confidence-strip h3{
+  margin:0 0 10px;
+  font-size:clamp(21px,2.1vw,28px);
+  line-height:1.35;
+  letter-spacing:-.02em;
+  color:#101a2b;
+}
+.service-confidence-strip p{
+  margin:0;
+  max-width:60ch;
+  color:#3f4854;
+  font-size:14px;
+  line-height:1.8;
+}
+.service-confidence-strip a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:44px;
+  margin-top:9px;
+  color:#143e65;
+  font-size:14px;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.service-confidence-strip a:hover{color:#8b3f20}
+.service-confidence-strip a:focus-visible{
+  outline:3px solid #143e65;
+  outline-offset:4px;
+  border-radius:3px;
+}
+@media(max-width:700px){
+  .pa-page .service-confidence-strip,
+  .wd-page .service-confidence-strip{grid-template-columns:1fr}
+  .service-confidence-strip > div + div{
+    border-inline-start:0;
+    border-top:1px solid rgba(16,26,43,.15);
+  }
+  .service-confidence-strip > div{padding:22px}
+}
