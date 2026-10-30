@@ -5,6 +5,8 @@ import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import { LandingOfferPrice } from "../offers/landing-page-package/localized-landing-offer";
 import { SmallWebsitePrice } from "../offers/small-business-website/localized-small-website";
+import ServiceConfidenceStrip from "../../components/service-confidence-strip";
+import "../../components/service-confidence-strip.css";
 import "./website-design-page.css";
 import "./website-cluster.css";
 import "./website-design-refinement.css";
@@ -179,6 +181,8 @@ export default function WebsiteDesignPage() {
         <div className="wd-section-head"><div><span className="wd-label">اختَر نقطة البداية</span><h2>ليس كل مشروع يحتاج الموقع نفسه<br/><em>ابدأ بالنطاق الذي يخدم الهدف</em></h2></div><p>الاختيار الصحيح بين Landing Page وموقع شركة ومشروع مخصص يوفر التكلفة والتعقيد دون أن يقلل النتيجة المطلوبة.</p></div>
         <div className="wd-path-grid">{servicePaths.map((path) => <article key={path.title}><small>{path.label}</small><h3>{path.title}</h3><p>{path.text}</p><ul className="wd-path-facts">{path.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>{path.href.startsWith("https://wa.me/") ? <a href={path.href} target="_blank" rel="noopener noreferrer">{path.cta} <span aria-hidden="true">↗</span></a> : <Link href={path.href}>{path.cta} <span aria-hidden="true">↗</span></Link>}</article>)}</div>
       </section>
+
+      <ServiceConfidenceStrip locale="ar" service="website" />
 
       <section className="wd-truth"><div className="shell"><span className="wd-label wd-truth-label">الفكرة الأساسية</span><div className="wd-truth-grid wd-truth-grid-revised"><div className="wd-truth-primary"><h2>الشكل يلفت النظر<br/><em>لكن القرار يحتاج أكثر من شكل</em></h2></div><div className="wd-truth-secondary"><p>إذا لم يفهم الزائر الخدمة بسرعة، أو لم يجد سببًا للثقة، أو لم يعرف ماذا يفعل بعد ذلك، يصبح الموقع مجرد كتالوج جميل.</p><p>لهذا نربط التصميم بالمحتوى وتجربة المستخدم والسرعة والتتبع، ليخدم الموقع البحث والإعلانات والمبيعات في وقت واحد.</p></div></div></div></section>
 
