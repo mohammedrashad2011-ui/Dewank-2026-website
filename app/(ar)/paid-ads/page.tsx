@@ -93,7 +93,7 @@ export default function PaidAdsPage() {
           <div className="pa-kicker"><span>GOOGLE ADS</span><span>META ADS</span><span>PERFORMANCE</span></div>
           <h1>إدارة Google Ads في السعودية<br/><em>ميزانية أوضح. وعميل قابل للقياس</em></h1>
           <p>ندير الحملات من الكلمة والإعلان إلى الصفحة والتتبع والمتابعة، لتعرف أي إنفاق يصنع عميلًا فعلًا، وأين تحتاج الحملة إصلاحًا قبل زيادة الميزانية.</p>
-          <div className="pa-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">راجع حملتك على واتساب <span>↗</span></a><Link href="/offers/google-ads-launch">تحتاج تشغيل حملة فقط؟</Link><a href="#journey">استعرض النظام</a></div>
+          <div className="pa-actions"><a className="button primary" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش إدارة حملاتك <span>↗</span></a><Link href="/offers/google-ads-launch">تحتاج إطلاق حملة واحدة؟ <span aria-hidden="true">↗</span></Link></div>
         </div>
         <div className="pa-dashboard" aria-label="لوحة تصور عناصر قياس الحملات">
           <div className="pa-dashboard-top"><b>PAID MEDIA CONTROL</b><span>MEASUREMENT VIEW</span></div>
@@ -108,8 +108,8 @@ export default function PaidAdsPage() {
         <h2 id="pa-answer-title">ماذا تشمل إدارة Google Ads؟ ومتى يكفي الإطلاق فقط؟</h2>
         <p>الإطلاق يناسبك عندما تحتاج حملة Search واحدة بتأسيس منظم. أما الإدارة الشهرية فتناسب الحسابات التي تحتاج اختبارًا مستمرًا للكلمات والإعلانات والصفحات والميزانية والتتبع وتحسين جودة العملاء.</p>
         <div className="pa-answer-grid">
-          <article><b>إطلاق فقط</b><span>بحث كلمات، بناء حملة Search، إعلانات، كلمات سلبية وتتبع أساسي، ثم تسليم نطاق واضح.</span></article>
-          <article><b>إدارة شهرية</b><span>مراجعة مستمرة للبحث والإعلانات والميزانية والتحويلات، مع إيقاف الضعيف وتوسيع ما يثبت فعاليته.</span></article>
+          <article><b>إطلاق فقط</b><span>بحث كلمات، بناء حملة Search، إعلانات، كلمات سلبية وتتبع أساسي، ثم تسليم نطاق واضح.</span><Link className="pa-choice-link" href="/offers/google-ads-launch">شاهد نطاق وسعر الإطلاق <span aria-hidden="true">↗</span></Link></article>
+          <article><b>إدارة شهرية</b><span>مراجعة مستمرة للبحث والإعلانات والميزانية والتحويلات، مع إيقاف الضعيف وتوسيع ما يثبت فعاليته.</span><a className="pa-choice-link" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش حملاتك الحالية <span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
 
