@@ -192,6 +192,7 @@ export default function ServicesPage() {
           to follow-up. We start with the bottleneck that limits growth, then recommend the service closest to the result,
           rather than selling a larger package than the business needs.
         </p>
+        <p>We connect Google Ads and Meta Ads with generating enquiries; websites, landing pages and conversion work with visitor action; strategy, content and design with a consistent presence; positioning, naming and identity with brand clarity; and WhatsApp, CRM and AI with faster replies and follow-up.</p>
       </section>
 
 <RelatedGuides
