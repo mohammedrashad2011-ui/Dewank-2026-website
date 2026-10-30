@@ -72,13 +72,6 @@ const catalogOnlyServiceIds: Record<string, string> = {
   "09": `${siteUrl}/services#analytics-conversion-tracking`,
 };
 
-const primaryPaths = [
-  { label: "جذب العملاء", title: "إدارة الإعلانات", text: "Google Ads وMeta Ads مع تتبع وتحسين التحويل بدل شراء نقرات فقط.", href: "/paid-ads", cta: "استكشف الإعلانات" },
-  { label: "تحويل الزيارات", title: "تصميم المواقع", text: "موقع أو Landing Page يربط الرسالة والثقة وSEO والـCTA في رحلة واحدة.", href: "/website-design", cta: "استكشف المواقع" },
-  { label: "إدارة الحضور", title: "المحتوى والسوشيال", text: "استراتيجية وأفكار وتصميم وكابشنات وخطة نشر تجعل الحساب أكثر اتساقًا ووضوحًا.", href: "/services/social-media-content", cta: "استكشف المحتوى" },
-  { label: "تسريع المتابعة", title: "واتساب والأتمتة", text: "رد وتأهيل وحجز ومتابعة وربط CRM، ثم أتمتة أوسع عند الحاجة.", href: "/whatsapp-automation", cta: "استكشف الأتمتة" },
-];
-
 const decisionGuides = [
   { label: "العلامة", title: "تكلفة تصميم الهوية البصرية", text: "الفرق بين الشعار والهوية، وما الذي يجب أن تستلمه قبل التعاقد.", href: "/guides/branding-identity-cost-saudi-arabia" },
   { label: "التسمية", title: "كيف تختار اسمًا تجاريًا", text: "معايير الاسم والفحص اللغوي والتشابه والدومين قبل الإطلاق.", href: "/guides/how-to-choose-brand-name-saudi-arabia" },
@@ -154,25 +147,9 @@ export default function ServicesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <ServicesMotionStage locale="ar" />
 
-      <section id="services-explore" className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
-        <small>الإجابة السريعة</small>
-        <h2 id="services-aeo-title">شركة تسويق متكاملة أم خدمات منفصلة؟</h2>
-        <p>ديوانك شركة تسويق ووكالة تسويق تخدم الشركات في السعودية والخليج عبر منظومة واحدة تجمع الاستراتيجية والإعلانات والمحتوى والويب والقياس والأتمتة. نبدأ من نقطة الاختناق التي تمنع النمو، ثم نختار الخدمة الأقرب للنتيجة بدل بيع باقة أكبر من الحاجة.</p>
-        <div className="services-aeo-grid">
-          <article><b>جذب العملاء</b><span>Google Ads وMeta Ads عندما تحتاج طلبًا أو Leads قابلة للقياس.</span></article>
-          <article><b>تحويل الزيارات</b><span>مواقع وصفحات هبوط وCRO عندما يدخل الزائر ولا يتخذ خطوة.</span></article>
-          <article><b>المحتوى والحضور</b><span>استراتيجية ومحتوى وتصميم عندما يكون الظهور غير منتظم أو غير مقنع.</span></article>
-          <article><b>العلامة</b><span>تموضع وهوية وتسمية عندما يحتاج المشروع وضوحًا واتساقًا أكبر.</span></article>
-          <article><b>الأتمتة والمتابعة</b><span>WhatsApp وCRM وAI عندما يتأخر الرد أو تضيع المتابعة والعملاء.</span></article>
-        </div>
-        <p className="services-decision-note">تبحث عن شريك تسويق باللغة الإنجليزية في الرياض؟ <Link href="/en/riyadh-marketing-agency">Marketing Agency Riyadh ↗</Link></p>
-      </section>
-
-      <section className="shell primary-service-paths" aria-labelledby="primary-paths-title">
-        <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">أربع بوابات لمعظم مشاكل النمو</h2><p>بدل استعراض قائمة طويلة، ابدأ بالنتيجة الأقرب لما تريد إصلاحه الآن.</p></div>
-        <div className="primary-path-grid">{primaryPaths.map((path)=><Link href={path.href} className="primary-path-card" key={path.href}><small>{path.label}</small><h3>{path.title}</h3><p>{path.text}</p><span>{path.cta} ↗</span></Link>)}</div>
+      <section id="services-explore" className="shell primary-service-paths" aria-labelledby="primary-paths-title">
+        <div className="primary-paths-head"><span className="section-label">أسرع نقطة بداية</span><h2 id="primary-paths-title">حدد المشكلة، وخد أقصر طريق للحل</h2><p>اختر التحدي الأقرب لنشاطك، وهتلاقي الخدمة المناسبة وخطوة تواصل مباشرة.</p></div>
         <ServicePathSelector locale="ar" />
-        <p className="services-decision-note">قاعدة سريعة: تحتاج Leads؟ ابدأ بالإعلانات. الزيارات لا تتحول؟ ابدأ بالموقع. الرد والمتابعة يضيعان؟ ابدأ بواتساب وCRM. الحضور نفسه غير واضح؟ ابدأ بالمحتوى أو البراند.</p>
       </section>
 
       <section className="shell services-mid-cta" aria-label="تحديد الخدمة المناسبة">
@@ -187,6 +164,20 @@ export default function ServicesPage() {
       <section id="web-services" className="shell service-group" aria-labelledby="web-title"><div className="service-group-head"><span className="section-label">الويب والقياس</span><h2 id="web-title">اجعل كل زيارة قابلة للفهم والتحويل</h2><p>نبني التجربة، نحسن الظهور، ونربط الأرقام بالنتيجة التجارية.</p></div><div className="services-detail-bento services-grid-refined">{services.slice(5, 9).map(renderCard)}</div></section>
       <section id="automation-services" className="shell service-group" aria-labelledby="automation-title"><div className="service-group-head"><span className="section-label">الأتمتة والذكاء</span><h2 id="automation-title">لا تترك العميل ينتظر النظام اليدوي</h2><p>نربط الرد والتأهيل والمتابعة والبيانات لتعمل العمليات بسرعة واتساق.</p></div><div className="services-detail-bento services-grid-refined">{services.slice(9, 11).map(renderCard)}</div></section>
       <section className="shell service-group career-service-group" aria-labelledby="career-services-title"><div className="service-group-head"><span className="section-label">خدمة مهنية مستقلة</span><h2 id="career-services-title">خبرتك قوية. يجب أن تظهر كذلك</h2></div><div className="services-detail-bento services-grid-refined career-service-last">{services.slice(11).map(renderCard)}</div></section>
+
+      <section id="services-overview" className="shell services-aeo-answer" aria-labelledby="services-aeo-title">
+        <small>الإجابة السريعة</small>
+        <h2 id="services-aeo-title">شركة تسويق متكاملة أم خدمات منفصلة؟</h2>
+        <p>ديوانك شركة تسويق ووكالة تسويق تخدم الشركات في السعودية والخليج عبر منظومة واحدة تجمع الاستراتيجية والإعلانات والمحتوى والويب والقياس والأتمتة. نبدأ من نقطة الاختناق التي تمنع النمو، ثم نختار الخدمة الأقرب للنتيجة بدل بيع باقة أكبر من الحاجة.</p>
+        <div className="services-aeo-grid">
+          <article><b>جذب العملاء</b><span>Google Ads وMeta Ads عندما تحتاج طلبًا أو Leads قابلة للقياس.</span></article>
+          <article><b>تحويل الزيارات</b><span>مواقع وصفحات هبوط وCRO عندما يدخل الزائر ولا يتخذ خطوة.</span></article>
+          <article><b>المحتوى والحضور</b><span>استراتيجية ومحتوى وتصميم عندما يكون الظهور غير منتظم أو غير مقنع.</span></article>
+          <article><b>العلامة</b><span>تموضع وهوية وتسمية عندما يحتاج المشروع وضوحًا واتساقًا أكبر.</span></article>
+          <article><b>الأتمتة والمتابعة</b><span>WhatsApp وCRM وAI عندما يتأخر الرد أو تضيع المتابعة والعملاء.</span></article>
+        </div>
+        <p className="services-decision-note">تبحث عن شريك تسويق باللغة الإنجليزية في الرياض؟ <Link href="/en/riyadh-marketing-agency">Marketing Agency Riyadh ↗</Link></p>
+      </section>
 
       <section className="shell problem-chooser" aria-labelledby="problem-chooser-title"><div><span className="section-label">إذا لم تتضح المشكلة بعد</span><h2 id="problem-chooser-title">أخبرنا أين يتعطل العميل<br/><em>ونبدأ من هناك</em></h2><p className="services-cro-link">زيارات تصل ولا تتحول إلى استفسارات؟ <Link href="/conversion-rate-optimization#pricing">اطّلع على باقات تدقيق التحويل ←</Link></p></div><div className="problem-options"><Link href="/branding"><b>العلامة غير واضحة</b><span>استراتيجية البراند والهوية ←</span></Link><Link href="/paid-ads"><b>أحتاج عملاء أكثر</b><span>الإعلانات واكتساب العملاء ←</span></Link><Link href="/website-design"><b>الزيارات لا تتحول</b><span>الموقع وCRO والقياس ←</span></Link><Link href="/whatsapp-automation"><b>المتابعة بطيئة أو تضيع</b><span>واتساب وCRM والأتمتة ←</span></Link></div></section>
 
