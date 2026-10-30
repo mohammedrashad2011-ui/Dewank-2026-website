@@ -19,12 +19,12 @@ const content = {
       nextText: "شارك نشاطك وهدفك ووضع الحملات الحالي. نحدد هل الأنسب إطلاق حملة واحدة، إدارة مستمرة، أو معالجة الصفحة والتتبع أولًا، ثم نوضح النطاق."
     },
     website: {
-      aria: "مثال عمل فعلي وما يحدث بعد التواصل",
-      proofLabel: "مشروع فعلي من أعمالنا",
-      proofTitle: "BITHAN: من الاسم إلى الهوية",
-      proofText: "مشروع تسمية وهوية بصرية لعلامة مجوهرات، من الاتجاه الاستراتيجي إلى التطبيقات. هذا مثال على التنفيذ الإبداعي، وليس دراسة حالة لتصميم موقع.",
-      proofLink: "شاهد المشروع",
-      proofHref: "/work/bithan",
+      aria: "طريقة تنفيذ المواقع وما يحدث بعد التواصل",
+      proofLabel: "كيف ننفذ مشاريع المواقع",
+      proofTitle: "من تحديد الهدف إلى إطلاق الموقع",
+      proofText: "نبدأ بفهم الهدف ونطاق المشروع، ثم تصميم التجربة وتطويرها واختبارها قبل التسليم. هذه خطوات عملنا، وليست ادعاءً بنتائج مشروع عميل.",
+      proofLink: "شاهد مراحل التنفيذ",
+      proofHref: "#process",
       nextLabel: "بعد التواصل",
       nextTitle: "نختار نطاقًا يناسب مشروعك",
       nextText: "شارك رابط موقعك الحالي أو فكرة مشروعك. نحدد هل يكفي Landing Page أو موقع شركة أو مشروع مخصص، ونوضح ما يدخل في نطاق العمل."
@@ -43,12 +43,12 @@ const content = {
       nextText: "Share your business, goal and current campaign situation. We identify whether you need a single launch, ongoing management or a landing-page and tracking fix, then clarify the scope."
     },
     website: {
-      aria: "Selected work and what happens after contact",
-      proofLabel: "Completed creative project",
-      proofTitle: "BITHAN: from name to identity",
-      proofText: "An actual naming and visual identity project for a fine jewellery brand, from direction through applications. This shows creative execution, not a completed website case study.",
-      proofLink: "Explore the project",
-      proofHref: "/en/work/bithan",
+      aria: "Website delivery process and what happens after contact",
+      proofLabel: "How we deliver websites",
+      proofTitle: "From business goal to website launch",
+      proofText: "We define the business goal and scope, design the experience, build and test it before handover. This explains our process, not an unverified client outcome.",
+      proofLink: "See the delivery process",
+      proofHref: "#process",
       nextLabel: "What happens next",
       nextTitle: "The right scope for your site",
       nextText: "Share your current website or project idea. We work out whether a landing page, company website or custom build fits, then clarify what the project includes."
