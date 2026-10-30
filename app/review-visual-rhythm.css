@@ -1,0 +1,98 @@
+/* PR 204: measured type and spacing corrections on the five reviewed surfaces.
+   Keep copy, markup, motion, offscreen rendering and compact decision blocks intact. */
+main:is(.growth-home-experiment,.services-motion-premium,.offers-overview-page,.pa-page,.wd-page) {
+  --review-section-space:clamp(64px,7.2vw,104px);
+  --review-title-size:clamp(32px,3.9vw,56px);
+}
+
+/* Chapter boundaries retain breathing room; adjacent sections no longer double
+   130–158px of padding before the next decision. */
+html body .growth-home-experiment :is(.home-proof-hub.shell,.home-core-paths,.home-work-preview.shell,.home-selected-offers.shell,.faq-section.shell,.home-final-conversion,.home-method-section) {
+  padding-block:var(--review-section-space)!important;
+}
+html body .services-motion-premium :is(.service-group.shell,.services-aeo-answer.shell,.decision-guides.shell,.services-faq.shell,.services-final-cta) {
+  padding-block:var(--review-section-space)!important;
+}
+html body .pa-page :is(.pa-channels,.pa-scope,.pa-journey,.pa-measure,.pa-deliverables,.pa-fit,.pa-faq),
+html body .wd-page :is(.wd-journey,.wd-foundation,.wd-capabilities,.wd-deliverables,.wd-method,.wd-fit,.wd-faq) {
+  padding-block:var(--review-section-space)!important;
+}
+
+/* Major section headings share a scale. Compact cards and body text keep their
+   existing sizes, rather than applying a global h2/h3 rule to navigation or FAQs. */
+html body .growth-home-experiment :is(.home-core-paths .section-head,.home-work-head,.home-testimonials,.method-intro,.faq-section,.home-final-conversion) h2,
+html body .services-motion-premium :is(.service-group-head,.services-aeo-answer,.services-faq,.services-final-cta) > h2 {
+  font-size:var(--review-title-size)!important;
+  line-height:1.35!important;
+}
+html body .growth-home-experiment .home-proof-intro h2 {
+  font-size:clamp(34px,4.7vw,68px)!important;
+  line-height:1.35!important;
+}
+html body .growth-home-experiment .hm-services-stage-copy h3 {
+  font-size:clamp(28px,2.8vw,40px);
+  line-height:1.4;
+}
+html body .offers-overview-page .offers-filter-shell {padding-top:clamp(48px,5.5vw,80px)}
+html body .offers-overview-page .offers-overview-grid {padding-bottom:var(--review-section-space)}
+
+/* The ads hero's implicit min-content track exceeded its shell on mobile.
+   Constrain the existing layout so labels, copy and CTA wrap inside the viewport. */
+@media(max-width:1050px) {
+  html body .pa-page .pa-hero {grid-template-columns:minmax(0,1fr)}
+  html body .pa-page .pa-hero > * {min-width:0;max-width:100%}
+}
+
+@media(min-width:761px) {
+  html body .growth-home-experiment .dw-editorial-hero .dw-ed-headline {
+    font-size:clamp(54px,7vw,100px);line-height:1.14;
+  }
+  html body .growth-home-experiment .dw-editorial-hero[dir="rtl"] .dw-ed-headline {
+    font-size:clamp(58px,7.4vw,106px);line-height:1.4;
+  }
+  html body .growth-home-experiment .dw-editorial-hero .dw-ed-composition {
+    min-height:clamp(480px,46vw,670px);
+    padding-block:clamp(36px,4.5vw,64px);
+  }
+  html body .services-motion-premium .sm-hero-copy h1 {
+    font-size:clamp(44px,5.3vw,78px);line-height:1.22;
+  }
+  html body .services-motion-premium .sm-hero[dir="rtl"] .sm-hero-copy h1 {
+    font-size:clamp(48px,5.7vw,84px);line-height:1.4;
+  }
+  html body .offers-overview-page .om-hero-typography h1 {
+    font-size:clamp(54px,6.4vw,92px);line-height:1.2;
+  }
+  html body .offers-overview-page .offers-motion-stage[dir="rtl"] .om-hero-typography h1 {
+    font-size:clamp(58px,6.8vw,98px);line-height:1.5;
+  }
+  html body .offers-overview-page .om-stage-main {
+    min-height:clamp(450px,42vw,610px);
+    padding-block:clamp(56px,6vw,88px);
+  }
+  html body .pa-page .pa-hero-copy h1,
+  html body .wd-page .wd-hero-copy h1 {
+    font-size:clamp(40px,4.2vw,60px)!important;line-height:1.32!important;
+  }
+  html body .pa-page :is(.pa-section-head,.pa-sticky-copy,.pa-measure,.pa-fit,.pa-faq,.pa-final,.pa-cluster-head) h2,
+  html body .wd-page :is(.wd-section-head,.wd-sticky-copy,.wd-fit,.wd-faq,.wd-final,.wd-cluster-head) h2 {
+    font-size:clamp(31px,3.1vw,44px)!important;line-height:1.4!important;
+  }
+  html body :is(.pa-page .pa-hero,.wd-page .wd-hero) {
+    padding-top:clamp(104px,8.3vw,120px);
+    padding-bottom:var(--review-section-space);
+  }
+}
+
+@media(max-width:760px) {
+  html body :is(.pa-page .pa-hero,.wd-page .wd-hero) {padding-top:88px}
+  /* Mobile service heroes and already readable 29–34px titles stay as reviewed. */
+  html body .growth-home-experiment :is(.home-core-paths .section-head,.home-work-head,.home-testimonials,.method-intro,.faq-section,.home-final-conversion) h2,
+  html body .services-motion-premium :is(.service-group-head,.services-aeo-answer,.services-faq,.services-final-cta) > h2 {
+    font-size:32px!important;line-height:1.4!important;
+  }
+  html body .growth-home-experiment .faq-section > h2 {font-size:31px!important}
+  html body .offers-overview-page .offers-motion-stage[dir="rtl"] .om-hero-typography h1 {
+    font-size:clamp(40px,9.8vw,58px);
+  }
+}
