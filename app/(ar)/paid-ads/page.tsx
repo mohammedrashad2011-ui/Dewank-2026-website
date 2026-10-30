@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../lib/seo";
 import { GoogleAdsLaunchPrice } from "../offers/google-ads-launch/localized-google-ads-launch";
+import ServiceConfidenceStrip from "../../components/service-confidence-strip";
+import "../../components/service-confidence-strip.css";
 import "./paid-ads-page.css";
 import "./paid-ads-cluster.css";
 import "./paid-ads-refinement.css";
@@ -112,6 +114,8 @@ export default function PaidAdsPage() {
           <article><b>إدارة شهرية</b><span>مراجعة مستمرة للبحث والإعلانات والميزانية والتحويلات، مع إيقاف الضعيف وتوسيع ما يثبت فعاليته.</span><a className="pa-choice-link" href={whatsappHref} target="_blank" rel="noopener noreferrer">ناقش حملاتك الحالية <span aria-hidden="true">↗</span></a></article>
         </div>
       </section>
+
+      <ServiceConfidenceStrip locale="ar" service="ads" />
 
       <section className="pa-truth"><div className="shell pa-truth-grid"><div><span className="pa-label">الفكرة الأساسية</span><h2>الإعلان ليس حملة منفصلة<br/><em>إنه جزء من منظومة البيع</em></h2></div><div><p>عندما يكون العرض ضعيفًا أو التتبع ناقصًا أو صفحة الوصول مربكة، تصبح الزيادة في الإنفاق مجرد زيادة في الهدر.</p><p>لذلك نربط القناة بالرسالة والجمهور والتحويل والمتابعة حتى نعرف ما الذي يعمل ولماذا.</p></div></div></section>
 
