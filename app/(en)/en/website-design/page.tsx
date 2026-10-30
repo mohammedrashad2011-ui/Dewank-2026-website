@@ -164,7 +164,7 @@ export default function WebsiteDesignPage() {
         </div>
         <div className="wd-browser" aria-label="Illustration of a clear, conversion-focused website">
           <div className="wd-browser-top"><div><i></i><i></i><i></i></div><span>yourbusiness.com</span></div>
-          <div className="wd-browser-nav"><b>D</b><div><span>Services</span><span>Work</span><span>About</span></div><button type="button">Start a project</button></div>
+          <div className="wd-browser-nav"><b>D</b><div><span>Services</span><span>Work</span><span>About</span></div><span className="wd-browser-demo-action" aria-hidden="true">Start a project</span></div>
           <div className="wd-browser-grid">
             <div className="wd-screen-copy"><small>CLARITY</small><strong>Value<br /><em>before decoration.</em></strong><p>A clear message, proof of trust, and a path that leads to action.</p><span className="wd-demo-cta">Explore the solution →</span></div>
             <div className="wd-screen-cards"><article><b>Clear message</b><span>What do you offer?</span></article><article><b>Proof of trust</b><span>Why choose you?</span></article><article><b>Next step</b><span>What should they do now?</span></article></div>
