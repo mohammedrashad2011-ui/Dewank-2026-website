@@ -188,7 +188,7 @@ export default function OffersPage() {
           <article data-filter="brand" data-category="براند" className="offer-card compact-offer-card brand-naming-offer-card">
             <Link className="offer-card-hit" href="/offers/brand-naming" aria-label="شاهد تفاصيل باقة اختيار الاسم التجاري" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
-            <h2>اسم يعلق<br/><em>واتجاه يبني العلامة</em></h2>
+            <h2>اختيار اسم تجاري<br/><em>مدروس لمشروعك</em></h2>
             <p>10–15 اسمًا مدروسًا، فحص مبدئي للمعنى والتشابه والدومين، أفضل 3 ترشيحات، وتوجه أولي للعلامة للاسم المختار.</p>
             <div className="offer-card-meta"><div><small>الباقة الجاهزة من</small><BrandNamingOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
