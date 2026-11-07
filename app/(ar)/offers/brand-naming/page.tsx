@@ -83,8 +83,8 @@ export default function BrandNamingOfferPage() {
       <section className="shell offer-detail-hero brand-naming-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
-          <h1>اختيار اسم تجاري<br/><em>اسم يملأ خانة ويفتح مساحة للنمو</em></h1>
-          <p>نطوّر لك اسمًا تجاريًا يمكن فهمه وتذكره واستخدامه، ثم نمنحك توجهًا أوليًا للعلامة حتى لا تبدأ الهوية من فراغ.</p>
+          <h1>اختيار اسم تجاري<br/><em>مدروس لمشروعك</em></h1>
+          <p>اختيار اسم تجاري مميز لا يكفي إذا كان مشابهًا لاسم موجود. نساعدك على اختيار اسم مدروس، مع فحص مبدئي للمعنى والتشابه والدومين، لتقليل مخاطر الرفض وبناء علامة تجارية قابلة للتوسع قبل الاستثمار في هويتها.</p>
           <div className="brand-naming-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
             <span>تحصل على 10–15 اسمًا مدروسًا، أفضل 3 ترشيحات، فحصًا مبدئيًا للمعنى والتشابه والدومين، وتوجهًا أوليًا للعلامة للاسم المختار.</span>
