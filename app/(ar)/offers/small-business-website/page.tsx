@@ -119,7 +119,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <small>الباقة كاملة من</small>
           <SmallWebsitePrice />
           <p>يشمل حتى 5 صفحات. لا يشمل الدومين والاستضافة أو البرمجة الخاصة والخدمات الخارجية المدفوعة.</p>
-          <SmallWebsiteWhatsApp className="button primary" label="ابدأ موقعك عبر واتساب" />
+          <SmallWebsiteWhatsApp className="button primary" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -171,7 +171,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <span className="section-label">جاهز للبدء؟</span>
         <h2>اجعل لمشروعك<br/><em>عنوانًا رقميًا حقيقيًا</em></h2>
         <p>ابدأ بموقع واضح وسريع، وبعدها وسّعه فقط عندما يحتاج المشروع فعلًا.</p>
-        <SmallWebsiteWhatsApp className="button primary" label="ابدأ موقعك الآن" />
+        <SmallWebsiteWhatsApp className="button primary" label="احصل على استشارة مجانية الآن" />
         <div className="small-website-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط فقط؟</Link><Link href="/website-design">تحتاج موقعًا أكبر؟</Link><Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link></div>
       </section>
 
