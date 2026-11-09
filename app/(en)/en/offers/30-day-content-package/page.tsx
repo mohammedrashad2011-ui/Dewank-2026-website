@@ -47,21 +47,20 @@ const afterDelivery = [
 const faqItems = [
   ["Is this full management of a social media account?", "No. This is a 30-day content production package: ideas, design, captions, a publishing plan and a bio review. It does not include daily posting, message handling or paid campaigns."],
   ["What is the difference between this package and monthly management?", "This package suits you if your main need is producing content with a clear scope and price. Monthly management can include continuous posting, follow-up and reporting as agreed, so its scope and price are different."],
-  ["How can I check the package suits my business before paying?", "Send us your business on WhatsApp first. We review your need and explain whether this package fits, or whether you need monthly management or a different scope. You do not pay before this step."],
+  ["How can I check if this package suits my business?", "Get a free initial consultation on WhatsApp. We review your needs and explain whether the package fits or whether you need monthly management or a different scope."],
   ["How much does monthly content management cost?", "The price on this page is the full package price for your country: 12 posts, 3 stories, one reel, ideas, captions and a publishing plan. For the wider monthly management service, see the pricing section of our social media management page."],
   ["How long does delivery take?", "Usually 10 to 14 working days after we receive the information and materials we need and the direction is approved."],
-  ["Can I pay in two parts?", "Yes. 50% to start, and 50% after the direction is approved and before the final files are delivered."],
-  ["What if the direction does not suit me?", "We agree a clear direction before expanding production, and the package includes two rounds of design revisions. You can get a full refund before work starts; after that, only the completed part is deducted."],
+  ["What if the direction does not suit me?", "We agree a clear direction before expanding production, and the package includes two rounds of design revisions within the agreed scope."],
 ];
 
 const workSteps = [
   ["Send your business type and goal on WhatsApp."],
-  ["We confirm the package fits, then share the payment details."],
-  ["We start after the 50% payment and the approved direction."],
+  ["We confirm the package fits and explain the scope and next steps."],
+  ["We agree the initial direction and begin producing the content."],
 ];
 
 export default function ContentOfferPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like to check whether the 30-day content package fits my business. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation to check whether the 30-day content package suits my business. My business is: ");
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -99,10 +98,10 @@ export default function ContentOfferPage() {
         <aside className="offer-price-panel sales-price-panel">
           <small>Full package price</small>
           <OfferPrice offerKey="30-day-content-package" className="offer-price" />
-          <p className="sales-price-promise">Start with 50% only, after we review your business and confirm the package is right for you.</p>
-          <div className="offer-trust-inline" aria-label="Trust and reassurance"><span>No monthly contract</span><span>Direction approved first</span><span>Fit confirmed before payment</span></div>
-          <a className="button primary sales-primary-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Check the package fits your business <span>→</span></a>
-          <small className="sales-cta-note">WhatsApp, direct · No payment before we review your business</small>
+          <p className="sales-price-promise">We review your business first and explain whether this package is the right fit.</p>
+          <div className="offer-trust-inline" aria-label="Trust and reassurance"><span>No monthly contract</span><span>Direction approved first</span><span>Two revision rounds</span></div>
+          <a className="button primary sales-primary-cta offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <small className="sales-cta-note">WhatsApp, direct · Free initial consultation</small>
         </aside>
 
         <ContentSystemStage locale="en" />
@@ -118,7 +117,7 @@ export default function ContentOfferPage() {
       <section className="shell sales-outcomes" aria-labelledby="sales-outcomes-title">
         <div className="sales-section-head compact"><span className="section-label">What you gain</span><h2 id="sales-outcomes-title">Not 16 designs alone<br/>A month ready to show up</h2></div>
         <div className="sales-outcome-grid">{afterDelivery.map(([title, text]) => <article key={title}><span>✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
-        <div className="sales-mid-cta"><p>If this is what your account is missing, let us confirm the package fits before you pay anything.</p><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Review the package with me on WhatsApp <span>→</span></a></div>
+        <div className="sales-mid-cta"><p>If this is what your account is missing, let us check whether the package suits your business.</p><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a></div>
       </section>
 
       <section className="shell offer-deliverables sales-deliverables">
@@ -127,8 +126,8 @@ export default function ContentOfferPage() {
       </section>
 
       <section className="shell sales-risk-reversal" aria-labelledby="sales-risk-title">
-        <div><span className="section-label">A simpler decision</span><h2 id="sales-risk-title">We do not ask you to trust big promises</h2><p>We reduce the risk of the decision as much as we can: we review your business first, agree the direction, and you start with half the package price.</p></div>
-        <div className="sales-risk-grid"><article><strong>01</strong><h3>We confirm the fit</h3><p>If your need is outside this package, we tell you before you pay.</p></article><article><strong>02</strong><h3>You approve the direction</h3><p>We do not expand production until the direction is clear and suits your business.</p></article><article><strong>03</strong><h3>50% to start</h3><p>The second payment comes after the direction is approved and before the final files are delivered.</p></article><article><strong>04</strong><h3>A clear refund policy</h3><p>Full refund before production starts. After work begins, only the completed part is deducted.</p></article></div>
+        <div><span className="section-label">A simpler decision</span><h2 id="sales-risk-title">We do not ask you to trust big promises</h2><p>We review your business first, clarify the creative direction and explain the next steps before production starts.</p></div>
+        <div className="sales-risk-grid"><article><strong>01</strong><h3>We confirm the fit</h3><p>If your needs are outside this package, we explain that from the start.</p></article><article><strong>02</strong><h3>You approve the direction</h3><p>We do not expand production until the direction is clear and suits your business.</p></article><article><strong>03</strong><h3>A clear delivery scope</h3><p>We explain the deliverables and timeline before work starts.</p></article><article><strong>04</strong><h3>Two revision rounds</h3><p>The package includes two rounds of design revisions within the agreed scope.</p></article></div>
       </section>
 
       <section className="shell offer-fit sales-fit">
@@ -152,13 +151,13 @@ export default function ContentOfferPage() {
 
       <section className="shell offer-final-cta sales-final-cta">
         <span className="offer-kicker">16 content pieces · <OfferPrice offerKey="30-day-content-package" className="offer-kicker-price" /></span>
-        <h2>If you need the content, do not pay for full management you do not need</h2>
+        <h2>If you only need content, choose a package that fits</h2>
         <p>Send us your business type. We will check whether the 30-day package is the right fit, or whether you need a wider monthly service, then explain the next step.</p>
-        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Send my business and check the right fit <span>→</span></a>
-        <small>No commitment before the review · 50% only when work starts</small>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+        
       </section>
 
-      <div className="sales-mobile-sticky" aria-label="Quick contact on WhatsApp"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Ask about the 30-day package</a></div>
+      <div className="sales-mobile-sticky" aria-label="Quick contact on WhatsApp"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now</a></div>
       <Footer />
     </main>
   );

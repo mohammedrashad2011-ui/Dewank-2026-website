@@ -94,7 +94,7 @@ export default function MiniVisualIdentityOffer() {
           <MiniIdentityPrice />
           <div className="offer-trust-inline"><span>شعار أساسي</span><span>3 تطبيقات</span><span>جولتا تعديل</span></div>
           <p>لا تشمل استراتيجية براند كاملة أو اختيار الاسم أو إدارة المحتوى أو تطبيقات موسعة خارج النطاق المتفق عليه.</p>
-          <MiniIdentityWhatsApp className="button primary" label="ابدأ هويتك" />
+          <MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -142,7 +142,7 @@ export default function MiniVisualIdentityOffer() {
         <span className="offer-kicker">هوية بصرية مصغرة · 7–10 أيام</span>
         <h2>اجعل مشروعك يبدو كعلامة، لا كمجموعة تصميمات منفصلة</h2>
         <p>أرسل نوع النشاط والاسم والسوق المستهدف، ونبدأ بتحديد الاتجاه قبل تصميم الشعار.</p>
-        <MiniIdentityWhatsApp className="button primary" label="ابدأ الهوية البصرية" />
+        <MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         <div className="mini-identity-links"><Link href="/branding">خدمة البراند والهوية الكاملة</Link><Link href="/guides/branding-identity-cost-saudi-arabia">كم تكلفة الهوية الكاملة؟</Link><Link href="/offers/brand-naming">لم تختر الاسم بعد؟</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
       <Footer />

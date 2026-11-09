@@ -120,7 +120,7 @@ export default function SeoAuditOfferPage() {
           <SeoAuditOfferPrice />
           <div className="offer-trust-inline"><span>تقرير PDF</span><span>خطة 30 يوم</span><span>بدون اشتراك</span></div>
           <p>السعر يشمل الفحص والتقرير والتوصيات. تنفيذ الإصلاحات أو إدارة SEO الشهرية غير مشمولين.</p>
-          <SeoAuditWhatsApp className="button primary" label="أرسل موقعك للفحص" />
+          <SeoAuditWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -163,7 +163,7 @@ export default function SeoAuditOfferPage() {
         <span className="offer-kicker">SEO + AEO · تقرير PDF · خلال 48 ساعة</span>
         <h2>اعرف أين تخسر الظهور قبل أن تدفع أكثر لجلب الزيارات</h2>
         <p>أرسل رابط موقعك ونوع النشاط والسوق المستهدف، ونبدأ الفحص من الصورة الكبيرة إلى التفاصيل التي تؤثر فعلًا.</p>
-        <SeoAuditWhatsApp className="button primary" label="افحص موقعي الآن" />
+        <SeoAuditWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         <div className="seo-audit-links"><Link href="/guides/seo-vs-aeo">تريد فهم الفرق بين SEO وAEO؟</Link><Link href="/seo-aeo">تحتاج تنفيذًا مستمرًا بعد الفحص؟</Link><Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
       <Footer />

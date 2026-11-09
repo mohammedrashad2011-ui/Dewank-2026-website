@@ -25,7 +25,7 @@ export function CroPackagePrice({ offerKey }: { offerKey: OfferPriceKey }) {
 // The click also records a dedicated dataLayer event with the package, the displayed amount and the page path.
 export function CroPackageWhatsApp({ offerKey, packageName, className, label }: { offerKey: OfferPriceKey; packageName: string; className: string; label: string }) {
   const price = useOfferPrice(offerKey);
-  const text = `مرحبًا ديوانك، أريد طلب باقة ${packageName} بسعر ${price.formattedAmount} ${price.currencyLabel}. موقعي أو نشاطي: . أرجو تأكيد النطاق والخطوات التالية.`;
+  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية لتحديد مدى مناسبة باقة ${packageName} بسعر ${price.formattedAmount} ${price.currencyLabel}. موقعي أو نشاطي: . أرجو توضيح نطاق العمل والخطوات التالية.`;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
   function trackSelect() {
     pushCroPackageSelect({

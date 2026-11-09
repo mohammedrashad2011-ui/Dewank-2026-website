@@ -36,8 +36,8 @@ const faqItems = [
 ];
 
 export default function LandingPageOffer() {
-  const contactBase = whatsappHref("Hello Dewank, I would like a landing page for my service. My service is: ");
-  const contactFull = whatsappHref("Hello Dewank, I would like the full landing page package with domain and hosting. My service is: ");
+  const contactBase = whatsappHref("Hello Dewank, I would like a free initial consultation about the base landing page package. My service is: ");
+  const contactFull = whatsappHref("Hello Dewank, I would like a free initial consultation about the full landing page package with domain and hosting. My service is: ");
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -75,7 +75,7 @@ export default function LandingPageOffer() {
           <OfferPrice offerKey="landing-page-package" className="offer-price" />
           <div className="offer-trust-inline"><span>Custom page</span><span>50% to start</span><span>Full tracking</span></div>
           <p>Includes design, copy, connections and tracking. Domain and hosting fees are not included.</p>
-          <a className="button primary" href={contactBase} target="_blank" rel="noopener noreferrer">Book the landing page <span>→</span></a>
+          <a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 
@@ -94,14 +94,14 @@ export default function LandingPageOffer() {
             <h3>Landing page package</h3>
             <OfferPrice offerKey="landing-page-package" className="offer-price" />
             <ul><li>Design and copy for one page</li><li>WhatsApp and lead form connections</li><li>GA4, GTM and conversion tracking</li><li>Basic SEO, SSL and publishing</li><li>Two rounds of revisions</li></ul>
-            <a className="button secondary" href={contactBase} target="_blank" rel="noopener noreferrer">Choose the base package <span>→</span></a>
+            <a className="button secondary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
           </article>
           <article className="offer-fit-card limits landing-package-card featured">
             <small>If you are starting from scratch</small>
             <h3>Full package</h3>
             <OfferPrice offerKey="landing-page-package-full" className="offer-price" />
             <ul><li>Everything in the base package</li><li>A domain for one year, registered in your name</li><li>Hosting for one year</li><li>Domain connection, SSL and setup</li><li>One professional email address where available</li></ul>
-            <a className="button primary" href={contactFull} target="_blank" rel="noopener noreferrer">Choose the full package <span>→</span></a>
+            <a className="button primary offer-consultation-cta" href={contactFull} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
           </article>
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function LandingPageOffer() {
         <span className="offer-kicker">Custom page · delivery in 7–10 days</span>
         <h2>Make your service clear before you ask a customer to buy it</h2>
         <p>Choose the package that suits you, and we will ask about your business and the goal of the page before production begins.</p>
-        <a className="button primary" href={contactBase} target="_blank" rel="noopener noreferrer">Start with a page that sells your service <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <div><Link href="/en/offers/small-business-website">Need a website with several pages?</Link> · <Link href="/en/website-design">Compare website design services</Link> · <Link href="/en/offers">← Back to all offers</Link></div>
       </section>
       <Footer />

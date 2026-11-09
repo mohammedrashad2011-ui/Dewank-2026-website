@@ -38,7 +38,7 @@ const faqs = [
 ];
 
 export default function Instagram14DayUpgradeOffer() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a 14-day Instagram upgrade for my existing account. My account is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the 14-day Instagram upgrade package. My Instagram account is: ");
   const url = "https://dewank.com/en/offers/instagram-14-day-upgrade";
   const schema = {
     "@context": "https://schema.org",
@@ -90,7 +90,7 @@ export default function Instagram14DayUpgradeOffer() {
           <OfferPrice offerKey="instagram-14-day-upgrade" className="offer-price" />
           <div className="offer-trust-inline"><span>Full review</span><span>Six designs</span><span>14-day plan</span></div>
           <p>The price covers the development, the designs and the plan only. It does not include advertising, photography or ongoing daily management.</p>
-          <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start the account upgrade <span>→</span></a>
+          <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 
@@ -147,7 +147,7 @@ export default function Instagram14DayUpgradeOffer() {
 
       <section className="shell offer-final instagram-upgrade-final">
         <div><small>14-day Instagram upgrade</small><h2>Make the first visit to the account<br/><em>say that you are organised and ready</em></h2><p>If the account exists but does not reflect the level of your business, this is a focused starting point before you pay for more content or more advertising.</p></div>
-        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start the account upgrade <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <div className="instagram-upgrade-links"><Link href="/en/offers/30-day-content-package">Need a full month of content?</Link><Link href="/en/social-media-content">Need ongoing social media management?</Link></div>
       </section>
 

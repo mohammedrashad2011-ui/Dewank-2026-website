@@ -93,7 +93,7 @@ export default function Instagram14DayUpgradeOffer() {
           <InstagramUpgradePrice />
           <div className="offer-trust-inline"><span>مراجعة شاملة</span><span>6 تصميمات</span><span>خطة 14 يومًا</span></div>
           <p>سعر الباقة يشمل التطوير والنماذج والخطة فقط. لا يشمل الإعلانات أو التصوير أو الإدارة اليومية المستمرة.</p>
-          <InstagramUpgradeWhatsApp className="button primary" label="ابدأ تطوير الحساب" />
+          <InstagramUpgradeWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -150,7 +150,7 @@ export default function Instagram14DayUpgradeOffer() {
 
       <section className="shell offer-final instagram-upgrade-final">
         <div><small>14 DAY INSTAGRAM UPGRADE</small><h2>خلي أول زيارة للحساب<br/><em>تقول إنك مرتب وجاهز</em></h2><p>لو الحساب قائم لكنه لا يعكس مستوى مشروعك، هذه نقطة بداية مركزة قبل أن تدفع على محتوى أكثر أو إعلانات أكثر.</p></div>
-        <InstagramUpgradeWhatsApp className="button primary" label="ابدأ تطوير الحساب" />
+        <InstagramUpgradeWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         <div className="instagram-upgrade-links"><Link href="/offers/30-day-content-package">تحتاج محتوى شهر كامل؟</Link><Link href="/services/social-media-content">تحتاج إدارة سوشيال ميديا مستمرة؟</Link></div>
       </section>
 

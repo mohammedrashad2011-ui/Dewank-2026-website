@@ -753,3 +753,51 @@ body{
   .site-header nav .offers-nav-link::after { animation: none; }
   .site-header nav .offers-nav-link { transition: none; }
 }
+
+/* Dewank offer consultation CTAs. Explicit class keeps offer cards and navigation untouched. */
+a.button.primary.offer-consultation-cta,
+a.button.secondary.offer-consultation-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #EBB02E;
+  color: #011127;
+  border-color: rgba(1, 17, 39, .24);
+  text-shadow: none;
+  box-shadow: 0 6px 18px rgba(1, 17, 39, .18);
+  transition: background-color .22s ease, border-color .22s ease, color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+a.button.primary.offer-consultation-cta:hover,
+a.button.secondary.offer-consultation-cta:hover {
+  background: #FFD166;
+  color: #011127;
+  border-color: rgba(1, 17, 39, .3);
+  box-shadow: 0 11px 24px rgba(1, 17, 39, .22);
+}
+a.button.primary.offer-consultation-cta:focus-visible,
+a.button.secondary.offer-consultation-cta:focus-visible {
+  outline: 3px solid #01DDF1;
+  outline-offset: 3px;
+}
+a.button.offer-consultation-cta::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -35%;
+  bottom: -35%;
+  left: 0;
+  width: 40%;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.035) 20%, rgba(255,255,255,.22) 50%, rgba(255,255,255,.035) 80%, transparent);
+  transform: translate3d(-160%, 0, 0) skewX(-18deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  a.button.offer-consultation-cta::after {
+    animation: dewank-offer-consultation-sheen 7.5s ease-in-out infinite;
+  }
+}
+@keyframes dewank-offer-consultation-sheen {
+  0%, 5% { transform: translate3d(-160%, 0, 0) skewX(-18deg); }
+  19%, 100% { transform: translate3d(360%, 0, 0) skewX(-18deg); }
+}

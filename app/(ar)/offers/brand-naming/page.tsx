@@ -96,7 +96,7 @@ export default function BrandNamingOfferPage() {
           <div className="offer-trust-inline"><span>10–15 اسمًا</span><span>أفضل 3 ترشيحات</span><span>توجه أولي للعلامة</span></div>
           <p>لا تشمل الباقة تسجيل العلامة أو شراء الدومين أو تصميم الهوية البصرية الكاملة.</p>
           <p className="brand-naming-next">أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
-          <BrandNamingWhatsApp className="button primary" label="ابدأ اختيار الاسم" />
+          <BrandNamingWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -149,7 +149,7 @@ export default function BrandNamingOfferPage() {
         <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
         <h2>قبل ما تصمم الشعار، اختر اسمًا يستحق أن يوضع عليه</h2>
         <p>أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
-        <BrandNamingWhatsApp className="button primary" label="ابدأ اختيار اسم علامتك" />
+        <BrandNamingWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         <div className="brand-naming-links"><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
       <Footer />

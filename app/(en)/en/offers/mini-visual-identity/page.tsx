@@ -39,7 +39,7 @@ const faqs = [
 ];
 
 export default function MiniVisualIdentityOffer() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a mini visual identity for my business. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the mini visual identity package. My business is: ");
   const url = "https://dewank.com/en/offers/mini-visual-identity";
   const schema = {
     "@context": "https://schema.org",
@@ -91,7 +91,7 @@ export default function MiniVisualIdentityOffer() {
           <OfferPrice offerKey="mini-visual-identity" className="offer-price" />
           <div className="offer-trust-inline"><span>Primary logo</span><span>3 applications</span><span>Two revision rounds</span></div>
           <p>It does not include a full brand strategy, naming, content management or extended applications beyond the agreed scope.</p>
-          <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start your identity <span>→</span></a>
+          <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 
@@ -139,7 +139,7 @@ export default function MiniVisualIdentityOffer() {
         <span className="offer-kicker">Mini visual identity · 7–10 days</span>
         <h2>Make your project look like a brand, not a set of separate designs</h2>
         <p>Send us your business type, name and target market, and we will set the direction before designing the logo.</p>
-        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start the visual identity <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <div className="mini-identity-links"><Link href="/en/branding">Full brand strategy and identity</Link><Link href="/en/offers/brand-naming">Haven&apos;t chosen a name yet?</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
       <Footer />
