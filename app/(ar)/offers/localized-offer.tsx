@@ -51,7 +51,7 @@ export function LocalizedOfferKicker() {
 
 export function LocalizedWhatsAppLink({ className, label }: { className: string; label: string }) {
   const price = useLocalizedPrice();
-  const text = `مرحبًا ديوانك، مهتم بباقة محتوى 30 يوم بسعر ${price.formattedAmount} ${price.currencyLabel}. أريد التأكد هل الباقة مناسبة لنشاطي وما المطلوب للبدء.`;
+  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية لمعرفة مدى مناسبة باقة محتوى 30 يوم بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
   return <a className={className} href={href} target="_blank" rel="noreferrer">{label} <span>←</span></a>;
 }

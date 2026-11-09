@@ -106,7 +106,7 @@ export default function GoogleAdsLaunchOffer() {
           <GoogleAdsLaunchPrice />
           <div className="offer-trust-inline"><span>حملة Search</span><span>تتبع تحويل</span><span>7 أيام متابعة تقنية</span></div>
           <p>ميزانية الإعلان تُدفع إلى Google مباشرة. لا تشمل الباقة Landing Page جديدة أو إدارة وتحسين شهري مستمر.</p>
-          <GoogleAdsLaunchLink className="button primary" label="ابدأ تشغيل حملة Google Ads" />
+          <GoogleAdsLaunchLink className="button primary" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -167,7 +167,7 @@ export default function GoogleAdsLaunchOffer() {
 
       <section className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">جاهز للإطلاق؟</span><h2>اجعل أول صرف على Google<br/>يبدأ بإعداد محسوب</h2><p>أرسل لنا نشاطك، السوق المستهدف، ورابط الصفحة الحالية ونراجع ملاءمتها قبل بدء الحملة.</p></div>
-        <GoogleAdsLaunchLink className="button primary" label="ابدأ عبر واتساب" />
+        <GoogleAdsLaunchLink className="button primary" label="احصل على استشارة مجانية الآن" />
         <div className="google-ads-links"><Link href="/guides/google-ads-cost-saudi-arabia">تريد فهم التكلفة والميزانية أولًا؟</Link><Link href="/paid-ads">تحتاج إدارة Google Ads مستمرة؟</Link><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link></div>
       </section>
 
