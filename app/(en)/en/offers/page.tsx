@@ -186,7 +186,7 @@ export default function OffersPage() {
               <h2>Tell us your goal<br />We will suggest the right starting point</h2>
               <p>Share your business and goal so we can recommend an offer before agreeing the scope and price. Prices default to US dollars, with local pricing where available.</p>
             </div>
-            <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+            <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
           </aside>
         </section>
       </section>

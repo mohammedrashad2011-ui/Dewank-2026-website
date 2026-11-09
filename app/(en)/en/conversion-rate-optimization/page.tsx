@@ -226,7 +226,7 @@ export default function ConversionRateOptimizationEnglishPage() {
               <ul className="cro-list">{pkg.includes.map((item) => <li key={item}>{item}</li>)}</ul>
               <h4>Not included</h4>
               <ul className="cro-list cro-package-excluded">{pkg.excludes.map((item) => <li key={item}>{item}</li>)}</ul>
-              <CroPackageWhatsAppEn offerKey={pkg.offerKey} packageName={pkg.name} className="button primary cro-package-cta" label={pkg.cta} />
+              <CroPackageWhatsAppEn offerKey={pkg.offerKey} packageName={pkg.name} className="button primary cro-package-cta offer-consultation-cta" label={pkg.cta} />
             </article>
           ))}
         </div>
@@ -283,7 +283,7 @@ export default function ConversionRateOptimizationEnglishPage() {
         <div><span className="sa-label">Next step</span><h2>Send us the page link<br/><em>We will show where the visit stops</em></h2></div>
         <div>
           <p>Send the website or page link and your business type. We will agree the most useful path to review and what the audit needs.</p>
-          <a className="button primary" href={whatsappAudit} target="_blank" rel="noreferrer">Talk to us about the right package <span>→</span></a>
+          <a className="button primary offer-consultation-cta" href={whatsappAudit} target="_blank" rel="noreferrer">Talk to us about the right package <span>→</span></a>
         </div>
       </section>
       <Footer />

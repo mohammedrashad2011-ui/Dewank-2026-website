@@ -104,7 +104,7 @@ export default function SeoAuditOfferPage() {
           <OfferPrice offerKey="seo-audit" className="offer-price" />
           <div className="offer-trust-inline"><span>PDF report</span><span>30-day plan</span><span>No subscription</span></div>
           <p>The price covers the audit, the report and the recommendations. Implementing the fixes and ongoing SEO management are not included.</p>
-          <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 
@@ -147,7 +147,7 @@ export default function SeoAuditOfferPage() {
         <span className="offer-kicker">SEO + AEO · PDF report · within 48 hours</span>
         <h2>Find where you are losing visibility before you pay more to bring visitors in</h2>
         <p>Send us your website address, your business type and your target market. We will start the audit from the big picture and move to the details that affect results.</p>
-        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <div className="seo-audit-links"><Link href="/en/guides/seo-vs-aeo">Want to understand the difference between SEO and AEO?</Link><Link href="/en/seo-geo-aeo">Need ongoing implementation after the audit?</Link><Link href="/en/offers">← Back to all offers</Link></div>
       </section>
       <Footer />

@@ -100,7 +100,7 @@ export default function ContentOfferPage() {
           <OfferPrice offerKey="30-day-content-package" className="offer-price" />
           <p className="sales-price-promise">We review your business first and explain whether this package is the right fit.</p>
           <div className="offer-trust-inline" aria-label="Trust and reassurance"><span>No monthly contract</span><span>Direction approved first</span><span>Two revision rounds</span></div>
-          <a className="button primary sales-primary-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a className="button primary sales-primary-cta offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
           <small className="sales-cta-note">WhatsApp, direct · Free initial consultation</small>
         </aside>
 
@@ -117,7 +117,7 @@ export default function ContentOfferPage() {
       <section className="shell sales-outcomes" aria-labelledby="sales-outcomes-title">
         <div className="sales-section-head compact"><span className="section-label">What you gain</span><h2 id="sales-outcomes-title">Not 16 designs alone<br/>A month ready to show up</h2></div>
         <div className="sales-outcome-grid">{afterDelivery.map(([title, text]) => <article key={title}><span>✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
-        <div className="sales-mid-cta"><p>If this is what your account is missing, let us check whether the package suits your business.</p><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a></div>
+        <div className="sales-mid-cta"><p>If this is what your account is missing, let us check whether the package suits your business.</p><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a></div>
       </section>
 
       <section className="shell offer-deliverables sales-deliverables">
@@ -153,11 +153,11 @@ export default function ContentOfferPage() {
         <span className="offer-kicker">16 content pieces · <OfferPrice offerKey="30-day-content-package" className="offer-kicker-price" /></span>
         <h2>If you only need content, choose a package that fits</h2>
         <p>Send us your business type. We will check whether the 30-day package is the right fit, or whether you need a wider monthly service, then explain the next step.</p>
-        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         
       </section>
 
-      <div className="sales-mobile-sticky" aria-label="Quick contact on WhatsApp"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now</a></div>
+      <div className="sales-mobile-sticky" aria-label="Quick contact on WhatsApp"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now</a></div>
       <Footer />
     </main>
   );
