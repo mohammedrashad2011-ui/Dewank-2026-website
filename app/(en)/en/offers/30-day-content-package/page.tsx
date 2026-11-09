@@ -61,7 +61,7 @@ const workSteps = [
 ];
 
 export default function ContentOfferPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like to check whether the 30-day content package fits my business. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation to check whether the 30-day content package suits my business. My business is: ");
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -101,7 +101,7 @@ export default function ContentOfferPage() {
           <OfferPrice offerKey="30-day-content-package" className="offer-price" />
           <p className="sales-price-promise">Start with 50% only, after we review your business and confirm the package is right for you.</p>
           <div className="offer-trust-inline" aria-label="Trust and reassurance"><span>No monthly contract</span><span>Direction approved first</span><span>Fit confirmed before payment</span></div>
-          <a className="button primary sales-primary-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Check the package fits your business <span>→</span></a>
+          <a className="button primary sales-primary-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
           <small className="sales-cta-note">WhatsApp, direct · No payment before we review your business</small>
         </aside>
 
@@ -118,7 +118,7 @@ export default function ContentOfferPage() {
       <section className="shell sales-outcomes" aria-labelledby="sales-outcomes-title">
         <div className="sales-section-head compact"><span className="section-label">What you gain</span><h2 id="sales-outcomes-title">Not 16 designs alone<br/>A month ready to show up</h2></div>
         <div className="sales-outcome-grid">{afterDelivery.map(([title, text]) => <article key={title}><span>✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
-        <div className="sales-mid-cta"><p>If this is what your account is missing, let us confirm the package fits before you pay anything.</p><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Review the package with me on WhatsApp <span>→</span></a></div>
+        <div className="sales-mid-cta"><p>If this is what your account is missing, let us confirm the package fits before you pay anything.</p><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a></div>
       </section>
 
       <section className="shell offer-deliverables sales-deliverables">
@@ -154,11 +154,11 @@ export default function ContentOfferPage() {
         <span className="offer-kicker">16 content pieces · <OfferPrice offerKey="30-day-content-package" className="offer-kicker-price" /></span>
         <h2>If you need the content, do not pay for full management you do not need</h2>
         <p>Send us your business type. We will check whether the 30-day package is the right fit, or whether you need a wider monthly service, then explain the next step.</p>
-        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Send my business and check the right fit <span>→</span></a>
+        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <small>No commitment before the review · 50% only when work starts</small>
       </section>
 
-      <div className="sales-mobile-sticky" aria-label="Quick contact on WhatsApp"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Ask about the 30-day package</a></div>
+      <div className="sales-mobile-sticky" aria-label="Quick contact on WhatsApp"><a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now</a></div>
       <Footer />
     </main>
   );

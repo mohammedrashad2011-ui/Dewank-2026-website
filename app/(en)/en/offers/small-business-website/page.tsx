@@ -62,7 +62,7 @@ const faqItems = [
 ];
 
 export default function SmallBusinessWebsiteOfferPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a small business website of up to five pages. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the small business website package. My business is: ");
   const url = "https://dewank.com/en/offers/small-business-website";
   const schema = {
     "@context": "https://schema.org",
@@ -109,7 +109,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <small>Complete package from</small>
           <OfferPrice offerKey="small-business-website" className="offer-price" />
           <p>Includes up to five pages. The domain, hosting, bespoke programming and paid external services are not included.</p>
-          <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website on WhatsApp <span>→</span></a>
+          <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 
@@ -161,7 +161,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <span className="section-label">Ready to start?</span>
         <h2>Give your business<br/><em>a real digital address</em></h2>
         <p>Start with a clear, fast website, and expand it only when the business actually needs it.</p>
-        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website now <span>→</span></a>
+        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <div className="small-website-links"><Link href="/en/offers/landing-page-package">Need a landing page only?</Link><Link href="/en/website-design">Need a larger website?</Link></div>
       </section>
 
