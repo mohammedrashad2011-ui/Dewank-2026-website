@@ -62,7 +62,7 @@ export default function WhatsAppAutomationStarterOffer() {
           <p>نجهز لك مسار أتمتة واتساب يرد على الأسئلة الأساسية، يؤهّل العميل، يجمع بياناته، ويتابع الخطوة التالية قبل تحويله للموظف المناسب</p>
           <div className="whatsapp-starter-answer" aria-label="الإجابة المختصرة"><b>الإجابة المختصرة</b><span>هذه باقة تأسيسية وليست نظامًا كاملًا لإدارة العملاء، ومناسبة لو مشكلتك الأساسية هي بطء الرد وتكرار الأسئلة وضياع العملاء قبل وصولهم للفريق</span></div>
         </div>
-        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><WhatsAppStarterPrice /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل، ولا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink className="button primary" label="احصل على استشارة مجانية الآن" /></aside>
+        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><WhatsAppStarterPrice /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل، ولا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" /></aside>
       </section>
 
       <AutomationJourney locale="ar" />
@@ -79,7 +79,7 @@ export default function WhatsAppAutomationStarterOffer() {
 
       <section className="shell offer-faq whatsapp-starter-faq" id="faq"><div><span className="section-label">أسئلة سريعة</span><h2>قبل ما تبدأ</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">ابدأ من هنا</span><h2>خلّي أول رسالة<br/>تتحول إلى خطوة واضحة</h2><p>أرسل لنا نوع نشاطك وأكثر الأسئلة التي تصلك يوميًا، ونحدد هل التأسيسية تكفيك أم تحتاج نظامًا أكبر</p></div><WhatsAppStarterLink className="button primary" label="احصل على استشارة مجانية الآن" /><div className="whatsapp-starter-links"><Link href="/whatsapp-automation">تحتاج نظام إدارة عملاء وتكاملات أكبر؟</Link><Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">كم تكلفة النظام الكامل؟</Link></div></section>
+      <section className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">ابدأ من هنا</span><h2>خلّي أول رسالة<br/>تتحول إلى خطوة واضحة</h2><p>أرسل لنا نوع نشاطك وأكثر الأسئلة التي تصلك يوميًا، ونحدد هل التأسيسية تكفيك أم تحتاج نظامًا أكبر</p></div><WhatsAppStarterLink className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" /><div className="whatsapp-starter-links"><Link href="/whatsapp-automation">تحتاج نظام إدارة عملاء وتكاملات أكبر؟</Link><Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">كم تكلفة النظام الكامل؟</Link></div></section>
       <Footer />
     </main>
   );

@@ -75,7 +75,7 @@ export default function LandingPageOffer() {
           <LandingOfferPrice kind="base" />
           <div className="offer-trust-inline"><span>صفحة مخصصة</span><span>50% لبدء العمل</span><span>تتبع كامل</span></div>
           <p>تشمل التصميم والكتابة والربط والتتبع. لا تشمل رسوم الدومين أو الاستضافة.</p>
-          <LandingOfferWhatsApp kind="base" className="button primary" label="احصل على استشارة مجانية الآن" />
+          <LandingOfferWhatsApp kind="base" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -94,14 +94,14 @@ export default function LandingPageOffer() {
             <h3>باقة صفحة الهبوط</h3>
             <LandingOfferPrice kind="base" />
             <ul><li>تصميم وكتابة صفحة واحدة</li><li>ربط واتساب ونموذج البيانات</li><li>GA4 وGTM وتتبع التحويلات</li><li>SEO أساسي وSSL والنشر</li><li>جولتا تعديل</li></ul>
-            <LandingOfferWhatsApp kind="base" className="button secondary" label="احصل على استشارة مجانية الآن" />
+            <LandingOfferWhatsApp kind="base" className="button secondary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
           </article>
           <article className="offer-fit-card limits landing-package-card featured">
             <small>لمن يبدأ من الصفر</small>
             <h3>الباقة الكاملة</h3>
             <LandingOfferPrice kind="full" />
             <ul><li>كل ما في الباقة الأساسية</li><li>دومين لمدة عام باسم العميل</li><li>استضافة لمدة عام</li><li>ربط الدومين وSSL والإعداد</li><li>بريد مهني واحد عند توفره</li></ul>
-            <LandingOfferWhatsApp kind="full" className="button primary" label="احصل على استشارة مجانية الآن" />
+            <LandingOfferWhatsApp kind="full" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
           </article>
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function LandingPageOffer() {
         <span className="offer-kicker">صفحة مخصصة · تسليم خلال 7–10 أيام</span>
         <h2>اجعل خدمتك واضحة قبل أن تطلب من العميل شراءها</h2>
         <p>اختر الباقة المناسبة وسنسألك عن نشاطك وهدف الصفحة قبل بدء التنفيذ.</p>
-        <LandingOfferWhatsApp kind="base" className="button primary" label="احصل على استشارة مجانية الآن" />
+        <LandingOfferWhatsApp kind="base" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         <div><Link href="/offers/small-business-website">تحتاج موقعًا من عدة صفحات؟</Link> · <Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link> · <Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
       <Footer />

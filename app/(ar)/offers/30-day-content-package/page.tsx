@@ -106,7 +106,7 @@ export default function ContentOfferPage() {
           <small>سعر الباقة الكامل</small><LocalizedOfferPrice />
           <p className="sales-price-promise">نراجع نشاطك أولًا ونوضح لك مدى مناسبة الباقة والخطوات التالية.</p>
           <div className="offer-trust-inline" aria-label="مزايا الأمان والثقة"><span>لا عقد شهري</span><span>اتجاه معتمد أولًا</span><span>جولتا تعديل</span></div>
-          <LocalizedWhatsAppLink className="button primary sales-primary-cta" label="احصل على استشارة مجانية الآن" />
+          <LocalizedWhatsAppLink className="button primary sales-primary-cta offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
           <small className="sales-cta-note">واتساب مباشر · استشارة مبدئية مجانية</small>
         </aside>
 
@@ -123,7 +123,7 @@ export default function ContentOfferPage() {
       <section className="shell sales-outcomes" aria-labelledby="sales-outcomes-title">
         <div className="sales-section-head compact"><span className="section-label">القيمة اللي تحصل عليها</span><h2 id="sales-outcomes-title">مو 16 تصميمًا وبس<br/>أنت تحصل على شهر جاهز للحضور</h2></div>
         <div className="sales-outcome-grid">{afterDelivery.map(([title, text]) => <article key={title}><span>✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
-        <div className="sales-mid-cta"><p>إذا هذا اللي ناقص حسابك، خلّنا نتأكد من ملاءمة الباقة لنشاطك أولًا.</p><LocalizedWhatsAppLink className="button primary" label="احصل على استشارة مجانية الآن" /></div>
+        <div className="sales-mid-cta"><p>إذا هذا اللي ناقص حسابك، خلّنا نتأكد من ملاءمة الباقة لنشاطك أولًا.</p><LocalizedWhatsAppLink className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" /></div>
       </section>
 
       <section className="shell offer-deliverables sales-deliverables">
@@ -156,10 +156,10 @@ export default function ContentOfferPage() {
       </section>
 
       <section className="shell offer-final-cta sales-final-cta">
-        <LocalizedOfferKicker /><h2>إذا تحتاج المحتوى فقط، اختر باقة تناسب احتياجك</h2><p>أرسل لنا نوع نشاطك. نراجع هل باقة 30 يومًا هي الأنسب، أو تحتاج إدارة شهرية أوسع، ثم نوضح لك الخطوة التالية.</p><LocalizedWhatsAppLink className="button primary" label="احصل على استشارة مجانية الآن" />
+        <LocalizedOfferKicker /><h2>إذا تحتاج المحتوى فقط، اختر باقة تناسب احتياجك</h2><p>أرسل لنا نوع نشاطك. نراجع هل باقة 30 يومًا هي الأنسب، أو تحتاج إدارة شهرية أوسع، ثم نوضح لك الخطوة التالية.</p><LocalizedWhatsAppLink className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
       </section>
 
-      <div className="sales-mobile-sticky" aria-label="تواصل سريع عبر واتساب"><LocalizedWhatsAppLink className="button primary" label="احصل على استشارة مجانية الآن" /></div>
+      <div className="sales-mobile-sticky" aria-label="تواصل سريع عبر واتساب"><LocalizedWhatsAppLink className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" /></div>
       <Footer />
     </main>
   );
