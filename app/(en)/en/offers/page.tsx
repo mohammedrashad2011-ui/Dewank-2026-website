@@ -108,7 +108,7 @@ const offerChoices: OfferChoice[] = [
 ];
 
 export default function OffersPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like help choosing the right offer. My business is: . My goal is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation to choose the right package. My business is: . My goal is: ");
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -186,7 +186,7 @@ export default function OffersPage() {
               <h2>Tell us your goal<br />We will suggest the right starting point</h2>
               <p>Share your business and goal so we can recommend an offer before agreeing the scope and price. Prices default to US dollars, with local pricing where available.</p>
             </div>
-            <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Ask Dewank on WhatsApp <span>→</span></a>
+            <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
           </aside>
         </section>
       </section>

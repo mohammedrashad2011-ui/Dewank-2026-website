@@ -40,7 +40,7 @@ const faqs = [
 ];
 
 export default function BrandNamingOfferPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like the brand naming package for my new brand. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about your brand naming package. My business is: ");
   const url = "https://dewank.com/en/offers/brand-naming";
   const schema = {
     "@context": "https://schema.org",
@@ -93,7 +93,7 @@ export default function BrandNamingOfferPage() {
           <div className="offer-trust-inline"><span>10–15 names</span><span>Top three</span><span>Initial brand direction</span></div>
           <p>The package does not include trademark registration, domain purchase or a full visual identity.</p>
           <p className="brand-naming-next">Send us your business type and target market, and we will start with a short summary of your project before the research.</p>
-          <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start choosing the name <span>→</span></a>
+          <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 
@@ -146,7 +146,7 @@ export default function BrandNamingOfferPage() {
         <span className="offer-kicker">Brand naming · initial brand direction</span>
         <h2>Before you design the logo, choose a name worth putting it on</h2>
         <p>Send us your business type and target market, and we will start with a short summary of your project before the research.</p>
-        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Start choosing your brand name <span>→</span></a>
+        <a className="button primary" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <div className="brand-naming-links"><Link href="/en/brand-naming">Details of the naming service</Link><Link href="/en/branding">Brand strategy and identity</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
       <Footer />
