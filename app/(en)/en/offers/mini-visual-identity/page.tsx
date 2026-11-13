@@ -4,10 +4,12 @@ import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
+import { IdentityReel } from "../../../../(ar)/offers/mini-visual-identity/identity-reel";
 // The Arabic mini visual identity offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/mini-visual-identity/mini-visual-identity.css";
+import "../../../../(ar)/offers/mini-visual-identity/identity-reel.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
@@ -101,16 +103,7 @@ export default function MiniVisualIdentityOffer() {
           <h2>Because improvised visuals<br/>tire a brand quickly</h2>
           <p>A young business does not always need a large brand system. It does need enough visual rules to stop every new design from looking like it belongs to a different company.</p>
         </div>
-        <div className="identity-board" aria-label="Illustrative example of the components of a visual identity">
-          <div className="identity-board-top"><span>MINI IDENTITY / SAMPLE</span><small>A usable visual system</small></div>
-          <div className="identity-logo-mark">NOVA<span>CO.</span></div>
-          <div className="identity-colors"><i /><i /><i /><i /></div>
-          <div className="identity-board-grid">
-            <article><small>Logo</small><b>Primary + simplified</b></article>
-            <article><small>Colours</small><b>Primary + supporting</b></article>
-            <article><small>Typefaces</small><b>Headings + text</b></article>
-          </div>
-        </div>
+        <IdentityReel locale="en" cta={<a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Request your identity <span>→</span></a>} />
       </section>
 
       <section className="shell offer-deliverables mini-identity-deliverables">
