@@ -204,7 +204,7 @@ export default function OffersPage() {
           <article data-filter="brand" data-category="هوية" className="offer-card compact-offer-card mini-identity-offer-card">
             <Link className="offer-card-hit" href="/offers/mini-visual-identity" aria-label="شاهد تفاصيل باقة الهوية البصرية المصغرة" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-            <h2>شكل واحد<br/><em>يتعرف عليك الناس به</em></h2>
+            <h2>تصميم هوية بصرية<br/><em>شعار وألوان وخطوط لمشروعك</em></h2>
             <p>شعار أساسي ونسخة مبسطة، ألوان وخطوط وتوجه بصري و3 تطبيقات عملية، لتبدأ علامتك بصورة متماسكة بدل التصميم العشوائي.</p>
             <div className="offer-card-meta"><div><small>الباقة المصغرة من</small><MiniIdentityPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
