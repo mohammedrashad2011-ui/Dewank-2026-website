@@ -131,7 +131,8 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
             onFocus={()=>setPaused(true)} onBlur={()=>setPaused(false)}>
             {projects.map((project,index)=>(
               <div key={project.name} className={"wk-cinema-slide"+(active===index?" is-active":"")} aria-hidden={active!==index}>
-                <img src={project.image} alt="" width={index===0?1126:1200} height={index===0?1591:900} decoding="async" loading={index===0?"eager":"lazy"} fetchPriority={index===0?"high":"auto"}/>
+                {/* Hidden carousel slides must load before selection, including on mobile. */}
+                <img src={project.image} alt="" width={index===0?1126:1200} height={index===0?1591:900} decoding="async" loading="eager" fetchPriority={index===0?"high":"low"}/>
               </div>
             ))}
           </Link>
