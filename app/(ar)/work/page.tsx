@@ -10,6 +10,7 @@ import "./work-proof-refinement.css";
 import "./work-cinematic-experience.css";
 import "./work-cinema-hero.css";
 import "./work-hero-refinement.css";
+import "./work-mobile-fixes.css";
 
 export const metadata: Metadata = createMetadata({
   title: "أعمال ديوانك ودراسات حالة | براندينج، مواقع وأتمتة",
@@ -27,7 +28,7 @@ const identityProjects = [
 
 const proofPaths = [
   { no: "01", label: "أتمتة ومتابعة", title: "من المحادثة إلى الحجز", text: "شاهد كيف تحولت المتابعة اليدوية إلى رحلة قابلة للقياس وربط CRM.", href: "#case-studies" },
-  { no: "02", label: "تسمية وهوية", title: "من الاسم إلى نظام علامة متكامل", text: "BITHAN: مشروع فعلي من استراتيجية التسمية والفحص والاختيار إلى Original Sketch وLogo Suite وتطبيقات Fine Jewelry.", href: "/work/bithan" },
+  { no: "02", label: "تسمية وهوية", title: "من الاسم إلى نظام علامة متكامل", text: "BITHAN: مشروع فعلي من استراتيجية التسمية والفحص والاختيار إلى Original Sketch و Logo Suite وتطبيقات Fine Jewelry.", href: "/work/bithan" },
   { no: "03", label: "طريقة التفكير", title: "من التحدي إلى قرار استراتيجي", text: "مشروعات مفاهيمية نستخدمها لعرض التفكير وراء التموضع والهوية والتجربة.", href: "#concept-work" },
 ];
 
@@ -133,7 +134,7 @@ export default function WorkPage() {
               <div><b>الأثر التجاري</b><span>تحسين التحويل وتقليل العبء اليدوي مع رؤية أوضح لحالة كل عميل.</span></div>
             </div>
             <div className="case-service-links">
-              <Link className="button primary case-cta" href="/whatsapp-automation">أتمتة واتساب وCRM <span>←</span></Link>
+              <Link className="button primary case-cta" href="/whatsapp-automation">أتمتة واتساب و CRM <span>←</span></Link>
               <Link href="/ai-automation">شاهد أتمتة الأعمال بالذكاء الاصطناعي</Link>
             </div>
           </div>
@@ -152,7 +153,7 @@ export default function WorkPage() {
         <div className="bithan-work-copy">
           <span className="section-label">دراسة حالة فعلية · Naming + Identity · 2026</span>
           <h2 id="bithan-work-title">من استراتيجية التسمية<br/><em>إلى هوية Fine Jewelry مكتملة</em></h2>
-          <p>BITHAN بدأ بتموضع ومساحات تسمية وقوائم منتقاة وفحص مبدئي، وانتهى باسم اختاره العميل ثم Original Sketch وLogo Suite ونظام هوية وتطبيقات Premium.</p>
+          <p>BITHAN بدأ بتموضع ومساحات تسمية وقوائم منتقاة وفحص مبدئي، وانتهى باسم اختاره العميل ثم Original Sketch و Logo Suite ونظام هوية وتطبيقات Premium.</p>
           <div className="bithan-work-journey"><span>Naming</span><i>→</i><span>Selection</span><i>→</i><span>Identity</span><i>→</i><span>Applications</span></div>
           <Link className="button primary" href="/work/bithan">شاهد دراسة الحالة كاملة <span>←</span></Link>
         </div>

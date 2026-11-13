@@ -14,6 +14,7 @@ import "../_en/styles/hide-arabic-widgets.css";
 import "../../../(ar)/work/work-cinematic-experience.css";
 import "../../../(ar)/work/work-cinema-hero.css";
 import "../../../(ar)/work/work-hero-refinement.css";
+import "../../../(ar)/work/work-mobile-fixes.css";
 
 export const metadata = enMetadata(
   "Branding and identity case studies",

@@ -1,0 +1,44 @@
+/* Mobile fixes for the Work page (Arabic and English share this file). CSS only, no new assets.
+   Loaded last, so each rule repeats the specificity of the rule it corrects. */
+
+/* Result figures such as +30% and -40% read left to right in both languages. */
+html body .work-cinematic .metrics-panel .metric strong{
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+html body .work-cinematic[dir="rtl"] .metrics-panel .metric strong{text-align:right}
+
+@media(max-width:800px){
+  /* The header is sticky and already takes its own space, so the hero does not need
+     extra top padding to clear it. */
+  html body .work-cinematic .wk-cinema{padding-top:28px}
+
+  /* Landscape projects (ReachwayAD, Clinika, Arab Sun): the frame's percentage height
+     resolved to zero once the scene lost its fixed aspect ratio, which hid the image.
+     Give the frame the images' own 4:3 ratio. BITHAN keeps its portrait frame. */
+  html body .work-cinematic .wk-cinema-stage:not(.is-portrait){
+    width:88%;
+    height:auto;
+    aspect-ratio:4/3;
+  }
+
+  /* BITHAN case study: one column on phones. The earlier rule lacked the selector
+     prefix and lost to the two-column desktop rule. */
+  html body .work-cinematic .bithan-work-feature.shell{grid-template-columns:minmax(0,1fr)}
+  html body .work-cinematic .bithan-work-visual{max-width:440px;width:100%;justify-self:center}
+}
+
+@media(max-width:580px){
+  html body .work-cinematic .wk-cinema{padding-top:20px}
+
+  /* Identity images are 4:3. A 5:4 frame left grey bands above and below them. */
+  html body .work-cinematic .identity-work-image,
+  html body .work-cinematic .identity-work-card.featured .identity-work-image,
+  html body .work-cinematic .identity-work-card.wide .identity-work-image{aspect-ratio:4/3}
+
+  html body .work-cinematic .bithan-work-copy h2{font-size:clamp(32px,8vw,42px)}
+  html body .work-cinematic .bithan-work-journey{gap:8px}
+
+  html body .work-cinematic .testimonial-card blockquote{margin:16px 0 30px;font-size:19px}
+  html body .work-cinematic .testimonial-card:not(.featured) blockquote{font-size:17px}
+}
