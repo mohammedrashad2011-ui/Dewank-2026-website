@@ -66,7 +66,8 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
   const selected=projects[active];
 
   useEffect(()=>{
-    if(manual||paused||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    // Avoid auto-downloading additional slides on small screens; visitors can select them on demand.
+    if(manual||paused||window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 800px)").matches)return;
     const timer=window.setInterval(()=>{
       if(document.hidden)return;
       setActive(current=>(current+1)%projects.length);
