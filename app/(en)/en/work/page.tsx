@@ -4,6 +4,7 @@ import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
 import { whatsappHref, briefMailto } from "../_en/lib/site";
 import { IdentityShowcase } from "./identity-showcase";
+import { newWorkIdentityProjects } from "../../../lib/identity-portfolio";
 import WorkEditorialHero from "../../../(ar)/work/work-editorial-hero";
 import WorkMotionDirector from "../../../(ar)/work/work-motion-director";
 // The Arabic Work page's layout and styles, reused unchanged. English-only direction and type overrides follow.
@@ -15,10 +16,11 @@ import "../../../(ar)/work/work-cinematic-experience.css";
 import "../../../(ar)/work/work-cinema-hero.css";
 import "../../../(ar)/work/work-hero-refinement.css";
 import "../../../(ar)/work/work-mobile-fixes.css";
+import "../../../(ar)/work/work-identity-grid.css";
 
 export const metadata = enMetadata(
   "Branding and identity case studies",
-  "Brand naming and identity for a fine jewellery brand in Qatar, clinic follow-up automation in Bahrain, and identity work across four sectors, with results.",
+  "Brand naming and identity for a fine jewellery brand in Qatar, clinic follow-up automation in Bahrain, and identity work across six sectors, with results.",
   "/en/work",
 );
 
@@ -28,6 +30,7 @@ const identityProjects = [
   { name: "Clinika", sector: "Beauty and care", image: "/en/work/clinika-remastered.webp", className: "clinika", summary: "A refined identity for the beauty sector, with a calm editorial character and applications that build trust from the first impression." },
   { name: "Arab Sun", sector: "Travel and tourism", image: "/en/work/arab-sun-remastered.webp", className: "arab-sun", summary: "A visual system inspired by the sun and Arabian movement, applied to packaging and printed materials." },
   { name: "Dar Al Safa", sector: "Healthcare", image: "/en/work/dar-al-safa-remastered.webp", className: "dar-safa wide", summary: "A warm medical identity that balances care and professionalism across signage, stationery and reception points." },
+  ...newWorkIdentityProjects("en"),
 ];
 
 const proofPaths = [

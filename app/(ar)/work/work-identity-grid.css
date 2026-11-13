@@ -1,0 +1,21 @@
+/* Layout for the identities added after the original four Work page cards
+   (Glowmore, Vivantura, Poppy KidZ Books, Ikhtiyar). Arabic and English share it.
+   Each card frame uses the image's own ratio, so boards show in full without grey bands. */
+
+html body .work-cinematic .identity-work-card.pf-card .identity-work-image{
+  aspect-ratio:var(--pf-ratio,3 / 2);
+}
+html body .work-cinematic .identity-work-card.pf-7{grid-column:span 7}
+html body .work-cinematic .identity-work-card.pf-5{grid-column:span 5}
+html body .work-cinematic .identity-work-card.pf-lift{margin-top:clamp(55px,8vw,128px)}
+
+@media(max-width:1100px){
+  html body .work-cinematic .identity-work-card.pf-7,
+  html body .work-cinematic .identity-work-card.pf-5{grid-column:span 6}
+  html body .work-cinematic .identity-work-card.pf-lift{margin-top:0}
+}
+
+@media(max-width:580px){
+  html body .work-cinematic .identity-work-card.pf-7,
+  html body .work-cinematic .identity-work-card.pf-5{grid-column:1/-1}
+}

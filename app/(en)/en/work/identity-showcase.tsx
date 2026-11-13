@@ -1,7 +1,7 @@
 "use client";
 
 // English version of the Arabic identity showcase (app/work/identity-showcase.tsx): the same card grid and dialog.
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 export type IdentityProject = {
   name: string;
@@ -9,6 +9,10 @@ export type IdentityProject = {
   image: string;
   className: string;
   summary: string;
+  /** Optional 800px version, used with srcSet on phones. */
+  imageSmall?: string;
+  /** Optional intrinsic ratio, such as "1448 / 965", for the card frame. */
+  ratio?: string;
 };
 
 export function IdentityShowcase({ projects }: { projects: IdentityProject[] }) {
@@ -44,7 +48,7 @@ export function IdentityShowcase({ projects }: { projects: IdentityProject[] }) 
     <>
       <div className="identity-work-grid">
         {projects.map((project, index) => (
-          <article className={`identity-work-card ${project.className}`} key={project.name}>
+          <article className={`identity-work-card ${project.className}`} key={project.name} style={project.ratio ? ({ "--pf-ratio": project.ratio } as CSSProperties) : undefined}>
             <button
               className="identity-work-open"
               type="button"
@@ -56,6 +60,9 @@ export function IdentityShowcase({ projects }: { projects: IdentityProject[] }) 
                   src={project.image}
                   alt={`${project.name} identity applications`}
                   loading={index === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  srcSet={project.imageSmall ? `${project.imageSmall} 800w, ${project.image} 1448w` : undefined}
+                  sizes={project.imageSmall ? "(max-width: 580px) 92vw, (max-width: 1100px) 46vw, 680px" : undefined}
                 />
                 <span className="identity-work-view">View project <i>↗</i></span>
               </div>

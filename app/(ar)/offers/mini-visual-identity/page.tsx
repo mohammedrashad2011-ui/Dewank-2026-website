@@ -3,9 +3,11 @@ import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { MiniIdentityPrice, MiniIdentityWhatsApp } from "./localized-mini-identity";
+import { IdentityReel } from "./identity-reel";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./mini-visual-identity.css";
+import "./identity-reel.css";
 
 const title = "تصميم هوية بصرية مصغرة للشركات والمشاريع";
 const description = "باقة هوية بصرية مصغرة: شعار أساسي، لوحة ألوان، خطوط مقترحة، اتجاه بصري و3 تطبيقات عملية، لبداية احترافية دون بناء هوية كاملة.";
@@ -104,16 +106,7 @@ export default function MiniVisualIdentityOffer() {
           <h2>لأن الشكل المرتجل<br/>يتعب العلامة بسرعة</h2>
           <p>المشروع في بدايته لا يحتاج دائمًا إلى نظام براند ضخم. لكنه يحتاج قواعد بصرية كافية تمنع كل تصميم جديد من أن يبدو وكأنه تابع لشركة مختلفة.</p>
         </div>
-        <div className="identity-board" aria-label="نموذج توضيحي لمكونات الهوية البصرية">
-          <div className="identity-board-top"><span>MINI IDENTITY / SAMPLE</span><small>نظام بصري قابل للاستخدام</small></div>
-          <div className="identity-logo-mark">NOVA<span>CO.</span></div>
-          <div className="identity-colors"><i /><i /><i /><i /></div>
-          <div className="identity-board-grid">
-            <article><small>الشعار</small><b>رئيسي + مبسط</b></article>
-            <article><small>الألوان</small><b>رئيسية + مساندة</b></article>
-            <article><small>الخطوط</small><b>عناوين + نصوص</b></article>
-          </div>
-        </div>
+        <IdentityReel locale="ar" cta={<MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="اطلب هوية لمشروعك" />} />
       </section>
 
       <section className="shell offer-deliverables mini-identity-deliverables">

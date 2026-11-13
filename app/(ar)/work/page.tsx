@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createMetadata } from "../../lib/seo";
 import { Footer, Header } from "../../components/site-shell";
 import { IdentityShowcase } from "./identity-showcase";
+import { newWorkIdentityProjects } from "../../lib/identity-portfolio";
 import WorkEditorialHero from "./work-editorial-hero";
 import WorkMotionDirector from "./work-motion-director";
 import "./work-page.css";
@@ -11,6 +12,7 @@ import "./work-cinematic-experience.css";
 import "./work-cinema-hero.css";
 import "./work-hero-refinement.css";
 import "./work-mobile-fixes.css";
+import "./work-identity-grid.css";
 
 export const metadata: Metadata = createMetadata({
   title: "أعمال ديوانك ودراسات حالة | براندينج، مواقع وأتمتة",
@@ -24,6 +26,7 @@ const identityProjects = [
   { name: "Clinika", sector: "الجمال والعناية", image: "/work/clinika-remastered.webp", className: "clinika", summary: "هوية راقية لقطاع الجمال بملامح تحريرية هادئة وتطبيقات تعزز الثقة والانطباع الأول." },
   { name: "Arab Sun", sector: "السفر والسياحة", image: "/work/arab-sun-remastered.webp", className: "arab-sun", summary: "نظام بصري يستلهم الشمس والحركة العربية، مطبق على التغليف والمواد المطبوعة." },
   { name: "دار الصفاء", sector: "الرعاية الصحية", image: "/work/dar-al-safa-remastered.webp", className: "dar-safa wide", summary: "هوية طبية دافئة تجمع بين الرعاية والاحتراف عبر اللافتات والقرطاسية ونقاط الاستقبال." },
+  ...newWorkIdentityProjects("ar"),
 ];
 
 const proofPaths = [
