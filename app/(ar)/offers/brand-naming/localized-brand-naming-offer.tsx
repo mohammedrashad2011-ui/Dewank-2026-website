@@ -37,10 +37,14 @@ export function BrandNamingStickyCta({ watchIds }: { watchIds: string[] }) {
     const targets = watchIds.map((id) => document.getElementById(id)).filter((node): node is HTMLElement => node !== null);
     if (!targets.length || typeof IntersectionObserver === "undefined") return;
     const onScreen = new Map<Element, boolean>();
+    let passedHero = false;
     const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) onScreen.set(entry.target, entry.isIntersecting);
+      for (const entry of entries) {
+        onScreen.set(entry.target, entry.isIntersecting);
+        // The hero CTA counts as passed only when it left through the top of the viewport.
+        if (entry.target === targets[0]) passedHero = !entry.isIntersecting && entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0);
+      }
       const anyVisible = targets.some((node) => onScreen.get(node));
-      const passedHero = targets[0].getBoundingClientRect().bottom < 0;
       setVisible(!anyVisible && passedHero);
     });
     targets.forEach((node) => observer.observe(node));
