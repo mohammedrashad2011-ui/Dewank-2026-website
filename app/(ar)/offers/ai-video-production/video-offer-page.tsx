@@ -6,6 +6,7 @@ import { organizationId, servedMarkets, serviceId, siteUrl } from "../../../lib/
 import { offerPricing } from "../offer-pricing";
 import { videoFaq, videoPackages } from "./video-offer-content";
 import VideoOrderWidget from "./video-order-widget";
+import VideoHeroPlayer from "./video-hero-player";
 import "./video-offer.css";
 
 type Locale = "ar" | "en";
@@ -181,19 +182,7 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
             </div>
             <ul className="vop-hero-facts">{t.heroFacts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
           </div>
-          <div className="vop-stage" aria-label={t.visualTag}>
-            <div className="vop-stage-top"><span className="vop-stage-dot" /><span>CREATIVE LAB / DEWANK</span><span>9:16</span></div>
-            <div className="vop-film">
-              <div className="vop-film-sun" />
-              <div className="vop-film-ring vop-film-ring-a" />
-              <div className="vop-film-ring vop-film-ring-b" />
-              <div className="vop-film-object" />
-              <div className="vop-film-caption"><small>{t.visualLabel}</small><strong>FORM<br/>IN MOTION.</strong></div>
-              <div className="vop-film-frame" />
-            </div>
-            <div className="vop-stage-timeline"><span>00:00</span><div className="vop-stage-track"><i /></div><span>00:30</span></div>
-            <p className="vop-visual-note">{t.visualDisclaimer}</p>
-          </div>
+          <VideoHeroPlayer locale={locale} />
         </section>
       </div>
 
