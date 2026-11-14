@@ -450,3 +450,23 @@ a.vop-send:hover { transform:translateY(-2px);background:#ffcf67; }
   .vop .vop-film-video { width:min(78%,275px); }
   .vop-play-icon { width:62px;height:62px; }
 }
+
+/* Country selector is explicitly visible and shares the same pricing config as existing offers. */
+.vop-country-select-wrap {
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  margin-bottom:24px;padding:17px 22px;
+  border:1px solid rgba(1,17,39,.15);border-radius:14px;
+  background:rgba(255,255,255,.72);
+}
+.vop-country-select-wrap > div { flex:1 1 350px; }
+.vop-country-select-wrap strong { display:block;color:#011127;font-size:15px;line-height:1.8; }
+.vop-country-select-wrap p { max-width:570px;margin:4px 0 0;color:#526274;font-size:12px;line-height:1.85; }
+.vop-country-select-wrap label { display:grid;gap:7px;flex:0 1 245px;color:#2e4050;font-size:12px;font-weight:800; }
+.vop-country-select-wrap select {
+  width:100%;min-height:46px;padding:8px 11px;border:1px solid #8b9ba7;border-radius:9px;
+  background:white;color:#011127;font:inherit;cursor:pointer;
+}
+@media(max-width:760px) {
+  .vop-country-select-wrap {padding:18px;}
+  .vop-country-select-wrap label {flex:1 1 100%;}
+}
