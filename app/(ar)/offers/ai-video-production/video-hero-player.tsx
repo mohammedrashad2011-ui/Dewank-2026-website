@@ -2,29 +2,28 @@
 
 import { useRef, useState } from "react";
 
-const DEMO_VIDEO_URL = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
+const SHOWREEL_URL = "/videos/dewank-video-studio-showreel.mp4";
 
 const labels = {
   ar: {
-    button: "شغّل فيديو المعاينة",
-    aria: "تشغيل فيديو توضيحي في المشغل",
+    button: "شغّل فيديو ديوانك",
+    aria: "تشغيل فيديو موشن ديوانك الأصلي",
     error: "تعذّر تشغيل المقطع داخل المتصفح.",
     open: "افتح الفيديو مباشرة",
-    note: "مشغّل فيديو فعلي. المقطع التجريبي مجاني ومرجعي (CC0)، وليس من أعمال ديوانك. سنستبدله بنموذج إنتاج حقيقي بعد اعتماده.",
+    note: "موشن أصلي من استوديو ديوانك، 18 ثانية، يعرض المونتاج وفيديوهات AI والكرياتيفات الإعلانية. اضغط للتشغيل مع الصوت.",
   },
   en: {
-    button: "Play the video preview",
-    aria: "Play an illustrative video in the media player",
-    error: "The sample video could not be played in this browser.",
+    button: "Play the Dewank showreel",
+    aria: "Play Dewank original motion design showreel",
+    error: "The showreel could not be played in this browser.",
     open: "Open the video directly",
-    note: "Working native video player. This is generic CC0 sample footage, not Dewank client work. It will be replaced with an approved original showreel.",
+    note: "An original 18-second Dewank motion design showreel featuring Reels editing, AI video and ad creative. Tap to play with sound.",
   },
 } as const;
 
 /**
- * A real native video player, loaded strictly after a user action.
- * The CSS scene is an honest visual placeholder, not a fabricated client project.
- * Replace DEMO_VIDEO_URL with a rights-cleared first-party showreel when supplied.
+ * First-party original motion showreel, requested strictly after a real click.
+ * No autoplay, no remote media host and no download on page load.
  */
 export default function VideoHeroPlayer({ locale }: { locale: "ar" | "en" }) {
   const t = labels[locale];
@@ -38,7 +37,7 @@ export default function VideoHeroPlayer({ locale }: { locale: "ar" | "en" }) {
     setActive(true);
     setError(false);
     // Assignment and play are kept inside the click gesture for iOS Safari.
-    video.src = DEMO_VIDEO_URL;
+    video.src = SHOWREEL_URL;
     video.load();
     void video.play().catch(() => {
       // Native controls remain available for browsers requiring a second tap.
@@ -66,7 +65,6 @@ export default function VideoHeroPlayer({ locale }: { locale: "ar" | "en" }) {
           ref={videoRef}
           controls
           playsInline
-          muted
           preload="none"
           onError={() => { setError(true); setActive(false); }}
           aria-label={t.button}
@@ -81,7 +79,7 @@ export default function VideoHeroPlayer({ locale }: { locale: "ar" | "en" }) {
         )}
       </div>
       <div className="vop-stage-timeline" aria-hidden="true"><span>PREVIEW</span><div className="vop-stage-track"><i /></div><span>PLAY</span></div>
-      {error && <p className="vop-video-error" role="alert">{t.error} <a href={DEMO_VIDEO_URL} target="_blank" rel="noopener noreferrer">{t.open}</a></p>}
+      {error && <p className="vop-video-error" role="alert">{t.error} <a href={SHOWREEL_URL} target="_blank" rel="noopener noreferrer">{t.open}</a></p>}
       <p className="vop-visual-note">{t.note}</p>
     </div>
   );
