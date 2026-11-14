@@ -23,9 +23,6 @@ const copy = {
     cta: "اكتشف الباقات",
     secondaryCta: "أرسل تفاصيل مشروعك",
     heroFacts: ["3 طرق إنتاج", "نطاق واضح", "جاهز للسوشيال والإعلانات"],
-    visualTag: "تصوّر إبداعي",
-    visualDisclaimer: "عرض تصميمي توضيحي، وليس عيّنة مشروع منفّذ أو فيديو قابل للتشغيل.",
-    visualLabel: "FRAME / 01",
     whyTitle: "لا تبدأ باختيار الأداة.",
     whyAccent: "ابدأ بالنتيجة.",
     whyIntro: "العميل لا يحتاج معرفة برنامج المونتاج أو مولّد المشاهد. يحتاج فيديو يتحدث إلى جمهوره ويصلح للمنصة المستهدفة. لذلك نحدد مسار الإنتاج قبل التنفيذ.",
@@ -69,9 +66,6 @@ const copy = {
     cta: "Explore the packages",
     secondaryCta: "Send your project brief",
     heroFacts: ["3 production paths", "Defined scope", "Social and ads ready"],
-    visualTag: "Creative direction preview",
-    visualDisclaimer: "Illustrative concept only, not a completed client project or playable video.",
-    visualLabel: "FRAME / 01",
     whyTitle: "Do not start with the tool.",
     whyAccent: "Start with the outcome.",
     whyIntro: "You should not need to choose a video generator or editing app. You need a video that speaks to your buyers and suits its destination. We choose the right production approach first.",
@@ -150,6 +144,23 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
           name: question,
           acceptedAnswer: { "@type": "Answer", text: answer },
         })),
+      },
+      {
+        "@type": "VideoObject",
+        "@id": url + "#studio-video",
+        name: ar
+          ? "ديوانك فيديو ستوديو | مونتاج ريلز وفيديوهات AI وإعلانات"
+          : "Dewank Video Studio | Reels, AI Video and Ad Creatives",
+        description: ar
+          ? "فيديو موشن أصلي مدته 18 ثانية يقدم طرق إنتاج فيديوهات الريلز والذكاء الاصطناعي والإعلانات."
+          : "An original 18-second motion design studio showreel featuring Reels editing, AI video and short-form advertising.",
+        thumbnailUrl: siteUrl + "/videos/dewank-video-studio-poster.jpg",
+        uploadDate: "2026-11-14",
+        duration: "PT18S",
+        contentUrl: siteUrl + "/videos/dewank-video-studio-showreel.mp4",
+        inLanguage: locale,
+        publisher: { "@id": organizationId },
+        isFamilyFriendly: true,
       },
       {
         "@type": "BreadcrumbList",
