@@ -77,6 +77,18 @@ export function useVideoOfferCountry() {
   return savedCountry ?? resolvedCountry;
 }
 
+/** Manual country correction when IP-based geolocation is inaccurate. Shared across existing offers. */
+export function setVideoOfferCountry(country: string) {
+  const selected = safeCountry(country);
+  if (!selected) return;
+  try {
+    window.localStorage.setItem(storageKey, selected);
+    window.dispatchEvent(new Event(updateEvent));
+  } catch {
+    // The visitor may have storage blocked; automatic fallback remains available.
+  }
+}
+
 export function getVideoOfferPrice(key: OfferPriceKey, country: string | null, locale: Locale) {
   const config = offerPricing[key];
   const offer = country ? config.prices[country] ?? config.fallback : config.initial;
