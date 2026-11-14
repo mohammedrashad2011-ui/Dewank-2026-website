@@ -1,0 +1,50 @@
+/* Offer hub only: a premium, lightweight preview with no extra assets or video requests. */
+html body .offers-overview-page .offers-overview-grid > article.compact-offer-card.video-offer-card {
+  border-color: rgba(235,176,46,.45)!important;
+  background:
+    radial-gradient(ellipse at 87% 3%,rgba(1,221,241,.21),transparent 44%),
+    radial-gradient(ellipse at 8% 92%,rgba(235,176,46,.13),transparent 40%),
+    linear-gradient(140deg,#132e47,#011127 73%)!important;
+}
+html body .offers-overview-page .offers-overview-grid > article.video-offer-card .video-offer-timeline {
+  display:flex;align-items:center;gap:7px;position:relative;z-index:2;
+  width:max-content;max-width:100%;margin-top:24px;margin-bottom:-23px;
+}
+html body .offers-overview-page .offers-overview-grid > article.video-offer-card .video-offer-timeline span {
+  width:36px;height:29px;border:1px solid rgba(225,237,235,.35);
+  border-radius:5px;transform:skew(-7deg);
+  background:linear-gradient(142deg,rgba(1,221,241,.44),rgba(235,176,46,.22));
+}
+html body .offers-overview-page .offers-overview-grid > article.video-offer-card .video-offer-timeline span:nth-child(2){
+  background:linear-gradient(145deg,rgba(235,176,46,.68),rgba(151,67,118,.47));
+}
+html body .offers-overview-page .offers-overview-grid > article.video-offer-card .video-offer-timeline span:nth-child(3){
+  background:linear-gradient(145deg,rgba(163,97,195,.7),rgba(1,221,241,.21));
+}
+html body .offers-overview-page .offers-overview-grid > article.video-offer-card .video-offer-timeline i {
+  width:48px;height:3px;margin-inline-start:3px;border-radius:2px;background:#ebb02e;
+}
+html body .offers-overview-page .offers-overview-grid > article.video-offer-card h2 em {
+  color:#f3c65b!important;
+}
+html body .offers-overview-page .offers-overview-grid > article.video-offer-card .offer-card-meta .button {
+  color:#fff2cc!important;border-color:rgba(235,176,46,.7)!important;
+  background:rgba(235,176,46,.13)!important;
+}
+html body .offers-overview-page .offers-overview-grid > article.video-offer-card:hover .offer-card-meta .button {
+  color:#011127!important;background:#ebb02e!important;
+}
+@media (max-width:760px){
+  html body .offers-overview-page .offers-overview-grid > article.video-offer-card .video-offer-timeline {
+    margin-top:17px;margin-bottom:-15px;
+  }
+  html body .offers-overview-page .offers-overview-grid > article.video-offer-card .video-offer-timeline span {
+    width:28px;height:24px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover:hover) {
+  html body .offers-overview-page .offers-overview-grid > article.video-offer-card:hover .video-offer-timeline span:nth-child(2){
+    transform:translateY(-4px) skew(-7deg);
+    transition:transform .3s ease;
+  }
+}
