@@ -23,6 +23,7 @@ import "./mini-visual-identity/mini-visual-identity.css";
 import "./google-ads-launch/google-ads-launch.css";
 import "./instagram-14-day-upgrade/instagram-upgrade.css";
 import "./small-business-website/small-business-website.css";
+import VideoOfferFromPrice from "./ai-video-production/video-offer-from-price";
 import { CroPackagePrice } from "../conversion-rate-optimization/cro-packages";
 import "../conversion-rate-optimization/cro.css";
 import "./offer-trust.css";
@@ -30,6 +31,7 @@ import "./offers-overview.css";
 import "./offers-overview-refine.css";
 import "./offers-motion-stage.css";
 import "./offers-cinematic-grid.css";
+import "./ai-video-production/video-offer-card.css";
 import "../../components/offers-decision-panel.css";
 
 const offerChoices: OfferChoice[] = [
@@ -43,6 +45,7 @@ const offerChoices: OfferChoice[] = [
   { id: "instagram-14-day-upgrade", title: "تطوير إنستجرام خلال 14 يوم", filter: "content" },
   { id: "small-business-website", title: "باقة الموقع الصغير", filter: "web" },
   { id: "cro-snapshot", title: "فحص التحويل وتدقيق المسار", filter: "web conversion" },
+  { id: "ai-video-production", title: "إنتاج فيديوهات AI وريلز إعلانية", filter: "content ads" },
 ];
 
 
@@ -102,10 +105,10 @@ const faqSchema = {
 };
 
 export const metadata: Metadata = createMetadata({
-  title: "عروض ديوانك | محتوى ومواقع وSEO وهوية وأتمتة وإعلانات",
-  description: "اكتشف عروض ديوانك الجاهزة: محتوى شهري، صفحات هبوط، SEO، اختيار اسم، واتساب أوتوميشن، هوية بصرية، Google Ads، تطوير إنستجرام، وموقع صغير جاهز للإطلاق.",
+  title: "عروض ديوانك | فيديوهات AI ومحتوى وإعلانات ومواقع",
+  description: "عروض ديوانك للشركات في السعودية والخليج: إنتاج فيديوهات AI ومونتاج ريلز وإعلانات قصيرة، محتوى شهري، صفحات هبوط، SEO، أسماء تجارية، أتمتة واتساب والمزيد.",
   path: "/offers",
-  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تطوير حساب انستقرام", "تصميم موقع شركة", "موقع صغير للشركات", "تصميم صفحة هبوط", "فحص SEO للموقع", "واتساب أوتوميشن", "إعداد حملة Google Ads"],
+  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تطوير حساب انستقرام", "تصميم موقع شركة", "موقع صغير للشركات", "تصميم صفحة هبوط", "فحص SEO للموقع", "واتساب أوتوميشن", "إعداد حملة Google Ads", "إنتاج فيديوهات بالذكاء الاصطناعي", "مونتاج ريلز", "تصميم فيديوهات إعلانية"],
 });
 
 export default function OffersPage() {
@@ -124,6 +127,7 @@ export default function OffersPage() {
       { "@type": "ListItem", position: 8, name: "تطوير حساب إنستجرام خلال 14 يوم", url: `${siteUrl}/offers/instagram-14-day-upgrade` },
       { "@type": "ListItem", position: 9, name: "موقع صغير جاهز للإطلاق", url: `${siteUrl}/offers/small-business-website` },
       { "@type": "ListItem", position: 10, name: "فحص التحويل وتدقيق المسار", url: `${siteUrl}/conversion-rate-optimization` },
+      { "@type": "ListItem", position: 11, name: "إنتاج فيديوهات AI وريلز إعلانية قصيرة", url: `${siteUrl}/offers/ai-video-production` },
     ],
   };
 
@@ -215,6 +219,15 @@ export default function OffersPage() {
             <h2>إطلاق حملة Google Ads<br/><em>إعداد كامل جاهز للتشغيل خلال 2–4 أيام</em></h2>
             <p>حملة بحث بكلمات بنية شراء، كتابة الإعلانات، كلمات سلبية، تتبع التحويل وفحص قبل الإطلاق. إعداد لمرة واحدة، وليست إدارة شهرية.</p>
             <div className="offer-card-meta"><div><small>باقة الإطلاق من</small><GoogleAdsLaunchPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
+          </article>
+
+          <article data-filter="content ads" data-category="فيديو AI" className="offer-card compact-offer-card video-offer-card">
+            <Link className="offer-card-hit" href="/offers/ai-video-production" aria-label="شاهد باقات إنتاج الفيديوهات بالذكاء الاصطناعي والريلز" />
+            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> باقات فيديو واضحة</span></div>
+            <div className="video-offer-timeline" aria-hidden="true"><span /><span /><span /><i /></div>
+            <h2>إنتاج فيديوهات AI وريلز<br/><em>مونتاج، إنشاء من الصفر، وإعلانات</em></h2>
+            <p>فيديوهات قصيرة للشركات والمتاجر، من خاماتك أو من الفكرة. باقات واضحة للريلز وفيديوهات AI والإعلانات مع سكريبت ومونتاج وطلب مباشر.</p>
+            <div className="offer-card-meta"><div><small>مونتاج ريلز يبدأ من</small><VideoOfferFromPrice /></div><span className="button primary">استعرض الباقات <span>←</span></span></div>
           </article>
 
           <article data-filter="content" data-category="إنستجرام" className="offer-card compact-offer-card instagram-upgrade-offer-card">
