@@ -385,3 +385,68 @@ a.vop-send:hover { transform:translateY(-2px);background:#ffcf67; }
 @media (prefers-reduced-motion: reduce) {
   .vop *, .vop *::before, .vop *::after { animation:none!important;transition:none!important;scroll-behavior:auto!important; }
 }
+
+
+/* Playback: first-party CSS poster, remote CC0 sample requested ONLY after the play click. */
+.vop-film-video { isolation:isolate; }
+.vop-film-poster { position:absolute;inset:0;z-index:1;pointer-events:none; }
+.vop-film-video .vop-film-poster .vop-film-frame { z-index:4; }
+.vop-video-element {
+  position:absolute;inset:0;z-index:7;
+  width:100%;height:100%;object-fit:cover;background:#061a33;
+  opacity:0;visibility:hidden;pointer-events:none;
+}
+.vop-video-element.is-active { opacity:1;visibility:visible;pointer-events:auto; }
+.vop-video-play {
+  position:absolute;inset:0;z-index:8;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  padding:28px 12px;border:0;border-radius:10px;cursor:pointer;
+  background:linear-gradient(180deg,rgba(6,19,37,.03),rgba(3,17,32,.35));
+  color:#fffef7;font-family:inherit;font-size:12px;font-weight:850;line-height:1.6;
+}
+.vop-play-icon {
+  width:68px;height:68px;display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.8);border-radius:50%;
+  background:rgba(1,17,39,.75);box-shadow:0 8px 24px rgba(0,0,0,.25);
+  transition:transform .22s ease,background .22s ease;
+}
+.vop-play-icon::before { content:"";width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-inline-start:20px solid #ebb02e;transform:translateX(3px); }
+.vop-video-play:hover .vop-play-icon { transform:scale(1.07);background:#011127; }
+.vop-play-label { max-width:180px;padding:8px 12px;border-radius:6px;background:rgba(1,17,39,.83);text-align:center; }
+.vop-video-error { color:#ffd9d2;font-size:12px;line-height:1.7;text-align:center; }
+.vop-video-error a { color:#ffe198;text-decoration:underline; }
+.vop-visual-note { max-width:370px;margin-inline:auto; }
+.vop-stage-timeline .vop-stage-track i { animation:none!important; }
+
+/* Typography fix for Alexandria ascenders/descenders and multi-line RTL headlines. */
+.vop[dir="rtl"] .vop-hero h1 {
+  font-size:clamp(39px,5.2vw,70px);
+  line-height:1.58;
+  letter-spacing:normal;
+}
+.vop[dir="rtl"] .vop-hero h1 span { margin-block-start:.12em;line-height:1.6; }
+.vop[dir="rtl"] .vop-section-heading h2 {
+  font-size:clamp(31px,4vw,55px);
+  line-height:1.64;
+  letter-spacing:normal;
+}
+.vop[dir="rtl"] .vop-section-heading h2 span { margin-block-start:.12em;line-height:1.64; }
+.vop[dir="rtl"] .vop-brief h2,
+.vop[dir="rtl"] .vop-last h2 {
+  font-size:clamp(30px,3.8vw,53px);
+  line-height:1.68;
+  letter-spacing:normal;
+}
+.vop[dir="rtl"] .vop-package h3,
+.vop[dir="rtl"] .vop-path h3,
+.vop[dir="rtl"] .vop-steps h3 { line-height:1.75;letter-spacing:normal; }
+.vop[dir="ltr"] .vop-hero h1 { font-size:clamp(40px,5.2vw,70px);line-height:1.37;letter-spacing:-.025em; }
+.vop[dir="ltr"] .vop-section-heading h2 { font-size:clamp(32px,4vw,56px);line-height:1.42;letter-spacing:-.02em; }
+.vop[dir="ltr"] .vop-brief h2,.vop[dir="ltr"] .vop-last h2 { line-height:1.42; }
+@media(max-width:760px) {
+  .vop[dir="rtl"] .vop-hero h1 { font-size:clamp(35px,9vw,47px);line-height:1.64; }
+  .vop[dir="rtl"] .vop-section-heading h2 { font-size:clamp(29px,8vw,42px);line-height:1.7; }
+  .vop[dir="rtl"] .vop-hero h1 span { margin-block-start:.16em; }
+  .vop .vop-film-video { width:min(78%,275px); }
+  .vop-play-icon { width:62px;height:62px; }
+}
