@@ -3,6 +3,7 @@ import { Footer, Header } from "../../../components/site-shell";
 import { Footer as EnglishFooter } from "../../../(en)/en/_en/parity/footer";
 import { Header as EnglishHeader } from "../../../(en)/en/_en/parity/header";
 import { organizationId, servedMarkets, serviceId, siteUrl } from "../../../lib/seo";
+import { offerPricing } from "../offer-pricing";
 import { videoFaq, videoPackages } from "./video-offer-content";
 import VideoOrderWidget from "./video-order-widget";
 import "./video-offer.css";
@@ -129,12 +130,12 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
           name: item[locale].title,
           description: item[locale].description,
           url: url + "#video-packages",
-          price: item.priceSAR.toString(),
-          priceCurrency: "SAR",
+          price: String(ar ? offerPricing[item.priceKey].initial.amount : offerPricing[item.priceKey].fallback.amount),
+          priceCurrency: ar ? "SAR" : "USD",
           priceSpecification: {
             "@type": "PriceSpecification",
-            price: item.priceSAR.toString(),
-            priceCurrency: "SAR",
+            price: String(ar ? offerPricing[item.priceKey].initial.amount : offerPricing[item.priceKey].fallback.amount),
+            priceCurrency: ar ? "SAR" : "USD",
             description: ar ? "سعر بداية لنطاق محدد، يُؤكَّد قبل التنفيذ" : "Starting price for defined scope, confirmed before production",
           },
         })),
