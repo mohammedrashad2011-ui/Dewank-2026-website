@@ -6,6 +6,7 @@ import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
 import { OfferPrice } from "../_en/lib/localized-price";
+import VideoOfferFromPrice from "../../../(ar)/offers/ai-video-production/video-offer-from-price";
 import { whatsappHref } from "../_en/lib/site";
 // The Arabic Offers hub's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../(ar)/offers/offers-page.css";
@@ -169,7 +170,7 @@ export default function OffersPage() {
               <h2>{offer.title}<br /><em>{offer.hook}</em></h2>
               <p>{offer.text}</p>
               <div className="offer-card-meta">
-                <div><small>{offer.label}</small><OfferPrice offerKey={offer.offerKey} className="offer-price" /></div>
+                <div><small>{offer.label}</small>{offer.slug === "ai-video-production" ? <VideoOfferFromPrice locale="en" /> : <OfferPrice offerKey={offer.offerKey} className="offer-price" />}</div>
                 <span className="button primary">Details <span>→</span></span>
               </div>
             </article>
