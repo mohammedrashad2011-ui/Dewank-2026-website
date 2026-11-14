@@ -87,16 +87,12 @@ export function getVideoOfferPrice(key: OfferPriceKey, country: string | null, l
     maximumFractionDigits: 0,
   }).format(offer.amount);
 
-  return { amount: offer.amount, currency: code, formatted: amount + " " + label };
+  return { amount: offer.amount, currency: code, currencyLabel: label, digits: amount, formatted: amount + " " + label };
 }
 
 export function VideoLocalizedOfferPrice({ priceKey, locale }: { priceKey: OfferPriceKey; locale: Locale }) {
   const country = useVideoOfferCountry();
-  const { amount, currency } = getVideoOfferPrice(priceKey, country, locale);
-  const digits = new Intl.NumberFormat(locale === "ar" ? "ar" : "en", {
-    maximumFractionDigits: 0,
-  }).format(amount);
-  const currencyLabel = locale === "en" ? currency : getVideoOfferPrice(priceKey, country, "ar").formatted.slice(digits.length).trim();
+  const { digits, currencyLabel } = getVideoOfferPrice(priceKey, country, locale);
 
   return <div className="offer-price"><strong>{digits}</strong><span>{currencyLabel}</span></div>;
 }
