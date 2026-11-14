@@ -276,7 +276,7 @@
   width:100%;min-height:48px;display:flex;align-items:center;justify-content:space-between;gap:10px;
   padding:11px 16px;border:1px solid #ab7a17;border-radius:9px;
   color:#07192b;background:#fff6db;cursor:pointer;
-  font:800 13px/1.5 inherit;
+  font-family:inherit;font-size:13px;font-weight:800;line-height:1.5;
   transition:background .22s ease,transform .22s ease;
 }
 .vop-package-action:hover { background:#f9de94;transform:translateY(-2px); }
