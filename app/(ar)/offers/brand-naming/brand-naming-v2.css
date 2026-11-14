@@ -1,0 +1,340 @@
+/* Brand Naming offer, v2 layout. Mobile first: the headline, the price and the WhatsApp CTA fit in the first phone
+   screen, and a sticky bar keeps the CTA one tap away after the hero scrolls out. Everything is scoped to .bn2. */
+
+.bn2 {
+  --bn2-navy: var(--offer-navy, #061a33);
+  --bn2-gold: var(--offer-gold, #d5a843);
+  --bn2-gold-soft: var(--offer-gold-soft, #f4d991);
+  --bn2-ivory: var(--offer-ivory, #f5f0e7);
+  --bn2-ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+/* ---------- Hero ---------- */
+.bn2-hero {
+  display: grid;
+  gap: 28px;
+  padding-top: 18px;
+  padding-bottom: 56px;
+}
+
+.bn2-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin: 0 0 14px;
+  padding: 7px 13px;
+  border: 1px solid rgba(213, 168, 67, .45);
+  border-radius: 999px;
+  background: rgba(244, 217, 145, .18);
+  color: var(--bn2-navy);
+  font-size: 13px;
+  font-weight: 600;
+}
+.bn2-kicker i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3fbf7f;
+  box-shadow: 0 0 0 4px rgba(63, 191, 127, .18);
+}
+
+.bn2-hero h1 {
+  margin: 0;
+  color: var(--bn2-navy);
+  font-size: clamp(34px, 9.4vw, 72px);
+  line-height: 1.22;
+  letter-spacing: -.02em;
+}
+.bn2-hero h1 em {
+  display: block;
+  color: #b8862a;
+  font-style: normal;
+}
+
+.bn2-lede {
+  max-width: 620px;
+  margin: 14px 0 0;
+  color: #3f4249;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.bn2-inline-price {
+  color: var(--bn2-navy);
+  white-space: nowrap;
+  background: linear-gradient(transparent 60%, rgba(244, 217, 145, .75) 60%);
+}
+
+.bn2-hero-actions { margin-top: 20px; }
+.bn2 .bn2-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 56px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+.bn2-microcopy {
+  margin: 10px 0 0;
+  color: var(--muted, #686a70);
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Plain facts, deliberately not styled like buttons, so they do not invite dead taps. */
+.bn2-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 22px 0 0;
+  padding: 14px 0 0;
+  list-style: none;
+  border-top: 1px solid rgba(6, 26, 51, .1);
+}
+.bn2-facts li { display: grid; gap: 2px; text-align: center; }
+.bn2-facts li + li { border-inline-start: 1px solid rgba(6, 26, 51, .1); }
+.bn2-facts b { color: var(--bn2-navy); font-size: 22px; line-height: 1.2; }
+.bn2-facts span { color: var(--muted, #686a70); font-size: 12px; }
+
+/* ---------- Shortlist deck (illustrative example) ---------- */
+.bn2-deck {
+  position: relative;
+  margin: 0;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(213, 168, 67, .5);
+  border-radius: 26px;
+  color: var(--bn2-ivory);
+  background:
+    radial-gradient(circle at 15% 0%, rgba(213, 168, 67, .22), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(34, 205, 208, .14), transparent 38%),
+    linear-gradient(150deg, #13233d, var(--bn2-navy) 70%);
+  box-shadow: 0 28px 70px rgba(2, 15, 30, .22);
+}
+.bn2-deck-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.bn2-deck-head span { color: var(--bn2-gold-soft); font-weight: 700; }
+.bn2-deck-head small {
+  padding: 4px 10px;
+  border: 1px solid rgba(245, 240, 231, .2);
+  border-radius: 999px;
+  color: rgba(245, 240, 231, .72);
+  font-size: 11px;
+}
+.bn2-deck-brief {
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(245, 240, 231, .06);
+}
+.bn2-deck-brief small { color: rgba(245, 240, 231, .6); font-size: 11px; }
+.bn2-deck-brief p { margin: 4px 0 0; font-size: 14px; line-height: 1.6; }
+
+.bn2-deck-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.bn2-deck-list li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "rank name"
+    "rank note"
+    "checks checks";
+  column-gap: 12px;
+  row-gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid rgba(245, 240, 231, .1);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .04);
+}
+.bn2-deck-list li:first-child {
+  border-color: rgba(244, 217, 145, .55);
+  background: rgba(244, 217, 145, .08);
+}
+.bn2-deck-rank { grid-area: rank; align-self: center; color: var(--bn2-gold); font-size: 13px; font-weight: 700; }
+.bn2-deck-name { grid-area: name; display: flex; align-items: baseline; gap: 8px; }
+.bn2-deck-name b { font-size: 22px; line-height: 1.3; }
+.bn2-deck-name small { color: rgba(245, 240, 231, .55); font-size: 12px; letter-spacing: .04em; }
+.bn2-deck-note { grid-area: note; color: rgba(245, 240, 231, .72); font-size: 13px; }
+.bn2-deck-checks { grid-area: checks; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.bn2-deck-checks i {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(63, 191, 127, .14);
+  color: #9fe3bd;
+  font-size: 11px;
+  font-style: normal;
+}
+.bn2-deck-checks i::before { content: "✓ "; }
+
+/* ---------- Fit ---------- */
+.bn2-fit, .bn2-steps, .bn2-offer { padding-bottom: 56px; }
+.bn2 h2 { color: var(--bn2-navy); }
+.bn2-fit h2, .bn2-section-head h2, .bn2-offer-copy h2 {
+  margin: 0 0 18px;
+  font-size: clamp(26px, 6.6vw, 46px);
+  line-height: 1.3;
+}
+.bn2-fit-grid { display: grid; gap: 12px; }
+.bn2-fit-grid article {
+  padding: 18px;
+  border: 1px solid rgba(6, 26, 51, .1);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .6);
+}
+.bn2-fit-grid h3 { margin: 0 0 6px; color: var(--bn2-navy); font-size: 17px; }
+.bn2-fit-grid p { margin: 0; color: #4b4e55; font-size: 14px; line-height: 1.75; }
+
+/* ---------- Steps ---------- */
+.bn2-section-head p { margin: -6px 0 22px; color: #4b4e55; line-height: 1.8; }
+.bn2-steps-list { position: relative; display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+.bn2-steps-list li {
+  position: relative;
+  padding: 18px 18px 18px 18px;
+  padding-inline-start: 22px;
+  border-radius: 20px;
+  background: var(--bn2-navy);
+  color: var(--bn2-ivory);
+}
+.bn2-steps-list li::before {
+  content: "";
+  position: absolute;
+  inset-block: 18px;
+  inset-inline-start: 0;
+  width: 4px;
+  border-radius: 4px;
+  background: var(--bn2-gold);
+}
+.bn2-steps-list small { color: var(--bn2-gold-soft); font-size: 12px; font-weight: 700; }
+.bn2-steps-list h3 { margin: 4px 0 6px; font-size: 18px; color: #fff; }
+.bn2-steps-list p { margin: 0; color: rgba(245, 240, 231, .78); font-size: 14px; line-height: 1.75; }
+
+/* ---------- Offer and price ---------- */
+.bn2-offer { display: grid; gap: 24px; align-items: start; }
+.bn2-deliverables { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.bn2-deliverables li {
+  position: relative;
+  padding: 14px 16px;
+  padding-inline-start: 44px;
+  border-bottom: 1px solid rgba(6, 26, 51, .08);
+}
+.bn2-deliverables li::before {
+  content: "✓";
+  position: absolute;
+  inset-inline-start: 12px;
+  top: 14px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(213, 168, 67, .2);
+  color: #8a6418;
+  font-size: 12px;
+  font-weight: 700;
+}
+.bn2-deliverables b { color: var(--bn2-navy); font-size: 16px; }
+.bn2-deliverables p { margin: 4px 0 0; color: #4b4e55; font-size: 14px; line-height: 1.75; }
+
+.bn2-price { position: relative; }
+.bn2-price .offer-price { margin: 12px 0 6px; }
+.bn2 .bn2-price .bn2-price-note { margin: 0 0 14px; color: rgba(245, 240, 231, .75); font-size: 13px; line-height: 1.7; }
+.bn2-excludes { margin-top: 14px; color: rgba(245, 240, 231, .72); font-size: 13px; }
+.bn2-excludes summary { cursor: pointer; color: var(--bn2-gold-soft); font-weight: 600; }
+.bn2-excludes p { margin: 8px 0 0; line-height: 1.75; }
+
+.bn2-case { padding-top: 8px; }
+.bn2-final .bn2-cta { max-width: 460px; margin-inline: auto; }
+
+/* ---------- Sticky CTA (mobile only) ---------- */
+.bn2-sticky {
+  position: fixed;
+  z-index: 60;
+  inset-inline: 12px;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 10px 14px;
+  padding-inline-start: 16px;
+  border: 1px solid rgba(213, 168, 67, .55);
+  border-radius: 20px;
+  background: rgba(6, 26, 51, .96);
+  color: var(--bn2-ivory);
+  box-shadow: 0 18px 40px rgba(2, 15, 30, .35);
+  backdrop-filter: blur(10px);
+  transform: translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .35s var(--bn2-ease), opacity .25s ease;
+}
+.bn2-sticky.is-visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.bn2-sticky-price { display: grid; line-height: 1.25; white-space: nowrap; }
+.bn2-sticky-price small { color: rgba(245, 240, 231, .65); font-size: 11px; }
+.bn2-sticky-price b { color: var(--bn2-gold-soft); font-size: 16px; }
+.bn2 .bn2-sticky .button { flex: 1; min-height: 48px; padding: 10px 14px; font-size: 14px; font-weight: 700; text-align: center; }
+
+/* The sitewide WhatsApp widget covered the price card on phones, and the sticky bar replaces it on this page. */
+@media (max-width: 860px) {
+  body:has(.bn2) .sitewide-whatsapp-wrap,
+  body:has(.bn2) .sitewide-whatsapp-collapsed { display: none; }
+  .bn2 { padding-bottom: 84px; }
+}
+@media (min-width: 861px) {
+  .bn2-sticky { display: none; }
+}
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 640px) {
+  .bn2-fit-grid { grid-template-columns: 1fr 1fr; }
+  .bn2-steps-list { grid-template-columns: repeat(3, 1fr); }
+  .bn2 .bn2-cta { width: auto; min-width: 360px; }
+  .bn2-microcopy { text-align: start; }
+}
+@media (min-width: 980px) {
+  .bn2-hero {
+    grid-template-columns: 1.1fr .9fr;
+    gap: clamp(40px, 6vw, 90px);
+    align-items: center;
+    padding-top: 48px;
+    padding-bottom: 110px;
+  }
+  .bn2-facts { max-width: 460px; }
+  .bn2-deck { padding: 26px; }
+  .bn2-fit-grid { grid-template-columns: repeat(4, 1fr); }
+  .bn2-offer { grid-template-columns: 1.15fr .85fr; gap: 56px; }
+  .bn2-price { position: sticky; top: 110px; }
+  .bn2-fit, .bn2-steps, .bn2-offer { padding-bottom: 110px; }
+}
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .bn2-hero-copy > * { animation: bn2-rise .7s var(--bn2-ease) both; }
+  .bn2-hero-copy > :nth-child(2) { animation-delay: .06s; }
+  .bn2-hero-copy > :nth-child(3) { animation-delay: .12s; }
+  .bn2-hero-copy > :nth-child(4) { animation-delay: .18s; }
+  .bn2-hero-copy > :nth-child(5) { animation-delay: .24s; }
+
+  .bn2-deck { animation: bn2-rise .8s var(--bn2-ease) .15s both; }
+  .bn2-deck-list li { animation: bn2-slot .6s var(--bn2-ease) both; animation-delay: calc(.45s + var(--i, 0) * .22s); }
+  .bn2-deck-checks i { animation: bn2-pop .4s var(--bn2-ease) both; animation-delay: calc(.9s + var(--i, 0) * .22s); }
+  .bn2-deck-checks i:nth-child(2) { animation-delay: calc(1.02s + var(--i, 0) * .22s); }
+  .bn2-deck-checks i:nth-child(3) { animation-delay: calc(1.14s + var(--i, 0) * .22s); }
+  .bn2-deck-list li:first-child { animation-name: bn2-slot, bn2-glow; animation-duration: .6s, 3.2s; animation-delay: .45s, 1.6s; animation-iteration-count: 1, infinite; }
+
+  .bn2 .bn2-hero .bn2-cta { animation: bn2-nudge 4.5s ease-in-out 2.2s infinite; }
+}
+
+@keyframes bn2-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes bn2-slot { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes bn2-pop { from { opacity: 0; transform: scale(.7); } to { opacity: 1; transform: none; } }
+@keyframes bn2-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(244, 217, 145, 0); }
+  50% { box-shadow: 0 0 0 4px rgba(244, 217, 145, .16); }
+}
+@keyframes bn2-nudge {
+  0%, 88%, 100% { transform: none; }
+  92% { transform: translateY(-2px); }
+  96% { transform: translateY(0); }
+}

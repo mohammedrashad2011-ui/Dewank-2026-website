@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { BrandNamingOfferPrice, BrandNamingWhatsApp } from "./localized-brand-naming-offer";
+import { BrandNamingInlinePrice, BrandNamingOfferPrice, BrandNamingStickyCta, BrandNamingWhatsApp } from "./localized-brand-naming-offer";
 import { NameToIdentity } from "./name-to-identity";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./brand-naming-offer.css";
+import "./brand-naming-v2.css";
 
 const title = "اختيار اسم تجاري + توجه أولي للعلامة | باقة جاهزة";
 const description = "باقة اختيار اسم تجاري للعلامات الجديدة تشمل 10–15 اسمًا مدروسًا، فحصًا لغويًا وثقافيًا، توفر الدومين، أفضل 3 ترشيحات وتوجهًا أوليًا للعلامة. تبدأ من 490 ريال.";
@@ -37,6 +38,27 @@ const faqs = [
   ["هل باقة الاسم هي نفس مشروع BITHAN؟", "لا. BITHAN دراسة حالة لمشروع تسمية وهوية بصرية لدار مجوهرات في قطر، والهوية البصرية خارج هذه الباقة. نطاق باقة 490 ريال هو المذكور في هذه الصفحة: 10–15 اسمًا، فحص مبدئي، أفضل 3 ترشيحات، توجه أولي للعلامة، وجولة تطوير واحدة."],
   ["هل تشمل الخدمة حجز الدومين؟", "تشمل التحقق من توفر الدومين وقت البحث. شراء الدومين ورسومه ليست ضمن الباقة، لأن التوفر قد يتغير حتى لحظة الحجز."],
   ["كم مدة التسليم؟", "التسليم عادة خلال 3–5 أيام عمل بعد استلام معلومات النشاط والسوق والجمهور والاتجاهات المفضلة."],
+];
+
+// Illustrative names only. They show the format of the shortlist and are labelled on the page as an example, not as
+// client work.
+const sampleNames = [
+  { name: "وَهَج", latin: "Wahaj", note: "حضور دافئ وسهل النطق" },
+  { name: "سَمار", latin: "Samar", note: "طابع ليلي هادئ للضيافة" },
+  { name: "نَجد", latin: "Najd", note: "جذر محلي قابل للتوسع" },
+];
+
+const fits = [
+  ["تفتح مشروعك الأول", "مطعم، مقهى، متجر إلكتروني أو خدمة جديدة، وتحتاج اسمًا قبل السجل والشعار."],
+  ["اسمك الحالي لا يمثلك", "اسم مكرر أو صعب النطق أو لا يناسب السوق الذي تريد التوسع فيه."],
+  ["تحتاج اسمًا عربيًا وإنجليزيًا", "اسم يُكتب ويُنطق بسهولة باللغتين ويصلح للدومين وحسابات التواصل."],
+  ["محتار بين أسماء كثيرة", "عندك أفكار ولا تعرف أيها أقوى تجاريًا وأقل تشابهًا مع الموجود."],
+];
+
+const steps = [
+  ["اليوم 1", "ترسل فكرة مشروعك", "نوع النشاط، المدينة أو السوق، والجمهور. رسالة واتساب واحدة تكفي للبدء."],
+  ["الأيام 2–4", "نبحث ونبني ونفحص", "اتجاهات تسمية مختلفة، ثم تصفية بالمعنى والنطق والتشابه والدومين."],
+  ["اليوم 5", "تستلم قرارًا واضحًا", "10–15 اسمًا، أفضل 3 ترشيحات بمقارنة واضحة، وتوجه أولي للاسم المختار."],
 ];
 
 export default function BrandNamingOfferPage() {
@@ -76,33 +98,81 @@ export default function BrandNamingOfferPage() {
   };
 
   return (
-    <main className="inner-page offers-page brand-naming-offer-page">
+    <main className="inner-page offers-page brand-naming-offer-page bn2">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <section className="shell offer-detail-hero brand-naming-hero">
-        <div>
-          <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
-          <h1>اختيار اسم تجاري<br/><em>مدروس لمشروعك</em></h1>
-          <p>اختيار اسم تجاري مميز لا يكفي إذا كان مشابهًا لاسم موجود. نساعدك على اختيار اسم مدروس، مع فحص مبدئي للمعنى والتشابه والدومين، لتقليل مخاطر الرفض وبناء علامة تجارية قابلة للتوسع قبل الاستثمار في هويتها.</p>
-          <div className="brand-naming-answer" aria-label="الإجابة المختصرة">
-            <b>الإجابة المختصرة</b>
-            <span>تحصل على 10–15 اسمًا مدروسًا، أفضل 3 ترشيحات، فحصًا مبدئيًا للمعنى والتشابه والدومين، وتوجهًا أوليًا للعلامة للاسم المختار.</span>
+      {/* On a phone the headline, the price and the WhatsApp CTA all sit in the first screen. */}
+      <section className="shell bn2-hero" aria-labelledby="bn2-title">
+        <div className="bn2-hero-copy">
+          <p className="bn2-kicker"><i aria-hidden="true" />باقة جاهزة · التسليم خلال 3–5 أيام عمل</p>
+          <h1 id="bn2-title">اختيار اسم تجاري <em>يتذكره عميلك من أول مرة</em></h1>
+          <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه وتوفر الدومين. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
+          <div className="bn2-hero-actions">
+            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
+            <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
           </div>
+          <ul className="bn2-facts" aria-label="ما تشمله الباقة">
+            <li><b>10–15</b><span>اسمًا مدروسًا</span></li>
+            <li><b>3</b><span>ترشيحات نهائية</span></li>
+            <li><b>1</b><span>جولة تطوير</span></li>
+          </ul>
         </div>
-        <aside className="offer-price-panel brand-naming-price-panel">
+
+        <figure className="bn2-deck" aria-label="مثال توضيحي لشكل القائمة المختصرة">
+          <figcaption className="bn2-deck-head"><span>القائمة المختصرة</span><small>مثال توضيحي</small></figcaption>
+          <div className="bn2-deck-brief"><small>موجز المشروع</small><p>مقهى مختص في الرياض · جمهور شاب · يخطط لفتح فروع</p></div>
+          <ol className="bn2-deck-list">
+            {sampleNames.map((item, index) => (
+              <li key={item.latin} style={{ ["--i" as string]: index }}>
+                <span className="bn2-deck-rank">0{index + 1}</span>
+                <span className="bn2-deck-name"><b>{item.name}</b><small>{item.latin}</small></span>
+                <span className="bn2-deck-note">{item.note}</span>
+                <span className="bn2-deck-checks" aria-label="فحوصات مبدئية"><i>المعنى</i><i>النطق</i><i>الدومين</i></span>
+              </li>
+            ))}
+          </ol>
+        </figure>
+      </section>
+
+      <section className="shell bn2-fit" aria-labelledby="bn2-fit-title">
+        <h2 id="bn2-fit-title">الباقة مناسبة لك إذا كنت</h2>
+        <div className="bn2-fit-grid">
+          {fits.map(([head, text]) => <article key={head}><h3>{head}</h3><p>{text}</p></article>)}
+        </div>
+      </section>
+
+      <section className="shell bn2-steps" aria-labelledby="bn2-steps-title">
+        <div className="bn2-section-head">
+          <h2 id="bn2-steps-title">من رسالة واتساب إلى اسم تختاره بثقة</h2>
+          <p>لا نماذج طويلة ولا اجتماعات. ملخص قصير عن مشروعك يكفي لنبدأ البحث.</p>
+        </div>
+        <ol className="bn2-steps-list">
+          {steps.map(([when, head, text]) => <li key={head}><small>{when}</small><h3>{head}</h3><p>{text}</p></li>)}
+        </ol>
+      </section>
+
+      <section className="shell bn2-offer" aria-labelledby="bn2-offer-title">
+        <div className="bn2-offer-copy">
+          <h2 id="bn2-offer-title">ماذا تستلم بالضبط</h2>
+          <ul className="bn2-deliverables">
+            {deliverables.map(([item, text]) => <li key={item}><b>{item}</b><p>{text}</p></li>)}
+          </ul>
+        </div>
+        <aside className="offer-price-panel brand-naming-price-panel bn2-price" aria-label="سعر الباقة">
           <small>الباقة الجاهزة</small>
           <BrandNamingOfferPrice />
-          <div className="offer-trust-inline"><span>10–15 اسمًا</span><span>أفضل 3 ترشيحات</span><span>توجه أولي للعلامة</span></div>
-          <p>لا تشمل الباقة تسجيل العلامة أو شراء الدومين أو تصميم الهوية البصرية الكاملة.</p>
-          <p className="brand-naming-next">أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
-          <BrandNamingWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
+          <p className="bn2-price-note">سعر ثابت يشمل البحث والتسمية والقائمة المختصرة والتوجه الأولي للعلامة.</p>
+          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
+          <details className="bn2-excludes">
+            <summary>ما الذي لا يشمله العرض؟</summary>
+            <p>لا يشمل رسوم الجهات الرسمية، تسجيل العلامة، شراء الدومين، تصميم الشعار أو الهوية الكاملة، أو بحثًا قانونيًا متخصصًا في عدة فئات وأسواق. الفحص الذي نقدمه مبدئي وليس رأيًا قانونيًا أو ضمان تسجيل.</p>
+          </details>
         </aside>
       </section>
 
-      <section className="shell brand-naming-case" aria-labelledby="brand-naming-case-title">
+      <section className="shell brand-naming-case bn2-case" aria-labelledby="brand-naming-case-title">
         <div>
-
           <h2 id="brand-naming-case-title">BITHAN: علامة مجوهرات راقية في قطر</h2>
           <p>اختار العميل اسم BITHAN بعد موجز استراتيجي وقائمة مختصرة وجولة تطوير وفحص مبدئي للدومين والتشابه، وهو فحص ليس تصريحًا قانونيًا. والهوية البصرية التي تلت الاسم خارج نطاق هذه الباقة.</p>
         </div>
@@ -116,42 +186,23 @@ export default function BrandNamingOfferPage() {
 
       <section className="shell brand-naming-proof">
         <div className="brand-naming-proof-copy">
-
           <h2>الاسم الجيد يمر عبر أكثر من ذوق</h2>
           <p>نقارن الخيارات وفق التميز، سهولة النطق، قابلية التذكر، ملاءمة السوق، المرونة المستقبلية، والتوفر الرقمي. الهدف ليس اسمًا يعجبنا فقط، بل اسمًا يمكن بناء علامة حوله.</p>
         </div>
         <NameToIdentity locale="ar" />
       </section>
 
-      <section className="shell offer-deliverables brand-naming-deliverables">
-        <div><h2>من الفكرة<br/>إلى قرار يمكنك الدفاع عنه</h2><p>كل عنصر مصمم لتقليل التخمين قبل أن تبدأ في الشعار والهوية والإطلاق.</p></div>
-        <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
-      </section>
-
-      <section className="shell brand-naming-process">
-        <div className="brand-naming-process-head"><h2>ملخص صغير. بحث عميق. قرار واضح</h2></div>
-        <div className="brand-naming-process-grid">
-          <article><b>01</b><h3>نفهم المشروع</h3><p>النشاط، السوق، الجمهور، المنافسون، طبيعة الاسم المطلوبة وطموح التوسع.</p></article>
-          <article><b>02</b><h3>نبحث ونبني</h3><p>ننشئ اتجاهات تسمية مختلفة ثم نفلترها بالمعنى والنطق والتشابه والتوفر الرقمي.</p></article>
-          <article><b>03</b><h3>نحسم الاتجاه</h3><p>تستلم قائمة الأسماء، ثم أفضل 3 ترشيحات، وبعد اختيار الاسم نجهز لك التوجه الأولي للعلامة.</p></article>
-        </div>
-      </section>
-
-      <section className="shell offer-confidence brand-naming-confidence">
-        <div className="offer-confidence-head"><h2>البحث يقلل المخاطر. لا يلغيها</h2></div>
-        <div className="offer-confidence-grid"><article><b>01</b><span>الفحص القانوني الذي نقدمه مبدئي وليس رأيًا قانونيًا أو ضمان تسجيل.</span></article><article><b>02</b><span>توفر الدومين والحسابات يُراجع وقت البحث وقد يتغير قبل الحجز.</span></article><article><b>03</b><span>تصميم الشعار والهوية البصرية الكاملة خدمة منفصلة بعد اعتماد الاسم.</span></article></div>
-        <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل رسوم الجهات الرسمية، تسجيل العلامة، شراء الدومين، تصميم الشعار أو الهوية الكاملة، أو بحثًا قانونيًا متخصصًا في عدة فئات وأسواق.</p></details>
-      </section>
-
       <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><h2>قبل ما تختار اسمك</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="shell offer-final-cta brand-naming-final">
+      <section className="shell offer-final-cta brand-naming-final bn2-final">
         <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
         <h2>قبل ما تصمم الشعار، اختر اسمًا يستحق أن يوضع عليه</h2>
         <p>أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
-        <BrandNamingWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
+        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
         <div className="brand-naming-links"><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
+
+      <BrandNamingStickyCta watchIds={["bn2-hero-cta", "bn2-final-cta"]} />
       <Footer />
     </main>
   );
