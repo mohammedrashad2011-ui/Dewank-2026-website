@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { offerPricing, type OfferPriceKey } from "../offer-pricing";
-import { resolveOfferPrice, useOfferCountry } from "../../../(en)/en/_en/lib/localized-price";
+import type { OfferPriceKey } from "../offer-pricing";
+import { getVideoOfferPrice, useVideoOfferCountry } from "./video-localized-price";
 import { videoPackages, type VideoPackageId } from "./video-offer-content";
 
 type Locale = "ar" | "en";
@@ -82,18 +82,10 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
   const [goal, setGoal] = useState("ads");
   const [assets, setAssets] = useState("none");
   const [reference, setReference] = useState("");
-  const country = useOfferCountry();
+  const country = useVideoOfferCountry();
   const chosen = videoPackages.find((item) => item.id === selectedId) ?? videoPackages[1];
 
-  const displayPrice = (key: OfferPriceKey) => {
-    if (!ar) {
-      const result = resolveOfferPrice(key, country);
-      return new Intl.NumberFormat("en", { maximumFractionDigits: 0 }).format(result.amount) + " " + result.currency;
-    }
-    const config = offerPricing[key];
-    const local = (country && config.prices[country]) || config.initial;
-    return new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(local.amount) + " " + local.currencyLabel;
-  };
+  const displayPrice = (key: OfferPriceKey) => getVideoOfferPrice(key, country, locale).formatted;
 
   const message = [
     t.waGreeting,
