@@ -35,6 +35,12 @@ html body .offers-overview-page .offers-overview-grid > article.video-offer-card
   color:#011127!important;background:#ebb02e!important;
 }
 @media (max-width:760px){
+  /* New service offer remains discoverable if a scroll-reveal observer stalls on a phone. */
+  html body .offers-overview-page.om-motion-ready .offers-grid > article.video-offer-card.om-reveal-target:not(.om-revealed){
+    opacity:1;translate:0 0;
+  }
+}
+@media (max-width:760px){
   html body .offers-overview-page .offers-overview-grid > article.video-offer-card .video-offer-timeline {
     margin-top:17px;margin-bottom:-15px;
   }
