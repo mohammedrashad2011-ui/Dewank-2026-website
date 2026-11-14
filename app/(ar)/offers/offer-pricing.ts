@@ -24,6 +24,10 @@ const gcc = (sa: number, bh: number, kw: number, fallback: number): OfferPriceCo
 
 export const offerPricing = {
   "30-day-content-package": gcc(790, 79, 65, 210),
+  // Video packages: fixed-scope pilot prices; no live FX conversion.
+  "video-edit": gcc(990, 99, 82, 265),
+  "video-ai": gcc(1290, 129, 107, 345),
+  "video-ads": gcc(1890, 189, 156, 505),
   "landing-page-package": gcc(1490, 149, 125, 399),
   "landing-page-package-full": gcc(1890, 189, 159, 505),
   "seo-audit": gcc(490, 49, 39, 130),
