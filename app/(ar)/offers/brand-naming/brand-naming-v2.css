@@ -65,6 +65,10 @@
   background: linear-gradient(transparent 60%, rgba(244, 217, 145, .75) 60%);
 }
 
+/* The English price component renders the amount and the currency as two elements, so they need their own gap. */
+.bn2-inline-price > span, .bn2-sticky-amount > span { margin-inline-start: .25em; }
+.bn2-inline-price strong { font-weight: inherit; }
+
 .bn2-hero-actions { margin-top: 20px; }
 .bn2 .bn2-cta {
   display: flex;
@@ -95,7 +99,7 @@
   list-style: none;
   border-top: 1px solid rgba(6, 26, 51, .1);
 }
-.bn2-facts li { display: grid; gap: 2px; text-align: center; }
+.bn2-facts li { display: grid; align-content: start; justify-items: center; gap: 2px; text-align: center; }
 .bn2-facts li + li { border-inline-start: 1px solid rgba(6, 26, 51, .1); }
 .bn2-facts b { color: var(--bn2-navy); font-size: 22px; line-height: 1.2; }
 .bn2-facts span { color: var(--muted, #686a70); font-size: 12px; }
@@ -170,8 +174,9 @@
 
 /* ---------- Fit ---------- */
 .bn2-fit, .bn2-steps, .bn2-offer { padding-bottom: 56px; }
-.bn2 h2 { color: var(--bn2-navy); }
+/* Only the light sections get navy headings. The final CTA card is navy and keeps its own ivory heading. */
 .bn2-fit h2, .bn2-section-head h2, .bn2-offer-copy h2 {
+  color: var(--bn2-navy);
   margin: 0 0 18px;
   font-size: clamp(26px, 6.6vw, 46px);
   line-height: 1.3;
