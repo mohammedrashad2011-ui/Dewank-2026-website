@@ -25,6 +25,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 import "../../../(ar)/offers/offers-motion-stage.css";
 import "../../../(ar)/offers/offers-cinematic-grid.css";
+import "../../../(ar)/offers/ai-video-production/video-offer-card.css";
 import "../../../components/offers-decision-panel.css";
 
 
@@ -84,8 +85,8 @@ const faqSchema = {
 };
 
 export const metadata = enMetadata(
-  "Marketing offers with defined starting prices",
-  "Offers with a known starting price: content, landing pages, SEO audits, naming, WhatsApp automation, identity, Google Ads, Instagram and websites.",
+  "Marketing offers: AI video, Reels, ads and websites",
+  "Dewank offers for GCC businesses: AI video production, short-form video ads, Reels editing, social content, landing pages, SEO audits, branding and automation.",
   "/en/offers",
 );
 
@@ -98,6 +99,7 @@ const offers = [
   { slug: "whatsapp-automation-starter", filter: "automation", category: "Automation", priority: false, spots: "3–5", unit: "working days", title: "WhatsApp automation for your business.", hook: "Auto-replies that collect and qualify leads.", text: "It answers common questions, collects customer details, follows up, then hands over to the right person, so no conversation is lost.", label: "Starter package from", offerKey: "whatsapp-automation-starter", cardClass: "offer-card compact-offer-card whatsapp-starter-offer-card", aria: "View the WhatsApp automation starter" },
   { slug: "mini-visual-identity", filter: "brand", category: "Identity", priority: false, spots: "7–10", unit: "working days", title: "Visual identity design.", hook: "Logo, colours and typefaces.", text: "A primary logo and a simplified version, colours, typefaces, a visual direction and three practical applications, so the brand starts consistent rather than random.", label: "Mini package from", offerKey: "mini-visual-identity", cardClass: "offer-card compact-offer-card mini-identity-offer-card", aria: "View the mini visual identity package" },
   { slug: "google-ads-launch", filter: "ads", category: "Advertising", priority: true, spots: "2–4", unit: "working days", title: "Google Ads campaign setup.", hook: "Ready to launch in 2–4 working days.", text: "A Search campaign with buyer-intent keywords, ad copy, negative keywords, conversion tracking and a pre-launch check. A one-time setup, not monthly management.", label: "Launch package from", offerKey: "google-ads-launch", cardClass: "offer-card compact-offer-card google-ads-offer-card offer-priority", aria: "View the Google Ads launch package" },
+  { slug: "ai-video-production", filter: "content ads", category: "AI video", priority: true, spots: "3", unit: "video packages", title: "AI videos and Reels production.", hook: "Edit, generate or advertise.", text: "Short-form videos for brands and stores. Choose editing from your footage, AI videos from a concept, or purpose-built ad creatives.", label: "Reels editing from", offerKey: "video-edit", cardClass: "offer-card compact-offer-card video-offer-card", aria: "View AI video production and Reels editing packages" },
   { slug: "instagram-14-day-upgrade", filter: "content", category: "Instagram", priority: false, spots: "14", unit: "focused days", title: "Instagram account upgrade.", hook: "Bio, highlights and 6 designs in 14 days.", text: "We review the account, improve the bio, call to action and highlights, set content themes and a visual direction, and deliver six designs with a plan.", label: "Upgrade package from", offerKey: "instagram-14-day-upgrade", cardClass: "offer-card compact-offer-card instagram-upgrade-offer-card", aria: "View the 14-day Instagram upgrade" },
   { slug: "small-business-website", filter: "web", category: "Websites", priority: false, spots: "Up to 5", unit: "pages", title: "Small business website.", hook: "Up to 5 pages, ready to launch.", text: "Mobile-friendly design and build, WhatsApp and a contact form, analytics and basic SEO, and a full review before launch.", label: "Website package from", offerKey: "small-business-website", cardClass: "offer-card compact-offer-card small-website-offer-card", aria: "View the small business website package" },
 ] as const;
@@ -163,6 +165,7 @@ export default function OffersPage() {
             <article key={offer.slug} data-filter={offer.filter} data-category={offer.category} className={offer.cardClass}>
               <Link className="offer-card-hit" href={`/en/offers/${offer.slug}`} aria-label={offer.aria} />
               <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>{offer.spots}</strong> {offer.unit}</span></div>
+              {offer.slug === "ai-video-production" && <div className="video-offer-timeline" aria-hidden="true"><span /><span /><span /><i /></div>}
               <h2>{offer.title}<br /><em>{offer.hook}</em></h2>
               <p>{offer.text}</p>
               <div className="offer-card-meta">
