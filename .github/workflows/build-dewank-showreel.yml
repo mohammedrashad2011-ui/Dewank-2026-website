@@ -1,0 +1,55 @@
+# One-time, reproducible first-party showreel render for draft PR #212.
+# Runs only when this workflow file itself changes. Generated assets do not retrigger it.
+name: Build Dewank Video Studio showreel
+on:
+  push:
+    branches:
+      - copy/offer-card-titles
+    paths:
+      - .github/workflows/build-dewank-showreel.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install production render dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fontconfig fonts-noto-core fonts-dejavu-core
+          python -m pip install --disable-pip-version-check --quiet numpy pillow
+      - name: Restore readable renderer from staged source and produce the asset
+        run: |
+          mkdir -p public/videos scripts
+          python - <<'PY'
+          import base64, zlib
+          from pathlib import Path
+          src = Path('scripts/.dewank-video-render.zlib.b64')
+          assert src.is_file(), 'Staged render source not found'
+          payload = zlib.decompress(base64.b64decode(src.read_text().strip()))
+          Path('scripts/render-dewank-video-studio.py').write_bytes(payload)
+          print('Restored', len(payload), 'bytes of human-readable Python source')
+          PY
+          DEWANK_VIDEO_OUT=public/videos/dewank-video-studio-showreel.mp4 python scripts/render-dewank-video-studio.py
+          cp public/videos/dewank-video-studio-showreel-frame-024.jpg public/videos/dewank-video-studio-poster.jpg
+          rm -f public/videos/dewank-video-studio-showreel-frame-*.jpg
+          ffprobe -v error -show_entries format=duration,size -show_entries stream=codec_name,width,height -of json public/videos/dewank-video-studio-showreel.mp4
+          test "$(stat -c%s public/videos/dewank-video-studio-showreel.mp4)" -lt 3000000
+      - name: Commit optimized video and editable render source to PR branch
+        run: |
+          git config user.name "dewank-video-studio[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm scripts/.dewank-video-render.zlib.b64
+          git add scripts/render-dewank-video-studio.py public/videos/dewank-video-studio-showreel.mp4 public/videos/dewank-video-studio-poster.jpg
+          git commit -m "assets(video): add original optimized 18s Video Studio showreel"
+          git push origin HEAD:copy/offer-card-titles

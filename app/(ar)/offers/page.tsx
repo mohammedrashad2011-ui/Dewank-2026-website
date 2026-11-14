@@ -23,6 +23,7 @@ import "./mini-visual-identity/mini-visual-identity.css";
 import "./google-ads-launch/google-ads-launch.css";
 import "./instagram-14-day-upgrade/instagram-upgrade.css";
 import "./small-business-website/small-business-website.css";
+import VideoOfferFromPrice from "./ai-video-production/video-offer-from-price";
 import { CroPackagePrice } from "../conversion-rate-optimization/cro-packages";
 import "../conversion-rate-optimization/cro.css";
 import "./offer-trust.css";
@@ -30,6 +31,7 @@ import "./offers-overview.css";
 import "./offers-overview-refine.css";
 import "./offers-motion-stage.css";
 import "./offers-cinematic-grid.css";
+import "./ai-video-production/video-offer-card.css";
 import "../../components/offers-decision-panel.css";
 
 const offerChoices: OfferChoice[] = [
@@ -43,6 +45,7 @@ const offerChoices: OfferChoice[] = [
   { id: "instagram-14-day-upgrade", title: "تطوير إنستجرام خلال 14 يوم", filter: "content" },
   { id: "small-business-website", title: "باقة الموقع الصغير", filter: "web" },
   { id: "cro-snapshot", title: "فحص التحويل وتدقيق المسار", filter: "web conversion" },
+  { id: "ai-video-production", title: "إنتاج فيديوهات AI وريلز إعلانية", filter: "content ads" },
 ];
 
 
@@ -102,10 +105,10 @@ const faqSchema = {
 };
 
 export const metadata: Metadata = createMetadata({
-  title: "عروض ديوانك | محتوى ومواقع وSEO وهوية وأتمتة وإعلانات",
-  description: "اكتشف عروض ديوانك الجاهزة: محتوى شهري، صفحات هبوط، SEO، اختيار اسم، واتساب أوتوميشن، هوية بصرية، Google Ads، تطوير إنستجرام، وموقع صغير جاهز للإطلاق.",
+  title: "عروض ديوانك | فيديوهات AI ومحتوى وإعلانات ومواقع",
+  description: "عروض ديوانك للشركات في السعودية والخليج: إنتاج فيديوهات AI ومونتاج ريلز وإعلانات قصيرة، محتوى شهري، صفحات هبوط، SEO، أسماء تجارية، أتمتة واتساب والمزيد.",
   path: "/offers",
-  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تطوير حساب انستقرام", "تصميم موقع شركة", "موقع صغير للشركات", "تصميم صفحة هبوط", "فحص SEO للموقع", "واتساب أوتوميشن", "إعداد حملة Google Ads"],
+  keywords: ["عروض تسويق رقمي", "باقة محتوى انستقرام", "تطوير حساب انستقرام", "تصميم موقع شركة", "موقع صغير للشركات", "تصميم صفحة هبوط", "فحص SEO للموقع", "واتساب أوتوميشن", "إعداد حملة Google Ads", "إنتاج فيديوهات بالذكاء الاصطناعي", "مونتاج ريلز", "تصميم فيديوهات إعلانية"],
 });
 
 export default function OffersPage() {
@@ -124,6 +127,7 @@ export default function OffersPage() {
       { "@type": "ListItem", position: 8, name: "تطوير حساب إنستجرام خلال 14 يوم", url: `${siteUrl}/offers/instagram-14-day-upgrade` },
       { "@type": "ListItem", position: 9, name: "موقع صغير جاهز للإطلاق", url: `${siteUrl}/offers/small-business-website` },
       { "@type": "ListItem", position: 10, name: "فحص التحويل وتدقيق المسار", url: `${siteUrl}/conversion-rate-optimization` },
+      { "@type": "ListItem", position: 11, name: "إنتاج فيديوهات AI وريلز إعلانية قصيرة", url: `${siteUrl}/offers/ai-video-production` },
     ],
   };
 
@@ -164,24 +168,24 @@ export default function OffersPage() {
           <article data-filter="content" data-category="محتوى" className="offer-card compact-offer-card offer-priority">
             <Link className="offer-card-hit" href="/offers/30-day-content-package" aria-label="شاهد تفاصيل باقة محتوى شهر كامل" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>10–14</strong> يوم عمل</span></div>
-            <h2>محتوى شهر كامل<br/><em>جاهز للنشر</em></h2>
-            <p>12 بوستًا، 3 ستوري، ريل واحد، أفكار وكابشنات وخطة نشر ليظهر حسابك بصورة متناسقة بدل النشر العشوائي.</p>
+            <h2>تصميم محتوى سوشيال ميديا لشهر<br/><em>12 بوست و3 ستوري وريل جاهزين للنشر</em></h2>
+            <p>نجهز أفكار ونصوص وتصميمات الشهر كله مع خطة نشر، لتنشر بانتظام دون أن تبدأ من الصفر كل يوم.</p>
             <div className="offer-card-meta"><div><small>السعر التأسيسي</small><LocalizedOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
           <article data-filter="web conversion" data-category="ويب وتحويل" className="offer-card compact-offer-card landing-offer-card offer-priority">
             <Link className="offer-card-hit" href="/offers/landing-page-package" aria-label="شاهد تفاصيل باقة صفحة الهبوط" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-            <h2>صفحة واحدة<br/><em>تحوّل الزائر إلى عميل</em></h2>
-            <p>صفحة هبوط مخصصة تشمل النص التسويقي والتصميم وربط واتساب والنماذج والتحليلات، مع خيار كامل للدومين والاستضافة.</p>
+            <h2>تصميم صفحة هبوط لإعلاناتك<br/><em>مبنية لتحويل الزائر إلى طلب على واتساب</em></h2>
+            <p>صفحة مخصصة لعرض واحد: نكتب النص ونصمم ونربط واتساب والنموذج والتحليلات، والباقة الكاملة تشمل الدومين والاستضافة لسنة.</p>
             <div className="offer-card-meta"><div><small>الباقة الأساسية من</small><LandingOfferPrice kind="base" /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
           <article data-filter="web" data-category="SEO وتحليل" className="offer-card compact-offer-card seo-audit-offer-card">
             <Link className="offer-card-hit" href="/offers/seo-audit" aria-label="شاهد تفاصيل فحص SEO الشامل" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>48</strong> ساعة للتسليم</span></div>
-            <h2>اعرف المشكلة<br/><em>قبل أن تزيد الميزانية</em></h2>
-            <p>فحص SEO وAEO شامل يكشف مشاكل الفهرسة والسرعة والمحتوى والكلمات والتحويل، مع تقرير PDF وخطة تحسين مرتبة لمدة 30 يومًا.</p>
+            <h2>فحص SEO لموقعك<br/><em>تقرير بالمشاكل وخطة إصلاح خلال 48 ساعة</em></h2>
+            <p>نراجع الفهرسة والسرعة والمحتوى والكلمات المفتاحية وظهورك في إجابات الذكاء الاصطناعي، وتستلم تقرير PDF وخطة تحسين لـ30 يومًا.</p>
             <div className="offer-card-meta"><div><small>فحص شامل من</small><SeoAuditOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
@@ -196,8 +200,8 @@ export default function OffersPage() {
           <article data-filter="automation" data-category="أتمتة" className="offer-card compact-offer-card whatsapp-starter-offer-card">
             <Link className="offer-card-hit" href="/offers/whatsapp-automation-starter" aria-label="شاهد تفاصيل باقة واتساب أوتوميشن" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
-            <h2>واتساب يرد<br/><em>ويؤهّل قبل الموظف</em></h2>
-            <p>مسار تأسيسي للرد على الأسئلة، جمع بيانات العميل، تأهيله، متابعته، ثم تحويله للموظف المناسب بدل ضياع المحادثات.</p>
+            <h2>أتمتة واتساب لنشاطك<br/><em>رد آلي يجمع بيانات العميل ويؤهله</em></h2>
+            <p>يرد على الأسئلة المتكررة، ويجمع بيانات العميل ويتابعه، ثم يحوّله للموظف المناسب، فلا تضيع محادثة.</p>
             <div className="offer-card-meta"><div><small>باقة التأسيس من</small><WhatsAppStarterPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
@@ -212,32 +216,41 @@ export default function OffersPage() {
           <article data-filter="ads" data-category="إعلانات" className="offer-card compact-offer-card google-ads-offer-card offer-priority">
             <Link className="offer-card-hit" href="/offers/google-ads-launch" aria-label="شاهد تفاصيل باقة إطلاق Google Ads" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> أيام عمل</span></div>
-            <h2>ابدأ Google Ads<br/><em>بإعداد محسوب</em></h2>
-            <p>حملة Search واحدة، بحث كلمات بنية شراء، كتابة الإعلانات، كلمات سلبية، تتبع تحويل أساسي وفحص قبل الإطلاق. باقة تأسيس وليست إدارة شهرية.</p>
+            <h2>إطلاق حملة Google Ads<br/><em>إعداد كامل جاهز للتشغيل خلال 2–4 أيام</em></h2>
+            <p>حملة بحث بكلمات بنية شراء، كتابة الإعلانات، كلمات سلبية، تتبع التحويل وفحص قبل الإطلاق. إعداد لمرة واحدة، وليست إدارة شهرية.</p>
             <div className="offer-card-meta"><div><small>باقة الإطلاق من</small><GoogleAdsLaunchPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
+          </article>
+
+          <article data-filter="content ads" data-category="فيديو AI" className="offer-card compact-offer-card video-offer-card">
+            <Link className="offer-card-hit" href="/offers/ai-video-production" aria-label="شاهد باقات إنتاج الفيديوهات بالذكاء الاصطناعي والريلز" />
+            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> باقات فيديو واضحة</span></div>
+            <div className="video-offer-timeline" aria-hidden="true"><span /><span /><span /><i /></div>
+            <h2>إنتاج فيديوهات AI وريلز<br/><em>مونتاج، إنشاء من الصفر، وإعلانات</em></h2>
+            <p>فيديوهات قصيرة للشركات والمتاجر، من خاماتك أو من الفكرة. باقات واضحة للريلز وفيديوهات AI والإعلانات مع سكريبت ومونتاج وطلب مباشر.</p>
+            <div className="offer-card-meta"><div><small>مونتاج ريلز يبدأ من</small><VideoOfferFromPrice /></div><span className="button primary">استعرض الباقات <span>←</span></span></div>
           </article>
 
           <article data-filter="content" data-category="إنستجرام" className="offer-card compact-offer-card instagram-upgrade-offer-card">
             <Link className="offer-card-hit" href="/offers/instagram-14-day-upgrade" aria-label="شاهد تفاصيل تطوير حساب إنستجرام خلال 14 يوم" />
             <div className="instagram-card-topline"><span className="instagram-platform-badge"><span className="instagram-platform-icon" aria-hidden="true" />إنستجرام</span><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span></div>
-            <h2>طوّر حساب إنستجرام<br/><em>واجعله يقنع العميل</em></h2>
-            <p>مراجعة شاملة، تحسين البايو والـCTA والهايلايتس، محاور محتوى وتوجه بصري، 6 تصميمات وخطة تنفيذ لمدة 14 يومًا.</p>
+            <h2>تطوير حساب إنستجرام<br/><em>بايو وهايلايتس و6 تصميمات خلال 14 يومًا</em></h2>
+            <p>نراجع الحساب ونحسّن البايو والـCTA والهايلايتس، ونحدد محاور المحتوى والتوجه البصري، مع 6 تصميمات وخطة تنفيذ.</p>
             <div className="offer-card-meta"><div><small>باقة تطوير إنستجرام من</small><InstagramUpgradePrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
           <article data-filter="web" data-category="مواقع" className="offer-card compact-offer-card small-website-offer-card">
             <Link className="offer-card-hit" href="/offers/small-business-website" aria-label="شاهد تفاصيل باقة الموقع الصغير" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>حتى 5</strong> صفحات</span></div>
-            <h2>موقع صغير<br/><em>جاهز للإطلاق</em></h2>
-            <p>حتى 5 صفحات، تصميم وتطوير متجاوب، واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق.</p>
+            <h2>تصميم موقع للشركات الصغيرة<br/><em>حتى 5 صفحات، جاهز للإطلاق</em></h2>
+            <p>تصميم وتطوير متجاوب مع الجوال، ربط واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق.</p>
             <div className="offer-card-meta"><div><small>باقة الموقع من</small><SmallWebsitePrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
           </article>
 
           <article data-filter="web conversion" data-category="تدقيق وتحويل" className="offer-card compact-offer-card cro-offer-card">
             <Link className="offer-card-hit" href="/conversion-rate-optimization#pricing" aria-label="شاهد باقات فحص التحويل وتدقيق المسار" />
             <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> باقات لمرة واحدة</span></div>
-            <h2>فحص التحويل وتدقيق المسار<br/><em>اعرف أين تتوقف الزيارات</em></h2>
-            <p>ثلاث باقات محددة الحدود، من فحص صفحة واحدة إلى تحليل مسار أوسع. كل باقة تحدد ما تشمله ومدة تسليمها قبل الدفع.</p>
+            <h2>فحص معدل التحويل لموقعك<br/><em>اعرف لماذا يزورك العملاء ولا يطلبون</em></h2>
+            <p>3 باقات محددة، من فحص صفحة واحدة إلى تحليل المسار كاملًا، وكل باقة توضح ما تشمله ومدة تسليمها قبل الدفع.</p>
             <div className="offer-card-meta"><div><small>يبدأ من</small><CroPackagePrice offerKey="cro-snapshot" /></div><span className="button primary">الباقات <span>←</span></span></div>
           </article>
 

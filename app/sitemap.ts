@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Offers hub and offer landing pages
     { path: "/offers", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/offers/30-day-content-package", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/offers/ai-video-production", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/landing-page-package", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/seo-audit", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/brand-naming", priority: 0.85, changeFrequency: "weekly" as const },
