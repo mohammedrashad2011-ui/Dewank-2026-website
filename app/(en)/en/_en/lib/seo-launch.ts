@@ -27,6 +27,7 @@ export const englishToArabic: Record<string, string> = {
   "/en/work/bithan": "/work/bithan",
   "/en/offers": "/offers",
   "/en/offers/30-day-content-package": "/offers/30-day-content-package",
+  "/en/offers/ai-video-production": "/offers/ai-video-production",
   "/en/offers/landing-page-package": "/offers/landing-page-package",
   "/en/offers/seo-audit": "/offers/seo-audit",
   "/en/offers/brand-naming": "/offers/brand-naming",
