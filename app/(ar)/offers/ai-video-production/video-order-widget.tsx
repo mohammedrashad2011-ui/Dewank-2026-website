@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { OfferPriceKey } from "../offer-pricing";
-import { getVideoOfferPrice, useVideoOfferCountry } from "./video-localized-price";
+import { getVideoOfferPrice, setVideoOfferCountry, useVideoOfferCountry } from "./video-localized-price";
 import { videoPackages, type VideoPackageId } from "./video-offer-content";
 
 type Locale = "ar" | "en";
@@ -10,6 +10,9 @@ type Locale = "ar" | "en";
 const labels = {
   ar: {
     mostRequested: "باقة الانطلاقة",
+    countryTitle: "الأسعار حسب الدولة",
+    countryNote: "السعر الافتراضي بالريال السعودي، ويتم تحديد الدولة تلقائيًا إذا توفرت البيانات. يمكنك تغييرها يدويًا.",
+    countrySelect: "اختر السوق",
     startingAt: "يبدأ من",
     quantity: "فيديو",
     seconds: "ثانية لكل فيديو",
@@ -40,6 +43,9 @@ const labels = {
   },
   en: {
     mostRequested: "Recommended starting point",
+    countryTitle: "Location-based pricing",
+    countryNote: "Saudi riyal is the default price. Country is detected when available, and you can change it here.",
+    countrySelect: "Select country",
     startingAt: "From",
     quantity: "videos",
     seconds: "seconds per video",
@@ -83,6 +89,7 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
   const [assets, setAssets] = useState("none");
   const [reference, setReference] = useState("");
   const country = useVideoOfferCountry();
+  const selectedCountry = country && ["SA", "AE", "BH", "KW", "QA", "OM"].includes(country) ? country : country ? "US" : "SA";
   const chosen = videoPackages.find((item) => item.id === selectedId) ?? videoPackages[1];
 
   const displayPrice = (key: OfferPriceKey) => getVideoOfferPrice(key, country, locale).formatted;
@@ -102,6 +109,20 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
 
   return (
     <>
+      <div className="vop-country-select-wrap">
+        <div><strong>{t.countryTitle}</strong><p>{t.countryNote}</p></div>
+        <label htmlFor="vop-country-select">{t.countrySelect}
+          <select id="vop-country-select" value={selectedCountry} onChange={(event) => setVideoOfferCountry(event.target.value)}>
+            <option value="SA">{ar ? "السعودية · SAR" : "Saudi Arabia · SAR"}</option>
+            <option value="AE">{ar ? "الإمارات · AED" : "United Arab Emirates · AED"}</option>
+            <option value="BH">{ar ? "البحرين · BHD" : "Bahrain · BHD"}</option>
+            <option value="KW">{ar ? "الكويت · KWD" : "Kuwait · KWD"}</option>
+            <option value="QA">{ar ? "قطر · QAR" : "Qatar · QAR"}</option>
+            <option value="OM">{ar ? "عُمان · OMR" : "Oman · OMR"}</option>
+            <option value="US">{ar ? "دولي · USD" : "Other countries · USD"}</option>
+          </select>
+        </label>
+      </div>
       <div className="vop-package-grid" aria-label={ar ? "باقات إنتاج الفيديو" : "Video production packages"}>
         {videoPackages.map((item) => {
           const active = item.id === selectedId;
