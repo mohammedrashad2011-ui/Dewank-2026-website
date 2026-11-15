@@ -40,7 +40,7 @@ export default function OffersDecisionPanel({ locale, offers }: { locale: Locale
   return (
     <div className="offers-decision-panel shell" dir={ar ? "rtl" : "ltr"}>
       <div className="offers-decision-heading">
-        <div><h2>{ar ? "تحتاج مساعدة في الاختيار؟" : "Need help choosing?"}</h2><p>{ar ? "اكتب نشاطك وهدفك، واختر عرضًا إن رغبت. يمكنك مراجعة التفاصيل والأسعار أدناه." : "Share your business and goal, and optionally pick an offer. Review details and prices below."}</p></div>
+        <div><h2>{ar ? "تحتاج مساعدة في الاختيار؟" : "Need help choosing?"}</h2><p>{ar ? "اكتب نشاطك وهدفك، واختر عرضًا إن رغبت. نرشح لك البداية الأنسب قبل الاتفاق على النطاق والسعر." : "Share your business and goal, and optionally pick an offer. We recommend the best starting point before agreeing the scope and price."}</p></div>
       </div>
       <div className="offers-decision-flow">
         <div className="offers-decision-stage" key={filter}><small>{ar ? "المجال المختار" : "Selected area"}</small><strong aria-live="polite">{category}</strong><span aria-live="polite">{ar ? `${visible.length} عروض متاحة في هذا التصنيف` : `${visible.length} offers in this category`}</span></div>

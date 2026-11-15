@@ -29,7 +29,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["How much does it cost to set up and launch a Google Ads campaign?", "This package sets up and launches one Google Search campaign for the price shown above, in US dollars by default or in your country's approved price where one exists. Your ad budget is paid directly to Google, and ongoing monthly management is not included."],
+  ["How much does it cost to set up and launch a Google Ads campaign?", "This package sets up and launches one Google Search campaign for the price shown above, in Saudi riyals by default, or in your country's approved price where one exists. Your ad budget is paid directly to Google, and ongoing monthly management is not included."],
   ["What does the Google Ads launch package include?", "It includes setting up and launching one Google Search campaign with up to two ad groups, keyword research, ad copy, the initial negative keywords, and one main conversion goal where the technical requirements are met."],
   ["Does the package include the ad budget?", "No. The package fee is for setting up and launching the campaign. Your advertising budget is paid directly to Google, in the amount you choose."],
   ["Does it include a month of campaign management?", "No. The package covers setup and launch, with technical follow-up for 7 days. If you need continuous management and optimisation, see our Google Ads and paid advertising service."],

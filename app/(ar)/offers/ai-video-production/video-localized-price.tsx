@@ -36,7 +36,7 @@ let lookup: Promise<string | null> | null = null;
 
 function lookupCountry(): Promise<string | null> {
   if (!lookup) {
-    lookup = fetch("/api/offer-country", { cache: "no-store" })
+    lookup = fetch("https://api.country.is/", { cache: "no-store" })
       .then((res) => {
         if (!res.ok) throw new Error("Country lookup unavailable");
         return res.json() as Promise<{ country?: string | null }>;

@@ -53,7 +53,7 @@ const steps = [
 ];
 
 const faqs = [
-  ["What does a brand naming package cost?", "The package starts at the price shown above, in US dollars by default or in your country's approved price where one exists. It covers the research, the naming, the short list and the initial brand direction. It does not cover government fees or trademark registration."],
+  ["What does a brand naming package cost?", "The package starts at the price shown above, in Saudi riyals by default, or in your country's approved price where one exists. It covers the research, the naming, the short list and the initial brand direction. It does not cover government fees or trademark registration."],
   ["How many names will I receive?", "Usually 10–15 considered names. We then recommend the best three, based on clear criteria that help you decide."],
   ["What is meant by an initial brand direction?", "It is a preliminary picture of the brand once the name is chosen: the personality, tone of voice, visual mood and the words the identity should reflect later. It does not include a logo or a full visual identity."],
   ["Do you guarantee that the name will be accepted or registered?", "No. We carry out a preliminary check of similarity, meaning and availability to reduce risk. The final decision on acceptance and registration rests with the official authority."],

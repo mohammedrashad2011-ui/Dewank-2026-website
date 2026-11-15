@@ -1,33 +1,9 @@
-import Link from "next/link";
-import OffersMotionStage from "../../../(ar)/offers/offers-motion-stage";
-import OffersMotionDirector from "../../../(ar)/offers/offers-motion-director";
-import OffersDecisionPanel, { type OfferChoice } from "../../../components/offers-decision-panel";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
-import { OfferPrice } from "../_en/lib/localized-price";
-import VideoOfferFromPrice from "../../../(ar)/offers/ai-video-production/video-offer-from-price";
-import { whatsappHref } from "../_en/lib/site";
-// The Arabic Offers hub's layout and styles, reused unchanged. English-only direction and type overrides follow.
-import "../../../(ar)/offers/offers-page.css";
-import "../../../(ar)/offers/landing-offer.css";
-import "../../../(ar)/offers/seo-audit/seo-audit-offer.css";
-import "../../../(ar)/offers/brand-naming/brand-naming-offer.css";
-import "../../../(ar)/offers/whatsapp-automation-starter/whatsapp-starter.css";
-import "../../../(ar)/offers/mini-visual-identity/mini-visual-identity.css";
-import "../../../(ar)/offers/google-ads-launch/google-ads-launch.css";
-import "../../../(ar)/offers/instagram-14-day-upgrade/instagram-upgrade.css";
-import "../../../(ar)/offers/small-business-website/small-business-website.css";
-import "../../../(ar)/conversion-rate-optimization/cro.css";
-import "../../../(ar)/offers/offer-trust.css";
-import "../../../(ar)/offers/offers-overview.css";
-import "../../../(ar)/offers/offers-overview-refine.css";
-import "../_en/parity/service-pages.en.css";
+import OffersHub from "../../../(ar)/offers/offers-hub";
+import { hubOffers } from "../../../(ar)/offers/offers-hub-data";
 import "../_en/styles/hide-arabic-widgets.css";
-import "../../../(ar)/offers/offers-motion-stage.css";
-import "../../../(ar)/offers/offers-cinematic-grid.css";
-import "../../../(ar)/offers/ai-video-production/video-offer-card.css";
-import "../../../components/offers-decision-panel.css";
 
 
 const faqSchema = {
@@ -91,120 +67,37 @@ export const metadata = enMetadata(
   "/en/offers",
 );
 
-// Scope, timing and prices are the approved offer facts. Prices are shown through the shared USD-first engine.
-const offers = [
-  { slug: "30-day-content-package", filter: "content", category: "Content", priority: true, spots: "10–14", unit: "working days", title: "Social media content for a month.", hook: "12 posts, 3 stories and a reel, ready to post.", text: "Ideas, captions, designs and a posting plan for the whole month, so you post on schedule without starting from scratch each day.", label: "Foundation price", offerKey: "30-day-content-package", cardClass: "offer-card compact-offer-card offer-priority", aria: "View the 30-day content package" },
-  { slug: "landing-page-package", filter: "web conversion", category: "Web and conversion", priority: true, spots: "7–10", unit: "working days", title: "Landing page design for your ads.", hook: "Built to turn visits into WhatsApp enquiries.", text: "One page for one offer: we write the copy, design it and connect WhatsApp, the form and analytics. The full package includes the domain and hosting for a year.", label: "Base package from", offerKey: "landing-page-package", cardClass: "offer-card compact-offer-card landing-offer-card offer-priority", aria: "View the landing page package" },
-  { slug: "seo-audit", filter: "web", category: "SEO and analysis", priority: false, spots: "48", unit: "hours to deliver", title: "SEO audit for your website.", hook: "A report and fix plan in 48 hours.", text: "We review indexing, speed, content, keywords and your visibility in AI answers. You get a PDF report and a 30-day improvement plan.", label: "Full audit from", offerKey: "seo-audit", cardClass: "offer-card compact-offer-card seo-audit-offer-card", aria: "View the SEO and AEO audit" },
-  { slug: "brand-naming", filter: "brand", category: "Brand", priority: false, spots: "3–5", unit: "working days", title: "A name that sticks.", hook: "And a direction that builds the brand.", text: "10–15 considered names, preliminary checks of meaning, similarity and domain, a top three, and an initial brand direction for the chosen name.", label: "Package from", offerKey: "brand-naming", cardClass: "offer-card compact-offer-card brand-naming-offer-card", aria: "View the brand naming package" },
-  { slug: "whatsapp-automation-starter", filter: "automation", category: "Automation", priority: false, spots: "3–5", unit: "working days", title: "WhatsApp automation for your business.", hook: "Auto-replies that collect and qualify leads.", text: "It answers common questions, collects customer details, follows up, then hands over to the right person, so no conversation is lost.", label: "Starter package from", offerKey: "whatsapp-automation-starter", cardClass: "offer-card compact-offer-card whatsapp-starter-offer-card", aria: "View the WhatsApp automation starter" },
-  { slug: "mini-visual-identity", filter: "brand", category: "Identity", priority: false, spots: "7–10", unit: "working days", title: "Visual identity design.", hook: "Logo, colours and typefaces.", text: "A primary logo and a simplified version, colours, typefaces, a visual direction and three practical applications, so the brand starts consistent rather than random.", label: "Mini package from", offerKey: "mini-visual-identity", cardClass: "offer-card compact-offer-card mini-identity-offer-card", aria: "View the mini visual identity package" },
-  { slug: "google-ads-launch", filter: "ads", category: "Advertising", priority: true, spots: "2–4", unit: "working days", title: "Google Ads campaign setup.", hook: "Ready to launch in 2–4 working days.", text: "A Search campaign with buyer-intent keywords, ad copy, negative keywords, conversion tracking and a pre-launch check. A one-time setup, not monthly management.", label: "Launch package from", offerKey: "google-ads-launch", cardClass: "offer-card compact-offer-card google-ads-offer-card offer-priority", aria: "View the Google Ads launch package" },
-  { slug: "ai-video-production", filter: "content ads", category: "AI video", priority: true, spots: "3", unit: "video packages", title: "AI videos and Reels production.", hook: "Edit, generate or advertise.", text: "Short-form videos for brands and stores. Choose editing from your footage, AI videos from a concept, or purpose-built ad creatives.", label: "Reels editing from", offerKey: "video-edit", cardClass: "offer-card compact-offer-card video-offer-card", aria: "View AI video production and Reels editing packages" },
-  { slug: "instagram-14-day-upgrade", filter: "content", category: "Instagram", priority: false, spots: "14", unit: "focused days", title: "Instagram account upgrade.", hook: "Bio, highlights and 6 designs in 14 days.", text: "We review the account, improve the bio, call to action and highlights, set content themes and a visual direction, and deliver six designs with a plan.", label: "Upgrade package from", offerKey: "instagram-14-day-upgrade", cardClass: "offer-card compact-offer-card instagram-upgrade-offer-card", aria: "View the 14-day Instagram upgrade" },
-  { slug: "small-business-website", filter: "web", category: "Websites", priority: false, spots: "Up to 5", unit: "pages", title: "Small business website.", hook: "Up to 5 pages, ready to launch.", text: "Mobile-friendly design and build, WhatsApp and a contact form, analytics and basic SEO, and a full review before launch.", label: "Website package from", offerKey: "small-business-website", cardClass: "offer-card compact-offer-card small-website-offer-card", aria: "View the small business website package" },
-] as const;
-
-const offerChoices: OfferChoice[] = [
-  ...offers.map((offer) => ({ id: offer.slug, title: `${offer.title} ${offer.hook}`, filter: offer.filter })),
-  { id: "cro-snapshot", title: "Conversion rate audit", filter: "web conversion" },
-];
 
 export default function OffersPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation to choose the right package. My business is: . My goal is: ");
+  // Same order as the visible cards: the featured video offer first, then the grid.
+  const urls = [
+    "https://dewank.com/en/offers/ai-video-production",
+    ...hubOffers.map((offer) => `https://dewank.com/en${offer.path.split("#")[0]}`),
+  ];
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Dewank offers",
     inLanguage: "en",
-    itemListElement: offers.map((offer, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      url: `https://dewank.com/en/offers/${offer.slug}`,
-    })).concat({
-      "@type": "ListItem" as const,
-      position: offers.length + 1,
-      url: "https://dewank.com/en/conversion-rate-optimization",
-    }),
+    itemListElement: urls.map((url, index) => ({ "@type": "ListItem", position: index + 1, url })),
   };
 
   return (
-    <main id="main-content" className="inner-page offers-page offers-overview-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page oh-page en-service" lang="en" dir="ltr">
       <Header />
-      <OffersMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\u003c") }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
-
-      <OffersMotionStage locale="en" />
-
-      <section id="offers-explore" className="offers-filter-shell" aria-label="Filter Dewank offers by type of service">
-        <input defaultChecked type="radio" name="offers-filter" id="offers-all" />
-        <input type="radio" name="offers-filter" id="offers-content" />
-        <input type="radio" name="offers-filter" id="offers-ads" />
-        <input type="radio" name="offers-filter" id="offers-web" />
-        <input type="radio" name="offers-filter" id="offers-conversion" />
-        <input type="radio" name="offers-filter" id="offers-brand" />
-        <input type="radio" name="offers-filter" id="offers-automation" />
-
-        <div className="shell offers-filter-bar">
-          <div className="offers-filter-copy"><small>Quick selection</small><strong>Filter the offers by your need</strong></div>
-          <div className="offers-filter-controls" role="group" aria-label="Types of offer">
-            <label htmlFor="offers-all">All</label>
-            <label htmlFor="offers-content">Content and Instagram</label>
-            <label htmlFor="offers-ads">Advertising</label>
-            <label htmlFor="offers-web">Websites and SEO</label>
-            <label htmlFor="offers-conversion">Conversion optimisation</label>
-            <label htmlFor="offers-brand">Brand and identity</label>
-            <label htmlFor="offers-automation">Automation</label>
-          </div>
-        </div>
-
-        <OffersDecisionPanel locale="en" offers={offerChoices} />
-
-        <section className="shell offers-grid offers-grid-nine offers-overview-grid" aria-label="Current Dewank offers">
-          {offers.map((offer) => (
-            <article key={offer.slug} data-filter={offer.filter} data-category={offer.category} className={offer.cardClass}>
-              <Link className="offer-card-hit" href={`/en/offers/${offer.slug}`} aria-label={offer.aria} />
-              <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>{offer.spots}</strong> {offer.unit}</span></div>
-              {offer.slug === "ai-video-production" && <div className="video-offer-timeline" aria-hidden="true"><span /><span /><span /><i /></div>}
-              <h2>{offer.title}<br /><em>{offer.hook}</em></h2>
-              <p>{offer.text}</p>
-              <div className="offer-card-meta">
-                <div><small>{offer.label}</small>{offer.slug === "ai-video-production" ? <VideoOfferFromPrice locale="en" /> : <OfferPrice offerKey={offer.offerKey} className="offer-price" />}</div>
-                <span className="button primary">Details <span>→</span></span>
-              </div>
-            </article>
-          ))}
-
-          <article data-filter="web conversion" data-category="Audit and conversion" className="offer-card compact-offer-card cro-offer-card">
-            <Link className="offer-card-hit" href="/en/conversion-rate-optimization#pricing" aria-label="View the conversion audit packages" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> one-time packages</span></div>
-            <h2>Conversion rate audit<br /><em>Find out why visitors leave without enquiring</em></h2>
-            <p>Three fixed packages, from a single-page check to a full funnel review. Each one states its scope and delivery time before you pay.</p>
-            <div className="offer-card-meta"><div><small>Starting from</small><OfferPrice offerKey="cro-snapshot" className="cro-price" /></div><span className="button primary">Packages <span>→</span></span></div>
-          </article>
-
-          <aside className="offers-note offers-overview-note">
-            <div>
-              <small>Not sure yet?</small>
-              <h2>Tell us your goal<br />We will suggest the right starting point</h2>
-              <p>Share your business and goal so we can recommend an offer before agreeing the scope and price. Prices default to US dollars, with local pricing where available.</p>
-            </div>
-            <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
-          </aside>
-        </section>
-      </section>
-      <section className="shell offer-faq offers-hub-faq" id="offers-faq" aria-labelledby="offers-faq-title">
-        <div className="offer-faq-head"><span className="section-label">Common questions</span><h2 id="offers-faq-title">Questions before you choose</h2><p>Short answers about offers, prices and delivery time.</p></div>
-        <div className="offer-faq-list">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\u003c") }} />
+      <OffersHub
+        locale="en"
+        faq={<>
           <details><summary>What is the difference between an offer and a full service?</summary><p>Each offer has a defined scope and a starting price, and its page shows what is included and what is not. Wider services, such as monthly social media management or campaign management, are discussed separately.</p></details>
           <details><summary>How do I choose the right offer?</summary><p>Choose by your goal: content, ads, a website, identity, or automation. If you have not decided yet, send us your business and the result you want on WhatsApp, and we will recommend the best starting point.</p></details>
           <details><summary>Are the prices shown final?</summary><p>The price on each card is a starting price, and each offer page explains what it includes. Prices can vary by market and the nature of the project, and we confirm them before any work begins.</p></details>
           <details><summary>How long does delivery take?</summary><p>It depends on the offer, and the timeline is shown on each card. Delivery ranges from about two to 14 working days, and work starts once we receive the information we need.</p></details>
           <details><summary>Do the prices include the domain, hosting or WhatsApp fees?</summary><p>In most offers they do not. Domain and hosting costs, WhatsApp tools and advertising platform fees are separate, and we explain them before any work begins.</p></details>
           <details><summary>Do you guarantee sales results or search rankings?</summary><p>We do not guarantee sales figures or search engine rankings. Each offer states its deliverables clearly, and we work within the agreed scope.</p></details>
-        </div>
-      </section>
+        </>}
+      />
       <Footer />
     </main>
   );

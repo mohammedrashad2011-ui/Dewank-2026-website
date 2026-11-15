@@ -31,7 +31,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["How much does a mini visual identity cost?", "The package starts at the price shown above, in US dollars by default or in your country's approved price where one exists. It includes the primary logo, the colour palette, typefaces, the visual direction, three practical applications and a short guidelines file."],
+  ["How much does a mini visual identity cost?", "The package starts at the price shown above, in Saudi riyals by default, or in your country's approved price where one exists. It includes the primary logo, the colour palette, typefaces, the visual direction, three practical applications and a short guidelines file."],
   ["Is this package only a logo?", "No. It includes the primary logo with a simplified version, a colour palette, suggested typefaces, a visual direction, three practical applications and a short guidelines file. It is not a complete brand identity, so it does not include brand strategy or naming."],
   ["What is the difference between this and a full visual identity?", "The mini package suits a business that needs a professional visual foundation quickly. A full identity usually includes broader research, brand strategy, a messaging system, more applications and a detailed usage guide."],
   ["Does it include choosing the brand name?", "No. The name should be approved before design starts. If you have not chosen a name yet, you can start with the brand naming package first."],

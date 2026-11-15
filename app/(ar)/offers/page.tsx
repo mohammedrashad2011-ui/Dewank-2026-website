@@ -1,52 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import OffersMotionStage from "./offers-motion-stage";
-import OffersMotionDirector from "./offers-motion-director";
-import OffersDecisionPanel, { type OfferChoice } from "../../components/offers-decision-panel";
 import { Footer, Header } from "../../components/site-shell";
+import OffersHub from "./offers-hub";
 import { createMetadata, siteUrl } from "../../lib/seo";
-import { LocalizedOfferPrice } from "./localized-offer";
-import { LandingOfferPrice } from "./landing-page-package/localized-landing-offer";
-import { SeoAuditOfferPrice } from "./seo-audit/localized-seo-audit-offer";
-import { BrandNamingOfferPrice } from "./brand-naming/localized-brand-naming-offer";
-import { WhatsAppStarterPrice } from "./whatsapp-automation-starter/localized-whatsapp-starter";
-import { MiniIdentityPrice } from "./mini-visual-identity/localized-mini-identity";
-import { GoogleAdsLaunchPrice } from "./google-ads-launch/localized-google-ads-launch";
-import { InstagramUpgradePrice } from "./instagram-14-day-upgrade/localized-instagram-upgrade";
-import { SmallWebsitePrice } from "./small-business-website/localized-small-website";
-import "./offers-page.css";
-import "./landing-offer.css";
-import "./seo-audit/seo-audit-offer.css";
-import "./brand-naming/brand-naming-offer.css";
-import "./whatsapp-automation-starter/whatsapp-starter.css";
-import "./mini-visual-identity/mini-visual-identity.css";
-import "./google-ads-launch/google-ads-launch.css";
-import "./instagram-14-day-upgrade/instagram-upgrade.css";
-import "./small-business-website/small-business-website.css";
-import VideoOfferFromPrice from "./ai-video-production/video-offer-from-price";
-import { CroPackagePrice } from "../conversion-rate-optimization/cro-packages";
-import "../conversion-rate-optimization/cro.css";
-import "./offer-trust.css";
-import "./offers-overview.css";
-import "./offers-overview-refine.css";
-import "./offers-motion-stage.css";
-import "./offers-cinematic-grid.css";
-import "./ai-video-production/video-offer-card.css";
-import "../../components/offers-decision-panel.css";
 
-const offerChoices: OfferChoice[] = [
-  { id: "30-day-content-package", title: "باقة محتوى شهر كامل", filter: "content" },
-  { id: "landing-page-package", title: "باقة صفحة الهبوط", filter: "web conversion" },
-  { id: "seo-audit", title: "فحص SEO وAEO", filter: "web" },
-  { id: "brand-naming", title: "باقة اختيار الاسم التجاري", filter: "brand" },
-  { id: "whatsapp-automation-starter", title: "باقة واتساب التأسيسية", filter: "automation" },
-  { id: "mini-visual-identity", title: "باقة الهوية البصرية المصغرة", filter: "brand" },
-  { id: "google-ads-launch", title: "باقة إطلاق Google Ads", filter: "ads" },
-  { id: "instagram-14-day-upgrade", title: "تطوير إنستجرام خلال 14 يوم", filter: "content" },
-  { id: "small-business-website", title: "باقة الموقع الصغير", filter: "web" },
-  { id: "cro-snapshot", title: "فحص التحويل وتدقيق المسار", filter: "web conversion" },
-  { id: "ai-video-production", title: "إنتاج فيديوهات AI وريلز إعلانية", filter: "content ads" },
-];
 
 
 const faqSchema = {
@@ -132,142 +88,21 @@ export default function OffersPage() {
   };
 
   return (
-    <main className="inner-page offers-page offers-overview-page">
+    <main className="inner-page oh-page">
       <Header />
-      <OffersMotionDirector />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
-      <OffersMotionStage locale="ar" />
-
-      <section id="offers-explore" className="offers-filter-shell" aria-label="تصفية عروض ديوانك حسب نوع الخدمة">
-        <input defaultChecked type="radio" name="offers-filter" id="offers-all" />
-        <input type="radio" name="offers-filter" id="offers-content" />
-        <input type="radio" name="offers-filter" id="offers-ads" />
-        <input type="radio" name="offers-filter" id="offers-web" />
-        <input type="radio" name="offers-filter" id="offers-conversion" />
-        <input type="radio" name="offers-filter" id="offers-brand" />
-        <input type="radio" name="offers-filter" id="offers-automation" />
-
-        <div className="shell offers-filter-bar">
-          <div className="offers-filter-copy"><small>اختيار سريع</small><strong>صفّي العروض حسب احتياجك</strong></div>
-          <div className="offers-filter-controls" role="group" aria-label="أنواع العروض">
-            <label htmlFor="offers-all">الكل</label>
-            <label htmlFor="offers-content">محتوى وإنستجرام</label>
-            <label htmlFor="offers-ads">إعلانات</label>
-            <label htmlFor="offers-web">مواقع وSEO</label>
-            <label htmlFor="offers-conversion">تحسين التحويل</label>
-            <label htmlFor="offers-brand">هوية وبراند</label>
-            <label htmlFor="offers-automation">أتمتة</label>
-          </div>
-        </div>
-
-        <OffersDecisionPanel locale="ar" offers={offerChoices} />
-
-        <section className="shell offers-grid offers-grid-nine offers-overview-grid" aria-label="عروض ديوانك الحالية">
-          <article data-filter="content" data-category="محتوى" className="offer-card compact-offer-card offer-priority">
-            <Link className="offer-card-hit" href="/offers/30-day-content-package" aria-label="شاهد تفاصيل باقة محتوى شهر كامل" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>10–14</strong> يوم عمل</span></div>
-            <h2>تصميم محتوى سوشيال ميديا لشهر<br/><em>12 بوست و3 ستوري وريل جاهزين للنشر</em></h2>
-            <p>نجهز أفكار ونصوص وتصميمات الشهر كله مع خطة نشر، لتنشر بانتظام دون أن تبدأ من الصفر كل يوم.</p>
-            <div className="offer-card-meta"><div><small>السعر التأسيسي</small><LocalizedOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="web conversion" data-category="ويب وتحويل" className="offer-card compact-offer-card landing-offer-card offer-priority">
-            <Link className="offer-card-hit" href="/offers/landing-page-package" aria-label="شاهد تفاصيل باقة صفحة الهبوط" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-            <h2>تصميم صفحة هبوط لإعلاناتك<br/><em>مبنية لتحويل الزائر إلى طلب على واتساب</em></h2>
-            <p>صفحة مخصصة لعرض واحد: نكتب النص ونصمم ونربط واتساب والنموذج والتحليلات، والباقة الكاملة تشمل الدومين والاستضافة لسنة.</p>
-            <div className="offer-card-meta"><div><small>الباقة الأساسية من</small><LandingOfferPrice kind="base" /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="web" data-category="SEO وتحليل" className="offer-card compact-offer-card seo-audit-offer-card">
-            <Link className="offer-card-hit" href="/offers/seo-audit" aria-label="شاهد تفاصيل فحص SEO الشامل" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>48</strong> ساعة للتسليم</span></div>
-            <h2>فحص SEO لموقعك<br/><em>تقرير بالمشاكل وخطة إصلاح خلال 48 ساعة</em></h2>
-            <p>نراجع الفهرسة والسرعة والمحتوى والكلمات المفتاحية وظهورك في إجابات الذكاء الاصطناعي، وتستلم تقرير PDF وخطة تحسين لـ30 يومًا.</p>
-            <div className="offer-card-meta"><div><small>فحص شامل من</small><SeoAuditOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="brand" data-category="براند" className="offer-card compact-offer-card brand-naming-offer-card">
-            <Link className="offer-card-hit" href="/offers/brand-naming" aria-label="شاهد تفاصيل باقة اختيار الاسم التجاري" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
-            <h2>اختيار اسم تجاري<br/><em>مدروس لمشروعك</em></h2>
-            <p>10–15 اسمًا مدروسًا، فحص مبدئي للمعنى والتشابه والدومين، أفضل 3 ترشيحات، وتوجه أولي للعلامة للاسم المختار.</p>
-            <div className="offer-card-meta"><div><small>الباقة الجاهزة من</small><BrandNamingOfferPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="automation" data-category="أتمتة" className="offer-card compact-offer-card whatsapp-starter-offer-card">
-            <Link className="offer-card-hit" href="/offers/whatsapp-automation-starter" aria-label="شاهد تفاصيل باقة واتساب أوتوميشن" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
-            <h2>أتمتة واتساب لنشاطك<br/><em>رد آلي يجمع بيانات العميل ويؤهله</em></h2>
-            <p>يرد على الأسئلة المتكررة، ويجمع بيانات العميل ويتابعه، ثم يحوّله للموظف المناسب، فلا تضيع محادثة.</p>
-            <div className="offer-card-meta"><div><small>باقة التأسيس من</small><WhatsAppStarterPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="brand" data-category="هوية" className="offer-card compact-offer-card mini-identity-offer-card">
-            <Link className="offer-card-hit" href="/offers/mini-visual-identity" aria-label="شاهد تفاصيل باقة الهوية البصرية المصغرة" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-            <h2>تصميم هوية بصرية<br/><em>شعار وألوان وخطوط لمشروعك</em></h2>
-            <p>شعار أساسي ونسخة مبسطة، ألوان وخطوط وتوجه بصري و3 تطبيقات عملية، لتبدأ علامتك بصورة متماسكة بدل التصميم العشوائي.</p>
-            <div className="offer-card-meta"><div><small>الباقة المصغرة من</small><MiniIdentityPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="ads" data-category="إعلانات" className="offer-card compact-offer-card google-ads-offer-card offer-priority">
-            <Link className="offer-card-hit" href="/offers/google-ads-launch" aria-label="شاهد تفاصيل باقة إطلاق Google Ads" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> أيام عمل</span></div>
-            <h2>إطلاق حملة Google Ads<br/><em>إعداد كامل جاهز للتشغيل خلال 2–4 أيام</em></h2>
-            <p>حملة بحث بكلمات بنية شراء، كتابة الإعلانات، كلمات سلبية، تتبع التحويل وفحص قبل الإطلاق. إعداد لمرة واحدة، وليست إدارة شهرية.</p>
-            <div className="offer-card-meta"><div><small>باقة الإطلاق من</small><GoogleAdsLaunchPrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="content ads" data-category="فيديو AI" className="offer-card compact-offer-card video-offer-card">
-            <Link className="offer-card-hit" href="/offers/ai-video-production" aria-label="شاهد باقات إنتاج الفيديوهات بالذكاء الاصطناعي والريلز" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> باقات فيديو واضحة</span></div>
-            <div className="video-offer-timeline" aria-hidden="true"><span /><span /><span /><i /></div>
-            <h2>إنتاج فيديوهات AI وريلز<br/><em>مونتاج، إنشاء من الصفر، وإعلانات</em></h2>
-            <p>فيديوهات قصيرة للشركات والمتاجر، من خاماتك أو من الفكرة. باقات واضحة للريلز وفيديوهات AI والإعلانات مع سكريبت ومونتاج وطلب مباشر.</p>
-            <div className="offer-card-meta"><div><small>مونتاج ريلز يبدأ من</small><VideoOfferFromPrice /></div><span className="button primary">استعرض الباقات <span>←</span></span></div>
-          </article>
-
-          <article data-filter="content" data-category="إنستجرام" className="offer-card compact-offer-card instagram-upgrade-offer-card">
-            <Link className="offer-card-hit" href="/offers/instagram-14-day-upgrade" aria-label="شاهد تفاصيل تطوير حساب إنستجرام خلال 14 يوم" />
-            <div className="instagram-card-topline"><span className="instagram-platform-badge"><span className="instagram-platform-icon" aria-hidden="true" />إنستجرام</span><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span></div>
-            <h2>تطوير حساب إنستجرام<br/><em>بايو وهايلايتس و6 تصميمات خلال 14 يومًا</em></h2>
-            <p>نراجع الحساب ونحسّن البايو والـCTA والهايلايتس، ونحدد محاور المحتوى والتوجه البصري، مع 6 تصميمات وخطة تنفيذ.</p>
-            <div className="offer-card-meta"><div><small>باقة تطوير إنستجرام من</small><InstagramUpgradePrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="web" data-category="مواقع" className="offer-card compact-offer-card small-website-offer-card">
-            <Link className="offer-card-hit" href="/offers/small-business-website" aria-label="شاهد تفاصيل باقة الموقع الصغير" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>حتى 5</strong> صفحات</span></div>
-            <h2>تصميم موقع للشركات الصغيرة<br/><em>حتى 5 صفحات، جاهز للإطلاق</em></h2>
-            <p>تصميم وتطوير متجاوب مع الجوال، ربط واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق.</p>
-            <div className="offer-card-meta"><div><small>باقة الموقع من</small><SmallWebsitePrice /></div><span className="button primary">التفاصيل <span>←</span></span></div>
-          </article>
-
-          <article data-filter="web conversion" data-category="تدقيق وتحويل" className="offer-card compact-offer-card cro-offer-card">
-            <Link className="offer-card-hit" href="/conversion-rate-optimization#pricing" aria-label="شاهد باقات فحص التحويل وتدقيق المسار" />
-            <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3</strong> باقات لمرة واحدة</span></div>
-            <h2>فحص معدل التحويل لموقعك<br/><em>اعرف لماذا يزورك العملاء ولا يطلبون</em></h2>
-            <p>3 باقات محددة، من فحص صفحة واحدة إلى تحليل المسار كاملًا، وكل باقة توضح ما تشمله ومدة تسليمها قبل الدفع.</p>
-            <div className="offer-card-meta"><div><small>يبدأ من</small><CroPackagePrice offerKey="cro-snapshot" /></div><span className="button primary">الباقات <span>←</span></span></div>
-          </article>
-
-          <aside className="offers-note offers-overview-note"><div><small>لم تقرر بعد؟</small><h2>أخبرنا بهدفك<br/>ونرشح لك البداية المناسبة</h2><p>أرسل نشاطك وهدفك لنرشح العرض الأقرب قبل الاتفاق على النطاق والسعر.</p></div><a className="button primary offer-consultation-cta" href={"https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية لاختيار باقة ديوانك المناسبة. نشاطي: . هدفي: ")} target="_blank" rel="noopener noreferrer">احصل على استشارة مجانية الآن <span>↗</span></a></aside>
-        </section>
-      </section>
-      <section className="shell offer-faq offers-hub-faq" id="offers-faq" aria-labelledby="offers-faq-title">
-        <div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2 id="offers-faq-title">أسئلة قبل أن تختار</h2><p>إجابات مختصرة عن العروض والأسعار ومدة التنفيذ.</p></div>
-        <div className="offer-faq-list">
+      <OffersHub
+        locale="ar"
+        faq={<>
           <details><summary>ما الفرق بين العروض والخدمة الكاملة؟</summary><p>كل عرض له نطاق محدد وسعر يبدأ منه، وتجد في صفحته ما يشمله وما لا يشمله. الخدمات الأوسع، مثل إدارة السوشيال ميديا الشهرية أو إدارة الحملات، تُناقش بشكل منفصل.</p></details>
           <details><summary>كيف أختار العرض المناسب لي؟</summary><p>اختر حسب هدفك: محتوى، إعلانات، موقع، هوية، أو أتمتة. ولو لم تحدد هدفك بعد، أرسل نشاطك والنتيجة التي تريدها عبر واتساب، ونرشح لك البداية الأنسب.</p></details>
           <details><summary>هل الأسعار المعروضة نهائية؟</summary><p>السعر الظاهر في كل بطاقة هو سعر البداية، وتفاصيل كل عرض وما يشمله موضحة في صفحته. وقد تختلف الأسعار حسب السوق وطبيعة المشروع، وتؤكد قبل بدء التنفيذ.</p></details>
           <details><summary>كم تستغرق مدة التنفيذ؟</summary><p>تختلف المدة حسب العرض، وتظهر على كل بطاقة. تتراوح بين يومين و14 يوم عمل تقريبًا، ويبدأ التنفيذ بعد استلام المعلومات المطلوبة.</p></details>
           <details><summary>هل تشمل الأسعار الدومين أو الاستضافة أو رسوم واتساب؟</summary><p>في أغلب العروض لا تشمل. رسوم الدومين والاستضافة وأدوات واتساب ومنصات الإعلانات تكون منفصلة، ونوضحها قبل بدء أي تنفيذ.</p></details>
           <details><summary>هل تضمنون نتائج المبيعات أو ترتيب البحث؟</summary><p>لا نضمن أرقام المبيعات أو ترتيب محركات البحث، لكن كل عرض يحدد مخرجاته بوضوح، ونلتزم بالنطاق المتفق عليه.</p></details>
-        </div>
-      </section>
+        </>}
+      />
       <Footer />
     </main>
   );

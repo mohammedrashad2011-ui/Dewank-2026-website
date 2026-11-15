@@ -1,29 +1,36 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { pushVideoEvent } from "./video-events";
 
-const SHOWREEL_URL = "/videos/dewank-video-studio-showreel.mp4";
+export const SHOWREEL_URL = "/videos/dewank-showreel-2026.mp4";
+export const SHOWREEL_POSTER = "/videos/dewank-showreel-2026-poster.webp";
+const POSTER_SMALL = "/videos/dewank-showreel-2026-poster-540.webp";
 
 const labels = {
   ar: {
-    button: "شغّل فيديو ديوانك",
-    aria: "تشغيل فيديو موشن ديوانك الأصلي",
+    button: "شاهد الشوريل",
+    meta: "25 ثانية · بالصوت",
+    aria: "تشغيل شوريل ديوانك لإنتاج الفيديو، 25 ثانية",
+    alt: "لقطة من فيديو ديوانك الترويجي لإنتاج الفيديو",
     error: "تعذّر تشغيل المقطع داخل المتصفح.",
     open: "افتح الفيديو مباشرة",
-    note: "موشن أصلي من استوديو ديوانك، 18 ثانية، يعرض المونتاج وفيديوهات AI والكرياتيفات الإعلانية. اضغط للتشغيل مع الصوت.",
+    note: "فيديو ترويجي من إنتاج ديوانك، يشرح طرق الإنتاج الثلاث.",
   },
   en: {
-    button: "Play the Dewank showreel",
-    aria: "Play Dewank original motion design showreel",
+    button: "Watch the showreel",
+    meta: "25 seconds · with sound",
+    aria: "Play the Dewank video production showreel, 25 seconds",
+    alt: "A frame from the Dewank video production promo",
     error: "The showreel could not be played in this browser.",
     open: "Open the video directly",
-    note: "An original 18-second Dewank motion design showreel featuring Reels editing, AI video and ad creative. Tap to play with sound.",
+    note: "A promo produced by Dewank that explains the three production routes. Demo scenes, not client work.",
   },
 } as const;
 
 /**
- * First-party original motion showreel, requested strictly after a real click.
- * No autoplay, no remote media host and no download on page load.
+ * First-party showreel. The page loads only a light poster; the video file is
+ * requested after a real tap. No autoplay, and native controls stay available.
  */
 export default function VideoHeroPlayer({ locale }: { locale: "ar" | "en" }) {
   const t = labels[locale];
@@ -31,56 +38,53 @@ export default function VideoHeroPlayer({ locale }: { locale: "ar" | "en" }) {
   const [active, setActive] = useState(false);
   const [error, setError] = useState(false);
 
-  const playDemo = () => {
+  const play = () => {
     const video = videoRef.current;
     if (!video) return;
     setActive(true);
     setError(false);
-    // Assignment and play are kept inside the click gesture for iOS Safari.
+    // Source assignment and play stay inside the tap gesture, which iOS Safari requires.
     video.src = SHOWREEL_URL;
     video.load();
     void video.play().catch(() => {
-      // Native controls remain available for browsers requiring a second tap.
+      // Native controls remain for browsers that need a second tap.
     });
+    pushVideoEvent("video_showreel_play", { video_name: "dewank-showreel-2026", page_locale: locale });
   };
 
   return (
-    <div className="vop-stage" aria-label={t.aria}>
-      <div className="vop-stage-top">
-        <span className="vop-stage-dot" />
-        <span>CREATIVE LAB / DEWANK</span>
-        <span>9:16</span>
-      </div>
-      <div className="vop-film vop-film-video">
-        <div className="vop-film-poster" aria-hidden="true">
-          <div className="vop-film-sun" />
-          <div className="vop-film-ring vop-film-ring-a" />
-          <div className="vop-film-ring vop-film-ring-b" />
-          <div className="vop-film-object" />
-          <div className="vop-film-caption"><small>FRAME / 01</small><strong>FORM<br />IN MOTION.</strong></div>
-          <div className="vop-film-frame" />
-        </div>
+    <figure className="vs-reel">
+      <div className="vs-reel-frame">
+        <img
+          className="vs-reel-poster"
+          src={SHOWREEL_POSTER}
+          srcSet={`${POSTER_SMALL} 540w, ${SHOWREEL_POSTER} 720w`}
+          sizes="(max-width: 700px) 62vw, 340px"
+          width={720}
+          height={1280}
+          alt={t.alt}
+          fetchPriority="high"
+          decoding="async"
+        />
         <video
-          className={"vop-video-element" + (active && !error ? " is-active" : "")}
+          className={"vs-reel-video" + (active && !error ? " is-active" : "")}
           ref={videoRef}
           controls
           playsInline
           preload="none"
+          poster={SHOWREEL_POSTER}
           onError={() => { setError(true); setActive(false); }}
           aria-label={t.button}
-        >
-          Your browser does not support the video element.
-        </video>
+        />
         {!active && (
-          <button className="vop-video-play" onClick={playDemo} type="button" aria-label={t.aria}>
-            <span className="vop-play-icon" aria-hidden="true" />
-            <span className="vop-play-label">{t.button}</span>
+          <button className="vs-reel-play" onClick={play} type="button" aria-label={t.aria}>
+            <span className="vs-reel-play-icon" aria-hidden="true" />
+            <span className="vs-reel-play-text"><strong>{t.button}</strong><small>{t.meta}</small></span>
           </button>
         )}
       </div>
-      <div className="vop-stage-timeline" aria-hidden="true"><span>PREVIEW</span><div className="vop-stage-track"><i /></div><span>PLAY</span></div>
-      {error && <p className="vop-video-error" role="alert">{t.error} <a href={SHOWREEL_URL} target="_blank" rel="noopener noreferrer">{t.open}</a></p>}
-      <p className="vop-visual-note">{t.note}</p>
-    </div>
+      {error && <p className="vs-reel-error" role="alert">{t.error} <a href={SHOWREEL_URL} target="_blank" rel="noopener noreferrer">{t.open}</a></p>}
+      <figcaption className="vs-reel-note">{t.note}</figcaption>
+    </figure>
   );
 }
