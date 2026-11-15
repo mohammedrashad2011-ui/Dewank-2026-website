@@ -8,6 +8,7 @@ const allowedOfferKeys = new Set([
   "google-ads-launch",
   "instagram-14-day-upgrade",
   "small-business-website",
+  "ai-video-production",
 ]);
 
 export async function POST(request: Request) {

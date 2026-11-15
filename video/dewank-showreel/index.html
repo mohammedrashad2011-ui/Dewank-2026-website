@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      /* Dewank showreel: "From idea to impact". One gold 9:16 frame travels through
+         three worlds (EDIT, CREATE, SELL) and lands on the brand end card. */
+      @font-face {
+        font-family: "Alexandria";
+        src: url("assets/fonts/alexandria-latin.woff2") format("woff2");
+        font-weight: 100 900;
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2190-21FF;
+      }
+      @font-face {
+        font-family: "Alexandria";
+        src: url("assets/fonts/alexandria-arabic.woff2") format("woff2");
+        font-weight: 100 900;
+        unicode-range: U+0600-06FF, U+0750-077F, U+FB50-FDFF, U+FE70-FEFF;
+      }
+      :root {
+        --navy: #011127;
+        --logo-navy: #000f25;
+        --cream: #fcf6ea;
+        --gold: #ebb02e;
+        --cyan: #01ddf1;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--navy); }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Alexandria", sans-serif; color: var(--cream); }
+
+      /* Ground */
+      #ground { position: absolute; inset: 0; background: var(--navy); }
+      #glow-a, #glow-b { position: absolute; border-radius: 50%; }
+      #glow-a { left: -260px; top: 160px; width: 1100px; height: 1100px; background: radial-gradient(circle, rgba(1, 221, 241, 0.2), rgba(1, 221, 241, 0) 62%); }
+      #glow-b { left: 240px; top: 900px; width: 1200px; height: 1200px; background: radial-gradient(circle, rgba(235, 176, 46, 0.2), rgba(235, 176, 46, 0) 62%); }
+      #grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(252, 246, 234, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(252, 246, 234, 0.045) 1px, transparent 1px); background-size: 90px 90px; }
+
+      /* Top line */
+      #hud-in { position: absolute; left: 90px; right: 90px; top: 186px; display: flex; justify-content: space-between; align-items: center; font-size: 28px; font-weight: 700; letter-spacing: 0.14em; color: rgba(252, 246, 234, 0.8); direction: ltr; }
+      #hud-in b { color: var(--gold); font-weight: 800; }
+
+      /* Titles */
+      .title { position: absolute; left: 0; right: 0; top: 232px; height: 220px; text-align: center; direction: ltr; }
+      .title-word { display: inline-block; font-size: 176px; line-height: 220px; font-weight: 900; letter-spacing: -0.03em; color: var(--cream); white-space: nowrap; }
+      .title-word.is-gold { color: var(--gold); }
+      .title-word.is-hook { font-size: 146px; }
+      .title-word span { display: inline-block; }
+      .sub { position: absolute; left: 0; right: 0; top: 452px; text-align: center; font-size: 44px; line-height: 64px; font-weight: 600; color: rgba(252, 246, 234, 0.9); direction: rtl; }
+
+      /* The frame */
+      #frame { position: absolute; left: 250px; top: 560px; width: 580px; height: 900px; }
+      #frame-glass { position: absolute; inset: 0; border-radius: 40px; overflow: hidden; background: #06203f; }
+      #frame-edge { position: absolute; inset: -4px; border-radius: 44px; border: 4px solid var(--gold); box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55), 0 0 60px rgba(235, 176, 46, 0.22); }
+      .tick { position: absolute; width: 34px; height: 34px; border: 3px solid var(--cyan); }
+      #tick-a { left: -30px; top: -30px; border-right: 0; border-bottom: 0; }
+      #tick-b { right: -30px; top: -30px; border-left: 0; border-bottom: 0; }
+      #tick-c { left: -30px; bottom: -30px; border-right: 0; border-top: 0; }
+      #tick-d { right: -30px; bottom: -30px; border-left: 0; border-top: 0; }
+      .world { position: absolute; inset: 0; }
+      .world-in { position: absolute; inset: 0; }
+
+      /* Hook */
+      #spark { position: absolute; left: 50%; top: 50%; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 60px 20px rgba(235, 176, 46, 0.55); }
+      #ratio { position: absolute; left: 0; right: 0; top: 400px; text-align: center; font-size: 60px; font-weight: 800; letter-spacing: 0.08em; color: rgba(252, 246, 234, 0.3); direction: ltr; }
+
+      /* Edit */
+      .shot { position: absolute; inset: 0; overflow: hidden; }
+      .shot img { position: absolute; display: block; }
+      #shot-1 img { left: -560px; top: -40px; width: 1420px; }
+      #shot-2 img { left: -330px; top: 0; width: 1200px; }
+      #shot-3 img { left: -590px; top: 0; width: 1200px; }
+      #shot-4 img { left: -576px; top: -30px; width: 1400px; }
+      #raw-veil { position: absolute; inset: 0; background: rgba(1, 17, 39, 0.5); }
+      #raw-tag, #final-tag { position: absolute; left: 28px; top: 28px; padding: 10px 20px; border-radius: 999px; font-size: 28px; font-weight: 800; letter-spacing: 0.12em; direction: ltr; }
+      #raw-tag { background: rgba(1, 17, 39, 0.82); color: var(--cream); }
+      #final-tag { background: var(--gold); color: var(--navy); }
+      #caption { position: absolute; left: 34px; right: 34px; bottom: 60px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; direction: rtl; }
+      #caption span { display: inline-block; padding: 8px 22px 12px; border-radius: 16px; background: var(--navy); color: var(--cream); font-size: 46px; font-weight: 800; line-height: 64px; }
+      #caption span.hot { background: var(--gold); color: var(--navy); }
+      #cut-flash { position: absolute; inset: 0; background: var(--cream); }
+
+      /* Tools under the frame */
+      .tool { position: absolute; left: 110px; top: 1520px; width: 860px; height: 150px; }
+      .tool-in { position: absolute; inset: 0; }
+      #tl-rail { position: absolute; left: 0; right: 0; top: 46px; height: 84px; border-radius: 20px; background: rgba(252, 246, 234, 0.06); border: 2px solid rgba(252, 246, 234, 0.16); }
+      .tl-clip { position: absolute; top: 58px; height: 60px; border-radius: 12px; }
+      #tl-1 { left: 14px; width: 190px; background: rgba(252, 246, 234, 0.55); }
+      #tl-2 { left: 216px; width: 170px; background: var(--cyan); }
+      #tl-3 { left: 398px; width: 170px; background: rgba(252, 246, 234, 0.55); }
+      #tl-4 { left: 580px; width: 266px; background: var(--gold); }
+      #tl-head { position: absolute; left: 14px; top: 26px; width: 6px; height: 124px; border-radius: 3px; background: var(--cream); box-shadow: 0 0 22px rgba(252, 246, 234, 0.8); }
+      #tl-label { position: absolute; left: 4px; top: -6px; font-size: 28px; font-weight: 700; letter-spacing: 0.16em; color: rgba(252, 246, 234, 0.75); direction: ltr; }
+
+      /* Create */
+      #scene-wire, #scene-full { position: absolute; left: 0; top: 0; width: 580px; height: 900px; }
+      #scene-full-clip { position: absolute; inset: 0; overflow: hidden; }
+      #scanline { position: absolute; left: 0; right: 0; top: 0; height: 6px; background: var(--cyan); box-shadow: 0 0 40px 10px rgba(1, 221, 241, 0.7); }
+      #prompt { position: absolute; inset: 20px 0 20px 0; border-radius: 28px; background: rgba(252, 246, 234, 0.07); border: 2px solid rgba(1, 221, 241, 0.55); display: flex; align-items: center; justify-content: center; gap: 18px; direction: rtl; padding: 0 30px; }
+      #prompt span { display: inline-block; font-size: 40px; font-weight: 700; color: var(--cream); line-height: 64px; }
+      #prompt i { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--cyan); }
+
+      /* Sell */
+      #ad-shade { position: absolute; left: 0; right: 0; top: 0; height: 380px; background: linear-gradient(180deg, rgba(1, 17, 39, 0.92), rgba(1, 17, 39, 0)); }
+      .hook { position: absolute; left: 30px; right: 30px; top: 96px; text-align: center; font-size: 68px; line-height: 92px; font-weight: 900; color: var(--cream); direction: rtl; }
+      .hook b { color: var(--gold); font-weight: 900; }
+      .hook-chip { position: absolute; left: 50%; top: 34px; width: 210px; margin-left: -105px; height: 54px; border-radius: 999px; background: var(--cyan); color: var(--navy); font-size: 28px; line-height: 54px; font-weight: 800; letter-spacing: 0.1em; text-align: center; direction: ltr; }
+      #cta { position: absolute; left: 110px; right: 110px; bottom: 62px; height: 104px; border-radius: 999px; background: var(--gold); color: var(--navy); font-size: 46px; line-height: 100px; font-weight: 900; text-align: center; direction: rtl; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45); }
+      #demo-note { position: absolute; left: 0; right: 0; bottom: 10px; text-align: center; font-size: 28px; line-height: 36px; font-weight: 600; color: rgba(252, 246, 234, 0.9); direction: rtl; }
+      #tap { position: absolute; left: 540px; top: 1150px; width: 76px; height: 76px; margin: -38px 0 0 -38px; border-radius: 50%; border: 5px solid var(--cream); background: rgba(252, 246, 234, 0.25); }
+      #sizes { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 34px; direction: ltr; }
+      .size { display: flex; align-items: center; gap: 16px; font-size: 30px; font-weight: 800; letter-spacing: 0.08em; color: var(--cream); }
+      .size i { display: block; border: 3px solid var(--gold); border-radius: 8px; }
+      #size-a i { width: 36px; height: 64px; }
+      #size-b i { width: 56px; height: 56px; }
+      .size-sep { width: 2px; height: 60px; background: rgba(252, 246, 234, 0.25); }
+
+      /* Payoff */
+      #flood { position: absolute; left: 540px; top: 1354px; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; background: var(--gold); }
+      #end-in { position: absolute; inset: 0; }
+      #end-ground { position: absolute; inset: 0; background: var(--logo-navy); }
+      #end-logo { position: absolute; left: 150px; top: 250px; width: 780px; height: 780px; }
+      #end-line-ar { position: absolute; left: 0; right: 0; top: 1060px; text-align: center; font-size: 76px; line-height: 110px; font-weight: 900; color: var(--cream); direction: rtl; }
+      #end-line-ar b { color: var(--gold); font-weight: 900; }
+      #end-line-en { position: absolute; left: 0; right: 0; top: 1190px; text-align: center; font-size: 40px; line-height: 60px; font-weight: 600; color: rgba(252, 246, 234, 0.82); direction: ltr; }
+      #end-rule { position: absolute; left: 390px; top: 1300px; width: 300px; height: 4px; background: var(--gold); }
+      #end-url { position: absolute; left: 0; right: 0; top: 1336px; text-align: center; font-size: 54px; line-height: 72px; font-weight: 800; letter-spacing: 0.06em; color: var(--cyan); direction: ltr; }
+      #end-steps { position: absolute; left: 0; right: 0; top: 1500px; text-align: center; font-size: 30px; font-weight: 700; letter-spacing: 0.24em; color: rgba(252, 246, 234, 0.7); direction: ltr; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="19" data-width="1080" data-height="1920">
+      <!-- Ground: always on -->
+      <div id="ground" data-layout-ignore>
+        <div id="glow-a"></div>
+        <div id="glow-b"></div>
+        <div id="grid"></div>
+      </div>
+
+      <div id="hud" class="clip" data-start="0" data-duration="15.6" data-track-index="1" data-track-kind="graphics">
+        <div id="hud-in"><span>DEWANK <b>/</b> VIDEO STUDIO</span><span id="hud-step">9:16</span></div>
+      </div>
+
+      <!-- Titles -->
+      <div id="t-idea" class="clip title" data-start="0" data-duration="1.15" data-track-index="2">
+        <div class="title-word is-hook" id="t-idea-w">FROM IDEA</div>
+      </div>
+      <div id="t-impact" class="clip title" data-start="1.15" data-duration="1.1" data-track-index="2">
+        <div class="title-word is-gold is-hook" id="t-impact-w">TO IMPACT</div>
+      </div>
+      <div id="t-edit" class="clip title" data-start="2.25" data-duration="4" data-track-index="2">
+        <div class="title-word" id="t-edit-w">EDIT</div>
+      </div>
+      <div id="t-create" class="clip title" data-start="6.25" data-duration="5" data-track-index="2">
+        <div class="title-word" id="t-create-w"><span>C</span><span>R</span><span>E</span><span>A</span><span>T</span><span>E</span></div>
+      </div>
+      <div id="t-sell" class="clip title" data-start="11.25" data-duration="4.35" data-track-index="2">
+        <div class="title-word is-gold" id="t-sell-w">SELL</div>
+      </div>
+
+      <!-- Arabic lines -->
+      <div id="s-hook" class="clip sub" data-start="0" data-duration="2.25" data-track-index="3"><div id="s-hook-in">من الفكرة إلى الأثر</div></div>
+      <div id="s-edit" class="clip sub" data-start="2.25" data-duration="4" data-track-index="3"><div id="s-edit-in">لقطاتك الخام تتحول إلى ريلز</div></div>
+      <div id="s-create" class="clip sub" data-start="6.25" data-duration="5" data-track-index="3"><div id="s-create-in">مشهد كامل بلا جلسة تصوير</div></div>
+      <div id="s-sell" class="clip sub" data-start="11.25" data-duration="4.35" data-track-index="3"><div id="s-sell-in">إعلان بافتتاحية وخطوة واضحة</div></div>
+
+      <!-- The frame: one object through the whole film -->
+      <div id="frame-host" class="clip" data-start="0" data-duration="15.75" data-track-index="4" data-layout-allow-overflow>
+        <div id="frame">
+          <div id="frame-glass">
+            <!-- Hook: the empty frame -->
+            <div id="w-hook" class="world">
+              <div class="world-in" id="w-hook-in"><div id="ratio">9:16</div></div>
+            </div>
+
+            <!-- EDIT: raw shots cut into a finished reel -->
+            <div id="w-edit" class="world">
+              <div class="world-in" id="w-edit-in">
+                <div class="shot" id="shot-1"><img id="shot-1-img" src="assets/img/vivantura.webp" alt="" /></div>
+                <div class="shot" id="shot-2"><img id="shot-2-img" src="assets/img/arab-sun-remastered.webp" alt="" /></div>
+                <div class="shot" id="shot-3"><img id="shot-3-img" src="assets/img/clinika-remastered.webp" alt="" /></div>
+                <div class="shot" id="shot-4"><img id="shot-4-img" src="assets/img/glowmore.webp" alt="" /></div>
+                <div id="raw-veil"></div>
+                <div id="raw-tag">RAW</div>
+                <div id="final-tag">FINAL CUT</div>
+                <div id="caption"><span id="cap-1">قصّ.</span><span id="cap-2">إيقاع.</span><span id="cap-3" class="hot">ترجمة.</span></div>
+                <div id="cut-flash"></div>
+              </div>
+            </div>
+
+            <!-- CREATE: a generated scene, wireframe to render -->
+            <div id="w-create" class="world">
+              <div class="world-in" id="w-create-in">
+                <svg id="scene-wire" viewBox="0 0 580 900" fill="none" stroke="#01DDF1" stroke-width="3" stroke-linecap="round">
+                  <g stroke-opacity="0.35" stroke-width="2">
+                    <path class="wire" pathLength="1" d="M0 620H580" /><path class="wire" pathLength="1" d="M0 700H580" /><path class="wire" pathLength="1" d="M0 790H580" />
+                    <path class="wire" pathLength="1" d="M290 560L-80 900" /><path class="wire" pathLength="1" d="M290 560L140 900" /><path class="wire" pathLength="1" d="M290 560L440 900" /><path class="wire" pathLength="1" d="M290 560L660 900" />
+                  </g>
+                  <circle class="wire" pathLength="1" cx="290" cy="520" r="150" />
+                  <path class="wire" pathLength="1" d="M0 640C120 590 220 622 330 600C430 580 500 612 580 588" />
+                  <path class="wire" pathLength="1" d="M0 730C140 668 260 728 390 688C470 664 530 690 580 676" />
+                  <path class="wire" pathLength="1" d="M0 820C160 752 320 838 580 772" />
+                  <rect class="wire" pathLength="1" x="222" y="548" width="136" height="232" rx="24" />
+                  <rect class="wire" pathLength="1" x="262" y="506" width="56" height="44" rx="6" />
+                  <rect class="wire" pathLength="1" x="246" y="452" width="88" height="58" rx="12" />
+                </svg>
+                <div id="scene-full-clip">
+                  <svg id="scene-full" viewBox="0 0 580 900">
+                    <defs>
+                      <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#04142d" /><stop offset="0.42" stop-color="#1c2a52" /><stop offset="0.7" stop-color="#b9772a" /><stop offset="1" stop-color="#f4cb72" />
+                      </linearGradient>
+                      <radialGradient id="g-sun" cx="0.5" cy="0.5" r="0.5">
+                        <stop offset="0" stop-color="#fff6dc" /><stop offset="0.6" stop-color="#f6c75a" /><stop offset="1" stop-color="#eba92e" />
+                      </radialGradient>
+                      <radialGradient id="g-halo" cx="0.5" cy="0.5" r="0.5">
+                        <stop offset="0" stop-color="#ffd980" stop-opacity="0.75" /><stop offset="1" stop-color="#ffd980" stop-opacity="0" />
+                      </radialGradient>
+                      <linearGradient id="g-d1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d49236" /><stop offset="1" stop-color="#8a531c" /></linearGradient>
+                      <linearGradient id="g-d2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9a5f20" /><stop offset="1" stop-color="#4b2a12" /></linearGradient>
+                      <linearGradient id="g-d3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a2212" /><stop offset="1" stop-color="#150d0b" /></linearGradient>
+                      <linearGradient id="g-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3d2" stop-opacity="0.95" /><stop offset="0.5" stop-color="#f1c35d" stop-opacity="0.92" /><stop offset="1" stop-color="#b8771f" stop-opacity="0.96" /></linearGradient>
+                      <linearGradient id="g-cap" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a2347" /><stop offset="0.5" stop-color="#16407a" /><stop offset="1" stop-color="#061630" /></linearGradient>
+                      <clipPath id="c-body"><rect x="222" y="548" width="136" height="232" rx="24" /></clipPath>
+                    </defs>
+                    <rect width="580" height="900" fill="url(#g-sky)" />
+                    <g id="stars" fill="#fcf6ea"><circle cx="70" cy="90" r="2.5" /><circle cx="180" cy="170" r="2" /><circle cx="470" cy="110" r="3" /><circle cx="520" cy="240" r="2" /><circle cx="110" cy="300" r="2" /><circle cx="390" cy="60" r="2" /><circle cx="300" cy="210" r="1.8" /></g>
+                    <g id="sun-g"><circle cx="290" cy="520" r="290" fill="url(#g-halo)" /><circle cx="290" cy="520" r="150" fill="url(#g-sun)" /></g>
+                    <path id="dune-1" d="M-40 640C120 590 220 622 330 600C430 580 500 612 620 588V940H-40Z" fill="url(#g-d1)" />
+                    <path id="dune-2" d="M-40 730C140 668 260 728 390 688C470 664 530 690 620 676V940H-40Z" fill="url(#g-d2)" />
+                    <g id="bottle">
+                      <ellipse cx="290" cy="786" rx="110" ry="16" fill="#120a06" opacity="0.55" />
+                      <rect x="246" y="452" width="88" height="58" rx="12" fill="url(#g-cap)" /><rect x="246" y="498" width="88" height="6" fill="#ebb02e" /><rect x="254" y="458" width="10" height="38" rx="5" fill="#ffffff" opacity="0.28" />
+                      <rect x="262" y="506" width="56" height="44" rx="6" fill="#d9a441" />
+                      <rect x="222" y="548" width="136" height="232" rx="24" fill="url(#g-glass)" />
+                      <g clip-path="url(#c-body)"><rect x="222" y="548" width="16" height="232" fill="#ffffff" opacity="0.45" /><rect x="332" y="548" width="26" height="232" fill="#5a3408" opacity="0.35" /><rect x="222" y="740" width="136" height="40" fill="#7a4a12" opacity="0.35" /><g transform="skewX(-18)"><rect id="shine" x="330" y="520" width="46" height="300" fill="#ffffff" opacity="0.55" /></g></g>
+                      <rect x="240" y="628" width="100" height="84" rx="8" fill="#011127" />
+                      <text x="290" y="672" text-anchor="middle" font-family="Alexandria, sans-serif" font-size="27" font-weight="800" fill="#fcf6ea" letter-spacing="3">NOOR</text>
+                      <text x="290" y="698" text-anchor="middle" font-family="Alexandria, sans-serif" font-size="13" font-weight="600" fill="#ebb02e" letter-spacing="2">EAU DE PARFUM</text>
+                    </g>
+                    <path id="dune-3" d="M-40 820C160 752 320 838 620 772V940H-40Z" fill="url(#g-d3)" />
+                  </svg>
+                </div>
+                <div id="scanline"></div>
+              </div>
+            </div>
+
+            <!-- SELL: the same scene becomes an ad -->
+            <div id="w-sell" class="world">
+              <div class="world-in" id="w-sell-in">
+                <div id="ad-shade"></div>
+                <div class="hook-chip" id="hook-chip-a">HOOK A</div>
+                <div class="hook-chip" id="hook-chip-b">HOOK B</div>
+                <div class="hook" id="hook-a">عطرك القادم<br /><b>يبدأ من هنا</b></div>
+                <div class="hook" id="hook-b">رائحة<br /><b>لا تُنسى</b></div>
+                <div id="cta">اطلب الآن</div>
+                <div id="demo-note">عرض توضيحي من ديوانك</div>
+              </div>
+            </div>
+          </div>
+          <div id="frame-edge"></div>
+          <div class="tick" id="tick-a"></div><div class="tick" id="tick-b"></div><div class="tick" id="tick-c"></div><div class="tick" id="tick-d"></div>
+          <div id="spark"></div>
+        </div>
+      </div>
+
+      <!-- Tools under the frame -->
+      <div id="tool-edit" class="clip tool" data-start="2.25" data-duration="4" data-track-index="5">
+        <div class="tool-in" id="tool-edit-in">
+          <div id="tl-label">TIMELINE</div><div id="tl-rail"></div>
+          <div class="tl-clip" id="tl-1"></div><div class="tl-clip" id="tl-2"></div><div class="tl-clip" id="tl-3"></div><div class="tl-clip" id="tl-4"></div>
+          <div id="tl-head"></div>
+        </div>
+      </div>
+      <div id="tool-create" class="clip tool" data-start="6.25" data-duration="5" data-track-index="5">
+        <div class="tool-in" id="tool-create-in">
+          <div id="prompt"><i></i><span id="pr-1">عطر فاخر</span><span id="pr-2">عند الغروب</span><span id="pr-3">وكثبان ذهبية</span></div>
+        </div>
+      </div>
+      <div id="tool-sell" class="clip tool" data-start="11.25" data-duration="4.35" data-track-index="5">
+        <div class="tool-in" id="tool-sell-in">
+          <div id="sizes"><div class="size" id="size-a"><i></i>9:16</div><div class="size-sep"></div><div class="size" id="size-b"><i></i>1:1</div><div class="size-sep"></div><div class="size" id="size-c">2 HOOKS</div></div>
+        </div>
+      </div>
+
+      <div id="tap-host" class="clip" data-start="13.6" data-duration="1.9" data-track-index="6" data-layout-ignore><div id="tap"></div></div>
+
+      <!-- Payoff -->
+      <div id="flood-host" class="clip" data-start="15.1" data-duration="1.2" data-track-index="7" data-layout-ignore><div id="flood"></div></div>
+      <div id="end" class="clip" data-start="15.55" data-duration="3.45" data-track-index="8">
+        <div id="end-in">
+          <div id="end-ground"></div>
+          <img id="end-logo" src="assets/img/dewank-organization-1200.png" alt="Dewank" />
+          <div id="end-line-ar">فكرتك. <b>لقطتنا القادمة.</b></div>
+          <div id="end-line-en">Your idea. Our next frame.</div>
+          <div id="end-rule"></div>
+          <div id="end-url">dewank.com</div>
+          <div id="end-steps">EDIT · CREATE · SELL</div>
+        </div>
+      </div>
+
+      <!-- Sound: effects only, each caused by a visible action -->
+      <audio id="a-whoosh-1" class="clip" data-start="0.42" data-duration="0.57" data-track-index="10" data-volume="0.5" src="assets/sfx/whoosh-short.mp3"></audio>
+      <audio id="a-whoosh-2" class="clip" data-start="2.14" data-duration="0.57" data-track-index="10" data-volume="0.55" src="assets/sfx/whoosh.mp3"></audio>
+      <audio id="a-click-1" class="clip" data-start="3.12" data-duration="0.37" data-track-index="11" data-volume="0.5" src="assets/sfx/click.mp3"></audio>
+      <audio id="a-click-2" class="clip" data-start="3.92" data-duration="0.37" data-track-index="11" data-volume="0.5" src="assets/sfx/click.mp3"></audio>
+      <audio id="a-click-3" class="clip" data-start="4.72" data-duration="0.37" data-track-index="11" data-volume="0.5" src="assets/sfx/click.mp3"></audio>
+      <audio id="a-pop-1" class="clip" data-start="5.02" data-duration="0.72" data-track-index="12" data-volume="0.45" src="assets/sfx/pop.mp3"></audio>
+      <audio id="a-whoosh-3" class="clip" data-start="6.1" data-duration="2" data-track-index="10" data-volume="0.5" src="assets/sfx/whoosh-cinematic.mp3"></audio>
+      <audio id="a-key-1" class="clip" data-start="6.72" data-duration="0.4" data-track-index="11" data-volume="0.5" src="assets/sfx/key-press.mp3"></audio>
+      <audio id="a-key-2" class="clip" data-start="7.07" data-duration="0.4" data-track-index="11" data-volume="0.5" src="assets/sfx/key-press.mp3"></audio>
+      <audio id="a-key-3" class="clip" data-start="7.42" data-duration="0.4" data-track-index="11" data-volume="0.5" src="assets/sfx/key-press.mp3"></audio>
+      <audio id="a-sparkle" class="clip" data-start="8.0" data-duration="1.8" data-track-index="12" data-volume="0.45" src="assets/sfx/sparkle.mp3"></audio>
+      <audio id="a-whoosh-4" class="clip" data-start="11.14" data-duration="0.57" data-track-index="10" data-volume="0.55" src="assets/sfx/whoosh-short.mp3"></audio>
+      <audio id="a-pop-2" class="clip" data-start="12.32" data-duration="0.72" data-track-index="12" data-volume="0.45" src="assets/sfx/pop.mp3"></audio>
+      <audio id="a-riser" class="clip" data-start="12.1" data-duration="3.5" data-track-index="13" data-volume="0.4" data-fade-out="0.25" src="assets/sfx/riser.mp3"></audio>
+      <audio id="a-click-4" class="clip" data-start="14.72" data-duration="0.37" data-track-index="11" data-volume="0.6" src="assets/sfx/click.mp3"></audio>
+      <audio id="a-impact" class="clip" data-start="15.5" data-duration="2.12" data-track-index="12" data-volume="0.7" src="assets/sfx/impact-bass-1.mp3"></audio>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      const OUT = "power3.in";
+      const LAND = "expo.out";
+
+      // Worlds inside the frame start hidden; each is switched on by its own tween.
+      gsap.set(["#w-edit-in", "#w-create-in", "#w-sell-in"], { opacity: 0 });
+      gsap.set(["#shot-2", "#shot-3", "#shot-4", "#final-tag", "#cut-flash", "#cap-1", "#cap-2", "#cap-3", "#hook-chip-b", "#hook-b"], { opacity: 0 });
+
+      /* 0.0 - 2.25  HOOK: a spark becomes the frame */
+      tl.fromTo("#frame", { scale: 0.05 }, { scale: 0.05, duration: 0.42 }, 0);
+      tl.fromTo(["#frame-edge", "#frame-glass"], { opacity: 0 }, { opacity: 0, duration: 0.42 }, 0);
+      tl.fromTo(".tick", { opacity: 0 }, { opacity: 0, duration: 0.9 }, 0);
+      tl.fromTo("#spark", { scale: 20, opacity: 1 }, { scale: 26, duration: 0.42, ease: "sine.inOut" }, 0);
+      tl.to("#frame", { scale: 1, duration: 0.75, ease: LAND }, 0.42);
+      tl.to("#spark", { scale: 0, opacity: 0, duration: 0.3, ease: "power2.out" }, 0.42);
+      tl.to(["#frame-edge", "#frame-glass"], { opacity: 1, duration: 0.22, ease: "power2.out" }, 0.44);
+      tl.to(".tick", { opacity: 1, duration: 0.25, stagger: 0.05 }, 0.95);
+      tl.fromTo("#ratio", { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, ease: LAND }, 0.9);
+      tl.fromTo("#glow-a", { scale: 0.8, opacity: 0.6 }, { scale: 1.1, opacity: 1, duration: 2.25, ease: "sine.inOut" }, 0);
+      tl.fromTo("#hud-in", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.1);
+
+      tl.fromTo("#t-idea-w", { opacity: 1, filter: "blur(0px)" }, { opacity: 0, filter: "blur(14px)", duration: 0.18, ease: OUT }, 0.95);
+      tl.fromTo("#t-impact-w", { opacity: 0, scale: 1.18, x: 0, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.4, ease: LAND }, 1.15);
+      tl.to("#t-impact-w", { opacity: 0, x: 220, filter: "blur(18px)", duration: 0.2, ease: OUT }, 2.04);
+      tl.fromTo("#s-hook-in", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 0.5);
+      tl.to("#s-hook-in", { opacity: 0, duration: 0.2 }, 2.04);
+      tl.fromTo("#w-hook-in", { opacity: 1 }, { opacity: 0, duration: 0.15 }, 2.14);
+
+      /* 2.25 - 6.25  EDIT: raw shots, cut on a rhythm, graded, captioned */
+      tl.fromTo("#t-edit-w", { opacity: 0, x: -260, filter: "blur(18px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.42, ease: LAND }, 2.25);
+      tl.fromTo("#s-edit-in", { opacity: 0, filter: "blur(0px)" }, { opacity: 1, duration: 0.35 }, 2.5);
+      tl.to("#w-edit-in", { opacity: 1, duration: 0.12 }, 2.22);
+      tl.fromTo("#shot-1-img", { scale: 1.12, x: 30 }, { scale: 1, x: -20, duration: 0.95, ease: "none" }, 2.2);
+      [["#shot-2", "#shot-2-img", 3.1], ["#shot-3", "#shot-3-img", 3.9], ["#shot-4", "#shot-4-img", 4.7]].forEach(([shot, img, at], i) => {
+        tl.set(shot, { opacity: 1 }, at);
+        tl.fromTo("#cut-flash", { opacity: 0.55 }, { opacity: 0, duration: 0.14, ease: "power2.out" }, at);
+        tl.fromTo(img, { scale: 1.16, x: i % 2 ? 36 : -36 }, { scale: 1, x: i % 2 ? -14 : 14, duration: i === 2 ? 1.55 : 0.8, ease: i === 2 ? "power2.out" : "none" }, at);
+      });
+      tl.fromTo("#raw-veil", { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power2.out" }, 4.7);
+      tl.fromTo("#raw-tag", { opacity: 1 }, { opacity: 0, duration: 0.12 }, 4.7);
+      tl.to("#final-tag", { opacity: 1, duration: 0.2 }, 4.76);
+      ["#cap-1", "#cap-2", "#cap-3"].forEach((cap, i) => {
+        tl.fromTo(cap, { opacity: 0, y: 26, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 5.0 + i * 0.22);
+      });
+      tl.fromTo("#tool-edit-in", { opacity: 0, y: 40, filter: "blur(0px)" }, { opacity: 1, y: 0, duration: 0.4, ease: LAND }, 2.35);
+      tl.fromTo(".tl-clip", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.35, ease: LAND, stagger: 0.08 }, 2.45);
+      tl.fromTo("#tl-head", { x: 0 }, { x: 826, duration: 3.5, ease: "none" }, 2.4);
+      tl.to(["#t-edit-w", "#s-edit-in", "#tool-edit-in"], { opacity: 0, filter: "blur(14px)", duration: 0.2, ease: OUT }, 6.03);
+
+      /* 6.25 - 11.25  CREATE: prompt, wireframe, render, camera push */
+      tl.to("#w-create-in", { opacity: 1, duration: 0.2 }, 6.12);
+      tl.to("#w-edit-in", { opacity: 0, duration: 0.2 }, 6.2);
+      tl.fromTo("#glow-a", { x: 0, y: 0 }, { x: 380, y: 520, duration: 1.2, ease: "power2.inOut", immediateRender: false }, 6.0);
+      tl.fromTo("#glow-b", { x: 0, y: 0 }, { x: -420, y: -620, duration: 1.2, ease: "power2.inOut" }, 6.0);
+      tl.fromTo("#t-create-w span", { opacity: 0, y: 40, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.35, ease: LAND, stagger: 0.045 }, 6.25);
+      tl.fromTo("#t-create-w", { opacity: 1, filter: "blur(0px)" }, { opacity: 1, duration: 0.01 }, 6.25);
+      tl.fromTo("#s-create-in", { opacity: 0, filter: "blur(0px)" }, { opacity: 1, duration: 0.35 }, 6.6);
+      tl.fromTo("#tool-create-in", { opacity: 0, scaleX: 0.3, filter: "blur(0px)" }, { opacity: 1, scaleX: 1, duration: 0.4, ease: LAND }, 6.3);
+      ["#pr-1", "#pr-2", "#pr-3"].forEach((word, i) => {
+        tl.fromTo(word, { opacity: 0, filter: "blur(8px)" }, { opacity: 1, filter: "blur(0px)", duration: 0.16, ease: "power2.out" }, 6.7 + i * 0.35);
+      });
+      tl.fromTo("#scene-full-clip", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 100% 0%)", duration: 1.7 }, 6.25);
+      tl.fromTo("#scanline", { opacity: 0, y: 0 }, { opacity: 0, y: 0, duration: 1.7 }, 6.25);
+      tl.fromTo("#scene-wire", { opacity: 1 }, { opacity: 1, duration: 0.01 }, 6.25);
+      tl.fromTo(".wire", { strokeDasharray: 1, strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", stagger: 0.05 }, 6.5);
+      tl.to("#scanline", { opacity: 1, duration: 0.08 }, 7.95);
+      tl.to("#scanline", { y: 900, duration: 1.15, ease: "power2.inOut" }, 7.98);
+      tl.to("#scene-full-clip", { clipPath: "inset(0% 0% 0% 0%)", duration: 1.15, ease: "power2.inOut" }, 7.98);
+      tl.to("#scanline", { opacity: 0, duration: 0.12 }, 9.08);
+      tl.to("#scene-wire", { opacity: 0, duration: 0.05 }, 9.15);
+      // Camera push with depth: far layers move least.
+      tl.fromTo("#scene-full", { scale: 1, y: 0, transformOrigin: "50% 62%" }, { scale: 1.16, duration: 3.1, ease: "power1.inOut" }, 8.0);
+      tl.fromTo("#sun-g", { y: 70 }, { y: -26, duration: 3.1, ease: "power1.out" }, 8.0);
+      tl.fromTo("#dune-1", { x: -14 }, { x: 12, duration: 3.1, ease: "none" }, 8.0);
+      tl.fromTo("#dune-2", { x: 18 }, { x: -18, duration: 3.1, ease: "none" }, 8.0);
+      tl.fromTo("#dune-3", { x: -30, y: 14 }, { x: 30, y: 0, duration: 3.1, ease: "none" }, 8.0);
+      tl.fromTo("#shine", { x: -260 }, { x: 480, duration: 1.1, ease: "power2.inOut" }, 9.5);
+      tl.fromTo("#stars", { opacity: 0.2 }, { opacity: 0.9, duration: 2, ease: "sine.inOut" }, 8.6);
+      tl.to(["#t-create-w", "#s-create-in", "#tool-create-in"], { opacity: 0, filter: "blur(14px)", duration: 0.2, ease: OUT }, 11.03);
+
+      /* 11.25 - 15.2  SELL: the same scene becomes the ad */
+      tl.fromTo("#t-sell-w", { opacity: 0, scale: 1.3, filter: "blur(16px)" }, { opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.38, ease: LAND }, 11.25);
+      tl.fromTo("#s-sell-in", { opacity: 0, filter: "blur(0px)" }, { opacity: 1, duration: 0.35 }, 11.55);
+      tl.to("#w-sell-in", { opacity: 1, duration: 0.3 }, 11.25);
+      tl.to("#scene-full", { scale: 1.04, y: -96, duration: 0.7, ease: "power2.inOut" }, 11.2);
+      tl.fromTo("#ad-shade", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 11.3);
+      tl.fromTo("#hook-chip-a", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 11.5);
+      tl.fromTo("#hook-a", { opacity: 0, y: 34, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: LAND }, 11.6);
+      tl.fromTo("#cta", { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.5)" }, 12.3);
+      tl.fromTo("#demo-note", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 12.6);
+      tl.fromTo("#tool-sell-in", { opacity: 0, y: 40, filter: "blur(0px)" }, { opacity: 1, y: 0, duration: 0.4, ease: LAND }, 11.5);
+      // Hook A flips to hook B: two openings for one ad.
+      tl.to("#hook-a", { opacity: 0, y: -30, filter: "blur(10px)", duration: 0.2, ease: OUT }, 13.05);
+      tl.to("#hook-chip-a", { opacity: 0, scale: 0.6, duration: 0.18, ease: OUT }, 13.05);
+      tl.fromTo("#hook-chip-b", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(1.6)" }, 13.22);
+      tl.fromTo("#hook-b", { opacity: 0, y: 34, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.4, ease: LAND }, 13.22);
+      // The tap.
+      tl.fromTo("#tap", { opacity: 0, x: 240, y: 260, scale: 1 }, { opacity: 1, x: 0, y: 204, duration: 0.85, ease: "power3.out" }, 13.75);
+      tl.to("#tap", { scale: 0.7, duration: 0.1, ease: "power2.in" }, 14.68);
+      tl.to("#cta", { scale: 0.94, duration: 0.1, ease: "power2.in" }, 14.68);
+      tl.to("#tap", { scale: 1.5, opacity: 0, duration: 0.3, ease: "power2.out" }, 14.78);
+      tl.to("#cta", { scale: 1, duration: 0.25, ease: "back.out(2)" }, 14.78);
+      tl.to(["#t-sell-w", "#s-sell-in", "#tool-sell-in", "#hud-in"], { opacity: 0, filter: "blur(14px)", duration: 0.2, ease: OUT }, 15.0);
+
+      /* 15.1 - 19  PAYOFF: zoom through the button into the brand */
+      tl.fromTo("#flood", { scale: 0 }, { scale: 42, duration: 0.45, ease: OUT }, 15.1);
+      tl.fromTo("#end-in", { clipPath: "circle(0% at 50% 34%)" }, { clipPath: "circle(120% at 50% 34%)", duration: 0.7, ease: "power3.out" }, 15.55);
+      tl.fromTo("#end-logo", { scale: 0.72, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: LAND }, 15.62);
+      tl.fromTo("#end-line-ar", { opacity: 0, y: 40, filter: "blur(12px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, ease: LAND }, 16.05);
+      tl.fromTo("#end-line-en", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 16.35);
+      tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: LAND }, 16.45);
+      tl.fromTo("#end-url", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: LAND }, 16.6);
+      tl.fromTo("#end-steps", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 16.85);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

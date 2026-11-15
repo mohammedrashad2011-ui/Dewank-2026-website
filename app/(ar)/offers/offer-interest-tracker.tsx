@@ -12,6 +12,7 @@ const allowedOfferKeys = new Set([
   "google-ads-launch",
   "instagram-14-day-upgrade",
   "small-business-website",
+  "ai-video-production",
 ]);
 
 const dedupeWindowMs = 30 * 60 * 1000;
