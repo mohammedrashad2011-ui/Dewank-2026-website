@@ -13,6 +13,7 @@ export function EnOfferSticky({ watchIds, href, label, priceLabel, offerKey }: {
       <StickyOfferBar
         watchIds={watchIds}
         alwaysWhenHidden
+        ctaMinVisibleRatio={0.5}
         href={href}
         label={label}
         priceLabel={priceLabel}

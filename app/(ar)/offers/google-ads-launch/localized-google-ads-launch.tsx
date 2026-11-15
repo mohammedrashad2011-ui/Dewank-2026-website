@@ -25,6 +25,7 @@ export function GoogleAdsLaunchSticky({ watchIds }: { watchIds: string[] }) {
       <StickyOfferBar
         watchIds={watchIds}
         alwaysWhenHidden
+        ctaMinVisibleRatio={0.5}
         href={href}
         label="احصل على استشارة مجانية الآن"
         priceLabel="باقة الإطلاق من"
