@@ -109,7 +109,7 @@ export default function SocialMediaContentPage() {
         <div className="content-offer-card">
           <strong>30-day content package · <OfferPrice offerKey="30-day-content-package" className="content-offer-price" /></strong>
           <p>If your main need is ideas, design, captions and a publishing plan, start with the defined package. If your account needs only tidying, the 14-day account upgrade is a better fit: <OfferPrice offerKey="instagram-14-day-upgrade" className="content-offer-price" />. If you need continuous publishing, monitoring and reporting, we will define a monthly management scope after reviewing your account.</p>
-          <p className="content-offer-note">Prices are shown in US dollars by default. Where an approved local price exists for your country, it is shown instead.</p>
+          <p className="content-offer-note">Prices start in Saudi riyals. Where an approved local price exists for your country, it is shown instead.</p>
           <Link className="button primary" href={contactLink}>Request the 30-day package <span>→</span></Link>
           <br />
           <Link href={contactLink}>Request the account upgrade</Link>

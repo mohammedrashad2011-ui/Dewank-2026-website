@@ -210,7 +210,7 @@ export default function ConversionRateOptimizationEnglishPage() {
       <section id="pricing" className="shell cro-pricing" aria-labelledby="cro-pricing-title">
         <div className="sa-section-head">
           <div><span className="sa-label">Packages</span><h2 id="cro-pricing-title">Three <span className="cro-nowrap">one-time</span> packages<br/><em>Each one sets its limits before we start</em></h2></div>
-          <p>Choose by the size of the journey you want reviewed. Prices appear in the approved currency of your saved country where one exists, and in US dollars elsewhere.</p>
+          <p>Choose by the size of the journey you want reviewed. Prices start in Saudi riyals, appear in your country's approved currency where one exists, and in US dollars elsewhere.</p>
         </div>
         <div className="cro-package-grid">
           {packages.map((pkg) => (

@@ -38,7 +38,7 @@ const steps = [
 ];
 
 const faqs = [
-  ["What does a naming scope cost?", "The defined starting package includes 10–15 names with meanings, preliminary checks of the domains and similarity, and a development round. Its price is shown in US dollars by default, and in your country's approved price where one exists. Larger naming projects are scoped after a brief."],
+  ["What does a naming scope cost?", "The defined starting package includes 10–15 names with meanings, preliminary checks of the domains and similarity, and a development round. Its price starts in Saudi riyals, and in your country's approved price where one exists. Larger naming projects are scoped after a brief."],
   ["Do you guarantee the name will be accepted or registered?", "No. We carry out preliminary research to reduce the chance of conflict or rejection, but acceptance and registration are decided by the official authorities and cannot be guaranteed."],
   ["Does the service include registering a domain or trademark?", "It includes checking availability at the time of the search. Buying the domain and the official trademark registration are separate steps, and their fees are not part of our scope."],
   ["What is the difference between naming and visual identity?", "Naming defines the name and its initial direction. Visual identity designs the logo and visual system. The name should be decided before the identity is designed."],
@@ -94,7 +94,7 @@ export default function BrandNamingPage() {
         <div className="brand-diagnosis-copy naming-service-package" id="starter-price">
           <span className="section-label">The defined package</span>
           <h2>Starts at<br /><em><OfferPrice offerKey="brand-naming" className="brand-price-value" /></em></h2>
-          <p>The price covers 10–15 names with their meanings, preliminary checks of meaning, similarity and domain availability, a top-three decision matrix and one development round. It is shown in US dollars by default, and in your country&apos;s approved price where one exists.</p>
+          <p>The price covers 10–15 names with their meanings, preliminary checks of meaning, similarity and domain availability, a top-three decision matrix and one development round. It starts in Saudi riyals, and in your country&apos;s approved price where one exists.</p>
         </div>
       </section>
 

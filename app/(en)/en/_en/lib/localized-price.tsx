@@ -1,10 +1,10 @@
 "use client";
 
 // One English pricing engine for every English offer presentation. It reads the approved configuration in
-// app/offers/offer-pricing.ts and applies the USD-first rule:
-// - Server and first client render: the approved USD fallback price (never blank, never a SAR default).
+// app/offers/offer-pricing.ts and applies the same rule as the Arabic site:
+// - Server and first client render: the Saudi riyal price (the canonical base market).
 // - A saved country (localStorage key shared with the Arabic site) switches the amount to that country's approved price
-//   where one exists. Any other country keeps the USD price. No currency is converted.
+//   where one exists. A country without an approved price gets the USD fallback. No currency is converted.
 // - The third-party country lookup (api.country.is) is gated by COUNTRY_LOOKUP_APPROVED. It stays false until the English
 //   privacy notice is updated and the provider terms are reviewed.
 import { useSyncExternalStore, useEffect, useState } from "react";
@@ -26,8 +26,9 @@ export function normaliseCountry(value: unknown): string | null {
 
 export function resolveOfferPrice(key: OfferPriceKey, country: string | null) {
   const config = offerPricing[key];
-  const local = country ? config.prices[country] : undefined;
-  if (country && local) return { amount: local.amount, currency: currencyCodes[country] ?? fallbackCurrencyCode };
+  if (!country) return { amount: config.initial.amount, currency: currencyCodes.SA };
+  const local = config.prices[country];
+  if (local) return { amount: local.amount, currency: currencyCodes[country] ?? fallbackCurrencyCode };
   return { amount: config.fallback.amount, currency: fallbackCurrencyCode };
 }
 

@@ -117,7 +117,7 @@ export const hubCopy = {
     featured: "New",
     noteEyebrow: "Not sure yet?",
     noteTitle: "Tell us your goal and we will suggest the right starting point",
-    noteText: "Share your business and goal so we can recommend an offer before agreeing the scope and price. Prices default to US dollars, with local pricing where available.",
+    noteText: "Share your business and goal so we can recommend an offer before agreeing the scope and price. Prices start in Saudi riyals, with your country's approved price where one exists.",
     noteCta: "Get a free consultation now",
     faqEyebrow: "Common questions",
     faqTitle: "Questions before you choose",
