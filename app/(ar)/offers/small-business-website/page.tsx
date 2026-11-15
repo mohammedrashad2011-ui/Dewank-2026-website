@@ -122,7 +122,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <SmallWebsitePrice />
           <div className="offer-trust-inline"><span>حتى 5 صفحات</span><span>متجاوب مع الجوال</span><span>واتساب وتحليلات</span></div>
           <p>يشمل حتى 5 صفحات. لا يشمل الدومين والاستضافة أو البرمجة الخاصة والخدمات الخارجية المدفوعة.</p>
-          <SmallWebsiteWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
+          <SmallWebsiteWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
         </aside>
       </section>
 
@@ -174,7 +174,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <span className="section-label">جاهز للبدء؟</span>
         <h2>اجعل لمشروعك<br/><em>عنوانًا رقميًا حقيقيًا</em></h2>
         <p>ابدأ بموقع واضح وسريع، وبعدها وسّعه فقط عندما يحتاج المشروع فعلًا.</p>
-        <SmallWebsiteWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
+        <SmallWebsiteWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
         <div className="small-website-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط فقط؟</Link><Link href="/website-design">تحتاج موقعًا أكبر؟</Link><Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link></div>
       </section>
 

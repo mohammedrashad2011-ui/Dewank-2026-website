@@ -96,7 +96,7 @@ export default function GoogleAdsLaunchOffer() {
           <OfferPrice offerKey="google-ads-launch" className="offer-price" />
           <div className="offer-trust-inline"><span>Search campaign</span><span>Conversion tracking</span><span>7-day technical follow-up</span></div>
           <p>Ad spend is paid directly to Google. The package does not include a new landing page or ongoing monthly management and optimisation.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
         </aside>
       </section>
 
@@ -157,11 +157,11 @@ export default function GoogleAdsLaunchOffer() {
 
       <section id="order-final" className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">Ready to launch?</span><h2>Make your first spend on Google<br/>begin with a measured setup</h2><p>Send us your business, your target market and the link to your current page, and we will check whether it is suitable before the campaign begins.</p></div>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
         <div className="google-ads-links"><Link href="/en/paid-advertising">Need ongoing Google Ads management?</Link><Link href="/en/offers/landing-page-package">Need a landing page first?</Link></div>
       </section>
 
-      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Get a free consultation now" priceLabel="Launch package from" offerKey="google-ads-launch" />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Free consultation" priceLabel="Launch package from" offerKey="google-ads-launch" />
       <div id="order-footer"><Footer /></div>
     </main>
   );
