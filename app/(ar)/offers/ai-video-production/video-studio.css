@@ -86,7 +86,6 @@
 .vs-package-demo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.16, .78, .22, 1); }
 .vs-package:hover .vs-package-demo img { transform: scale(1.05); }
 .vs-package-step { position: absolute; top: 8px; left: 8px; padding: 4px 9px; border-radius: 999px; background: var(--vs-navy); color: var(--vs-cyan); font-size: 10px; font-weight: 800; letter-spacing: .08em; }
-.vs-package-demo-note { position: absolute; inset: auto 0 0; padding: 14px 6px 6px; background: linear-gradient(180deg, transparent, rgba(1, 17, 39, .9)); color: rgba(252, 246, 234, .9); font-size: 9.5px; font-weight: 600; line-height: 1.4; text-align: center; }
 .vs-package-fit { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; color: var(--vs-gold-ink); font-size: 14px; font-weight: 800; }
 .vs-package-fit span { padding: 3px 10px; border-radius: 999px; background: var(--vs-navy); color: var(--vs-gold); font-size: 11px; font-weight: 700; }
 .vs-package h3 { margin-top: 4px; font-size: 22px; font-weight: 800; line-height: 1.4; }
@@ -193,10 +192,8 @@
   .vs-packages { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
   .vs-package { display: flex; flex-direction: column; gap: 0; padding: 0; overflow: hidden; }
   .vs-package:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(1, 17, 39, .12); }
-  .vs-package-demo { aspect-ratio: 16 / 11; border-radius: 0; }
-  .vs-package-demo img { object-position: 50% 62%; }
-  .vs-package:first-child .vs-package-demo img { object-position: 50% 14%; }
-  .vs-package-demo-note { font-size: 11px; text-align: start; padding: 20px 14px 8px; }
+  .vs-package-demo { aspect-ratio: 3 / 4; border-radius: 0; }
+  .vs-package-demo img { object-position: 50% 72%; }
   .vs-package-step { top: 12px; left: 12px; font-size: 11px; }
   .vs-package-body { display: flex; flex-direction: column; flex: 1; padding: 22px 22px 24px; }
   .vs-package-note { margin-bottom: 4px; }

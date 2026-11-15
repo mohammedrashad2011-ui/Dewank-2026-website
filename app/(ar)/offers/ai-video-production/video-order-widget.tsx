@@ -17,7 +17,6 @@ const labels = {
     seconds: "ثانية للفيديو",
     choose: "اختر هذه الباقة",
     chosen: "الباقة المختارة",
-    demo: "عرض توضيحي من ديوانك",
     grid: "باقات إنتاج الفيديو",
     briefEyebrow: "طلبك في دقيقة",
     formTitle: "أرسل طلبك على واتساب",
@@ -53,7 +52,6 @@ const labels = {
     seconds: "seconds each",
     choose: "Choose this package",
     chosen: "Selected package",
-    demo: "Dewank creative demo",
     grid: "Video production packages",
     briefEyebrow: "Your brief in a minute",
     formTitle: "Send your brief on WhatsApp",
@@ -145,8 +143,7 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
             <article key={item.id} className={"vs-package" + (active ? " is-selected" : "")}>
               <div className="vs-package-demo">
                 <img src={item.demo} width={464} height={720} alt="" loading="lazy" decoding="async" />
-                <span className="vs-package-step" dir="ltr">0{index + 1} · {item.step}</span>
-                <span className="vs-package-demo-note">{t.demo}</span>
+                <span className="vs-package-step" dir="ltr">{item.step}</span>
               </div>
               <div className="vs-package-body">
                 <p className="vs-package-fit">{item[locale].fit}{item.id === "ai" && <span>{t.recommended}</span>}</p>
