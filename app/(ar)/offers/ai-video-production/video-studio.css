@@ -36,9 +36,9 @@
 .vs-breadcrumb a:hover { color: var(--vs-cyan); }
 .vs-breadcrumb [aria-current="page"] { color: var(--vs-gold); }
 .vs-hero .vs-eyebrow { color: var(--vs-cyan); }
-.vs-hero h1 { margin-top: 10px; color: #fffdf6; font-size: clamp(33px, 9.2vw, 68px); font-weight: 800; line-height: 1.28; letter-spacing: -.01em; text-wrap: balance; }
+.vs-hero h1 { margin-top: 10px; color: #fffdf6; font-size: clamp(29px, 7.2vw, 52px); font-weight: 800; line-height: 1.28; letter-spacing: -.01em; text-wrap: balance; }
 .vs[lang="en"] .vs-hero h1 { line-height: 1.1; letter-spacing: -.03em; }
-.vs-hero h1 em { display: block; margin-top: 8px; color: var(--vs-gold); font-style: normal; font-size: .62em; font-weight: 700; line-height: 1.45; }
+.vs-hero h1 em { display: block; margin-top: 8px; color: var(--vs-gold); font-style: normal; font-size: .58em; font-weight: 700; line-height: 1.45; }
 .vs-lead { margin-top: 16px; max-width: 620px; color: rgba(252, 246, 234, .86); font-size: 16px; line-height: 1.9; }
 .vs[lang="en"] .vs-lead { line-height: 1.65; }
 .vs-hero-buy { display: grid; gap: 12px; margin-top: 22px; }

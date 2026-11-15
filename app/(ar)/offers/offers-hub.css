@@ -33,9 +33,9 @@
 .oh-hero { color: var(--oh-cream); background: radial-gradient(ellipse at 88% 0%, rgba(1, 221, 241, .15), transparent 46%), radial-gradient(ellipse at 0% 100%, rgba(235, 176, 46, .14), transparent 44%), var(--oh-navy); }
 .oh-hero-grid { display: grid; gap: 28px; padding-block: 34px 40px; }
 .oh-hero .oh-eyebrow { color: var(--oh-cyan); }
-.oh-hero h1 { margin-top: 10px; color: #fffdf6; font-size: clamp(34px, 9.4vw, 70px); font-weight: 800; line-height: 1.28; text-wrap: balance; }
+.oh-hero h1 { margin-top: 10px; color: #fffdf6; font-size: clamp(29px, 7.2vw, 54px); font-weight: 800; line-height: 1.28; text-wrap: balance; }
 .oh[dir="ltr"] .oh-hero h1 { line-height: 1.08; letter-spacing: -.03em; }
-.oh-hero h1 em { display: block; margin-top: 8px; color: var(--oh-gold); font-style: normal; font-size: .62em; font-weight: 700; line-height: 1.45; }
+.oh-hero h1 em { display: block; margin-top: 8px; color: var(--oh-gold); font-style: normal; font-size: .58em; font-weight: 700; line-height: 1.45; }
 .oh-hero-copy > p { margin-top: 16px; max-width: 600px; color: rgba(252, 246, 234, .86); font-size: 16px; line-height: 1.9; }
 .oh[dir="ltr"] .oh-hero-copy > p { line-height: 1.65; }
 .oh-hero-actions { display: grid; gap: 12px; margin-top: 22px; }
