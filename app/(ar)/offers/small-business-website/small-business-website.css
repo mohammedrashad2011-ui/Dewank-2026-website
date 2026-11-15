@@ -221,3 +221,7 @@
   .small-website-final .button { width: 100%; min-width: 0; }
   .small-website-links { display: grid; gap: 12px; }
 }
+
+/* The shared offer-trust.css gives .offer-faq a two-column grid for its own heading layout. This section has its own
+   heading and card grid, so it keeps block flow and the full-width card grid it had before the shared stylesheet loaded. */
+.small-website-faq.offer-faq { display: block; grid-template-columns: none; }
