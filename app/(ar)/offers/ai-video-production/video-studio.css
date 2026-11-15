@@ -69,7 +69,8 @@
 
 /* Section headings */
 .vs-heading { max-width: 760px; }
-.vs-heading h2 { margin-top: 8px; font-size: clamp(28px, 6.6vw, 50px); font-weight: 800; line-height: 1.35; text-wrap: balance; }
+.vs-heading h2 { margin-top: 8px; font-size: clamp(26px, 5.8vw, 42px); font-weight: 800; line-height: 1.45; text-wrap: balance; }
+.vs[dir="rtl"] .vs-heading h2 { line-height: 1.5; }
 .vs[lang="en"] .vs-heading h2 { line-height: 1.14; letter-spacing: -.02em; }
 .vs-heading h2 em { color: var(--vs-gold-ink); font-style: normal; }
 .vs-heading p { margin-top: 12px; color: var(--vs-muted); font-size: 16px; line-height: 1.85; }

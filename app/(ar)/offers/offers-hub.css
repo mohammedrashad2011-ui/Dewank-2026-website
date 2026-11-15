@@ -137,7 +137,7 @@
 
 /* FAQ */
 .oh-faq { display: grid; gap: 16px; padding-block: 10px 56px; }
-.oh-faq-head h2 { margin-top: 8px; font-size: clamp(26px, 5.6vw, 40px); font-weight: 800; line-height: 1.4; }
+.oh-faq-head h2 { margin-top: 8px; font-size: clamp(26px, 5.6vw, 40px); font-weight: 800; line-height: 1.5; text-wrap: balance; }
 .oh-faq-head p { margin-top: 8px; color: var(--oh-muted); font-size: 14px; line-height: 1.75; }
 .oh-faq-list details { border-bottom: 1px solid var(--oh-line); }
 .oh-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; font-size: 15px; font-weight: 800; line-height: 1.55; cursor: pointer; list-style: none; }
