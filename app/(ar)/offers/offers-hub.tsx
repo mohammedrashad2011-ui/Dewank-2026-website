@@ -43,7 +43,6 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
             <Link className="offer-card-hit" href={prefix + hubVideo.path} aria-label={video.aria} />
             <div className="oh-feature-media">
               <img src="/videos/dewank-showreel-2026-poster-540.webp" width={540} height={960} alt={video.posterAlt} fetchPriority="high" decoding="async" />
-              <span className="oh-feature-play" aria-hidden="true" />
             </div>
             <div className="oh-feature-body">
               <span className="oh-feature-tag"><b>{t.featured}</b>{video.category}</span>
