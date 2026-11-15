@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import "../../../../components/mobile-site-structure-preview.css";
+import "../../../../components/mobile-offers-entry.css";
 
 const mobileGroups = [
   {
@@ -24,7 +25,6 @@ const mobileGroups = [
     title: "Explore",
     links: [
       ["/en/services", "Starting points"],
-      ["/en/offers", "Offers"],
       ["/en/work", "Our work"],
       ["/en/guides", "Guides"],
       ["/en/brand-naming", "Brand naming"],
@@ -50,6 +50,7 @@ export function MobileNavigation() {
 
   return (
     <div className="mobile-navigation">
+      <Link className="mobile-offers-pill" href="/en/offers">Offers</Link>
       <button
         className="mobile-menu-trigger"
         type="button"
@@ -79,6 +80,10 @@ export function MobileNavigation() {
                 ×
               </button>
             </div>
+            <Link className="mobile-menu-offers" href="/en/offers" onClick={() => setOpen(false)}>
+              <span>Offers</span>
+              <b aria-hidden="true">→</b>
+            </Link>
             <nav aria-label="Mobile navigation" className="mobile-menu-groups">
               {mobileGroups.map((group) => (
                 <section className="mobile-menu-group" key={group.title}>
