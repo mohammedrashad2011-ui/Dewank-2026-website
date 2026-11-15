@@ -13,6 +13,8 @@ const labels = {
     recommended: "الأكثر مرونة",
     country: "السوق والعملة",
     startingAt: "يبدأ من",
+    eachPrefix: "حوالي",
+    eachSuffix: "للفيديو الواحد",
     quantity: "فيديوهات",
     seconds: "ثانية للفيديو",
     choose: "اختر هذه الباقة",
@@ -48,6 +50,8 @@ const labels = {
     recommended: "Most flexible",
     country: "Market and currency",
     startingAt: "From",
+    eachPrefix: "About",
+    eachSuffix: "per video",
     quantity: "videos",
     seconds: "seconds each",
     choose: "Choose this package",
@@ -98,6 +102,12 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
   const chosen = videoPackages.find((item) => item.id === selectedId) ?? videoPackages[1];
 
   const price = (key: OfferPriceKey) => getVideoOfferPrice(key, country, locale);
+  // Per-video cost shown beside the package total, so the total reads as a fair number of videos.
+  const perVideo = (key: OfferPriceKey, count: number) => {
+    const shown = price(key);
+    const each = new Intl.NumberFormat(locale === "ar" ? "ar" : "en", { maximumFractionDigits: 0 }).format(Math.round(shown.amount / count));
+    return each + " " + shown.currencyLabel;
+  };
 
   const select = (id: VideoPackageId, source: "card" | "brief") => {
     setSelectedId(id);
@@ -154,6 +164,7 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
                   <strong>{shown.digits}</strong>
                   <span>{shown.currencyLabel}</span>
                 </div>
+                <p className="vs-package-each">{t.eachPrefix} {perVideo(item.priceKey, item.count)} {t.eachSuffix}</p>
                 <p className="vs-package-spec">{item.count} {t.quantity} · {item.length} {t.seconds}</p>
                 <ul>{item[locale].features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
                 <p className="vs-package-note">{item[locale].note}</p>

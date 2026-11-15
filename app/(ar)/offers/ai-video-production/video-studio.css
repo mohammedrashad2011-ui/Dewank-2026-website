@@ -95,6 +95,7 @@
 .vs-package-price small { color: var(--vs-muted); font-size: 13px; font-weight: 600; }
 .vs-package-price strong { font-size: 34px; font-weight: 900; line-height: 1; }
 .vs-package-price span { font-size: 14px; font-weight: 700; }
+.vs-package-each { margin: 4px 0 0; color: var(--vs-muted); font-size: 13px; font-weight: 600; }
 .vs-package-spec { margin-top: 6px; color: var(--vs-navy); font-size: 13px; font-weight: 700; }
 .vs-package ul { grid-column: 1 / -1; display: grid; gap: 7px; margin-top: 12px; }
 .vs-package li { position: relative; padding-inline-start: 22px; font-size: 14px; line-height: 1.65; }
@@ -105,7 +106,7 @@
 .vs-package.is-selected .vs-package-action { background: var(--vs-gold); border-color: var(--vs-gold); color: var(--vs-navy); }
 /* On phones the body spans under the thumbnail from the list down. */
 .vs-package-body { display: contents; }
-.vs-package-body > :is(.vs-package-fit, h3, .vs-package-desc, .vs-package-price, .vs-package-spec) { grid-column: 2; }
+.vs-package-body > :is(.vs-package-fit, h3, .vs-package-desc, .vs-package-price, .vs-package-each, .vs-package-spec) { grid-column: 2; }
 .vs-package-body > :is(ul, .vs-package-note, .vs-package-action) { grid-column: 1 / -1; }
 .vs-package-demo { grid-row: 1 / span 5; }
 
