@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import OffersDecisionPanel, { type OfferChoice } from "../../components/offers-decision-panel";
 import VideoOfferFromPrice from "./ai-video-production/video-offer-from-price";
 import { HubPrice } from "./offers-hub-price";
+import { OfferIcon } from "./offers-hub-icons";
 import { hubCopy, hubFilterIds, hubOffers, hubVideo, type HubLocale } from "./offers-hub-data";
 import "../../components/offers-decision-panel.css";
 import "./offers-hub.css";
@@ -45,7 +46,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
               <img src="/videos/dewank-showreel-2026-poster-540.webp" width={540} height={960} alt={video.posterAlt} fetchPriority="high" decoding="async" />
             </div>
             <div className="oh-feature-body">
-              <span className="oh-feature-tag"><b>{t.featured}</b>{video.category}</span>
+              <span className="oh-feature-tag"><b>{t.featured}</b><OfferIcon name={hubVideo.icon} />{video.category}</span>
               <h2>{video.title}</h2>
               <ol>{video.steps.map((step) => <li key={step}>{step}</li>)}</ol>
               <div className="oh-feature-price"><small>{video.label}</small><VideoOfferFromPrice locale={locale} /></div>
@@ -71,7 +72,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
             return (
               <article key={offer.slug} className="oh-card offer-card" data-filter={offer.filter} data-category={text.category}>
                 <Link className="offer-card-hit" href={prefix + offer.path} aria-label={text.aria} />
-                <div className="oh-card-top"><span>{text.category}</span><small>{text.time}</small></div>
+                <div className="oh-card-top"><span className="oh-card-cat"><OfferIcon name={offer.icon} />{text.category}</span><small>{text.time}</small></div>
                 <h2>{text.title}<em>{text.hook}</em></h2>
                 <p>{text.text}</p>
                 <div className="oh-card-foot">
