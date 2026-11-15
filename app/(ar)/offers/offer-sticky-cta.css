@@ -1,0 +1,36 @@
+/* Mobile sticky order bar for the offer pages. Reuses the StickyOfferBar markup from Brand Naming.
+   It is hidden on desktop, and its transition is removed for reduced motion. Watched elements (price panel,
+   final CTA and footer) hide it through StickyOfferBar, so it never sits over the final CTA or the footer. */
+.offer-sticky .bn2-sticky {
+  position: fixed;
+  z-index: 60;
+  inset-inline: 12px;
+  bottom: max(12px, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px 10px 16px;
+  border: 1px solid rgba(213, 168, 67, .55);
+  border-radius: 20px;
+  background: rgba(6, 26, 51, .96);
+  color: #f5f0e7;
+  box-shadow: 0 18px 40px rgba(2, 15, 30, .35);
+  backdrop-filter: blur(10px);
+  transform: translateY(140%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .35s ease, opacity .25s ease;
+}
+.offer-sticky .bn2-sticky.is-visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.offer-sticky .bn2-sticky-price { display: grid; line-height: 1.25; white-space: nowrap; }
+.offer-sticky .bn2-sticky-price small { color: rgba(245, 240, 231, .65); font-size: 11px; }
+.offer-sticky .bn2-sticky-price b { color: #ebb02e; font-size: 16px; font-weight: 800; }
+.offer-sticky .bn2-sticky-price .offer-sticky-price strong { color: #ebb02e; font-size: 16px; font-weight: 800; line-height: 1; }
+.offer-sticky .bn2-sticky-price .offer-sticky-price span { color: #ebb02e; font-size: 12px; font-weight: 700; }
+.offer-sticky .bn2-sticky .button { flex: 1; min-height: 48px; padding: 10px 14px; font-size: 14px; font-weight: 700; text-align: center; }
+@media (min-width: 861px) {
+  .offer-sticky .bn2-sticky { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .offer-sticky .bn2-sticky { transition: none; }
+}

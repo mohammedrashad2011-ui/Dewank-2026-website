@@ -3,6 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
+import { EnOfferSticky } from "../offer-sticky-en";
 import { whatsappHref } from "../../_en/lib/site";
 // The Arabic small business website offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
@@ -10,6 +11,8 @@ import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/small-business-website/small-business-website.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
+
+const orderWatchIds = ["order-panel", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
   "Small business website design: five pages, ready to launch",
@@ -107,7 +110,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <div className="small-website-answer"><b>What do you get?</b><span>A complete company website with a defined scope. It is not a single landing page, and it is not an online shop.</span></div>
           <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>
         </div>
-        <aside className="offer-price-panel small-website-price-panel">
+        <aside id="order-panel" className="offer-price-panel small-website-price-panel">
           <small>Complete package from</small>
           <OfferPrice offerKey="small-business-website" className="offer-price" />
           <div className="offer-trust-inline"><span>Up to 5 pages</span><span>Mobile-friendly</span><span>WhatsApp and analytics</span></div>
@@ -160,7 +163,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final-cta small-website-final">
+      <section id="order-final" className="shell offer-final-cta small-website-final">
         <span className="section-label">Ready to start?</span>
         <h2>Give your business<br/><em>a real digital address</em></h2>
         <p>Start with a clear, fast website, and expand it only when the business actually needs it.</p>
@@ -168,7 +171,8 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div className="small-website-links"><Link href="/en/offers/landing-page-package">Need a landing page only?</Link><Link href="/en/website-design">Need a larger website?</Link></div>
       </section>
 
-      <Footer />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Get a free consultation now" priceLabel="Complete package from" offerKey="small-business-website" />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

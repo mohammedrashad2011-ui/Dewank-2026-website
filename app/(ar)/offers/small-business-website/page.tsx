@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, siteUrl, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
-import { SmallWebsitePrice, SmallWebsiteWhatsApp } from "./localized-small-website";
+import { SmallWebsitePrice, SmallWebsiteSticky, SmallWebsiteWhatsApp } from "./localized-small-website";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./small-business-website.css";
@@ -117,7 +117,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <div className="small-website-answer"><b>ماذا تحصل عليه؟</b><span>موقع تعريفي متكامل بنطاق محدد، وليس قالب صفحة واحدة ولا متجرًا إلكترونيًا.</span></div>
           <Link className="offer-work-link" href="/work">شاهد أعمال ديوانك ودراسات الحالة ←</Link>
         </div>
-        <aside className="offer-price-panel small-website-price-panel">
+        <aside id="order-panel" className="offer-price-panel small-website-price-panel">
           <small>الباقة كاملة من</small>
           <SmallWebsitePrice />
           <div className="offer-trust-inline"><span>حتى 5 صفحات</span><span>متجاوب مع الجوال</span><span>واتساب وتحليلات</span></div>
@@ -170,7 +170,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final-cta small-website-final">
+      <section id="order-final" className="shell offer-final-cta small-website-final">
         <span className="section-label">جاهز للبدء؟</span>
         <h2>اجعل لمشروعك<br/><em>عنوانًا رقميًا حقيقيًا</em></h2>
         <p>ابدأ بموقع واضح وسريع، وبعدها وسّعه فقط عندما يحتاج المشروع فعلًا.</p>
@@ -178,7 +178,8 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div className="small-website-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط فقط؟</Link><Link href="/website-design">تحتاج موقعًا أكبر؟</Link><Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link></div>
       </section>
 
-      <Footer />
+      <SmallWebsiteSticky watchIds={["order-panel", "order-final", "order-footer"]} />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

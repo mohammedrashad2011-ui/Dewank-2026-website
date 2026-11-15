@@ -3,6 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
+import { EnOfferSticky } from "../offer-sticky-en";
 import { whatsappHref } from "../../_en/lib/site";
 // The Arabic Google Ads launch offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
@@ -10,6 +11,8 @@ import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/google-ads-launch/google-ads-launch.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
+
+const orderWatchIds = ["order-panel", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
   "Google Ads setup: a one-time Search campaign launch",
@@ -88,7 +91,7 @@ export default function GoogleAdsLaunchOffer() {
             <span>If you are looking for the cost of launching a Google Ads campaign, this package is a setup and launch at a clear price, not monthly management. It suits you if you already have a working page and want to start Google Search in an organised way.</span>
           </div>
         </div>
-        <aside className="offer-price-panel google-ads-price-panel">
+        <aside id="order-panel" className="offer-price-panel google-ads-price-panel">
           <small>Setup and launch of a Search campaign</small>
           <OfferPrice offerKey="google-ads-launch" className="offer-price" />
           <div className="offer-trust-inline"><span>Search campaign</span><span>Conversion tracking</span><span>7-day technical follow-up</span></div>
@@ -152,13 +155,14 @@ export default function GoogleAdsLaunchOffer() {
         <div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final-cta google-ads-final">
+      <section id="order-final" className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">Ready to launch?</span><h2>Make your first spend on Google<br/>begin with a measured setup</h2><p>Send us your business, your target market and the link to your current page, and we will check whether it is suitable before the campaign begins.</p></div>
         <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <div className="google-ads-links"><Link href="/en/paid-advertising">Need ongoing Google Ads management?</Link><Link href="/en/offers/landing-page-package">Need a landing page first?</Link></div>
       </section>
 
-      <Footer />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Get a free consultation now" priceLabel="Launch package from" offerKey="google-ads-launch" />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

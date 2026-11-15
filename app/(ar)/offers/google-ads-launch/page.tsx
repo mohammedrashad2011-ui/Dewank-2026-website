@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { GoogleAdsLaunchLink, GoogleAdsLaunchPrice } from "./localized-google-ads-launch";
+import { GoogleAdsLaunchLink, GoogleAdsLaunchPrice, GoogleAdsLaunchSticky } from "./localized-google-ads-launch";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./google-ads-launch.css";
@@ -101,7 +101,7 @@ export default function GoogleAdsLaunchOffer() {
             <span>إذا كنت تبحث عن سعر تشغيل حملة Google Ads، فهذه الباقة للتأسيس والإطلاق بسعر واضح، وليست إدارة شهرية. مناسبة إذا كانت لديك صفحة جاهزة وتريد بدء Google Search بطريقة منظمة.</span>
           </div>
         </div>
-        <aside className="offer-price-panel google-ads-price-panel">
+        <aside id="order-panel" className="offer-price-panel google-ads-price-panel">
           <small>إعداد وإطلاق حملة Search</small>
           <GoogleAdsLaunchPrice />
           <div className="offer-trust-inline"><span>حملة Search</span><span>تتبع تحويل</span><span>7 أيام متابعة تقنية</span></div>
@@ -165,13 +165,14 @@ export default function GoogleAdsLaunchOffer() {
         <div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final-cta google-ads-final">
+      <section id="order-final" className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">جاهز للإطلاق؟</span><h2>اجعل أول صرف على Google<br/>يبدأ بإعداد محسوب</h2><p>أرسل لنا نشاطك، السوق المستهدف، ورابط الصفحة الحالية ونراجع ملاءمتها قبل بدء الحملة.</p></div>
         <GoogleAdsLaunchLink className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         <div className="google-ads-links"><Link href="/guides/google-ads-cost-saudi-arabia">تريد فهم التكلفة والميزانية أولًا؟</Link><Link href="/paid-ads">تحتاج إدارة Google Ads مستمرة؟</Link><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link></div>
       </section>
 
-      <Footer />
+      <GoogleAdsLaunchSticky watchIds={["order-panel", "order-final", "order-footer"]} />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

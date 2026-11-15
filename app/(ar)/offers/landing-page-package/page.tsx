@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets, serviceId } from "../../../lib/seo";
-import { LandingOfferPrice, LandingOfferWhatsApp } from "./localized-landing-offer";
+import { LandingOfferPrice, LandingOfferSticky, LandingOfferWhatsApp } from "./localized-landing-offer";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "../landing-offer.css";
@@ -72,7 +72,7 @@ export default function LandingPageOffer() {
           <p>نكتب النص ونصمم الصفحة ونربط واتساب والنموذج والتحليلات، ليصل زائر إعلانك إلى طلب واحد واضح. التسليم خلال 7–10 أيام عمل.</p>
           <Link className="offer-work-link" href="/work">شاهد أعمال ديوانك ودراسات الحالة ←</Link>
         </div>
-        <aside className="offer-price-panel">
+        <aside id="order-panel" className="offer-price-panel">
           <small>الباقة الأساسية</small>
           <LandingOfferPrice kind="base" />
           <div className="offer-trust-inline"><span>صفحة مخصصة</span><span>50% لبدء العمل</span><span>تتبع كامل</span></div>
@@ -116,14 +116,15 @@ export default function LandingPageOffer() {
 
       <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن تبدأ</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="shell offer-final-cta">
+      <section id="order-final" className="shell offer-final-cta">
         <span className="offer-kicker">صفحة مخصصة · تسليم خلال 7–10 أيام</span>
         <h2>اجعل خدمتك واضحة قبل أن تطلب من العميل شراءها</h2>
         <p>اختر الباقة المناسبة وسنسألك عن نشاطك وهدف الصفحة قبل بدء التنفيذ.</p>
         <LandingOfferWhatsApp kind="base" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         <div><Link href="/offers/small-business-website">تحتاج موقعًا من عدة صفحات؟</Link> · <Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link> · <Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
-      <Footer />
+      <LandingOfferSticky watchIds={["order-panel", "order-final", "order-footer"]} />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }
