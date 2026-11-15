@@ -3,6 +3,7 @@ import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
+import { EnOfferSticky } from "../offer-sticky-en";
 import { whatsappHref } from "../../_en/lib/site";
 // The Arabic small business website offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
@@ -10,6 +11,8 @@ import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/small-business-website/small-business-website.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
+
+const orderWatchIds = ["order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
   "Small business website design: five pages, ready to launch",
@@ -75,6 +78,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         serviceType: ["Website Design", "Website Development", "Basic SEO"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: { "@type": "Offer", price: "1990", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/small-business-website" },
         url,
         inLanguage: "en",
       },
@@ -101,15 +105,17 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> working days</span></div>
-          <h1>A small website<br/><em>Ready to work under your name</em></h1>
-          <p>A clear package for businesses that need a professional company website without a large project: up to five pages, responsive design and development, WhatsApp and a contact form, analytics, basic SEO and a full pre-launch setup.</p>
+          <h1>Small business website<br/><em>Up to five pages, ready to launch</em></h1>
+          <p>A professional company website with a fixed scope and price: mobile-friendly design and build, WhatsApp and a contact form, analytics, basic SEO and a full review before launch.</p>
           <div className="small-website-answer"><b>What do you get?</b><span>A complete company website with a defined scope. It is not a single landing page, and it is not an online shop.</span></div>
+          <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>
         </div>
-        <aside className="offer-price-panel small-website-price-panel">
+        <aside id="order-panel" className="offer-price-panel small-website-price-panel">
           <small>Complete package from</small>
           <OfferPrice offerKey="small-business-website" className="offer-price" />
+          <div className="offer-trust-inline"><span>Up to 5 pages</span><span>Mobile-friendly</span><span>WhatsApp and analytics</span></div>
           <p>Includes up to five pages. The domain, hosting, bespoke programming and paid external services are not included.</p>
-          <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 
@@ -157,7 +163,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final-cta small-website-final">
+      <section id="order-final" className="shell offer-final-cta small-website-final">
         <span className="section-label">Ready to start?</span>
         <h2>Give your business<br/><em>a real digital address</em></h2>
         <p>Start with a clear, fast website, and expand it only when the business actually needs it.</p>
@@ -165,7 +171,8 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div className="small-website-links"><Link href="/en/offers/landing-page-package">Need a landing page only?</Link><Link href="/en/website-design">Need a larger website?</Link></div>
       </section>
 
-      <Footer />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Get a free consultation now" priceLabel="Complete package from" offerKey="small-business-website" />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

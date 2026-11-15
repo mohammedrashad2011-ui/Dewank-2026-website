@@ -51,6 +51,7 @@ export default function Instagram14DayUpgradeOffer() {
         serviceType: ["Instagram Profile Optimization", "Social Media Content Strategy", "Social Media Design"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: { "@type": "Offer", price: "590", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/instagram-14-day-upgrade" },
         url,
         inLanguage: "en",
       },

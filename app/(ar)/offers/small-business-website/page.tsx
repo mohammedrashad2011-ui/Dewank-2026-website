@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, siteUrl, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
-import { SmallWebsitePrice, SmallWebsiteWhatsApp } from "./localized-small-website";
+import { SmallWebsitePrice, SmallWebsiteSticky, SmallWebsiteWhatsApp } from "./localized-small-website";
 import "../offers-page.css";
+import "../offer-trust.css";
 import "./small-business-website.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "شركة تصميم موقع صغير جاهز للإطلاق بـ 1,990 ريال | ديوانك",
+  title: "تصميم موقع شركة حتى 5 صفحات | باقة جاهزة للإطلاق | ديوانك",
   description: "باقة موقع تعريفي صغير حتى 5 صفحات تشمل التصميم والتطوير المتجاوب وربط واتساب والنماذج والتحليلات وSEO أساسي وتجهيز الإطلاق.",
   path: "/offers/small-business-website",
   keywords: [
@@ -111,15 +112,17 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> يوم عمل</span></div>
-          <h1>شركة تصميم موقع صغير<br/><em>جاهز للعمل باسمك</em></h1>
-          <p>باقة واضحة للشركات والمشاريع التي تحتاج موقعًا تعريفيًا احترافيًا دون مشروع ضخم: حتى 5 صفحات، تصميم وتطوير متجاوب، واتساب ونموذج تواصل، تحليلات وSEO أساسي وتجهيز كامل للإطلاق.</p>
+          <h1>تصميم موقع لشركتك<br/><em>حتى 5 صفحات، جاهز للإطلاق</em></h1>
+          <p>موقع تعريفي احترافي بنطاق وسعر محددين: تصميم وتطوير متجاوب مع الجوال، واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق.</p>
           <div className="small-website-answer"><b>ماذا تحصل عليه؟</b><span>موقع تعريفي متكامل بنطاق محدد، وليس قالب صفحة واحدة ولا متجرًا إلكترونيًا.</span></div>
+          <Link className="offer-work-link" href="/work">شاهد أعمال ديوانك ودراسات الحالة ←</Link>
         </div>
-        <aside className="offer-price-panel small-website-price-panel">
+        <aside id="order-panel" className="offer-price-panel small-website-price-panel">
           <small>الباقة كاملة من</small>
           <SmallWebsitePrice />
+          <div className="offer-trust-inline"><span>حتى 5 صفحات</span><span>متجاوب مع الجوال</span><span>واتساب وتحليلات</span></div>
           <p>يشمل حتى 5 صفحات. لا يشمل الدومين والاستضافة أو البرمجة الخاصة والخدمات الخارجية المدفوعة.</p>
-          <SmallWebsiteWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
+          <SmallWebsiteWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -167,7 +170,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final-cta small-website-final">
+      <section id="order-final" className="shell offer-final-cta small-website-final">
         <span className="section-label">جاهز للبدء؟</span>
         <h2>اجعل لمشروعك<br/><em>عنوانًا رقميًا حقيقيًا</em></h2>
         <p>ابدأ بموقع واضح وسريع، وبعدها وسّعه فقط عندما يحتاج المشروع فعلًا.</p>
@@ -175,7 +178,8 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div className="small-website-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط فقط؟</Link><Link href="/website-design">تحتاج موقعًا أكبر؟</Link><Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link></div>
       </section>
 
-      <Footer />
+      <SmallWebsiteSticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

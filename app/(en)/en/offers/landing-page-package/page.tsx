@@ -4,6 +4,7 @@ import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
+import { EnOfferSticky } from "../offer-sticky-en";
 import { whatsappHref } from "../../_en/lib/site";
 // The Arabic landing page offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
@@ -11,6 +12,8 @@ import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/landing-offer.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
+
+const orderWatchIds = ["order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
   "Landing page design: one page that sells your service",
@@ -49,6 +52,7 @@ export default function LandingPageOffer() {
         serviceType: ["Landing page design", "Conversion copywriting", "Web analytics setup"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: [{ "@type": "Offer", price: "1490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/landing-page-package" }, { "@type": "Offer", price: "1890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/landing-page-package" }],
         url: "https://dewank.com/en/offers/landing-page-package",
         inLanguage: "en",
       },
@@ -63,19 +67,21 @@ export default function LandingPageOffer() {
     <main id="main-content" className="inner-page offers-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://dewank.com/en" }, { "@type": "ListItem", position: 2, name: "Offers", item: "https://dewank.com/en/offers" }, { "@type": "ListItem", position: 3, name: "Landing page design", item: "https://dewank.com/en/offers/landing-page-package" }] }) }} />
 
       <section className="shell offer-detail-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> working days</span></div>
-          <h1>One page<br/><em>That turns a visitor into a customer</em></h1>
-          <p>We design a professional landing page that presents your service clearly, builds trust, and directs the customer straight to contact or booking.</p>
+          <h1>Landing page design<br/><em>One page that turns ad clicks into enquiries</em></h1>
+          <p>We write the copy, design the page and connect WhatsApp, the form and analytics, so ad visitors reach one clear request. Delivered in 7–10 working days.</p>
+          <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>
         </div>
-        <aside className="offer-price-panel">
+        <aside id="order-panel" className="offer-price-panel">
           <small>Base package from</small>
           <OfferPrice offerKey="landing-page-package" className="offer-price" />
           <div className="offer-trust-inline"><span>Custom page</span><span>50% to start</span><span>Full tracking</span></div>
           <p>Includes design, copy, connections and tracking. Domain and hosting fees are not included.</p>
-          <a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 
@@ -114,14 +120,15 @@ export default function LandingPageOffer() {
 
       <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="shell offer-final-cta">
+      <section id="order-final" className="shell offer-final-cta">
         <span className="offer-kicker">Custom page · delivery in 7–10 days</span>
         <h2>Make your service clear before you ask a customer to buy it</h2>
         <p>Choose the package that suits you, and we will ask about your business and the goal of the page before production begins.</p>
         <a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         <div><Link href="/en/offers/small-business-website">Need a website with several pages?</Link> · <Link href="/en/website-design">Compare website design services</Link> · <Link href="/en/offers">← Back to all offers</Link></div>
       </section>
-      <Footer />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactBase} label="Get a free consultation now" priceLabel="Base package from" offerKey="landing-page-package" />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

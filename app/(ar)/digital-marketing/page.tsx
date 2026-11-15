@@ -342,7 +342,7 @@ export default function DigitalMarketingPage() {
         <div className="dm-final-actions">
           <p>محادثة قصيرة لفهم النشاط والهدف وما إذا كانت الأولوية استراتيجية، تنفيذًا، أم إصلاح رحلة التحويل.</p>
           <Link className="button primary" href="/contact">ناقش مشروعك <span>←</span></Link>
-          <div className="dm-related"><Link href="/paid-ads">الإعلانات المدفوعة ↙</Link><Link href="/website-design">تصميم المواقع ↙</Link><Link href="/seo-aeo">SEO وAEO ↙</Link></div>
+          <div className="dm-related"><Link href="/offers/google-ads-launch">باقة إطلاق Google Ads ↙</Link><Link href="/paid-ads">الإعلانات المدفوعة ↙</Link><Link href="/website-design">تصميم المواقع ↙</Link><Link href="/seo-aeo">SEO وAEO ↙</Link></div>
         </div>
       </section>
 

@@ -92,6 +92,7 @@ export default function ContentOfferPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(showcaseSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: "https://dewank.com" }, { "@type": "ListItem", position: 2, name: "العروض", item: "https://dewank.com/offers" }, { "@type": "ListItem", position: 3, name: "باقة محتوى 30 يوم", item: "https://dewank.com/offers/30-day-content-package" }] }) }} />
 
       <section className="shell offer-detail-hero sales-hero">
         <div className="sales-hero-copy">

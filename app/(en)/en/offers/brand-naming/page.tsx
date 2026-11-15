@@ -76,6 +76,7 @@ export default function BrandNamingOfferPage() {
         serviceType: ["Brand Naming", "Brand Direction", "Domain Availability Research"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/brand-naming" },
         url,
         inLanguage: "en",
       },

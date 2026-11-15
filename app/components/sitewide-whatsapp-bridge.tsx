@@ -125,8 +125,8 @@ export default function SitewideWhatsAppBridge() {
 
   // Same hidden routes as before. The Arabic guides hide the widget because of the Instagram popup, which English guides do
   // not have, so English guides keep the widget with English copy.
-  // The offers hub and the video offer page have their own offer and WhatsApp CTAs, so the floating button is removed there on every screen size.
-  if (pathname === "/contact" || pathname === "/en/contact" || pathname === "/privacy" || pathname === "/en/privacy" || pathname.startsWith("/guides/") || pathname === "/offers" || pathname === "/en/offers" || pathname === "/offers/ai-video-production" || pathname === "/en/offers/ai-video-production") return null;
+  // The offers hub and every offer page have their own offer and WhatsApp CTAs, so the floating button is removed there on every screen size.
+  if (pathname === "/contact" || pathname === "/en/contact" || pathname === "/privacy" || pathname === "/en/privacy" || pathname.startsWith("/guides/") || pathname === "/offers" || pathname.startsWith("/offers/") || pathname === "/en/offers" || pathname.startsWith("/en/offers/")) return null;
 
   const english = isEnglishPath(pathname);
   const language = copy[english ? "en" : "ar"];

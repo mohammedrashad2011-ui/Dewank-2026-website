@@ -65,6 +65,7 @@ export default function SeoAuditOfferPage() {
         serviceType: ["SEO Audit", "Technical SEO Audit", "On-page SEO Audit", "AEO Audit", "Website Performance Audit"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/seo-audit" },
         url,
         inLanguage: "en",
       },
