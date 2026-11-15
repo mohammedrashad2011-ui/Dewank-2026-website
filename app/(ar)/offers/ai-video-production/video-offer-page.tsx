@@ -131,11 +131,11 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
         "@id": url + "#studio-video",
         name: ar ? "شوريل ديوانك لإنتاج الفيديو: من الفكرة إلى الأثر" : "Dewank video production showreel: from idea to impact",
         description: ar
-          ? "شوريل مدته 19 ثانية من إنتاج ديوانك يعرض ثلاث طرق للإنتاج: مونتاج الريلز، فيديوهات الذكاء الاصطناعي، والإعلانات القصيرة."
-          : "A 19-second showreel produced by Dewank showing three production routes: Reels editing, AI video and short-form ads.",
+          ? "فيديو ترويجي مدته 25 ثانية من ديوانك يشرح ثلاث طرق للإنتاج: مونتاج الريلز، فيديوهات الذكاء الاصطناعي، والإعلانات القصيرة."
+          : "A 25-second promo produced by Dewank showing three production routes: Reels editing, AI video and short-form ads.",
         thumbnailUrl: siteUrl + "/videos/dewank-showreel-2026-poster.jpg",
         uploadDate: "2026-11-15",
-        duration: "PT19S",
+        duration: "PT25S",
         contentUrl: siteUrl + "/videos/dewank-showreel-2026.mp4",
         inLanguage: "ar",
         publisher: { "@id": organizationId },

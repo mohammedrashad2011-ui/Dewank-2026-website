@@ -10,21 +10,21 @@ const POSTER_SMALL = "/videos/dewank-showreel-2026-poster-540.webp";
 const labels = {
   ar: {
     button: "شاهد الشوريل",
-    meta: "19 ثانية · بالصوت",
-    aria: "تشغيل شوريل ديوانك لإنتاج الفيديو، 19 ثانية",
-    alt: "لقطة من شوريل ديوانك: إعلان عطر توضيحي داخل إطار رأسي",
+    meta: "25 ثانية · بالصوت",
+    aria: "تشغيل شوريل ديوانك لإنتاج الفيديو، 25 ثانية",
+    alt: "لقطة من فيديو ديوانك الترويجي لإنتاج الفيديو",
     error: "تعذّر تشغيل المقطع داخل المتصفح.",
     open: "افتح الفيديو مباشرة",
-    note: "شوريل من إنتاج ديوانك. إعلان العطر مشهد توضيحي، وليس عملًا لعميل.",
+    note: "فيديو ترويجي من إنتاج ديوانك، يشرح طرق الإنتاج الثلاث. مشاهد توضيحية، وليست أعمالًا لعملاء.",
   },
   en: {
     button: "Watch the showreel",
-    meta: "19 seconds · with sound",
-    aria: "Play the Dewank video production showreel, 19 seconds",
-    alt: "A frame from the Dewank showreel: a demo perfume ad inside a vertical frame",
+    meta: "25 seconds · with sound",
+    aria: "Play the Dewank video production showreel, 25 seconds",
+    alt: "A frame from the Dewank video production promo",
     error: "The showreel could not be played in this browser.",
     open: "Open the video directly",
-    note: "Showreel produced by Dewank. The perfume ad is a demo scene, not client work.",
+    note: "A promo produced by Dewank that explains the three production routes. Demo scenes, not client work.",
   },
 } as const;
 
