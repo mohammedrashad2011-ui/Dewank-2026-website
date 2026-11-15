@@ -70,9 +70,13 @@ export default function VideoHeroPlayer({ locale }: { locale: "ar" | "en" }) {
           className={"vs-reel-video" + (active && !error ? " is-active" : "")}
           ref={videoRef}
           controls
+          controlsList="nodownload noplaybackrate"
+          disablePictureInPicture
+          disableRemotePlayback
           playsInline
           preload="none"
           poster={SHOWREEL_POSTER}
+          onContextMenu={(event) => event.preventDefault()}
           onError={() => { setError(true); setActive(false); }}
           aria-label={t.button}
         />
@@ -83,7 +87,7 @@ export default function VideoHeroPlayer({ locale }: { locale: "ar" | "en" }) {
           </button>
         )}
       </div>
-      {error && <p className="vs-reel-error" role="alert">{t.error} <a href={SHOWREEL_URL} target="_blank" rel="noopener noreferrer">{t.open}</a></p>}
+      {error && <p className="vs-reel-error" role="alert">{t.error}</p>}
       <figcaption className="vs-reel-note">{t.note}</figcaption>
     </figure>
   );

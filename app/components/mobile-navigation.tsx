@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import "./mobile-site-structure-preview.css";
+import "./mobile-offers-entry.css";
 import { BidiText } from "./bidi-text";
 
 const mobileGroups = [
@@ -23,7 +24,6 @@ const mobileGroups = [
   {
     title: "استكشف",
     links: [
-      ["/offers", "العروض"],
       ["/work", "أعمالنا"],
       ["/guides", "أدلة النمو"],
       ["/about", "عن ديوانك"],
@@ -85,6 +85,7 @@ export function MobileNavigation() {
 
   return (
     <div className="mobile-navigation">
+      <Link className="mobile-offers-pill" href="/offers">العروض</Link>
       <button
         ref={triggerRef}
         className="mobile-menu-trigger"
@@ -114,6 +115,10 @@ export function MobileNavigation() {
               <small>DEWANK MENU</small>
               <button ref={closeRef} type="button" onClick={() => setOpen(false)} aria-label="إغلاق القائمة">×</button>
             </div>
+            <Link className="mobile-menu-offers" href="/offers" onClick={() => setOpen(false)}>
+              <span>العروض</span>
+              <b aria-hidden="true">←</b>
+            </Link>
             <nav aria-label="قائمة الموبايل" className="mobile-menu-groups">
               {mobileGroups.map((group) => (
                 <section className="mobile-menu-group" key={group.title}>

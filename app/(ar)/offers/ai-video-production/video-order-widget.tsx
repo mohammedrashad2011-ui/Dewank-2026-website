@@ -98,7 +98,6 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
   const chosen = videoPackages.find((item) => item.id === selectedId) ?? videoPackages[1];
 
   const price = (key: OfferPriceKey) => getVideoOfferPrice(key, country, locale);
-
   const select = (id: VideoPackageId, source: "card" | "brief") => {
     setSelectedId(id);
     const item = videoPackages.find((entry) => entry.id === id);
