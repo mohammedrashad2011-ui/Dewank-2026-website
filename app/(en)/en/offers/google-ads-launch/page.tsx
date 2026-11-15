@@ -12,7 +12,7 @@ import "../../../../(ar)/offers/google-ads-launch/google-ads-launch.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
-const orderWatchIds = ["order-panel", "order-final", "order-footer"];
+const orderWatchIds = ["order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
   "Google Ads setup: a one-time Search campaign launch",
@@ -96,7 +96,7 @@ export default function GoogleAdsLaunchOffer() {
           <OfferPrice offerKey="google-ads-launch" className="offer-price" />
           <div className="offer-trust-inline"><span>Search campaign</span><span>Conversion tracking</span><span>7-day technical follow-up</span></div>
           <p>Ad spend is paid directly to Google. The package does not include a new landing page or ongoing monthly management and optimisation.</p>
-          <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 

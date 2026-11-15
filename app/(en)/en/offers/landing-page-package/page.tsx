@@ -13,7 +13,7 @@ import "../../../../(ar)/offers/landing-offer.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
-const orderWatchIds = ["order-panel", "order-final", "order-footer"];
+const orderWatchIds = ["order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
   "Landing page design: one page that sells your service",
@@ -81,7 +81,7 @@ export default function LandingPageOffer() {
           <OfferPrice offerKey="landing-page-package" className="offer-price" />
           <div className="offer-trust-inline"><span>Custom page</span><span>50% to start</span><span>Full tracking</span></div>
           <p>Includes design, copy, connections and tracking. Domain and hosting fees are not included.</p>
-          <a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 

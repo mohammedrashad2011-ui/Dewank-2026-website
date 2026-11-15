@@ -106,7 +106,7 @@ export default function GoogleAdsLaunchOffer() {
           <GoogleAdsLaunchPrice />
           <div className="offer-trust-inline"><span>حملة Search</span><span>تتبع تحويل</span><span>7 أيام متابعة تقنية</span></div>
           <p>ميزانية الإعلان تُدفع إلى Google مباشرة. لا تشمل الباقة Landing Page جديدة أو إدارة وتحسين شهري مستمر.</p>
-          <GoogleAdsLaunchLink className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
+          <GoogleAdsLaunchLink id="order-cta" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -171,7 +171,7 @@ export default function GoogleAdsLaunchOffer() {
         <div className="google-ads-links"><Link href="/guides/google-ads-cost-saudi-arabia">تريد فهم التكلفة والميزانية أولًا؟</Link><Link href="/paid-ads">تحتاج إدارة Google Ads مستمرة؟</Link><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link></div>
       </section>
 
-      <GoogleAdsLaunchSticky watchIds={["order-panel", "order-final", "order-footer"]} />
+      <GoogleAdsLaunchSticky watchIds={["order-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
     </main>
   );

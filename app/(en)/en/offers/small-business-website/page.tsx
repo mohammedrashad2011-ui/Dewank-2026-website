@@ -12,7 +12,7 @@ import "../../../../(ar)/offers/small-business-website/small-business-website.cs
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
-const orderWatchIds = ["order-panel", "order-final", "order-footer"];
+const orderWatchIds = ["order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
   "Small business website design: five pages, ready to launch",
@@ -115,7 +115,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <OfferPrice offerKey="small-business-website" className="offer-price" />
           <div className="offer-trust-inline"><span>Up to 5 pages</span><span>Mobile-friendly</span><span>WhatsApp and analytics</span></div>
           <p>Includes up to five pages. The domain, hosting, bespoke programming and paid external services are not included.</p>
-          <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>
       </section>
 

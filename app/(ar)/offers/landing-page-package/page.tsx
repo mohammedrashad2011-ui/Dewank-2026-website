@@ -77,7 +77,7 @@ export default function LandingPageOffer() {
           <LandingOfferPrice kind="base" />
           <div className="offer-trust-inline"><span>صفحة مخصصة</span><span>50% لبدء العمل</span><span>تتبع كامل</span></div>
           <p>تشمل التصميم والكتابة والربط والتتبع. لا تشمل رسوم الدومين أو الاستضافة.</p>
-          <LandingOfferWhatsApp kind="base" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
+          <LandingOfferWhatsApp kind="base" id="order-cta" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
       </section>
 
@@ -123,7 +123,7 @@ export default function LandingPageOffer() {
         <LandingOfferWhatsApp kind="base" className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         <div><Link href="/offers/small-business-website">تحتاج موقعًا من عدة صفحات؟</Link> · <Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link> · <Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
-      <LandingOfferSticky watchIds={["order-panel", "order-final", "order-footer"]} />
+      <LandingOfferSticky watchIds={["order-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
     </main>
   );

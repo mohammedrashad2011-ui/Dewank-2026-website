@@ -12,6 +12,7 @@ export function EnOfferSticky({ watchIds, href, label, priceLabel, offerKey }: {
     <div className="offer-sticky">
       <StickyOfferBar
         watchIds={watchIds}
+        alwaysWhenHidden
         href={href}
         label={label}
         priceLabel={priceLabel}

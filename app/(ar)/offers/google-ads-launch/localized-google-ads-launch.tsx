@@ -9,11 +9,11 @@ export function GoogleAdsLaunchPrice() {
   return <div className="offer-price"><strong>{price.formattedAmount}</strong><span>{price.currencyLabel}</span></div>;
 }
 
-export function GoogleAdsLaunchLink({ className, label }: { className: string; label: string }) {
+export function GoogleAdsLaunchLink({ className, label, id }: { className: string; label: string; id?: string }) {
   const price = useOfferPrice("google-ads-launch");
   const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة إطلاق Google Ads بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
-  return <a className={className} href={href} target="_blank" rel="noreferrer">{label} <span>←</span></a>;
+  return <a id={id} className={className} href={href} target="_blank" rel="noreferrer">{label} <span>←</span></a>;
 }
 
 export function GoogleAdsLaunchSticky({ watchIds }: { watchIds: string[] }) {
@@ -24,6 +24,7 @@ export function GoogleAdsLaunchSticky({ watchIds }: { watchIds: string[] }) {
     <div className="offer-sticky">
       <StickyOfferBar
         watchIds={watchIds}
+        alwaysWhenHidden
         href={href}
         label="احصل على استشارة مجانية الآن"
         priceLabel="باقة الإطلاق من"

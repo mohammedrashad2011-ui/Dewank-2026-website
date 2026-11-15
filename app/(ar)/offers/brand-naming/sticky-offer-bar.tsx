@@ -5,8 +5,11 @@ import { useEffect, useState, type ReactNode } from "react";
 // Mobile-only bar with the price and the WhatsApp CTA, shared by the Arabic and English Brand Naming offers. It shows once
 // the first watched element (the hero CTA) has left through the top of the viewport, and hides while any watched element
 // is on screen, so two identical buttons are never visible at the same time. Styles live in brand-naming-v2.css.
-export function StickyOfferBar({ watchIds, href, label, priceLabel, price, arrow }: {
+export function StickyOfferBar({ watchIds, href, label, priceLabel, price, arrow, alwaysWhenHidden = false }: {
   watchIds: string[];
+  // When true, the bar shows whenever no watched element is on screen. Use it when the first watched element is the
+  // original order CTA, which can start below the fold. The default (false) keeps Brand Naming's behaviour.
+  alwaysWhenHidden?: boolean;
   href: string;
   label: string;
   priceLabel: string;
@@ -27,11 +30,11 @@ export function StickyOfferBar({ watchIds, href, label, priceLabel, price, arrow
         if (entry.target === targets[0]) passedHero = !entry.isIntersecting && entry.boundingClientRect.top < (entry.rootBounds?.top ?? 0);
       }
       const anyVisible = targets.some((node) => onScreen.get(node));
-      setVisible(!anyVisible && passedHero);
+      setVisible(!anyVisible && (alwaysWhenHidden || passedHero));
     });
     targets.forEach((node) => observer.observe(node));
     return () => observer.disconnect();
-  }, [watchIds]);
+  }, [watchIds, alwaysWhenHidden]);
 
   return (
     <div className={`bn2-sticky${visible ? " is-visible" : ""}`} aria-hidden={!visible}>
