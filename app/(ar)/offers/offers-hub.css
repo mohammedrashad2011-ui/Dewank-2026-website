@@ -136,15 +136,15 @@
 .oh .offers-decision-disabled { background: rgba(252, 246, 234, .12); color: rgba(252, 246, 234, .6); }
 
 /* FAQ */
-.oh-faq { display: grid; gap: 20px; padding-block: 10px 64px; }
-.oh-faq-head h2 { margin-top: 8px; font-size: clamp(28px, 6.4vw, 46px); font-weight: 800; line-height: 1.35; }
-.oh-faq-head p { margin-top: 8px; color: var(--oh-muted); font-size: 15px; line-height: 1.8; }
+.oh-faq { display: grid; gap: 16px; padding-block: 10px 56px; }
+.oh-faq-head h2 { margin-top: 8px; font-size: clamp(26px, 5.6vw, 40px); font-weight: 800; line-height: 1.4; }
+.oh-faq-head p { margin-top: 8px; color: var(--oh-muted); font-size: 14px; line-height: 1.75; }
 .oh-faq-list details { border-bottom: 1px solid var(--oh-line); }
-.oh-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 16.5px; font-weight: 800; line-height: 1.6; cursor: pointer; list-style: none; }
+.oh-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; font-size: 15px; font-weight: 800; line-height: 1.55; cursor: pointer; list-style: none; }
 .oh-faq-list summary::-webkit-details-marker { display: none; }
-.oh-faq-list summary::after { content: "+"; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--oh-navy); color: var(--oh-gold); font-size: 20px; font-weight: 700; line-height: 30px; text-align: center; transition: transform .25s ease; }
+.oh-faq-list summary::after { content: "+"; flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--oh-navy); color: var(--oh-gold); font-size: 17px; font-weight: 700; line-height: 26px; text-align: center; transition: transform .25s ease; }
 .oh-faq-list details[open] summary::after { transform: rotate(45deg); }
-.oh-faq-list p { padding: 0 0 18px; color: var(--oh-muted); font-size: 15px; line-height: 1.9; }
+.oh-faq-list p { padding: 0 0 14px; color: var(--oh-muted); font-size: 14px; line-height: 1.8; }
 
 @media (prefers-reduced-motion: no-preference) {
   .oh-hero-copy > * { animation: oh-rise .7s cubic-bezier(.16, .78, .22, 1) both; }

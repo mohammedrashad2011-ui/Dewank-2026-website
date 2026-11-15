@@ -146,11 +146,11 @@
 .vs-faq { padding-block: 52px; background: #fffdf8; border-block: 1px solid var(--vs-line); }
 .vs-faq-grid { display: grid; gap: 20px; }
 .vs-faq-list details { border-bottom: 1px solid var(--vs-line); }
-.vs-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; font-size: 16.5px; font-weight: 800; line-height: 1.6; cursor: pointer; list-style: none; }
+.vs-faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0; font-size: 15px; font-weight: 800; line-height: 1.55; cursor: pointer; list-style: none; }
 .vs-faq-list summary::-webkit-details-marker { display: none; }
-.vs-faq-list summary::after { content: "+"; flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--vs-navy); color: var(--vs-gold); font-size: 20px; font-weight: 700; line-height: 30px; text-align: center; transition: transform .25s ease; }
+.vs-faq-list summary::after { content: "+"; flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--vs-navy); color: var(--vs-gold); font-size: 17px; font-weight: 700; line-height: 26px; text-align: center; transition: transform .25s ease; }
 .vs-faq-list details[open] summary::after { transform: rotate(45deg); }
-.vs-faq-list p { padding: 0 0 18px; color: var(--vs-muted); font-size: 15px; line-height: 1.9; }
+.vs-faq-list p { padding: 0 0 14px; color: var(--vs-muted); font-size: 14px; line-height: 1.8; }
 
 /* Close */
 .vs-close { padding-block: 56px; color: var(--vs-cream); background: radial-gradient(ellipse at 15% 0%, rgba(235, 176, 46, .16), transparent 45%), var(--vs-navy); }
