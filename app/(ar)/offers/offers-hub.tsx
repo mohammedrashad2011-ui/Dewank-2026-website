@@ -72,7 +72,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
             return (
               <article key={offer.slug} className="oh-card offer-card" data-filter={offer.filter} data-category={text.category}>
                 <Link className="offer-card-hit" href={prefix + offer.path} aria-label={text.aria} />
-                <div className="oh-card-top"><span className="oh-card-cat"><OfferIcon name={offer.icon} />{text.category}</span><small>{text.time}</small></div>
+                <div className="oh-card-top"><span className="oh-card-cat"><OfferIcon name={offer.icon} />{text.category}</span></div>
                 <h2>{text.title}<em>{text.hook}</em></h2>
                 <p>{text.text}</p>
                 <div className="oh-card-foot">
