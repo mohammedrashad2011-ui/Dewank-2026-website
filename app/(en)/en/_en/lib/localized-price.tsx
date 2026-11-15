@@ -5,12 +5,11 @@
 // - Server and first client render: the Saudi riyal price (the canonical base market).
 // - A saved country (localStorage key shared with the Arabic site) switches the amount to that country's approved price
 //   where one exists. A country without an approved price gets the USD fallback. No currency is converted.
-// - The third-party country lookup (api.country.is) is gated by COUNTRY_LOOKUP_APPROVED. It stays false until the English
-//   privacy notice is updated and the provider terms are reviewed.
+// - The country lookup uses api.country.is, the same provider as the Arabic site. The English privacy notice describes it.
 import { useSyncExternalStore, useEffect, useState } from "react";
 import { offerPricing, type OfferPriceKey } from "@/app/(ar)/offers/offer-pricing";
 
-export const COUNTRY_LOOKUP_APPROVED: boolean = false;
+export const COUNTRY_LOOKUP_APPROVED: boolean = true;
 const countryStorageKey = "dewank_offer_country";
 
 // ISO codes replace the Arabic currency names in the configuration. Every country in offer-pricing.ts is listed here.
