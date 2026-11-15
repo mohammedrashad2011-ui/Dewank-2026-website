@@ -63,12 +63,14 @@ export default function LandingPageOffer() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: "https://dewank.com" }, { "@type": "ListItem", position: 2, name: "العروض", item: "https://dewank.com/offers" }, { "@type": "ListItem", position: 3, name: "تصميم صفحة هبوط", item: "https://dewank.com/offers/landing-page-package" }] }) }} />
 
       <section className="shell offer-detail-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
           <h1>تصميم صفحة هبوط<br/><em>صفحة واحدة تحوّل الزائر إلى عميل</em></h1>
-          <p>نصمم لك صفحة هبوط احترافية تعرض خدمتك بوضوح، تبني الثقة، وتوجه العميل مباشرة إلى التواصل أو الحجز.</p>
+          <p>نكتب النص ونصمم الصفحة ونربط واتساب والنموذج والتحليلات، ليصل زائر إعلانك إلى طلب واحد واضح. التسليم خلال 7–10 أيام عمل.</p>
+          <Link className="offer-work-link" href="/work">شاهد أعمال ديوانك ودراسات الحالة ←</Link>
         </div>
         <aside className="offer-price-panel">
           <small>الباقة الأساسية</small>

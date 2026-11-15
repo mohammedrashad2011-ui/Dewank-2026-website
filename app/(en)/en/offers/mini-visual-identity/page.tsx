@@ -54,6 +54,7 @@ export default function MiniVisualIdentityOffer() {
         serviceType: ["Visual Identity Design", "Logo Design", "Brand Identity"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: { "@type": "Offer", price: "1190", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/mini-visual-identity" },
         url,
         inLanguage: "en",
       },

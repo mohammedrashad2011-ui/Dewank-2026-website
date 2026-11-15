@@ -62,3 +62,32 @@
     font-weight: 800;
   }
 }
+
+/* Narrow phones: tighter header controls so the row fits beside the logo. The English header has a wider logo and
+   language switch, so its menu button shows the two lines only (its aria-label still names it). */
+@media (max-width: 560px) {
+  html body .nav-actions > .language-switch,
+  html body .nav-actions .mobile-menu-trigger,
+  html body .nav-actions .mobile-offers-pill {
+    padding: 0 9px;
+    font-size: 12px;
+  }
+
+  html body .nav-actions .mobile-navigation { gap: 5px; }
+
+  html[lang="en"] body .site-header .nav-wrap { gap: 6px; }
+
+  html[lang="en"] body .site-header .nav-actions > .language-switch,
+  html[lang="en"] body .site-header .nav-actions .mobile-offers-pill { padding: 0 7px; }
+
+  html[lang="en"] body .site-header .nav-actions .mobile-menu-trigger {
+    width: 44px;
+    min-width: 0;
+    padding: 0;
+    grid-template-columns: 18px;
+    column-gap: 0;
+    justify-content: center;
+  }
+
+  html[lang="en"] body .site-header .nav-actions .mobile-menu-label { display: none; }
+}

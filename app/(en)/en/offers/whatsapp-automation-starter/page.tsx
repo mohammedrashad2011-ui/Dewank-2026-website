@@ -55,6 +55,7 @@ export default function WhatsAppAutomationStarterOffer() {
         serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: { "@type": "Offer", price: "890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/whatsapp-automation-starter" },
         url,
         inLanguage: "en",
       },

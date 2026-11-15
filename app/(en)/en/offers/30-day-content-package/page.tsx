@@ -85,6 +85,7 @@ export default function ContentOfferPage() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://dewank.com/en" }, { "@type": "ListItem", position: 2, name: "Offers", item: "https://dewank.com/en/offers" }, { "@type": "ListItem", position: 3, name: "30-day content package", item: "https://dewank.com/en/offers/30-day-content-package" }] }) }} />
 
       <section className="shell offer-detail-hero sales-hero">
         <div className="sales-hero-copy">

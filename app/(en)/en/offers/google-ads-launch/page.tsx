@@ -12,7 +12,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Google Ads setup package: a measured Search campaign",
+  "Google Ads setup: a one-time Search campaign launch",
   "Setup and launch of one Google Search campaign: buyer keywords, ad copy, negative keywords, conversion tracking and a pre-launch check.",
   "/en/offers/google-ads-launch",
 );
@@ -53,6 +53,7 @@ export default function GoogleAdsLaunchOffer() {
         serviceType: ["Google Ads Setup", "Google Ads Campaign Launch", "Google Search Ads", "Conversion Tracking"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: { "@type": "Offer", price: "790", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/google-ads-launch" },
         url,
         inLanguage: "en",
       },
@@ -80,7 +81,7 @@ export default function GoogleAdsLaunchOffer() {
       <section className="shell offer-detail-hero google-ads-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> working days</span></div>
-          <h1>Set up and run Google Ads<br/><em>A Search campaign that starts measured</em></h1>
+          <h1>Google Ads campaign setup<br/><em>One Search campaign, built and launched once</em></h1>
           <p>We build a Google Search campaign from scratch: buyer-intent keywords, suitable ads, negative keywords, basic conversion tracking, and a full check before the budget starts running.</p>
           <div className="google-ads-answer" aria-label="The short answer">
             <b>The short answer</b>

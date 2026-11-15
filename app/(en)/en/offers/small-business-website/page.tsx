@@ -75,6 +75,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         serviceType: ["Website Design", "Website Development", "Basic SEO"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: { "@type": "Offer", price: "1990", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/small-business-website" },
         url,
         inLanguage: "en",
       },
@@ -101,13 +102,15 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> working days</span></div>
-          <h1>A small website<br/><em>Ready to work under your name</em></h1>
-          <p>A clear package for businesses that need a professional company website without a large project: up to five pages, responsive design and development, WhatsApp and a contact form, analytics, basic SEO and a full pre-launch setup.</p>
+          <h1>Small business website<br/><em>Up to five pages, ready to launch</em></h1>
+          <p>A professional company website with a fixed scope and price: mobile-friendly design and build, WhatsApp and a contact form, analytics, basic SEO and a full review before launch.</p>
           <div className="small-website-answer"><b>What do you get?</b><span>A complete company website with a defined scope. It is not a single landing page, and it is not an online shop.</span></div>
+          <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>
         </div>
         <aside className="offer-price-panel small-website-price-panel">
           <small>Complete package from</small>
           <OfferPrice offerKey="small-business-website" className="offer-price" />
+          <div className="offer-trust-inline"><span>Up to 5 pages</span><span>Mobile-friendly</span><span>WhatsApp and analytics</span></div>
           <p>Includes up to five pages. The domain, hosting, bespoke programming and paid external services are not included.</p>
           <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
         </aside>

@@ -49,6 +49,7 @@ export default function LandingPageOffer() {
         serviceType: ["Landing page design", "Conversion copywriting", "Web analytics setup"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
+        offers: [{ "@type": "Offer", price: "1490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/landing-page-package" }, { "@type": "Offer", price: "1890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/landing-page-package" }],
         url: "https://dewank.com/en/offers/landing-page-package",
         inLanguage: "en",
       },
@@ -63,12 +64,14 @@ export default function LandingPageOffer() {
     <main id="main-content" className="inner-page offers-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://dewank.com/en" }, { "@type": "ListItem", position: 2, name: "Offers", item: "https://dewank.com/en/offers" }, { "@type": "ListItem", position: 3, name: "Landing page design", item: "https://dewank.com/en/offers/landing-page-package" }] }) }} />
 
       <section className="shell offer-detail-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> working days</span></div>
-          <h1>One page<br/><em>That turns a visitor into a customer</em></h1>
-          <p>We design a professional landing page that presents your service clearly, builds trust, and directs the customer straight to contact or booking.</p>
+          <h1>Landing page design<br/><em>One page that turns ad clicks into enquiries</em></h1>
+          <p>We write the copy, design the page and connect WhatsApp, the form and analytics, so ad visitors reach one clear request. Delivered in 7–10 working days.</p>
+          <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>
         </div>
         <aside className="offer-price-panel">
           <small>Base package from</small>

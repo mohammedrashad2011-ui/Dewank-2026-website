@@ -140,3 +140,18 @@
   .offer-confidence-grid article { min-height: 0; }
   .offer-trust-inline span { font-size: 10px; }
 }
+
+/* Plain link from an offer hero to real work and case studies. */
+.offer-work-link { display: inline-flex; margin-top: 14px; color: inherit; font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Phones: on the small website and Google Ads offers the price panel follows the intro paragraph, so the price is on the
+   first screen. The short-answer box and the work link move below the panel. Desktop order is unchanged. */
+@media (max-width: 700px) {
+  .small-website-hero > div:first-child,
+  .google-ads-hero > div:first-child { display: contents; }
+  .small-website-hero > aside,
+  .google-ads-hero > aside { order: 2; }
+  .small-website-hero .small-website-answer,
+  .small-website-hero .offer-work-link,
+  .google-ads-hero .google-ads-answer { order: 3; }
+}

@@ -4,10 +4,11 @@ import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, siteUrl, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
 import { SmallWebsitePrice, SmallWebsiteWhatsApp } from "./localized-small-website";
 import "../offers-page.css";
+import "../offer-trust.css";
 import "./small-business-website.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "شركة تصميم موقع صغير جاهز للإطلاق بـ 1,990 ريال | ديوانك",
+  title: "تصميم موقع شركة حتى 5 صفحات | باقة جاهزة للإطلاق | ديوانك",
   description: "باقة موقع تعريفي صغير حتى 5 صفحات تشمل التصميم والتطوير المتجاوب وربط واتساب والنماذج والتحليلات وSEO أساسي وتجهيز الإطلاق.",
   path: "/offers/small-business-website",
   keywords: [
@@ -111,13 +112,15 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> يوم عمل</span></div>
-          <h1>شركة تصميم موقع صغير<br/><em>جاهز للعمل باسمك</em></h1>
-          <p>باقة واضحة للشركات والمشاريع التي تحتاج موقعًا تعريفيًا احترافيًا دون مشروع ضخم: حتى 5 صفحات، تصميم وتطوير متجاوب، واتساب ونموذج تواصل، تحليلات وSEO أساسي وتجهيز كامل للإطلاق.</p>
+          <h1>تصميم موقع لشركتك<br/><em>حتى 5 صفحات، جاهز للإطلاق</em></h1>
+          <p>موقع تعريفي احترافي بنطاق وسعر محددين: تصميم وتطوير متجاوب مع الجوال، واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق.</p>
           <div className="small-website-answer"><b>ماذا تحصل عليه؟</b><span>موقع تعريفي متكامل بنطاق محدد، وليس قالب صفحة واحدة ولا متجرًا إلكترونيًا.</span></div>
+          <Link className="offer-work-link" href="/work">شاهد أعمال ديوانك ودراسات الحالة ←</Link>
         </div>
         <aside className="offer-price-panel small-website-price-panel">
           <small>الباقة كاملة من</small>
           <SmallWebsitePrice />
+          <div className="offer-trust-inline"><span>حتى 5 صفحات</span><span>متجاوب مع الجوال</span><span>واتساب وتحليلات</span></div>
           <p>يشمل حتى 5 صفحات. لا يشمل الدومين والاستضافة أو البرمجة الخاصة والخدمات الخارجية المدفوعة.</p>
           <SmallWebsiteWhatsApp className="button primary offer-consultation-cta" label="احصل على استشارة مجانية الآن" />
         </aside>
