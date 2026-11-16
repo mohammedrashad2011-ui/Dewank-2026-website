@@ -184,3 +184,11 @@
   .oh-note h2 { font-size: 30px; }
   .oh-faq { grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: 60px; padding-block: 20px 96px; }
 }
+
+/* Desktop typography for the offers hub (1024px and wider). Phones and tablets keep their own sizes. */
+@media (min-width: 1024px) {
+  .oh-hero h1 { font-size: clamp(52px, 4.4vw, 64px); line-height: 1.16; }
+  .oh[dir="ltr"] .oh-hero h1 { line-height: 1.1; }
+  .oh-card h2 { font-size: 22px; line-height: 1.35; }
+  .oh-card p { font-size: 15px; line-height: 1.75; }
+}
