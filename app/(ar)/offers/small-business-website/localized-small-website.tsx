@@ -27,7 +27,7 @@ export function SmallWebsiteSticky({ watchIds }: { watchIds: string[] }) {
         alwaysWhenHidden
         ctaMinVisibleRatio={0.5}
         href={href}
-        label="احصل على استشارة مجانية الآن"
+        label="استشارة مجانية"
         priceLabel="الباقة كاملة من"
         price={`${price.formattedAmount} ${price.currencyLabel}`}
         arrow="←"
