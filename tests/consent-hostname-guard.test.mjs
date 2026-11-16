@@ -1,7 +1,7 @@
 // Checks the shared consent bootstrap: production vendors load only on the production hosts, and only when the visitor's
 // consent allows them. The bootstrap is bundled from its TypeScript source and run against stubbed browser globals.
 import assert from "node:assert/strict";
-import { mkdtempSync, writeFileSync } from "node:fs";
+import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
