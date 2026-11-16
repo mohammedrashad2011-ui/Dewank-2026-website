@@ -115,7 +115,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <OfferPrice offerKey="small-business-website" className="offer-price" />
           <div className="offer-trust-inline"><span>Up to 5 pages</span><span>Mobile-friendly</span><span>WhatsApp and analytics</span></div>
           <p>Includes up to five pages. The domain, hosting, bespoke programming and paid external services are not included.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
         </aside>
       </section>
 
@@ -167,11 +167,11 @@ export default function SmallBusinessWebsiteOfferPage() {
         <span className="section-label">Ready to start?</span>
         <h2>Give your business<br/><em>a real digital address</em></h2>
         <p>Start with a clear, fast website, and expand it only when the business actually needs it.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation now <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
         <div className="small-website-links"><Link href="/en/offers/landing-page-package">Need a landing page only?</Link><Link href="/en/website-design">Need a larger website?</Link></div>
       </section>
 
-      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Get a free consultation now" priceLabel="Complete package from" offerKey="small-business-website" />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Free consultation" priceLabel="Complete package from" offerKey="small-business-website" />
       <div id="order-footer"><Footer /></div>
     </main>
   );

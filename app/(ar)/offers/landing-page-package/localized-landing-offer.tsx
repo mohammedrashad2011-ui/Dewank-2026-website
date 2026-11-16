@@ -28,7 +28,7 @@ export function LandingOfferSticky({ watchIds }: { watchIds: string[] }) {
         alwaysWhenHidden
         ctaMinVisibleRatio={0.5}
         href={href}
-        label="احصل على استشارة مجانية الآن"
+        label="استشارة مجانية"
         priceLabel="الباقة الأساسية من"
         price={`${price.formattedAmount} ${price.currencyLabel}`}
         arrow="←"

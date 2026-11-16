@@ -31,11 +31,12 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["كم سعر اختيار اسم تجاري؟", "الباقة الجاهزة تبدأ من 490 ريال سعودي. السعر يشمل البحث والتسمية والقائمة النهائية المختصرة والتوجه الأولي للعلامة، ولا يشمل الرسوم الحكومية أو تسجيل العلامة."],
+  ["ماذا تشمل باقة اختيار اسم تجاري؟", "تشمل 10–15 اسمًا مدروسًا، وأفضل 3 ترشيحات، وفحصًا مبدئيًا للمعنى والنطق والتشابه والدومين، وتوجهًا أوليًا للعلامة، وجولة تطوير واحدة إذا لم يُحسم الاختيار من الجولة الأولى، وتسليمًا عادة خلال 3–5 أيام عمل. الفحص المبدئي لا يعني قبول الاسم أو تسجيله، ولا تشمل الباقة الرسوم الحكومية أو تسجيل العلامة."],
   ["كم اسمًا سأستلم؟", "تستلم عادة 10–15 اسمًا مدروسًا، ثم نرشح أفضل 3 خيارات بناءً على معايير واضحة تساعدك على اتخاذ القرار."],
   ["ما المقصود بالتوجه الأولي للعلامة؟", "هو تصور مبدئي للعلامة بعد اختيار الاسم، يحدد الشخصية ونبرة التواصل والمزاج البصري والكلمات التي يجب أن تعكسها الهوية لاحقًا. لا يشمل تصميم شعار أو هوية بصرية كاملة."],
   ["هل تضمنون قبول الاسم أو تسجيل العلامة؟", "لا. نقدم فحصًا أوليًا للتشابه والمعنى والتوفر لتقليل المخاطر، لكن قرار القبول والتسجيل النهائي للجهة الرسمية المختصة."],
-  ["هل باقة الاسم هي نفس مشروع BITHAN؟", "لا. BITHAN دراسة حالة لمشروع تسمية وهوية بصرية لدار مجوهرات في قطر، والهوية البصرية خارج هذه الباقة. نطاق باقة 490 ريال هو المذكور في هذه الصفحة: 10–15 اسمًا، فحص مبدئي، أفضل 3 ترشيحات، توجه أولي للعلامة، وجولة تطوير واحدة."],
+  ["ماذا لو لم يعجبني أي اسم في القائمة؟", "تحصل على جولة تطوير واحدة بناءً على ملاحظاتك المحددة، إذا لم يُحسم الاختيار من الجولة الأولى."],
+  ["كيف أختار اسمًا تجاريًا مناسبًا لمشروعي؟", "ابدأ بما يعنيه الاسم لعملائك: هل يصف نشاطك أو يعكس قيمتك؟ ثم اختبره نطقًا وكتابةً بالعربية والإنجليزية، وتأكد أنه لا يشبه علامة منافسة قريبة في نشاطك، وتحقق من توفر الدومين وحسابات التواصل. الفحص المبدئي يقلل المخاطر، لكن قبول الاسم وتسجيله قرار للجهة الرسمية المختصة."],
   ["هل تشمل الخدمة حجز الدومين؟", "تشمل التحقق من توفر الدومين وقت البحث. شراء الدومين ورسومه ليست ضمن الباقة، لأن التوفر قد يتغير حتى لحظة الحجز."],
   ["كم مدة التسليم؟", "التسليم عادة خلال 3–5 أيام عمل بعد استلام معلومات النشاط والسوق والجمهور والاتجاهات المفضلة."],
 ];
@@ -109,7 +110,7 @@ export default function BrandNamingOfferPage() {
           <h1 id="bn2-title">اختيار اسم تجاري <em>يتذكره عميلك من أول مرة</em></h1>
           <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه وتوفر الدومين. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
           <div className="bn2-hero-actions">
-            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
+            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
             <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
           </div>
           <ul className="bn2-facts" aria-label="ما تشمله الباقة">
@@ -119,6 +120,22 @@ export default function BrandNamingOfferPage() {
           </ul>
         </div>
 
+        <div className="bn2-video">
+          <figure className="bn2-video-frame">
+            <video
+              controls
+              preload="none"
+              playsInline
+              lang="ar"
+              poster="/videos/brand-naming-web-poster.webp"
+              width={1280}
+              height={720}
+              aria-label="فيديو خدمة اختيار الاسم التجاري"
+            >
+              <source src="/videos/brand-naming-web-1280.mp4" type="video/mp4" />
+            </video>
+          </figure>
+        </div>
         <figure className="bn2-deck" aria-label="مثال توضيحي لشكل القائمة المختصرة">
           <figcaption className="bn2-deck-head"><span>القائمة المختصرة</span><small>مثال توضيحي</small></figcaption>
           <div className="bn2-deck-brief"><small>موجز المشروع</small><p>مقهى مختص في الرياض · جمهور شاب · يخطط لفتح فروع</p></div>
@@ -163,7 +180,7 @@ export default function BrandNamingOfferPage() {
           <small>الباقة الجاهزة</small>
           <BrandNamingOfferPrice />
           <p className="bn2-price-note">سعر ثابت يشمل البحث والتسمية والقائمة المختصرة والتوجه الأولي للعلامة.</p>
-          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
+          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
           <details className="bn2-excludes">
             <summary>ما الذي لا يشمله العرض؟</summary>
             <p>لا يشمل رسوم الجهات الرسمية، تسجيل العلامة، شراء الدومين، تصميم الشعار أو الهوية الكاملة، أو بحثًا قانونيًا متخصصًا في عدة فئات وأسواق. الفحص الذي نقدمه مبدئي وليس رأيًا قانونيًا أو ضمان تسجيل.</p>
@@ -198,7 +215,7 @@ export default function BrandNamingOfferPage() {
         <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
         <h2>قبل ما تصمم الشعار، اختر اسمًا يستحق أن يوضع عليه</h2>
         <p>أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
-        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
+        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
         <div className="brand-naming-links"><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
 

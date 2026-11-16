@@ -80,3 +80,33 @@
 .offers-page .offer-deliverables .deliverable-item b{font-size:clamp(1rem,1.35vw,1.22rem);line-height:1.65;overflow-wrap:break-word}
 .offers-page .offer-deliverables .deliverable-item p{display:block;grid-column:auto;width:auto;max-width:65ch;min-width:0;line-height:1.8;overflow-wrap:break-word;margin:0}
 @media(max-width:760px){.offers-page .offer-deliverables .deliverable-item{grid-template-columns:minmax(0,1fr);gap:.45rem}}
+
+/* Desktop only: the landing page headings were larger than the price card and the cards beside them. These sizes bring
+   the headline, price and section titles into the same scale as the other offer pages. Phones are unchanged. */
+@media (min-width: 1025px) {
+  .offer-detail-hero h1 { font-size: clamp(40px, 4vw, 56px); }
+  .offer-price strong { font-size: clamp(44px, 3.8vw, 56px); }
+  .offer-fit h2,
+  .offer-final-cta h2 { font-size: clamp(36px, 3.4vw, 46px); }
+  .offer-confidence h2,
+  .offer-faq h2,
+  .offer-deliverables h2 { font-size: clamp(32px, 3vw, 42px); }
+  .offer-confidence h3,
+  .offer-faq h3 { font-size: clamp(22px, 2vw, 28px); }
+  .offer-fit-card .offer-price strong { font-size: clamp(40px, 3.4vw, 48px); }
+}
+
+/* Desktop only (landing pages): the spacing between sections left large empty areas. The deliverables go to one column
+   so each row sits at its own height, and the section padding and margins are reduced. Phones are unchanged. */
+@media (min-width: 1025px) {
+  .offer-deliverables .deliverable-list { grid-template-columns: 1fr; }
+  .offer-deliverables .deliverable-list { gap: 8px; }
+  .offer-deliverables .deliverable-item { padding: 18px 22px; }
+  .offer-deliverables { padding-bottom: 72px; }
+  .offer-fit { padding-bottom: 88px; }
+  .offer-confidence { margin-bottom: 48px; }
+  .offer-faq { margin-bottom: 56px; }
+  .offer-final-cta { margin-bottom: 72px; padding: 56px 64px; }
+  .offer-detail-hero { padding-top: 96px; padding-bottom: 72px; }
+  .offer-detail-hero .offer-price-panel { max-width: none; width: 100%; }
+}

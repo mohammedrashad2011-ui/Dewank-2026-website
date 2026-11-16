@@ -5,6 +5,11 @@ import { consentBannerCss } from "./consent-banner-styles";
 export const CONSENT_STORAGE_KEY = "dewank-consent-v1";
 // Event fired after every choice, so pages can react. The detail is { analytics, advertising }.
 export const CONSENT_CHANGE_EVENT = "dewank:consent-change";
+// Hosts allowed to load the production vendors. Any other host (localhost, 127.0.0.1, preview domains, local production
+// servers) loads none of them, whatever the build mode or the visitor's stored choice. This is an additional condition,
+// never a replacement for consent: a rejected choice still blocks every vendor.
+export const PRODUCTION_VENDOR_HOSTS = ["dewank.com", "www.dewank.com"] as const;
+
 // Attribute on any element (the footer control) that reopens the preferences dialog.
 export const CONSENT_OPEN_ATTRIBUTE = "data-dewank-consent-open";
 
@@ -66,7 +71,8 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
   const routeViews = ROUTE_PAGE_VIEWS_FROM_SCRIPT ? "true" : "false";
   return `(function(){
   var KEY=${JSON.stringify(CONSENT_STORAGE_KEY)};
-  var VENDORS=${vendors};
+  var PROD_HOSTS=${JSON.stringify(PRODUCTION_VENDOR_HOSTS)};
+  var VENDORS=${vendors} && PROD_HOSTS.indexOf(location.hostname)!==-1;
   var ROUTE_VIEWS=${routeViews};
   var GTM=${JSON.stringify(GTM_CONTAINER_ID)};
   var GA=${JSON.stringify(GA_MEASUREMENT_ID)};

@@ -53,11 +53,12 @@ const steps = [
 ];
 
 const faqs = [
-  ["What does a brand naming package cost?", "The package starts at the price shown above, in Saudi riyals by default, or in your country's approved price where one exists. It covers the research, the naming, the short list and the initial brand direction. It does not cover government fees or trademark registration."],
+  ["What does the brand naming package include?", "It includes 10–15 considered names, a preliminary check of meaning, pronunciation, similarity and domain availability, a top three, an initial brand direction and one development round. Delivery usually takes 3–5 working days. The package does not cover government fees or trademark registration, and the preliminary check is not a guarantee of acceptance or registration."],
   ["How many names will I receive?", "Usually 10–15 considered names. We then recommend the best three, based on clear criteria that help you decide."],
   ["What is meant by an initial brand direction?", "It is a preliminary picture of the brand once the name is chosen: the personality, tone of voice, visual mood and the words the identity should reflect later. It does not include a logo or a full visual identity."],
   ["Do you guarantee that the name will be accepted or registered?", "No. We carry out a preliminary check of similarity, meaning and availability to reduce risk. The final decision on acceptance and registration rests with the official authority."],
-  ["Is the naming package the same as the BITHAN project?", "No. BITHAN is a case study of a naming and identity project for a jewellery house in Qatar, and the visual identity is outside this package. This package covers 10–15 names, a preliminary check, a top three, an initial brand direction and one development round."],
+  ["What if none of the names feels right?", "You receive one development round based on your specific feedback, if the choice is not settled in the first round."],
+  ["How do I choose a good brand name for my business?", "Start with what the name should say to your customers: does it describe your activity or reflect your value? Then test how it sounds and reads in Arabic and English, check that it does not closely resemble a competitor in your field, and confirm the domain and social handles are available. A preliminary check reduces risk, but acceptance and registration are decided by the official authority."],
   ["Does the service include booking the domain?", "It includes checking domain availability at the time of the search. Buying the domain and its fees are not part of the package, because availability can change right up to the moment of purchase."],
   ["How long does delivery take?", "Usually 3–5 working days after we receive information about the business, the market, the audience and your preferred directions."],
 ];
@@ -108,7 +109,7 @@ export default function BrandNamingOfferPage() {
           <h1 id="bn2-title">A brand name <em>your customers will remember</em></h1>
           <p className="bn2-lede">We develop 10–15 considered names for your business and recommend the best three after checking meaning, pronunciation, similarity and domain availability. The complete package is <OfferPrice offerKey="brand-naming" className="bn2-inline-price" />.</p>
           <div className="bn2-hero-actions">
-            <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation on WhatsApp <span aria-hidden="true">→</span></a>
+            <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
             <p className="bn2-microcopy">No commitment. Tell us your business type and city, and we will reply with the next step.</p>
           </div>
           <ul className="bn2-facts" aria-label="What the package includes">
@@ -118,6 +119,22 @@ export default function BrandNamingOfferPage() {
           </ul>
         </div>
 
+        <div className="bn2-video">
+          <figure className="bn2-video-frame">
+            <video
+              controls
+              preload="none"
+              playsInline
+              lang="ar"
+              poster="/videos/brand-naming-web-poster.webp"
+              width={1280}
+              height={720}
+              aria-label="Video in Arabic: an overview of the brand naming service"
+            >
+              <source src="/videos/brand-naming-web-1280.mp4" type="video/mp4" />
+            </video>
+          </figure>
+        </div>
         <figure className="bn2-deck" aria-label="An illustrative example of the short list">
           <figcaption className="bn2-deck-head"><span>The short list</span><small>Illustrative example</small></figcaption>
           <div className="bn2-deck-brief"><small>Project brief</small><p>Specialty coffee shop in Riyadh · young audience · planning more branches</p></div>
@@ -162,7 +179,7 @@ export default function BrandNamingOfferPage() {
           <small>The defined package</small>
           <OfferPrice offerKey="brand-naming" className="offer-price" />
           <p className="bn2-price-note">A fixed price covering the research, the naming, the short list and the initial brand direction.</p>
-          <a className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation on WhatsApp <span aria-hidden="true">→</span></a>
+          <a className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
           <details className="bn2-excludes">
             <summary>What the offer does not include</summary>
             <p>It does not include official government fees, trademark registration, domain purchase, logo or full identity design, or specialist legal research across several classes and markets. The check we provide is preliminary. It is not legal advice or a guarantee of registration, and domain availability may change before you buy.</p>
@@ -199,14 +216,14 @@ export default function BrandNamingOfferPage() {
         <span className="offer-kicker">Brand naming · initial brand direction</span>
         <h2>Before you design the logo, choose a name worth putting it on</h2>
         <p>Send us your business type and target market, and we will start with a short summary of your project before the research.</p>
-        <a id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation on WhatsApp <span aria-hidden="true">→</span></a>
+        <a id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
         <div className="brand-naming-links"><Link href="/en/brand-naming">Details of the naming service</Link><Link href="/en/branding">Brand strategy and identity</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
 
       <StickyOfferBar
         watchIds={["bn2-hero-cta", "bn2-final-cta"]}
         href={contactLink}
-        label="Free consultation on WhatsApp"
+        label="Free consultation"
         priceLabel="Complete package"
         price={<OfferPrice offerKey="brand-naming" className="bn2-sticky-amount" />}
         arrow="→"
