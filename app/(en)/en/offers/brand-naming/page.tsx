@@ -58,6 +58,7 @@ const faqs = [
   ["What is meant by an initial brand direction?", "It is a preliminary picture of the brand once the name is chosen: the personality, tone of voice, visual mood and the words the identity should reflect later. It does not include a logo or a full visual identity."],
   ["Do you guarantee that the name will be accepted or registered?", "No. We carry out a preliminary check of similarity, meaning and availability to reduce risk. The final decision on acceptance and registration rests with the official authority."],
   ["What if none of the names feels right?", "You receive one development round based on your specific feedback, if the choice is not settled in the first round."],
+  ["Is the naming package the same as the BITHAN project?", "No. BITHAN is a case study of a naming and identity project for a jewellery house in Qatar, and the visual identity is outside this package. This package covers 10–15 names, a preliminary check, a top three, an initial brand direction and one development round."],
   ["Does the service include booking the domain?", "It includes checking domain availability at the time of the search. Buying the domain and its fees are not part of the package, because availability can change right up to the moment of purchase."],
   ["How long does delivery take?", "Usually 3–5 working days after we receive information about the business, the market, the audience and your preferred directions."],
 ];
