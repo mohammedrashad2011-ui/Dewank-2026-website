@@ -95,3 +95,18 @@
   .offer-faq h3 { font-size: clamp(22px, 2vw, 28px); }
   .offer-fit-card .offer-price strong { font-size: clamp(40px, 3.4vw, 48px); }
 }
+
+/* Desktop only (landing pages): the spacing between sections left large empty areas. The deliverables go to one column
+   so each row sits at its own height, and the section padding and margins are reduced. Phones are unchanged. */
+@media (min-width: 1025px) {
+  .offer-deliverables .deliverable-list { grid-template-columns: 1fr; }
+  .offer-deliverables .deliverable-list { gap: 8px; }
+  .offer-deliverables .deliverable-item { padding: 18px 22px; }
+  .offer-deliverables { padding-bottom: 72px; }
+  .offer-fit { padding-bottom: 88px; }
+  .offer-confidence { margin-bottom: 48px; }
+  .offer-faq { margin-bottom: 56px; }
+  .offer-final-cta { margin-bottom: 72px; padding: 56px 64px; }
+  .offer-detail-hero { padding-top: 96px; padding-bottom: 72px; }
+  .offer-detail-hero .offer-price-panel { max-width: none; width: 100%; }
+}
