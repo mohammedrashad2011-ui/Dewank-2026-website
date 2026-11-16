@@ -135,6 +135,22 @@ export default function BrandNamingOfferPage() {
         </figure>
       </section>
 
+      <section className="shell bn2-video" aria-label="فيديو خدمة اختيار الاسم التجاري">
+        <figure className="bn2-video-frame">
+          <video
+            controls
+            preload="none"
+            playsInline
+            poster="/videos/brand-naming-web-poster.webp"
+            width={1280}
+            height={720}
+            aria-label="فيديو خدمة اختيار الاسم التجاري"
+          >
+            <source src="/videos/brand-naming-web-1280.mp4" type="video/mp4" />
+          </video>
+        </figure>
+      </section>
+
       <section className="shell bn2-fit" aria-labelledby="bn2-fit-title">
         <h2 id="bn2-fit-title">الباقة مناسبة لك إذا كنت</h2>
         <div className="bn2-fit-grid">
