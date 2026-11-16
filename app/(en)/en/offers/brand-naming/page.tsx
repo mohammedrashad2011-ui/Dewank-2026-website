@@ -53,11 +53,11 @@ const steps = [
 ];
 
 const faqs = [
-  ["What does a brand naming package cost?", "The package starts at the price shown above, in Saudi riyals by default, or in your country's approved price where one exists. It covers the research, the naming, the short list and the initial brand direction. It does not cover government fees or trademark registration."],
+  ["What does the brand naming package include?", "It includes 10–15 considered names, a preliminary check of meaning, pronunciation, similarity and domain availability, a top three, an initial brand direction and one development round. Delivery usually takes 3–5 working days. The package does not cover government fees or trademark registration, and the preliminary check is not a guarantee of acceptance or registration."],
   ["How many names will I receive?", "Usually 10–15 considered names. We then recommend the best three, based on clear criteria that help you decide."],
   ["What is meant by an initial brand direction?", "It is a preliminary picture of the brand once the name is chosen: the personality, tone of voice, visual mood and the words the identity should reflect later. It does not include a logo or a full visual identity."],
   ["Do you guarantee that the name will be accepted or registered?", "No. We carry out a preliminary check of similarity, meaning and availability to reduce risk. The final decision on acceptance and registration rests with the official authority."],
-  ["Is the naming package the same as the BITHAN project?", "No. BITHAN is a case study of a naming and identity project for a jewellery house in Qatar, and the visual identity is outside this package. This package covers 10–15 names, a preliminary check, a top three, an initial brand direction and one development round."],
+  ["What if none of the names feels right?", "You receive one development round based on your specific feedback, if the choice is not settled in the first round."],
   ["Does the service include booking the domain?", "It includes checking domain availability at the time of the search. Buying the domain and its fees are not part of the package, because availability can change right up to the moment of purchase."],
   ["How long does delivery take?", "Usually 3–5 working days after we receive information about the business, the market, the audience and your preferred directions."],
 ];
@@ -118,6 +118,22 @@ export default function BrandNamingOfferPage() {
           </ul>
         </div>
 
+        <div className="bn2-video">
+          <figure className="bn2-video-frame">
+            <video
+              controls
+              preload="none"
+              playsInline
+              lang="ar"
+              poster="/videos/brand-naming-web-poster.webp"
+              width={1280}
+              height={720}
+              aria-label="Video in Arabic: an overview of the brand naming service"
+            >
+              <source src="/videos/brand-naming-web-1280.mp4" type="video/mp4" />
+            </video>
+          </figure>
+        </div>
         <figure className="bn2-deck" aria-label="An illustrative example of the short list">
           <figcaption className="bn2-deck-head"><span>The short list</span><small>Illustrative example</small></figcaption>
           <div className="bn2-deck-brief"><small>Project brief</small><p>Specialty coffee shop in Riyadh · young audience · planning more branches</p></div>
