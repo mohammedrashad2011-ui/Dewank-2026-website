@@ -66,7 +66,8 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
   const selected=projects[active];
 
   useEffect(()=>{
-    if(manual||paused||window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    // Avoid auto-downloading additional slides on small screens; visitors can select them on demand.
+    if(manual||paused||window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 800px)").matches)return;
     const timer=window.setInterval(()=>{
       if(document.hidden)return;
       setActive(current=>(current+1)%projects.length);
@@ -129,11 +130,11 @@ export default function WorkEditorialHero({locale,whatsappHref}:{locale:Locale;w
           <Link className={"wk-cinema-stage"+(active===0?" is-portrait":"")} href={selected.href} aria-label={c.view+" — "+selected.name}
             onPointerEnter={()=>setPaused(true)} onPointerLeave={()=>setPaused(false)}
             onFocus={()=>setPaused(true)} onBlur={()=>setPaused(false)}>
-            {projects.map((project,index)=>(
-              <div key={project.name} className={"wk-cinema-slide"+(active===index?" is-active":"")} aria-hidden={active!==index}>
-                <img src={project.image} alt="" width={index===0?1126:1200} height={index===0?1591:900} decoding="async" loading={index===0?"eager":"lazy"} fetchPriority={index===0?"high":"auto"}/>
-              </div>
-            ))}
+            {/* Render only the selected image. Hidden lazy slides can stall on mobile,
+                while eagerly fetching every slide competes with the LCP image. */}
+            <div key={selected.image} className="wk-cinema-slide is-active" aria-hidden="true">
+              <img src={selected.image} alt="" width={active===0?1126:1200} height={active===0?1591:900} decoding="async" loading="eager" fetchPriority={active===0?"high":"auto"}/>
+            </div>
           </Link>
         </div>
         <div className="wk-cinema-selector" aria-label={c.picker} role="group">

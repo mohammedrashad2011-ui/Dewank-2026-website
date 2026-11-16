@@ -504,3 +504,11 @@ html body .work-cinematic .concept-card dl>div{
   }
   html body .work-cinematic .concept-card:hover{transform:none!important}
 }
+
+/* Mobile portfolio content must stay visible if scroll-reveal observers lag or miss an intersection. */
+@media(max-width:800px){
+  .work-cinematic.wk-motion-ready .wk-anim-target:not(.wk-in-view){
+    opacity:1;
+    translate:0 0;
+  }
+}
