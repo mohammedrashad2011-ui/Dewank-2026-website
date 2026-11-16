@@ -108,7 +108,7 @@ export default function BrandNamingOfferPage() {
           <h1 id="bn2-title">A brand name <em>your customers will remember</em></h1>
           <p className="bn2-lede">We develop 10–15 considered names for your business and recommend the best three after checking meaning, pronunciation, similarity and domain availability. The complete package is <OfferPrice offerKey="brand-naming" className="bn2-inline-price" />.</p>
           <div className="bn2-hero-actions">
-            <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation on WhatsApp <span aria-hidden="true">→</span></a>
+            <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
             <p className="bn2-microcopy">No commitment. Tell us your business type and city, and we will reply with the next step.</p>
           </div>
           <ul className="bn2-facts" aria-label="What the package includes">
@@ -162,7 +162,7 @@ export default function BrandNamingOfferPage() {
           <small>The defined package</small>
           <OfferPrice offerKey="brand-naming" className="offer-price" />
           <p className="bn2-price-note">A fixed price covering the research, the naming, the short list and the initial brand direction.</p>
-          <a className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation on WhatsApp <span aria-hidden="true">→</span></a>
+          <a className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
           <details className="bn2-excludes">
             <summary>What the offer does not include</summary>
             <p>It does not include official government fees, trademark registration, domain purchase, logo or full identity design, or specialist legal research across several classes and markets. The check we provide is preliminary. It is not legal advice or a guarantee of registration, and domain availability may change before you buy.</p>
@@ -199,14 +199,14 @@ export default function BrandNamingOfferPage() {
         <span className="offer-kicker">Brand naming · initial brand direction</span>
         <h2>Before you design the logo, choose a name worth putting it on</h2>
         <p>Send us your business type and target market, and we will start with a short summary of your project before the research.</p>
-        <a id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Get a free consultation on WhatsApp <span aria-hidden="true">→</span></a>
+        <a id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
         <div className="brand-naming-links"><Link href="/en/brand-naming">Details of the naming service</Link><Link href="/en/branding">Brand strategy and identity</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
 
       <StickyOfferBar
         watchIds={["bn2-hero-cta", "bn2-final-cta"]}
         href={contactLink}
-        label="Free consultation on WhatsApp"
+        label="Free consultation"
         priceLabel="Complete package"
         price={<OfferPrice offerKey="brand-naming" className="bn2-sticky-amount" />}
         arrow="→"

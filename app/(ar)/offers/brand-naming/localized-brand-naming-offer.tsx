@@ -33,7 +33,7 @@ export function BrandNamingStickyCta({ watchIds }: { watchIds: string[] }) {
     <StickyOfferBar
       watchIds={watchIds}
       href={href}
-      label="استشارة مجانية على واتساب"
+      label="استشارة مجانية"
       priceLabel="الباقة كاملة"
       price={`${price.formattedAmount} ${price.currencyLabel}`}
       arrow="←"

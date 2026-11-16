@@ -109,7 +109,7 @@ export default function BrandNamingOfferPage() {
           <h1 id="bn2-title">اختيار اسم تجاري <em>يتذكره عميلك من أول مرة</em></h1>
           <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه وتوفر الدومين. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
           <div className="bn2-hero-actions">
-            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
+            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
             <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
           </div>
           <ul className="bn2-facts" aria-label="ما تشمله الباقة">
@@ -179,7 +179,7 @@ export default function BrandNamingOfferPage() {
           <small>الباقة الجاهزة</small>
           <BrandNamingOfferPrice />
           <p className="bn2-price-note">سعر ثابت يشمل البحث والتسمية والقائمة المختصرة والتوجه الأولي للعلامة.</p>
-          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
+          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
           <details className="bn2-excludes">
             <summary>ما الذي لا يشمله العرض؟</summary>
             <p>لا يشمل رسوم الجهات الرسمية، تسجيل العلامة، شراء الدومين، تصميم الشعار أو الهوية الكاملة، أو بحثًا قانونيًا متخصصًا في عدة فئات وأسواق. الفحص الذي نقدمه مبدئي وليس رأيًا قانونيًا أو ضمان تسجيل.</p>
@@ -214,7 +214,7 @@ export default function BrandNamingOfferPage() {
         <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
         <h2>قبل ما تصمم الشعار، اختر اسمًا يستحق أن يوضع عليه</h2>
         <p>أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
-        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="احصل على استشارة مجانية على واتساب" />
+        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
         <div className="brand-naming-links"><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
 
