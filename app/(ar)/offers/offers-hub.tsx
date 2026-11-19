@@ -5,6 +5,7 @@ import VideoOfferFromPrice from "./ai-video-production/video-offer-from-price";
 import { HubPrice } from "./offers-hub-price";
 import { OfferIcon } from "./offers-hub-icons";
 import { hubCopy, hubFilterIds, hubOffers, hubVideo, type HubLocale } from "./offers-hub-data";
+import { hubRows, hubSummaryText, rowPrice } from "./offers-hub-summary";
 import "../../components/offers-decision-panel.css";
 import "./offers-hub.css";
 
@@ -89,6 +90,29 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
         </div>
 
         <OffersDecisionPanel locale={locale} offers={choices} />
+      </section>
+
+      <section className="shell oh-summary" id="offers-summary" aria-labelledby="offers-summary-title">
+        <div className="oh-summary-head">
+          <span className="oh-eyebrow">{t.summaryEyebrow}</span>
+          <h2 id="offers-summary-title">{t.summaryTitle}</h2>
+          <p>{hubSummaryText[locale]}</p>
+        </div>
+        <div className="oh-table-wrap">
+          <table className="oh-table">
+            <thead><tr><th scope="col">{t.colPackage}</th><th scope="col">{t.colGet}</th><th scope="col">{t.colTime}</th><th scope="col">{t.colPrice}</th></tr></thead>
+            <tbody>
+              {hubRows.map((row) => (
+                <tr key={row.path}>
+                  <th scope="row"><Link href={prefix + row.path}>{row[locale].title}</Link></th>
+                  <td>{row[locale].hook}</td>
+                  <td data-label={t.colTime}>{row[locale].time}</td>
+                  <td data-label={t.colPrice}>{rowPrice(row, locale)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section className="shell oh-faq" id="offers-faq" aria-labelledby="offers-faq-title">
