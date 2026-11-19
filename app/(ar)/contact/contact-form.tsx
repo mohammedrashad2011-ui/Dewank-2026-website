@@ -165,7 +165,7 @@ export default function ContactForm() {
             </a>
           </p>
           <label htmlFor="ar-contact-whatsapp-draft">
-            أو انسخ الرسالة وابعتها بنفسك إلى +973 3906 6649
+            أو انسخ الرسالة وأرسلها بنفسك إلى +973 3906 6649
           </label>
           <textarea id="ar-contact-whatsapp-draft" readOnly rows={8} value={fallback.text} />
           <button className="button" type="button" onClick={copyMessage}>

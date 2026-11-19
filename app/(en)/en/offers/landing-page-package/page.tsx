@@ -1,5 +1,6 @@
 import { LandingConversionMotion } from "../../../../components/landing-conversion-motion";
 import Link from "next/link";
+import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
@@ -16,7 +17,7 @@ import "../../_en/styles/hide-arabic-widgets.css";
 const orderWatchIds = ["order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
-  "Landing page design: one page that sells your service",
+  "Landing Page Design Services: One Page That Sells Your Service",
   "A landing page built to sell one service: custom copy and design, WhatsApp and forms, analytics and basic SEO. Delivered in 7 to 10 working days.",
   "/en/offers/landing-page-package",
 );
@@ -117,6 +118,8 @@ export default function LandingPageOffer() {
         <div className="offer-confidence-grid"><article><b>01</b><span>We register the domain in the client&apos;s name and under the client&apos;s email address.</span></article><article><b>02</b><span>We prepare the hosting, connect SSL and publish the page.</span></article><article><b>03</b><span>We hand over access details and renewal instructions clearly.</span></article></div>
         <details className="offer-policy"><summary>What the offer does not include</summary><p>It does not include an online shop, a payment gateway, multiple languages, a custom booking system, additional pages, advertising management, or domain and hosting renewal fees after the first year.</p></details>
       </section>
+
+      <OfferClientProof review="bithan" locale="en" />
 
       <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 

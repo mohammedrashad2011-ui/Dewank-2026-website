@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { InstagramUpgradePrice, InstagramUpgradeWhatsApp } from "./localized-instagram-upgrade";
+import { InstagramUpgradePrice, InstagramUpgradeSticky, InstagramUpgradeWhatsApp } from "./localized-instagram-upgrade";
+import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./instagram-upgrade.css";
 
 const title = "تطوير حساب انستقرام خلال 14 يوم";
-const description = "باقة تطوير حساب إنستجرام خلال 14 يوم: مراجعة الحساب، تحسين البايو والـCTA، الهايلايتس، محاور المحتوى، 6 تصميمات وخطة تنفيذ. تبدأ من 590 ريال.";
+const description = "باقة تطوير حساب إنستجرام خلال 14 يوم: مراجعة الحساب، تحسين البايو والـCTA، الهايلايتس، محاور المحتوى، 6 تصميمات وخطة تنفيذ بسعر واضح.";
 
 export const metadata: Metadata = createMetadata({
-  title: `${title} | ديوانك`,
+  title: "تطوير حساب انستقرام خلال 14 يومًا: بايو وهايلايت و6 تصميمات | ديوانك",
   description,
   path: "/offers/instagram-14-day-upgrade",
   keywords: ["تطوير حساب انستقرام", "تحسين حساب انستقرام", "تطوير بروفايل انستقرام", "إدارة انستقرام السعودية", "بايو انستقرام احترافي", "خطة محتوى انستقرام", "تصميم انستقرام للشركات"],
@@ -93,7 +94,7 @@ export default function Instagram14DayUpgradeOffer() {
           <InstagramUpgradePrice />
           <div className="offer-trust-inline"><span>مراجعة شاملة</span><span>6 تصميمات</span><span>خطة 14 يومًا</span></div>
           <p>سعر الباقة يشمل التطوير والنماذج والخطة فقط. لا يشمل الإعلانات أو التصوير أو الإدارة اليومية المستمرة.</p>
-          <InstagramUpgradeWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
+          <InstagramUpgradeWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
         </aside>
       </section>
 
@@ -112,7 +113,7 @@ export default function Instagram14DayUpgradeOffer() {
       </section>
 
       <section className="shell offer-deliverables instagram-upgrade-deliverables">
-        <div><span className="section-label">ماذا تستلم؟</span><h2>مش تعديل شكلي<br/>إعادة ترتيب للحساب</h2><p>كل عنصر في الباقة له دور محدد في جعل الحساب أوضح وأسهل في التصفح واتخاذ القرار.</p></div>
+        <div><span className="section-label">ماذا تستلم؟</span><h2>ليس تعديلًا شكليًا<br/>بل إعادة ترتيب للحساب</h2><p>كل عنصر في الباقة له دور محدد في جعل الحساب أوضح وأسهل في التصفح واتخاذ القرار.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
@@ -143,18 +144,21 @@ export default function Instagram14DayUpgradeOffer() {
         </div>
       </section>
 
+      <OfferClientProof review="bithan" locale="ar" />
+
       <section className="shell offer-faq">
         <span className="section-label">أسئلة شائعة</span><h2>قبل أن تبدأ</h2>
         <div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final instagram-upgrade-final">
+      <section id="order-final" className="shell offer-final instagram-upgrade-final">
         <div><small>14 DAY INSTAGRAM UPGRADE</small><h2>خلي أول زيارة للحساب<br/><em>تقول إنك مرتب وجاهز</em></h2><p>لو الحساب قائم لكنه لا يعكس مستوى مشروعك، هذه نقطة بداية مركزة قبل أن تدفع على محتوى أكثر أو إعلانات أكثر.</p></div>
         <InstagramUpgradeWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
         <div className="instagram-upgrade-links"><Link href="/offers/30-day-content-package">تحتاج محتوى شهر كامل؟</Link><Link href="/services/social-media-content">تحتاج إدارة سوشيال ميديا مستمرة؟</Link></div>
       </section>
 
-      <Footer />
+      <InstagramUpgradeSticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

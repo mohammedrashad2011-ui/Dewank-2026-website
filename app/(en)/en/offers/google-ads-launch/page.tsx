@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
@@ -15,7 +16,7 @@ import "../../_en/styles/hide-arabic-widgets.css";
 const orderWatchIds = ["order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
-  "Google Ads setup: a one-time Search campaign launch",
+  "Google Ads Setup Service: One-Time Search Campaign Launch",
   "Setup and launch of one Google Search campaign: buyer keywords, ad copy, negative keywords, conversion tracking and a pre-launch check.",
   "/en/offers/google-ads-launch",
 );
@@ -149,6 +150,8 @@ export default function GoogleAdsLaunchOffer() {
           <p><b>After launch:</b> you can manage the campaign in-house, or move to our <Link href="/en/paid-advertising">paid advertising service</Link> if you want ongoing optimisation.</p>
         </div>
       </section>
+
+      <OfferClientProof review="data" locale="en" />
 
       <section className="shell offer-faq google-ads-faq" id="faq">
         <div><span className="section-label">Quick questions</span><h2>Before you start</h2></div>
