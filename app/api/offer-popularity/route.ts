@@ -5,6 +5,7 @@ const allowedOfferKeys = new Set([
   "brand-naming",
   "whatsapp-automation-starter",
   "mini-visual-identity",
+  "name-identity",
   "google-ads-launch",
   "instagram-14-day-upgrade",
   "small-business-website",

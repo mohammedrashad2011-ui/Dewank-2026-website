@@ -150,7 +150,7 @@ export default function MiniVisualIdentityOffer() {
         <h2>Make your project look like a brand, not a set of separate designs</h2>
         <p>Send us your business type, name and target market, and we will set the direction before designing the logo.</p>
         <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
-        <div className="mini-identity-links"><Link href="/en/branding">Full brand strategy and identity</Link><Link href="/en/offers/brand-naming">Haven&apos;t chosen a name yet?</Link><Link href="/en/offers">Back to offers</Link></div>
+        <div className="mini-identity-links"><Link href="/en/branding">Full brand strategy and identity</Link><Link href="/en/offers/brand-naming">Haven&apos;t chosen a name yet?</Link><Link href="/en/offers/name-identity">Name + identity together</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
       <EnOfferSticky watchIds={["order-cta", "order-final", "order-footer"]} href={contactLink} label="Free consultation" priceLabel="Essential package from" offerKey="mini-visual-identity" />
       <div id="order-footer"><Footer /></div>

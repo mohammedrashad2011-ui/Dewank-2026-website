@@ -218,7 +218,7 @@ export default function BrandNamingOfferPage() {
         <h2>Before you design the logo, choose a name worth putting it on</h2>
         <p>Send us your business type and target market, and we will start with a short summary of your project before the research.</p>
         <a id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
-        <div className="brand-naming-links"><Link href="/en/brand-naming">Details of the naming service</Link><Link href="/en/branding">Brand strategy and identity</Link><Link href="/en/offers">Back to offers</Link></div>
+        <div className="brand-naming-links"><Link href="/en/offers/name-identity">Name and identity together, for less</Link><Link href="/en/brand-naming">Details of the naming service</Link><Link href="/en/branding">Brand strategy and identity</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
 
       <StickyOfferBar

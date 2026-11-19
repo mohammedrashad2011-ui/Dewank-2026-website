@@ -142,7 +142,7 @@ export default function MiniVisualIdentityOffer() {
         <h2>اجعل مشروعك يبدو كعلامة، لا كمجموعة تصميمات منفصلة</h2>
         <p>أرسل نوع النشاط والاسم والسوق المستهدف، ونبدأ بتحديد الاتجاه قبل تصميم الشعار.</p>
         <MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
-        <div className="mini-identity-links"><Link href="/branding">خدمة البراند والهوية الكاملة</Link><Link href="/guides/branding-identity-cost-saudi-arabia">كم تكلفة الهوية الكاملة؟</Link><Link href="/offers/brand-naming">لم تختر الاسم بعد؟</Link><Link href="/offers">العودة إلى العروض</Link></div>
+        <div className="mini-identity-links"><Link href="/offers/name-identity">تحتاج الاسم أيضًا؟ الاسم + الهوية</Link><Link href="/branding">خدمة البراند والهوية الكاملة</Link><Link href="/guides/branding-identity-cost-saudi-arabia">كم تكلفة الهوية الكاملة؟</Link><Link href="/offers/brand-naming">لم تختر الاسم بعد؟</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
       <MiniIdentitySticky watchIds={["order-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
