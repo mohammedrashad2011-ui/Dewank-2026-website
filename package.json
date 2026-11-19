@@ -10,6 +10,7 @@
     "dev": "vite",
     "build": "node scripts/build-next.mjs",
     "build:sites": "bash scripts/build-verified.sh",
+    "sitemap:lastmod": "node scripts/sitemap-lastmod.mjs",
     "start": "next start -p 3000",
     "start:sites": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "test": "npm run build:sites && node --test tests/rendered-html.test.mjs",
