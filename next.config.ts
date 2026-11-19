@@ -73,6 +73,15 @@ const nextConfig: NextConfig = {
         source: "/en/work/:path*.:ext(webp|svg|png|jpg|jpeg|avif)",
         headers: [{ key: "Cache-Control", value: "public, max-age=2592000" }],
       },
+      // RFC 8288 Link headers: point agents at the Markdown homepage and llms.txt.
+      {
+        source: "/",
+        headers: [{ key: "Link", value: '</index.md>; rel="alternate"; type="text/markdown", </llms.txt>; rel="describedby"; type="text/plain"' }],
+      },
+      {
+        source: "/en",
+        headers: [{ key: "Link", value: '</en/index.md>; rel="alternate"; type="text/markdown"; hreflang="en", </llms.txt>; rel="describedby"; type="text/plain"' }],
+      },
     ];
   },
 };

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteUrl } from "./lib/seo";
 import { englishLaunchActive, englishSitemapPaths } from "@/app/(en)/en/_en/lib/seo-launch";
 import { isPreviewBuild } from "./lib/site-environment";
+import { pageLastModified } from "./lib/page-lastmod";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
@@ -77,9 +78,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return pages.map(({ path, priority, changeFrequency }) => ({
-    url: `${siteUrl}${path}`,
-    changeFrequency,
-    priority,
-  }));
+  return pages.map(({ path, priority, changeFrequency }) => {
+    const lastModified = pageLastModified(path);
+    return {
+      url: `${siteUrl}${path}`,
+      ...(lastModified ? { lastModified } : {}),
+      changeFrequency,
+      priority,
+    };
+  });
 }
