@@ -46,10 +46,10 @@ const faqs = [
   ["Does the service include logo design?", "Yes, when logo design and identity are part of the agreed scope. We do not start by drawing; we start with research and positioning, so the logo carries a clear business meaning."],
   ["Can you develop an existing identity rather than replace it completely?", "Yes. We review the value of the current assets and how well the audience recognises them, then decide whether to develop the identity gradually or rebuild it."],
   ["How long does brand strategy and identity take?", "It depends on the depth of the research, the number of decision-makers and the outputs. After the discovery session we provide a clear timeline with stages and approval points."],
-  ["How much does visual identity design cost?", "The cost depends on whether you need a visual identity only, or a full strategy that includes research, positioning, naming and a guide. We agree a clear scope before work starts, with no unclear fees. If you want a defined visual starting point, see the mini visual identity offer on this page."],
+  ["How much does visual identity design cost?", "The cost depends on whether you need a visual identity only, or a full strategy that includes research, positioning, naming and a guide. We agree a clear scope before work starts, with no unclear fees. If you want a defined visual starting point, see the essential visual identity offer on this page."],
   ["Do I need only a logo, or a full identity?", "It depends on the stage. A logo alone suits a business that already has a visual base. A business that is starting out, or that needs consistency across the website, social media and print, needs a system covering colours, typefaces and applications. A full identity is worthwhile when you need research, positioning and wider usage rules."],
-  ["What is the difference between the mini identity and the full identity?", "The mini identity is a defined starting point for a project with an approved name: a core logo, a colour palette, suggested typefaces, a visual direction, three applications and a short guide. It does not include brand strategy or naming. A full identity begins with research and positioning, includes a messaging system and a wider guide, and its scope is set after the discovery session."],
-  ["Is the business name part of the identity service?", "Naming can be part of a full identity project where needed and agreed in scope, and it is also available as a separate offer with a visible price. The mini visual identity does not include choosing the name, so the name should be decided before design begins."],
+  ["What is the difference between the essential identity and the full identity?", "The essential identity is a defined starting point for a project with an approved name: a core logo, a colour palette, suggested typefaces, a visual direction, three applications and a short guide. It does not include brand strategy or naming. A full identity begins with research and positioning, includes a messaging system and a wider guide, and its scope is set after the discovery session."],
+  ["Is the business name part of the identity service?", "Naming can be part of a full identity project where needed and agreed in scope, and it is also available as a separate offer with a visible price. The essential visual identity does not include choosing the name, so the name should be decided before design begins."],
   ["Do you work with businesses outside one country?", "Yes. We work with businesses worldwide, and the whole project can be delivered remotely."],
 ];
 
@@ -64,7 +64,7 @@ const brandOffers = [
   {
     href: "/en/contact",
     label: "For a defined visual start",
-    title: "Mini visual identity",
+    title: "Essential visual identity",
     text: "A smaller starting point for someone who needs a clear visual system, without entering a full identity project straight away.",
     priceKey: "mini-visual-identity" as const,
   },

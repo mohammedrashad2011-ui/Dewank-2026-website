@@ -25,7 +25,7 @@ const offers: OfferCard[] = [
   { key: "30-day-content-package", label: "CONTENT", title: "محتوى شهر كامل", text: "محتوى منظم لمدة شهر يشمل التصميم والكابشنات وخطة نشر واضحة.", href: "/offers/30-day-content-package" },
   { key: "landing-page-package", label: "LANDING PAGE", title: "صفحة هبوط احترافية", text: "صفحة مخصصة للحملة تجمع الرسالة والتصميم وواتساب والتتبع في هدف واحد.", href: "/offers/landing-page-package" },
   { key: "brand-naming", label: "BRAND NAMING", title: "اختيار اسم تجاري", text: "أسماء مدروسة مع فحص مبدئي للمعنى والتشابه والدومين وتوجه أولي للعلامة.", href: "/offers/brand-naming" },
-  { key: "mini-visual-identity", label: "VISUAL IDENTITY", title: "هوية بصرية مصغرة", text: "بداية متماسكة للشعار والألوان والخطوط والتطبيقات الأساسية للعلامة.", href: "/offers/mini-visual-identity" },
+  { key: "mini-visual-identity", label: "VISUAL IDENTITY", title: "هوية بصرية أساسية", text: "بداية متماسكة للشعار والألوان والخطوط والتطبيقات الأساسية للعلامة.", href: "/offers/mini-visual-identity" },
   { key: "instagram-14-day-upgrade", label: "INSTAGRAM", title: "تطوير إنستجرام خلال 14 يوم", text: "تحسين حضور الحساب وهيكل المحتوى والانطباع الأول خلال نطاق تنفيذي واضح.", href: "/offers/instagram-14-day-upgrade" },
   { key: "small-business-website", label: "SMALL BUSINESS WEBSITE", title: "موقع صغير جاهز للإطلاق", text: "موقع خفيف وسريع يوضح نشاطك ويقود الزائر نحو خطوة تواصل واضحة.", href: "/offers/small-business-website" },
 ];
