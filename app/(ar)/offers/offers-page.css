@@ -53,7 +53,7 @@
   padding-bottom: clamp(80px, 11vw, 150px);
 }
 
-.offer-card {
+.offer-card:not(.oh-feature):not(.oh-card) {
   grid-column: span 7;
   position: relative;
   overflow: hidden;
@@ -68,7 +68,7 @@
   box-shadow: 0 30px 70px rgba(2, 15, 30, .22);
 }
 
-.offer-card::before {
+.offer-card:not(.oh-feature):not(.oh-card)::before {
   content: "";
   position: absolute;
   width: 280px;
@@ -139,7 +139,7 @@
   color: #9b711e;
 }
 
-.offer-card h2 {
+.offer-card:not(.oh-feature):not(.oh-card) h2 {
   max-width: 620px;
   margin: 28px 0 14px;
   font-size: clamp(37px, 5.4vw, 74px);
@@ -147,10 +147,10 @@
   letter-spacing: -.045em;
 }
 
-.offer-card h2 em { color: var(--offer-gold-soft); font-style: normal; }
+.offer-card:not(.oh-feature):not(.oh-card) h2 em { color: var(--offer-gold-soft); font-style: normal; }
 .offer-detail-hero h1 em { color: #b98524; font-style: normal; }
 
-.offer-card > p { max-width: 590px; color: rgba(245, 240, 231, .76); line-height: 1.85; }
+.offer-card:not(.oh-feature):not(.oh-card) > p { max-width: 590px; color: rgba(245, 240, 231, .76); line-height: 1.85; }
 
 .offer-card-meta {
   display: flex;
@@ -164,7 +164,7 @@
 .offer-price { display: flex; align-items: baseline; gap: 9px; }
 .offer-price strong { color: var(--offer-gold-soft); font-size: clamp(46px, 6vw, 78px); line-height: 1; }
 .offer-price span { color: rgba(245,240,231,.7); }
-.offer-card .button { position: relative; z-index: 1; }
+.offer-card:not(.oh-feature):not(.oh-card) .button { position: relative; z-index: 1; }
 
 .offers-note {
   grid-column: span 5;
@@ -242,7 +242,7 @@
 }
 
 @media (max-width: 860px) {
-  .offer-card, .offers-note { grid-column: 1 / -1; }
+  .offer-card:not(.oh-feature):not(.oh-card), .offers-note { grid-column: 1 / -1; }
   .offer-detail-hero, .offer-deliverables { grid-template-columns: 1fr; }
   .offer-price-panel { max-width: 520px; }
 }
@@ -250,7 +250,7 @@
 @media (max-width: 620px) {
   .offers-grid { display: block; }
   .offers-note { margin-top: 20px; }
-  .offer-card { min-height: 0; }
+  .offer-card:not(.oh-feature):not(.oh-card) { min-height: 0; }
   .offer-card-meta { align-items: stretch; }
   .offer-card-meta .button { width: 100%; text-align: center; }
   .deliverable-list, .offer-fit-grid { grid-template-columns: 1fr; }

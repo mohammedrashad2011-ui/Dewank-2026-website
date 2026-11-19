@@ -33,9 +33,9 @@
 .oh-hero { color: var(--oh-cream); background: radial-gradient(ellipse at 88% 0%, rgba(1, 221, 241, .15), transparent 46%), radial-gradient(ellipse at 0% 100%, rgba(235, 176, 46, .14), transparent 44%), var(--oh-navy); }
 .oh-hero-grid { display: grid; gap: 28px; padding-block: 34px 40px; }
 .oh-hero .oh-eyebrow { color: var(--oh-cyan); }
-.oh-hero h1 { margin-top: 10px; color: #fffdf6; font-size: clamp(29px, 7.2vw, 54px); font-weight: 800; line-height: 1.28; text-wrap: balance; }
+.oh-hero h1 { margin-top: 10px; color: #fffdf6; font-size: clamp(26px, 6.4vw, 48px); font-weight: 800; line-height: 1.28; text-wrap: balance; }
 .oh[dir="ltr"] .oh-hero h1 { line-height: 1.08; letter-spacing: -.03em; }
-.oh-hero h1 em { display: block; margin-top: 8px; color: var(--oh-gold); font-style: normal; font-size: .58em; font-weight: 700; line-height: 1.45; }
+.oh-hero h1 em { display: block; margin-top: 18px; color: var(--oh-gold); font-style: normal; font-size: .58em; font-weight: 700; line-height: 1.45; }
 .oh-hero-copy > p { margin-top: 16px; max-width: 600px; color: rgba(252, 246, 234, .86); font-size: 16px; line-height: 1.9; }
 .oh[dir="ltr"] .oh-hero-copy > p { line-height: 1.65; }
 .oh-hero-actions { display: grid; gap: 12px; margin-top: 22px; }
@@ -154,7 +154,7 @@
   .oh-hero-copy > :nth-child(3) { animation-delay: .12s; }
   .oh-hero-copy > :nth-child(4) { animation-delay: .18s; }
   .oh-hero-copy > :nth-child(5) { animation-delay: .24s; }
-  .oh-feature { animation: oh-rise .8s cubic-bezier(.16, .78, .22, 1) .2s both; }
+  /* No entrance animation on the featured card: it is visible in its final state from the first paint. */
   }
 /* Motion only, no fade: the hero copy and the featured video card stay visible from the first paint even if the
    browser delays or skips the entrance animation (it left one hero column blank on some loads). */
@@ -189,7 +189,7 @@
 
 /* Desktop typography for the offers hub (1024px and wider). Phones and tablets keep their own sizes. */
 @media (min-width: 1024px) {
-  .oh-hero h1 { font-size: clamp(52px, 4.4vw, 64px); line-height: 1.16; }
+  .oh-hero h1 { font-size: clamp(44px, 3.9vw, 56px); line-height: 1.16; }
   .oh[dir="ltr"] .oh-hero h1 { line-height: 1.1; }
   .oh-card h2 { font-size: 22px; line-height: 1.35; }
   .oh-card p { font-size: 15px; line-height: 1.75; }
@@ -225,3 +225,6 @@
 @media (min-width: 1024px) {
   .oh-summary { padding-block: 24px 72px; }
 }
+
+/* The hub's hero headline: the desktop line height is too tight for stacked Arabic lines. */
+.oh[dir="rtl"] .oh-hero h1 { line-height: 1.3; }
