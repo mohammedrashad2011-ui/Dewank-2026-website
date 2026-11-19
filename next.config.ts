@@ -33,6 +33,14 @@ const nextConfig: NextConfig = {
         destination: "/work",
         permanent: true,
       },
+      // The essential visual identity offer moved from /mini-visual-identity (the offer was renamed from "mini" to "essential").
+      ...[
+        ["/offers/mini-visual-identity", "/offers/visual-identity"],
+        ["/en/offers/mini-visual-identity", "/en/offers/visual-identity"],
+      ].flatMap(([source, destination]) => [
+        { source, has: [{ type: "host" as const, value: "www.dewank.com" }], destination: `https://dewank.com${destination}`, permanent: true },
+        { source, destination, permanent: true },
+      ]),
       {
         source: "/:path*",
         has: [{ type: "host", value: "www.dewank.com" }],

@@ -271,3 +271,8 @@
     line-height: 1.3;
   }
 }
+
+/* Arabic headings on the offer pages: the shared 1.16-1.2 line height made stacked Arabic lines touch.
+   Applies at every width, Arabic pages only (English pages keep their tighter Latin line height). */
+html[dir="rtl"] .offers-page .offer-detail-hero h1 { line-height: 1.3; }
+html[dir="rtl"] .offers-page section.shell h2 { line-height: 1.45; }

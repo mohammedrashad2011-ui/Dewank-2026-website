@@ -127,3 +127,11 @@
 @media (prefers-reduced-motion: reduce) {
   .mini-identity-page * { scroll-behavior: auto !important; }
 }
+
+/* Client quote and link to real identity work, in the proof section (all widths). */
+.mini-identity-quote { margin: 18px 0 0; padding: 14px 16px; border-inline-start: 3px solid #b98524; border-radius: 12px; background: rgba(185, 133, 36, .07); }
+.mini-identity-quote p { margin: 0; font-size: 15px; line-height: 1.8; }
+.mini-identity-quote cite { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; font-style: normal; }
+.mini-identity-work-link { display: inline-flex; margin-top: 14px; color: inherit; font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.mini-identity-quote + .mini-identity-quote { margin-top: 12px; }
+.mini-identity-quote cite a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

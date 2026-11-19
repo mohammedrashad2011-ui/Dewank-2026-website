@@ -15,6 +15,9 @@ const allowedOfferKeys = new Set([
   "ai-video-production",
 ]);
 
+// Offers whose public URL differs from their offer key. The event keeps reporting the original key.
+const pathToOfferKey: Record<string, string> = { "visual-identity": "mini-visual-identity" };
+
 const dedupeWindowMs = 30 * 60 * 1000;
 const storagePrefix = "dewank_offer_interest_";
 
@@ -27,7 +30,8 @@ export default function OfferInterestTracker() {
       const link = target?.closest<HTMLAnchorElement>('a.offer-card-hit[href^="/offers/"]');
       if (!link) return;
 
-      const offerKey = link.pathname.split("/").filter(Boolean).pop() || "";
+      const pathSlug = link.pathname.split("/").filter(Boolean).pop() || "";
+      const offerKey = pathToOfferKey[pathSlug] || pathSlug;
       if (!allowedOfferKeys.has(offerKey)) return;
 
       const card = link.closest<HTMLElement>(".offer-card");

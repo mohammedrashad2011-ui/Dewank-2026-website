@@ -45,9 +45,9 @@ export const hubOffers: HubOffer[] = [
     en: { category: "Automation", time: "3–5 working days", title: "WhatsApp automation for your business", hook: "Auto-replies that collect and qualify leads", text: "It answers common questions, collects customer details, follows up, then hands over to the right person, so no conversation is lost.", label: "Starter package from", aria: "View the WhatsApp automation starter", cta: "Details" },
   },
   {
-    slug: "mini-visual-identity", path: "/offers/mini-visual-identity", filter: "brand", priceKey: "mini-visual-identity", icon: "shapes",
-    ar: { category: "هوية", time: "7–10 أيام عمل", title: "تصميم هوية بصرية", hook: "شعار وألوان وخطوط لمشروعك", text: "شعار أساسي ونسخة مبسطة، ألوان وخطوط وتوجه بصري و3 تطبيقات عملية، لتبدأ علامتك بصورة متماسكة بدل التصميم العشوائي.", label: "الباقة المصغرة من", aria: "شاهد تفاصيل باقة الهوية البصرية المصغرة", cta: "التفاصيل" },
-    en: { category: "Identity", time: "7–10 working days", title: "Visual identity design", hook: "Logo, colours and typefaces", text: "A primary logo and a simplified version, colours, typefaces, a visual direction and three practical applications, so the brand starts consistent rather than random.", label: "Mini package from", aria: "View the mini visual identity package", cta: "Details" },
+    slug: "mini-visual-identity", path: "/offers/visual-identity", filter: "brand", priceKey: "mini-visual-identity", icon: "shapes",
+    ar: { category: "هوية", time: "7–10 أيام عمل", title: "تصميم هوية بصرية", hook: "شعار وألوان وخطوط لمشروعك", text: "شعار أساسي ونسخة مبسطة، ألوان وخطوط وتوجه بصري و3 تطبيقات عملية، لتبدأ علامتك بصورة متماسكة بدل التصميم العشوائي.", label: "الباقة الأساسية من", aria: "شاهد تفاصيل باقة الهوية البصرية الأساسية", cta: "التفاصيل" },
+    en: { category: "Identity", time: "7–10 working days", title: "Visual identity design", hook: "Logo, colours and typefaces", text: "A primary logo and a simplified version, colours, typefaces, a visual direction and three practical applications, so the brand starts consistent rather than random.", label: "Essential package from", aria: "View the essential visual identity package", cta: "Details" },
   },
   {
     slug: "google-ads-launch", path: "/offers/google-ads-launch", filter: "ads", priceKey: "google-ads-launch", icon: "target",

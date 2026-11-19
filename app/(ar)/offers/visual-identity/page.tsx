@@ -2,21 +2,22 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { MiniIdentityPrice, MiniIdentityWhatsApp } from "./localized-mini-identity";
+import { MiniIdentityPrice, MiniIdentitySticky, MiniIdentityWhatsApp } from "./localized-mini-identity";
 import { IdentityReel } from "./identity-reel";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./mini-visual-identity.css";
 import "./identity-reel.css";
 
-const title = "تصميم هوية بصرية مصغرة للشركات والمشاريع";
-const description = "باقة هوية بصرية مصغرة: شعار أساسي، لوحة ألوان، خطوط مقترحة، اتجاه بصري و3 تطبيقات عملية، لبداية احترافية دون بناء هوية كاملة.";
+const title = "تصميم هوية بصرية وشعار لشركتك | باقة أساسية";
+const description = "تصميم هوية بصرية وشعار لمشروعك خلال 7–10 أيام عمل: شعار أساسي ونسخة مبسطة، ألوان، خطوط، توجه بصري و3 تطبيقات عملية. هوية تجارية أساسية بسعر واضح من ديوانك.";
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
   description,
-  path: "/offers/mini-visual-identity",
-  keywords: ["هوية بصرية مصغرة", "تصميم هوية بصرية", "تصميم شعار وهوية", "هوية بصرية للشركات", "سعر تصميم هوية بصرية", "تصميم لوجو وهوية", "هوية بصرية السعودية"],
+  path: "/offers/visual-identity",
+  socialImagePath: "/offers/visual-identity/opengraph-image",
+  keywords: ["تصميم هوية بصرية", "تصميم هوية تجارية", "تصميم شعار", "مصمم شعارات", "تصميم شعار شركة", "تصميم لوجو احترافي", "سعر تصميم هوية بصرية", "هوية بصرية السعودية"],
 });
 
 const deliverables = [
@@ -31,9 +32,11 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["كم سعر الهوية البصرية المصغرة؟", "تبدأ الباقة من 1,190 ريال سعودي وتشمل الشعار الأساسي، لوحة الألوان، الخطوط، التوجه البصري، 3 تطبيقات عملية وملف إرشادي مختصر."],
+  ["كم سعر تصميم هوية بصرية وشعار في السعودية؟", "تبدأ الباقة الأساسية من 1,190 ريال سعودي وتشمل الشعار الأساسي، لوحة الألوان، الخطوط، التوجه البصري، 3 تطبيقات عملية وملف إرشادي مختصر."],
   ["هل هذه الباقة شعار فقط؟", "لا. تشمل الشعار الأساسي مع نسخة مبسطة، ولوحة ألوان، وخطوطًا مقترحة، وتوجهًا بصريًا، و3 تطبيقات عملية، وملفًا إرشاديًا مختصرًا. وهي ليست هوية متكاملة، فلا تشمل استراتيجية براند أو اختيار الاسم."],
-  ["ما الفرق بينها وبين الهوية البصرية الكاملة؟", "الباقة المصغرة مناسبة لمن يحتاج أساسًا بصريًا احترافيًا وسريعًا. الهوية الكاملة تشمل عادة بحثًا أوسع، استراتيجية البراند، نظام رسائل، تطبيقات أكثر ودليل استخدام تفصيلي."],
+  ["ما الفرق بينها وبين الهوية البصرية الكاملة؟", "الباقة الأساسية مناسبة لمن يحتاج أساسًا بصريًا احترافيًا وسريعًا. الهوية الكاملة تشمل عادة بحثًا أوسع، استراتيجية البراند، نظام رسائل، تطبيقات أكثر ودليل استخدام تفصيلي."],
+  ["ما الفرق بين الهوية التجارية والهوية البصرية؟", "الهوية التجارية أوسع: تشمل اسم العلامة ورسالتها وطريقة حديثها وتجربة العميل معها. الهوية البصرية جزء منها، وهي ما يراه العميل: الشعار والألوان والخطوط والصور. هذه الباقة تغطي الأساس البصري للهوية التجارية."],
+  ["هل تصممون شعارات للمتاجر والمطاعم وشركات المقاولات؟", "نعم. الباقة مناسبة للمتاجر الإلكترونية والمطاعم والمقاهي والعيادات وشركات المقاولات والخدمات. نبدأ بفهم النشاط والجمهور والمنافسين قبل رسم الشعار، حتى يناسب الشكل طبيعة القطاع."],
   ["هل تشمل اختيار الاسم التجاري؟", "لا. يجب أن يكون الاسم معتمدًا قبل بدء التصميم. إذا لم يتم اختيار الاسم بعد، يمكن استخدام باقة اختيار الاسم التجاري أولًا."],
   ["هل تشمل كتابة المحتوى أو إدارة السوشيال ميديا؟", "لا. الباقة تبني النظام البصري الأساسي، بينما صناعة المحتوى وإدارة الحسابات خدمات مستقلة."],
   ["كم مدة التنفيذ؟", "التسليم عادة خلال 7–10 أيام عمل بعد استلام معلومات المشروع واعتماد الاتجاه الأولي."],
@@ -41,14 +44,14 @@ const faqs = [
 ];
 
 export default function MiniVisualIdentityOffer() {
-  const url = `${siteUrl}/offers/mini-visual-identity`;
+  const url = `${siteUrl}/offers/visual-identity`;
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
         "@id": `${url}#service`,
-        name: "باقة الهوية البصرية المصغرة",
+        name: "باقة الهوية البصرية الأساسية",
         description,
         serviceType: ["Visual Identity Design", "Logo Design", "Brand Identity"],
         provider: { "@id": organizationId },
@@ -70,7 +73,7 @@ export default function MiniVisualIdentityOffer() {
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl },
           { "@type": "ListItem", position: 2, name: "العروض", item: `${siteUrl}/offers` },
-          { "@type": "ListItem", position: 3, name: "هوية بصرية مصغرة", item: url },
+          { "@type": "ListItem", position: 3, name: "هوية بصرية أساسية", item: url },
         ],
       },
     ],
@@ -84,7 +87,7 @@ export default function MiniVisualIdentityOffer() {
       <section className="shell offer-detail-hero mini-identity-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> أيام عمل</span></div>
-          <h1>تصميم هوية بصرية مصغرة<br/><em>ليست مجرد شعار، بداية شكل يُعرَف به مشروعك</em></h1>
+          <h1>تصميم هوية بصرية وشعار لمشروعك<br/><em>هوية تجارية أساسية لعلامتك</em></h1>
           <p>نجهز لك أساسًا بصريًا متماسكًا يجعل علامتك تظهر بصورة احترافية من أول يوم، من الشعار والألوان إلى الخطوط والتطبيقات الأساسية.</p>
           <div className="mini-identity-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
@@ -92,25 +95,28 @@ export default function MiniVisualIdentityOffer() {
           </div>
         </div>
         <aside className="offer-price-panel mini-identity-price-panel">
-          <small>الباقة المصغرة</small>
+          <small>الباقة الأساسية</small>
           <MiniIdentityPrice />
           <div className="offer-trust-inline"><span>شعار أساسي</span><span>3 تطبيقات</span><span>جولتا تعديل</span></div>
           <p>لا تشمل استراتيجية براند كاملة أو اختيار الاسم أو إدارة المحتوى أو تطبيقات موسعة خارج النطاق المتفق عليه.</p>
-          <MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
+          <MiniIdentityWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
         </aside>
       </section>
 
       <section className="shell mini-identity-proof">
         <div className="mini-identity-proof-copy">
-          <span className="section-label">لماذا هوية مصغرة؟</span>
+          <span className="section-label">لماذا هوية أساسية؟</span>
           <h2>لأن الشكل المرتجل<br/>يتعب العلامة بسرعة</h2>
           <p>المشروع في بدايته لا يحتاج دائمًا إلى نظام براند ضخم. لكنه يحتاج قواعد بصرية كافية تمنع كل تصميم جديد من أن يبدو وكأنه تابع لشركة مختلفة.</p>
+          <blockquote className="mini-identity-quote"><p>«كان رشاد مبادرًا ومنتبهًا جدًا لاحتياجاتي، وصمّم شعارًا يعكس قيم شركتي بشكل مثالي.»</p><cite>صوفيا فلوريس، الولايات المتحدة</cite></blockquote>
+          <blockquote className="mini-identity-quote"><p>«…يشتغل بضمير واحترافية، ومتعاون ومتقبل للنقاش والملاحظات ومرن في التعامل، ويهتم فعلًا بجودة الشغل، وأهم شي النتيجة ترضي العميل. تجربة موفقة جدًا.»</p><cite>عميل BITHAN للمجوهرات، قطر · تقييم 5 من 5 · <Link href="/work/bithan">دراسة الحالة</Link></cite></blockquote>
+          <Link className="mini-identity-work-link" href="/work">شاهد هويات بصرية صممناها ←</Link>
         </div>
         <IdentityReel locale="ar" cta={<MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="اطلب هوية لمشروعك" />} />
       </section>
 
       <section className="shell offer-deliverables mini-identity-deliverables">
-        <div><span className="section-label">ماذا تستلم؟</span><h2>الأساس الذي يحتاجه<br/>مشروعك ليظهر بثبات</h2><p>نركز على العناصر التي ستستخدمها فعلًا في بداية العلامة، بدل تضخيم الباقة بعناصر لا تحتاجها الآن.</p></div>
+        <div><span className="section-label">ماذا تستلم؟</span><h2>الأساس الذي يحتاجه<br/>مشروعك ليظهر بثبات</h2><p>نصمم شعارك وهويتك التجارية حول العناصر التي ستستخدمها فعلًا في بداية العلامة، بدل تضخيم الباقة بعناصر لا تحتاجها الآن.</p></div>
         <div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div>
       </section>
 
@@ -131,14 +137,15 @@ export default function MiniVisualIdentityOffer() {
 
       <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن نرسم أول خط</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section className="shell offer-final-cta mini-identity-final">
-        <span className="offer-kicker">هوية بصرية مصغرة · 7–10 أيام</span>
+      <section id="order-final" className="shell offer-final-cta mini-identity-final">
+        <span className="offer-kicker">هوية بصرية أساسية · 7–10 أيام</span>
         <h2>اجعل مشروعك يبدو كعلامة، لا كمجموعة تصميمات منفصلة</h2>
         <p>أرسل نوع النشاط والاسم والسوق المستهدف، ونبدأ بتحديد الاتجاه قبل تصميم الشعار.</p>
         <MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
         <div className="mini-identity-links"><Link href="/branding">خدمة البراند والهوية الكاملة</Link><Link href="/guides/branding-identity-cost-saudi-arabia">كم تكلفة الهوية الكاملة؟</Link><Link href="/offers/brand-naming">لم تختر الاسم بعد؟</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
-      <Footer />
+      <MiniIdentitySticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }
