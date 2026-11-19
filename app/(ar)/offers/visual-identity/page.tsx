@@ -108,8 +108,8 @@ export default function MiniVisualIdentityOffer() {
           <span className="section-label">لماذا هوية أساسية؟</span>
           <h2>لأن الشكل المرتجل<br/>يتعب العلامة بسرعة</h2>
           <p>المشروع في بدايته لا يحتاج دائمًا إلى نظام براند ضخم. لكنه يحتاج قواعد بصرية كافية تمنع كل تصميم جديد من أن يبدو وكأنه تابع لشركة مختلفة.</p>
-          <blockquote className="mini-identity-quote"><p>«كان رشاد مبادرًا ومنتبهًا جدًا لاحتياجاتي، وصمّم شعارًا يعكس قيم شركتي بشكل مثالي.»</p><cite>صوفيا فلوريس، الولايات المتحدة</cite></blockquote>
-          <blockquote className="mini-identity-quote"><p>«…يشتغل بضمير واحترافية، ومتعاون ومتقبل للنقاش والملاحظات ومرن في التعامل، ويهتم فعلًا بجودة الشغل، وأهم شي النتيجة ترضي العميل. تجربة موفقة جدًا.»</p><cite>عميل BITHAN للمجوهرات، قطر · تقييم 5 من 5 · <Link href="/work/bithan">دراسة الحالة</Link></cite></blockquote>
+          <blockquote className="mini-identity-quote"><p>«…مبادر ومنتبه جدًا لاحتياجاتي، وصمّم شعارًا يعكس قيم شركتي بشكل مثالي.»</p><cite>صوفيا فلوريس، الولايات المتحدة</cite></blockquote>
+          <blockquote className="mini-identity-quote"><p>«…يشتغل بضمير واحترافية، ومتعاون ومتقبل للنقاش والملاحظات ومرن في التعامل، ويهتم فعلًا بجودة الشغل، وأهم شي النتيجة ترضي العميل. تجربة موفقة جدًا.»</p><cite><Link href="/work/bithan">دراسة الحالة</Link></cite></blockquote>
           <Link className="mini-identity-work-link" href="/work">شاهد هويات بصرية صممناها ←</Link>
         </div>
         <IdentityReel locale="ar" cta={<MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="اطلب هوية لمشروعك" />} />

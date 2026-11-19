@@ -116,8 +116,8 @@ export default function MiniVisualIdentityOffer() {
           <span className="section-label">Why an essential identity?</span>
           <h2>Because improvised visuals<br/>tire a brand quickly</h2>
           <p>A young business does not always need a large brand system. It does need enough visual rules to stop every new design from looking like it belongs to a different company.</p>
-          <blockquote className="mini-identity-quote"><p>&ldquo;Rashad was proactive and very attentive to my needs, and designed a logo that reflects my company&apos;s values perfectly.&rdquo;</p><cite>Sophia Flores, United States</cite></blockquote>
-          <blockquote className="mini-identity-quote"><p>&ldquo;Dedicated, professional, and easy to communicate with&hellip; genuinely cares about delivering good quality work. Great experience overall.&rdquo;</p><cite>BITHAN fine jewellery client, Qatar · 5/5 review · <Link href="/en/work/bithan">Case study</Link></cite></blockquote>
+          <blockquote className="mini-identity-quote"><p>&ldquo;&hellip;proactive and very attentive to my needs, and designed a logo that reflects my company&apos;s values perfectly.&rdquo;</p><cite>Sophia Flores, United States</cite></blockquote>
+          <blockquote className="mini-identity-quote"><p>&ldquo;Dedicated, professional, and easy to communicate with&hellip; genuinely cares about delivering good quality work. Great experience overall.&rdquo;</p><cite><Link href="/en/work/bithan">Case study</Link></cite></blockquote>
           <Link className="mini-identity-work-link" href="/en/work">See visual identities we designed →</Link>
         </div>
         <IdentityReel locale="en" cta={<a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Request your identity <span>→</span></a>} />
