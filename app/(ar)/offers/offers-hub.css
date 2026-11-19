@@ -226,7 +226,5 @@
   .oh-summary { padding-block: 24px 72px; }
 }
 
-/* offers-page.css gives every .offer-card a 7-column span for the offer detail pages. Once an offer page has loaded in
-   the session, that rule also reaches the hub cards and pushes the featured card out of the hero (it wraps to a new
-   full-width row and the left column looks empty). Reset it inside the hub only. */
-.oh .offer-card { grid-column: auto; }
+/* The hub's hero headline: the desktop line height is too tight for stacked Arabic lines. */
+.oh[dir="rtl"] .oh-hero h1 { line-height: 1.3; }
