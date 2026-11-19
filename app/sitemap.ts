@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Core service hub and service pages
     { path: "/services", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/services/analytics-conversion-tracking", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/branding", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/services/brand-naming", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/services/social-media-content", priority: 0.9, changeFrequency: "monthly" as const },

@@ -79,6 +79,7 @@ export const organizationName = "ديوانك";
 export const organizationAlternateName = "Dewank";
 export const organizationRef = { "@id": organizationId };
 export const instagramUrl = "https://www.instagram.com/dewank_marketing";
+export const linkedinUrl = "https://www.linkedin.com/company/dewank/";
 
 // Markets with public evidence on the site: السعودية والخليج copy, /about (البحرين والإمارات),
 // and the BITHAN case study (قطر). Kuwait/Oman are covered only by the generic "GCC" entry
@@ -137,7 +138,7 @@ export const organizationSchema = {
     areaServed: servedMarkets,
   },
   areaServed: servedMarkets,
-  sameAs: [instagramUrl],
+  sameAs: [instagramUrl, linkedinUrl],
 };
 
 export const websiteSchema = {
@@ -188,7 +189,7 @@ export const englishOrganizationSchema = {
     contactType: "sales",
     availableLanguage: ["English", "Arabic"],
   },
-  sameAs: [instagramUrl],
+  sameAs: [instagramUrl, linkedinUrl],
 };
 
 export const englishWebsiteSchema = {
