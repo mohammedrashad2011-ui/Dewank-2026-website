@@ -207,6 +207,10 @@
 .oh-table tbody tr:last-child > * { border-bottom: 0; }
 .oh-table tbody th a { color: var(--oh-navy); font-weight: 800; text-decoration: underline; text-decoration-color: var(--oh-gold); text-underline-offset: 4px; }
 .oh-table td:last-child { color: var(--oh-gold-ink); font-weight: 800; white-space: nowrap; }
+/* Localized prices (HubPrice) inside running text and table cells: amount, a space, then the currency. */
+.oh-inline-price .offer-price { display: inline-flex; align-items: baseline; gap: .3em; white-space: nowrap; }
+.oh-inline-price .offer-price strong { font-weight: 800; }
+.oh-summary-head .oh-inline-price .offer-price { color: var(--oh-navy); }
 @media (max-width: 619px) {
   .oh-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .oh-table, .oh-table tbody, .oh-table tr, .oh-table th, .oh-table td { display: block; }

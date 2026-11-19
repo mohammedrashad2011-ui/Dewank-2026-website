@@ -2,7 +2,7 @@ import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
 import { Header } from "../_en/parity/header";
 import OffersHub from "../../../(ar)/offers/offers-hub";
-import { hubFacts, hubItemListSchema, hubPriceFaq, hubRegionFaq } from "../../../(ar)/offers/offers-hub-summary";
+import { hubItemListSchema, hubPriceFaq, hubRegionFaq } from "../../../(ar)/offers/offers-hub-summary";
 import "../_en/styles/hide-arabic-widgets.css";
 
 
@@ -65,7 +65,7 @@ const faqSchema = {
 
 export const metadata = enMetadata(
   "Digital Marketing Packages and Pricing for Small Business",
-  `Digital marketing packages with a fixed scope and a clear starting price, from US$${hubFacts.minUsd}: AI video and Reels, social media content, Google Ads, landing pages, websites, SEO audits, branding and WhatsApp automation.`,
+  `Digital marketing packages with a fixed scope and a clear starting price for small businesses: AI video and Reels, social media content, Google Ads, landing pages, websites, SEO audits, branding and WhatsApp automation.`,
   "/en/offers",
 );
 

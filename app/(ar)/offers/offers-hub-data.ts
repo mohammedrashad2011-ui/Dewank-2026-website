@@ -107,7 +107,7 @@ export const hubCopy = {
     colPackage: "الباقة",
     colGet: "ماذا تستلم",
     colTime: "المدة أو النطاق",
-    colPrice: "يبدأ من (السعودية)",
+    colPrice: "يبدأ من",
   },
   en: {
     eyebrow: "DEWANK OFFERS",

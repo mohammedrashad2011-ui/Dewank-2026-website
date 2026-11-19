@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Footer, Header } from "../../components/site-shell";
 import OffersHub from "./offers-hub";
 import { createMetadata } from "../../lib/seo";
-import { hubFacts, hubItemListSchema, hubPriceFaq, hubRegionFaq } from "./offers-hub-summary";
+import { hubItemListSchema, hubPriceFaq, hubRegionFaq } from "./offers-hub-summary";
 
 
 
@@ -65,7 +65,7 @@ const faqSchema = {
 
 export const metadata: Metadata = createMetadata({
   title: "باقات التسويق الإلكتروني وأسعارها | عروض ديوانك",
-  description: `باقات تسويق إلكتروني بسعر بداية واضح للشركات في السعودية والخليج، من ${hubFacts.minSar} ريال: فيديو AI وريلز، محتوى سوشيال ميديا، إعلانات Google، صفحات هبوط ومواقع، SEO، هوية بصرية وأتمتة واتساب.`,
+  description: `باقات تسويق إلكتروني بسعر بداية واضح للشركات في السعودية والخليج: فيديو AI وريلز، محتوى سوشيال ميديا، إعلانات Google، صفحات هبوط ومواقع، SEO، هوية بصرية وأتمتة واتساب.`,
   path: "/offers",
   keywords: ["باقات التسويق الالكتروني", "اسعار التسويق الالكتروني", "خدمات التسويق الالكتروني", "باقات تسويق", "عروض تسويق", "اسعار باقات التسويق الالكتروني", "عروض تسويق رقمي", "باقة محتوى انستقرام", "تطوير حساب انستقرام", "تصميم موقع شركة", "موقع صغير للشركات", "تصميم صفحة هبوط", "فحص SEO للموقع", "واتساب أوتوميشن", "إعداد حملة Google Ads", "إنتاج فيديوهات بالذكاء الاصطناعي", "مونتاج ريلز", "تصميم فيديوهات إعلانية"],
 });

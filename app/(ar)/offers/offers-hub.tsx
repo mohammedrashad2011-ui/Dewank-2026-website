@@ -5,7 +5,7 @@ import VideoOfferFromPrice from "./ai-video-production/video-offer-from-price";
 import { HubPrice } from "./offers-hub-price";
 import { OfferIcon } from "./offers-hub-icons";
 import { hubCopy, hubFilterIds, hubOffers, hubVideo, type HubLocale } from "./offers-hub-data";
-import { hubRows, hubSummaryText, rowPrice } from "./offers-hub-summary";
+import { hubFacts, hubRows, hubSummaryParts } from "./offers-hub-summary";
 import "../../components/offers-decision-panel.css";
 import "./offers-hub.css";
 
@@ -96,7 +96,9 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
         <div className="oh-summary-head">
           <span className="oh-eyebrow">{t.summaryEyebrow}</span>
           <h2 id="offers-summary-title">{t.summaryTitle}</h2>
-          <p>{hubSummaryText[locale]}</p>
+          <p className="oh-inline-price">
+            {hubSummaryParts[locale].before}<HubPrice offerKey={hubFacts.cheapest.key} locale={locale} />{hubSummaryParts[locale].middle}<HubPrice offerKey={hubFacts.priciest.key} locale={locale} />{hubSummaryParts[locale].after}
+          </p>
         </div>
         <div className="oh-table-wrap">
           <table className="oh-table">
@@ -107,7 +109,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
                   <th scope="row"><Link href={prefix + row.path}>{row[locale].title}</Link></th>
                   <td>{row[locale].hook}</td>
                   <td data-label={t.colTime}>{row[locale].time}</td>
-                  <td data-label={t.colPrice}>{rowPrice(row, locale)}</td>
+                  <td data-label={t.colPrice} className="oh-inline-price"><HubPrice offerKey={row.key} locale={locale} /></td>
                 </tr>
               ))}
             </tbody>
