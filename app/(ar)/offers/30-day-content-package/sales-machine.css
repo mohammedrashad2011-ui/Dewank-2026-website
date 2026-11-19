@@ -80,9 +80,13 @@
 
 .sales-price-promise {
   margin-top: 14px !important;
-  color: var(--sales-ink) !important;
   font-weight: 750;
   line-height: 1.75;
+}
+
+/* The price panel is dark: the promise line is light text, so it reads on the navy background. */
+.sales-price-panel .sales-price-promise {
+  color: rgba(245, 240, 231, .86) !important;
 }
 
 .sales-primary-cta {
