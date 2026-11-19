@@ -15,8 +15,8 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Visual identity and logo design for your business | Essential package",
-  "Visual identity and logo design in 7–10 working days: a primary logo and a simplified version, colours, typefaces, a visual direction and three applications. An essential brand identity at a clear price.",
+  "Logo and Brand Identity Design | Essential Package",
+  "Professional logo and brand identity design services for startups and small businesses worldwide: a primary logo, colours, typefaces, a visual direction and three applications, delivered in 7–10 working days at a clear price.",
   "/en/offers/mini-visual-identity",
 );
 
@@ -32,11 +32,12 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["How much does visual identity and logo design cost?", "The package starts at the price shown above, in Saudi riyals by default, or in your country's approved price where one exists. It includes the primary logo, the colour palette, typefaces, the visual direction, three practical applications and a short guidelines file."],
+  ["How much do logo and brand identity design services cost?", "The package starts at the price shown above: in your local currency in the Gulf, and in US dollars in other countries. It includes the primary logo, the colour palette, typefaces, the visual direction, three practical applications and a short guidelines file."],
   ["Is this package only a logo?", "No. It includes the primary logo with a simplified version, a colour palette, suggested typefaces, a visual direction, three practical applications and a short guidelines file. It is not a complete brand identity, so it does not include brand strategy or naming."],
   ["What is the difference between this and a full visual identity?", "The essential package suits a business that needs a professional visual foundation quickly. A full identity usually includes broader research, brand strategy, a messaging system, more applications and a detailed usage guide."],
   ["What is the difference between brand identity and visual identity?", "Brand identity is broader: the name, the message, the tone of voice and the customer experience. Visual identity is the part customers see: the logo, colours, typefaces and imagery. This package covers the visual foundation of your brand identity."],
   ["Do you design logos for online stores, restaurants and contracting companies?", "Yes. The package suits online stores, restaurants and cafes, clinics, contracting companies and service businesses. We start by understanding the business, the audience and the competitors before drawing the logo, so the look fits the sector."],
+  ["Do you work with businesses outside Saudi Arabia?", "Yes. We work remotely with startups and small businesses worldwide, in English and Arabic. The brief, the reviews and the delivery all happen online."],
   ["Does it include choosing the brand name?", "No. The name should be approved before design starts. If you have not chosen a name yet, you can start with the brand naming package first."],
   ["Does it include content writing or social media management?", "No. The package builds the basic visual system. Content creation and account management are separate services."],
   ["How long does it take?", "Delivery usually takes 7–10 working days after we receive the project information and approve the initial direction."],
@@ -53,8 +54,9 @@ export default function MiniVisualIdentityOffer() {
         "@type": "Service",
         "@id": `${url}#service`,
         name: "Essential visual identity package",
+        alternateName: "Logo and brand identity design services",
         description: "An essential visual identity package: a primary logo and a simplified version, a colour palette, suggested typefaces, a visual direction, three practical applications and a short guidelines file.",
-        serviceType: ["Visual Identity Design", "Logo Design", "Brand Identity"],
+        serviceType: ["Logo Design Services", "Brand Identity Design", "Visual Identity Design"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         offers: { "@type": "Offer", price: "1190", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/mini-visual-identity" },
@@ -85,8 +87,8 @@ export default function MiniVisualIdentityOffer() {
       <section className="shell offer-detail-hero mini-identity-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> working days</span></div>
-          <h1>Visual identity and logo design<br/><em>An essential brand identity to start your brand</em></h1>
-          <p>We build a coherent visual foundation that makes your brand look professional from day one, from the logo and colours to the typefaces and the essential applications.</p>
+          <h1>Logo and brand identity design<br/><em>An essential identity package for your business</em></h1>
+          <p>A professional logo and brand identity design service for startups and small businesses anywhere. We build a coherent visual foundation that makes your brand look professional from day one, from the logo and colours to the typefaces and the essential applications.</p>
           <div className="mini-identity-answer" aria-label="The short answer">
             <b>The short answer</b>
             <span>You receive a primary logo and a simplified version, a colour palette, suggested typefaces, a visual direction, three practical applications and a short guidelines file.</span>
