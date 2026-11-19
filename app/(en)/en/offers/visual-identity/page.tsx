@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -5,20 +6,27 @@ import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { EnOfferSticky } from "../offer-sticky-en";
 import { whatsappHref } from "../../_en/lib/site";
-import { IdentityReel } from "../../../../(ar)/offers/mini-visual-identity/identity-reel";
+import { IdentityReel } from "../../../../(ar)/offers/visual-identity/identity-reel";
 // The Arabic mini visual identity offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
-import "../../../../(ar)/offers/mini-visual-identity/mini-visual-identity.css";
-import "../../../../(ar)/offers/mini-visual-identity/identity-reel.css";
+import "../../../../(ar)/offers/visual-identity/mini-visual-identity.css";
+import "../../../../(ar)/offers/visual-identity/identity-reel.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
-export const metadata = enMetadata(
+const baseMetadata = enMetadata(
   "Logo and Brand Identity Design | Essential Package",
   "Professional logo and brand identity design services for startups and small businesses worldwide: a primary logo, colours, typefaces, a visual direction and three applications, delivered in 7–10 working days at a clear price.",
-  "/en/offers/mini-visual-identity",
+  "/en/offers/visual-identity",
 );
+// Page-specific social card (served from app/offers/visual-identity/opengraph-image.tsx).
+const socialImage = { url: "/offers/visual-identity/opengraph-image", width: 1200, height: 630, alt: "Dewank: essential logo and brand identity design package" };
+export const metadata: Metadata = {
+  ...baseMetadata,
+  openGraph: { ...baseMetadata.openGraph, images: [socialImage] },
+  twitter: { ...baseMetadata.twitter, images: [{ url: socialImage.url, alt: socialImage.alt }] },
+};
 
 const deliverables = [
   ["A primary logo", "A main logo that is clear and usable on digital channels and essential print."],
@@ -46,7 +54,7 @@ const faqs = [
 
 export default function MiniVisualIdentityOffer() {
   const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the essential visual identity package. My business is: ");
-  const url = "https://dewank.com/en/offers/mini-visual-identity";
+  const url = "https://dewank.com/en/offers/visual-identity";
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -59,7 +67,7 @@ export default function MiniVisualIdentityOffer() {
         serviceType: ["Logo Design Services", "Brand Identity Design", "Visual Identity Design"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: "1190", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/mini-visual-identity" },
+        offers: { "@type": "Offer", price: "1190", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/visual-identity" },
         url,
         inLanguage: "en",
       },
@@ -109,6 +117,7 @@ export default function MiniVisualIdentityOffer() {
           <h2>Because improvised visuals<br/>tire a brand quickly</h2>
           <p>A young business does not always need a large brand system. It does need enough visual rules to stop every new design from looking like it belongs to a different company.</p>
           <blockquote className="mini-identity-quote"><p>&ldquo;Rashad was proactive and very attentive to my needs, and designed a logo that reflects my company&apos;s values perfectly.&rdquo;</p><cite>Sophia Flores, United States</cite></blockquote>
+          <blockquote className="mini-identity-quote"><p>&ldquo;Dedicated, professional, and easy to communicate with&hellip; genuinely cares about delivering good quality work. Great experience overall.&rdquo;</p><cite>BITHAN fine jewellery client, Qatar · 5/5 review · <Link href="/en/work/bithan">Case study</Link></cite></blockquote>
           <Link className="mini-identity-work-link" href="/en/work">See visual identities we designed →</Link>
         </div>
         <IdentityReel locale="en" cta={<a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Request your identity <span>→</span></a>} />

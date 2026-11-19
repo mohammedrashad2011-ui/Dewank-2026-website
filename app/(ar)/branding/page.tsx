@@ -3,7 +3,7 @@ import Link from "next/link";
 import { createMetadata, servedMarkets, organizationId } from "../../lib/seo";
 import { Footer, Header } from "../../components/site-shell";
 import { BrandNamingOfferPrice } from "../offers/brand-naming/localized-brand-naming-offer";
-import { MiniIdentityPrice } from "../offers/mini-visual-identity/localized-mini-identity";
+import { MiniIdentityPrice } from "../offers/visual-identity/localized-mini-identity";
 import { offerPricing } from "../offers/offer-pricing";
 import { BithanProofCard } from "../../components/bithan-proof-card";
 import BrandSignal from "./brand-signal";
@@ -77,7 +77,7 @@ const brandOffers = [
     priceType: "naming" as const,
   },
   {
-    href: "/offers/mini-visual-identity",
+    href: "/offers/visual-identity",
     label: "لبداية بصرية محددة",
     title: "Essential Visual Identity",
     text: "بداية أصغر لمن يحتاج نظامًا بصريًا واضحًا دون الدخول مباشرة في مشروع هوية متكامل.",

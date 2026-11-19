@@ -133,3 +133,5 @@
 .mini-identity-quote p { margin: 0; font-size: 15px; line-height: 1.8; }
 .mini-identity-quote cite { display: block; margin-top: 6px; color: var(--muted); font-size: 13px; font-style: normal; }
 .mini-identity-work-link { display: inline-flex; margin-top: 14px; color: inherit; font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.mini-identity-quote + .mini-identity-quote { margin-top: 12px; }
+.mini-identity-quote cite a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }

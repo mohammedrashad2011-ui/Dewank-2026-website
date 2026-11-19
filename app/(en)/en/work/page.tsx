@@ -160,6 +160,7 @@ export default function WorkPage() {
         <IdentityShowcase projects={identityProjects} />
         <div className="identity-actions">
           <Link className="button secondary identity-work-cta" href="/en/branding">Explore brand strategy and identity <span>→</span></Link>
+          <Link href="/en/offers/visual-identity">Essential logo and brand identity package</Link>
           <Link href="/en/brand-naming">Need a name for your brand?</Link>
         </div>
       </section>
