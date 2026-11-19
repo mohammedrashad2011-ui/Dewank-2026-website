@@ -331,9 +331,10 @@
   .bn2 .bn2-hero .bn2-cta { animation: bn2-nudge 4.5s ease-in-out 2.2s infinite; }
 }
 
-@keyframes bn2-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-@keyframes bn2-slot { from { opacity: 0; transform: translateY(10px) scale(.98); } to { opacity: 1; transform: none; } }
-@keyframes bn2-pop { from { opacity: 0; transform: scale(.7); } to { opacity: 1; transform: none; } }
+/* Motion only, no fade-in from invisible: content stays visible from the first paint even if the browser delays or skips the animation. */
+@keyframes bn2-rise { from { transform: translateY(14px); } to { transform: none; } }
+@keyframes bn2-slot { from { transform: translateY(10px) scale(.98); } to { transform: none; } }
+@keyframes bn2-pop { from { transform: scale(.7); } to { transform: none; } }
 @keyframes bn2-glow {
   0%, 100% { box-shadow: 0 0 0 0 rgba(244, 217, 145, 0); }
   50% { box-shadow: 0 0 0 4px rgba(244, 217, 145, .16); }

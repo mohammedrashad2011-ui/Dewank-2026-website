@@ -171,8 +171,9 @@
   .vs-reel { animation: vs-reel-in .9s cubic-bezier(.16, .78, .22, 1) .15s both; }
   .vs-reel-play-icon { animation: vs-pulse 2.6s ease-out 1.2s 3; }
 }
-@keyframes vs-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-@keyframes vs-reel-in { from { opacity: 0; transform: translateY(26px) rotate(-2deg) scale(.96); } to { opacity: 1; transform: none; } }
+/* Motion only, no fade-in from invisible: content stays visible from the first paint even if the browser delays or skips the animation. */
+@keyframes vs-rise { from { transform: translateY(18px); } to { transform: none; } }
+@keyframes vs-reel-in { from { transform: translateY(26px) rotate(-2deg) scale(.96); } to { transform: none; } }
 @keyframes vs-pulse { 0% { box-shadow: 0 0 0 0 rgba(235, 176, 46, .55); } 100% { box-shadow: 0 0 0 26px rgba(235, 176, 46, 0); } }
 
 @media (min-width: 620px) {

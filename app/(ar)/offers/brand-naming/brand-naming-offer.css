@@ -171,9 +171,10 @@
   }
 }
 
+/* Motion only, no fade-in from invisible: content stays visible from the first paint even if the browser delays or skips the animation. */
 @keyframes brand-naming-reveal {
-  from { opacity: 0; transform: translate3d(0, 18px, 0); }
-  to { opacity: 1; transform: none; }
+  from { transform: translate3d(0, 18px, 0); }
+  to { transform: none; }
 }
 
 /* Hover lift and arrow nudge only where a pointer can hover. Touch devices get the press state above instead. */
@@ -352,11 +353,12 @@
  ::view-transition-new(naming-word){animation:naming-word-in 1.05s ease both}
 }
 @keyframes naming-guide{from{transform:scaleX(0);opacity:0}45%{opacity:.85}to{transform:scaleX(1);opacity:.3}}
-@keyframes naming-letter{from{opacity:0;transform:translate3d(calc(var(--d) * .6em),0,0);filter:blur(12px)}55%{opacity:1;filter:blur(0)}to{opacity:1;transform:none;filter:none}}
-@keyframes naming-rise{from{opacity:0;transform:translate3d(0,14px,0);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
-@keyframes naming-package-arrive{from{opacity:.05;transform:translateY(45px) rotateY(-65deg) rotateX(25deg) scale(.66);filter:blur(6px) drop-shadow(22px 28px 18px rgba(0,0,0,0))}to{opacity:1;transform:rotateY(-18deg) rotateX(7deg) rotateZ(-5deg);filter:blur(0) drop-shadow(22px 28px 18px rgba(0,0,0,.34))}}
+/* Motion only, no fade-in from invisible: content stays visible from the first paint even if the browser delays or skips the animation. */
+@keyframes naming-letter{from{transform:translate3d(calc(var(--d) * .6em),0,0);filter:blur(12px)}55%{filter:blur(0)}to{transform:none;filter:none}}
+@keyframes naming-rise{from{transform:translate3d(0,14px,0);filter:blur(4px)}to{transform:none;filter:none}}
+@keyframes naming-package-arrive{from{transform:translateY(45px) rotateY(-65deg) rotateX(25deg) scale(.66);filter:blur(6px) drop-shadow(22px 28px 18px rgba(0,0,0,0))}to{opacity:1;transform:rotateY(-18deg) rotateX(7deg) rotateZ(-5deg);filter:blur(0) drop-shadow(22px 28px 18px rgba(0,0,0,.34))}}
 @keyframes naming-rule{from{transform:scaleX(0)}to{transform:none}}
-@keyframes naming-detail-arrive{from{opacity:.1;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes naming-detail-arrive{from{transform:translateY(18px)}to{transform:none}}
 @keyframes naming-swatch{from{transform:scaleY(0)}to{transform:none}}
 @keyframes naming-ink{from{clip-path:circle(0 at 50% 38%)}to{clip-path:circle(100% at 50% 38%)}}
 @keyframes naming-ink-under{to{opacity:.45}}
