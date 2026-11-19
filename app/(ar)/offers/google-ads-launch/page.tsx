@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { GoogleAdsLaunchLink, GoogleAdsLaunchPrice, GoogleAdsLaunchSticky } from "./localized-google-ads-launch";
+import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./google-ads-launch.css";
@@ -11,7 +12,7 @@ const title = "إعداد وإطلاق حملة Google Ads في السعودية
 const description = "باقة إعداد وتشغيل حملة Google Ads Search للشركات في السعودية: بحث كلمات، كتابة الإعلانات، كلمات سلبية، تتبع تحويل أساسي وإطلاق منظم بسعر واضح. إعداد لمرة واحدة، وليس إدارة شهرية.";
 
 export const metadata: Metadata = createMetadata({
-  title: "إعداد حملة Google Ads في السعودية | إطلاق لمرة واحدة | ديوانك",
+  title: "إعداد حملة إعلانات جوجل (Google Ads) في السعودية | باقة إطلاق | ديوانك",
   description,
   path: "/offers/google-ads-launch",
   keywords: [
@@ -40,9 +41,9 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["كم تكلفة إعداد وتشغيل حملة Google Ads؟", "هذه الباقة مخصصة لإعداد وإطلاق حملة Google Search واحدة بسعر 790 ريال في السعودية. ميزانية الإعلانات نفسها تُدفع مباشرة إلى Google، والإدارة الشهرية المستمرة ليست ضمن الباقة."],
+  ["كم تكلفة إعداد وتشغيل حملة Google Ads؟", "هذه الباقة مخصصة لإعداد وإطلاق حملة Google Search واحدة بسعر معلن يظهر في أعلى الصفحة بعملة بلدك. ميزانية الإعلانات نفسها تُدفع مباشرة إلى Google، والإدارة الشهرية المستمرة ليست ضمن الباقة."],
   ["ماذا تشمل باقة إطلاق Google Ads؟", "تشمل إعداد وإطلاق حملة Google Search واحدة حتى مجموعتين إعلانيتين، بحث الكلمات، كتابة الإعلانات، الكلمات السلبية الأساسية، وتتبع تحويل رئيسي واحد عند توفر المتطلبات التقنية."],
-  ["هل تشمل الباقة ميزانية الإعلانات؟", "لا. مبلغ 790 ريال هو أجر إعداد وإطلاق الحملة، أما الميزانية الإعلانية فتدفعها مباشرة إلى Google حسب المبلغ الذي تختاره."],
+  ["هل تشمل الباقة ميزانية الإعلانات؟", "لا. سعر الباقة هو أجر إعداد وإطلاق الحملة، أما الميزانية الإعلانية فتدفعها مباشرة إلى Google حسب المبلغ الذي تختاره."],
   ["هل تشمل إدارة الحملة لمدة شهر؟", "لا. الباقة مخصصة للتأسيس والإطلاق مع متابعة تقنية لمدة 7 أيام. إذا كنت تحتاج إدارة وتحسينًا مستمرًا فراجع خدمة إدارة Google Ads والإعلانات المدفوعة."],
   ["هل تشمل تصميم Landing Page؟", "لا. يجب أن يكون لديك موقع أو صفحة مناسبة لاستقبال الزائر. إذا كانت الصفحة الحالية غير مناسبة للتحويل يمكن إضافة خدمة صفحة هبوط بشكل منفصل."],
   ["هل الباقة مناسبة لأي نشاط؟", "هي أنسب للأنشطة التي يبحث العملاء عن خدماتها أو منتجاتها بالفعل على Google. بعض الأنشطة قد تستفيد أكثر من Meta Ads أو من بناء صفحة هبوط أولًا."],
@@ -152,13 +153,15 @@ export default function GoogleAdsLaunchOffer() {
       </section>
 
       <section className="shell offer-confidence google-ads-confidence">
-        <div><span className="section-label">حدود الباقة</span><h2>790 ريال للتأسيس والإطلاق،<br/>وليس لإدارة شهر كامل</h2></div>
+        <div><span className="section-label">حدود الباقة</span><h2>سعر الباقة للتأسيس والإطلاق،<br/>وليس لإدارة شهر كامل</h2></div>
         <div className="offer-confidence-list">
           <p><b>لا تشمل:</b> ميزانية Google، تصميم Landing Page، إدارة شهرية، تصميمات Display أو فيديو، Merchant Center، أو تكاملات CRM وقياس متقدمة.</p>
           <p><b>المطلوب:</b> حساب Google Ads صالح للدفع، صفحة تعمل، وصول للحساب والقياس، وخدمة أو عرض واضح نعلن عنه.</p>
           <p><b>بعد الإطلاق:</b> يمكنك إدارة الحملة داخليًا أو الانتقال إلى <Link href="/paid-ads">خدمة إدارة Google Ads</Link> إذا أردت تحسينًا مستمرًا.</p>
         </div>
       </section>
+
+      <OfferClientProof review="data" locale="ar" />
 
       <section className="shell offer-faq google-ads-faq" id="faq">
         <div><span className="section-label">أسئلة سريعة</span><h2>قبل أن تبدأ</h2></div>

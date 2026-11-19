@@ -97,6 +97,12 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="home-selected-offers shell" aria-labelledby="home-offers-title">
+        <div className="home-selected-offers-head"><div><span className="section-label">بدايات جاهزة</span><h2 id="home-offers-title">لو احتياجك واضح، ابدأ بنطاق محدد</h2></div></div>
+        <HomeSelectedOffers />
+        <div className="home-selected-offers-all"><Link href="/offers">استعرض كل العروض <span>←</span></Link></div>
+      </section>
+
       <section className="home-work-preview shell" aria-labelledby="home-work-title">
         <div className="home-work-head"><div><h2 id="home-work-title">لا نعرض الشكل فقط<br/><em>نعرض القرار خلفه</em></h2></div><Link href="/work">شاهد صفحة الأعمال <span>←</span></Link></div>
         <div className="home-work-grid">
@@ -113,12 +119,6 @@ export default function Home() {
             {[["نفهم","السياق والجمهور ومكان التعطل."],["نحدد","الفرصة والرسالة والأولوية التجارية."],["نبني","البراند أو الموقع أو الحملة أو النظام المناسب."],["نقيس","نراجع ما يحدث ونحسن ما يصنع النتيجة."]].map(([t,p]) => <div key={t}><h3>{t}</h3><p>{p}</p></div>)}
           </div>
         </div>
-      </section>
-
-      <section className="home-selected-offers shell" aria-labelledby="home-offers-title">
-        <div className="home-selected-offers-head"><div><span className="section-label">بدايات جاهزة</span><h2 id="home-offers-title">لو احتياجك واضح، ابدأ بنطاق محدد</h2></div></div>
-        <HomeSelectedOffers />
-        <div className="home-selected-offers-all"><Link href="/offers">استعرض كل العروض <span>←</span></Link></div>
       </section>
 
       <section className="faq-section shell" aria-labelledby="home-faq-title">

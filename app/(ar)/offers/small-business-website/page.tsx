@@ -3,12 +3,13 @@ import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, siteUrl, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
 import { SmallWebsitePrice, SmallWebsiteSticky, SmallWebsiteWhatsApp } from "./localized-small-website";
+import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./small-business-website.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "تصميم موقع شركة حتى 5 صفحات | باقة جاهزة للإطلاق | ديوانك",
+  title: "تصميم موقع شركة تعريفي حتى 5 صفحات | جاهز للإطلاق | ديوانك",
   description: "باقة موقع تعريفي صغير حتى 5 صفحات تشمل التصميم والتطوير المتجاوب وربط واتساب والنماذج والتحليلات وSEO أساسي وتجهيز الإطلاق.",
   path: "/offers/small-business-website",
   keywords: [
@@ -163,6 +164,8 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div><span className="section-label">قبل أن تبدأ</span><h2>إذا كان احتياجك أكبر،<br/><em>فلن نضغطه داخل باقة صغيرة</em></h2></div>
         <div><p>إذا كنت تحتاج متجرًا، نظام حجز، عضويات، CRM، أتمتة، عدد صفحات كبير أو استراتيجية موقع كاملة، الأفضل الانتقال إلى خدمة تصميم وتطوير المواقع بدل توسيع هذه الباقة حتى تفقد وضوحها.</p><Link href="/website-design">شاهد خدمة تصميم وتطوير المواقع <span>←</span></Link></div>
       </section>
+
+      <OfferClientProof review="bithan" locale="ar" />
 
       <section className="shell offer-faq small-website-faq">
         <span className="section-label">أسئلة شائعة</span>

@@ -1,0 +1,29 @@
+/* Analytics and conversion tracking service page. Mobile first; no fixed-height boxes, so Arabic text never clips. */
+.analytics-service-page { background: var(--paper, #f7f5ef); color: var(--ink, #0f1b2d); }
+.analytics-service-page section { padding-block: 44px; }
+.analytics-breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: 13px; color: var(--muted, #5b6474); }
+.analytics-breadcrumbs a { color: inherit; }
+.analytics-label { display: inline-block; margin-top: 18px; color: #7a5a14; font-size: 13px; font-weight: 800; }
+.analytics-hero h1 { margin: 12px 0 14px; font-size: clamp(32px, 6vw, 56px); font-weight: 900; line-height: 1.35; }
+.analytics-hero h1 em { display: block; font-style: normal; color: #b98524; }
+.analytics-hero > p { max-width: 62ch; color: var(--muted, #5b6474); font-size: 17px; line-height: 1.9; }
+.analytics-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.analytics-answer h2, .analytics-scope h2, .analytics-faq h2, .analytics-final h2 { font-size: clamp(24px, 4.5vw, 36px); font-weight: 900; line-height: 1.45; margin: 0 0 18px; }
+.analytics-setup-grid { display: grid; gap: 14px; }
+.analytics-setup-grid article { padding: 20px; border: 1px solid rgba(15, 27, 45, .12); border-radius: 16px; background: #fff; }
+.analytics-setup-grid b { display: block; font-size: 17px; margin-bottom: 6px; }
+.analytics-setup-grid p { margin: 0; color: var(--muted, #5b6474); line-height: 1.8; }
+.analytics-scope ul { margin: 0 0 14px; padding-inline-start: 20px; color: var(--muted, #5b6474); line-height: 1.9; }
+.analytics-scope p { color: var(--muted, #5b6474); line-height: 1.9; }
+.analytics-faq div { display: grid; }
+.analytics-faq details { border-bottom: 1px solid rgba(15, 27, 45, .12); }
+.analytics-faq summary { padding: 16px 0; font-weight: 800; cursor: pointer; line-height: 1.6; }
+.analytics-faq details p { margin: 0 0 16px; color: var(--muted, #5b6474); line-height: 1.9; }
+.analytics-final { border-top: 1px solid rgba(15, 27, 45, .12); }
+.analytics-final p { color: var(--muted, #5b6474); line-height: 1.9; }
+.analytics-links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 18px; }
+.analytics-links a { color: inherit; font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
+@media (min-width: 900px) {
+  .analytics-setup-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .analytics-faq div { max-width: 880px; }
+}

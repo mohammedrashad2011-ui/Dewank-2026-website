@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { SeoAuditIntelligence } from "../../../components/seo-audit-intelligence";
-import { SeoAuditOfferPrice, SeoAuditWhatsApp } from "./localized-seo-audit-offer";
+import { SeoAuditOfferPrice, SeoAuditSticky, SeoAuditWhatsApp } from "./localized-seo-audit-offer";
+import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./seo-audit-offer.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "فحص سيو شامل للموقع وتحسين محركات البحث | ديوانك",
+  title: "فحص سيو شامل للموقع خلال 48 ساعة | تقرير وخطة تحسين | ديوانك",
   description: "فحص SEO شامل لموقعك خلال 48 ساعة: مشاكل الفهرسة والزحف والسرعة والمحتوى والكلمات المفتاحية والتحويل، مع تقرير PDF وخطة تحسين مرتبة حسب الأولوية.",
   path: "/offers/seo-audit",
   keywords: [
@@ -120,7 +121,7 @@ export default function SeoAuditOfferPage() {
           <SeoAuditOfferPrice />
           <div className="offer-trust-inline"><span>تقرير PDF</span><span>خطة 30 يوم</span><span>بدون اشتراك</span></div>
           <p>السعر يشمل الفحص والتقرير والتوصيات. تنفيذ الإصلاحات أو إدارة SEO الشهرية غير مشمولين.</p>
-          <SeoAuditWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
+          <SeoAuditWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
         </aside>
       </section>
 
@@ -154,19 +155,22 @@ export default function SeoAuditOfferPage() {
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل تعديل الكود أو كتابة صفحات كاملة أو بناء روابط خارجية أو إدارة SEO شهرية أو ضمان ترتيب محدد في جوجل. هذه خدمات منفصلة تُحدد فقط بعد ظهور نتائج الفحص.</p></details>
       </section>
 
+      <OfferClientProof review="data" locale="ar" />
+
       <section className="shell offer-faq" id="faq">
         <div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن ترسل الموقع</h2></div>
         <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final-cta seo-audit-final">
+      <section id="order-final" className="shell offer-final-cta seo-audit-final">
         <span className="offer-kicker">SEO + AEO · تقرير PDF · خلال 48 ساعة</span>
         <h2>اعرف أين تخسر الظهور قبل أن تدفع أكثر لجلب الزيارات</h2>
         <p>أرسل رابط موقعك ونوع النشاط والسوق المستهدف، ونبدأ الفحص من الصورة الكبيرة إلى التفاصيل التي تؤثر فعلًا.</p>
         <SeoAuditWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
         <div className="seo-audit-links"><Link href="/guides/seo-vs-aeo">تريد فهم الفرق بين SEO وAEO؟</Link><Link href="/seo-aeo">تحتاج تنفيذًا مستمرًا بعد الفحص؟</Link><Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
-      <Footer />
+      <SeoAuditSticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

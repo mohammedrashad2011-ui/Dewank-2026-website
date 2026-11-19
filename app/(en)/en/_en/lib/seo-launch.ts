@@ -33,6 +33,7 @@ export const englishToArabic: Record<string, string> = {
   "/en/offers/brand-naming": "/offers/brand-naming",
   "/en/offers/whatsapp-automation-starter": "/offers/whatsapp-automation-starter",
   "/en/offers/visual-identity": "/offers/visual-identity",
+  "/en/offers/name-identity": "/offers/name-identity",
   "/en/offers/google-ads-launch": "/offers/google-ads-launch",
   "/en/offers/instagram-14-day-upgrade": "/offers/instagram-14-day-upgrade",
   "/en/offers/small-business-website": "/offers/small-business-website",

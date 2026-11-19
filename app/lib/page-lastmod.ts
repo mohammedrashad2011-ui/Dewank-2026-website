@@ -1,10 +1,11 @@
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import path from "node:path";
+import committedDates from "./sitemap-lastmod.json";
 
 // Sitemap <lastmod>: the date of the last commit that touched a page's own files (its page.tsx and the files beside it).
-// Read from git when the sitemap is generated at build time. If git is missing or the clone is shallow (the date would be
-// the shallow boundary, not the real change), the date is left out rather than invented.
+// Read from git when the build has full history. Production (Hostinger) builds from a clone without it, so the dates
+// committed in sitemap-lastmod.json (npm run sitemap:lastmod) are used there. A page in neither gets no date.
 
 const root = process.cwd();
 let gitUsable: boolean | null = null;
@@ -45,6 +46,10 @@ export function pageLastModified(publicPath: string): Date | undefined {
     } catch {
       result = undefined;
     }
+  }
+  if (!result) {
+    const committed = (committedDates as Record<string, string>)[publicPath];
+    if (committed) result = new Date(committed);
   }
   cache.set(publicPath, result);
   return result;

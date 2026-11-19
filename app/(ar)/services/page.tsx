@@ -60,17 +60,12 @@ const services: Service[] = [
   { no: "06", en: "WEBSITE DESIGN & CRO", tone: "web", visual: "web", title: "موقعك ليس كتالوجًا.", hook: "هو موظف مبيعات لا ينام.", text: "مواقع سريعة ومتجاوبة تجمع الرسالة وتجربة المستخدم وSEO وAEO لتقود الزائر نحو تواصل أو حجز أو شراء واضح.", tags: ["UX/UI", "Web", "Conversion"], href: "/website-design" },
   { no: "07", en: "LANDING PAGES & SALES PAGES", tone: "web", visual: "conversion-funnel", title: "صفحة واحدة.", hook: "هدف واحد واضح.", text: "صفحات هبوط ومبيعات مخصصة للحملات والخدمات، تجمع النص التسويقي والتصميم والنموذج وواتساب والتتبع لتحويل الزيارة إلى استفسار.", tags: ["Landing Page", "Copy", "Leads"], href: "/offers/landing-page-package", cta: "شاهد عرض صفحة الهبوط" },
   { no: "08", en: "SEO & AEO", tone: "web", visual: "search", title: "لا يكفي أن تكون موجودًا.", hook: "كن الإجابة الأفضل.", text: "تحسين تقني ومحتوى وهيكلة وSchema تساعد Google ومحركات الإجابة والذكاء الاصطناعي على فهم خبرتك وإظهارها للجمهور المناسب.", tags: ["Technical SEO", "AEO", "Schema"], href: "/seo-aeo" },
-  { no: "09", en: "ANALYTICS & CONVERSION TRACKING", tone: "web", visual: "analytics-bars", title: "الأرقام لا تعني شيئًا وحدها.", hook: "اربطها بالقرار.", text: "إعداد GA4 وGoogle Tag Manager والتحويلات ولوحات القياس لتحليل رحلة العميل، معرفة مصادر النتائج، وقياس العائد بدل الاكتفاء بالنقرات والوصول.", tags: ["GA4", "GTM", "ROI"], href: "/contact", cta: "اطلب إعداد التتبع" },
+  { no: "09", en: "ANALYTICS & CONVERSION TRACKING", tone: "web", visual: "analytics-bars", title: "الأرقام لا تعني شيئًا وحدها.", hook: "اربطها بالقرار.", text: "إعداد GA4 وGoogle Tag Manager والتحويلات ولوحات القياس لتحليل رحلة العميل، معرفة مصادر النتائج، وقياس العائد بدل الاكتفاء بالنقرات والوصول.", tags: ["GA4", "GTM", "ROI"], href: "/services/analytics-conversion-tracking", cta: "اطلب إعداد التتبع" },
   { no: "10", en: "WHATSAPP AUTOMATION & CRM", tone: "automation", visual: "automation", title: "واتساب لا يرد فقط.", hook: "يفهم، يؤهّل، ويتابع.", text: "منظومة واتساب ذكية للرد والتأهيل والحجز والتذكير والمتابعة وربط المحادثات بنظام CRM واضح وقابل للقياس.", tags: ["WhatsApp", "CRM", "Follow-up"], href: "/whatsapp-automation" },
   { no: "11", en: "AI AUTOMATION", tone: "automation", visual: "ai", title: "لا تضف AI إلى الفوضى.", hook: "نظّم العملية ثم أتمتها.", text: "حلول أتمتة وذكاء اصطناعي تربط التسويق والمبيعات وخدمة العملاء والتشغيل لتقليل العمل اليدوي وتسريع القرار.", tags: ["AI Agents", "Workflows", "Integrations"], href: "/ai-automation" },
   { no: "12", en: "ATS CV & CAREER BRANDING", tone: "web career-card", visual: "document", title: "سيرتك ليست ورقة.", hook: "هي أول قرار قبل المقابلة.", text: "كتابة وتطوير سيرة ذاتية متوافقة مع ATS، مخصصة للوظيفة المستهدفة، مع تحسين الإنجازات والكلمات المفتاحية وLinkedIn.", tags: ["ATS CV", "LinkedIn", "Career Branding"], href: "/ats-cv" },
 ];
 
-// Catalog-only services without their own page: the card CTA points to /contact, but the
-// Service identity must not be bound to the contact page.
-const catalogOnlyServiceIds: Record<string, string> = {
-  "09": `${siteUrl}/services#analytics-conversion-tracking`,
-};
 
 const decisionGuides = [
   { label: "العلامة", title: "تكلفة تصميم الهوية البصرية", text: "الفرق بين الشعار والهوية، وما الذي يجب أن تستلمه قبل التعاقد.", href: "/guides/branding-identity-cost-saudi-arabia" },
@@ -111,7 +106,7 @@ export default function ServicesPage() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            "@id": catalogOnlyServiceIds[service.no] ?? serviceId(service.href),
+            "@id": serviceId(service.href),
             name: canonicalServiceNames[service.href] ?? `${service.title} ${service.hook}`,
             description: service.text,
             url: `${siteUrl}${service.href}`,

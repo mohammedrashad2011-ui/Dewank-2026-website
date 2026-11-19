@@ -149,7 +149,8 @@
 }
 
 /* Entrance motion: restrained, and removed for users who prefer reduced motion */
-@keyframes en-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+/* Motion only, no fade-in from invisible: content stays visible from the first paint even if the browser delays or skips the animation. */
+@keyframes en-rise { from { transform: translateY(12px); } to { transform: none; } }
 .en-site .hero h1, .en-site .hero-split > div, .en-site .hero-visual { animation: en-rise 0.7s ease both; }
 .en-site .hero-visual { animation-delay: 0.12s; }
 @media (prefers-reduced-motion: reduce) {

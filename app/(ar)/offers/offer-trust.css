@@ -155,3 +155,14 @@
   .small-website-hero .offer-work-link,
   .google-ads-hero .google-ads-answer { order: 3; }
 }
+/* One real client review on offer pages (OfferClientProof). */
+.offer-client-proof { display: grid; gap: 14px; padding-block: 8px 40px; }
+.offer-client-proof blockquote { margin: 0; padding: 22px 24px; border-inline-start: 4px solid #b98524; border-radius: 16px; background: rgba(185, 133, 36, .07); }
+.offer-client-proof blockquote p { margin: 0; font-size: clamp(16px, 1.6vw, 19px); font-weight: 600; line-height: 1.9; }
+.offer-client-proof cite { display: block; margin-top: 10px; color: var(--muted, #5b6474); font-size: 13px; font-style: normal; }
+.offer-client-proof-link { justify-self: start; color: inherit; font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+/* Name + identity bundle: saving line and link row. */
+.offer-bundle-saving { margin: 6px 0 0; color: #2f7d4f; font-size: 14px; font-weight: 800; line-height: 1.6; }
+.offer-price-panel .offer-bundle-saving { color: #8be0a8; }
+.offer-bundle-links { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 18px; }
+.offer-bundle-links a { color: inherit; font-size: 14px; opacity: .75; text-decoration: underline; text-underline-offset: 4px; }

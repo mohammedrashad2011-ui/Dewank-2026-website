@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
+import { EnOfferSticky } from "../offer-sticky-en";
 // The Arabic Instagram upgrade offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -12,7 +14,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Instagram profile audit and 14-day upgrade",
+  "Instagram Profile Audit and 14-Day Upgrade",
   "A 14-day Instagram upgrade for an existing account: review, bio and call to action, highlights, content themes, six designs and a plan.",
   "/en/offers/instagram-14-day-upgrade",
 );
@@ -91,7 +93,7 @@ export default function Instagram14DayUpgradeOffer() {
           <OfferPrice offerKey="instagram-14-day-upgrade" className="offer-price" />
           <div className="offer-trust-inline"><span>Full review</span><span>Six designs</span><span>14-day plan</span></div>
           <p>The price covers the development, the designs and the plan only. It does not include advertising, photography or ongoing daily management.</p>
-          <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
         </aside>
       </section>
 
@@ -141,18 +143,21 @@ export default function Instagram14DayUpgradeOffer() {
         </div>
       </section>
 
+      <OfferClientProof review="bithan" locale="en" />
+
       <section className="shell offer-faq">
         <span className="section-label">Frequently asked questions</span><h2>Before you start</h2>
         <div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final instagram-upgrade-final">
+      <section id="order-final" className="shell offer-final instagram-upgrade-final">
         <div><small>14-day Instagram upgrade</small><h2>Make the first visit to the account<br/><em>say that you are organised and ready</em></h2><p>If the account exists but does not reflect the level of your business, this is a focused starting point before you pay for more content or more advertising.</p></div>
         <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
         <div className="instagram-upgrade-links"><Link href="/en/offers/30-day-content-package">Need a full month of content?</Link><Link href="/en/social-media-content">Need ongoing social media management?</Link></div>
       </section>
 
-      <Footer />
+      <EnOfferSticky watchIds={["order-cta", "order-final", "order-footer"]} href={contactLink} label="Free consultation" priceLabel="Upgrade package from" offerKey="instagram-14-day-upgrade" />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
+import { EnOfferSticky } from "../offer-sticky-en";
 import { SeoAuditIntelligence } from "../../../../components/seo-audit-intelligence";
 // The Arabic SEO audit offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
@@ -13,7 +15,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "SEO audit service: SEO and AEO website audit",
+  "SEO Audit Service: SEO and AEO Website Audit in 48 Hours",
   "A full SEO and AEO audit covering technical, content, speed, keywords and conversion, with a PDF report and a 30-day plan.",
   "/en/offers/seo-audit",
 );
@@ -105,7 +107,7 @@ export default function SeoAuditOfferPage() {
           <OfferPrice offerKey="seo-audit" className="offer-price" />
           <div className="offer-trust-inline"><span>PDF report</span><span>30-day plan</span><span>No subscription</span></div>
           <p>The price covers the audit, the report and the recommendations. Implementing the fixes and ongoing SEO management are not included.</p>
-          <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
         </aside>
       </section>
 
@@ -139,19 +141,22 @@ export default function SeoAuditOfferPage() {
         <details className="offer-policy"><summary>What the offer does not include</summary><p>It does not include code changes, writing complete pages, building external links, ongoing monthly SEO, or a guaranteed ranking position on Google. These are separate services, and they are scoped only after the audit results are known.</p></details>
       </section>
 
+      <OfferClientProof review="data" locale="en" />
+
       <section className="shell offer-faq" id="faq">
         <div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you send your website</h2></div>
         <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="shell offer-final-cta seo-audit-final">
+      <section id="order-final" className="shell offer-final-cta seo-audit-final">
         <span className="offer-kicker">SEO + AEO · PDF report · within 48 hours</span>
         <h2>Find where you are losing visibility before you pay more to bring visitors in</h2>
         <p>Send us your website address, your business type and your target market. We will start the audit from the big picture and move to the details that affect results.</p>
         <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
         <div className="seo-audit-links"><Link href="/en/guides/seo-vs-aeo">Want to understand the difference between SEO and AEO?</Link><Link href="/en/seo-geo-aeo">Need ongoing implementation after the audit?</Link><Link href="/en/offers">← Back to all offers</Link></div>
       </section>
-      <Footer />
+      <EnOfferSticky watchIds={["order-cta", "order-final", "order-footer"]} href={contactLink} label="Free consultation" priceLabel="Full audit from" offerKey="seo-audit" />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

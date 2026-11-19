@@ -239,22 +239,21 @@
   to { transform: perspective(1400px) rotateX(6deg); }
 }
 
+/* Motion only, no fade-in from invisible: content stays visible from the first paint even if the browser delays or skips the animation. */
 @keyframes csys-gather {
   from {
-    opacity: 0;
     transform: translate3d(calc(var(--sx) * var(--csys-scatter)), calc(var(--sy) * var(--csys-scatter)), var(--sz)) rotate(var(--sr)) scale(0.84);
     filter: blur(6px);
   }
-  55% { opacity: 1; filter: blur(0); }
-  to { opacity: 1; transform: none; filter: none; }
+  55% { filter: blur(0); }
+  to { transform: none; filter: none; }
 }
 
 @keyframes csys-gather-lite {
   from {
-    opacity: 0;
     transform: translate3d(calc(var(--sx) * var(--csys-scatter)), calc(var(--sy) * var(--csys-scatter)), 0) rotate(var(--sr)) scale(0.88);
   }
-  to { opacity: 1; transform: none; }
+  to { transform: none; }
 }
 
 @keyframes csys-camera-lite {
@@ -263,8 +262,8 @@
 }
 
 @keyframes csys-word {
-  from { opacity: 0.18; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
+  from { transform: translateY(8px); }
+  to { transform: none; }
 }
 
 @keyframes csys-day {

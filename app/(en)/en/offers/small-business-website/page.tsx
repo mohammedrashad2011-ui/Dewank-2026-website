@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
@@ -15,7 +16,7 @@ import "../../_en/styles/hide-arabic-widgets.css";
 const orderWatchIds = ["order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
-  "Small business website design: five pages, ready to launch",
+  "Small Business Website Design Package: Five Pages, Ready to Launch",
   "A small company website of up to five pages, with WhatsApp and a contact form, basic analytics and SEO, and a pre-launch review.",
   "/en/offers/small-business-website",
 );
@@ -156,6 +157,8 @@ export default function SmallBusinessWebsiteOfferPage() {
         <div><span className="section-label">Before you start</span><h2>If your needs are bigger,<br/><em>we will not squeeze them into a small package</em></h2></div>
         <div><p>If you need a shop, a booking system, memberships, a CRM, automation, a large number of pages or a full website strategy, it is better to move to our website design and development service than to stretch this package until it loses its clarity.</p><Link href="/en/website-design">See the website design and development service <span>→</span></Link></div>
       </section>
+
+      <OfferClientProof review="bithan" locale="en" />
 
       <section className="shell offer-faq small-website-faq">
         <span className="section-label">Frequently asked questions</span>

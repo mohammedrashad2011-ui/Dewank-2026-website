@@ -243,7 +243,7 @@ export function AutomationContrast({ locale }: { locale: Locale }) {
       <div className="wa-cinema-section-head">
         <span className="wa-cinema-eyebrow">{ar ? "الفرق الحقيقي" : "The operational difference"}</span>
         <h2 id={"wa-cinema-contrast-title-" + locale}>{ar ? "نفس الرسائل" : "The same enquiries"}<br/><em>{ar ? "طريقة تعامل مختلفة" : "A different way to handle them"}</em></h2>
-        <p>{ar ? "الأتمتة مش بديل لفريقك، لكنها تساعد الموظف يستلم محادثة أوضح في الوقت المناسب" : "Automation is not here to replace your team, it helps people take over with a clearer picture"}</p>
+        <p>{ar ? "الأتمتة ليست بديلًا لفريقك، لكنها تساعد الموظف يستلم محادثة أوضح في الوقت المناسب" : "Automation is not here to replace your team, it helps people take over with a clearer picture"}</p>
       </div>
       <div className="wa-cinema-contrast-grid">
         <article className="wa-cinema-before">

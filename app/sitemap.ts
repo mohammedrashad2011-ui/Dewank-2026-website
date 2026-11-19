@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Core service hub and service pages
     { path: "/services", priority: 0.9, changeFrequency: "monthly" as const },
+    { path: "/services/analytics-conversion-tracking", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/branding", priority: 0.9, changeFrequency: "monthly" as const },
     { path: "/services/brand-naming", priority: 0.85, changeFrequency: "monthly" as const },
     { path: "/services/social-media-content", priority: 0.9, changeFrequency: "monthly" as const },
@@ -30,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/offers/brand-naming", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/whatsapp-automation-starter", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/visual-identity", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/offers/name-identity", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/google-ads-launch", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/instagram-14-day-upgrade", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/small-business-website", priority: 0.85, changeFrequency: "weekly" as const },

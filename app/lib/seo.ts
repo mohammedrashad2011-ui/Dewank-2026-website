@@ -79,10 +79,14 @@ export const organizationName = "ديوانك";
 export const organizationAlternateName = "Dewank";
 export const organizationRef = { "@id": organizationId };
 export const instagramUrl = "https://www.instagram.com/dewank_marketing";
+export const linkedinUrl = "https://www.linkedin.com/company/dewank/";
 
 // Markets with public evidence on the site: السعودية والخليج copy, /about (البحرين والإمارات),
 // and the BITHAN case study (قطر). Kuwait/Oman are covered only by the generic "GCC" entry
 // until the site publicly names them.
+// Business location confirmed by the owner (2026-11-19): Riyadh, Saudi Arabia. No street address is published.
+export const organizationAddress = { "@type": "PostalAddress", addressLocality: "Riyadh", addressRegion: "Riyadh Province", addressCountry: "SA" };
+
 export const servedMarkets = [
   { "@type": "Country", name: "Saudi Arabia" },
   { "@type": "Country", name: "Bahrain" },
@@ -125,6 +129,7 @@ export const organizationSchema = {
   description: defaultDescription,
   email: "hello@dewank.com",
   telephone: "+97339066649",
+  address: organizationAddress,
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+97339066649",
@@ -133,7 +138,7 @@ export const organizationSchema = {
     areaServed: servedMarkets,
   },
   areaServed: servedMarkets,
-  sameAs: [instagramUrl],
+  sameAs: [instagramUrl, linkedinUrl],
 };
 
 export const websiteSchema = {
@@ -177,13 +182,14 @@ export const englishOrganizationSchema = {
   description: englishDescription,
   email: "hello@dewank.com",
   telephone: "+97339066649",
+  address: organizationAddress,
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+97339066649",
     contactType: "sales",
     availableLanguage: ["English", "Arabic"],
   },
-  sameAs: [instagramUrl],
+  sameAs: [instagramUrl, linkedinUrl],
 };
 
 export const englishWebsiteSchema = {

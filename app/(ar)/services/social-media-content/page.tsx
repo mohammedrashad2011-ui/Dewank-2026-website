@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createMetadata, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
 import { Footer, Header } from "../../../components/site-shell";
-import { offerPricing } from "../../offers/offer-pricing";
+import { InlineOfferPrice } from "../../offers/inline-offer-price";
 import "./social-media-content.css";
 import "./content-spacing-fix.css";
 import "./content-guides.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "إدارة السوشيال ميديا وصناعة المحتوى في السعودية | ديوانك",
-  description: "خدمة إدارة السوشيال ميديا وصناعة المحتوى للشركات في السعودية والخليج: استراتيجية، أفكار، تصميم، كابشنات، خطة نشر وتقارير، مع خيار باقة محتوى 30 يومًا للبداية.",
+  title: "إدارة حسابات التواصل الاجتماعي وصناعة المحتوى في السعودية | ديوانك",
+  description: "خدمة إدارة حسابات التواصل الاجتماعي (السوشيال ميديا) وصناعة المحتوى للشركات في السعودية والخليج: استراتيجية، أفكار، تصميم، كابشنات، خطة نشر وتقارير، مع خيار باقة محتوى 30 يومًا للبداية.",
   path: "/services/social-media-content",
   keywords: [
     "إدارة السوشيال ميديا في السعودية",
@@ -31,8 +31,6 @@ const deliverables = [
   ["النشر والتطوير", "تنظيم النشر، مراجعة النتائج، وتطوير الاتجاهات بناءً على التفاعل والاستفسارات والنتائج."],
 ];
 
-const contentPackagePrice = offerPricing["30-day-content-package"].initial.amount.toLocaleString("en-US");
-const instagramUpgradePrice = offerPricing["instagram-14-day-upgrade"].initial.amount.toLocaleString("en-US");
 
 const scopeItems = [
   ["المنصات والنطاق", "نحدد المنصات التي تخدم هدفك فعلًا بدل إدارة كل منصة. ويُحدَّد عددها في عرض النطاق حسب النشاط والجمهور."],
@@ -112,7 +110,7 @@ export default function SocialMediaContentPage() {
 
       <section className="content-offer shell">
         <div><span className="section-label">إدارة شهرية أم بداية محددة؟</span><h2>اختر النطاق على حسب احتياجك<br/><em>لا على عدد البوستات فقط</em></h2></div>
-        <div className="content-offer-card"><strong>باقة محتوى 30 يومًا · {contentPackagePrice} ريالًا</strong><p>إذا كان احتياجك الأساسي أفكارًا وتصميمًا وكابشنات وخطة نشر، ابدأ بالباقة المحددة. وإذا كان لديك حساب قائم يحتاج ترتيبًا فقط، فباقة تطوير الحساب خلال 14 يومًا بسعر {instagramUpgradePrice} ريالًا. أما إذا كنت تحتاج نشرًا مستمرًا ومتابعة وتقارير وإدارة أوسع، فنحدد لك نطاق الإدارة الشهرية بعد مراجعة حسابك. الأسعار المعلنة بالريال السعودي وتظهر بعملة بلدك داخل صفحة كل باقة.</p><Link className="button primary" href="/offers/30-day-content-package">شاهد باقة 30 يومًا <span>←</span></Link><br/><Link href="/offers/instagram-14-day-upgrade">شاهد باقة تطوير الحساب 14 يومًا</Link><br/><Link href="/guides/social-media-management-cost-saudi-arabia">قارن الأسعار والنطاقات</Link></div>
+        <div className="content-offer-card"><strong>باقة محتوى 30 يومًا · <InlineOfferPrice offerKey="30-day-content-package" /></strong><p>إذا كان احتياجك الأساسي أفكارًا وتصميمًا وكابشنات وخطة نشر، ابدأ بالباقة المحددة. وإذا كان لديك حساب قائم يحتاج ترتيبًا فقط، فباقة تطوير الحساب خلال 14 يومًا تبدأ من <InlineOfferPrice offerKey="instagram-14-day-upgrade" />. أما إذا كنت تحتاج نشرًا مستمرًا ومتابعة وتقارير وإدارة أوسع، فنحدد لك نطاق الإدارة الشهرية بعد مراجعة حسابك. وتظهر الأسعار بعملة بلدك تلقائيًا.</p><Link className="button primary" href="/offers/30-day-content-package">شاهد باقة 30 يومًا <span>←</span></Link><br/><Link href="/offers/instagram-14-day-upgrade">شاهد باقة تطوير الحساب 14 يومًا</Link><br/><Link href="/guides/social-media-management-cost-saudi-arabia">قارن الأسعار والنطاقات</Link></div>
       </section>
 
       <section className="content-guides shell" aria-labelledby="content-guides-title">

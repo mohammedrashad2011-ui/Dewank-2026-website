@@ -3,11 +3,10 @@ import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { ArticleShare } from "../../../components/article-share";
 import { createMetadata, organizationId, siteUrl } from "../../../lib/seo";
-import { offerPricing } from "../../offers/offer-pricing";
+import { InlineOfferPrice } from "../../offers/inline-offer-price";
 import "../guides.css";
 import "../whatsapp-family-links.css";
 
-const miniIdentityPrice = offerPricing["mini-visual-identity"].initial.amount.toLocaleString("en-US");
 
 const title = "تكلفة تصميم الهوية البصرية في السعودية: ماذا تشمل؟";
 const description = "دليل عملي لفهم أسعار تصميم الهوية البصرية في السعودية، والفرق بين الشعار والهوية والاستراتيجية، وما الذي يجب أن تستلمه قبل التعاقد.";
@@ -57,7 +56,7 @@ export default function BrandingIdentityCostGuide() {
       <div className="article-layout shell">
         <div className="article-body">
           <h2 id="short-answer">الإجابة المختصرة</h2>
-          <div className="article-answer"><p>كنطاقات تقديرية لتوضيح الفرق في عمق العمل، وليست متوسطًا للسوق: تقع الهوية الأساسية غالبًا بين 3,000 و8,000 ريال، والهوية المتكاملة المبنية على بحث واستراتيجية بين 8,000 و25,000 ريال، وقد تتجاوز المشاريع الكبيرة 25,000 ريال عند تعدد الأسواق والتطبيقات وأصحاب القرار. تصميم شعار منفرد قد يكون أقل، لكنه ليس بديلًا عن بناء هوية. وإذا كان احتياجك بداية بصرية محددة، فلدينا <Link className="article-link" href="/offers/visual-identity">هوية بصرية أساسية</Link> بسعر {miniIdentityPrice} ريالًا سعوديًا.</p></div>
+          <div className="article-answer"><p>كنطاقات تقديرية لتوضيح الفرق في عمق العمل، وليست متوسطًا للسوق: تقع الهوية الأساسية غالبًا بين 3,000 و8,000 ريال، والهوية المتكاملة المبنية على بحث واستراتيجية بين 8,000 و25,000 ريال، وقد تتجاوز المشاريع الكبيرة 25,000 ريال عند تعدد الأسواق والتطبيقات وأصحاب القرار. تصميم شعار منفرد قد يكون أقل، لكنه ليس بديلًا عن بناء هوية. وإذا كان احتياجك بداية بصرية محددة، فلدينا <Link className="article-link" href="/offers/visual-identity">هوية بصرية أساسية</Link> يبدأ سعرها من <InlineOfferPrice offerKey="mini-visual-identity" />.</p></div>
           <h2 id="ranges">نطاقات الأسعار المتوقعة</h2>
           <div className="article-table"><table><thead><tr><th>النطاق</th><th>مناسب لمن؟</th><th>ما تتوقعه واقعيًا</th></tr></thead><tbody>
             <tr><td><strong>1,000–3,000 ريال</strong></td><td>شعار أو تحديث بصري محدود</td><td>مخرجات أساسية وبحث محدود؛ لا تفترض وجود استراتيجية كاملة</td></tr>
@@ -73,7 +72,7 @@ export default function BrandingIdentityCostGuide() {
           <h3>شعار فقط</h3>
           <p>يناسب مشروعًا يملك أساسًا بصريًا آخر ويحتاج علامة تعريف جديدة. لا يمنحك قواعد للألوان والخطوط والتطبيقات، وقد تحتاج لاحقًا إلى بناء النظام حوله.</p>
           <h3>هوية بصرية أساسية</h3>
-          <p>بداية محددة النطاق لمشروع لديه اسم معتمد: شعار أساسي ونسخة مبسطة، لوحة ألوان، خطوط مقترحة، توجه بصري، 3 تطبيقات عملية وملف إرشادي مختصر. سعر <Link className="article-link" href="/offers/visual-identity">باقتنا الأساسية</Link> {miniIdentityPrice} ريالًا سعوديًا، وهي لا تشمل استراتيجية براند ولا اختيار الاسم.</p>
+          <p>بداية محددة النطاق لمشروع لديه اسم معتمد: شعار أساسي ونسخة مبسطة، لوحة ألوان، خطوط مقترحة، توجه بصري، 3 تطبيقات عملية وملف إرشادي مختصر. سعر <Link className="article-link" href="/offers/visual-identity">باقتنا الأساسية</Link> يبدأ من <InlineOfferPrice offerKey="mini-visual-identity" />، وهي لا تشمل استراتيجية براند ولا اختيار الاسم.</p>
           <h3>هوية متكاملة</h3>
           <p>تناسب علامة تحتاج بحثًا وتموضعًا ونظام رسائل ودليل استخدام أوسع. نتفق على نطاقها قبل البدء، وتبدأ من <Link className="article-link" href="/branding">خدمة استراتيجية البراند والهوية</Link>.</p>
           <h2 id="included">ماذا يجب أن تشمل باقة الهوية؟</h2>

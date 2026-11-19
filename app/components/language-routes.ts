@@ -45,6 +45,7 @@ const sharedPaths = new Set([
   "/offers/instagram-14-day-upgrade",
   "/offers/landing-page-package",
   "/offers/visual-identity",
+  "/offers/name-identity",
   "/offers/seo-audit",
   "/offers/small-business-website",
   "/offers/whatsapp-automation-starter",

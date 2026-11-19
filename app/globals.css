@@ -801,3 +801,11 @@ a.button.offer-consultation-cta::after {
   0%, 5% { transform: translate3d(-160%, 0, 0) skewX(-18deg); }
   19%, 100% { transform: translate3d(360%, 0, 0) skewX(-18deg); }
 }
+/* In-text links: the global reset (a{text-decoration:none}) made class-less links inside running text look like
+   plain words. Underline them inside page content only; header, footer and nav keep their own styles, and every
+   link with a class (buttons, cards, chips) keeps its component style. */
+main :is(p, li, td, dd, blockquote, figcaption) > a:not([class]):not(:is(header, footer, nav) a) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .25em;
+}

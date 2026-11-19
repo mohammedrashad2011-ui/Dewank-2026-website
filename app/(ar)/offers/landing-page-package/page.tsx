@@ -4,12 +4,13 @@ import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets, serviceId } from "../../../lib/seo";
 import { LandingOfferPrice, LandingOfferSticky, LandingOfferWhatsApp } from "./localized-landing-offer";
+import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "../landing-offer.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "تصميم صفحة هبوط احترافية | عرض صفحة تبيع خدمتك",
+  title: "تصميم صفحة هبوط (Landing Page) احترافية لإعلاناتك | ديوانك",
   description: "صفحة هبوط احترافية تعرض خدمتك بوضوح، تربط واتساب والنماذج والتحليلات، وتُسلّم خلال 7 إلى 10 أيام. خيار أساسي وخيار كامل مع دومين واستضافة لمدة عام.",
   path: "/offers/landing-page-package",
   keywords: ["تصميم صفحة هبوط", "سعر تصميم لاندنج بيج", "صفحة مبيعات", "تصميم موقع صفحة واحدة", "landing page السعودية"],
@@ -113,6 +114,8 @@ export default function LandingPageOffer() {
         <div className="offer-confidence-grid"><article><b>01</b><span>نسجّل الدومين باسم العميل وبريده الإلكتروني.</span></article><article><b>02</b><span>نجهز الاستضافة ونربط SSL وننشر الصفحة.</span></article><article><b>03</b><span>نسلم بيانات الدخول وتعليمات التجديد بوضوح.</span></article></div>
         <details className="offer-policy"><summary>ما الذي لا يشمله العرض؟</summary><p>لا يشمل متجرًا إلكترونيًا، بوابة دفع، تعدد اللغات، نظام حجز مخصص، كتابة صفحات إضافية، إدارة الإعلانات، أو رسوم تجديد الدومين والاستضافة بعد السنة الأولى.</p></details>
       </section>
+
+      <OfferClientProof review="bithan" locale="ar" />
 
       <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن تبدأ</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
