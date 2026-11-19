@@ -12,8 +12,8 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "SEO and AEO services for search and AI answers",
-  "Technical SEO, content structure and schema for search engines and AI answer systems. Clear, measurable work for businesses worldwide.",
+  "AI SEO, GEO and AEO Services for Google and AI Answers",
+  "Generative engine optimization (GEO), answer engine optimization (AEO) and technical SEO services for businesses in Saudi Arabia, the Gulf and worldwide: content structure, schema and measurement for Google and AI answers.",
   "/en/seo-geo-aeo",
 );
 
@@ -56,6 +56,9 @@ const fitFor = [
 ];
 
 const faqs = [
+  { question: "What is generative engine optimization (GEO)?", answer: "GEO is the work of making your content easy for generative AI systems, such as ChatGPT, Gemini and Google AI Overviews, to understand, trust and reuse in their answers. It builds on SEO: clear pages, direct answers, structured data, credible proof and consistent information about your business across the web." },
+  { question: "What is answer engine optimization (AEO)?", answer: "AEO structures your pages so they answer specific questions directly, in a form that search features and AI assistants can extract: short answer blocks, clear headings that match real questions, FAQ sections and schema markup. GEO and AEO overlap, and both depend on a technically sound site." },
+  { question: "Do you offer AEO and GEO services in Saudi Arabia?", answer: "Yes. Dewank is based in Riyadh and works with businesses in Saudi Arabia, the Gulf and worldwide, in Arabic and English. For Saudi audiences we build Arabic pages and answers for the local market, not only translations." },
   { question: "How long does SEO take to show results?", answer: "It depends on the strength of the site, the competition and the problems found. Some fixes show early signals. Steady growth needs continued implementation, time and measurement." },
   { question: "Does AEO guarantee that AI systems will cite my site?", answer: "No provider can guarantee citations or placement in AI answers. We can improve clarity, structure, credibility and structured data, which raise the chances that your content is understood and used." },
   { question: "Do we need new content?", answer: "Not always. We start by improving the existing pages, then decide which gaps deserve new pages or articles, based on demand and commercial intent." },
@@ -83,7 +86,7 @@ export default function SeoAeoPage() {
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "Service", "@id": "https://dewank.com/en/seo-geo-aeo#service", name: "SEO, GEO and AEO services", alternateName: "Search engine optimisation and answer engine optimisation", description: "SEO, GEO and AEO services that improve visibility in search engines and answer systems through technical SEO, content structure, schema markup and measurement.", serviceType: ["SEO", "GEO", "AEO", "Technical SEO", "Content SEO", "Schema markup"], provider: { "@id": "https://dewank.com/#organization" }, areaServed: "Worldwide", url: "https://dewank.com/en/seo-geo-aeo", inLanguage: "en" },
+      { "@type": "Service", "@id": "https://dewank.com/en/seo-geo-aeo#service", name: "AI SEO, GEO and AEO services", alternateName: ["Generative engine optimization services", "Answer engine optimization services", "Search engine optimisation"], description: "SEO, GEO and AEO services that improve visibility in search engines and answer systems through technical SEO, content structure, schema markup and measurement.", serviceType: ["AI SEO", "Generative Engine Optimization", "Answer Engine Optimization", "SEO", "Technical SEO", "Content SEO", "Schema markup"], provider: { "@id": "https://dewank.com/#organization" }, areaServed: "Worldwide", url: "https://dewank.com/en/seo-geo-aeo", inLanguage: "en" },
       { "@type": "FAQPage", "@id": "https://dewank.com/en/seo-geo-aeo#faq", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://dewank.com/en" }, { "@type": "ListItem", position: 2, name: "Services", item: "https://dewank.com/en/services" }, { "@type": "ListItem", position: 3, name: "SEO, GEO and AEO", item: "https://dewank.com/en/seo-geo-aeo" }] },
     ],
@@ -97,8 +100,8 @@ export default function SeoAeoPage() {
       <section className="sa-hero shell">
         <div className="sa-hero-copy">
           <div className="sa-kicker"><span>SEO</span><span>GEO</span><span>AEO</span></div>
-          <h1>Not chasing rankings alone<br /><em>Building visibility that is understood and chosen</em></h1>
-          <p>We improve how your website appears in Google and how clearly it answers questions for AI and answer engines, through technical SEO, structured content, schema and measurement that links visibility to enquiries.</p>
+          <h1>AI SEO, GEO and AEO services<br /><em>Be found in Google and in AI answers</em></h1>
+          <p>Generative engine optimization (GEO) and answer engine optimization (AEO), built on technical SEO. We improve how your website appears in Google and how clearly it answers questions for AI and answer engines, through technical SEO, structured content, schema and measurement that links visibility to enquiries.</p>
           <div className="sa-actions"><Link className="button primary" href="/en/contact">Request a website review <span>→</span></Link><a href="#process">See our approach</a></div>
         </div>
         <div className="sa-search-board" aria-label="Illustration of search visibility and answer signals">
@@ -172,7 +175,7 @@ export default function SeoAeoPage() {
             </Link>
           ))}
         </div>
-        <Link className="sa-audit-card" href="/en/contact">
+        <Link className="sa-audit-card" href="/en/offers/seo-audit">
           <small>For a defined starting point</small>
           <strong>SEO and AEO audit</strong>
           <p>A review of indexing, speed, content and conversion, with a ranked improvement plan.</p>

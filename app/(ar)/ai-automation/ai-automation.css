@@ -15,3 +15,13 @@
 .ai-answer{direction:rtl;text-align:right;margin-bottom:8px;padding:34px 40px;border:1px solid rgba(49,85,255,.16);border-radius:28px;background:linear-gradient(135deg,rgba(49,85,255,.06),#fff 55%)}.ai-answer h2{font-size:clamp(24px,2.6vw,34px);line-height:1.5;letter-spacing:-.02em;margin:0 0 14px}.ai-answer p{max-width:860px;font-size:16px;line-height:2;color:var(--muted);margin:0 0 10px}.ai-answer p strong{color:var(--ink)}.ai-answer p:last-child{margin-bottom:0}.ai-link{color:var(--blue);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}.ai-link:hover{text-decoration-thickness:2px}
 @media(max-width:720px){.ai-answer{padding:24px 20px;border-radius:22px}.ai-answer h2{font-size:24px}}
 @media(max-width:480px){.ai-hero-copy h1{font-size:30px}.ai-hero-copy h1 em{margin-top:.42em}.ai-hero-map{min-height:310px}.ai-node-a{right:4%}.ai-node-b{right:4%}.ai-node-c{left:4%}.ai-node-d{left:4%}.ai-node-main{width:70px;height:70px}.ai-hero-map i{height:145px}}
+/* Automation by department: a compact table, stacked rows on phones. */
+.ai-departments{margin-block:48px}
+.ai-dept-wrap{border:1px solid var(--line);border-radius:24px;background:#fff;overflow:hidden}
+.ai-dept-table{width:100%;border-collapse:collapse;direction:rtl}
+.ai-dept-table th,.ai-dept-table td{padding:18px 20px;text-align:right;vertical-align:top;border-bottom:1px solid var(--line);font-size:15px;line-height:1.9}
+.ai-dept-table thead th{background:#f3f1ec;font-size:13px;font-weight:800}
+.ai-dept-table tbody th{font-size:16px;font-weight:800;white-space:nowrap}
+.ai-dept-table td{color:var(--muted)}
+.ai-dept-table tbody tr:last-child>*{border-bottom:0}
+@media (max-width:760px){.ai-dept-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.ai-dept-table,.ai-dept-table tbody,.ai-dept-table tr,.ai-dept-table th,.ai-dept-table td{display:block}.ai-dept-table tr{padding:16px 18px;border-bottom:1px solid var(--line)}.ai-dept-table tbody tr:last-child{border-bottom:0}.ai-dept-table th,.ai-dept-table td{padding:2px 0;border:0}.ai-dept-table tbody th{white-space:normal;margin-bottom:6px}}
