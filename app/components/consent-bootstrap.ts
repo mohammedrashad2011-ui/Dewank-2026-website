@@ -22,7 +22,7 @@ const copy = {
     privacy: "سياسة الخصوصية",
     privacyHref: "/privacy",
     dialogTitle: "تفضيلات ملفات تعريف الارتباط",
-    dialogIntro: "قياس الاستخدام مفعّل افتراضيًا لفهم أداء الموقع، والقياس الإعلاني معطّل حتى توافق عليه. الموقع يعمل كاملًا دون هذه الأدوات. يُحفظ اختيارك في متصفحك فقط، ولا يحتوي على بيانات شخصية.",
+    dialogIntro: "قياس الاستخدام والقياس الإعلاني مفعّلان افتراضيًا لفهم أداء الموقع وقياس الإعلانات. الموقع يعمل كاملًا دون هذه الأدوات، ويمكنك إيقاف أيٍّ منهما هنا في أي وقت. يُحفظ اختيارك في متصفحك فقط، ولا يحتوي على بيانات شخصية.",
     optionsLegend: "اختر ما تسمح به",
     analyticsLabel: "قياس الاستخدام",
     analyticsDesc: "Google Tag Manager وGoogle Analytics 4 لمعرفة الصفحات المستخدمة وأداء الموقع. قد تضع ملفات تعريف ارتباط مثل _ga، وتُرسل معلومات الزيارة إلى Google.",
@@ -38,7 +38,7 @@ const copy = {
     privacy: "Privacy notice",
     privacyHref: "/en/privacy",
     dialogTitle: "Cookie preferences",
-    dialogIntro: "Usage measurement is on by default to understand how the site performs. Advertising measurement stays off until you turn it on. The site works fully without these tools. Your choice is stored in your browser only and holds no personal data.",
+    dialogIntro: "Usage measurement and advertising measurement are on by default, to understand how the site performs and to measure ads. The site works fully without these tools, and you can turn either one off here at any time. Your choice is stored in your browser only and holds no personal data.",
     optionsLegend: "Choose what you allow",
     analyticsLabel: "Usage measurement",
     analyticsDesc: "Google Tag Manager and Google Analytics 4, to see which pages are used and how the site performs. They may set cookies such as _ga and send visit information to Google.",
@@ -52,8 +52,9 @@ const copy = {
 
 // Inline script, rendered in <body> before any other content (see RootBodyStart). It runs while the document is parsing,
 // not after the app's JavaScript. Rules:
-//   - No banner is shown. With no stored choice, usage measurement (GTM, GA4) is on and advertising measurement (Meta
-//     Pixel, Google Ads) is off. A stored choice replaces both defaults, including a stored rejection.
+//   - No banner is shown. With no stored choice, usage measurement (GTM, GA4) and advertising measurement (Meta Pixel,
+//     Google Ads) are both on (owner decision, 22 November 2026: advertising measurement was off before, so Google Ads
+//     could not attribute conversions). A stored choice replaces both defaults, including a stored rejection.
 //   - Google Consent Mode defaults follow the same values. Nothing is requested from a vendor for a category that is off.
 //     No noscript fallback exists (see RootBodyStart): a visitor without JavaScript sends nothing.
 //   - Either category is changed or withdrawn from the preferences dialog, opened by the footer "Cookie settings" link.
@@ -88,8 +89,9 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     var raw=window.localStorage.getItem(KEY);
     if(raw){ var parsed=JSON.parse(raw); if(parsed&&parsed.v===1){ choice={analytics:!!parsed.analytics,advertising:!!parsed.advertising}; } }
   }catch(e){ choice=null; }
-  // No stored choice: usage measurement on, advertising measurement off. A stored choice replaces both defaults.
-  var DEFAULTS={analytics:true,advertising:false};
+  // No stored choice: usage measurement on, advertising measurement on. A stored choice replaces both defaults.
+  // To go back to advertising off by default, set advertising to false here (nothing else needs to change).
+  var DEFAULTS={analytics:true,advertising:true};
   var state={analytics:choice?choice.analytics:DEFAULTS.analytics,advertising:choice?choice.advertising:DEFAULTS.advertising,gtm:false,ga:false,fb:false};
   function gtag(){ dl.push(arguments); }
   function consentArgs(c){
