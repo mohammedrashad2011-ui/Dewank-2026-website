@@ -73,7 +73,12 @@ function runBootstrap({ host, vendorsAllowed, stored }) {
   // The bootstrap is an inline script; run it with the stubs as its globals.
   const run = new Function(...Object.keys(context), script);
   run(...Object.values(context));
-  return { gtmRequested: scriptSources.some((s) => s.includes("googletagmanager.com/gtm.js")) };
+  const consentDefault = [...window.dataLayer].find((item) => item && item[0] === "consent" && item[1] === "default");
+  return {
+    gtmRequested: scriptSources.some((s) => s.includes("googletagmanager.com/gtm.js")),
+    metaRequested: scriptSources.some((s) => s.includes("connect.facebook.net")),
+    consentDefault: consentDefault ? { ...consentDefault[2] } : null,
+  };
 }
 
 const allowedHosts = ["dewank.com", "www.dewank.com"];
@@ -116,5 +121,44 @@ test("a rejected choice blocks vendors on an allowed host", () => {
 });
 
 test("a development or preview build (vendorsAllowed false) loads nothing, even on an allowed host", () => {
-  assert.equal(runBootstrap({ host: "dewank.com", vendorsAllowed: false }).gtmRequested, false);
+  const result = runBootstrap({ host: "dewank.com", vendorsAllowed: false });
+  assert.equal(result.gtmRequested, false);
+  assert.equal(result.metaRequested, false);
+});
+
+// Owner decision, 22 November 2026: with no stored choice, usage and advertising measurement are both on.
+test("no stored choice on an allowed host: GTM and the Meta Pixel load, and Google consent starts granted", () => {
+  for (const host of allowedHosts) {
+    const result = runBootstrap({ host, vendorsAllowed: true });
+    assert.equal(result.gtmRequested, true, `GTM on ${host}`);
+    assert.equal(result.metaRequested, true, `Meta Pixel on ${host}`);
+    assert.equal(result.consentDefault.analytics_storage, "granted");
+    assert.equal(result.consentDefault.ad_storage, "granted");
+    assert.equal(result.consentDefault.ad_user_data, "granted");
+    assert.equal(result.consentDefault.ad_personalization, "granted");
+  }
+});
+
+test("a stored analytics-only choice keeps advertising off: no Meta Pixel and ad consent denied", () => {
+  const result = runBootstrap({ host: "dewank.com", vendorsAllowed: true, stored: { v: 1, analytics: true, advertising: false } });
+  assert.equal(result.gtmRequested, true);
+  assert.equal(result.metaRequested, false);
+  assert.equal(result.consentDefault.analytics_storage, "granted");
+  assert.equal(result.consentDefault.ad_storage, "denied");
+  assert.equal(result.consentDefault.ad_user_data, "denied");
+  assert.equal(result.consentDefault.ad_personalization, "denied");
+});
+
+test("a stored Reject all keeps both categories off, whatever the defaults are", () => {
+  const result = runBootstrap({ host: "dewank.com", vendorsAllowed: true, stored: { v: 1, analytics: false, advertising: false } });
+  assert.equal(result.gtmRequested, false);
+  assert.equal(result.metaRequested, false);
+  assert.equal(result.consentDefault.analytics_storage, "denied");
+  assert.equal(result.consentDefault.ad_storage, "denied");
+});
+
+test("other hosts never load the Meta Pixel, with or without a stored choice", () => {
+  for (const host of blockedHosts) {
+    assert.equal(runBootstrap({ host, vendorsAllowed: true }).metaRequested, false, `Meta Pixel requested on ${host}`);
+  }
 });

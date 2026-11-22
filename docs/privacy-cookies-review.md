@@ -7,6 +7,14 @@ data-protection law. Only qualified counsel can make that determination.
 - Arabic draft: `app/(ar)/privacy/page.tsx`, served at `/privacy`.
 - English draft: `app/(en)/en/privacy/page.tsx`, served at `/en/privacy`.
 
+> **Update, 22 November 2026 (owner decision): advertising measurement is on by default.** This supersedes the banner and
+> "denied by default" lines below for a visitor with no stored choice. With no stored choice, usage measurement and
+> advertising measurement (Google Ads, Meta Pixel; Consent Mode `ad_storage`, `ad_user_data`, `ad_personalization`) are all
+> on, for every country. The reason: no banner is shown, so almost no visitor ever opted in, and Google Ads could not
+> attribute conversions to ad clicks. A stored choice, including Reject all, still replaces the defaults. The setting is
+> the `DEFAULTS` line in `app/components/consent-bootstrap.ts`. Both notices say so. Counsel items 2, 3 and 6 (applicable
+> rules, lawful basis, remarketing) now matter more, especially for visitors in the EEA, the UK and other opt-in regimes.
+
 ## What the code does
 
 ### Consent

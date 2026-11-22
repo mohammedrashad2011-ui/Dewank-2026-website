@@ -56,8 +56,9 @@ function PrivacyPage() {
       <p>
         We use Google Analytics and Google Tag Manager to understand website usage. Usage measurement is enabled
         by default for new visitors unless they have previously disabled it in their privacy settings.
-        Advertising measurement tools, including the Meta Pixel and Google Ads services, operate according
-        to the applicable preferences.
+        Advertising measurement is also enabled by default for new visitors. It includes the Meta Pixel and
+        Google Ads services, which measure ads and conversions, and you can disable it at any time in your
+        privacy settings.
       </p>
       <p>
         These services may use cookies or similar technologies, and Google and Meta may receive technical information
