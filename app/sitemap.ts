@@ -29,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/offers/landing-page-package", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/seo-audit", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/brand-naming", priority: 0.85, changeFrequency: "weekly" as const },
+    { path: "/offers/company-profile", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/whatsapp-automation-starter", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/visual-identity", priority: 0.85, changeFrequency: "weekly" as const },
     { path: "/offers/name-identity", priority: 0.85, changeFrequency: "weekly" as const },
