@@ -10,7 +10,7 @@ const videoKey: OfferPriceKey = "video-edit";
 
 // Where a card hook is a slogan rather than a deliverable, the table states the deliverable (taken from the card text).
 const getOverride: Record<string, { ar: string; en: string }> = {
-  "brand-naming": { ar: "10–15 اسمًا مدروسًا، فحص مبدئي وأفضل 3 ترشيحات", en: "10–15 considered names, preliminary checks and a top three" },
+  "brand-naming": { ar: "10–15 اسمًا مدروسًا، فحص مبدئي، أفضل 3 ترشيحات و3 شعارات لفظية", en: "10–15 considered names, preliminary checks, a top three and 3 taglines" },
 };
 
 export const hubRows = [

@@ -4,7 +4,7 @@ import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { BrandNamingInlinePrice, BrandNamingOfferPrice, BrandNamingStickyCta, BrandNamingWhatsApp } from "./localized-brand-naming-offer";
 import { NameToIdentity } from "./name-to-identity";
-import { NamingReviews, NamingRisk, NamingSectors, extraFaqs } from "./naming-extras";
+import { NamingCaseFile, NamingReviews, NamingRisk, NamingSectors, extraFaqs } from "./naming-extras";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./brand-naming-offer.css";
@@ -205,9 +205,7 @@ export default function BrandNamingOfferPage() {
           <p>اختار العميل اسم BITHAN بعد موجز استراتيجي وقائمة مختصرة وجولة تطوير وفحص مبدئي للدومين والتشابه، وهو فحص ليس تصريحًا قانونيًا. والهوية البصرية التي تلت الاسم خارج نطاق هذه الباقة.</p>
         </div>
         <div>
-          <ul className="brand-naming-case-steps" aria-label="مراحل مشروع التسمية">
-            <li>موجز استراتيجي</li><li>توليد وتصفية</li><li>قائمة مختصرة</li><li>تطوير مع العميل</li><li>فحص مبدئي</li><li>اختيار العميل</li>
-          </ul>
+          <NamingCaseFile locale="ar" />
           <Link className="brand-naming-case-link" href="/work/bithan">اطّلع على دراسة الحالة كاملة ↗</Link>
         </div>
       </section>

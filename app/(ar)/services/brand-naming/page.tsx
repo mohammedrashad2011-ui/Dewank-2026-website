@@ -26,11 +26,12 @@ const deliverables = [
   ["بحث مبدئي عن التشابه", "بحث أولي عن العلامات والأسماء المشابهة لتقليل احتمالات التعارض، من دون ادعاء ضمان التسجيل الرسمي."],
   ["الدومين وحسابات التواصل", "التحقق وقت البحث من توفر النطاقات وأسماء المستخدمين ذات الصلة، مع توضيح البدائل العملية."],
   ["أفضل 3 ترشيحات", "مصفوفة قرار مختصرة تقارن أقوى الخيارات حسب التميز والوضوح والمرونة وقابلية الاستخدام."],
+  ["3 شعارات لفظية", "3 شعارات قصيرة (Tagline) للاسم الذي تختاره، بالعربية أو الإنجليزية، مع سبب كل شعار."],
   ["جولة تطوير واحدة", "تطوير الاتجاهات بناءً على ملاحظات محددة إذا لم يحسم العميل اختياره من الجولة الأولى."],
 ];
 
 const faqs = [
-  ["كم سعر خدمة اقتراح الأسماء التجارية؟", "تبدأ الباقة الجاهزة من 490 ريال سعودي وتشمل 10–15 اسمًا مع المعاني والفحص المبدئي والدومين وأفضل الترشيحات والتوجّه الأولي للعلامة. يتغير السعر عند تعدد الأسواق أو اللغات أو الحاجة إلى بحث أوسع."],
+  ["كم سعر خدمة اقتراح الأسماء التجارية؟", "تبدأ الباقة الجاهزة من 490 ريال سعودي وتشمل 10–15 اسمًا مع المعاني والفحص المبدئي والدومين وأفضل الترشيحات و3 شعارات لفظية والتوجّه الأولي للعلامة. يتغير السعر عند تعدد الأسواق أو اللغات أو الحاجة إلى بحث أوسع."],
   ["هل تضمنون قبول الاسم أو تسجيل العلامة؟", "لا. نجري بحثًا مبدئيًا لتقليل احتمالات التعارض أو الرفض، لكن القبول النهائي من اختصاص الجهة الرسمية ولا يمكن ضمانه قبل تقديم الطلب وفحصه رسميًا."],
   ["هل تشمل الخدمة حجز الدومين أو تسجيل العلامة؟", "تشمل التحقق من التوفر وقت البحث. شراء الدومين وإجراءات تسجيل العلامة والرسوم الرسمية ليست ضمن السعر الأساسي إلا إذا ذُكرت صراحة في عرض مستقل."],
   ["ما الفرق بين التسمية والهوية البصرية؟", "التسمية تحدد الاسم والتوجه الأولي للعلامة. تصميم الشعار والهوية البصرية الكاملة خدمة منفصلة بعد اعتماد الاسم، ولا يدخل في السعر الأساسي للتسمية."],
@@ -40,7 +41,7 @@ const faqs = [
 export default function BrandNamingPage() {
   const url = `${siteUrl}/services/brand-naming`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Service", "@id": `${url}#service`, name: title, description, serviceType: ["Brand Naming", "Preliminary Trademark Search", "Domain Availability Research"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", priceCurrency: "SAR", price: "490", description: "سعر الباقة الجاهزة الأساسية" }, url },
+    { "@type": "Service", "@id": `${url}#service`, name: title, description, serviceType: ["Brand Naming", "Tagline Writing", "Preliminary Trademark Search", "Domain Availability Research"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", priceCurrency: "SAR", price: "490", description: "سعر الباقة الجاهزة الأساسية" }, url },
     { "@type": "FAQPage", mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "الخدمات", item: `${siteUrl}/services` }, { "@type": "ListItem", position: 3, name: "تسمية العلامة التجارية", item: url }] },
   ] };
@@ -53,7 +54,7 @@ export default function BrandNamingPage() {
       <h1>اسم علامتك ليس كلمة جميلة<em>هو أصل تجاري يجب أن يتحمل النمو</em></h1>
       <p>نطوّر أسماء علامات تجارية مبنية على فهم النشاط والجمهور والسوق، ثم نفحصها لغويًا وثقافيًا ونبحث مبدئيًا عن التشابه وتوفر الدومين قبل أن تستثمر في الهوية والإطلاق.</p>
       <div className="brand-hero-actions"><NamingLocalizedOfferLink /><Link className="button primary" href="/guides/how-to-choose-brand-name-saudi-arabia">اقرأ دليل اختيار الاسم <span>←</span></Link></div>
-    </div><div className="brand-diagnosis-copy naming-service-package"><span className="section-label">الباقة الجاهزة</span><h2>تبدأ من<em><NamingLocalizedPrice /></em></h2><p>يشمل السعر الأساسي التسمية والفحص المبدئي والتوجّه الأولي للعلامة. يتغير السعر النهائي إذا توسع نطاق الأسواق أو اللغات.</p></div></section>
+    </div><div className="brand-diagnosis-copy naming-service-package"><span className="section-label">الباقة الجاهزة</span><h2>تبدأ من<em><NamingLocalizedPrice /></em></h2><p>يشمل السعر الأساسي التسمية والفحص المبدئي و3 شعارات لفظية والتوجّه الأولي للعلامة. يتغير السعر النهائي إذا توسع نطاق الأسواق أو اللغات.</p></div></section>
 
     <section className="shell brand-diagnosis"><div><h2>الاسم الضعيف<br/><em>تكلفته تظهر لاحقًا</em></h2></div><div className="brand-diagnosis-copy"><p>اسم يصعب نطقه، أو يشبه منافسًا، أو لا يملك نطاقًا مناسبًا قد يستهلك ميزانية الهوية والتسويق ثم يجبرك على التغيير. لذلك نعامل التسمية كقرار بحث واستراتيجية، لا جلسة عصف ذهني فقط.</p><div className="brand-symptoms"><p>اسم عام يصعب امتلاكه</p><p>تشابه يربك العميل</p><p>معنى سلبي في سوق آخر</p><p>دومين وحسابات غير متاحة</p></div></div></section>
 

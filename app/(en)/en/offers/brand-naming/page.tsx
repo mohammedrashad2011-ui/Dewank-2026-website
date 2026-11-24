@@ -6,7 +6,7 @@ import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
 import { NameToIdentity } from "../../../../(ar)/offers/brand-naming/name-to-identity";
 import { StickyOfferBar } from "../../../../(ar)/offers/brand-naming/sticky-offer-bar";
-import { NamingReviews, NamingRisk, NamingSectors, extraFaqs } from "../../../../(ar)/offers/brand-naming/naming-extras";
+import { NamingCaseFile, NamingReviews, NamingRisk, NamingSectors, extraFaqs } from "../../../../(ar)/offers/brand-naming/naming-extras";
 // The Arabic brand naming offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -17,8 +17,8 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Brand naming agency offer: 10–15 names and a direction",
-  "Brand naming with 10–15 considered names, linguistic and cultural checks, similarity and domain research, a top three and a brand direction.",
+  "Brand Naming Services: 10–15 Names and 3 Taglines",
+  "Brand naming services in English and Arabic: 10–15 researched names, a top three, 3 taglines, and similarity, domain and social handle checks.",
   "/en/offers/brand-naming",
 );
 
@@ -126,22 +126,6 @@ export default function BrandNamingOfferPage() {
           </ul>
         </div>
 
-        <div className="bn2-video">
-          <figure className="bn2-video-frame">
-            <video
-              controls
-              preload="none"
-              playsInline
-              lang="ar"
-              poster="/videos/brand-naming-web-poster.webp"
-              width={1280}
-              height={720}
-              aria-label="Video in Arabic: an overview of the brand naming service"
-            >
-              <source src="/videos/brand-naming-web-1280.mp4" type="video/mp4" />
-            </video>
-          </figure>
-        </div>
         <figure className="bn2-deck" aria-label="An illustrative example of the short list">
           <figcaption className="bn2-deck-head"><span>The short list</span><small>Illustrative example</small></figcaption>
           <div className="bn2-deck-brief"><small>Project brief</small><p>Specialty coffee shop in Riyadh · young audience · planning more branches</p></div>
@@ -205,9 +189,7 @@ export default function BrandNamingOfferPage() {
           <p>The client chose the name BITHAN after a strategic brief, a short list, a development round, and a preliminary domain and similarity check. That check is not a legal clearance. The visual identity that followed the name is outside the scope of this package.</p>
         </div>
         <div>
-          <ul className="brand-naming-case-steps" aria-label="Stages of the naming project">
-            <li>Strategic brief</li><li>Generation and filtering</li><li>Short list</li><li>Development with the client</li><li>Preliminary check</li><li>Client decision</li>
-          </ul>
+          <NamingCaseFile locale="en" />
           <Link className="brand-naming-case-link" href="/en/work/bithan">Read the full case study ↗</Link>
         </div>
       </section>

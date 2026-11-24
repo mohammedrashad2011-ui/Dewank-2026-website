@@ -24,11 +24,11 @@ const copy = {
       title: "أسماء تناسب نشاطك",
       lead: "نبني الاسم حسب نشاطك وسوقك، وهذه أمثلة على ما نراعيه في كل نشاط.",
       items: [
-        ["اسم مطعم أو كافيه", "اسم سهل التذكر يصلح للافتة وحسابات التواصل ويُنطق بسهولة."],
+        ["اسم محل أو مطعم أو كافيه", "اسم محل يجذب الزبائن: سهل التذكر، ويصلح للافتة وحسابات التواصل، ويُنطق بسهولة."],
         ["اسم متجر إلكتروني", "اسم قصير يُكتب بالعربية والإنجليزية ويتوفر له دومين مناسب."],
-        ["اسم شركة مقاولات أو خدمات", "اسم يعطي ثقة ويصلح للتسجيل والمراسلات الرسمية."],
+        ["اسم شركة أو مؤسسة مقاولات وخدمات", "اسم مؤسسة مميز يعطي ثقة ويناسب العقود والمراسلات الرسمية."],
         ["اسم عيادة أو صالون", "اسم هادئ ومريح، بعيد عن التشابه مع الأسماء الشائعة في مدينتك."],
-        ["اسم شركة ناشئة أو تقنية", "اسم قابل للتوسع في أكثر من سوق ولغة دون أن يفقد معناه."],
+        ["اسم شركة ناشئة أو تقنية", "اسم تجاري مبتكر قابل للتوسع في أكثر من سوق ولغة دون أن يفقد معناه."],
         ["اسم علامة أزياء أو مجوهرات", "اسم يحمل طابعًا راقيًا ويصلح للتغليف والمنتج."],
       ] as const,
       guide: "اقرأ دليل اختيار الاسم التجاري",
@@ -143,6 +143,46 @@ export function NamingReviews({ locale }: { locale: Locale }) {
   );
 }
 
+// Facts published in the BITHAN case study only: the brief criteria, the sample shortlists, the checks that were run and
+// the client's choice. No meaning, tagline or check result is added here.
+const caseFile = {
+  ar: {
+    head: "ملف تسمية من مشروع فعلي", tag: "BITHAN",
+    rows: [
+      ["الموجز", "دار مجوهرات راقية في قطر. المطلوب فخامة هادئة، وسهولة بالعربية والإنجليزية، من دون كلمات مباشرة مثل Gold أو Diamond."],
+      ["الاتجاهات", "4 مساحات تسمية قبل توليد الأسماء."],
+      ["من القائمة الأولى", "TAFAROD · MAKNOUNAH · KUNNH · NAFAYS"],
+      ["من جولة التطوير", "ARSINA · HAMSINA · ORSINA · AURSINA"],
+      ["الفحص المبدئي", "الدومين والحضور الرقمي والتعارضات."],
+    ],
+    result: "اختيار العميل",
+  },
+  en: {
+    head: "A naming file from a real project", tag: "BITHAN",
+    rows: [
+      ["Brief", "A fine jewellery house in Qatar. Quiet luxury, easy in Arabic and English, without direct words such as Gold or Diamond."],
+      ["Directions", "4 naming territories before any names were generated."],
+      ["From the first short list", "TAFAROD · MAKNOUNAH · KUNNH · NAFAYS"],
+      ["From the development round", "ARSINA · HAMSINA · ORSINA · AURSINA"],
+      ["Preliminary checks", "Domain, online presence and conflicts."],
+    ],
+    result: "The client's choice",
+  },
+} as const;
+
+export function NamingCaseFile({ locale }: { locale: Locale }) {
+  const t = caseFile[locale];
+  return (
+    <div className="bn3-file">
+      <p className="bn3-file-head"><span>{t.head}</span></p>
+      <dl>
+        {t.rows.map(([label, text]) => <div key={label}><dt>{label}</dt><dd>{/^[A-Z ·]+$/.test(text) ? <bdi dir="ltr" lang="en">{text}</bdi> : text}</dd></div>)}
+      </dl>
+      <p className="bn3-file-result"><small>{t.result}</small><b dir="ltr" lang="en">{t.tag}</b></p>
+    </div>
+  );
+}
+
 export function NamingSectors({ locale }: { locale: Locale }) {
   const t = copy[locale].sectors;
   return (
@@ -162,10 +202,15 @@ export function NamingSectors({ locale }: { locale: Locale }) {
 // Extra questions, appended to the existing FAQ list on each page (and so to its FAQPage schema).
 export const extraFaqs = {
   ar: [
+    ["ما الفرق بينكم وبين مولدات الأسماء مثل Namelix؟", "المولد يعطيك قائمة كبيرة بسرعة، ويبقى عليك أنت أن تختار وتفحص. هنا تستلم 10–15 اسمًا مبنيًا على نشاطك وجمهورك مع سبب كل اسم، وأفضل 3 ترشيحات بعد فحص مبدئي للمعنى والنطق والتشابه والدومين وحسابات التواصل. إذا كنت تريد أفكارًا أولية فقط، فقد يكفيك المولد."],
+    ["هل تقترحون أسماء شركات جديدة ومؤسسات ومحلات؟", "نعم. نقترح أسماء شركات جديدة ومؤسسات ومحلات ومتاجر إلكترونية بحسب نشاطك وسوقك. نبحث عن اسم تجاري يلفت الانتباه وسهل النطق في الوقت نفسه، لأن الاسم الغريب وحده لا يكفي."],
     ["هل أحصل على شعار لفظي (Slogan) مع الاسم؟", "نعم. تشمل الباقة 3 شعارات لفظية قصيرة للاسم الذي تختاره، بالعربية أو الإنجليزية، مع سبب كل شعار."],
     ["هل الأفضل أن أطلب الاسم فقط أم الاسم والهوية؟", "اطلب الاسم فقط إذا كنت ما زلت تحسم اسم المشروع. وإذا كنت تعرف أنك ستحتاج شعارًا وهوية بصرية بعده، فباقة الاسم والهوية معًا أقل سعرًا من طلب كل واحدة منفصلة."],
   ],
   en: [
+    ["How is this different from a business name generator?", "A generator gives you a long list quickly, and choosing and checking is left to you. Here you receive 10–15 names built around your business and audience, each with its reasoning, and a top three after preliminary checks of meaning, pronunciation, similarity, domain and social handles. If you only need early ideas, a generator may be enough."],
+    ["Can you name my business for me?", "Yes. Send your business type, market and audience, and we research and develop the names. You receive 10–15 names and our top three, and the final choice is yours."],
+    ["Do you create Arabic business names?", "Yes. We develop Arabic business names, English names, and names that work in both languages, with a first review of meaning and pronunciation in each."],
     ["Do I get a tagline with the name?", "Yes. The package includes 3 short taglines for the name you choose, in Arabic or English, with the reason for each."],
     ["Should I order the name only, or the name and the identity?", "Order the name only if you are still deciding the name of the project. If you know you will need a logo and visual identity after it, the name and identity package costs less than ordering each one separately."],
   ],
