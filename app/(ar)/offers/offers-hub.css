@@ -228,3 +228,22 @@
 
 /* The hub's hero headline: the desktop line height is too tight for stacked Arabic lines. */
 .oh[dir="rtl"] .oh-hero h1 { line-height: 1.3; }
+
+/* ---------- Client reviews (naming service) ---------- */
+.oh-proof { padding-block: 34px 30px; }
+.oh-proof h2 { font-size: clamp(22px, 5vw, 32px); font-weight: 800; line-height: 1.5; }
+.oh-proof > div { display: grid; gap: 12px; margin-top: 12px; }
+.oh-proof figure { display: grid; gap: 8px; margin: 0; padding: 18px 20px; border: 1px solid var(--oh-line); border-inline-start: 4px solid var(--oh-gold); border-radius: 18px; background: var(--oh-paper); }
+.oh-proof blockquote { margin: 0; color: var(--oh-navy); font-size: 16px; font-weight: 600; line-height: 1.8; }
+.oh-proof figcaption { color: var(--oh-muted); font-size: 13px; font-weight: 700; }
+@media (min-width: 720px) { .oh-proof > div { grid-template-columns: 1fr 1fr; } }
+
+/* Phones: the price table becomes a compact list (name and price on one line). The cards above carry the details. */
+@media (max-width: 619px) {
+  .oh-table tr { display: grid; grid-template-columns: 1fr auto; gap: 0 12px; align-items: baseline; padding: 10px 14px; }
+  .oh-table tbody th { margin: 0; font-size: 14.5px; }
+  .oh-table .oh-table-get { display: none; }
+  .oh-table td:last-child { grid-column: 2; grid-row: 1; white-space: nowrap; }
+  .oh-table td:last-child::before { content: none !important; }
+  .oh-table td[data-label]:not(:last-child) { grid-column: 1 / -1; font-size: 13px; }
+}

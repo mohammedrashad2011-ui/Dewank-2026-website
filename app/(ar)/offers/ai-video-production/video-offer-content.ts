@@ -79,6 +79,9 @@ export const videoFaq = {
     ["هل الأسعار نهائية؟", "هذه أسعار بداية لباقات محددة النطاق. يتم تأكيد السعر والمدة بعد مراجعة الفكرة والخامات والتعقيد والمقاسات المطلوبة، وقبل أي دفعة."],
     ["هل تشمل الباقات تصويرًا ميدانيًا أو نشرًا وإدارة إعلانات؟", "لا. التصوير الميداني، نشر المحتوى، إدارة الحملات، شراء الوسائط والاشتراكات الخارجية تُسعّر منفصلة عند الحاجة."],
     ["هل يمكن استخدام صوت أو صورة شخص حقيقي بالذكاء الاصطناعي؟", "فقط بوجود موافقة واضحة وحقوق استخدام مناسبة. لا ننشئ انتحالًا لشخص أو ادعاءات واقعية مضللة."],
+    ["ما الفرق بين أداة فيديو بالذكاء الاصطناعي وباقة الفيديو من الصفر؟", "الأداة تولّد لقطات من وصف تكتبه، وتترك لك الفكرة والسكريبت والترتيب والنصوص. في باقة الفيديو من الصفر نبدأ من هدفك، ونكتب السكريبت، ونركّب المشاهد والصوت والترجمة، وتستلم ملفًا جاهزًا للنشر مع جولة تعديل."],
+    ["هل أحتاج مونتيرًا أم باقة مونتاج فيديو؟", "إذا كنت تحتاج قصًا وترتيبًا لمقطع واحد، فقد يكفيك مونتير مستقل. باقة مونتاج الريلز تناسبك إذا كنت تريد عدة فيديوهات قصيرة بإيقاع ونصوص متحركة وترجمة بنفس الأسلوب."],
+    ["هل تقدمون موشن جرافيك؟", "نعم. باقة الفيديو من الصفر تستخدم مشاهد بالذكاء الاصطناعي أو موشن جرافيك بحسب الفكرة، ونؤكد الأسلوب قبل الإنتاج."],
     ["كم جولة تعديل متاحة؟", "تتضمن كل باقة جولة تعديل واحدة لكل فيديو ضمن السكريبت والاتجاه المتفق عليه. تغيير الفكرة بالكامل يُسعّر بشكل مستقل."],
   ],
   en: [
@@ -87,6 +90,8 @@ export const videoFaq = {
     ["Are the listed prices final?", "These are starting prices for defined scopes. Final price and delivery are confirmed after reviewing the brief, assets, complexity and export formats, before payment."],
     ["Does this include filming or managing ads?", "No. On-site filming, publishing, media buying, campaign management and third-party subscriptions are separate services."],
     ["Can you use a real person's likeness or voice?", "Only with clear consent and suitable rights. We do not create impersonation or misleading real-world claims."],
+    ["How is the package from scratch different from an AI video generator?", "A generator creates shots from a prompt and leaves the idea, script, order and text to you. In the package from scratch we start from your goal, write the script, assemble the visuals, voice and captions, and you receive a publish-ready file with one revision round."],
+    ["Do you make motion graphics?", "Yes. The package from scratch uses AI visuals or motion graphics depending on the idea, and we confirm the style before production."],
     ["How many revisions are included?", "Each package includes one revision round per video within the approved concept. A full change of direction is quoted separately."],
   ],
 } as const;

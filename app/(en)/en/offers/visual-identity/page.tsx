@@ -7,16 +7,18 @@ import { OfferPrice } from "../../_en/lib/localized-price";
 import { EnOfferSticky } from "../offer-sticky-en";
 import { whatsappHref } from "../../_en/lib/site";
 import { IdentityReel } from "../../../../(ar)/offers/visual-identity/identity-reel";
+import { IdentityCaseFile, IdentityProblems, IdentitySectors, identityExtraFaqs } from "../../../../(ar)/offers/visual-identity/identity-extras";
 // The Arabic mini visual identity offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/visual-identity/mini-visual-identity.css";
 import "../../../../(ar)/offers/visual-identity/identity-reel.css";
+import "../../../../(ar)/offers/visual-identity/identity-extras.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 const baseMetadata = enMetadata(
-  "Logo and Brand Identity Design | Essential Package",
+  "Logo Design Services and Brand Identity Package",
   "Professional logo and brand identity design services for startups and small businesses worldwide: a primary logo, colours, typefaces, a visual direction and three applications, delivered in 7–10 working days at a clear price.",
   "/en/offers/visual-identity",
 );
@@ -52,8 +54,10 @@ const faqs = [
   ["What files will I receive?", "You receive the primary logo files for digital use and print, the colour codes, the suggested typefaces, the agreed applications and the short guidelines file."],
 ];
 
+const allFaqs = [...faqs, ...identityExtraFaqs.en];
+
 export default function MiniVisualIdentityOffer() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the essential visual identity package. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start a brand identity with your essential visual identity package. My business is: ");
   const url = "https://dewank.com/en/offers/visual-identity";
   const schema = {
     "@context": "https://schema.org",
@@ -74,7 +78,7 @@ export default function MiniVisualIdentityOffer() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+        mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
       },
       {
         "@type": "BreadcrumbList",
@@ -96,10 +100,10 @@ export default function MiniVisualIdentityOffer() {
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> working days</span></div>
           <h1>Logo and brand identity design<br/><em>An essential identity package for your business</em></h1>
-          <p>A professional logo and brand identity design service for startups and small businesses anywhere. We build a coherent visual foundation that makes your brand look professional from day one, from the logo and colours to the typefaces and the essential applications.</p>
-          <div className="mini-identity-answer" aria-label="The short answer">
-            <b>The short answer</b>
-            <span>You receive a primary logo and a simplified version, a colour palette, suggested typefaces, a visual direction, three practical applications and a short guidelines file.</span>
+          <p>A professional logo and brand identity design service for startups and small businesses anywhere. You receive a primary logo and a simplified version, a colour palette, typefaces, a visual direction, three practical applications and a short guidelines file. The package starts at <span className="vi-inline-price"><OfferPrice offerKey="mini-visual-identity" className="vi-price-value" /></span>.</p>
+          <div className="vi-hero-actions">
+            <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand identity <span>→</span></a>
+            <p className="vi-microcopy">No commitment. Send us your brand name and business type, and we will reply with the next step.</p>
           </div>
         </div>
         <aside className="offer-price-panel mini-identity-price-panel">
@@ -107,7 +111,8 @@ export default function MiniVisualIdentityOffer() {
           <OfferPrice offerKey="mini-visual-identity" className="offer-price" />
           <div className="offer-trust-inline"><span>Primary logo</span><span>3 applications</span><span>Two revision rounds</span></div>
           <p>It does not include a full brand strategy, naming, content management or extended applications beyond the agreed scope.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <p className="vi-assure">Two revision rounds are included in the price, after the initial direction is presented.</p>
+          <a id="order-panel" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand identity <span>→</span></a>
         </aside>
       </section>
 
@@ -140,19 +145,24 @@ export default function MiniVisualIdentityOffer() {
       <section className="shell offer-confidence mini-identity-confidence">
         <div className="offer-confidence-head"><span className="section-label">Who it is for</span><h2>A strong start without the complexity of a full identity</h2></div>
         <div className="offer-confidence-grid"><article><b>01</b><span>A new project with an approved name that needs a professional look before launch.</span></article><article><b>02</b><span>A small business using a weak or inconsistent logo that wants a clearer foundation.</span></article><article><b>03</b><span>A founder who wants the website, social media and offers to look unified before expanding.</span></article></div>
+        <IdentityProblems locale="en" />
         <details className="offer-policy"><summary>What the offer does not include</summary><p>It does not include a full brand strategy, naming research, a messaging system, a detailed identity manual, motion graphics, product packaging, website design, social media management, or an open number of applications and revisions.</p></details>
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before we draw the first line</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <IdentityCaseFile locale="en" />
+
+      <IdentitySectors locale="en" />
+
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before we draw the first line</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section id="order-final" className="shell offer-final-cta mini-identity-final">
         <span className="offer-kicker">Essential visual identity · 7–10 days</span>
         <h2>Make your project look like a brand, not a set of separate designs</h2>
         <p>Send us your business type, name and target market, and we will set the direction before designing the logo.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand identity <span>→</span></a>
         <div className="mini-identity-links"><Link href="/en/branding">Full brand strategy and identity</Link><Link href="/en/offers/brand-naming">Haven&apos;t chosen a name yet?</Link><Link href="/en/offers/name-identity">Name + identity together</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
-      <EnOfferSticky watchIds={["order-cta", "order-final", "order-footer"]} href={contactLink} label="Free consultation" priceLabel="Essential package from" offerKey="mini-visual-identity" />
+      <EnOfferSticky watchIds={["order-cta", "order-panel", "order-final", "order-footer"]} href={contactLink} label="Start your identity" priceLabel="Essential package from" offerKey="mini-visual-identity" />
       <div id="order-footer"><Footer /></div>
     </main>
   );

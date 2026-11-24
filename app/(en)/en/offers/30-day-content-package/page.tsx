@@ -4,8 +4,10 @@ import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
+import { EnOfferSticky } from "../offer-sticky-en";
 import OfferVisualProof from "./offer-visual-proof";
 import ContentSystemStage from "../../../../(ar)/offers/30-day-content-package/content-system-stage";
+import { ContentSamplePlan, ContentSectors, contentExtraFaqs } from "../../../../(ar)/offers/30-day-content-package/content-extras";
 // The Arabic 30-day offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -13,17 +15,18 @@ import "../../../../(ar)/offers/30-day-content-package/offer-visual-proof.css";
 import "../../../../(ar)/offers/30-day-content-package/sales-machine.css";
 import "../../../../(ar)/offers/30-day-content-package/sales-machine-arabic-polish.css";
 import "../../../../(ar)/offers/30-day-content-package/content-system-stage.css";
+import "../../../../(ar)/offers/30-day-content-package/content-extras.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "30-day social media content package",
-  "A 30-day content package: 12 custom posts, 3 stories, one reel, captions, a publishing plan and a bio review. Not a monthly account contract.",
+  "Social Media Post Design and Content Package",
+  "A 30-day social media content package: 12 custom posts, 3 stories, one reel, captions, a publishing plan and a bio review. Not a monthly account contract.",
   "/en/offers/30-day-content-package",
 );
 
 const deliverables = [
-  ["12 custom posts", "Designs consistent with your business, not repeated ready-made templates."],
+  ["12 social media post designs", "Custom designs consistent with your business, not repeated ready-made templates."],
   ["3 story designs", "Stories built to drive interaction, present your service or move people to act."],
   ["One reel", "A short reel edited from the images or videos you send us."],
   ["Ideas and captions", "A clear idea and ready-to-publish copy for each piece of content."],
@@ -37,13 +40,6 @@ const painToOutcome = [
   ["Posting stops when work gets busy", "You receive a 30-day plan and ready materials, instead of relying on the time you have each week."],
 ];
 
-const afterDelivery = [
-  ["A ready content bank", "16 planned and designed pieces, instead of starting from zero every week."],
-  ["A clearer message", "Content that explains your service and gives visitors a reason to understand your business quickly."],
-  ["A more consistent presence", "A coherent visual direction that makes your account look more professional and trustworthy."],
-  ["A plan that removes guesswork", "You know what to post and when, with room to adjust as your business changes."],
-];
-
 const faqItems = [
   ["Is this full management of a social media account?", "No. This is a 30-day content production package: ideas, design, captions, a publishing plan and a bio review. It does not include daily posting, message handling or paid campaigns."],
   ["What is the difference between this package and monthly management?", "This package suits you if your main need is producing content with a clear scope and price. Monthly management can include continuous posting, follow-up and reporting as agreed, so its scope and price are different."],
@@ -55,12 +51,15 @@ const faqItems = [
 
 const workSteps = [
   ["Send your business type and goal on WhatsApp."],
-  ["We confirm the package fits and explain the scope and next steps."],
-  ["We agree the initial direction and begin producing the content."],
+  ["We review your needs and tell you from the start if they are outside the package."],
+  ["You approve the direction and the delivery dates before we expand production."],
+  ["You receive the content, with two rounds of design revisions within the scope."],
 ];
 
+const allFaqs = [...faqItems, ...contentExtraFaqs.en];
+
 export default function ContentOfferPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation to check whether the 30-day content package suits my business. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start the 30-day content package for my business. My business is: ");
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -77,7 +76,7 @@ export default function ContentOfferPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+    mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
   };
 
   return (
@@ -90,10 +89,13 @@ export default function ContentOfferPage() {
       <section className="shell offer-detail-hero sales-hero">
         <div className="sales-hero-copy">
           <span className="sales-eyebrow">Social media content package</span>
-          <h1>30 days of content<br/><em>With a clear price and scope</em></h1>
-          <p className="sales-hero-lead">We turn your business into 16 ready-to-publish pieces: ideas, design, captions and a 30-day plan. It suits you if the content itself is what you need, without a full monthly account-management contract.</p>
+          <h1>A month of social media content<br/><em>With a clear price and scope</em></h1>
+          <p className="sales-hero-lead">You receive 16 ready-to-publish pieces with the ideas, captions and a 30-day plan, without a monthly management contract. The complete package is <span className="cp-inline-price"><OfferPrice offerKey="30-day-content-package" className="cp-price-value" /></span>.</p>
+          <div className="cp-hero-actions">
+            <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your content month <span>→</span></a>
+            <p className="cp-microcopy">No commitment. Send your business type, and we confirm first that the package fits.</p>
+          </div>
           <div className="sales-proof-strip" aria-label="Package summary"><span>12 posts</span><span>3 stories</span><span>1 reel</span><span>30-day plan</span></div>
-          <p className="sales-fit-note"><strong>Please note:</strong> if you need daily posting, message handling, ongoing monthly reports or paid campaigns, see our <Link href="/en/social-media-content">social media management service</Link> instead.</p>
         </div>
 
         <aside className="offer-price-panel sales-price-panel">
@@ -101,7 +103,8 @@ export default function ContentOfferPage() {
           <OfferPrice offerKey="30-day-content-package" className="offer-price" />
           <p className="sales-price-promise">We review your business first and explain whether this package is the right fit.</p>
           <div className="offer-trust-inline" aria-label="Trust and reassurance"><span>No monthly contract</span><span>Direction approved first</span><span>Two revision rounds</span></div>
-          <a className="button primary sales-primary-cta offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <p className="cp-assure">You approve the direction before production, and two rounds of design revisions are included in the price.</p>
+          <a id="order-panel" className="button primary sales-primary-cta offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your content month <span>→</span></a>
           <small className="sales-cta-note">WhatsApp, direct · Free initial consultation</small>
         </aside>
 
@@ -111,24 +114,15 @@ export default function ContentOfferPage() {
       <OfferVisualProof />
 
       <section className="shell sales-problem-solution" aria-labelledby="sales-problem-title">
-        <div className="sales-section-head"><span className="section-label">If this is happening</span><h2 id="sales-problem-title">The problem is not your service<br/>It is that your account does not show its value consistently</h2><p>The package is built to address three reasons an account stops, or looks weaker than the business behind it.</p></div>
+        <div className="sales-section-head"><span className="section-label">If this is happening</span><h2 id="sales-problem-title">Your service is good, and your account does not show it consistently</h2></div>
         <div className="sales-three-grid">{painToOutcome.map(([title, text], index) => <article className="sales-pain-card" key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
       </section>
 
-      <section className="shell sales-outcomes" aria-labelledby="sales-outcomes-title">
-        <div className="sales-section-head compact"><span className="section-label">What you gain</span><h2 id="sales-outcomes-title">Not 16 designs alone<br/>A month ready to show up</h2></div>
-        <div className="sales-outcome-grid">{afterDelivery.map(([title, text]) => <article key={title}><span>✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
-        <div className="sales-mid-cta"><p>If this is what your account is missing, let us check whether the package suits your business.</p><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a></div>
-      </section>
+      <ContentSamplePlan locale="en" />
 
       <section className="shell offer-deliverables sales-deliverables">
-        <div><span className="section-label">What you receive</span><h2>Every piece has a job<br/>Not just a filled calendar</h2><p>Delivery usually takes 10–14 working days after we receive the information and materials we need and the direction is approved.</p></div>
+        <div><span className="section-label">What you receive</span><h2>Every piece has a job<br/>in the month's plan</h2><p>Delivery usually takes 10–14 working days after we receive the information and materials we need and the direction is approved.</p></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
-      </section>
-
-      <section className="shell sales-risk-reversal" aria-labelledby="sales-risk-title">
-        <div><span className="section-label">A simpler decision</span><h2 id="sales-risk-title">We do not ask you to trust big promises</h2><p>We review your business first, clarify the creative direction and explain the next steps before production starts.</p></div>
-        <div className="sales-risk-grid"><article><strong>01</strong><h3>We confirm the fit</h3><p>If your needs are outside this package, we explain that from the start.</p></article><article><strong>02</strong><h3>You approve the direction</h3><p>We do not expand production until the direction is clear and suits your business.</p></article><article><strong>03</strong><h3>A clear delivery scope</h3><p>We explain the deliverables and timeline before work starts.</p></article><article><strong>04</strong><h3>Two revision rounds</h3><p>The package includes two rounds of design revisions within the agreed scope.</p></article></div>
       </section>
 
       <section className="shell offer-fit sales-fit">
@@ -140,26 +134,28 @@ export default function ContentOfferPage() {
       </section>
 
       <section className="shell offer-confidence sales-confidence" aria-labelledby="offer-confidence-title">
-        <div className="offer-confidence-head"><span className="section-label">Three steps only</span><h2 id="offer-confidence-title">From your first message to the start of work</h2></div>
+        <div className="offer-confidence-head"><span className="section-label">Four steps</span><h2 id="offer-confidence-title">From your first message to the start of work</h2></div>
         <div className="offer-confidence-grid">{workSteps.map(([text], index) => <article key={text}><span>{text}</span></article>)}</div>
       </section>
 
+      <ContentSectors locale="en" />
+
       <section className="shell offer-faq sales-faq" aria-labelledby="offer-faq-title">
         <div className="offer-faq-head"><span className="section-label">Questions before you decide</span><h2 id="offer-faq-title">Scope and price before we start</h2></div>
-        <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
         <p><Link href="/en/social-media-content#pricing">Compare the package with monthly social media management</Link></p>
       </section>
 
-      <section className="shell offer-final-cta sales-final-cta">
+      <section id="order-final" className="shell offer-final-cta sales-final-cta">
         <span className="offer-kicker">16 content pieces · <OfferPrice offerKey="30-day-content-package" className="offer-kicker-price" /></span>
-        <h2>If you only need content, choose a package that fits</h2>
+        <h2>Start next month with content ready</h2>
         <p>Send us your business type. We will check whether the 30-day package is the right fit, or whether you need a wider monthly service, then explain the next step.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your content month <span>→</span></a>
         
       </section>
 
-      <div className="sales-mobile-sticky" aria-label="Quick contact on WhatsApp"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation</a></div>
-      <Footer />
+      <EnOfferSticky watchIds={["order-cta", "order-panel", "order-final", "order-footer"]} href={contactLink} label="Start your month" priceLabel="Complete package" offerKey="30-day-content-package" />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

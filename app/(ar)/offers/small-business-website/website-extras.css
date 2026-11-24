@@ -1,0 +1,92 @@
+/* Small business website offer: first-screen price and CTA on phones, page plan, problems, business types and tighter
+   spacing. Scoped to .small-website-page. Mobile first. */
+
+/* ---------- Hero ---------- */
+.small-website-page .sw-inline-price { color: var(--offer-navy); font-weight: 800; white-space: nowrap; background: linear-gradient(transparent 60%, rgba(244, 217, 145, .75) 60%); }
+.small-website-page .sw-inline-price strong { font-weight: inherit; }
+.small-website-page .sw-inline-price > span > span { margin-inline-start: .25em; }
+.small-website-page .sw-hero-actions { margin-top: 18px; }
+.small-website-page .sw-hero-actions .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px; font-size: 16px; font-weight: 700; text-align: center; }
+.small-website-page .sw-microcopy { margin: 10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; text-align: center; }
+/* On desktop the price panel and its CTA sit beside the headline, so the hero button is not repeated. */
+@media (min-width: 861px) { .small-website-page .sw-hero-actions { display: none; } }
+.small-website-page .small-website-price-panel .sw-assure { margin: 14px 0; padding: 10px 14px; border: 1px solid rgba(244, 217, 145, .4); border-radius: 14px; color: #f5f0e7; font-size: 14px; line-height: 1.75; }
+
+/* ---------- Page plan ---------- */
+.small-website-page .sw-plan { display: grid; gap: 18px; padding-bottom: clamp(40px, 6vw, 84px); }
+.small-website-page .sw-plan h2 { margin: 10px 0; color: var(--offer-navy); font-size: clamp(27px, 4.2vw, 48px); line-height: 1.4; }
+.small-website-page .sw-plan > div > p:not([class]) { margin: 0; color: #4b4e55; font-size: 15px; line-height: 1.85; }
+.small-website-page .sw-plan-card { overflow: hidden; border: 1px solid rgba(213, 168, 67, .5); border-radius: 22px; background: #fff; }
+.small-website-page .sw-plan-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; padding: 12px 18px; background: #061a33; color: #f4d991; font-size: 14px; line-height: 1.6; }
+.small-website-page .sw-plan-head small { padding: 2px 10px; border: 1px solid rgba(245, 240, 231, .25); border-radius: 999px; color: rgba(245, 240, 231, .8); font-size: 11px; white-space: nowrap; }
+.small-website-page .sw-plan-card dl { margin: 0; padding: 4px 18px; }
+.small-website-page .sw-plan-card dl > div { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 11px 0; }
+.small-website-page .sw-plan-card dl > div + div { border-top: 1px solid rgba(6, 26, 51, .08); }
+.small-website-page .sw-plan-card dt { color: #8a6418; font-size: 13px; font-weight: 800; line-height: 1.7; }
+.small-website-page .sw-plan-card dd { margin: 0; color: var(--offer-navy); font-size: 14px; line-height: 1.7; }
+.small-website-page .sw-plan-path { display: flex; flex-wrap: wrap; gap: 4px 10px; margin: 0; padding: 12px 18px; background: rgba(244, 217, 145, .28); color: var(--offer-navy); font-size: 14px; font-weight: 700; line-height: 1.7; }
+.small-website-page .sw-plan-path i { margin-inline-end: 10px; color: #8a6418; font-style: normal; }
+
+/* ---------- Problems ---------- */
+.small-website-page .sw-problems-wrap { padding-bottom: clamp(40px, 6vw, 84px); }
+.small-website-page .sw-problems { padding: 18px; border-radius: 20px; border-inline-start: 4px solid #d5a843; background: rgba(244, 217, 145, .22); }
+html .small-website-page .shell .sw-problems h2 { margin: 0 0 10px; color: var(--offer-navy); font-size: 20px !important; line-height: 1.6; }
+.small-website-page .sw-problems ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.small-website-page .sw-problems li { display: grid; align-content: start; gap: 2px; font-size: 14px; line-height: 1.7; }
+.small-website-page .sw-problems b { color: var(--offer-navy); }
+.small-website-page .sw-problems span { color: #4b4e55; }
+
+/* ---------- Business types (collapsed, the text stays in the HTML) ---------- */
+.small-website-page .sw-sectors { padding-bottom: 48px; }
+.small-website-page .sw-sectors details { padding: 4px 18px; border: 1px solid rgba(6, 26, 51, .12); border-radius: 20px; background: rgba(255, 255, 255, .6); }
+.small-website-page .sw-sectors details[open] { padding-bottom: 18px; }
+.small-website-page .sw-sectors summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 60px; cursor: pointer; list-style: none; }
+.small-website-page .sw-sectors summary::-webkit-details-marker { display: none; }
+.small-website-page .sw-sectors summary::after { content: "+"; flex: none; color: #8a6418; font-size: 26px; line-height: 1; }
+.small-website-page .sw-sectors details[open] summary::after { content: "−"; }
+.small-website-page .sw-sectors summary:focus-visible { outline: 2px solid #061a33; outline-offset: 4px; border-radius: 12px; }
+.small-website-page .sw-sectors h2 { margin: 0; color: var(--offer-navy); font-size: clamp(20px, 5vw, 28px); line-height: 1.5; }
+.small-website-page .sw-sectors details > p { margin: 0 0 16px; color: #4b4e55; font-size: 15px; line-height: 1.85; }
+.small-website-page .sw-sector-grid { display: grid; gap: 14px; }
+.small-website-page .sw-sector-grid h3 { margin: 0 0 4px; color: var(--offer-navy); font-size: 16px; line-height: 1.5; }
+.small-website-page .sw-sector-grid p { margin: 0; color: #4b4e55; font-size: 14px; line-height: 1.8; }
+.small-website-page .sw-link { display: inline-block; margin-top: 14px; color: var(--offer-navy); font-weight: 700; text-decoration: underline; text-decoration-color: #d5a843; text-underline-offset: 5px; }
+.small-website-page .sw-bigger { margin: 18px 0 0; color: #4b4e55; font-size: 15px; line-height: 1.85; }
+.small-website-page .sw-bigger a { color: var(--offer-navy); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---------- Shorter page ---------- */
+.small-website-page .small-website-process { padding-bottom: clamp(40px, 6vw, 84px); content-visibility: visible; }
+.small-website-page .small-website-faq { padding-bottom: clamp(44px, 6vw, 84px); }
+.small-website-page .small-website-process-grid b { margin-bottom: 8px; }
+
+@media (max-width: 620px) {
+  .small-website-page .small-website-hero { gap: 26px; padding-top: 20px; padding-bottom: 36px; }
+  .small-website-page .small-website-hero h1 { margin-block: 12px 10px; font-size: clamp(30px, 8.8vw, 44px); line-height: 1.34; }
+  .small-website-page .small-website-hero h1 em { margin-top: .06em; }
+  .small-website-page .small-website-hero > div > p { margin-top: 0; font-size: 16px; line-height: 1.8; }
+  .small-website-page .small-website-price-panel { padding-block: 20px; }
+  .small-website-page .offer-deliverables { gap: 14px; padding-bottom: 36px; }
+  .small-website-page .offer-deliverables h2, .small-website-page .small-website-process-head h2, .small-website-page .offer-fit > h2, .small-website-page .small-website-faq > h2 { margin-block: 8px; font-size: 27px; line-height: 1.45; }
+  .small-website-page .deliverable-list { gap: 8px; }
+  .small-website-page .deliverable-item { padding: 12px 16px; }
+  .small-website-page .deliverable-item p { margin-top: 2px; line-height: 1.65; }
+  .small-website-page .small-website-process { padding-bottom: 36px; }
+  .small-website-page .small-website-process-head { margin-bottom: 12px; padding-inline: 0; }
+  .small-website-page .small-website-process-grid { gap: 8px; }
+  .small-website-page .small-website-process-grid article { padding: 14px 16px; }
+  .small-website-page .small-website-process-grid b { display: none; }
+  .small-website-page .small-website-process-grid h3 { margin-bottom: 2px; font-size: 17px; }
+  .small-website-page .small-website-process-grid p { line-height: 1.7; }
+  .small-website-page .offer-fit-grid { gap: 10px; }
+  .small-website-page .offer-fit-card { padding: 18px; }
+  .small-website-page .offer-fit-card li { line-height: 1.65; }
+  .small-website-page .sw-sectors { padding-bottom: 32px; }
+}
+@media (min-width: 640px) {
+  .small-website-page .sw-problems ul { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .small-website-page .sw-sector-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px) {
+  .small-website-page .sw-plan { grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; }
+  .small-website-page .sw-sector-grid { grid-template-columns: repeat(3, 1fr); }
+}

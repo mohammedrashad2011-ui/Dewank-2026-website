@@ -3,13 +3,15 @@ import Link from "next/link";
 import { createMetadata, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
 import { Footer, Header } from "../../../components/site-shell";
 import { InlineOfferPrice } from "../../offers/inline-offer-price";
+import { SocialPaths, SocialProblems, SocialSamples, SocialSectors, socialExtraFaqs } from "./social-extras";
 import "./social-media-content.css";
 import "./content-spacing-fix.css";
 import "./content-guides.css";
+import "./social-extras.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "إدارة حسابات التواصل الاجتماعي وصناعة المحتوى في السعودية | ديوانك",
-  description: "خدمة إدارة حسابات التواصل الاجتماعي (السوشيال ميديا) وصناعة المحتوى للشركات في السعودية والخليج: استراتيجية، أفكار، تصميم، كابشنات، خطة نشر وتقارير، مع خيار باقة محتوى 30 يومًا للبداية.",
+  title: "إدارة حسابات التواصل الاجتماعي والسوشيال ميديا | ديوانك",
+  description: "إدارة حسابات السوشيال ميديا والتواصل الاجتماعي للشركات في السعودية والخليج: استراتيجية، تصميم، كابشنات، نشر وتقارير. ابدأ بباقة محتوى 30 يومًا أو إدارة شهرية.",
   path: "/services/social-media-content",
   keywords: [
     "إدارة السوشيال ميديا في السعودية",
@@ -19,6 +21,8 @@ export const metadata: Metadata = createMetadata({
     "صناعة المحتوى للشركات",
     "تصميم محتوى سوشيال ميديا",
     "إدارة محتوى انستقرام",
+    "إدارة حسابات السوشيال ميديا",
+    "إدارة محتوى السوشيال ميديا",
     "شركة إدارة حسابات التواصل الاجتماعي",
     "خطة محتوى شهرية",
   ],
@@ -56,6 +60,10 @@ const faqItems = [
   ["لدي حساب قائم فقط يحتاج ترتيبًا، فهل أحتاج إدارة؟", "ليس بالضرورة. إذا كان الحساب موجودًا ويحتاج بايو ودعوة إجراء وهايلايتس واتجاهًا بصريًا، فباقة تطوير الحساب خلال 14 يومًا أنسب من الإدارة الشهرية."],
 ];
 
+const allFaqs = [...faqItems, ...socialExtraFaqs.ar];
+
+const whatsappHref = "https://wa.me/97339066649?text=" + encodeURIComponent("مرحبًا ديوانك، أرغب في بدء إدارة حسابات السوشيال ميديا لنشاطي. نشاطي ورابط الحساب: ");
+
 export default function SocialMediaContentPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -71,7 +79,17 @@ export default function SocialMediaContentPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+    mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "الرئيسية", item: "https://dewank.com" },
+      { "@type": "ListItem", position: 2, name: "الخدمات", item: "https://dewank.com/services" },
+      { "@type": "ListItem", position: 3, name: "إدارة السوشيال ميديا", item: "https://dewank.com/services/social-media-content" },
+    ],
   };
 
   return (
@@ -79,23 +97,30 @@ export default function SocialMediaContentPage() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <section className="content-hero shell">
         <div className="content-hero-copy">
           <span className="section-label">إدارة السوشيال ميديا وصناعة المحتوى</span>
-          <h1>إدارة سوشيال ميديا<br/><em>تبني حضورًا وطلبًا</em></h1>
+          <h1>إدارة حسابات السوشيال ميديا<br/><em>تبني حضورًا وطلبًا</em></h1>
           <p>نحوّل حسابك من منشورات متفرقة إلى منظومة محتوى واضحة: رسالة، أفكار، تصميم، كابشنات وخطة نشر تخدم هدفًا تجاريًا، لا مجرد ملء التقويم.</p>
           <div className="content-actions">
-            <Link className="button primary" href="/contact">اطلب نطاق الإدارة <span>←</span></Link>
-            <Link className="button secondary" href="/offers/30-day-content-package">شاهد باقة 30 يومًا</Link>
+            <a className="button primary offer-consultation-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">ابدأ إدارة حسابك <span>←</span></a>
+            <Link className="button secondary" href="/offers/30-day-content-package"><span>باقة 30 يومًا · <InlineOfferPrice offerKey="30-day-content-package" /></span></Link>
           </div>
+          <p className="sm-microcopy">بدون أي التزام. أرسل نشاطك ورابط حسابك، ونكتب لك النطاق والسعر قبل الدفع.</p>
         </div>
         <div className="content-orbit" aria-hidden="true"><i/><i/><i/><i/></div>
       </section>
 
+      <SocialSamples locale="ar" />
+
+      <SocialPaths locale="ar" cta={<a className="button primary offer-consultation-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">ابدأ إدارة حسابك <span>←</span></a>} />
+
       <section className="content-steps shell">
         <div className="content-section-head"><span className="section-label">ماذا تشمل الخدمة؟</span><h2>من الاستراتيجية إلى النشر<br/><em>كل خطوة لها وظيفة</em></h2></div>
         <div className="content-step-grid">{deliverables.map(([title, text], index) => <article key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <SocialProblems locale="ar" />
       </section>
 
       <section className="content-steps content-scope shell" aria-labelledby="content-scope-title">
@@ -108,11 +133,6 @@ export default function SocialMediaContentPage() {
         <div className="content-system-card"><p>نربط ما تنشره بما تريد أن يفعله العميل بعد المشاهدة: متابعة، حفظ، استفسار، زيارة موقع أو طلب خدمة. لذلك تبدأ الخطة من الهدف التجاري، لا من عدد المنشورات.</p><Link href="/digital-marketing">اكتشف استراتيجية التسويق الرقمي <span>←</span></Link></div>
       </section>
 
-      <section className="content-offer shell">
-        <div><span className="section-label">إدارة شهرية أم بداية محددة؟</span><h2>اختر النطاق على حسب احتياجك<br/><em>لا على عدد البوستات فقط</em></h2></div>
-        <div className="content-offer-card"><strong>باقة محتوى 30 يومًا · <InlineOfferPrice offerKey="30-day-content-package" /></strong><p>إذا كان احتياجك الأساسي أفكارًا وتصميمًا وكابشنات وخطة نشر، ابدأ بالباقة المحددة. وإذا كان لديك حساب قائم يحتاج ترتيبًا فقط، فباقة تطوير الحساب خلال 14 يومًا تبدأ من <InlineOfferPrice offerKey="instagram-14-day-upgrade" />. أما إذا كنت تحتاج نشرًا مستمرًا ومتابعة وتقارير وإدارة أوسع، فنحدد لك نطاق الإدارة الشهرية بعد مراجعة حسابك. وتظهر الأسعار بعملة بلدك تلقائيًا.</p><Link className="button primary" href="/offers/30-day-content-package">شاهد باقة 30 يومًا <span>←</span></Link><br/><Link href="/offers/instagram-14-day-upgrade">شاهد باقة تطوير الحساب 14 يومًا</Link><br/><Link href="/guides/social-media-management-cost-saudi-arabia">قارن الأسعار والنطاقات</Link></div>
-      </section>
-
       <section className="content-guides shell" aria-labelledby="content-guides-title">
         <div className="content-guides-head">
           <div><span className="section-label">أدلة قبل القرار</span><h2 id="content-guides-title">ابدأ بالسؤال الذي يواجهك<br/><em>ثم اختر نطاق المحتوى المناسب</em></h2></div>
@@ -121,12 +141,14 @@ export default function SocialMediaContentPage() {
         <div className="content-guides-grid">{guideLinks.map((guide) => <Link className="content-guide-card" href={guide.href} key={guide.href}><div className="content-guide-top"><span>دليل</span><span className="content-guide-arrow" aria-hidden="true">↗</span></div><h3>{guide.title}</h3><p>{guide.text}</p></Link>)}</div>
       </section>
 
+      <SocialSectors locale="ar" />
+
       <section className="content-faq shell">
         <span className="section-label">أسئلة شائعة</span><h2>قبل أن تختار الباقة</h2>
-        <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div>{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="content-final shell"><h2>اجعل المحتوى يعمل<br/><em>داخل خطة واضحة</em></h2><Link className="button primary" href="/contact">ناقش احتياجك <span>←</span></Link></section>
+      <section className="content-final shell"><h2>اجعل المحتوى يعمل<br/><em>داخل خطة واضحة</em></h2><div className="content-final-actions"><a className="button primary offer-consultation-cta" href={whatsappHref} target="_blank" rel="noopener noreferrer">ابدأ إدارة حسابك <span>←</span></a><Link href="/contact">أو راسلنا من صفحة التواصل</Link></div></section>
       <Footer />
     </main>
   );
