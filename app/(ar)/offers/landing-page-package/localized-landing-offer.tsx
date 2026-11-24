@@ -12,14 +12,14 @@ export function LandingOfferPrice({ kind }: { kind: "base" | "full" }) {
 export function LandingOfferWhatsApp({ kind, className, label, id }: { kind: "base" | "full"; className: string; label: string; id?: string }) {
   const price = useOfferPrice(kind === "base" ? "landing-page-package" : "landing-page-package-full");
   const packageName = kind === "base" ? "باقة صفحة الهبوط" : "باقة صفحة الهبوط الكاملة مع الدومين والاستضافة";
-  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص ${packageName} بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
+  const text = `مرحبًا ديوانك، أرغب في بدء ${packageName} بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
   return <a id={id} className={className} href={href} target="_blank" rel="noreferrer">{label} <span>←</span></a>;
 }
 
 export function LandingOfferSticky({ watchIds }: { watchIds: string[] }) {
   const price = useOfferPrice("landing-page-package");
-  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة صفحة الهبوط بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
+  const text = `مرحبًا ديوانك، أرغب في بدء باقة صفحة الهبوط بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
   return (
     <div className="offer-sticky">
@@ -28,7 +28,7 @@ export function LandingOfferSticky({ watchIds }: { watchIds: string[] }) {
         alwaysWhenHidden
         ctaMinVisibleRatio={0.5}
         href={href}
-        label="استشارة مجانية"
+        label="ابدأ صفحتك"
         priceLabel="الباقة الأساسية من"
         price={`${price.formattedAmount} ${price.currencyLabel}`}
         arrow="←"

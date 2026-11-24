@@ -1,5 +1,7 @@
 import { LandingConversionMotion } from "../../../../components/landing-conversion-motion";
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
+import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
 import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -14,10 +16,10 @@ import "../../../../(ar)/offers/landing-offer.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
-const orderWatchIds = ["order-cta", "order-final", "order-footer"];
+const orderWatchIds = ["order-hero", "order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
-  "Landing Page Design Services: One Page That Sells Your Service",
+  "Landing Page Design Services: Copy, Design and Tracking",
   "A landing page built to sell one service: custom copy and design, WhatsApp and forms, analytics and basic SEO. Delivered in 7 to 10 working days.",
   "/en/offers/landing-page-package",
 );
@@ -39,9 +41,11 @@ const faqItems = [
   ["Does the page include a shop or a payment gateway?", "No. This offer is for a single landing page with the goal of contact or booking. It does not include an online shop, a payment gateway or multiple languages."],
 ];
 
+const allFaqs = [...faqItems, ...offerExtras.en.landing.faqs];
+
 export default function LandingPageOffer() {
-  const contactBase = whatsappHref("Hello Dewank, I would like a free initial consultation about the base landing page package. My service is: ");
-  const contactFull = whatsappHref("Hello Dewank, I would like a free initial consultation about the full landing page package with domain and hosting. My service is: ");
+  const contactBase = whatsappHref("Hello Dewank, I would like to start the base landing page package. My service is: ");
+  const contactFull = whatsappHref("Hello Dewank, I would like to start the full landing page package with domain and hosting. My service is: ");
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -59,13 +63,13 @@ export default function LandingPageOffer() {
       },
       {
         "@type": "FAQPage",
-        mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+        mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
       },
     ],
   };
 
   return (
-    <main id="main-content" className="inner-page offers-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page oe-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://dewank.com/en" }, { "@type": "ListItem", position: 2, name: "Offers", item: "https://dewank.com/en/offers" }, { "@type": "ListItem", position: 3, name: "Landing page design", item: "https://dewank.com/en/offers/landing-page-package" }] }) }} />
@@ -73,8 +77,13 @@ export default function LandingPageOffer() {
       <section className="shell offer-detail-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–10</strong> working days</span></div>
-          <h1>Landing page design<br/><em>One page that turns ad clicks into enquiries</em></h1>
+          <h1>Landing page design services<br/><em>One page that turns ad clicks into enquiries</em></h1>
           <p>We write the copy, design the page and connect WhatsApp, the form and analytics, so ad visitors reach one clear request. Delivered in 7–10 working days.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">Base package from <OfferPrice offerKey="landing-page-package" className="oe-price-value" /></p>
+            <a id="order-hero" className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a>
+            <OfferMicro offer="landing" locale="en" />
+          </div>
           <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>
         </div>
         <aside id="order-panel" className="offer-price-panel">
@@ -82,11 +91,13 @@ export default function LandingPageOffer() {
           <OfferPrice offerKey="landing-page-package" className="offer-price" />
           <div className="offer-trust-inline"><span>Custom page</span><span>50% to start</span><span>Full tracking</span></div>
           <p>Includes design, copy, connections and tracking. Domain and hosting fees are not included.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a>
         </aside>
       </section>
 
       <LandingConversionMotion locale="en" />
+      <OfferSample offer="landing" locale="en" />
+
       <section className="shell offer-deliverables">
         <div><span className="section-label">What you receive</span><h2>Everything you need to start selling</h2><p>Delivery in 7–10 working days after we receive the information and approve the direction.</p></div>
         <div className="deliverable-list">{deliverables.map(([title, text]) => <article className="deliverable-item" key={title}><b>{title}</b><p>{text}</p></article>)}</div>
@@ -101,14 +112,14 @@ export default function LandingPageOffer() {
             <h3>Landing page package</h3>
             <OfferPrice offerKey="landing-page-package" className="offer-price" />
             <ul><li>Design and copy for one page</li><li>WhatsApp and lead form connections</li><li>GA4, GTM and conversion tracking</li><li>Basic SEO, SSL and publishing</li><li>Two rounds of revisions</li></ul>
-            <a className="button secondary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+            <a className="button secondary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a>
           </article>
           <article className="offer-fit-card limits landing-package-card featured">
             <small>If you are starting from scratch</small>
             <h3>Full package</h3>
             <OfferPrice offerKey="landing-page-package-full" className="offer-price" />
             <ul><li>Everything in the base package</li><li>A domain for one year, registered in your name</li><li>Hosting for one year</li><li>Domain connection, SSL and setup</li><li>One professional email address where available</li></ul>
-            <a className="button primary offer-consultation-cta" href={contactFull} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+            <a className="button primary offer-consultation-cta" href={contactFull} target="_blank" rel="noopener noreferrer">Start the full package <span>→</span></a>
           </article>
         </div>
       </section>
@@ -121,16 +132,18 @@ export default function LandingPageOffer() {
 
       <OfferClientProof review="bithan" locale="en" />
 
-      <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <OfferGuide offer="landing" locale="en" />
+
+      <section className="shell offer-faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section id="order-final" className="shell offer-final-cta">
         <span className="offer-kicker">Custom page · delivery in 7–10 days</span>
         <h2>Make your service clear before you ask a customer to buy it</h2>
         <p>Choose the package that suits you, and we will ask about your business and the goal of the page before production begins.</p>
-        <a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a>
         <div><Link href="/en/offers/small-business-website">Need a website with several pages?</Link> · <Link href="/en/website-design">Compare website design services</Link> · <Link href="/en/offers">← Back to all offers</Link></div>
       </section>
-      <EnOfferSticky watchIds={orderWatchIds} href={contactBase} label="Free consultation" priceLabel="Base package from" offerKey="landing-page-package" />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactBase} label="Start your page" priceLabel="Base package from" offerKey="landing-page-package" />
       <div id="order-footer"><Footer /></div>
     </main>
   );

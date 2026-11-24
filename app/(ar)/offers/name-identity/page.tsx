@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
+import { offerExtras } from "../offer-extras-data";
+import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { offerPricing } from "../offer-pricing";
@@ -8,14 +11,14 @@ import { NameIdentityPrice, NameIdentitySaving, NameIdentitySticky, NameIdentity
 import "../offers-page.css";
 import "../offer-trust.css";
 
-const title = "باقة اسم تجاري + هوية بصرية | تسمية وتصميم هوية في باقة واحدة | ديوانك";
+const title = "اسم تجاري وتصميم شعار وهوية تجارية في باقة واحدة | ديوانك";
 const description = "باقة تجمع اختيار اسم تجاري وتصميم هوية بصرية أساسية لمشروعك: 10–15 اسمًا مدروسًا وفحص مبدئي وأفضل 3 ترشيحات، ثم شعار وألوان وخطوط و3 تطبيقات عملية، بسعر أقل من طلب الباقتين منفصلتين.";
 
 export const metadata: Metadata = createMetadata({
   title,
   description,
   path: "/offers/name-identity",
-  keywords: ["اسم تجاري وهوية بصرية", "تسمية وتصميم هوية", "اختيار اسم تجاري وتصميم شعار", "باقة اسم وشعار", "تصميم هوية تجارية لمشروع جديد"],
+  keywords: ["اسم تجاري وشعار", "تصميم هوية تجارية", "اسم تجاري وهوية بصرية", "تسمية وتصميم هوية", "اختيار اسم تجاري وتصميم شعار", "باقة اسم وشعار", "تصميم هوية تجارية لمشروع جديد"],
 });
 
 const namingSteps = [
@@ -41,6 +44,8 @@ const faqs = [
   ["هل هذه هوية كاملة؟", "لا. هي هوية أساسية تكفي لبداية متماسكة، ولا تشمل استراتيجية براند كاملة أو دليل هوية مفصلًا أو تطبيقات موسعة. للهوية الكاملة راجع خدمة البراند والهوية."],
 ];
 
+const allFaqs = [...faqs, ...offerExtras.ar.bundle.faqs];
+
 export default function NameIdentityBundle() {
   const url = `${siteUrl}/offers/name-identity`;
   const schema = {
@@ -57,7 +62,7 @@ export default function NameIdentityBundle() {
         offers: { "@type": "Offer", price: String(offerPricing["name-identity-bundle"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },
-      { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+      { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -70,15 +75,20 @@ export default function NameIdentityBundle() {
   };
 
   return (
-    <main className="inner-page offers-page">
+    <main className="inner-page offers-page oe-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
       <section className="shell offer-detail-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" />مرحلتان: الاسم ثم الهوية</span></div>
-          <h1>اسم تجاري وهوية بصرية<br/><em>بداية علامتك في باقة واحدة</em></h1>
+          <h1>اسم تجاري وشعار وهوية بصرية<br/><em>بداية علامتك في باقة واحدة</em></h1>
           <p>نختار مع مشروعك اسمه أولًا، ثم نبني على الاسم المختار هوية بصرية أساسية متماسكة. خطوتان مرتبطتان مع فريق واحد يفهم مشروعك من البداية، بسعر أقل من طلب الباقتين منفصلتين.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">الباقة المجمعة <InlineOfferPrice offerKey="name-identity-bundle" /></p>
+            <NameIdentityWhatsApp id="order-hero" className="button primary offer-consultation-cta" label="ابدأ اسمك وهويتك" />
+            <OfferMicro offer="bundle" locale="ar" />
+          </div>
         </div>
         <aside className="offer-price-panel">
           <small>الباقة المجمعة</small>
@@ -86,9 +96,11 @@ export default function NameIdentityBundle() {
           <NameIdentitySaving />
           <div className="offer-trust-inline"><span>10–15 اسمًا</span><span>شعار وهوية أساسية</span><span>3 تطبيقات</span></div>
           <p>لا تشمل حجز الاسم أو تسجيل العلامة أو الرسوم الرسمية، ولا استراتيجية براند كاملة.</p>
-          <NameIdentityWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
+          <NameIdentityWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="ابدأ اسمك وهويتك" />
         </aside>
       </section>
+
+      <OfferSample offer="bundle" locale="ar" />
 
       <section className="shell offer-deliverables">
         <div><span className="section-label">المرحلة الأولى · 3–5 أيام عمل</span><h2>نختار الاسم</h2><p>نفس نطاق باقة اختيار الاسم التجاري.</p></div>
@@ -112,16 +124,18 @@ export default function NameIdentityBundle() {
 
       <OfferClientProof review="bithan" locale="ar" />
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن تبدأ</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <OfferGuide offer="bundle" locale="ar" />
+
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن تبدأ</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section id="order-final" className="shell offer-final-cta">
         <span className="offer-kicker">اسم تجاري + هوية بصرية</span>
         <h2>ابدأ علامتك باسم واضح وشكل متماسك</h2>
         <p>أرسل لنا نشاطك وجمهورك والسوق الذي تستهدفه، ونبدأ بمرحلة الاسم.</p>
-        <NameIdentityWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
+        <NameIdentityWhatsApp className="button primary offer-consultation-cta" label="ابدأ اسمك وهويتك" />
         <div className="offer-bundle-links"><Link href="/offers/brand-naming">الاسم التجاري فقط</Link><Link href="/offers/visual-identity">الهوية الأساسية فقط</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
-      <NameIdentitySticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <NameIdentitySticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
     </main>
   );

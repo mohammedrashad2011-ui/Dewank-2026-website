@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
+import { offerExtras } from "../offer-extras-data";
+import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { GoogleAdsLaunchLink, GoogleAdsLaunchPrice, GoogleAdsLaunchSticky } from "./localized-google-ads-launch";
@@ -12,10 +15,13 @@ const title = "إعداد وإطلاق حملة Google Ads في السعودية
 const description = "باقة إعداد وتشغيل حملة Google Ads Search للشركات في السعودية: بحث كلمات، كتابة الإعلانات، كلمات سلبية، تتبع تحويل أساسي وإطلاق منظم بسعر واضح. إعداد لمرة واحدة، وليس إدارة شهرية.";
 
 export const metadata: Metadata = createMetadata({
-  title: "إعداد حملة إعلانات جوجل (Google Ads) في السعودية | باقة إطلاق | ديوانك",
+  title: "إعداد حملة إعلانات جوجل (قوقل ادز) | باقة إطلاق Google Ads | ديوانك",
   description,
   path: "/offers/google-ads-launch",
   keywords: [
+    "إعلانات جوجل",
+    "إعلانات قوقل",
+    "قوقل ادز",
     "إعداد حملة جوجل ادز",
     "تشغيل حملة Google Ads",
     "تشغيل حملة جوجل",
@@ -51,6 +57,8 @@ const faqs = [
   ["كم يستغرق الإعداد؟", "عادة من يومين إلى 4 أيام عمل بعد استلام الصلاحيات والمعلومات واعتماد الكلمات والرسائل الإعلانية."],
 ];
 
+const allFaqs = [...faqs, ...offerExtras.ar.ads.faqs];
+
 export default function GoogleAdsLaunchOffer() {
   const url = `${siteUrl}/offers/google-ads-launch`;
   const schema = {
@@ -70,7 +78,7 @@ export default function GoogleAdsLaunchOffer() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({
+        mainEntity: allFaqs.map(([question, answer]) => ({
           "@type": "Question",
           name: question,
           acceptedAnswer: { "@type": "Answer", text: answer },
@@ -88,15 +96,20 @@ export default function GoogleAdsLaunchOffer() {
   };
 
   return (
-    <main className="inner-page offers-page google-ads-page">
+    <main className="inner-page offers-page oe-page google-ads-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <section className="shell offer-detail-hero google-ads-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> أيام عمل</span></div>
-          <h1>إعداد وإطلاق حملة Google Ads<br/><em>حملة Search جاهزة للتشغيل، لمرة واحدة</em></h1>
+          <h1>إعداد حملة إعلانات جوجل<br/><em>حملة Google Ads Search جاهزة للتشغيل</em></h1>
           <p>نجهز لك حملة Google Search من الصفر: كلمات بنية شراء، إعلانات مناسبة، كلمات سلبية، تتبع تحويل أساسي، وفحص كامل قبل تشغيل الميزانية.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">باقة الإطلاق من <InlineOfferPrice offerKey="google-ads-launch" /></p>
+            <GoogleAdsLaunchLink id="order-hero" className="button primary offer-consultation-cta" label="ابدأ حملتك" />
+            <OfferMicro offer="ads" locale="ar" />
+          </div>
           <div className="google-ads-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
             <span>إذا كنت تبحث عن سعر تشغيل حملة Google Ads، فهذه الباقة للتأسيس والإطلاق بسعر واضح، وليست إدارة شهرية. مناسبة إذا كانت لديك صفحة جاهزة وتريد بدء Google Search بطريقة منظمة.</span>
@@ -107,7 +120,7 @@ export default function GoogleAdsLaunchOffer() {
           <GoogleAdsLaunchPrice />
           <div className="offer-trust-inline"><span>حملة Search</span><span>تتبع تحويل</span><span>7 أيام متابعة تقنية</span></div>
           <p>ميزانية الإعلان تُدفع إلى Google مباشرة. لا تشمل الباقة Landing Page جديدة أو إدارة وتحسين شهري مستمر.</p>
-          <GoogleAdsLaunchLink id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
+          <GoogleAdsLaunchLink id="order-cta" className="button primary offer-consultation-cta" label="ابدأ حملتك" />
         </aside>
       </section>
 
@@ -128,6 +141,8 @@ export default function GoogleAdsLaunchOffer() {
           <div className="google-search-path"><span>بحث</span><span>إعلان</span><span>صفحتك</span><span>تحويل</span></div>
         </div>
       </section>
+
+      <OfferSample offer="ads" locale="ar" />
 
       <section className="shell offer-deliverables google-ads-deliverables">
         <div><span className="section-label">ماذا تستلم؟</span><h2>حملة جاهزة للإطلاق<br/>بنطاق واضح</h2><p>نحدد الحدود من البداية حتى لا تتحول باقة التأسيس إلى إدارة شهرية غير محسوبة.</p></div>
@@ -163,18 +178,20 @@ export default function GoogleAdsLaunchOffer() {
 
       <OfferClientProof review="data" locale="ar" />
 
+      <OfferGuide offer="ads" locale="ar" />
+
       <section className="shell offer-faq google-ads-faq" id="faq">
         <div><span className="section-label">أسئلة سريعة</span><h2>قبل أن تبدأ</h2></div>
-        <div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section id="order-final" className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">جاهز للإطلاق؟</span><h2>اجعل أول صرف على Google<br/>يبدأ بإعداد محسوب</h2><p>أرسل لنا نشاطك، السوق المستهدف، ورابط الصفحة الحالية ونراجع ملاءمتها قبل بدء الحملة.</p></div>
-        <GoogleAdsLaunchLink className="button primary offer-consultation-cta" label="استشارة مجانية" />
+        <GoogleAdsLaunchLink className="button primary offer-consultation-cta" label="ابدأ حملتك" />
         <div className="google-ads-links"><Link href="/guides/google-ads-cost-saudi-arabia">تريد فهم التكلفة والميزانية أولًا؟</Link><Link href="/paid-ads">تحتاج إدارة Google Ads مستمرة؟</Link><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link></div>
       </section>
 
-      <GoogleAdsLaunchSticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <GoogleAdsLaunchSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
     </main>
   );

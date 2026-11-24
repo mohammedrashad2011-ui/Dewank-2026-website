@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
+import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
 import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -13,10 +15,10 @@ import "../../../../(ar)/offers/google-ads-launch/google-ads-launch.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
-const orderWatchIds = ["order-cta", "order-final", "order-footer"];
+const orderWatchIds = ["order-hero", "order-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
-  "Google Ads Setup Service: One-Time Search Campaign Launch",
+  "Google Ads Setup for Small Business: Search Campaign",
   "Setup and launch of one Google Search campaign: buyer keywords, ad copy, negative keywords, conversion tracking and a pre-launch check.",
   "/en/offers/google-ads-launch",
 );
@@ -33,7 +35,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["How much does it cost to set up and launch a Google Ads campaign?", "This package sets up and launches one Google Search campaign for the price shown above, in Saudi riyals by default, or in your country's approved price where one exists. Your ad budget is paid directly to Google, and ongoing monthly management is not included."],
+  ["How much does it cost to set up and launch a Google Ads campaign?", "This package sets up and launches one Google Search campaign for the price shown above in your local currency. Your ad budget is paid directly to Google, and ongoing monthly management is not included."],
   ["What does the Google Ads launch package include?", "It includes setting up and launching one Google Search campaign with up to two ad groups, keyword research, ad copy, the initial negative keywords, and one main conversion goal where the technical requirements are met."],
   ["Does the package include the ad budget?", "No. The package fee is for setting up and launching the campaign. Your advertising budget is paid directly to Google, in the amount you choose."],
   ["Does it include a month of campaign management?", "No. The package covers setup and launch, with technical follow-up for 7 days. If you need continuous management and optimisation, see our Google Ads and paid advertising service."],
@@ -43,8 +45,10 @@ const faqs = [
   ["How long does setup take?", "Usually 2 to 4 working days after we receive access, information and your approval of the keywords and ad messages."],
 ];
 
+const allFaqs = [...faqs, ...offerExtras.en.ads.faqs];
+
 export default function GoogleAdsLaunchOffer() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the Google Ads launch package. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start the Google Ads launch package. My business is: ");
   const url = "https://dewank.com/en/offers/google-ads-launch";
   const schema = {
     "@context": "https://schema.org",
@@ -64,7 +68,7 @@ export default function GoogleAdsLaunchOffer() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+        mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
       },
       {
         "@type": "BreadcrumbList",
@@ -78,15 +82,20 @@ export default function GoogleAdsLaunchOffer() {
   };
 
   return (
-    <main id="main-content" className="inner-page offers-page google-ads-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page oe-page google-ads-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
       <section className="shell offer-detail-hero google-ads-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>2–4</strong> working days</span></div>
-          <h1>Google Ads campaign setup<br/><em>One Search campaign, built and launched once</em></h1>
+          <h1>Google Ads setup for small business<br/><em>One Search campaign, built and launched once</em></h1>
           <p>We build a Google Search campaign from scratch: buyer-intent keywords, suitable ads, negative keywords, basic conversion tracking, and a full check before the budget starts running.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">Launch package from <OfferPrice offerKey="google-ads-launch" className="oe-price-value" /></p>
+            <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your campaign <span>→</span></a>
+            <OfferMicro offer="ads" locale="en" />
+          </div>
           <div className="google-ads-answer" aria-label="The short answer">
             <b>The short answer</b>
             <span>If you are looking for the cost of launching a Google Ads campaign, this package is a setup and launch at a clear price, not monthly management. It suits you if you already have a working page and want to start Google Search in an organised way.</span>
@@ -97,7 +106,7 @@ export default function GoogleAdsLaunchOffer() {
           <OfferPrice offerKey="google-ads-launch" className="offer-price" />
           <div className="offer-trust-inline"><span>Search campaign</span><span>Conversion tracking</span><span>7-day technical follow-up</span></div>
           <p>Ad spend is paid directly to Google. The package does not include a new landing page or ongoing monthly management and optimisation.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your campaign <span>→</span></a>
         </aside>
       </section>
 
@@ -118,6 +127,8 @@ export default function GoogleAdsLaunchOffer() {
           <div className="google-search-path"><span>Search</span><span>Ad</span><span>Your page</span><span>Conversion</span></div>
         </div>
       </section>
+
+      <OfferSample offer="ads" locale="en" />
 
       <section className="shell offer-deliverables google-ads-deliverables">
         <div><span className="section-label">What you receive</span><h2>A campaign ready to launch<br/>With a clear scope</h2><p>We set the limits from the start, so the setup package does not turn into unplanned monthly management.</p></div>
@@ -153,18 +164,20 @@ export default function GoogleAdsLaunchOffer() {
 
       <OfferClientProof review="data" locale="en" />
 
+      <OfferGuide offer="ads" locale="en" />
+
       <section className="shell offer-faq google-ads-faq" id="faq">
         <div><span className="section-label">Quick questions</span><h2>Before you start</h2></div>
-        <div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section id="order-final" className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">Ready to launch?</span><h2>Make your first spend on Google<br/>begin with a measured setup</h2><p>Send us your business, your target market and the link to your current page, and we will check whether it is suitable before the campaign begins.</p></div>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your campaign <span>→</span></a>
         <div className="google-ads-links"><Link href="/en/paid-advertising">Need ongoing Google Ads management?</Link><Link href="/en/offers/landing-page-package">Need a landing page first?</Link></div>
       </section>
 
-      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Free consultation" priceLabel="Launch package from" offerKey="google-ads-launch" />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Start your campaign" priceLabel="Launch package from" offerKey="google-ads-launch" />
       <div id="order-footer"><Footer /></div>
     </main>
   );

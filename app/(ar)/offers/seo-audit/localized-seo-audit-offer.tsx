@@ -10,7 +10,7 @@ export function SeoAuditOfferPrice() {
 }
 
 function seoAuditMessage(amount: string, currency: string) {
-  return `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص فحص SEO وAEO بسعر ${amount} ${currency}. رابط موقعي: `;
+  return `مرحبًا ديوانك، أرغب في طلب فحص SEO وAEO بسعر ${amount} ${currency}. رابط موقعي: `;
 }
 
 export function SeoAuditWhatsApp({ className, label, id }: { className: string; label: string; id?: string }) {
@@ -25,7 +25,7 @@ export function SeoAuditSticky({ watchIds }: { watchIds: string[] }) {
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(seoAuditMessage(price.formattedAmount, price.currencyLabel))}`;
   return (
     <div className="offer-sticky">
-      <StickyOfferBar watchIds={watchIds} alwaysWhenHidden ctaMinVisibleRatio={0.5} href={href} label="استشارة مجانية" priceLabel="فحص شامل من" price={`${price.formattedAmount} ${price.currencyLabel}`} arrow="←" />
+      <StickyOfferBar watchIds={watchIds} alwaysWhenHidden ctaMinVisibleRatio={0.5} href={href} label="اطلب فحص موقعك" priceLabel="فحص شامل من" price={`${price.formattedAmount} ${price.currencyLabel}`} arrow="←" />
     </div>
   );
 }

@@ -1,0 +1,91 @@
+/* Shared blocks for the WhatsApp, Google Ads, SEO audit, landing page, Instagram and name + identity offers: first-screen
+   price and CTA on phones, sample, comparison, business types and tighter spacing. Scoped to .oe-page. Mobile first. */
+
+/* ---------- Hero ---------- */
+html .oe-page .oe-hero-actions .oe-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin: 14px 0 14px; color: #061a33; font-size: 15px; font-weight: 700; line-height: 1.6; }
+.oe-page .oe-price > span, .oe-page .oe-price-value { font-size: 22px; font-weight: 800; white-space: nowrap; background: linear-gradient(transparent 62%, rgba(244, 217, 145, .75) 62%); }
+.oe-page .oe-price-value strong { font-size: inherit; font-weight: inherit; line-height: inherit; color: inherit; }
+.oe-page .oe-price-value > span { margin-inline-start: .25em; font-size: inherit; }
+.oe-page .oe-hero-actions { margin-top: 10px; }
+.oe-page .oe-hero-actions .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 56px; font-size: 16px; font-weight: 700; text-align: center; }
+html .oe-page .oe-hero-actions .oe-micro { margin: 8px 0 0; color: #56585f; font-size: 13px; line-height: 1.7; text-align: center; }
+/* The WhatsApp offer has a dark hero. */
+html .oe-page.wa-cinema-page .oe-hero-actions .oe-price { color: #f5f0e7; }
+.oe-page.wa-cinema-page .oe-price > span, .oe-page.wa-cinema-page .oe-price-value { background: none; color: #f4d991; }
+html .oe-page.wa-cinema-page .oe-hero-actions .oe-micro { color: rgba(245, 240, 231, .78); }
+.oe-page.wa-cinema-page .offer-detail-hero .offer-spots-available { background: rgba(5, 21, 30, .7); color: #f5f0e7; }
+.oe-page.wa-cinema-page .offer-detail-hero .offer-spots-available strong { color: #f4d991; }
+/* On desktop the price panel and its CTA sit beside the headline, so the hero price and button are not repeated. */
+@media (min-width: 861px) { .oe-page .oe-hero-actions { display: none; } }
+
+/* ---------- Sample and problems ---------- */
+.oe-page .oe-sample { display: grid; gap: 18px; padding-bottom: clamp(40px, 6vw, 84px); }
+html .oe-page .oe-sample h2 { margin: 0 0 8px; color: #061a33; font-size: clamp(26px, 3.6vw, 42px) !important; line-height: 1.4; }
+.oe-page .oe-sample > div > p:not([class]) { margin: 0; color: #4b4e55; font-size: 15px; line-height: 1.85; }
+.oe-page .oe-problems { margin-top: 18px; padding: 16px 18px; border-radius: 20px; border-inline-start: 4px solid #d5a843; background: rgba(244, 217, 145, .22); }
+html .oe-page .oe-problems h3 { margin: 0 0 8px; color: #061a33; font-size: 18px; line-height: 1.6; }
+.oe-page .oe-problems ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.oe-page .oe-problems li { display: grid; gap: 1px; font-size: 14px; line-height: 1.7; }
+.oe-page .oe-problems b { color: #061a33; }
+.oe-page .oe-problems span { color: #4b4e55; }
+.oe-page .oe-card { overflow: hidden; border: 1px solid rgba(213, 168, 67, .5); border-radius: 22px; background: #fff; }
+.oe-page .oe-card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; padding: 12px 18px; background: #061a33; color: #f4d991; font-size: 14px; line-height: 1.6; }
+.oe-page .oe-card-head small { padding: 2px 10px; border: 1px solid rgba(245, 240, 231, .25); border-radius: 999px; color: rgba(245, 240, 231, .85); font-size: 11px; white-space: nowrap; }
+.oe-page .oe-card dl { margin: 0; padding: 4px 18px; }
+.oe-page .oe-card dl > div { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 11px 0; }
+.oe-page .oe-card dl > div + div { border-top: 1px solid rgba(6, 26, 51, .08); }
+.oe-page .oe-card dt { color: #8a6418; font-size: 13px; font-weight: 800; line-height: 1.7; }
+.oe-page .oe-card dd { margin: 0; color: #061a33; font-size: 14px; line-height: 1.7; }
+.oe-page .oe-card-foot { margin: 0; padding: 12px 18px; background: rgba(244, 217, 145, .28); color: #061a33; font-size: 14px; font-weight: 700; line-height: 1.7; }
+
+/* ---------- Comparison and business types ---------- */
+.oe-page .oe-sample, .oe-page .oe-guide { content-visibility: visible; }
+.oe-page .oe-guide { display: grid; gap: 12px; padding-bottom: 48px; }
+.oe-page .oe-guide details { padding: 4px 18px; border: 1px solid rgba(6, 26, 51, .12); border-radius: 20px; background: rgba(255, 255, 255, .6); }
+.oe-page .oe-guide details[open] { padding-bottom: 18px; }
+.oe-page .oe-guide summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 60px; cursor: pointer; list-style: none; }
+.oe-page .oe-guide summary::-webkit-details-marker { display: none; }
+.oe-page .oe-guide summary::after { content: "+"; flex: none; color: #8a6418; font-size: 26px; line-height: 1; }
+.oe-page .oe-guide details[open] summary::after { content: "−"; }
+.oe-page .oe-guide summary:focus-visible { outline: 2px solid #061a33; outline-offset: 4px; border-radius: 12px; }
+html .oe-page .oe-guide h2 { margin: 0; color: #061a33; font-size: clamp(18px, 4.8vw, 26px) !important; line-height: 1.5; }
+.oe-page .oe-compare table { width: 100%; border-collapse: collapse; color: #061a33; font-size: 14px; line-height: 1.7; text-align: start; }
+.oe-page .oe-compare th, .oe-page .oe-compare td { padding: 12px 10px; text-align: start; vertical-align: top; }
+.oe-page .oe-compare thead th { color: #8a6418; font-size: 13px; }
+.oe-page .oe-compare tbody tr { border-top: 1px solid rgba(6, 26, 51, .1); }
+.oe-page .oe-sectors { display: grid; gap: 14px; }
+html .oe-page .oe-sectors h3 { margin: 0 0 4px; color: #061a33; font-size: 16px; line-height: 1.5; }
+.oe-page .oe-sectors p { margin: 0; color: #4b4e55; font-size: 14px; line-height: 1.8; }
+.oe-page .oe-link { display: inline-block; margin-top: 14px; color: #061a33; font-weight: 700; text-decoration: underline; text-decoration-color: #d5a843; text-underline-offset: 5px; }
+
+@media (max-width: 619px) {
+  .oe-page .oe-compare thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .oe-page .oe-compare table, .oe-page .oe-compare tbody, .oe-page .oe-compare tr, .oe-page .oe-compare tbody th, .oe-page .oe-compare td { display: block; }
+  .oe-page .oe-compare tbody tr { padding: 12px 0; }
+  .oe-page .oe-compare tbody th, .oe-page .oe-compare td { padding: 2px 0; }
+  .oe-page .oe-compare tbody th { font-size: 16px; }
+  .oe-page .oe-compare td { color: #4b4e55; }
+  .oe-page .oe-compare td::before { content: attr(data-label) ": "; color: #8a6418; font-weight: 700; }
+}
+
+/* ---------- Shorter page on phones ---------- */
+@media (max-width: 620px) {
+  .oe-page .offer-detail-hero { gap: 24px; padding-top: 18px; padding-bottom: 32px; min-height: 0; }
+  .oe-page.google-ads-page .google-ads-hero h1, .oe-page .offer-detail-hero h1 { margin-block: 10px 8px; font-size: clamp(28px, 8.2vw, 42px); line-height: 1.34; }
+  .oe-page.google-ads-page .google-ads-hero > div > p, .oe-page .offer-detail-hero > div > p { margin-block: 0; font-size: 16px; line-height: 1.75; }
+  .oe-page.google-ads-page .google-ads-hero { gap: 10px; padding-top: 18px; padding-bottom: 32px; }
+  .oe-page .offer-deliverables { gap: 14px; padding-bottom: 36px; }
+  .oe-page .deliverable-list { gap: 8px; }
+  .oe-page .deliverable-item { padding: 12px 16px; }
+  .oe-page .deliverable-item p { margin-top: 2px; line-height: 1.65; }
+  .oe-page .offer-fit-grid { gap: 10px; }
+  .oe-page .offer-fit-card { padding: 18px; }
+  .oe-page .offer-fit-card li { line-height: 1.65; }
+  .oe-page .oe-sample { padding-bottom: 36px; }
+  .oe-page .oe-guide { padding-bottom: 32px; }
+}
+@media (min-width: 640px) { .oe-page .oe-sectors { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) {
+  .oe-page .oe-sample { grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
+  .oe-page .oe-sectors { grid-template-columns: repeat(3, 1fr); }
+}

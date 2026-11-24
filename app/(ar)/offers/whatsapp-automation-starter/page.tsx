@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
+import { offerExtras } from "../offer-extras-data";
+import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { WhatsAppStarterLink, WhatsAppStarterPrice } from "./localized-whatsapp-starter";
+import { WhatsAppStarterLink, WhatsAppStarterPrice, WhatsAppStarterSticky } from "./localized-whatsapp-starter";
 import { AutomationJourney, AutomationContrast } from "./whatsapp-cinematic";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./whatsapp-starter.css";
 import "./whatsapp-cinematic.css";
 
-const title = "أتمتة واتساب للشركات | الباقة التأسيسية";
+const title = "بوت واتساب للشركات وأتمتة الرد الآلي | باقة تأسيسية";
 const description = "باقة تأسيس أتمتة واتساب للشركات تشمل الرد والتأهيل وجمع البيانات والتحويل للموظف والمتابعة الأساسية والاختبار قبل التشغيل. تعرّف على السعر المعروض حسب السوق.";
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
   description,
   path: "/offers/whatsapp-automation-starter",
-  keywords: ["سعر أتمتة واتساب", "تكلفة واتساب أوتوميشن", "أتمتة واتساب للشركات", "رد آلي واتساب للشركات", "بوت واتساب للشركات", "واتساب أوتوميشن السعودية", "WhatsApp automation Saudi Arabia", "تأهيل العملاء واتساب"],
+  keywords: ["بوت واتساب", "شات بوت واتساب", "رد آلي واتساب", "واتساب API", "سعر أتمتة واتساب", "تكلفة واتساب أوتوميشن", "أتمتة واتساب للشركات", "رد آلي واتساب للشركات", "بوت واتساب للشركات", "واتساب أوتوميشن السعودية", "WhatsApp automation Saudi Arabia", "تأهيل العملاء واتساب"],
 });
 
 const deliverables = [
@@ -40,32 +43,41 @@ const faqs = [
   ["كم يستغرق التنفيذ؟", "التنفيذ المعتاد من 3 إلى 5 أيام عمل بعد استلام معلومات النشاط والردود الأساسية واعتماد مسار المحادثة"],
 ];
 
+const allFaqs = [...faqs, ...offerExtras.ar.whatsapp.faqs];
+
 export default function WhatsAppAutomationStarterOffer() {
   const url = `${siteUrl}/offers/whatsapp-automation-starter`;
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Service", "@id": `${url}#service`, offers: { "@type": "Offer", price: "890", priceCurrency: "SAR", availability: "https://schema.org/InStock", url }, name: "باقة أتمتة واتساب التأسيسية", alternateName: "WhatsApp Automation Starter", description, serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"], provider: { "@id": organizationId }, areaServed: servedMarkets, url },
-      { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+      { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "العروض", item: `${siteUrl}/offers` }, { "@type": "ListItem", position: 3, name: "أتمتة واتساب التأسيسية", item: url }] },
     ],
   };
 
   return (
-    <main className="inner-page offers-page whatsapp-starter-page wa-cinema-page">
+    <main className="inner-page offers-page oe-page whatsapp-starter-page wa-cinema-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <section className="shell offer-detail-hero whatsapp-starter-hero wa-cinema-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> أيام عمل</span></div>
-          <h1>أتمتة واتساب للشركات<br/><em>ابدأ بالمسار الذي يمنع ضياع العميل المحتمل</em></h1>
+          <h1>بوت واتساب للشركات<br/><em>رد آلي يجمع بيانات العميل</em></h1>
           <p>نجهز لك مسار أتمتة واتساب يرد على الأسئلة الأساسية، يؤهّل العميل، يجمع بياناته، ويتابع الخطوة التالية قبل تحويله للموظف المناسب</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">باقة التأسيس من <InlineOfferPrice offerKey="whatsapp-automation-starter" /></p>
+            <WhatsAppStarterLink id="order-hero" className="button primary offer-consultation-cta" label="ابدأ أتمتة واتساب" />
+            <OfferMicro offer="whatsapp" locale="ar" />
+          </div>
           <div className="whatsapp-starter-answer" aria-label="الإجابة المختصرة"><b>الإجابة المختصرة</b><span>هذه باقة تأسيسية وليست نظامًا كاملًا لإدارة العملاء، ومناسبة لو مشكلتك الأساسية هي بطء الرد وتكرار الأسئلة وضياع العملاء قبل وصولهم للفريق</span></div>
         </div>
-        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><WhatsAppStarterPrice /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل، ولا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink className="button primary offer-consultation-cta" label="استشارة مجانية" /></aside>
+        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><WhatsAppStarterPrice /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل، ولا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink id="order-cta" className="button primary offer-consultation-cta" label="ابدأ أتمتة واتساب" /></aside>
       </section>
 
       <AutomationJourney locale="ar" />
+
+      <OfferSample offer="whatsapp" locale="ar" />
 
       <section className="shell offer-deliverables whatsapp-starter-deliverables"><div><span className="section-label">ماذا تستلم؟</span><h2>نطاق واضح<br/>من غير نظام معقد لإدارة العملاء</h2><p>نبدأ بالمسار الضروري فقط حتى يكون سريع الفهم وسهل التشغيل والتطوير لاحقًا</p></div><div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div></section>
 
@@ -77,10 +89,13 @@ export default function WhatsAppAutomationStarterOffer() {
 
       <section className="shell offer-confidence whatsapp-starter-confidence"><div><span className="section-label">قبل الشراء</span><h2>اعرف بالضبط<br/>ما الذي تدفع مقابله</h2></div><div className="offer-confidence-list"><p><b>الباقة التأسيسية:</b> نقطة دخول منخفضة الاحتكاك لأتمتة الرد والتأهيل والتحويل</p><p><b>لا تشمل:</b> نظامًا كاملًا لإدارة العملاء، وحجزًا متقدمًا، تكاملات متعددة، رسوم واتساب أو الأدوات الخارجية</p><p><b>لو تحتاج نظامًا أكبر:</b> راجع <Link href="/whatsapp-automation">خدمة أتمتة واتساب وإدارة العملاء</Link> أو اقرأ <Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">دليل تكلفة أتمتة واتساب في السعودية</Link></p></div></section>
 
-      <section className="shell offer-faq whatsapp-starter-faq" id="faq"><div><span className="section-label">أسئلة سريعة</span><h2>قبل ما تبدأ</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <OfferGuide offer="whatsapp" locale="ar" />
 
-      <section className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">ابدأ من هنا</span><h2>خلّي أول رسالة<br/>تتحول إلى خطوة واضحة</h2><p>أرسل لنا نوع نشاطك وأكثر الأسئلة التي تصلك يوميًا، ونحدد هل التأسيسية تكفيك أم تحتاج نظامًا أكبر</p></div><WhatsAppStarterLink className="button primary offer-consultation-cta" label="استشارة مجانية" /><div className="whatsapp-starter-links"><Link href="/whatsapp-automation">تحتاج نظام إدارة عملاء وتكاملات أكبر؟</Link><Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">كم تكلفة النظام الكامل؟</Link></div></section>
-      <Footer />
+      <section className="shell offer-faq whatsapp-starter-faq" id="faq"><div><span className="section-label">أسئلة سريعة</span><h2>قبل ما تبدأ</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+
+      <section id="order-final" className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">ابدأ من هنا</span><h2>خلّي أول رسالة<br/>تتحول إلى خطوة واضحة</h2><p>أرسل لنا نوع نشاطك وأكثر الأسئلة التي تصلك يوميًا، ونحدد هل التأسيسية تكفيك أم تحتاج نظامًا أكبر</p></div><WhatsAppStarterLink className="button primary offer-consultation-cta" label="ابدأ أتمتة واتساب" /><div className="whatsapp-starter-links"><Link href="/whatsapp-automation">تحتاج نظام إدارة عملاء وتكاملات أكبر؟</Link><Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">كم تكلفة النظام الكامل؟</Link></div></section>
+      <WhatsAppStarterSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

@@ -9,7 +9,7 @@ import "../offer-sticky-cta.css";
 // all three in the visitor's own currency.
 
 function bundleMessage(amount: string, currency: string) {
-  return `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة الاسم التجاري + الهوية البصرية بسعر ${amount} ${currency}. نشاطي: `;
+  return `مرحبًا ديوانك، أرغب في بدء باقة الاسم التجاري + الهوية البصرية بسعر ${amount} ${currency}. نشاطي: `;
 }
 
 export function NameIdentityPrice() {
@@ -42,7 +42,7 @@ export function NameIdentitySticky({ watchIds }: { watchIds: string[] }) {
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(bundleMessage(price.formattedAmount, price.currencyLabel))}`;
   return (
     <div className="offer-sticky">
-      <StickyOfferBar watchIds={watchIds} alwaysWhenHidden ctaMinVisibleRatio={0.5} href={href} label="استشارة مجانية" priceLabel="الاسم + الهوية" price={`${price.formattedAmount} ${price.currencyLabel}`} arrow="←" />
+      <StickyOfferBar watchIds={watchIds} alwaysWhenHidden ctaMinVisibleRatio={0.5} href={href} label="ابدأ اسمك وهويتك" priceLabel="الاسم + الهوية" price={`${price.formattedAmount} ${price.currencyLabel}`} arrow="←" />
     </div>
   );
 }

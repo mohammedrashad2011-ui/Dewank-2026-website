@@ -10,7 +10,7 @@ export function InstagramUpgradePrice() {
 }
 
 function instagramMessage(amount: string, currency: string) {
-  return `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة تطوير إنستجرام خلال 14 يومًا بسعر ${amount} ${currency}. رابط حسابي: `;
+  return `مرحبًا ديوانك، أرغب في بدء باقة تطوير إنستجرام خلال 14 يومًا بسعر ${amount} ${currency}. رابط حسابي: `;
 }
 
 export function InstagramUpgradeWhatsApp({ className, label, id }: { className: string; label: string; id?: string }) {
@@ -24,7 +24,7 @@ export function InstagramUpgradeSticky({ watchIds }: { watchIds: string[] }) {
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(instagramMessage(price.formattedAmount, price.currencyLabel))}`;
   return (
     <div className="offer-sticky">
-      <StickyOfferBar watchIds={watchIds} alwaysWhenHidden ctaMinVisibleRatio={0.5} href={href} label="استشارة مجانية" priceLabel="باقة تطوير إنستجرام" price={`${price.formattedAmount} ${price.currencyLabel}`} arrow="←" />
+      <StickyOfferBar watchIds={watchIds} alwaysWhenHidden ctaMinVisibleRatio={0.5} href={href} label="طوّر حسابك" priceLabel="باقة تطوير إنستجرام" price={`${price.formattedAmount} ${price.currencyLabel}`} arrow="←" />
     </div>
   );
 }
