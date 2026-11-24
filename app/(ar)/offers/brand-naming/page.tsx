@@ -115,9 +115,9 @@ export default function BrandNamingOfferPage() {
         <div className="bn2-hero-copy">
           <p className="bn2-kicker"><i aria-hidden="true" />باقة جاهزة · التسليم خلال 3–5 أيام عمل</p>
           <h1 id="bn2-title">اختيار اسم تجاري <em>يتذكره عميلك من أول مرة</em></h1>
-          <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه وتوفر الدومين. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
+          <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه والدومين وحسابات التواصل، مع 3 شعارات لفظية للاسم الذي تختاره. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
           <div className="bn2-hero-actions">
-            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
+            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
             <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
           </div>
           <ul className="bn2-facts" aria-label="ما تشمله الباقة">
@@ -159,13 +159,14 @@ export default function BrandNamingOfferPage() {
         </figure>
       </section>
 
-      <NamingRisk locale="ar" />
+      <NamingReviews locale="ar" />
 
       <section className="shell bn2-fit" aria-labelledby="bn2-fit-title">
         <h2 id="bn2-fit-title">الباقة مناسبة لك إذا كنت</h2>
         <div className="bn2-fit-grid">
           {fits.map(([head, text]) => <article key={head}><h3>{head}</h3><p>{text}</p></article>)}
         </div>
+        <NamingRisk locale="ar" />
       </section>
 
       <section className="shell bn2-steps" aria-labelledby="bn2-steps-title">
@@ -188,16 +189,15 @@ export default function BrandNamingOfferPage() {
         <aside className="offer-price-panel brand-naming-price-panel bn2-price" aria-label="سعر الباقة">
           <small>الباقة الجاهزة</small>
           <BrandNamingOfferPrice />
-          <p className="bn2-price-note">سعر ثابت يشمل البحث والتسمية والقائمة المختصرة والتوجه الأولي للعلامة.</p>
-          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
+          <p className="bn2-price-note">سعر ثابت يشمل البحث والتسمية والقائمة المختصرة والشعارات اللفظية والتوجه الأولي للعلامة.</p>
+          <p className="bn3-assure">إذا لم تحسم اختيارك من الجولة الأولى، فجولة تطوير واحدة ضمن السعر.</p>
+          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
           <details className="bn2-excludes">
             <summary>ما الذي لا يشمله العرض؟</summary>
             <p>لا يشمل رسوم الجهات الرسمية، تسجيل العلامة، شراء الدومين، تصميم الشعار أو الهوية الكاملة، أو بحثًا قانونيًا متخصصًا في عدة فئات وأسواق. الفحص الذي نقدمه مبدئي وليس رأيًا قانونيًا أو ضمان تسجيل.</p>
           </details>
         </aside>
       </section>
-
-      <NamingReviews locale="ar" cta={<BrandNamingWhatsApp id="bn3-reviews-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />} />
 
       <section className="shell brand-naming-case bn2-case" aria-labelledby="brand-naming-case-title">
         <div>
@@ -228,11 +228,11 @@ export default function BrandNamingOfferPage() {
         <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
         <h2>قبل ما تصمم الشعار، اختر اسمًا يستحق أن يوضع عليه</h2>
         <p>أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
-        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
+        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
         <div className="brand-naming-links"><Link href="/offers/name-identity">الاسم والهوية معًا بسعر أقل</Link><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
 
-      <BrandNamingStickyCta watchIds={["bn2-hero-cta", "bn3-reviews-cta", "bn2-final-cta"]} />
+      <BrandNamingStickyCta watchIds={["bn2-hero-cta", "bn2-final-cta"]} />
       <Footer />
     </main>
   );

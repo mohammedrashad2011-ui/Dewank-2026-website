@@ -1,22 +1,19 @@
-import type { ReactNode } from "react";
 import Link from "next/link";
 
-// Sections added below the Brand Naming hero, shared by the Arabic and English offer pages. The hero, the package
-// price, the CTA labels and the WhatsApp message are not touched. No price is written as text here.
+// Blocks shared by the Arabic and English Brand Naming offers: reviews right after the hero, the problems we rule out
+// (inside the fit section), and collapsed business-type examples. No price is written as text here.
 
 type Locale = "ar" | "en";
 
 const copy = {
   ar: {
     risk: {
-      title: "قبل أن تطبع اسمك على لافتة أو فاتورة",
-      lead: "الاسم الذي يُختار على عجل يظهر ثمنه لاحقًا. هذه ثلاث مشاكل نفحصها قبل أن نرشّح لك أي اسم.",
+      title: "قبل أن نرشّح لك اسمًا، نفحص هذه المشاكل",
       items: [
-        ["اسم قريب من منافس", "يخلط العميل بينك وبينه، وقد تضطر إلى تغيير الاسم بعد الطباعة والإعلان."],
-        ["دومين أو حساب مشغول", "تكتشف ذلك بعد أن تحجز الشعار والمطبوعات، فتبدأ من جديد."],
-        ["اسم يُكتب بأكثر من طريقة", "يبحث عنك العميل فلا يجدك لأنه كتب الاسم بشكل مختلف عن شكلك الرسمي."],
+        ["اسم قريب من منافس", "حتى تقل احتمالات تغييره بعد الطباعة والإعلان."],
+        ["دومين أو حساب مشغول", "حتى لا تكتشف ذلك بعد تصميم الشعار."],
+        ["اسم يُكتب بأكثر من طريقة", "حتى يجدك العميل حين يبحث عنك."],
       ],
-      close: "فحص الاسم قبل استخدامه أسهل من تغييره بعد أن يعرفك الناس به.",
     },
     reviews: {
       title: "ماذا قال عملاء خدمة التسمية",
@@ -41,14 +38,12 @@ const copy = {
   },
   en: {
     risk: {
-      title: "Before you print your name on a sign or an invoice",
-      lead: "A name chosen in a hurry shows its cost later. We check for these three problems before we recommend any name.",
+      title: "Before we recommend a name, we check for these problems",
       items: [
-        ["A name close to a competitor", "Customers confuse you with them, and you may have to change the name after printing and advertising."],
-        ["A taken domain or handle", "You find out after you have booked the logo and the print, and you start again."],
-        ["A name spelled several ways", "A customer searches for you and does not find you because they spelled it differently from your official form."],
+        ["A name close to a competitor", "So you are less likely to change it after printing and advertising."],
+        ["A taken domain or handle", "So you do not find out after the logo is designed."],
+        ["A name spelled several ways", "So customers find you when they search for you."],
       ],
-      close: "Checking a name before you use it is easier than changing it after people know you by it.",
     },
     reviews: {
       title: "What naming clients said",
@@ -112,18 +107,14 @@ const reviews = [
 export function NamingRisk({ locale }: { locale: Locale }) {
   const t = copy[locale].risk;
   return (
-    <section className="shell bn3-risk" aria-labelledby="bn3-risk-title">
-      <h2 id="bn3-risk-title">{t.title}</h2>
-      <p className="bn3-lead">{t.lead}</p>
-      <div className="bn3-risk-grid">
-        {t.items.map(([head, text]) => <article key={head}><h3>{head}</h3><p>{text}</p></article>)}
-      </div>
-      <p className="bn3-risk-close">{t.close}</p>
-    </section>
+    <div className="bn3-risk">
+      <h3>{t.title}</h3>
+      <ul>{t.items.map(([head, text]) => <li key={head}><b>{head}</b><span>{text}</span></li>)}</ul>
+    </div>
   );
 }
 
-export function NamingReviews({ locale, cta }: { locale: Locale; cta: ReactNode }) {
+export function NamingReviews({ locale }: { locale: Locale }) {
   const t = copy[locale].reviews;
   const ar = locale === "ar";
   return (
@@ -148,7 +139,6 @@ export function NamingReviews({ locale, cta }: { locale: Locale; cta: ReactNode 
           </figure>
         ))}
       </div>
-      <div className="bn3-cta">{cta}</div>
     </section>
   );
 }
@@ -157,12 +147,14 @@ export function NamingSectors({ locale }: { locale: Locale }) {
   const t = copy[locale].sectors;
   return (
     <section className="shell bn3-sectors" aria-labelledby="bn3-sectors-title">
-      <h2 id="bn3-sectors-title">{t.title}</h2>
-      <p className="bn3-lead">{t.lead}</p>
-      <div className="bn3-sector-grid">
-        {t.items.map(([head, text]) => <article key={head}><h3>{head}</h3><p>{text}</p></article>)}
-      </div>
-      <Link className="bn3-link" href={t.guideHref}>{t.guide} {locale === "ar" ? "←" : "→"}</Link>
+      <details>
+        <summary><h2 id="bn3-sectors-title">{t.title}</h2></summary>
+        <p className="bn3-lead">{t.lead}</p>
+        <div className="bn3-sector-grid">
+          {t.items.map(([head, text]) => <article key={head}><h3>{head}</h3><p>{text}</p></article>)}
+        </div>
+        <Link className="bn3-link" href={t.guideHref}>{t.guide} {locale === "ar" ? "←" : "→"}</Link>
+      </details>
     </section>
   );
 }

@@ -114,9 +114,9 @@ export default function BrandNamingOfferPage() {
         <div className="bn2-hero-copy">
           <p className="bn2-kicker"><i aria-hidden="true" />Defined package · 3–5 working days</p>
           <h1 id="bn2-title">A brand name <em>your customers will remember</em></h1>
-          <p className="bn2-lede">We develop 10–15 considered names for your business and recommend the best three after checking meaning, pronunciation, similarity and domain availability. The complete package is <OfferPrice offerKey="brand-naming" className="bn2-inline-price" />.</p>
+          <p className="bn2-lede">We develop 10–15 considered names for your business and recommend the best three after checking meaning, pronunciation, similarity, domain and social handles, with 3 taglines for the name you choose. The complete package is <OfferPrice offerKey="brand-naming" className="bn2-inline-price" />.</p>
           <div className="bn2-hero-actions">
-            <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
+            <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start naming your brand <span aria-hidden="true">→</span></a>
             <p className="bn2-microcopy">No commitment. Tell us your business type and city, and we will reply with the next step.</p>
           </div>
           <ul className="bn2-facts" aria-label="What the package includes">
@@ -158,13 +158,14 @@ export default function BrandNamingOfferPage() {
         </figure>
       </section>
 
-      <NamingRisk locale="en" />
+      <NamingReviews locale="en" />
 
       <section className="shell bn2-fit" aria-labelledby="bn2-fit-title">
         <h2 id="bn2-fit-title">This package fits you if</h2>
         <div className="bn2-fit-grid">
           {fits.map(([head, text]) => <article key={head}><h3>{head}</h3><p>{text}</p></article>)}
         </div>
+        <NamingRisk locale="en" />
       </section>
 
       <section className="shell bn2-steps" aria-labelledby="bn2-steps-title">
@@ -187,16 +188,15 @@ export default function BrandNamingOfferPage() {
         <aside className="offer-price-panel brand-naming-price-panel bn2-price" aria-label="Package price">
           <small>The defined package</small>
           <OfferPrice offerKey="brand-naming" className="offer-price" />
-          <p className="bn2-price-note">A fixed price covering the research, the naming, the short list and the initial brand direction.</p>
-          <a className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
+          <p className="bn2-price-note">A fixed price covering the research, the naming, the short list, the taglines and the initial brand direction.</p>
+          <p className="bn3-assure">If the first round does not settle your choice, one development round is included in the price.</p>
+          <a className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start naming your brand <span aria-hidden="true">→</span></a>
           <details className="bn2-excludes">
             <summary>What the offer does not include</summary>
             <p>It does not include official government fees, trademark registration, domain purchase, logo or full identity design, or specialist legal research across several classes and markets. The check we provide is preliminary. It is not legal advice or a guarantee of registration, and domain availability may change before you buy.</p>
           </details>
         </aside>
       </section>
-
-      <NamingReviews locale="en" cta={<a id="bn3-reviews-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>} />
 
       <section className="shell brand-naming-case bn2-case" aria-labelledby="brand-naming-case-title">
         <div>
@@ -229,14 +229,14 @@ export default function BrandNamingOfferPage() {
         <span className="offer-kicker">Brand naming · initial brand direction</span>
         <h2>Before you design the logo, choose a name worth putting it on</h2>
         <p>Send us your business type and target market, and we will start with a short summary of your project before the research.</p>
-        <a id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>
+        <a id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start naming your brand <span aria-hidden="true">→</span></a>
         <div className="brand-naming-links"><Link href="/en/offers/name-identity">Name and identity together, for less</Link><Link href="/en/brand-naming">Details of the naming service</Link><Link href="/en/branding">Brand strategy and identity</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
 
       <StickyOfferBar
-        watchIds={["bn2-hero-cta", "bn3-reviews-cta", "bn2-final-cta"]}
+        watchIds={["bn2-hero-cta", "bn2-final-cta"]}
         href={contactLink}
-        label="Free consultation"
+        label="Start naming"
         priceLabel="Complete package"
         price={<OfferPrice offerKey="brand-naming" className="bn2-sticky-amount" />}
         arrow="→"
