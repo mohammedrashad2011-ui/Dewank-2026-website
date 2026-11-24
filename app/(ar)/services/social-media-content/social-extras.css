@@ -1,0 +1,107 @@
+/* Social media management page: samples, the three ways to start, problems, business types, and tighter spacing.
+   Scoped to .content-service-page. Mobile first. */
+
+/* ---------- Hero ---------- */
+.content-service-page .content-hero { padding-top: clamp(32px, 7vw, 90px); padding-bottom: clamp(40px, 6vw, 90px); }
+.content-service-page .content-actions .offer-consultation-cta { min-height: 56px; justify-content: center; font-size: 16px; font-weight: 700; text-align: center; }
+.content-service-page .sm-microcopy { max-width: 620px; margin: 12px 0 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
+.content-service-page .sm-price-value strong { font-weight: inherit; }
+.content-service-page .sm-price-value > span { margin-inline-start: .25em; }
+
+/* ---------- Shared headings ---------- */
+.content-service-page .content-samples h2, .content-service-page .content-paths h2 { margin: 10px 0 12px; color: var(--navy); font-size: clamp(28px, 4vw, 48px); line-height: 1.4; }
+.content-service-page .sm-lead { max-width: 720px; margin: 0 0 18px; color: #4b4e55; font-size: 15px; line-height: 1.85; }
+
+/* ---------- Samples: a swipeable row that follows the page direction ---------- */
+.content-service-page .content-samples { padding-bottom: clamp(44px, 6vw, 84px); }
+.content-service-page .sm-samples { display: grid; grid-auto-flow: column; grid-auto-columns: 62%; gap: 12px; padding-bottom: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+.content-service-page .sm-samples:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.content-service-page .sm-samples figure { margin: 0; scroll-snap-align: start; }
+.content-service-page .sm-samples img { display: block; width: 100%; height: auto; border: 1px solid rgba(6, 26, 51, .1); border-radius: 20px; }
+.content-service-page .sm-samples figcaption { margin-top: 8px; color: #4b4e55; font-size: 13px; font-weight: 700; }
+
+/* ---------- Three ways to start ---------- */
+.content-service-page .content-paths { padding-top: clamp(44px, 6vw, 84px); padding-bottom: clamp(44px, 6vw, 84px); border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+.content-service-page .sm-paths { display: grid; gap: 14px; margin-top: 20px; }
+.content-service-page .sm-path { display: flex; flex-direction: column; padding: 20px; border: 1px solid rgba(6, 26, 51, .12); border-radius: 22px; background: #fff; }
+.content-service-page .sm-path p { margin: 0; color: #4b4e55; font-size: 14px; line-height: 1.75; }
+.content-service-page .sm-path .sm-path-time { width: fit-content; padding: 3px 12px; border-radius: 999px; background: rgba(244, 217, 145, .45); color: #6d4d0e; font-size: 12px; font-weight: 700; }
+.content-service-page .sm-path h3 { margin: 10px 0 4px; color: var(--navy); font-size: 22px; line-height: 1.5; }
+.content-service-page .sm-path .sm-path-price { margin-top: 10px; color: var(--navy); font-size: 20px; font-weight: 800; }
+.content-service-page .sm-path .sm-path-price small { color: #4b4e55; font-size: 13px; font-weight: 600; }
+.content-service-page .sm-path ul { display: grid; gap: 6px; margin: 12px 0 18px; padding: 0; list-style: none; }
+.content-service-page .sm-path li { position: relative; padding-inline-start: 24px; color: var(--navy); font-size: 14px; line-height: 1.7; }
+.content-service-page .sm-path li::before { content: "✓"; position: absolute; inset-inline-start: 2px; color: #8a6418; font-weight: 700; }
+.content-service-page .sm-path .button { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 50px; margin-top: auto; text-align: center; }
+.content-service-page .sm-path .button.secondary { border: 1px solid rgba(6, 26, 51, .2); border-radius: 999px; }
+.content-service-page .sm-path-main { border-color: rgba(213, 168, 67, .6); background: linear-gradient(150deg, #13233d, #061a33 70%); }
+.content-service-page .sm-path-main h3, .content-service-page .sm-path-main li { color: #f5f0e7; }
+.content-service-page .sm-path-main > p:not(.sm-path-time) { color: rgba(245, 240, 231, .82); }
+.content-service-page .sm-path-main .sm-path-time { background: rgba(244, 217, 145, .18); color: #f4d991; }
+.content-service-page .sm-path-main > .sm-path-price:not(.sm-path-time) { color: #f4d991; }
+.content-service-page .sm-path-main li::before { color: #f4d991; }
+.content-service-page .sm-note { margin: 16px 0 0; color: #4b4e55; font-size: 14px; line-height: 1.8; }
+
+/* ---------- Problems ---------- */
+.content-service-page .sm-problems { margin-top: 20px; padding: 18px; border-radius: 20px; border-inline-start: 4px solid #d5a843; background: rgba(244, 217, 145, .22); }
+.content-service-page .sm-problems h3 { margin: 0 0 10px; color: var(--navy); font-size: 18px; line-height: 1.6; }
+.content-service-page .sm-problems ul { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.content-service-page .sm-problems li { display: grid; align-content: start; gap: 2px; font-size: 14px; line-height: 1.7; }
+.content-service-page .sm-problems b { color: var(--navy); }
+.content-service-page .sm-problems span { color: #4b4e55; }
+
+/* ---------- Business types (collapsed, the text stays in the HTML) ---------- */
+.content-service-page .content-sectors { padding-bottom: 48px; }
+.content-service-page .content-sectors details { padding: 4px 18px; border: 1px solid rgba(6, 26, 51, .12); border-radius: 20px; background: rgba(255, 255, 255, .6); }
+.content-service-page .content-sectors details[open] { padding-bottom: 18px; }
+.content-service-page .content-sectors summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 60px; cursor: pointer; list-style: none; }
+.content-service-page .content-sectors summary::-webkit-details-marker { display: none; }
+.content-service-page .content-sectors summary::after { content: "+"; flex: none; color: #8a6418; font-size: 26px; line-height: 1; }
+.content-service-page .content-sectors details[open] summary::after { content: "−"; }
+.content-service-page .content-sectors summary:focus-visible { outline: 2px solid #061a33; outline-offset: 4px; border-radius: 12px; }
+.content-service-page .content-sectors h2 { margin: 0; color: var(--navy); font-size: clamp(20px, 5vw, 28px); line-height: 1.5; }
+.content-service-page .content-sectors details > p { margin: 0 0 16px; color: #4b4e55; font-size: 15px; line-height: 1.85; }
+.content-service-page .sm-sector-grid { display: grid; gap: 14px; }
+.content-service-page .sm-sector-grid h3 { margin: 0 0 4px; color: var(--navy); font-size: 16px; line-height: 1.5; }
+.content-service-page .sm-sector-grid p { margin: 0; color: #4b4e55; font-size: 14px; line-height: 1.8; }
+
+/* ---------- Existing sections: shorter cards and spacing ---------- */
+.content-service-page .content-step-grid article { min-height: 0; padding: 22px; }
+.content-service-page .content-step-grid h3 { margin: 10px 0 8px; font-size: 21px; line-height: 1.5; }
+.content-service-page .content-steps, .content-service-page .content-system, .content-service-page .content-faq { padding-top: clamp(44px, 6vw, 84px); padding-bottom: clamp(44px, 6vw, 84px); }
+.content-service-page .content-step-grid { margin-top: 24px; }
+.content-service-page .content-final-actions { display: grid; gap: 12px; justify-items: start; }
+.content-service-page .content-final-actions a:not(.button) { color: var(--navy); font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 900px) {
+  /* The decorative shape pushed real work below the first screen on phones. */
+  .content-service-page .content-orbit { display: none; }
+}
+@media (max-width: 620px) {
+  .content-service-page .content-hero { padding-top: 24px; }
+  .content-service-page .content-hero-copy > p:not(.sm-microcopy) { margin-top: 14px; font-size: 16px; line-height: 1.8; }
+  .content-service-page .content-actions { margin-top: 18px; }
+  .content-service-page .content-section-head h2, .content-service-page .content-system h2, .content-service-page .content-faq > h2 { font-size: 28px; line-height: 1.4; }
+  .content-service-page .content-step-grid { gap: 10px; }
+  .content-service-page .content-step-grid article { padding: 16px 18px; border-radius: 20px; }
+  .content-service-page .content-step-grid article > span { display: none; }
+  .content-service-page .content-step-grid h3 { margin: 0 0 4px; font-size: 18px; }
+  .content-service-page .content-step-grid p { font-size: 14px; line-height: 1.7; }
+  .content-service-page .content-system { gap: 18px; }
+  .content-service-page .content-system-card { padding: 20px; border-radius: 22px; }
+  .content-service-page .content-system-card p { margin-bottom: 14px; font-size: 15px; line-height: 1.8; }
+  .content-service-page .content-guides { padding: 44px 0; }
+  .content-service-page .content-guide-card { min-height: 0; padding: 16px 18px; }
+  .content-service-page .content-guide-top { margin-bottom: 8px; }
+  .content-service-page .content-faq summary { padding: 16px 2px; font-size: 16px; }
+}
+@media (min-width: 640px) {
+  .content-service-page .sm-samples { grid-auto-columns: 260px; }
+  .content-service-page .sm-problems ul { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .content-service-page .sm-sector-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  .content-service-page .sm-paths { grid-template-columns: repeat(3, 1fr); }
+  .content-service-page .sm-path { padding: 26px; }
+  .content-service-page .sm-sector-grid { grid-template-columns: repeat(3, 1fr); }
+}

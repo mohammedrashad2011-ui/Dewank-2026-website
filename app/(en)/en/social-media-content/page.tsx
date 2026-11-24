@@ -6,16 +6,18 @@ import { Header } from "../_en/parity/header";
 import { RelatedGuides } from "../_en/parity/related-guides";
 import { OfferPrice } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
+import { SocialPaths, SocialProblems, SocialSamples, SocialSectors, socialExtraFaqs } from "../../../(ar)/services/social-media-content/social-extras";
 // The Arabic social media page's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../(ar)/services/social-media-content/social-media-content.css";
 import "../../../(ar)/services/social-media-content/content-spacing-fix.css";
 import "../../../(ar)/services/social-media-content/content-guides.css";
+import "../../../(ar)/services/social-media-content/social-extras.css";
 import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Social media content package and management",
-  "Social media management and content for businesses worldwide: strategy, ideas, design, captions, publishing and reporting. Start with a 30-day package.",
+  "Social Media Management and Content Services",
+  "Social media management services for businesses worldwide: strategy, design, captions, publishing and reporting. Start with a 30-day package or monthly management.",
   "/en/social-media-content",
 );
 
@@ -50,8 +52,10 @@ const faqItems = [
   ["My account exists but needs tidying up. Do I need full management?", "Not necessarily. If the account needs a bio, a call to action, highlights and a clear visual direction, the 14-day account upgrade may suit you better than monthly management."],
 ];
 
+const allFaqs = [...faqItems, ...socialExtraFaqs.en];
+
 export default function SocialMediaContentPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like to discuss social media management and content for my business. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start social media management for my business. My business and account link: ");
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -67,7 +71,17 @@ export default function SocialMediaContentPage() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+    mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://dewank.com/en" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://dewank.com/en/services" },
+      { "@type": "ListItem", position: 3, name: "Social media management", item: "https://dewank.com/en/social-media-content" },
+    ],
   };
 
   return (
@@ -75,23 +89,30 @@ export default function SocialMediaContentPage() {
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }} />
 
       <section className="content-hero shell">
         <div className="content-hero-copy">
           <span className="section-label">Social media management and content</span>
-          <h1>Social media that builds<br /><em>presence and demand</em></h1>
+          <h1>Social media management that builds<br /><em>presence and demand</em></h1>
           <p>We turn your accounts from scattered posts into a content system with a clear message, ideas, design, captions and a publishing plan that serves a business goal, not only a filled calendar.</p>
           <div className="content-actions">
-            <Link className="button primary" href="/en/contact">Request a management scope <span>→</span></Link>
-            <Link className="button secondary" href="#pricing">See the 30-day package</Link>
+            <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start managing your account <span>→</span></a>
+            <Link className="button secondary" href="/en/offers/30-day-content-package"><span>30-day package · <OfferPrice offerKey="30-day-content-package" className="sm-price-value" /></span></Link>
           </div>
+          <p className="sm-microcopy">No commitment. Send your business and account link, and you receive a written scope and price before you pay.</p>
         </div>
         <div className="content-orbit" aria-hidden="true"><i /><i /><i /><i /></div>
       </section>
 
+      <SocialSamples locale="en" />
+
+      <SocialPaths locale="en" cta={<a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start managing your account <span>→</span></a>} />
+
       <section className="content-steps shell">
         <div className="content-section-head"><span className="section-label">What the service includes</span><h2>From strategy to publishing<br /><em>Every step has a purpose</em></h2></div>
         <div className="content-step-grid">{deliverables.map(([title, text], index) => <article key={title}><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <SocialProblems locale="en" />
       </section>
 
       <section className="content-steps content-scope shell" aria-labelledby="content-scope-title">
@@ -102,18 +123,6 @@ export default function SocialMediaContentPage() {
       <section className="content-system shell">
         <div><span className="section-label">How we work</span><h2>Content is part of the customer journey,<br /><em>not a separate island</em></h2></div>
         <div className="content-system-card"><p>We connect what you publish to what you want the audience to do after watching: follow, save, enquire, visit the website or request a service. That is why the plan starts from the business goal, not the number of posts.</p><Link href="/en/digital-marketing">See digital marketing strategy <span>→</span></Link></div>
-      </section>
-
-      <section className="content-offer shell" id="pricing">
-        <div><span className="section-label">Monthly management or a defined start?</span><h2>Choose the scope by your need<br /><em>Not by the number of posts alone</em></h2></div>
-        <div className="content-offer-card">
-          <strong>30-day content package · <OfferPrice offerKey="30-day-content-package" className="content-offer-price" /></strong>
-          <p>If your main need is ideas, design, captions and a publishing plan, start with the defined package. If your account needs only tidying, the 14-day account upgrade is a better fit: <OfferPrice offerKey="instagram-14-day-upgrade" className="content-offer-price" />. If you need continuous publishing, monitoring and reporting, we will define a monthly management scope after reviewing your account.</p>
-          <p className="content-offer-note">Prices start in Saudi riyals. Where an approved local price exists for your country, it is shown instead.</p>
-          <Link className="button primary" href={contactLink}>Request the 30-day package <span>→</span></Link>
-          <br />
-          <Link href={contactLink}>Request the account upgrade</Link>
-        </div>
       </section>
 
       <section className="content-guides shell" aria-labelledby="content-guides-title">
@@ -132,12 +141,14 @@ export default function SocialMediaContentPage() {
         </div>
       </section>
 
+      <SocialSectors locale="en" />
+
       <section className="content-faq shell">
         <span className="section-label">Frequently asked questions</span><h2>Before you choose a package</h2>
-        <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div>{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
-      <section className="content-final shell"><h2>Make content work<br /><em>inside a clear plan</em></h2><Link className="button primary" href={contactLink}>Discuss your needs <span>→</span></Link></section>
+      <section className="content-final shell"><h2>Make content work<br /><em>inside a clear plan</em></h2><div className="content-final-actions"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start managing your account <span>→</span></a><Link href="/en/contact">Or write to us from the contact page</Link></div></section>
       <RelatedGuides guides={[{ href: "/en/guides/social-media-not-generating-leads", title: "Your account looks good but does not bring customers" }]} />
       <Footer />
     </main>
