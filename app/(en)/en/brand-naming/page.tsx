@@ -26,6 +26,7 @@ const deliverables = [
   ["Preliminary similarity research", "An initial search for brands and names that are similar, to reduce the chance of conflict, without claiming a legal clearance."],
   ["Domain and social handles", "A check at the time of the search for the domains and related usernames, with alternatives where a first choice is taken."],
   ["Top three recommendations", "A short decision matrix comparing the strongest options by distinctiveness, clarity, flexibility and ease of use."],
+  ["3 taglines", "3 short taglines for the name you choose, in English or Arabic, with the reason for each."],
   ["One development round", "Development of the directions based on specific feedback, if the first round does not settle the choice."],
 ];
 
@@ -38,7 +39,7 @@ const steps = [
 ];
 
 const faqs = [
-  ["What does a naming scope cost?", "The defined starting package includes 10–15 names with meanings, preliminary checks of the domains and similarity, and a development round. Its price starts in Saudi riyals, and in your country's approved price where one exists. Larger naming projects are scoped after a brief."],
+  ["What does a naming scope cost?", "The defined starting package includes 10–15 names with meanings, preliminary checks of the domains and similarity, 3 taglines for the chosen name, and a development round. Its price starts in Saudi riyals, and in your country's approved price where one exists. Larger naming projects are scoped after a brief."],
   ["Do you guarantee the name will be accepted or registered?", "No. We carry out preliminary research to reduce the chance of conflict or rejection, but acceptance and registration are decided by the official authorities and cannot be guaranteed."],
   ["Does the service include registering a domain or trademark?", "It includes checking availability at the time of the search. Buying the domain and the official trademark registration are separate steps, and their fees are not part of our scope."],
   ["What is the difference between naming and visual identity?", "Naming defines the name and its initial direction. Visual identity designs the logo and visual system. The name should be decided before the identity is designed."],
@@ -55,7 +56,7 @@ export default function BrandNamingPage() {
         "@id": "https://dewank.com/en/brand-naming#service",
         name: "Brand naming with preliminary checks",
         description: "Brand naming for businesses worldwide, with 10–15 considered names, meaning and pronunciation checks, preliminary similarity research and domain availability.",
-        serviceType: ["Brand naming", "Preliminary similarity research", "Domain availability research"],
+        serviceType: ["Brand naming", "Tagline writing", "Preliminary similarity research", "Domain availability research"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         url: "https://dewank.com/en/brand-naming",
@@ -94,7 +95,7 @@ export default function BrandNamingPage() {
         <div className="brand-diagnosis-copy naming-service-package" id="starter-price">
           <span className="section-label">The defined package</span>
           <h2>Starts at<br /><em><OfferPrice offerKey="brand-naming" className="brand-price-value" /></em></h2>
-          <p>The price covers 10–15 names with their meanings, preliminary checks of meaning, similarity and domain availability, a top-three decision matrix and one development round. It starts in Saudi riyals, and in your country&apos;s approved price where one exists.</p>
+          <p>The price covers 10–15 names with their meanings, preliminary checks of meaning, similarity and domain availability, a top-three decision matrix, 3 taglines and one development round. It starts in Saudi riyals, and in your country&apos;s approved price where one exists.</p>
         </div>
       </section>
 

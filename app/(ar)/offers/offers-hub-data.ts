@@ -36,8 +36,8 @@ export const hubOffers: HubOffer[] = [
   },
   {
     slug: "brand-naming", path: "/offers/brand-naming", filter: "brand", priceKey: "brand-naming", icon: "tag",
-    ar: { category: "براند", time: "3–5 أيام عمل", title: "اختيار اسم تجاري", hook: "مدروس لمشروعك", text: "10–15 اسمًا مدروسًا، فحص مبدئي للمعنى والتشابه والدومين، أفضل 3 ترشيحات، وتوجه أولي للعلامة للاسم المختار.", label: "الباقة الجاهزة من", aria: "شاهد تفاصيل باقة اختيار الاسم التجاري", cta: "التفاصيل" },
-    en: { category: "Brand", time: "3–5 working days", title: "A name that sticks", hook: "And a direction that builds the brand", text: "10–15 considered names, preliminary checks of meaning, similarity and domain, a top three, and an initial brand direction for the chosen name.", label: "Package from", aria: "View the brand naming package", cta: "Details" },
+    ar: { category: "براند", time: "3–5 أيام عمل", title: "اختيار اسم تجاري", hook: "مدروس لمشروعك", text: "10–15 اسمًا مدروسًا، فحص مبدئي للمعنى والتشابه والدومين وحسابات التواصل، أفضل 3 ترشيحات، و3 شعارات لفظية وتوجه أولي للاسم المختار.", label: "الباقة الجاهزة من", aria: "شاهد تفاصيل باقة اختيار الاسم التجاري", cta: "التفاصيل" },
+    en: { category: "Brand", time: "3–5 working days", title: "A name that sticks", hook: "And a direction that builds the brand", text: "10–15 considered names, preliminary checks of meaning, similarity, domain and social handles, a top three, and 3 taglines and an initial direction for the chosen name.", label: "Package from", aria: "View the brand naming package", cta: "Details" },
   },
   {
     slug: "whatsapp-automation-starter", path: "/offers/whatsapp-automation-starter", filter: "automation", priceKey: "whatsapp-automation-starter", icon: "chat",
