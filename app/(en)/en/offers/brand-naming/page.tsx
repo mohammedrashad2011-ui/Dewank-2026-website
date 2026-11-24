@@ -6,11 +6,14 @@ import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
 import { NameToIdentity } from "../../../../(ar)/offers/brand-naming/name-to-identity";
 import { StickyOfferBar } from "../../../../(ar)/offers/brand-naming/sticky-offer-bar";
+import { NamingAddons, NamingReviews, NamingRisk, NamingSectors, addonCatalogSchema, extraFaqs } from "../../../../(ar)/offers/brand-naming/naming-extras";
+import { offerPricing } from "../../../../(ar)/offers/offer-pricing";
 // The Arabic brand naming offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/brand-naming/brand-naming-offer.css";
 import "../../../../(ar)/offers/brand-naming/brand-naming-v2.css";
+import "../../../../(ar)/offers/brand-naming/brand-naming-extras.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
@@ -64,6 +67,15 @@ const faqs = [
   ["How long does delivery take?", "Usually 3–5 working days after we receive information about the business, the market, the audience and your preferred directions."],
 ];
 
+const allFaqs = [...faqs, ...extraFaqs.en];
+
+const addonBasePrices = {
+  tagline: offerPricing["brand-naming-addon-tagline"].initial.amount,
+  competitors: offerPricing["brand-naming-addon-competitors"].initial.amount,
+  extraNames: offerPricing["brand-naming-addon-extra-names"].initial.amount,
+  rush: offerPricing["brand-naming-addon-rush"].initial.amount,
+};
+
 export default function BrandNamingOfferPage() {
   const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about your brand naming package. My business is: ");
   const url = "https://dewank.com/en/offers/brand-naming";
@@ -79,13 +91,14 @@ export default function BrandNamingOfferPage() {
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/brand-naming" },
+        hasOfferCatalog: addonCatalogSchema("en", addonBasePrices),
         url,
         inLanguage: "en",
       },
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+        mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
       },
       {
         "@type": "BreadcrumbList",
@@ -152,6 +165,8 @@ export default function BrandNamingOfferPage() {
         </figure>
       </section>
 
+      <NamingRisk locale="en" />
+
       <section className="shell bn2-fit" aria-labelledby="bn2-fit-title">
         <h2 id="bn2-fit-title">This package fits you if</h2>
         <div className="bn2-fit-grid">
@@ -188,6 +203,10 @@ export default function BrandNamingOfferPage() {
         </aside>
       </section>
 
+      <NamingAddons locale="en" cta={<a id="bn3-addons-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Order the package with add-ons <span aria-hidden="true">→</span></a>} />
+
+      <NamingReviews locale="en" cta={<a id="bn3-reviews-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>} />
+
       <section className="shell brand-naming-case bn2-case" aria-labelledby="brand-naming-case-title">
         <div>
           <span className="section-label">A real naming project</span>
@@ -202,6 +221,8 @@ export default function BrandNamingOfferPage() {
         </div>
       </section>
 
+      <NamingSectors locale="en" />
+
       <section className="shell brand-naming-proof">
         <div className="brand-naming-proof-copy">
           <span className="section-label">How we decide</span>
@@ -211,7 +232,7 @@ export default function BrandNamingOfferPage() {
         <NameToIdentity locale="en" />
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you choose your name</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you choose your name</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta brand-naming-final bn2-final">
         <span className="offer-kicker">Brand naming · initial brand direction</span>
@@ -222,7 +243,7 @@ export default function BrandNamingOfferPage() {
       </section>
 
       <StickyOfferBar
-        watchIds={["bn2-hero-cta", "bn2-final-cta"]}
+        watchIds={["bn2-hero-cta", "bn3-addons-cta", "bn3-reviews-cta", "bn2-final-cta"]}
         href={contactLink}
         label="Free consultation"
         priceLabel="Complete package"

@@ -32,6 +32,11 @@ export const offerPricing = {
   "landing-page-package-full": gcc(1890, 189, 159, 505),
   "seo-audit": gcc(490, 49, 39, 130),
   "brand-naming": gcc(490, 49, 39, 130),
+  // Optional add-ons shown on the brand naming offer. Proposed prices, pending owner approval; the 490 package is unchanged.
+  "brand-naming-addon-tagline": gcc(150, 15, 12, 40),
+  "brand-naming-addon-competitors": gcc(250, 25, 21, 67),
+  "brand-naming-addon-extra-names": gcc(150, 15, 12, 40),
+  "brand-naming-addon-rush": gcc(150, 15, 12, 40),
   "whatsapp-automation-starter": gcc(890, 89, 73, 235),
   "mini-visual-identity": gcc(1190, 119, 99, 318),
   // Brand naming + essential visual identity bundle, approved by the owner 2026-11-19 (less than 490 + 1,190 separately).

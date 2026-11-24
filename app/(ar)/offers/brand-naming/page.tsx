@@ -4,10 +4,13 @@ import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { BrandNamingInlinePrice, BrandNamingOfferPrice, BrandNamingStickyCta, BrandNamingWhatsApp } from "./localized-brand-naming-offer";
 import { NameToIdentity } from "./name-to-identity";
+import { NamingAddons, NamingReviews, NamingRisk, NamingSectors, addonCatalogSchema, extraFaqs } from "./naming-extras";
+import { offerPricing } from "../offer-pricing";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./brand-naming-offer.css";
 import "./brand-naming-v2.css";
+import "./brand-naming-extras.css";
 
 const title = "اختيار اسم تجاري + توجه أولي للعلامة | باقة جاهزة";
 const description = "باقة اختيار اسم تجاري للعلامات الجديدة تشمل 10–15 اسمًا مدروسًا، فحصًا لغويًا وثقافيًا، توفر الدومين، أفضل 3 ترشيحات وتوجهًا أوليًا للعلامة. تبدأ من 490 ريال.";
@@ -63,6 +66,15 @@ const steps = [
   ["اليوم 5", "تستلم قرارًا واضحًا", "10–15 اسمًا، أفضل 3 ترشيحات بمقارنة واضحة، وتوجه أولي للاسم المختار."],
 ];
 
+const allFaqs = [...faqs, ...extraFaqs.ar];
+
+const addonBasePrices = {
+  tagline: offerPricing["brand-naming-addon-tagline"].initial.amount,
+  competitors: offerPricing["brand-naming-addon-competitors"].initial.amount,
+  extraNames: offerPricing["brand-naming-addon-extra-names"].initial.amount,
+  rush: offerPricing["brand-naming-addon-rush"].initial.amount,
+};
+
 export default function BrandNamingOfferPage() {
   const url = `${siteUrl}/offers/brand-naming`;
   const schema = {
@@ -77,12 +89,13 @@ export default function BrandNamingOfferPage() {
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
         offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        hasOfferCatalog: addonCatalogSchema("ar", addonBasePrices),
         url,
       },
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({
+        mainEntity: allFaqs.map(([question, answer]) => ({
           "@type": "Question",
           name: question,
           acceptedAnswer: { "@type": "Answer", text: answer },
@@ -153,6 +166,8 @@ export default function BrandNamingOfferPage() {
         </figure>
       </section>
 
+      <NamingRisk locale="ar" />
+
       <section className="shell bn2-fit" aria-labelledby="bn2-fit-title">
         <h2 id="bn2-fit-title">الباقة مناسبة لك إذا كنت</h2>
         <div className="bn2-fit-grid">
@@ -189,6 +204,10 @@ export default function BrandNamingOfferPage() {
         </aside>
       </section>
 
+      <NamingAddons locale="ar" cta={<BrandNamingWhatsApp id="bn3-addons-cta" className="button primary offer-consultation-cta bn2-cta" label="اطلب الباقة مع الإضافات" />} />
+
+      <NamingReviews locale="ar" cta={<BrandNamingWhatsApp id="bn3-reviews-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />} />
+
       <section className="shell brand-naming-case bn2-case" aria-labelledby="brand-naming-case-title">
         <div>
           <h2 id="brand-naming-case-title">BITHAN: علامة مجوهرات راقية في قطر</h2>
@@ -202,6 +221,8 @@ export default function BrandNamingOfferPage() {
         </div>
       </section>
 
+      <NamingSectors locale="ar" />
+
       <section className="shell brand-naming-proof">
         <div className="brand-naming-proof-copy">
           <h2>الاسم الجيد يمر عبر أكثر من ذوق</h2>
@@ -210,7 +231,7 @@ export default function BrandNamingOfferPage() {
         <NameToIdentity locale="ar" />
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><h2>قبل ما تختار اسمك</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><h2>قبل ما تختار اسمك</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta brand-naming-final bn2-final">
         <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
@@ -220,7 +241,7 @@ export default function BrandNamingOfferPage() {
         <div className="brand-naming-links"><Link href="/offers/name-identity">الاسم والهوية معًا بسعر أقل</Link><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
 
-      <BrandNamingStickyCta watchIds={["bn2-hero-cta", "bn2-final-cta"]} />
+      <BrandNamingStickyCta watchIds={["bn2-hero-cta", "bn3-addons-cta", "bn3-reviews-cta", "bn2-final-cta"]} />
       <Footer />
     </main>
   );

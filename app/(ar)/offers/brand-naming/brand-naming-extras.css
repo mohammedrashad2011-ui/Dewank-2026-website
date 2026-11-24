@@ -1,0 +1,96 @@
+/* Brand Naming offer: sections added below the hero (risk, add-ons, reviews, sectors). Everything is scoped to .bn2 and
+   uses bn3-* classes, so it cannot leak into other offer pages. Mobile first. */
+
+.bn2 .bn3-risk, .bn2 .bn3-addons, .bn2 .bn3-reviews, .bn2 .bn3-sectors { padding-bottom: 56px; }
+
+.bn3-risk h2, .bn3-addons h2, .bn3-reviews h2, .bn3-sectors h2 {
+  margin: 0 0 12px;
+  color: var(--bn2-navy);
+  font-size: clamp(26px, 6.6vw, 44px);
+  line-height: 1.35;
+}
+.bn2 .bn3-lead { max-width: 720px; margin: 0 0 22px; color: #4b4e55; font-size: 15px; line-height: 1.9; }
+
+/* ---------- Risk ---------- */
+.bn3-risk-grid, .bn3-sector-grid { display: grid; gap: 12px; }
+.bn3-risk-grid article, .bn3-sector-grid article {
+  padding: 18px;
+  border: 1px solid rgba(6, 26, 51, .1);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .6);
+}
+.bn3-risk-grid article { border-inline-start: 4px solid var(--bn2-gold); }
+.bn3-risk-grid h3, .bn3-sector-grid h3 { margin: 0 0 6px; color: var(--bn2-navy); font-size: 17px; line-height: 1.5; }
+.bn3-risk-grid p, .bn3-sector-grid p { margin: 0; color: #4b4e55; font-size: 14px; line-height: 1.8; }
+.bn2 .bn3-risk-close { margin: 18px 0 0; color: var(--bn2-navy); font-weight: 700; line-height: 1.8; }
+
+/* ---------- Add-ons ---------- */
+.bn3-addon-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.bn3-addon-list li {
+  display: grid;
+  gap: 10px;
+  padding: 16px 18px;
+  border: 1px solid rgba(6, 26, 51, .12);
+  border-radius: 20px;
+  background: #fff;
+}
+.bn3-addon-copy b { color: var(--bn2-navy); font-size: 17px; line-height: 1.5; }
+.bn3-addon-copy p { margin: 4px 0 0; color: #4b4e55; font-size: 14px; line-height: 1.8; }
+.bn3-addon-price {
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(244, 217, 145, .55);
+  color: var(--bn2-navy);
+  font-size: 15px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.bn3-addon-price strong { font-weight: inherit; }
+.bn3-en-price > span { margin-inline-start: .25em; }
+.bn2 .bn3-note { margin: 16px 0 0; color: #4b4e55; font-size: 14px; line-height: 1.8; }
+.bn3-cta { margin-top: 18px; }
+.bn2 .bn3-cta .bn2-cta { max-width: 460px; }
+.bn3-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--bn2-navy);
+  font-weight: 700;
+  line-height: 1.7;
+  text-decoration: underline;
+  text-decoration-color: var(--bn2-gold);
+  text-underline-offset: 5px;
+}
+
+/* ---------- Reviews ---------- */
+.bn3-review-grid { display: grid; gap: 12px; }
+.bn3-review {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid rgba(6, 26, 51, .1);
+  border-radius: 20px;
+  background: rgba(185, 133, 36, .07);
+}
+.bn3-stars { color: #b8862a; font-size: 16px; letter-spacing: 3px; }
+.bn3-review blockquote { margin: 0; }
+.bn3-review blockquote p { margin: 0; color: var(--bn2-navy); font-size: 16px; font-weight: 600; line-height: 1.85; }
+.bn2 .bn3-original { margin: 0; color: #5a5d64; font-size: 13px; line-height: 1.7; }
+.bn3-original span { margin-inline-end: 4px; font-weight: 700; }
+.bn3-original span:empty { display: none; }
+.bn3-review figcaption { color: #5a5d64; font-size: 13px; font-weight: 600; }
+
+/* ---------- Larger screens ---------- */
+@media (min-width: 640px) {
+  .bn3-risk-grid { grid-template-columns: repeat(3, 1fr); }
+  .bn3-sector-grid { grid-template-columns: repeat(2, 1fr); }
+  .bn3-review-grid { grid-template-columns: repeat(2, 1fr); }
+  .bn3-addon-list li { grid-template-columns: 1fr auto; align-items: center; gap: 22px; }
+}
+@media (min-width: 980px) {
+  .bn2 .bn3-risk, .bn2 .bn3-addons, .bn2 .bn3-reviews, .bn2 .bn3-sectors { padding-bottom: 100px; }
+  .bn3-sector-grid { grid-template-columns: repeat(3, 1fr); }
+  .bn3-review-grid { grid-template-columns: repeat(3, 1fr); }
+}
