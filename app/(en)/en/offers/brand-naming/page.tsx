@@ -6,8 +6,7 @@ import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
 import { NameToIdentity } from "../../../../(ar)/offers/brand-naming/name-to-identity";
 import { StickyOfferBar } from "../../../../(ar)/offers/brand-naming/sticky-offer-bar";
-import { NamingAddons, NamingReviews, NamingRisk, NamingSectors, addonCatalogSchema, extraFaqs } from "../../../../(ar)/offers/brand-naming/naming-extras";
-import { offerPricing } from "../../../../(ar)/offers/offer-pricing";
+import { NamingReviews, NamingRisk, NamingSectors, extraFaqs } from "../../../../(ar)/offers/brand-naming/naming-extras";
 // The Arabic brand naming offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -30,6 +29,7 @@ const deliverables = [
   ["Preliminary similarity check", "An initial search for similar names and brands to reduce the chance of conflict. It does not guarantee official registration."],
   ["Domains and handles", "A check at the time of the search for domain and username availability, with practical alternatives where needed."],
   ["Top three recommendations", "A short final list of the best three names, compared on distinctiveness, clarity, scalability and ease of use."],
+  ["3 taglines", "3 short taglines for the name you choose, in Arabic or English, with the reason for each."],
   ["An initial brand direction", "A preliminary direction for the personality, tone of voice, visual mood and keywords that suit the chosen name."],
   ["One development round", "The development of one direction based on specific feedback, if the first round does not settle the choice."],
 ];
@@ -52,11 +52,11 @@ const fits = [
 const steps = [
   ["Day 1", "You send your idea", "Business type, city or market, and audience. One WhatsApp message is enough to start."],
   ["Days 2–4", "We research, build and check", "Different naming directions, then filtering by meaning, pronunciation, similarity and domain."],
-  ["Day 5", "You receive a clear decision", "10–15 names, a top three with a clear comparison, and an initial direction for the chosen name."],
+  ["Day 5", "You receive a clear decision", "10–15 names, a top three with a clear comparison, 3 taglines and an initial direction for the chosen name."],
 ];
 
 const faqs = [
-  ["What does the brand naming package include?", "It includes 10–15 considered names, a preliminary check of meaning, pronunciation, similarity and domain availability, a top three, an initial brand direction and one development round. Delivery usually takes 3–5 working days. The package does not cover government fees or trademark registration, and the preliminary check is not a guarantee of acceptance or registration."],
+  ["What does the brand naming package include?", "It includes 10–15 considered names, a preliminary check of meaning, pronunciation, similarity and domain availability, a top three, an initial brand direction, 3 taglines for the name you choose, and one development round. Delivery usually takes 3–5 working days. The package does not cover government fees or trademark registration, and the preliminary check is not a guarantee of acceptance or registration."],
   ["How many names will I receive?", "Usually 10–15 considered names. We then recommend the best three, based on clear criteria that help you decide."],
   ["What is meant by an initial brand direction?", "It is a preliminary picture of the brand once the name is chosen: the personality, tone of voice, visual mood and the words the identity should reflect later. It does not include a logo or a full visual identity."],
   ["Do you guarantee that the name will be accepted or registered?", "No. We carry out a preliminary check of similarity, meaning and availability to reduce risk. The final decision on acceptance and registration rests with the official authority."],
@@ -69,13 +69,6 @@ const faqs = [
 
 const allFaqs = [...faqs, ...extraFaqs.en];
 
-const addonBasePrices = {
-  tagline: offerPricing["brand-naming-addon-tagline"].initial.amount,
-  competitors: offerPricing["brand-naming-addon-competitors"].initial.amount,
-  extraNames: offerPricing["brand-naming-addon-extra-names"].initial.amount,
-  rush: offerPricing["brand-naming-addon-rush"].initial.amount,
-};
-
 export default function BrandNamingOfferPage() {
   const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about your brand naming package. My business is: ");
   const url = "https://dewank.com/en/offers/brand-naming";
@@ -87,11 +80,10 @@ export default function BrandNamingOfferPage() {
         "@id": `${url}#service`,
         name: "Brand naming package with an initial brand direction",
         description: "A defined brand naming package with 10–15 considered names, linguistic and cultural checks, preliminary similarity and domain research, a top three and an initial brand direction.",
-        serviceType: ["Brand Naming", "Brand Direction", "Domain Availability Research"],
+        serviceType: ["Brand Naming", "Tagline Writing", "Brand Direction", "Domain Availability Research"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/brand-naming" },
-        hasOfferCatalog: addonCatalogSchema("en", addonBasePrices),
         url,
         inLanguage: "en",
       },
@@ -203,8 +195,6 @@ export default function BrandNamingOfferPage() {
         </aside>
       </section>
 
-      <NamingAddons locale="en" cta={<a id="bn3-addons-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Order the package with add-ons <span aria-hidden="true">→</span></a>} />
-
       <NamingReviews locale="en" cta={<a id="bn3-reviews-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span aria-hidden="true">→</span></a>} />
 
       <section className="shell brand-naming-case bn2-case" aria-labelledby="brand-naming-case-title">
@@ -243,7 +233,7 @@ export default function BrandNamingOfferPage() {
       </section>
 
       <StickyOfferBar
-        watchIds={["bn2-hero-cta", "bn3-addons-cta", "bn3-reviews-cta", "bn2-final-cta"]}
+        watchIds={["bn2-hero-cta", "bn3-reviews-cta", "bn2-final-cta"]}
         href={contactLink}
         label="Free consultation"
         priceLabel="Complete package"

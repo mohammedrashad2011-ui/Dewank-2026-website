@@ -1,21 +1,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { InlineOfferPrice } from "../inline-offer-price";
-import { OfferPrice } from "../../../(en)/en/_en/lib/localized-price";
-import type { OfferPriceKey } from "../offer-pricing";
 
 // Sections added below the Brand Naming hero, shared by the Arabic and English offer pages. The hero, the package
-// price, the CTA labels and the WhatsApp message are not touched. Every add-on price comes from the localization engine
-// (offer-pricing.ts); nothing here writes a price as text.
+// price, the CTA labels and the WhatsApp message are not touched. No price is written as text here.
 
 type Locale = "ar" | "en";
-
-export const addonKeys = {
-  tagline: "brand-naming-addon-tagline",
-  competitors: "brand-naming-addon-competitors",
-  extraNames: "brand-naming-addon-extra-names",
-  rush: "brand-naming-addon-rush",
-} as const satisfies Record<string, OfferPriceKey>;
 
 const copy = {
   ar: {
@@ -29,22 +18,10 @@ const copy = {
       ],
       close: "فحص الاسم قبل استخدامه أسهل من تغييره بعد أن يعرفك الناس به.",
     },
-    addons: {
-      title: "تحتاج أكثر من الباقة الأساسية؟",
-      lead: "الباقة كاملة بذاتها. هذه إضافات اختيارية تُطلب في نفس رسالة الواتساب، ولا تغيّر ما تستلمه في الباقة الأساسية.",
-      items: [
-        ["tagline", "شعار لفظي (Tagline)", "3 شعارات لفظية قصيرة للاسم الذي تختاره، بالعربية أو الإنجليزية، مع سبب كل شعار."],
-        ["competitors", "بحث المنافسين", "مراجعة أقرب 5 منافسين في سوقك: أسماؤهم ونبرتهم، لنتجنب التشابه ونحدد ما يميزك."],
-        ["extraNames", "10 أسماء إضافية", "اتجاهات تسمية جديدة تُضاف إلى القائمة إذا أردت خيارات أوسع قبل أن تحسم."],
-        ["rush", "تسليم أسرع خلال 48 ساعة", "تسليم خلال 48 ساعة من استلام معلومات المشروع كاملة، حسب توفر الجدول، ونؤكده لك قبل أن نبدأ."],
-      ] as const,
-      note: "اذكر الإضافات التي تريدها في رسالتك وسنؤكد لك الإجمالي قبل البدء.",
-      bundle: "تحتاج الشعار والهوية بعد الاسم؟ الاسم والهوية معًا بسعر أقل",
-    },
     reviews: {
       title: "ماذا قال عملاء خدمة التسمية",
-      lead: "تقييمات 5 من 5 من عملاء في السعودية والولايات المتحدة وأوروبا. الأصل بالإنجليزية وتحته ترجمة.",
-      label: "ترجمة",
+      badge: "تقييمات 5 من 5 من عملاء حقيقيين",
+      lead: "عملاء من السعودية والولايات المتحدة وأوروبا، بكلماتهم.",
     },
     sectors: {
       title: "أسماء تناسب نشاطك",
@@ -73,22 +50,10 @@ const copy = {
       ],
       close: "Checking a name before you use it is easier than changing it after people know you by it.",
     },
-    addons: {
-      title: "Need more than the core package?",
-      lead: "The package is complete on its own. These optional add-ons are requested in the same WhatsApp message, and they do not change what the core package delivers.",
-      items: [
-        ["tagline", "A tagline", "3 short taglines for the name you choose, in Arabic or English, with the reason for each."],
-        ["competitors", "Competitor research", "A review of your closest 5 competitors: their names and tone, so we avoid similarity and define what sets you apart."],
-        ["extraNames", "10 extra names", "New naming directions added to the list if you want wider options before you decide."],
-        ["rush", "Faster delivery in 48 hours", "Delivery within 48 hours of receiving the complete project information, subject to availability, confirmed before we start."],
-      ] as const,
-      note: "Mention the add-ons you want in your message and we will confirm the total before we start.",
-      bundle: "Need the logo and identity after the name? The name and identity together, for less",
-    },
     reviews: {
       title: "What naming clients said",
-      lead: "5 out of 5 reviews from clients in Saudi Arabia, the United States and Europe.",
-      label: "",
+      badge: "5 out of 5 reviews from real clients",
+      lead: "Clients in Saudi Arabia, the United States and Europe, in their own words.",
     },
     sectors: {
       title: "Names for your type of business",
@@ -158,50 +123,28 @@ export function NamingRisk({ locale }: { locale: Locale }) {
   );
 }
 
-export function NamingAddons({ locale, cta }: { locale: Locale; cta: ReactNode }) {
-  const t = copy[locale].addons;
-  const bundleHref = copy[locale].sectors.bundleHref;
-  return (
-    <section className="shell bn3-addons" aria-labelledby="bn3-addons-title">
-      <h2 id="bn3-addons-title">{t.title}</h2>
-      <p className="bn3-lead">{t.lead}</p>
-      <ul className="bn3-addon-list">
-        {t.items.map(([key, head, text]) => (
-          <li key={key}>
-            <div className="bn3-addon-copy"><b>{head}</b><p>{text}</p></div>
-            <span className="bn3-addon-price">
-              <span aria-hidden="true">+</span>{" "}
-              {locale === "ar" ? <InlineOfferPrice offerKey={addonKeys[key]} /> : <OfferPrice offerKey={addonKeys[key]} className="bn3-en-price" />}
-            </span>
-          </li>
-        ))}
-      </ul>
-      <p className="bn3-note">{t.note}</p>
-      <div className="bn3-cta">{cta}</div>
-      <Link className="bn3-link" href={bundleHref}>{t.bundle} {locale === "ar" ? "←" : "→"}</Link>
-    </section>
-  );
-}
-
 export function NamingReviews({ locale, cta }: { locale: Locale; cta: ReactNode }) {
   const t = copy[locale].reviews;
+  const ar = locale === "ar";
   return (
     <section className="shell bn3-reviews" aria-labelledby="bn3-reviews-title">
-      <h2 id="bn3-reviews-title">{t.title}</h2>
-      <p className="bn3-lead">{t.lead}</p>
-      <div className="bn3-review-grid">
-        {reviews.map((review) => (
-          <figure key={review.en} className="bn3-review">
-            <div className="bn3-stars" role="img" aria-label={locale === "ar" ? "تقييم 5 من 5" : "Rated 5 out of 5"}>★★★★★</div>
-            {locale === "ar" ? (
-              <>
-                <blockquote><p>«{review.ar}»</p></blockquote>
-                <p className="bn3-original" lang="en" dir="ltr"><span>{t.label}</span> “{review.en}”</p>
-              </>
-            ) : (
-              <blockquote><p>“{review.en}”</p></blockquote>
-            )}
-            <figcaption>{locale === "ar" ? `عميل من ${review.country.ar} · مشروع تسمية` : `Client in ${review.country.en} · Naming project`}</figcaption>
+      <div className="bn3-reviews-head">
+        <p className="bn3-badge"><span aria-hidden="true">★★★★★</span> {t.badge}</p>
+        <h2 id="bn3-reviews-title">{t.title}</h2>
+        <p className="bn3-lead">{t.lead}</p>
+      </div>
+      <div className="bn3-review-grid" role="region" aria-label={t.title} tabIndex={0}>
+        {reviews.map((review, index) => (
+          <figure key={review.en} className={index === 0 ? "bn3-review bn3-review-featured" : "bn3-review"}>
+            <div className="bn3-stars" role="img" aria-label={ar ? "تقييم 5 من 5" : "Rated 5 out of 5"}>★★★★★</div>
+            <blockquote>
+              <p>{ar ? `«${review.ar}»` : `“${review.en}”`}</p>
+            </blockquote>
+            {ar ? <p className="bn3-original" lang="en" dir="ltr">“{review.en}”</p> : null}
+            <figcaption>
+              <span className="bn3-avatar" aria-hidden="true">{review.country[locale].charAt(0)}</span>
+              <span><b>{ar ? `عميل من ${review.country.ar}` : `Client in ${review.country.en}`}</b><small>{ar ? "مشروع تسمية" : "Naming project"}</small></span>
+            </figcaption>
           </figure>
         ))}
       </div>
@@ -227,27 +170,12 @@ export function NamingSectors({ locale }: { locale: Locale }) {
 // Extra questions, appended to the existing FAQ list on each page (and so to its FAQPage schema).
 export const extraFaqs = {
   ar: [
-    ["ما الإضافات التي يمكن طلبها مع الباقة؟", "يمكن إضافة 3 شعارات لفظية، أو بحث المنافسين لأقرب 5 منافسين، أو 10 أسماء إضافية، أو تسليم أسرع خلال 48 ساعة. الإضافات اختيارية، وأسعارها معروضة في قسم الإضافات بعملة بلدك، وتطلبها في نفس رسالة الواتساب."],
-    ["هل أحصل على شعار لفظي (Slogan) مع الاسم؟", "الباقة الأساسية لا تشمل شعارًا لفظيًا، لكنه متاح كإضافة اختيارية: 3 شعارات قصيرة للاسم الذي تختاره مع سبب كل شعار."],
+    ["هل أحصل على شعار لفظي (Slogan) مع الاسم؟", "نعم. تشمل الباقة 3 شعارات لفظية قصيرة للاسم الذي تختاره، بالعربية أو الإنجليزية، مع سبب كل شعار."],
     ["هل الأفضل أن أطلب الاسم فقط أم الاسم والهوية؟", "اطلب الاسم فقط إذا كنت ما زلت تحسم اسم المشروع. وإذا كنت تعرف أنك ستحتاج شعارًا وهوية بصرية بعده، فباقة الاسم والهوية معًا أقل سعرًا من طلب كل واحدة منفصلة."],
   ],
   en: [
-    ["Which add-ons can I order with the package?", "You can add 3 taglines, competitor research on your closest 5 competitors, 10 extra names, or faster delivery in 48 hours. The add-ons are optional, their prices are shown in the add-ons section in your local currency, and you request them in the same WhatsApp message."],
-    ["Do I get a tagline with the name?", "The core package does not include a tagline, but it is available as an optional add-on: 3 short taglines for the name you choose, with the reason for each."],
+    ["Do I get a tagline with the name?", "Yes. The package includes 3 short taglines for the name you choose, in Arabic or English, with the reason for each."],
     ["Should I order the name only, or the name and the identity?", "Order the name only if you are still deciding the name of the project. If you know you will need a logo and visual identity after it, the name and identity package costs less than ordering each one separately."],
   ],
 } as const;
 
-// Schema: the add-ons as an offer catalog, at the base SAR price from the pricing configuration.
-export function addonCatalogSchema(locale: Locale, basePrices: Record<keyof typeof addonKeys, number>) {
-  return {
-    "@type": "OfferCatalog",
-    name: locale === "ar" ? "إضافات اختيارية لباقة التسمية" : "Optional add-ons for the naming package",
-    itemListElement: copy[locale].addons.items.map(([key, head, text]) => ({
-      "@type": "Offer",
-      price: String(basePrices[key]),
-      priceCurrency: "SAR",
-      itemOffered: { "@type": "Service", name: head, description: text },
-    })),
-  };
-}

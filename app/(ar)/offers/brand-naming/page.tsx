@@ -4,8 +4,7 @@ import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { BrandNamingInlinePrice, BrandNamingOfferPrice, BrandNamingStickyCta, BrandNamingWhatsApp } from "./localized-brand-naming-offer";
 import { NameToIdentity } from "./name-to-identity";
-import { NamingAddons, NamingReviews, NamingRisk, NamingSectors, addonCatalogSchema, extraFaqs } from "./naming-extras";
-import { offerPricing } from "../offer-pricing";
+import { NamingReviews, NamingRisk, NamingSectors, extraFaqs } from "./naming-extras";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./brand-naming-offer.css";
@@ -29,12 +28,13 @@ const deliverables = [
   ["فحص مبدئي للتشابه", "بحث أولي عن أسماء وعلامات مشابهة لتقليل احتمالات التعارض، دون ضمان التسجيل الرسمي."],
   ["الدومين والحسابات", "التحقق وقت البحث من توفر نطاقات وأسماء مستخدمين مناسبة واقتراح بدائل عملية عند الحاجة."],
   ["أفضل 3 ترشيحات", "قائمة نهائية مختصرة تضم أفضل 3 أسماء، مع مقارنة حسب التميز والوضوح وقابلية التوسع والاستخدام."],
+  ["3 شعارات لفظية (Tagline)", "3 شعارات قصيرة للاسم الذي تختاره، بالعربية أو الإنجليزية، مع سبب كل شعار."],
   ["توجه أولي للعلامة", "توجه مبدئي للشخصية ونبرة التواصل والمزاج البصري والكلمات المفتاحية التي تناسب الاسم المختار."],
   ["جولة تطوير واحدة", "تطوير اتجاه واحد بناءً على ملاحظات محددة إذا لم يُحسم الاختيار من الجولة الأولى."],
 ];
 
 const faqs = [
-  ["ماذا تشمل باقة اختيار اسم تجاري؟", "تشمل 10–15 اسمًا مدروسًا، وأفضل 3 ترشيحات، وفحصًا مبدئيًا للمعنى والنطق والتشابه والدومين، وتوجهًا أوليًا للعلامة، وجولة تطوير واحدة إذا لم يُحسم الاختيار من الجولة الأولى، وتسليمًا عادة خلال 3–5 أيام عمل. الفحص المبدئي لا يعني قبول الاسم أو تسجيله، ولا تشمل الباقة الرسوم الحكومية أو تسجيل العلامة."],
+  ["ماذا تشمل باقة اختيار اسم تجاري؟", "تشمل 10–15 اسمًا مدروسًا، وأفضل 3 ترشيحات، وفحصًا مبدئيًا للمعنى والنطق والتشابه والدومين، وتوجهًا أوليًا للعلامة، و3 شعارات لفظية للاسم الذي تختاره، وجولة تطوير واحدة إذا لم يُحسم الاختيار من الجولة الأولى، وتسليمًا عادة خلال 3–5 أيام عمل. الفحص المبدئي لا يعني قبول الاسم أو تسجيله، ولا تشمل الباقة الرسوم الحكومية أو تسجيل العلامة."],
   ["كم اسمًا سأستلم؟", "تستلم عادة 10–15 اسمًا مدروسًا، ثم نرشح أفضل 3 خيارات بناءً على معايير واضحة تساعدك على اتخاذ القرار."],
   ["ما المقصود بالتوجه الأولي للعلامة؟", "هو تصور مبدئي للعلامة بعد اختيار الاسم، يحدد الشخصية ونبرة التواصل والمزاج البصري والكلمات التي يجب أن تعكسها الهوية لاحقًا. لا يشمل تصميم شعار أو هوية بصرية كاملة."],
   ["هل تضمنون قبول الاسم أو تسجيل العلامة؟", "لا. نقدم فحصًا أوليًا للتشابه والمعنى والتوفر لتقليل المخاطر، لكن قرار القبول والتسجيل النهائي للجهة الرسمية المختصة."],
@@ -63,17 +63,10 @@ const fits = [
 const steps = [
   ["اليوم 1", "ترسل فكرة مشروعك", "نوع النشاط، المدينة أو السوق، والجمهور. رسالة واتساب واحدة تكفي للبدء."],
   ["الأيام 2–4", "نبحث ونبني ونفحص", "اتجاهات تسمية مختلفة، ثم تصفية بالمعنى والنطق والتشابه والدومين."],
-  ["اليوم 5", "تستلم قرارًا واضحًا", "10–15 اسمًا، أفضل 3 ترشيحات بمقارنة واضحة، وتوجه أولي للاسم المختار."],
+  ["اليوم 5", "تستلم قرارًا واضحًا", "10–15 اسمًا، أفضل 3 ترشيحات بمقارنة واضحة، و3 شعارات لفظية وتوجه أولي للاسم المختار."],
 ];
 
 const allFaqs = [...faqs, ...extraFaqs.ar];
-
-const addonBasePrices = {
-  tagline: offerPricing["brand-naming-addon-tagline"].initial.amount,
-  competitors: offerPricing["brand-naming-addon-competitors"].initial.amount,
-  extraNames: offerPricing["brand-naming-addon-extra-names"].initial.amount,
-  rush: offerPricing["brand-naming-addon-rush"].initial.amount,
-};
 
 export default function BrandNamingOfferPage() {
   const url = `${siteUrl}/offers/brand-naming`;
@@ -85,11 +78,10 @@ export default function BrandNamingOfferPage() {
         "@id": `${url}#service`,
         name: "باقة اختيار اسم تجاري + توجه أولي للعلامة",
         description,
-        serviceType: ["Brand Naming", "Brand Direction", "Domain Availability Research"],
+        serviceType: ["Brand Naming", "Tagline Writing", "Brand Direction", "Domain Availability Research"],
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
         offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
-        hasOfferCatalog: addonCatalogSchema("ar", addonBasePrices),
         url,
       },
       {
@@ -204,8 +196,6 @@ export default function BrandNamingOfferPage() {
         </aside>
       </section>
 
-      <NamingAddons locale="ar" cta={<BrandNamingWhatsApp id="bn3-addons-cta" className="button primary offer-consultation-cta bn2-cta" label="اطلب الباقة مع الإضافات" />} />
-
       <NamingReviews locale="ar" cta={<BrandNamingWhatsApp id="bn3-reviews-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />} />
 
       <section className="shell brand-naming-case bn2-case" aria-labelledby="brand-naming-case-title">
@@ -241,7 +231,7 @@ export default function BrandNamingOfferPage() {
         <div className="brand-naming-links"><Link href="/offers/name-identity">الاسم والهوية معًا بسعر أقل</Link><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
 
-      <BrandNamingStickyCta watchIds={["bn2-hero-cta", "bn3-addons-cta", "bn3-reviews-cta", "bn2-final-cta"]} />
+      <BrandNamingStickyCta watchIds={["bn2-hero-cta", "bn3-reviews-cta", "bn2-final-cta"]} />
       <Footer />
     </main>
   );
