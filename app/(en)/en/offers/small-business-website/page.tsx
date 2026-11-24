@@ -6,14 +6,16 @@ import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { EnOfferSticky } from "../offer-sticky-en";
 import { whatsappHref } from "../../_en/lib/site";
+import { WebsitePlan, WebsiteProblems, WebsiteSectors, websiteExtraFaqs } from "../../../../(ar)/offers/small-business-website/website-extras";
 // The Arabic small business website offer's layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
 import "../../../../(ar)/offers/small-business-website/small-business-website.css";
+import "../../../../(ar)/offers/small-business-website/website-extras.css";
 import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
-const orderWatchIds = ["order-cta", "order-final", "order-footer"];
+const orderWatchIds = ["order-cta", "order-panel-cta", "order-final", "order-footer"];
 
 export const metadata = enMetadata(
   "Small Business Website Design Package: Five Pages, Ready to Launch",
@@ -65,8 +67,10 @@ const faqItems = [
   ["How long does it take?", "Usually 7 to 12 working days after we receive the content and information and approve the direction. The timeline changes if feedback or materials are delayed."],
 ];
 
+const allFaqs = [...faqItems, ...websiteExtraFaqs.en];
+
 export default function SmallBusinessWebsiteOfferPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the small business website package. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start a website with your small business website package. My business is: ");
   const url = "https://dewank.com/en/offers/small-business-website";
   const schema = {
     "@context": "https://schema.org",
@@ -85,7 +89,7 @@ export default function SmallBusinessWebsiteOfferPage() {
       },
       {
         "@type": "FAQPage",
-        mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+        mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
       },
       {
         "@type": "BreadcrumbList",
@@ -106,9 +110,12 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> working days</span></div>
-          <h1>Small business website<br/><em>Up to five pages, ready to launch</em></h1>
-          <p>A professional company website with a fixed scope and price: mobile-friendly design and build, WhatsApp and a contact form, analytics, basic SEO and a full review before launch.</p>
-          <div className="small-website-answer"><b>What do you get?</b><span>A complete company website with a defined scope. It is not a single landing page, and it is not an online shop.</span></div>
+          <h1>Small business website design<br/><em>Up to five pages, ready to launch</em></h1>
+          <p>A complete company website: mobile-friendly design and build, WhatsApp and a contact form, analytics, basic SEO and a full review before launch. The package starts at <span className="sw-inline-price"><OfferPrice offerKey="small-business-website" className="sw-price-value" /></span>.</p>
+          <div className="sw-hero-actions">
+            <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website <span>→</span></a>
+            <p className="sw-microcopy">No commitment. Send your business type, and we confirm the pages and scope before we start.</p>
+          </div>
           <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>
         </div>
         <aside id="order-panel" className="offer-price-panel small-website-price-panel">
@@ -116,23 +123,14 @@ export default function SmallBusinessWebsiteOfferPage() {
           <OfferPrice offerKey="small-business-website" className="offer-price" />
           <div className="offer-trust-inline"><span>Up to 5 pages</span><span>Mobile-friendly</span><span>WhatsApp and analytics</span></div>
           <p>Includes up to five pages. The domain, hosting, bespoke programming and paid external services are not included.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <p className="sw-assure">A full review before launch and seven days of technical support after it are included in the price.</p>
+          <a id="order-panel-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website <span>→</span></a>
         </aside>
       </section>
 
-      <section className="shell small-website-proof">
-        <div className="small-website-proof-copy">
-          <span className="section-label">A clear scope</span>
-          <h2>Not every project<br/><em>needs a large website</em></h2>
-          <p>Often what a business needs is a well-ordered site that explains who it is, what it offers, and how a customer can contact it. The package closes that gap quickly, without paying for features you will not use.</p>
-        </div>
-        <div className="small-site-map" aria-label="Example structure of a small website">
-          <div className="small-site-map-top"><b>Small website structure</b><small>Up to five pages</small></div>
-          <div className="small-site-home">Home</div>
-          <div className="small-site-pages"><span>Services</span><span>About</span><span>Contact</span><span>One extra page</span></div>
-          <div className="small-site-path"><span>Visit</span><b>→</b><span>Understand the service</span><b>→</b><span>Contact</span></div>
-        </div>
-      </section>
+      <WebsitePlan locale="en" />
+
+      <WebsiteProblems locale="en" />
 
       <section className="shell offer-deliverables small-website-deliverables">
         <div><span className="section-label">What the package includes</span><h2>All the essentials<br/><em>Nothing padded</em></h2></div>
@@ -151,30 +149,28 @@ export default function SmallBusinessWebsiteOfferPage() {
           <article className="offer-fit-card good"><h3>Suits you if</h3><ul>{fitFor.map((item) => <li key={item}>{item}</li>)}</ul></article>
           <article className="offer-fit-card limits"><h3>Not included</h3><ul>{exclusions.map((item) => <li key={item}>{item}</li>)}</ul></article>
         </div>
-      </section>
-
-      <section className="shell small-website-scope-note">
-        <div><span className="section-label">Before you start</span><h2>If your needs are bigger,<br/><em>we will not squeeze them into a small package</em></h2></div>
-        <div><p>If you need a shop, a booking system, memberships, a CRM, automation, a large number of pages or a full website strategy, it is better to move to our website design and development service than to stretch this package until it loses its clarity.</p><Link href="/en/website-design">See the website design and development service <span>→</span></Link></div>
+        <p className="sw-bigger">Need a shop, a booking system, a CRM or more pages? <Link href="/en/website-design">See the website design and development service</Link></p>
       </section>
 
       <OfferClientProof review="bithan" locale="en" />
 
+      <WebsiteSectors locale="en" />
+
       <section className="shell offer-faq small-website-faq">
         <span className="section-label">Frequently asked questions</span>
         <h2>Before you book</h2>
-        <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div>{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section id="order-final" className="shell offer-final-cta small-website-final">
         <span className="section-label">Ready to start?</span>
         <h2>Give your business<br/><em>a real digital address</em></h2>
         <p>Start with a clear, fast website, and expand it only when the business actually needs it.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website <span>→</span></a>
         <div className="small-website-links"><Link href="/en/offers/landing-page-package">Need a landing page only?</Link><Link href="/en/website-design">Need a larger website?</Link></div>
       </section>
 
-      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Free consultation" priceLabel="Complete package from" offerKey="small-business-website" />
+      <EnOfferSticky watchIds={orderWatchIds} href={contactLink} label="Start your website" priceLabel="Complete package from" offerKey="small-business-website" />
       <div id="order-footer"><Footer /></div>
     </main>
   );

@@ -11,14 +11,14 @@ export function SmallWebsitePrice() {
 
 export function SmallWebsiteWhatsApp({ className, label, id }: { className: string; label: string; id?: string }) {
   const price = useOfferPrice("small-business-website");
-  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة الموقع الصغير بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
+  const text = `مرحبًا ديوانك، أرغب في بدء موقع لشركتي من باقة الموقع الصغير بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
   return <a id={id} className={className} href={href} target="_blank" rel="noreferrer">{label} <span>←</span></a>;
 }
 
 export function SmallWebsiteSticky({ watchIds }: { watchIds: string[] }) {
   const price = useOfferPrice("small-business-website");
-  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة الموقع الصغير بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
+  const text = `مرحبًا ديوانك، أرغب في بدء موقع لشركتي من باقة الموقع الصغير بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
   return (
     <div className="offer-sticky">
@@ -27,7 +27,7 @@ export function SmallWebsiteSticky({ watchIds }: { watchIds: string[] }) {
         alwaysWhenHidden
         ctaMinVisibleRatio={0.5}
         href={href}
-        label="استشارة مجانية"
+        label="ابدأ موقعك"
         priceLabel="الباقة كاملة من"
         price={`${price.formattedAmount} ${price.currencyLabel}`}
         arrow="←"

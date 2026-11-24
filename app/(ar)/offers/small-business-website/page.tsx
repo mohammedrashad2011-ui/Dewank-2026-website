@@ -4,12 +4,15 @@ import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, siteUrl, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
 import { SmallWebsitePrice, SmallWebsiteSticky, SmallWebsiteWhatsApp } from "./localized-small-website";
 import { OfferClientProof } from "../offer-client-proof";
+import { InlineOfferPrice } from "../inline-offer-price";
+import { WebsitePlan, WebsiteProblems, WebsiteSectors, websiteExtraFaqs } from "./website-extras";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./small-business-website.css";
+import "./website-extras.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "تصميم موقع شركة تعريفي حتى 5 صفحات | جاهز للإطلاق | ديوانك",
+  title: "تصميم موقع إلكتروني لشركتك حتى 5 صفحات | ديوانك",
   description: "باقة موقع تعريفي صغير حتى 5 صفحات تشمل التصميم والتطوير المتجاوب وربط واتساب والنماذج والتحليلات وSEO أساسي وتجهيز الإطلاق.",
   path: "/offers/small-business-website",
   keywords: [
@@ -66,6 +69,8 @@ const faqItems = [
   ["كم يستغرق التنفيذ؟", "غالبًا من 7 إلى 12 يوم عمل بعد استلام المحتوى والمعلومات المطلوبة واعتماد اتجاه التنفيذ، وقد تتغير المدة إذا تأخرت الملاحظات أو المواد."],
 ];
 
+const allFaqs = [...faqItems, ...websiteExtraFaqs.ar];
+
 export default function SmallBusinessWebsiteOfferPage() {
   const schema = {
     "@context": "https://schema.org",
@@ -88,7 +93,7 @@ export default function SmallBusinessWebsiteOfferPage() {
       },
       {
         "@type": "FAQPage",
-        mainEntity: faqItems.map(([question, answer]) => ({
+        mainEntity: allFaqs.map(([question, answer]) => ({
           "@type": "Question",
           name: question,
           acceptedAnswer: { "@type": "Answer", text: answer },
@@ -113,9 +118,12 @@ export default function SmallBusinessWebsiteOfferPage() {
       <section className="shell offer-detail-hero small-website-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>7–12</strong> يوم عمل</span></div>
-          <h1>تصميم موقع لشركتك<br/><em>حتى 5 صفحات، جاهز للإطلاق</em></h1>
-          <p>موقع تعريفي احترافي بنطاق وسعر محددين: تصميم وتطوير متجاوب مع الجوال، واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق.</p>
-          <div className="small-website-answer"><b>ماذا تحصل عليه؟</b><span>موقع تعريفي متكامل بنطاق محدد، وليس قالب صفحة واحدة ولا متجرًا إلكترونيًا.</span></div>
+          <h1>تصميم موقع إلكتروني لشركتك<br/><em>حتى 5 صفحات، جاهز للإطلاق</em></h1>
+          <p>موقع تعريفي متكامل: تصميم وتطوير متجاوب مع الجوال، واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق. الباقة تبدأ من <span className="sw-inline-price"><InlineOfferPrice offerKey="small-business-website" /></span>.</p>
+          <div className="sw-hero-actions">
+            <SmallWebsiteWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="ابدأ موقعك" />
+            <p className="sw-microcopy">بدون أي التزام. أرسل نوع نشاطك، ونؤكد لك الصفحات والنطاق قبل البدء.</p>
+          </div>
           <Link className="offer-work-link" href="/work">شاهد أعمال ديوانك ودراسات الحالة ←</Link>
         </div>
         <aside id="order-panel" className="offer-price-panel small-website-price-panel">
@@ -123,23 +131,14 @@ export default function SmallBusinessWebsiteOfferPage() {
           <SmallWebsitePrice />
           <div className="offer-trust-inline"><span>حتى 5 صفحات</span><span>متجاوب مع الجوال</span><span>واتساب وتحليلات</span></div>
           <p>يشمل حتى 5 صفحات. لا يشمل الدومين والاستضافة أو البرمجة الخاصة والخدمات الخارجية المدفوعة.</p>
-          <SmallWebsiteWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
+          <p className="sw-assure">مراجعة كاملة قبل الإطلاق، و7 أيام دعم تقني بعده ضمن السعر.</p>
+          <SmallWebsiteWhatsApp id="order-panel-cta" className="button primary offer-consultation-cta" label="ابدأ موقعك" />
         </aside>
       </section>
 
-      <section className="shell small-website-proof">
-        <div className="small-website-proof-copy">
-          <span className="section-label">نطاق واضح</span>
-          <h2>ليس كل مشروع<br/><em>يحتاج موقعًا ضخمًا</em></h2>
-          <p>أحيانًا ما تحتاجه فعلًا هو موقع مرتب يشرح من أنت، ماذا تقدم، وكيف يتواصل العميل معك. تسدّ الباقة هذه الفجوة بسرعة دون أن تدفع مقابل خصائص لن تستخدمها.</p>
-        </div>
-        <div className="small-site-map" aria-label="مثال هيكل موقع صغير">
-          <div className="small-site-map-top"><b>هيكل موقع صغير</b><small>حتى 5 صفحات</small></div>
-          <div className="small-site-home">الرئيسية</div>
-          <div className="small-site-pages"><span>الخدمات</span><span>من نحن</span><span>تواصل</span><span>صفحة إضافية</span></div>
-          <div className="small-site-path"><span>زيارة</span><b>→</b><span>فهم الخدمة</span><b>→</b><span>تواصل</span></div>
-        </div>
-      </section>
+      <WebsitePlan locale="ar" />
+
+      <WebsiteProblems locale="ar" />
 
       <section className="shell offer-deliverables small-website-deliverables">
         <div><span className="section-label">ماذا تشمل الباقة؟</span><h2>كل الأساسيات<br/><em>دون حشو</em></h2></div>
@@ -158,30 +157,28 @@ export default function SmallBusinessWebsiteOfferPage() {
           <article className="offer-fit-card good"><h3>مناسبة إذا</h3><ul>{fitFor.map((item) => <li key={item}>{item}</li>)}</ul></article>
           <article className="offer-fit-card limits"><h3>غير مشمول</h3><ul>{exclusions.map((item) => <li key={item}>{item}</li>)}</ul></article>
         </div>
-      </section>
-
-      <section className="shell small-website-scope-note">
-        <div><span className="section-label">قبل أن تبدأ</span><h2>إذا كان احتياجك أكبر،<br/><em>فلن نضغطه داخل باقة صغيرة</em></h2></div>
-        <div><p>إذا كنت تحتاج متجرًا، نظام حجز، عضويات، CRM، أتمتة، عدد صفحات كبير أو استراتيجية موقع كاملة، الأفضل الانتقال إلى خدمة تصميم وتطوير المواقع بدل توسيع هذه الباقة حتى تفقد وضوحها.</p><Link href="/website-design">شاهد خدمة تصميم وتطوير المواقع <span>←</span></Link></div>
+        <p className="sw-bigger">تحتاج متجرًا أو نظام حجز أو CRM أو عدد صفحات أكبر؟ <Link href="/website-design">شاهد خدمة تصميم وتطوير المواقع</Link></p>
       </section>
 
       <OfferClientProof review="bithan" locale="ar" />
 
+      <WebsiteSectors locale="ar" />
+
       <section className="shell offer-faq small-website-faq">
         <span className="section-label">أسئلة شائعة</span>
         <h2>قبل حجز الباقة</h2>
-        <div>{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div>{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section id="order-final" className="shell offer-final-cta small-website-final">
         <span className="section-label">جاهز للبدء؟</span>
         <h2>اجعل لمشروعك<br/><em>عنوانًا رقميًا حقيقيًا</em></h2>
         <p>ابدأ بموقع واضح وسريع، وبعدها وسّعه فقط عندما يحتاج المشروع فعلًا.</p>
-        <SmallWebsiteWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
+        <SmallWebsiteWhatsApp className="button primary offer-consultation-cta" label="ابدأ موقعك" />
         <div className="small-website-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط فقط؟</Link><Link href="/website-design">تحتاج موقعًا أكبر؟</Link><Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link></div>
       </section>
 
-      <SmallWebsiteSticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <SmallWebsiteSticky watchIds={["order-cta", "order-panel-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
     </main>
   );
