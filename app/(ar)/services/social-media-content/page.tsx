@@ -10,7 +10,7 @@ import "./content-guides.css";
 import "./social-extras.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "إدارة حسابات السوشيال ميديا وصناعة المحتوى في السعودية | ديوانك",
+  title: "إدارة حسابات التواصل الاجتماعي والسوشيال ميديا | ديوانك",
   description: "إدارة حسابات السوشيال ميديا والتواصل الاجتماعي للشركات في السعودية والخليج: استراتيجية، تصميم، كابشنات، نشر وتقارير. ابدأ بباقة محتوى 30 يومًا أو إدارة شهرية.",
   path: "/services/social-media-content",
   keywords: [

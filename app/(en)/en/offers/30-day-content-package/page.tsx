@@ -20,13 +20,13 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Social Media Content Package: 30 Days, Fixed Price",
+  "Social Media Post Design and Content Package",
   "A 30-day social media content package: 12 custom posts, 3 stories, one reel, captions, a publishing plan and a bio review. Not a monthly account contract.",
   "/en/offers/30-day-content-package",
 );
 
 const deliverables = [
-  ["12 custom posts", "Designs consistent with your business, not repeated ready-made templates."],
+  ["12 social media post designs", "Custom designs consistent with your business, not repeated ready-made templates."],
   ["3 story designs", "Stories built to drive interaction, present your service or move people to act."],
   ["One reel", "A short reel edited from the images or videos you send us."],
   ["Ideas and captions", "A clear idea and ready-to-publish copy for each piece of content."],

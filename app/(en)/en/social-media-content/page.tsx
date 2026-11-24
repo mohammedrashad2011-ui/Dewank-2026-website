@@ -16,7 +16,7 @@ import "../_en/parity/service-pages.en.css";
 import "../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Social Media Management and Content Services",
+  "Social Media Management Services and Content",
   "Social media management services for businesses worldwide: strategy, design, captions, publishing and reporting. Start with a 30-day package or monthly management.",
   "/en/social-media-content",
 );

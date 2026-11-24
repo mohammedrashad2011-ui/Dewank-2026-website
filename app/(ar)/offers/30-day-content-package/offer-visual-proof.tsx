@@ -103,7 +103,7 @@ export default function OfferVisualProof() {
     <section ref={sectionRef} className="shell offer-visual-proof" aria-labelledby="offer-visual-proof-title">
       <div className="offer-visual-proof-head">
         <span className="section-label">مستوى التنفيذ</span>
-        <h2 id="offer-visual-proof-title">شاهد مستوى المحتوى<br/>قبل أن تقرر</h2>
+        <h2 id="offer-visual-proof-title">تصاميم سوشيال ميديا<br/>شاهدها قبل أن تقرر</h2>
         <p className="offer-proof-intro">نماذج من قطاعات مختلفة توضح مستوى التصميم وتنوع الأسلوب حسب طبيعة النشاط.</p>
         <div className="offer-proof-signals" aria-label="مؤشرات الثقة في التنفيذ">
           <span><b>7</b><small>نماذج</small></span>

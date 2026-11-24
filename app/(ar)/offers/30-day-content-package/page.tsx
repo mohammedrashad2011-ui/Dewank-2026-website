@@ -15,7 +15,7 @@ import "./content-system-stage.css";
 import "./content-extras.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "باقة محتوى سوشيال ميديا 30 يومًا: 12 بوست وريل | ديوانك",
+  title: "صناعة محتوى وتصاميم سوشيال ميديا 30 يومًا | ديوانك",
   description: "باقة محتوى محددة المخرجات لمدة 30 يومًا: 12 بوستًا و3 ستوري وريل واحد مع الأفكار والكابشنات وخطة النشر، وليست إدارة حساب شهرية.",
   path: "/offers/30-day-content-package",
   keywords: [
@@ -32,10 +32,10 @@ export const metadata: Metadata = createMetadata({
 });
 
 const deliverables = [
-  ["12 بوستًا مخصصًا", "تصميمات متناسقة مع نشاطك، وليست قوالب جاهزة مكررة."],
+  ["تصميم 12 بوستًا", "تصاميم سوشيال ميديا متناسقة مع نشاطك، وليست قوالب جاهزة مكررة."],
   ["3 تصاميم ستوري", "قصص موجهة للتفاعل أو عرض الخدمة أو تحريك الطلب."],
   ["ريل واحد", "مونتاج ريل قصير من الصور أو الفيديوهات التي ترسلها."],
-  ["الأفكار والكابشنات", "فكرة واضحة ونص جاهز للنشر لكل قطعة محتوى."],
+  ["الأفكار وكتابة المحتوى", "فكرة واضحة ونص جاهز للنشر لكل قطعة محتوى."],
   ["خطة نشر 30 يومًا", "ترتيب مقترح للنشر حتى تعرف ماذا تنشر ومتى."],
   ["تحسين البايو وCTA", "مراجعة الرسالة الأساسية وطريقة توجيه الزائر للخطوة التالية."],
 ];
@@ -94,7 +94,7 @@ export default function ContentOfferPage() {
       <section className="shell offer-detail-hero sales-hero">
         <div className="sales-hero-copy">
           <span className="sales-eyebrow">باقة صناعة محتوى السوشيال ميديا</span>
-          <h1>محتوى سوشيال ميديا لشهر كامل<br/><em>بسعر ونطاق واضحين</em></h1>
+          <h1>صناعة محتوى سوشيال ميديا لشهر كامل<br/><em>بسعر ونطاق واضحين</em></h1>
           <p className="sales-hero-lead">تستلم 16 قطعة محتوى جاهزة للنشر مع الأفكار والكابشنات وخطة 30 يومًا، بدون عقد إدارة شهري. الباقة كاملة بـ <span className="cp-inline-price"><LocalizedInlinePrice /></span>.</p>
           <div className="cp-hero-actions">
             <LocalizedWhatsAppLink id="order-cta" className="button primary offer-consultation-cta" label="ابدأ محتوى شهرك" />

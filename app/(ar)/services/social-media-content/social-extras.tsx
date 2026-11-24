@@ -72,8 +72,8 @@ const copy = {
       alt: (sector: string) => `Sample social media content design: ${sector}`,
     },
     paths: {
-      label: "Social media packages",
-      title: "Choose the right way to start",
+      label: "Choose the right way to start",
+      title: "Social media management packages and pricing",
       cards: [
         { name: "Account upgrade", time: "14 days", from: "From", fit: "For an existing account that needs tidying up.", key: "instagram-14-day-upgrade", items: ["Account, bio and highlights review", "Three to five content themes", "Six applied designs and a 14-day plan"], href: "/en/offers/instagram-14-day-upgrade", cta: "See the 14-day package" },
         { name: "Content package", time: "30 days", from: "", fit: "If you need ready content and publish it yourself.", key: "30-day-content-package", items: ["12 posts, 3 stories and one reel", "Ideas and captions for every piece", "A 30-day publishing plan"], href: "/en/offers/30-day-content-package", cta: "See the 30-day package" },
