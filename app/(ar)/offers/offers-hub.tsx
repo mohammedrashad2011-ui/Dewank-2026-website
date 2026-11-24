@@ -92,6 +92,11 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
         <OffersDecisionPanel locale={locale} offers={choices} />
       </section>
 
+      <section className="shell oh-proof" aria-labelledby="oh-proof-title">
+        <h2 id="oh-proof-title">{t.proofTitle}</h2>
+        <div>{t.proof.map(([quote, credit]) => <figure key={credit}><blockquote>{ar ? `«${quote}»` : `“${quote}”`}</blockquote><figcaption>{credit}</figcaption></figure>)}</div>
+      </section>
+
       <section className="shell oh-summary" id="offers-summary" aria-labelledby="offers-summary-title">
         <div className="oh-summary-head">
           <span className="oh-eyebrow">{t.summaryEyebrow}</span>
@@ -107,7 +112,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
               {hubRows.map((row) => (
                 <tr key={row.path}>
                   <th scope="row"><Link href={prefix + row.path}>{row[locale].title}</Link></th>
-                  <td>{row[locale].hook}</td>
+                  <td className="oh-table-get">{row[locale].hook}</td>
                   <td data-label={t.colTime}>{row[locale].time}</td>
                   <td data-label={t.colPrice} className="oh-inline-price"><HubPrice offerKey={row.key} locale={locale} /></td>
                 </tr>

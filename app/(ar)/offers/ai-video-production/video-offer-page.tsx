@@ -8,6 +8,7 @@ import { videoFaq, videoPackages } from "./video-offer-content";
 import VideoOrderWidget from "./video-order-widget";
 import VideoHeroPlayer from "./video-hero-player";
 import VideoOfferFromPrice from "./video-offer-from-price";
+import VideoSticky from "./video-sticky";
 import "./video-studio.css";
 
 type Locale = "ar" | "en";
@@ -18,12 +19,15 @@ const copy = {
     home: "الرئيسية",
     crumb: "إنتاج الفيديو",
     eyebrow: "ديوانك · استوديو الفيديو",
-    title: "ريلز وفيديوهات AI وإعلانات قصيرة",
+    title: "فيديوهات بالذكاء الاصطناعي وريلز إعلانية",
     titleAccent: "من فكرتك إلى فيديو جاهز للنشر",
     intro: "ثلاث باقات واضحة للشركات والمتاجر في السعودية والخليج: مونتاج لقطاتك، إنتاج فيديو AI من الصفر، أو إعلانات قصيرة بافتتاحية وخطوة واضحة. نؤكد النطاق والسعر قبل البدء.",
     from: "3 باقات تبدأ من",
     cta: "اختر باقتك",
-    secondaryCta: "أرسل تفاصيل مشروعك",
+    orderCta: "ابدأ فيديوك على واتساب",
+    orderMessage: "مرحبًا ديوانك، أرغب في بدء فيديوهات قصيرة لنشاطي. نشاطي وفكرتي: ",
+    sectorsTitle: "أفكار فيديو حسب نشاطك",
+    sectors: [["متجر إلكتروني", "طريقة استخدام المنتج، ومقارنة قبل الشراء، وعرض محدود بشروط واضحة."], ["مطعم أو كافيه", "لقطات المنتج، والعرض، والطلب من أقرب فرع."], ["عيادة أو مركز تجميل", "شرح الخدمة والاستعداد للموعد، مع الالتزام بضوابط القطاع."], ["عقار أو مقاولات", "جولة قصيرة في المشروع، ومراحل العمل."], ["تطبيق أو شركة تقنية", "شرح الفكرة في أقل من دقيقة بموشن جرافيك."], ["مدرب أو مستشار", "إجابة عن سؤال متكرر بافتتاحية قوية ودعوة للتواصل."]],
     heroFacts: ["نطاق محدد لكل باقة", "جولة تعديل ضمن الباقة", "تأكيد السعر قبل التنفيذ"],
     pricingEyebrow: "الباقات",
     pricingTitle: "اختر طريقة الإنتاج",
@@ -53,10 +57,13 @@ const copy = {
     eyebrow: "DEWANK · VIDEO STUDIO",
     title: "Reels, AI videos and short video ads",
     titleAccent: "From your idea to a publish-ready video",
-    intro: "Three clear packages for brands and shops in Saudi Arabia and the GCC: we edit your footage, produce AI video from scratch, or build short ads with a hook and a clear next step. Scope and price are confirmed before work starts.",
+    intro: "Three clear packages for brands and shops worldwide: we edit your footage, produce AI video from scratch, or build short ads with a hook and a clear next step. Scope and price are confirmed before work starts.",
     from: "3 packages, from",
     cta: "Choose your package",
-    secondaryCta: "Send your project brief",
+    orderCta: "Start on WhatsApp",
+    orderMessage: "Hello Dewank, I would like to start short videos for my business. My business and idea: ",
+    sectorsTitle: "Video ideas by business type",
+    sectors: [["Online store", "How to use the product, a comparison before buying, and a limited offer with clear terms."], ["Restaurant or café", "Product shots, the offer, and ordering from the nearest branch."], ["Clinic or beauty centre", "Explaining the service and preparing for the appointment, within the rules of the sector."], ["Real estate or contracting", "A short tour of the project and the stages of work."], ["App or tech company", "The idea explained in under a minute with motion graphics."], ["Coach or consultant", "An answer to a common question with a strong hook and a call to get in touch."]],
     heroFacts: ["A defined scope per package", "A revision round included", "Price confirmed before production"],
     pricingEyebrow: "PACKAGES",
     pricingTitle: "Choose the production route",
@@ -87,6 +94,7 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
   const urlPath = ar ? "/offers/ai-video-production" : "/en/offers/ai-video-production";
   const url = siteUrl + urlPath;
   const faq = videoFaq[locale];
+  const orderHref = "https://wa.me/97339066649?text=" + encodeURIComponent(t.orderMessage);
   const serviceSchema = {
     "@context": "https://schema.org",
     "@graph": [
@@ -170,7 +178,7 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
             <div className="vs-hero-buy">
               <div className="vs-hero-from"><small>{t.from}</small><VideoOfferFromPrice locale={locale} /></div>
               <a className="vs-button vs-button-primary" href="#video-packages">{t.cta}<span aria-hidden="true">↓</span></a>
-              <a className="vs-button vs-button-ghost" href="#video-brief">{t.secondaryCta}</a>
+              <a id="vs-order" className="vs-button vs-button-ghost" href={orderHref} target="_blank" rel="noopener noreferrer">{t.orderCta}<span aria-hidden="true">↗</span></a>
             </div>
             <ul className="vs-hero-facts">{t.heroFacts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
           </div>
@@ -205,6 +213,15 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
+      <section className="vs-sectors" aria-labelledby="vs-sectors-h">
+        <div className="shell">
+          <details>
+            <summary><h2 id="vs-sectors-h">{t.sectorsTitle}</h2></summary>
+            <div className="vs-sector-grid">{t.sectors.map(([head, text]) => <article key={head}><h3>{head}</h3><p>{text}</p></article>)}</div>
+          </details>
+        </div>
+      </section>
+
       <section className="vs-faq" id="video-faq" aria-labelledby="vs-faq-h">
         <div className="shell vs-faq-grid">
           <div className="vs-heading">
@@ -217,7 +234,7 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="vs-close">
+      <section className="vs-close" id="vs-close">
         <div className="shell vs-close-grid">
           <div>
             <h2>{t.closeTitle}</h2>
@@ -229,7 +246,8 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
           </aside>
         </div>
       </section>
-      {ar ? <Footer /> : <EnglishFooter />}
+      <VideoSticky locale={locale} href={orderHref} watchIds={["vs-order", "video-brief", "vs-close", "order-footer"]} />
+      <div id="order-footer">{ar ? <Footer /> : <EnglishFooter />}</div>
     </main>
   );
 }

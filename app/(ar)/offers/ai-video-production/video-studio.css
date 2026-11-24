@@ -213,3 +213,25 @@
   .vs-close { padding-block: 90px; }
   .vs-close-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); gap: 70px; align-items: end; }
 }
+
+/* ---------- Business types (collapsed, the text stays in the HTML) ---------- */
+.vs-sectors { padding-block: 8px 44px; }
+.vs-sectors details { padding: 4px 18px; border: 1.5px solid var(--vs-line); border-radius: 20px; background: #fffdf8; }
+.vs-sectors details[open] { padding-bottom: 18px; }
+.vs-sectors summary { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 60px; cursor: pointer; list-style: none; }
+.vs-sectors summary::-webkit-details-marker { display: none; }
+.vs-sectors summary::after { content: "+"; flex: none; color: var(--vs-gold-ink); font-size: 26px; line-height: 1; }
+.vs-sectors details[open] summary::after { content: "−"; }
+.vs-sectors summary:focus-visible { outline: 2px solid var(--vs-navy); outline-offset: 4px; border-radius: 12px; }
+.vs-sectors h2 { font-size: clamp(20px, 5vw, 28px); font-weight: 800; line-height: 1.5; }
+.vs-sector-grid { display: grid; gap: 14px; margin-top: 6px; }
+.vs-sector-grid h3 { font-size: 16px; font-weight: 800; line-height: 1.5; }
+.vs-sector-grid p { margin-top: 4px; color: var(--vs-muted); font-size: 14px; line-height: 1.8; }
+@media (min-width: 620px) { .vs-sector-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .vs-sectors { padding-block: 0 84px; } .vs-sector-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* Phones: shorter package images, so the three packages are easier to compare. */
+@media (max-width: 619px) {
+  .vs-package-demo { aspect-ratio: 16 / 11; }
+  .vs-package-demo img { object-position: 50% 72%; }
+}
