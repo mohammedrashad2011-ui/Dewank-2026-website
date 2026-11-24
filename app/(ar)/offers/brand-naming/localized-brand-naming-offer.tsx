@@ -3,11 +3,11 @@
 import { useOfferPrice } from "../use-offer-price";
 import { StickyOfferBar } from "./sticky-offer-bar";
 
-// The WhatsApp message and number are unchanged. Every CTA on the page builds its link here, so the wa.me URL that GTM's
+// Every CTA on the page builds its link here, so the wa.me URL that GTM's
 // Just Links triggers match stays identical across the hero, the price block, the sticky bar and the final CTA.
 function useBrandNamingWhatsAppHref() {
   const price = useOfferPrice("brand-naming");
-  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية بخصوص اختيار اسم تجاري لمشروعي، ومعرفة تفاصيل باقة الـ${price.formattedAmount} ${price.currencyLabel}.`;
+  const text = `مرحبًا ديوانك، أرغب في بدء اختيار اسم تجاري لمشروعي، ومعرفة تفاصيل باقة الـ${price.formattedAmount} ${price.currencyLabel}.`;
   return { price, href: `https://wa.me/97339066649?text=${encodeURIComponent(text)}` };
 }
 

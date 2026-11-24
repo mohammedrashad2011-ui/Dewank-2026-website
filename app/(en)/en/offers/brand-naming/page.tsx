@@ -71,7 +71,7 @@ const faqs = [
 const allFaqs = [...faqs, ...extraFaqs.en];
 
 export default function BrandNamingOfferPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about your brand naming package. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start naming my brand with your brand naming package. My business is: ");
   const url = "https://dewank.com/en/offers/brand-naming";
   const schema = {
     "@context": "https://schema.org",
