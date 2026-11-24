@@ -10,7 +10,7 @@ export function MiniIdentityPrice() {
 }
 
 function miniIdentityMessage(amount: string, currency: string) {
-  return `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة الهوية البصرية الأساسية بسعر ${amount} ${currency}. نشاطي: `;
+  return `مرحبًا ديوانك، أرغب في بدء تصميم هوية بصرية لمشروعي، ومعرفة تفاصيل الباقة الأساسية بسعر ${amount} ${currency}. نشاطي: `;
 }
 
 export function MiniIdentityWhatsApp({ className, label, id }: { className: string; label: string; id?: string }) {
@@ -31,7 +31,7 @@ export function MiniIdentitySticky({ watchIds }: { watchIds: string[] }) {
         alwaysWhenHidden
         ctaMinVisibleRatio={0.5}
         href={href}
-        label="استشارة مجانية"
+        label="ابدأ هويتك"
         priceLabel="الباقة الأساسية"
         price={`${price.formattedAmount} ${price.currencyLabel}`}
         arrow="←"
