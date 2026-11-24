@@ -10,7 +10,7 @@ const copy = {
   ar: {
     risk: {
       title: "قبل أن تطبع اسمك على لافتة أو فاتورة",
-      lead: "الاسم الذي يُختار على عجل يظهر ثمنه لاحقًا. هذه ثلاث مشاكل نراها كثيرًا، ونفحصها قبل أن ترشّح لك أي اسم.",
+      lead: "الاسم الذي يُختار على عجل يظهر ثمنه لاحقًا. هذه ثلاث مشاكل نفحصها قبل أن نرشّح لك أي اسم.",
       items: [
         ["اسم قريب من منافس", "يخلط العميل بينك وبينه، وقد تضطر إلى تغيير الاسم بعد الطباعة والإعلان."],
         ["دومين أو حساب مشغول", "تكتشف ذلك بعد أن تحجز الشعار والمطبوعات، فتبدأ من جديد."],
@@ -42,7 +42,7 @@ const copy = {
   en: {
     risk: {
       title: "Before you print your name on a sign or an invoice",
-      lead: "A name chosen in a hurry shows its cost later. These are three problems we see often, and we check for them before we recommend any name.",
+      lead: "A name chosen in a hurry shows its cost later. We check for these three problems before we recommend any name.",
       items: [
         ["A name close to a competitor", "Customers confuse you with them, and you may have to change the name after printing and advertising."],
         ["A taken domain or handle", "You find out after you have booked the logo and the print, and you start again."],
@@ -99,8 +99,8 @@ const reviews = [
   },
   {
     country: { ar: "فرنسا", en: "France" },
-    en: "Great service! … excellent names with slogans and descriptions that align perfectly with .com domains, all within less than 2 hours. I truly appreciate your professionalism.",
-    ar: "خدمة رائعة! … أسماء ممتازة مع شعارات وأوصاف تتوافق تمامًا مع دومينات .com، كل ذلك في أقل من ساعتين. أقدّر احترافيتكم فعلًا.",
+    en: "Great service! … excellent names with slogans and descriptions that align perfectly with .com domains … I truly appreciate your professionalism.",
+    ar: "خدمة رائعة! … أسماء ممتازة مع شعارات وأوصاف تتوافق تمامًا مع دومينات .com … أقدّر احترافيتكم فعلًا.",
   },
   {
     country: { ar: "الولايات المتحدة", en: "United States" },
