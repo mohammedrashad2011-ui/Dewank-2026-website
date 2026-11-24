@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
+import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
 import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -14,7 +16,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "Instagram Profile Audit and 14-Day Upgrade",
+  "Instagram Profile Optimization and Audit: 14 Days",
   "A 14-day Instagram upgrade for an existing account: review, bio and call to action, highlights, content themes, six designs and a plan.",
   "/en/offers/instagram-14-day-upgrade",
 );
@@ -39,8 +41,10 @@ const faqs = [
   ["When does the 14-day period start?", "It starts once we receive access or the required materials, and the basic information about the business, the audience and the service is approved."],
 ];
 
+const allFaqs = [...faqs, ...offerExtras.en.instagram.faqs];
+
 export default function Instagram14DayUpgradeOffer() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the 14-day Instagram upgrade package. My Instagram account is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start the 14-day Instagram upgrade package. My Instagram account is: ");
   const url = "https://dewank.com/en/offers/instagram-14-day-upgrade";
   const schema = {
     "@context": "https://schema.org",
@@ -60,7 +64,7 @@ export default function Instagram14DayUpgradeOffer() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+        mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
       },
       {
         "@type": "BreadcrumbList",
@@ -74,15 +78,20 @@ export default function Instagram14DayUpgradeOffer() {
   };
 
   return (
-    <main id="main-content" className="inner-page offers-page instagram-upgrade-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page oe-page instagram-upgrade-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
       <section className="shell offer-detail-hero instagram-upgrade-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> focused days</span></div>
-          <h1>Your account exists<br/><em>But does it convince the customer?</em></h1>
+          <h1>Instagram profile optimization<br/><em>Bio, highlights and six designs in 14 days</em></h1>
           <p>We put your Instagram account in order from the inside out: the bio, the call to action, the highlights, the content themes and the visual direction, then six designs and a 14-day implementation plan.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">14-day package from <OfferPrice offerKey="instagram-14-day-upgrade" className="oe-price-value" /></p>
+            <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Upgrade my account <span>→</span></a>
+            <OfferMicro offer="instagram" locale="en" />
+          </div>
           <div className="instagram-upgrade-answer" aria-label="The short answer">
             <b>The short answer</b>
             <span>This package is for an existing account that needs clarity and a more professional look. It is not daily account management, and it is not a full month of content.</span>
@@ -93,7 +102,7 @@ export default function Instagram14DayUpgradeOffer() {
           <OfferPrice offerKey="instagram-14-day-upgrade" className="offer-price" />
           <div className="offer-trust-inline"><span>Full review</span><span>Six designs</span><span>14-day plan</span></div>
           <p>The price covers the development, the designs and the plan only. It does not include advertising, photography or ongoing daily management.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Upgrade my account <span>→</span></a>
         </aside>
       </section>
 
@@ -110,6 +119,8 @@ export default function Instagram14DayUpgradeOffer() {
           <div className="instagram-profile-grid">{Array.from({ length: 6 }).map((_, index) => <i key={index} />)}</div>
         </div>
       </section>
+
+      <OfferSample offer="instagram" locale="en" />
 
       <section className="shell offer-deliverables instagram-upgrade-deliverables">
         <div><span className="section-label">What you receive</span><h2>Not a cosmetic edit<br/>A reorganised account</h2><p>Each element of the package has a defined role in making the account clearer, easier to browse, and easier to act on.</p></div>
@@ -145,18 +156,20 @@ export default function Instagram14DayUpgradeOffer() {
 
       <OfferClientProof review="bithan" locale="en" />
 
+      <OfferGuide offer="instagram" locale="en" />
+
       <section className="shell offer-faq">
         <span className="section-label">Frequently asked questions</span><h2>Before you start</h2>
-        <div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div>{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section id="order-final" className="shell offer-final instagram-upgrade-final">
         <div><small>14-day Instagram upgrade</small><h2>Make the first visit to the account<br/><em>say that you are organised and ready</em></h2><p>If the account exists but does not reflect the level of your business, this is a focused starting point before you pay for more content or more advertising.</p></div>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Upgrade my account <span>→</span></a>
         <div className="instagram-upgrade-links"><Link href="/en/offers/30-day-content-package">Need a full month of content?</Link><Link href="/en/social-media-content">Need ongoing social media management?</Link></div>
       </section>
 
-      <EnOfferSticky watchIds={["order-cta", "order-final", "order-footer"]} href={contactLink} label="Free consultation" priceLabel="Upgrade package from" offerKey="instagram-14-day-upgrade" />
+      <EnOfferSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} href={contactLink} label="Upgrade my account" priceLabel="Upgrade package from" offerKey="instagram-14-day-upgrade" />
       <div id="order-footer"><Footer /></div>
     </main>
   );

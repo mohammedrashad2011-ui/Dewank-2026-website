@@ -11,14 +11,14 @@ export function GoogleAdsLaunchPrice() {
 
 export function GoogleAdsLaunchLink({ className, label, id }: { className: string; label: string; id?: string }) {
   const price = useOfferPrice("google-ads-launch");
-  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة إطلاق Google Ads بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
+  const text = `مرحبًا ديوانك، أرغب في بدء باقة إطلاق Google Ads بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
   return <a id={id} className={className} href={href} target="_blank" rel="noreferrer">{label} <span>←</span></a>;
 }
 
 export function GoogleAdsLaunchSticky({ watchIds }: { watchIds: string[] }) {
   const price = useOfferPrice("google-ads-launch");
-  const text = `مرحبًا ديوانك، أرغب في استشارة مجانية مبدئية بخصوص باقة إطلاق Google Ads بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
+  const text = `مرحبًا ديوانك، أرغب في بدء باقة إطلاق Google Ads بسعر ${price.formattedAmount} ${price.currencyLabel}. نشاطي: `;
   const href = `https://wa.me/97339066649?text=${encodeURIComponent(text)}`;
   return (
     <div className="offer-sticky">
@@ -27,7 +27,7 @@ export function GoogleAdsLaunchSticky({ watchIds }: { watchIds: string[] }) {
         alwaysWhenHidden
         ctaMinVisibleRatio={0.5}
         href={href}
-        label="استشارة مجانية"
+        label="ابدأ حملتك"
         priceLabel="باقة الإطلاق من"
         price={`${price.formattedAmount} ${price.currencyLabel}`}
         arrow="←"

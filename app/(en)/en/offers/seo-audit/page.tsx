@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
+import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
 import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -15,7 +17,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "SEO Audit Service: SEO and AEO Website Audit in 48 Hours",
+  "SEO Audit Services: Website and AEO Audit in 48 Hours",
   "A full SEO and AEO audit covering technical, content, speed, keywords and conversion, with a PDF report and a 30-day plan.",
   "/en/offers/seo-audit",
 );
@@ -52,8 +54,10 @@ const faqItems = [
   ["Does it cover AEO and visibility in AI answer engines?", "Yes. We review how easily your content can be understood: its structure, headings, questions and answers, and structured data. We add recommendations that help search engines and answer engines understand your pages more clearly."],
 ];
 
+const allFaqs = [...faqItems, ...offerExtras.en.seo.faqs];
+
 export default function SeoAuditOfferPage() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the SEO and AEO audit package. My website is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start the SEO and AEO audit package. My website is: ");
   const url = "https://dewank.com/en/offers/seo-audit";
   const schema = {
     "@context": "https://schema.org",
@@ -74,7 +78,7 @@ export default function SeoAuditOfferPage() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqItems.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+        mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
       },
       {
         "@type": "BreadcrumbList",
@@ -88,15 +92,20 @@ export default function SeoAuditOfferPage() {
   };
 
   return (
-    <main id="main-content" className="inner-page offers-page seo-audit-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page oe-page seo-audit-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
       <section className="shell offer-detail-hero seo-audit-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>48</strong> hours to deliver</span></div>
-          <h1>Your website exists<br/><em>But does Google understand it?</em></h1>
+          <h1>SEO audit service for your website<br/><em>A report and a 30-day plan in 48 hours</em></h1>
           <p>A full SEO audit shows what is holding back your visibility, what needs fixing first, and where the growth opportunities are, before you spend more on marketing.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">Full one-time audit from <OfferPrice offerKey="seo-audit" className="oe-price-value" /></p>
+            <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Audit my website <span>→</span></a>
+            <OfferMicro offer="seo" locale="en" />
+          </div>
           <div className="seo-audit-answer" aria-label="Short answer">
             <b>The short answer</b>
             <span>You receive a diagnosis of the technical, content, speed, keyword, conversion and AEO issues, then a PDF report and a 30-day improvement plan in priority order.</span>
@@ -107,7 +116,7 @@ export default function SeoAuditOfferPage() {
           <OfferPrice offerKey="seo-audit" className="offer-price" />
           <div className="offer-trust-inline"><span>PDF report</span><span>30-day plan</span><span>No subscription</span></div>
           <p>The price covers the audit, the report and the recommendations. Implementing the fixes and ongoing SEO management are not included.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Audit my website <span>→</span></a>
         </aside>
       </section>
 
@@ -119,6 +128,8 @@ export default function SeoAuditOfferPage() {
         </div>
         <SeoAuditIntelligence locale="en" />
       </section>
+
+      <OfferSample offer="seo" locale="en" />
 
       <section className="shell offer-deliverables seo-audit-areas">
         <div><span className="section-label">What we audit</span><h2>Five areas<br/>One clear picture</h2><p>The audit does not stop at keywords. We review what helps Google reach and understand your site, and what helps a visitor take the next step.</p></div>
@@ -143,19 +154,21 @@ export default function SeoAuditOfferPage() {
 
       <OfferClientProof review="data" locale="en" />
 
+      <OfferGuide offer="seo" locale="en" />
+
       <section className="shell offer-faq" id="faq">
         <div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you send your website</h2></div>
-        <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section id="order-final" className="shell offer-final-cta seo-audit-final">
         <span className="offer-kicker">SEO + AEO · PDF report · within 48 hours</span>
         <h2>Find where you are losing visibility before you pay more to bring visitors in</h2>
         <p>Send us your website address, your business type and your target market. We will start the audit from the big picture and move to the details that affect results.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Audit my website <span>→</span></a>
         <div className="seo-audit-links"><Link href="/en/guides/seo-vs-aeo">Want to understand the difference between SEO and AEO?</Link><Link href="/en/seo-geo-aeo">Need ongoing implementation after the audit?</Link><Link href="/en/offers">← Back to all offers</Link></div>
       </section>
-      <EnOfferSticky watchIds={["order-cta", "order-final", "order-footer"]} href={contactLink} label="Free consultation" priceLabel="Full audit from" offerKey="seo-audit" />
+      <EnOfferSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} href={contactLink} label="Audit my website" priceLabel="Full audit from" offerKey="seo-audit" />
       <div id="order-footer"><Footer /></div>
     </main>
   );

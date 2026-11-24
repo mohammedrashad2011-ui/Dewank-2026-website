@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
+import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
 import { whatsappHref } from "../../_en/lib/site";
+import { EnOfferSticky } from "../offer-sticky-en";
 import { AutomationJourney, AutomationContrast } from "../../../../(ar)/offers/whatsapp-automation-starter/whatsapp-cinematic";
 // The Arabic WhatsApp automation starter offer's layout and styles, reused unchanged. English-only overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
@@ -14,7 +17,7 @@ import "../../_en/parity/service-pages.en.css";
 import "../../_en/styles/hide-arabic-widgets.css";
 
 export const metadata = enMetadata(
-  "WhatsApp automation for business: starter package",
+  "WhatsApp Chatbot and Automation for Business: Starter",
   "A WhatsApp automation foundation: automatic replies, lead qualification, data capture, team handover, basic follow-up and testing. Not a full CRM.",
   "/en/offers/whatsapp-automation-starter",
 );
@@ -40,8 +43,10 @@ const faqs = [
   ["How long does setup take?", "Usually 3 to 5 working days after we receive your business information, the common questions and the basic replies, and approve the conversation path"],
 ];
 
+const allFaqs = [...faqs, ...offerExtras.en.whatsapp.faqs];
+
 export default function WhatsAppAutomationStarterOffer() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the WhatsApp automation starter package. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start the WhatsApp automation starter package. My business is: ");
   const url = "https://dewank.com/en/offers/whatsapp-automation-starter";
   const schema = {
     "@context": "https://schema.org",
@@ -62,7 +67,7 @@ export default function WhatsAppAutomationStarterOffer() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
+        mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })),
       },
       {
         "@type": "BreadcrumbList",
@@ -76,20 +81,27 @@ export default function WhatsAppAutomationStarterOffer() {
   };
 
   return (
-    <main id="main-content" className="inner-page offers-page whatsapp-starter-page wa-cinema-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page oe-page whatsapp-starter-page wa-cinema-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
       <section className="shell offer-detail-hero whatsapp-starter-hero wa-cinema-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>3–5</strong> working days</span></div>
-          <h1>WhatsApp automation for businesses<br/><em>Start with the path that stops leads being lost</em></h1>
+          <h1>WhatsApp chatbot for business<br/><em>Automated replies, lead capture and handover</em></h1>
           <p>We build a WhatsApp automation path that answers the basic questions, qualifies the customer, captures their details and follows up on the next step before passing them to the right person</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">Foundation package from <OfferPrice offerKey="whatsapp-automation-starter" className="oe-price-value" /></p>
+            <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your automation <span>→</span></a>
+            <OfferMicro offer="whatsapp" locale="en" />
+          </div>
           <div className="whatsapp-starter-answer" aria-label="The short answer"><b>The short answer</b><span>This is a foundation package, not a full CRM, and it suits you if your main problems are slow replies, the same questions repeated, and customers lost before they reach the team</span></div>
         </div>
-        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>Foundation package from</small><OfferPrice offerKey="whatsapp-automation-starter" className="offer-price" /><div className="offer-trust-inline"><span>Reply and qualify</span><span>Handover to a person</span><span>7-day support</span></div><p>Includes setting up the basic path, testing and going live, while WhatsApp fees, external tools and a full CRM are not included</p><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a></aside>
+        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>Foundation package from</small><OfferPrice offerKey="whatsapp-automation-starter" className="offer-price" /><div className="offer-trust-inline"><span>Reply and qualify</span><span>Handover to a person</span><span>7-day support</span></div><p>Includes setting up the basic path, testing and going live, while WhatsApp fees, external tools and a full CRM are not included</p><a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your automation <span>→</span></a></aside>
       </section>
 
       <AutomationJourney locale="en" />
+
+      <OfferSample offer="whatsapp" locale="en" />
 
       <section className="shell offer-deliverables whatsapp-starter-deliverables"><div><span className="section-label">What you receive</span><h2>A clear scope<br/>No full CRM you do not need</h2><p>We start with the essential path only, so it is quick to understand, easy to run and simple to develop later</p></div><div className="deliverable-list">{deliverables.map(([item, text]) => <article className="deliverable-item" key={item}><b>{item}</b><p>{text}</p></article>)}</div></section>
 
@@ -101,10 +113,13 @@ export default function WhatsAppAutomationStarterOffer() {
 
       <section className="shell offer-confidence whatsapp-starter-confidence"><div><span className="section-label">Before you buy</span><h2>Know exactly<br/>what you are paying for</h2></div><div className="offer-confidence-list"><p><b>Starter:</b> a low-friction starting point for automating replies, qualification and handover</p><p><b>Not included:</b> a full CRM, advanced booking, several integrations, or WhatsApp and external tool fees</p><p><b>If you need a bigger system:</b> see our <Link href="/en/whatsapp-crm-automation">WhatsApp automation and CRM service</Link></p></div></section>
 
-      <section className="shell offer-faq whatsapp-starter-faq" id="faq"><div><span className="section-label">Quick questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <OfferGuide offer="whatsapp" locale="en" />
 
-      <section className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">Start here</span><h2>Turn your first message<br/>into a clear next step</h2><p>Send us your business type and the questions you receive most often, and we will tell you whether the starter is enough or whether you need a larger system</p></div><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a><div className="whatsapp-starter-links"><Link href="/en/whatsapp-crm-automation">Need a CRM and larger integrations?</Link><Link href="/en/ai-automation">Explore AI automation</Link></div></section>
-      <Footer />
+      <section className="shell offer-faq whatsapp-starter-faq" id="faq"><div><span className="section-label">Quick questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+
+      <section id="order-final" className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">Start here</span><h2>Turn your first message<br/>into a clear next step</h2><p>Send us your business type and the questions you receive most often, and we will tell you whether the starter is enough or whether you need a larger system</p></div><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your automation <span>→</span></a><div className="whatsapp-starter-links"><Link href="/en/whatsapp-crm-automation">Need a CRM and larger integrations?</Link><Link href="/en/ai-automation">Explore AI automation</Link></div></section>
+      <EnOfferSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} href={contactLink} label="Start your automation" priceLabel="Foundation package from" offerKey="whatsapp-automation-starter" />
+      <div id="order-footer"><Footer /></div>
     </main>
   );
 }

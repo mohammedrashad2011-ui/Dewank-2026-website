@@ -46,13 +46,13 @@ export const hubOffers: HubOffer[] = [
   },
   {
     slug: "whatsapp-automation-starter", path: "/offers/whatsapp-automation-starter", filter: "automation", priceKey: "whatsapp-automation-starter", icon: "chat",
-    ar: { category: "أتمتة", time: "3–5 أيام عمل", title: "أتمتة واتساب لنشاطك", hook: "رد آلي يجمع بيانات العميل ويؤهله", text: "يرد على الأسئلة المتكررة، ويجمع بيانات العميل ويتابعه، ثم يحوّله للموظف المناسب، فلا تضيع محادثة.", label: "باقة التأسيس من", aria: "شاهد تفاصيل باقة واتساب أوتوميشن", cta: "التفاصيل" },
-    en: { category: "Automation", time: "3–5 working days", title: "WhatsApp automation for your business", hook: "Auto-replies that collect and qualify leads", text: "It answers common questions, collects customer details, follows up, then hands over to the right person, so no conversation is lost.", label: "Starter package from", aria: "View the WhatsApp automation starter", cta: "Details" },
+    ar: { category: "أتمتة", time: "3–5 أيام عمل", title: "بوت وأتمتة واتساب لنشاطك", hook: "رد آلي يجمع بيانات العميل ويؤهله", text: "يرد على الأسئلة المتكررة، ويجمع بيانات العميل ويتابعه، ثم يحوّله للموظف المناسب، فلا تضيع محادثة.", label: "باقة التأسيس من", aria: "شاهد تفاصيل باقة واتساب أوتوميشن", cta: "التفاصيل" },
+    en: { category: "Automation", time: "3–5 working days", title: "WhatsApp chatbot and automation", hook: "Auto-replies that collect and qualify leads", text: "It answers common questions, collects customer details, follows up, then hands over to the right person, so no conversation is lost.", label: "Starter package from", aria: "View the WhatsApp automation starter", cta: "Details" },
   },
   {
     slug: "google-ads-launch", path: "/offers/google-ads-launch", filter: "ads", priceKey: "google-ads-launch", icon: "target",
-    ar: { category: "إعلانات", time: "2–4 أيام عمل", title: "إطلاق حملة Google Ads", hook: "إعداد كامل جاهز للتشغيل خلال 2–4 أيام", text: "حملة بحث بكلمات بنية شراء، كتابة الإعلانات، كلمات سلبية، تتبع التحويل وفحص قبل الإطلاق. إعداد لمرة واحدة، وليست إدارة شهرية.", label: "باقة الإطلاق من", aria: "شاهد تفاصيل باقة إطلاق Google Ads", cta: "التفاصيل" },
-    en: { category: "Advertising", time: "2–4 working days", title: "Google Ads campaign setup", hook: "Ready to launch in 2–4 working days", text: "A Search campaign with buyer-intent keywords, ad copy, negative keywords, conversion tracking and a pre-launch check. A one-time setup, not monthly management.", label: "Launch package from", aria: "View the Google Ads launch package", cta: "Details" },
+    ar: { category: "إعلانات", time: "2–4 أيام عمل", title: "إعداد حملة إعلانات جوجل", hook: "إعداد كامل جاهز للتشغيل خلال 2–4 أيام", text: "حملة بحث بكلمات بنية شراء، كتابة الإعلانات، كلمات سلبية، تتبع التحويل وفحص قبل الإطلاق. إعداد لمرة واحدة، وليست إدارة شهرية.", label: "باقة الإطلاق من", aria: "شاهد تفاصيل باقة إطلاق Google Ads", cta: "التفاصيل" },
+    en: { category: "Advertising", time: "2–4 working days", title: "Google Ads setup for small business", hook: "Ready to launch in 2–4 working days", text: "A Search campaign with buyer-intent keywords, ad copy, negative keywords, conversion tracking and a pre-launch check. A one-time setup, not monthly management.", label: "Launch package from", aria: "View the Google Ads launch package", cta: "Details" },
   },
   {
     slug: "name-identity", path: "/offers/name-identity", filter: "brand", priceKey: "name-identity-bundle", icon: "tag",
@@ -61,13 +61,13 @@ export const hubOffers: HubOffer[] = [
   },
   {
     slug: "seo-audit", path: "/offers/seo-audit", filter: "web", priceKey: "seo-audit", icon: "search",
-    ar: { category: "SEO وتحليل", time: "48 ساعة للتسليم", title: "فحص SEO لموقعك", hook: "تقرير بالمشاكل وخطة إصلاح خلال 48 ساعة", text: "نراجع الفهرسة والسرعة والمحتوى والكلمات المفتاحية وظهورك في إجابات الذكاء الاصطناعي، وتستلم تقرير PDF وخطة تحسين لـ30 يومًا.", label: "فحص شامل من", aria: "شاهد تفاصيل فحص SEO الشامل", cta: "التفاصيل" },
+    ar: { category: "SEO وتحليل", time: "48 ساعة للتسليم", title: "فحص الموقع وتحليل SEO", hook: "تقرير بالمشاكل وخطة إصلاح خلال 48 ساعة", text: "نراجع الفهرسة والسرعة والمحتوى والكلمات المفتاحية وظهورك في إجابات الذكاء الاصطناعي، وتستلم تقرير PDF وخطة تحسين لـ30 يومًا.", label: "فحص شامل من", aria: "شاهد تفاصيل فحص SEO الشامل", cta: "التفاصيل" },
     en: { category: "SEO and analysis", time: "48 hours to deliver", title: "SEO audit for your website", hook: "A report and fix plan in 48 hours", text: "We review indexing, speed, content, keywords and your visibility in AI answers. You get a PDF report and a 30-day improvement plan.", label: "Full audit from", aria: "View the SEO and AEO audit", cta: "Details" },
   },
   {
     slug: "instagram-14-day-upgrade", path: "/offers/instagram-14-day-upgrade", filter: "content", priceKey: "instagram-14-day-upgrade", icon: "camera",
     ar: { category: "إنستجرام", time: "14 يوم تطوير مركز", title: "تطوير حساب إنستجرام", hook: "بايو وهايلايتس و6 تصميمات خلال 14 يومًا", text: "نراجع الحساب ونحسّن البايو والـCTA والهايلايتس، ونحدد محاور المحتوى والتوجه البصري، مع 6 تصميمات وخطة تنفيذ.", label: "باقة تطوير إنستجرام من", aria: "شاهد تفاصيل تطوير حساب إنستجرام خلال 14 يوم", cta: "التفاصيل" },
-    en: { category: "Instagram", time: "14 focused days", title: "Instagram account upgrade", hook: "Bio, highlights and 6 designs in 14 days", text: "We review the account, improve the bio, call to action and highlights, set content themes and a visual direction, and deliver six designs with a plan.", label: "Upgrade package from", aria: "View the 14-day Instagram upgrade", cta: "Details" },
+    en: { category: "Instagram", time: "14 focused days", title: "Instagram profile optimization", hook: "Bio, highlights and 6 designs in 14 days", text: "We review the account, improve the bio, call to action and highlights, set content themes and a visual direction, and deliver six designs with a plan.", label: "Upgrade package from", aria: "View the 14-day Instagram upgrade", cta: "Details" },
   },
   {
     slug: "cro-snapshot", path: "/conversion-rate-optimization#pricing", filter: "web conversion", priceKey: "cro-snapshot", icon: "funnel",

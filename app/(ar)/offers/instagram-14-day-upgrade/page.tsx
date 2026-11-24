@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
+import { offerExtras } from "../offer-extras-data";
+import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { InstagramUpgradePrice, InstagramUpgradeSticky, InstagramUpgradeWhatsApp } from "./localized-instagram-upgrade";
@@ -12,10 +15,10 @@ const title = "تطوير حساب انستقرام خلال 14 يوم";
 const description = "باقة تطوير حساب إنستجرام خلال 14 يوم: مراجعة الحساب، تحسين البايو والـCTA، الهايلايتس، محاور المحتوى، 6 تصميمات وخطة تنفيذ بسعر واضح.";
 
 export const metadata: Metadata = createMetadata({
-  title: "تطوير حساب انستقرام خلال 14 يومًا: بايو وهايلايت و6 تصميمات | ديوانك",
+  title: "تطوير حساب انستقرام: بايو وهايلايت وتصميم 6 منشورات | ديوانك",
   description,
   path: "/offers/instagram-14-day-upgrade",
-  keywords: ["تطوير حساب انستقرام", "تحسين حساب انستقرام", "تطوير بروفايل انستقرام", "إدارة انستقرام السعودية", "بايو انستقرام احترافي", "خطة محتوى انستقرام", "تصميم انستقرام للشركات"],
+  keywords: ["بايو انستقرام", "هايلايت انستقرام", "تصميم انستقرام", "تطوير حساب انستقرام", "تحسين حساب انستقرام", "تطوير بروفايل انستقرام", "إدارة انستقرام السعودية", "بايو انستقرام احترافي", "خطة محتوى انستقرام", "تصميم انستقرام للشركات"],
 });
 
 const deliverables = [
@@ -38,6 +41,8 @@ const faqs = [
   ["متى تبدأ مدة الـ14 يومًا؟", "تبدأ بعد استلام صلاحية الوصول أو المواد المطلوبة واعتماد المعلومات الأساسية عن النشاط والجمهور والخدمة."],
 ];
 
+const allFaqs = [...faqs, ...offerExtras.ar.instagram.faqs];
+
 export default function Instagram14DayUpgradeOffer() {
   const url = `${siteUrl}/offers/instagram-14-day-upgrade`;
   const schema = {
@@ -57,7 +62,7 @@ export default function Instagram14DayUpgradeOffer() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({
+        mainEntity: allFaqs.map(([question, answer]) => ({
           "@type": "Question",
           name: question,
           acceptedAnswer: { "@type": "Answer", text: answer },
@@ -75,15 +80,20 @@ export default function Instagram14DayUpgradeOffer() {
   };
 
   return (
-    <main className="inner-page offers-page instagram-upgrade-page">
+    <main className="inner-page offers-page oe-page instagram-upgrade-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <section className="shell offer-detail-hero instagram-upgrade-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>14</strong> يوم تطوير مركز</span></div>
-          <h1>تطوير حساب انستقرام<br/><em>حسابك موجود لكن هل يقنع العميل؟</em></h1>
+          <h1>تطوير حساب انستقرام<br/><em>بايو وهايلايت و6 تصميمات في 14 يومًا</em></h1>
           <p>نرتب حساب إنستجرام من الداخل للخارج: البايو، دعوة الإجراء، الهايلايتس، محاور المحتوى، الاتجاه البصري، ثم نعطيك 6 تصميمات وخطة تنفيذ لمدة 14 يومًا.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">باقة 14 يومًا من <InlineOfferPrice offerKey="instagram-14-day-upgrade" /></p>
+            <InstagramUpgradeWhatsApp id="order-hero" className="button primary offer-consultation-cta" label="طوّر حسابك" />
+            <OfferMicro offer="instagram" locale="ar" />
+          </div>
           <div className="instagram-upgrade-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
             <span>هذه الباقة لحساب قائم يحتاج وضوحًا وشكلًا أكثر احترافية، وليست إدارة يومية للحساب ولا باقة محتوى شهر كامل.</span>
@@ -94,7 +104,7 @@ export default function Instagram14DayUpgradeOffer() {
           <InstagramUpgradePrice />
           <div className="offer-trust-inline"><span>مراجعة شاملة</span><span>6 تصميمات</span><span>خطة 14 يومًا</span></div>
           <p>سعر الباقة يشمل التطوير والنماذج والخطة فقط. لا يشمل الإعلانات أو التصوير أو الإدارة اليومية المستمرة.</p>
-          <InstagramUpgradeWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
+          <InstagramUpgradeWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="طوّر حسابك" />
         </aside>
       </section>
 
@@ -111,6 +121,8 @@ export default function Instagram14DayUpgradeOffer() {
           <div className="instagram-profile-grid">{Array.from({ length: 6 }).map((_, index) => <i key={index} />)}</div>
         </div>
       </section>
+
+      <OfferSample offer="instagram" locale="ar" />
 
       <section className="shell offer-deliverables instagram-upgrade-deliverables">
         <div><span className="section-label">ماذا تستلم؟</span><h2>ليس تعديلًا شكليًا<br/>بل إعادة ترتيب للحساب</h2><p>كل عنصر في الباقة له دور محدد في جعل الحساب أوضح وأسهل في التصفح واتخاذ القرار.</p></div>
@@ -146,18 +158,20 @@ export default function Instagram14DayUpgradeOffer() {
 
       <OfferClientProof review="bithan" locale="ar" />
 
+      <OfferGuide offer="instagram" locale="ar" />
+
       <section className="shell offer-faq">
         <span className="section-label">أسئلة شائعة</span><h2>قبل أن تبدأ</h2>
-        <div>{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div>{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section id="order-final" className="shell offer-final instagram-upgrade-final">
         <div><small>14 DAY INSTAGRAM UPGRADE</small><h2>خلي أول زيارة للحساب<br/><em>تقول إنك مرتب وجاهز</em></h2><p>لو الحساب قائم لكنه لا يعكس مستوى مشروعك، هذه نقطة بداية مركزة قبل أن تدفع على محتوى أكثر أو إعلانات أكثر.</p></div>
-        <InstagramUpgradeWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
+        <InstagramUpgradeWhatsApp className="button primary offer-consultation-cta" label="طوّر حسابك" />
         <div className="instagram-upgrade-links"><Link href="/offers/30-day-content-package">تحتاج محتوى شهر كامل؟</Link><Link href="/services/social-media-content">تحتاج إدارة سوشيال ميديا مستمرة؟</Link></div>
       </section>
 
-      <InstagramUpgradeSticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <InstagramUpgradeSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
     </main>
   );

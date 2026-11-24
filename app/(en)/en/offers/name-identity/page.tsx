@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
+import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
@@ -16,7 +18,7 @@ import "../../_en/styles/hide-arabic-widgets.css";
 
 const description = "One package for a new brand: brand naming (10–15 considered names, preliminary checks, a top three) followed by an essential visual identity (logo, colours, typefaces, three applications), for less than ordering both separately.";
 
-export const metadata = enMetadata("Brand Naming and Visual Identity Package | Name + Logo Bundle", description, "/en/offers/name-identity");
+export const metadata = enMetadata("Branding Package: Brand Name and Logo Design", description, "/en/offers/name-identity");
 
 const namingSteps = [
   ["10–15 considered names", "Names built on your business, audience and plans to grow, not a random list."],
@@ -41,8 +43,10 @@ const faqs = [
   ["Is this a full brand identity?", "No. It is an essential identity for a consistent start. It does not include a full brand strategy, a detailed identity manual or extended applications. For a full identity, see brand strategy and identity."],
 ];
 
+const allFaqs = [...faqs, ...offerExtras.en.bundle.faqs];
+
 export default function NameIdentityBundleEn() {
-  const contactLink = whatsappHref("Hello Dewank, I would like a free initial consultation about the brand naming + visual identity package. My business is: ");
+  const contactLink = whatsappHref("Hello Dewank, I would like to start the brand naming + visual identity package. My business is: ");
   const url = "https://dewank.com/en/offers/name-identity";
   const schema = {
     "@context": "https://schema.org",
@@ -59,7 +63,7 @@ export default function NameIdentityBundleEn() {
         url,
         inLanguage: "en",
       },
-      { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
+      { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -72,15 +76,20 @@ export default function NameIdentityBundleEn() {
   };
 
   return (
-    <main id="main-content" className="inner-page offers-page en-service" lang="en" dir="ltr">
+    <main id="main-content" className="inner-page offers-page oe-page en-service" lang="en" dir="ltr">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
 
       <section className="shell offer-detail-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" />Two stages: the name, then the identity</span></div>
-          <h1>Brand naming and visual identity<br/><em>Your brand&apos;s start in one package</em></h1>
+          <h1>Brand name and logo design<br/><em>One branding package for a new business</em></h1>
           <p>We choose your business name with you first, then build an essential visual identity on the chosen name. Two connected stages with one team that understands your project from the start, for less than ordering both packages separately.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">Bundle price <OfferPrice offerKey="name-identity-bundle" className="oe-price-value" /></p>
+            <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand <span>→</span></a>
+            <OfferMicro offer="bundle" locale="en" />
+          </div>
         </div>
         <aside className="offer-price-panel">
           <small>Bundle price</small>
@@ -88,9 +97,11 @@ export default function NameIdentityBundleEn() {
           <NameIdentitySavingEn />
           <div className="offer-trust-inline"><span>10–15 names</span><span>Logo and essential identity</span><span>3 applications</span></div>
           <p>It does not include trade name reservation, trademark registration, official fees or a full brand strategy.</p>
-          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+          <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand <span>→</span></a>
         </aside>
       </section>
+
+      <OfferSample offer="bundle" locale="en" />
 
       <section className="shell offer-deliverables">
         <div><span className="section-label">Stage one · 3–5 working days</span><h2>We choose the name</h2><p>The same scope as the brand naming package.</p></div>
@@ -114,16 +125,18 @@ export default function NameIdentityBundleEn() {
 
       <OfferClientProof review="bithan" locale="en" />
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <OfferGuide offer="bundle" locale="en" />
+
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><span className="section-label">Frequently asked questions</span><h2>Before you start</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section id="order-final" className="shell offer-final-cta">
         <span className="offer-kicker">Brand naming + visual identity</span>
         <h2>Start your brand with a clear name and a consistent look</h2>
         <p>Send us your business, audience and target market, and we will start with the naming stage.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Free consultation <span>→</span></a>
+        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand <span>→</span></a>
         <div className="offer-bundle-links"><Link href="/en/offers/brand-naming">Brand naming only</Link><Link href="/en/offers/visual-identity">Essential identity only</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
-      <EnOfferSticky watchIds={["order-cta", "order-final", "order-footer"]} href={contactLink} label="Free consultation" priceLabel="Name + identity" offerKey="name-identity-bundle" />
+      <EnOfferSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} href={contactLink} label="Start your brand" priceLabel="Name + identity" offerKey="name-identity-bundle" />
       <div id="order-footer"><Footer /></div>
     </main>
   );

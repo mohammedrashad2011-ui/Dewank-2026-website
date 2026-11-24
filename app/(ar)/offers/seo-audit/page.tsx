@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
+import { offerExtras } from "../offer-extras-data";
+import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { SeoAuditIntelligence } from "../../../components/seo-audit-intelligence";
@@ -10,10 +13,13 @@ import "../offer-trust.css";
 import "./seo-audit-offer.css";
 
 export const metadata: Metadata = createMetadata({
-  title: "فحص سيو شامل للموقع خلال 48 ساعة | تقرير وخطة تحسين | ديوانك",
+  title: "فحص الموقع وتحليل سيو SEO خلال 48 ساعة | ديوانك",
   description: "فحص SEO شامل لموقعك خلال 48 ساعة: مشاكل الفهرسة والزحف والسرعة والمحتوى والكلمات المفتاحية والتحويل، مع تقرير PDF وخطة تحسين مرتبة حسب الأولوية.",
   path: "/offers/seo-audit",
   keywords: [
+    "فحص الموقع",
+    "سيو",
+    "تحليل الموقع",
     "فحص SEO للموقع",
     "تحليل SEO للموقع",
     "تدقيق SEO",
@@ -57,6 +63,8 @@ const faqItems = [
   ["هل يشمل AEO والظهور في أنظمة الإجابة؟", "نراجع قابلية فهم المحتوى والهيكل والعناوين والأسئلة الشائعة والبيانات المنظمة، ونضيف توصيات تساعد محركات البحث وأنظمة الإجابة على فهم صفحاتك بصورة أوضح."],
 ];
 
+const allFaqs = [...faqItems, ...offerExtras.ar.seo.faqs];
+
 export default function SeoAuditOfferPage() {
   const url = `${siteUrl}/offers/seo-audit`;
 
@@ -84,7 +92,7 @@ export default function SeoAuditOfferPage() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqItems.map(([question, answer]) => ({
+        mainEntity: allFaqs.map(([question, answer]) => ({
           "@type": "Question",
           name: question,
           acceptedAnswer: { "@type": "Answer", text: answer },
@@ -102,15 +110,20 @@ export default function SeoAuditOfferPage() {
   };
 
   return (
-    <main className="inner-page offers-page seo-audit-page">
+    <main className="inner-page offers-page oe-page seo-audit-page">
       <Header />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <section className="shell offer-detail-hero seo-audit-hero">
         <div>
           <div className="offer-availability"><span className="offer-spots-available"><i aria-hidden="true" /><strong>48</strong> ساعة للتسليم</span></div>
-          <h1>فحص سيو شامل لموقعك<br/><em>لكن هل جوجل يفهمه؟</em></h1>
+          <h1>فحص الموقع وتحليل السيو<br/><em>تقرير وخطة تحسين خلال 48 ساعة</em></h1>
           <p>فحص SEO شامل يكشف ما يعيق ظهور موقعك، ما الذي يحتاج إصلاحًا أولًا، وأين توجد فرص نمو يمكن استغلالها قبل إنفاق المزيد على التسويق.</p>
+          <div className="oe-hero-actions">
+            <p className="oe-price">فحص شامل لمرة واحدة من <InlineOfferPrice offerKey="seo-audit" /></p>
+            <SeoAuditWhatsApp id="order-hero" className="button primary offer-consultation-cta" label="اطلب فحص موقعك" />
+            <OfferMicro offer="seo" locale="ar" />
+          </div>
           <div className="seo-audit-answer" aria-label="الإجابة المختصرة">
             <b>الإجابة المختصرة</b>
             <span>تحصل على تشخيص تقني ومحتوى وسرعة وكلمات وتحويل وAEO، ثم تقرير PDF وخطة تحسين مرتبة لمدة 30 يومًا.</span>
@@ -121,7 +134,7 @@ export default function SeoAuditOfferPage() {
           <SeoAuditOfferPrice />
           <div className="offer-trust-inline"><span>تقرير PDF</span><span>خطة 30 يوم</span><span>بدون اشتراك</span></div>
           <p>السعر يشمل الفحص والتقرير والتوصيات. تنفيذ الإصلاحات أو إدارة SEO الشهرية غير مشمولين.</p>
-          <SeoAuditWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="استشارة مجانية" />
+          <SeoAuditWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="اطلب فحص موقعك" />
         </aside>
       </section>
 
@@ -133,6 +146,8 @@ export default function SeoAuditOfferPage() {
         </div>
         <SeoAuditIntelligence locale="ar" />
       </section>
+
+      <OfferSample offer="seo" locale="ar" />
 
       <section className="shell offer-deliverables seo-audit-areas">
         <div><span className="section-label">ماذا نفحص؟</span><h2>خمسة محاور<br/>صورة واحدة واضحة</h2><p>الفحص لا يتوقف عند الكلمات المفتاحية. نراجع ما يساعد جوجل على الوصول والفهم وما يساعد الزائر على اتخاذ الإجراء.</p></div>
@@ -157,19 +172,21 @@ export default function SeoAuditOfferPage() {
 
       <OfferClientProof review="data" locale="ar" />
 
+      <OfferGuide offer="seo" locale="ar" />
+
       <section className="shell offer-faq" id="faq">
         <div className="offer-faq-head"><span className="section-label">أسئلة شائعة</span><h2>قبل أن ترسل الموقع</h2></div>
-        <div className="offer-faq-list">{faqItems.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
+        <div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section id="order-final" className="shell offer-final-cta seo-audit-final">
         <span className="offer-kicker">SEO + AEO · تقرير PDF · خلال 48 ساعة</span>
         <h2>اعرف أين تخسر الظهور قبل أن تدفع أكثر لجلب الزيارات</h2>
         <p>أرسل رابط موقعك ونوع النشاط والسوق المستهدف، ونبدأ الفحص من الصورة الكبيرة إلى التفاصيل التي تؤثر فعلًا.</p>
-        <SeoAuditWhatsApp className="button primary offer-consultation-cta" label="استشارة مجانية" />
+        <SeoAuditWhatsApp className="button primary offer-consultation-cta" label="اطلب فحص موقعك" />
         <div className="seo-audit-links"><Link href="/guides/seo-vs-aeo">تريد فهم الفرق بين SEO وAEO؟</Link><Link href="/seo-aeo">تحتاج تنفيذًا مستمرًا بعد الفحص؟</Link><Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
-      <SeoAuditSticky watchIds={["order-cta", "order-final", "order-footer"]} />
+      <SeoAuditSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
     </main>
   );
