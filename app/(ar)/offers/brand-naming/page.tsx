@@ -4,10 +4,12 @@ import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { BrandNamingInlinePrice, BrandNamingOfferPrice, BrandNamingStickyCta, BrandNamingWhatsApp } from "./localized-brand-naming-offer";
 import { NameToIdentity } from "./name-to-identity";
+import { NamingReviews, NamingRisk, NamingSectors, extraFaqs } from "./naming-extras";
 import "../offers-page.css";
 import "../offer-trust.css";
 import "./brand-naming-offer.css";
 import "./brand-naming-v2.css";
+import "./brand-naming-extras.css";
 
 const title = "اختيار اسم تجاري + توجه أولي للعلامة | باقة جاهزة";
 const description = "باقة اختيار اسم تجاري للعلامات الجديدة تشمل 10–15 اسمًا مدروسًا، فحصًا لغويًا وثقافيًا، توفر الدومين، أفضل 3 ترشيحات وتوجهًا أوليًا للعلامة. تبدأ من 490 ريال.";
@@ -24,21 +26,23 @@ const deliverables = [
   ["المعنى ومنطق الاختيار", "شرح فكرة كل اسم وطريقة نطقه ولماذا يمكن أن يعمل تجاريًا مع مشروعك."],
   ["فحص لغوي وثقافي", "مراجعة أولية للمعنى والنطق والانطباعات المحتملة بالعربية والإنجليزية حسب السوق."],
   ["فحص مبدئي للتشابه", "بحث أولي عن أسماء وعلامات مشابهة لتقليل احتمالات التعارض، دون ضمان التسجيل الرسمي."],
-  ["الدومين والحسابات", "التحقق وقت البحث من توفر نطاقات وأسماء مستخدمين مناسبة واقتراح بدائل عملية عند الحاجة."],
+  ["الدومين", "التحقق وقت البحث من توفر النطاق المناسب لكل ترشيح، واقتراح بدائل عملية عند الحاجة."],
+  ["أسماء حسابات التواصل (Handles)", "التحقق وقت البحث من توفر اسم المستخدم لأفضل 3 ترشيحات على إنستجرام وتيك توك وإكس وسناب شات، مع بدائل مقترحة عند الحاجة."],
   ["أفضل 3 ترشيحات", "قائمة نهائية مختصرة تضم أفضل 3 أسماء، مع مقارنة حسب التميز والوضوح وقابلية التوسع والاستخدام."],
+  ["3 شعارات لفظية (Tagline)", "3 شعارات قصيرة للاسم الذي تختاره، بالعربية أو الإنجليزية، مع سبب كل شعار."],
   ["توجه أولي للعلامة", "توجه مبدئي للشخصية ونبرة التواصل والمزاج البصري والكلمات المفتاحية التي تناسب الاسم المختار."],
   ["جولة تطوير واحدة", "تطوير اتجاه واحد بناءً على ملاحظات محددة إذا لم يُحسم الاختيار من الجولة الأولى."],
 ];
 
 const faqs = [
-  ["ماذا تشمل باقة اختيار اسم تجاري؟", "تشمل 10–15 اسمًا مدروسًا، وأفضل 3 ترشيحات، وفحصًا مبدئيًا للمعنى والنطق والتشابه والدومين، وتوجهًا أوليًا للعلامة، وجولة تطوير واحدة إذا لم يُحسم الاختيار من الجولة الأولى، وتسليمًا عادة خلال 3–5 أيام عمل. الفحص المبدئي لا يعني قبول الاسم أو تسجيله، ولا تشمل الباقة الرسوم الحكومية أو تسجيل العلامة."],
+  ["ماذا تشمل باقة اختيار اسم تجاري؟", "تشمل 10–15 اسمًا مدروسًا، وأفضل 3 ترشيحات، وفحصًا مبدئيًا للمعنى والنطق والتشابه والدومين وأسماء حسابات التواصل، وتوجهًا أوليًا للعلامة، و3 شعارات لفظية للاسم الذي تختاره، وجولة تطوير واحدة إذا لم يُحسم الاختيار من الجولة الأولى، وتسليمًا عادة خلال 3–5 أيام عمل. الفحص المبدئي لا يعني قبول الاسم أو تسجيله، ولا تشمل الباقة الرسوم الحكومية أو تسجيل العلامة."],
   ["كم اسمًا سأستلم؟", "تستلم عادة 10–15 اسمًا مدروسًا، ثم نرشح أفضل 3 خيارات بناءً على معايير واضحة تساعدك على اتخاذ القرار."],
   ["ما المقصود بالتوجه الأولي للعلامة؟", "هو تصور مبدئي للعلامة بعد اختيار الاسم، يحدد الشخصية ونبرة التواصل والمزاج البصري والكلمات التي يجب أن تعكسها الهوية لاحقًا. لا يشمل تصميم شعار أو هوية بصرية كاملة."],
   ["هل تضمنون قبول الاسم أو تسجيل العلامة؟", "لا. نقدم فحصًا أوليًا للتشابه والمعنى والتوفر لتقليل المخاطر، لكن قرار القبول والتسجيل النهائي للجهة الرسمية المختصة."],
   ["ماذا لو لم يعجبني أي اسم في القائمة؟", "تحصل على جولة تطوير واحدة بناءً على ملاحظاتك المحددة، إذا لم يُحسم الاختيار من الجولة الأولى."],
   ["كيف أختار اسمًا تجاريًا مناسبًا لمشروعي؟", "ابدأ بما يعنيه الاسم لعملائك: هل يصف نشاطك أو يعكس قيمتك؟ ثم اختبره نطقًا وكتابةً بالعربية والإنجليزية، وتأكد أنه لا يشبه علامة منافسة قريبة في نشاطك، وتحقق من توفر الدومين وحسابات التواصل. الفحص المبدئي يقلل المخاطر، لكن قبول الاسم وتسجيله قرار للجهة الرسمية المختصة."],
   ["ما الفرق بين قائمة أسماء شركات مقترحة واسم تجاري مميز مدروس؟", "قوائم اقتراح أسماء الشركات الجاهزة تعطيك كلمات عامة قد يستخدمها غيرك. أما الاسم التجاري المميز فيُبنى على نشاطك وجمهورك وسوقك، ثم يُفحص مبدئيًا للمعنى والنطق والتشابه والدومين. لهذا تستلم 10–15 اسمًا مدروسًا مع سبب كل اسم، ونرشح لك أفضل 3 لتختار اسم شركة مميز بثقة."],
-  ["هل تشمل الخدمة حجز الدومين؟", "تشمل التحقق من توفر الدومين وقت البحث. شراء الدومين ورسومه ليست ضمن الباقة، لأن التوفر قد يتغير حتى لحظة الحجز."],
+  ["هل تشمل الخدمة حجز الدومين؟", "تشمل التحقق من توفر الدومين وأسماء حسابات التواصل وقت البحث. شراء الدومين ورسومه وفتح الحسابات ليست ضمن الباقة، لأن التوفر قد يتغير حتى لحظة الحجز."],
   ["كم مدة التسليم؟", "التسليم عادة خلال 3–5 أيام عمل بعد استلام معلومات النشاط والسوق والجمهور والاتجاهات المفضلة."],
 ];
 
@@ -59,9 +63,11 @@ const fits = [
 
 const steps = [
   ["اليوم 1", "ترسل فكرة مشروعك", "نوع النشاط، المدينة أو السوق، والجمهور. رسالة واتساب واحدة تكفي للبدء."],
-  ["الأيام 2–4", "نبحث ونبني ونفحص", "اتجاهات تسمية مختلفة، ثم تصفية بالمعنى والنطق والتشابه والدومين."],
-  ["اليوم 5", "تستلم قرارًا واضحًا", "10–15 اسمًا، أفضل 3 ترشيحات بمقارنة واضحة، وتوجه أولي للاسم المختار."],
+  ["الأيام 2–4", "نبحث ونبني ونفحص", "اتجاهات تسمية مختلفة، ثم تصفية بالمعنى والنطق والتشابه والدومين وحسابات التواصل."],
+  ["اليوم 5", "تستلم قرارًا واضحًا", "10–15 اسمًا، أفضل 3 ترشيحات بمقارنة واضحة، و3 شعارات لفظية وتوجه أولي للاسم المختار."],
 ];
+
+const allFaqs = [...faqs, ...extraFaqs.ar];
 
 export default function BrandNamingOfferPage() {
   const url = `${siteUrl}/offers/brand-naming`;
@@ -73,7 +79,7 @@ export default function BrandNamingOfferPage() {
         "@id": `${url}#service`,
         name: "باقة اختيار اسم تجاري + توجه أولي للعلامة",
         description,
-        serviceType: ["Brand Naming", "Brand Direction", "Domain Availability Research"],
+        serviceType: ["Brand Naming", "Tagline Writing", "Social Media Handle Research", "Brand Direction", "Domain Availability Research"],
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
         offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
@@ -82,7 +88,7 @@ export default function BrandNamingOfferPage() {
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
-        mainEntity: faqs.map(([question, answer]) => ({
+        mainEntity: allFaqs.map(([question, answer]) => ({
           "@type": "Question",
           name: question,
           acceptedAnswer: { "@type": "Answer", text: answer },
@@ -109,9 +115,9 @@ export default function BrandNamingOfferPage() {
         <div className="bn2-hero-copy">
           <p className="bn2-kicker"><i aria-hidden="true" />باقة جاهزة · التسليم خلال 3–5 أيام عمل</p>
           <h1 id="bn2-title">اختيار اسم تجاري <em>يتذكره عميلك من أول مرة</em></h1>
-          <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه وتوفر الدومين. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
+          <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه والدومين وحسابات التواصل، مع 3 شعارات لفظية للاسم الذي تختاره. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
           <div className="bn2-hero-actions">
-            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
+            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
             <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
           </div>
           <ul className="bn2-facts" aria-label="ما تشمله الباقة">
@@ -153,11 +159,14 @@ export default function BrandNamingOfferPage() {
         </figure>
       </section>
 
+      <NamingReviews locale="ar" />
+
       <section className="shell bn2-fit" aria-labelledby="bn2-fit-title">
         <h2 id="bn2-fit-title">الباقة مناسبة لك إذا كنت</h2>
         <div className="bn2-fit-grid">
           {fits.map(([head, text]) => <article key={head}><h3>{head}</h3><p>{text}</p></article>)}
         </div>
+        <NamingRisk locale="ar" />
       </section>
 
       <section className="shell bn2-steps" aria-labelledby="bn2-steps-title">
@@ -180,8 +189,9 @@ export default function BrandNamingOfferPage() {
         <aside className="offer-price-panel brand-naming-price-panel bn2-price" aria-label="سعر الباقة">
           <small>الباقة الجاهزة</small>
           <BrandNamingOfferPrice />
-          <p className="bn2-price-note">سعر ثابت يشمل البحث والتسمية والقائمة المختصرة والتوجه الأولي للعلامة.</p>
-          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
+          <p className="bn2-price-note">سعر ثابت يشمل البحث والتسمية والقائمة المختصرة والشعارات اللفظية والتوجه الأولي للعلامة.</p>
+          <p className="bn3-assure">إذا لم تحسم اختيارك من الجولة الأولى، فجولة تطوير واحدة ضمن السعر.</p>
+          <BrandNamingWhatsApp className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
           <details className="bn2-excludes">
             <summary>ما الذي لا يشمله العرض؟</summary>
             <p>لا يشمل رسوم الجهات الرسمية، تسجيل العلامة، شراء الدومين، تصميم الشعار أو الهوية الكاملة، أو بحثًا قانونيًا متخصصًا في عدة فئات وأسواق. الفحص الذي نقدمه مبدئي وليس رأيًا قانونيًا أو ضمان تسجيل.</p>
@@ -202,6 +212,8 @@ export default function BrandNamingOfferPage() {
         </div>
       </section>
 
+      <NamingSectors locale="ar" />
+
       <section className="shell brand-naming-proof">
         <div className="brand-naming-proof-copy">
           <h2>الاسم الجيد يمر عبر أكثر من ذوق</h2>
@@ -210,13 +222,13 @@ export default function BrandNamingOfferPage() {
         <NameToIdentity locale="ar" />
       </section>
 
-      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><h2>قبل ما تختار اسمك</h2></div><div className="offer-faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
+      <section className="shell offer-faq" id="faq"><div className="offer-faq-head"><h2>قبل ما تختار اسمك</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
       <section className="shell offer-final-cta brand-naming-final bn2-final">
         <span className="offer-kicker">اختيار اسم تجاري · توجه أولي للعلامة</span>
         <h2>قبل ما تصمم الشعار، اختر اسمًا يستحق أن يوضع عليه</h2>
         <p>أرسل نوع النشاط والسوق المستهدف، وسنبدأ بملخص قصير عن مشروعك قبل البحث.</p>
-        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="استشارة مجانية" />
+        <BrandNamingWhatsApp id="bn2-final-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
         <div className="brand-naming-links"><Link href="/offers/name-identity">الاسم والهوية معًا بسعر أقل</Link><Link href="/services/brand-naming">تفاصيل خدمة التسمية</Link><Link href="/guides/how-to-choose-brand-name-saudi-arabia">دليل اختيار الاسم التجاري</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
 

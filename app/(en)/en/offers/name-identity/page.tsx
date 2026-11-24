@@ -20,8 +20,9 @@ export const metadata = enMetadata("Brand Naming and Visual Identity Package | N
 
 const namingSteps = [
   ["10–15 considered names", "Names built on your business, audience and plans to grow, not a random list."],
-  ["Preliminary checks", "Of meaning, similarity and domain, before you get attached to a name that is hard to own."],
+  ["Preliminary checks", "Of meaning, similarity, domain and social handles, before you get attached to a name that is hard to own."],
   ["A top three", "With clear reasoning for each name to help you decide."],
+  ["3 taglines", "For the name you choose, with the reason for each."],
   ["An initial brand direction", "For the name you choose, as the basis for the identity stage."],
 ];
 
