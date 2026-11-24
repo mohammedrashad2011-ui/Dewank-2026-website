@@ -27,7 +27,8 @@ const deliverables = [
   ["Meaning and reasoning", "An explanation of each name's idea, how it is pronounced, and why it can work commercially for your business."],
   ["Linguistic and cultural check", "A first review of meanings, pronunciation and likely associations in English and Arabic, depending on the market."],
   ["Preliminary similarity check", "An initial search for similar names and brands to reduce the chance of conflict. It does not guarantee official registration."],
-  ["Domains and handles", "A check at the time of the search for domain and username availability, with practical alternatives where needed."],
+  ["Domain", "A check at the time of the search of the right domain for each recommendation, with practical alternatives where needed."],
+  ["Social media handles", "A check at the time of the search of username availability for your top three on Instagram, TikTok, X and Snapchat, with suggested alternatives where needed."],
   ["Top three recommendations", "A short final list of the best three names, compared on distinctiveness, clarity, scalability and ease of use."],
   ["3 taglines", "3 short taglines for the name you choose, in Arabic or English, with the reason for each."],
   ["An initial brand direction", "A preliminary direction for the personality, tone of voice, visual mood and keywords that suit the chosen name."],
@@ -51,19 +52,19 @@ const fits = [
 
 const steps = [
   ["Day 1", "You send your idea", "Business type, city or market, and audience. One WhatsApp message is enough to start."],
-  ["Days 2–4", "We research, build and check", "Different naming directions, then filtering by meaning, pronunciation, similarity and domain."],
+  ["Days 2–4", "We research, build and check", "Different naming directions, then filtering by meaning, pronunciation, similarity, domain and social handles."],
   ["Day 5", "You receive a clear decision", "10–15 names, a top three with a clear comparison, 3 taglines and an initial direction for the chosen name."],
 ];
 
 const faqs = [
-  ["What does the brand naming package include?", "It includes 10–15 considered names, a preliminary check of meaning, pronunciation, similarity and domain availability, a top three, an initial brand direction, 3 taglines for the name you choose, and one development round. Delivery usually takes 3–5 working days. The package does not cover government fees or trademark registration, and the preliminary check is not a guarantee of acceptance or registration."],
+  ["What does the brand naming package include?", "It includes 10–15 considered names, a preliminary check of meaning, pronunciation, similarity, domain and social handle availability, a top three, an initial brand direction, 3 taglines for the name you choose, and one development round. Delivery usually takes 3–5 working days. The package does not cover government fees or trademark registration, and the preliminary check is not a guarantee of acceptance or registration."],
   ["How many names will I receive?", "Usually 10–15 considered names. We then recommend the best three, based on clear criteria that help you decide."],
   ["What is meant by an initial brand direction?", "It is a preliminary picture of the brand once the name is chosen: the personality, tone of voice, visual mood and the words the identity should reflect later. It does not include a logo or a full visual identity."],
   ["Do you guarantee that the name will be accepted or registered?", "No. We carry out a preliminary check of similarity, meaning and availability to reduce risk. The final decision on acceptance and registration rests with the official authority."],
   ["What if none of the names feels right?", "You receive one development round based on your specific feedback, if the choice is not settled in the first round."],
   ["How do I choose a good brand name for my business?", "Start with what the name should say to your customers: does it describe your activity or reflect your value? Then test how it sounds and reads in Arabic and English, check that it does not closely resemble a competitor in your field, and confirm the domain and social handles are available. A preliminary check reduces risk, but acceptance and registration are decided by the official authority."],
   ["What is the difference between a list of suggested company names and a distinctive, researched business name?", "Ready-made lists of suggested company names give you generic words that others may already use. A distinctive business name is built on your activity, audience and market, then given a preliminary check of meaning, pronunciation, similarity and domain availability. That is why you receive 10–15 considered names, each with its reasoning, and our top three, so you can choose a distinctive company name with confidence."],
-  ["Does the service include booking the domain?", "It includes checking domain availability at the time of the search. Buying the domain and its fees are not part of the package, because availability can change right up to the moment of purchase."],
+  ["Does the service include booking the domain?", "It includes checking domain and social handle availability at the time of the search. Buying the domain, its fees and opening the accounts are not part of the package, because availability can change right up to the moment of purchase."],
   ["How long does delivery take?", "Usually 3–5 working days after we receive information about the business, the market, the audience and your preferred directions."],
 ];
 
@@ -80,7 +81,7 @@ export default function BrandNamingOfferPage() {
         "@id": `${url}#service`,
         name: "Brand naming package with an initial brand direction",
         description: "A defined brand naming package with 10–15 considered names, linguistic and cultural checks, preliminary similarity and domain research, a top three and an initial brand direction.",
-        serviceType: ["Brand Naming", "Tagline Writing", "Brand Direction", "Domain Availability Research"],
+        serviceType: ["Brand Naming", "Tagline Writing", "Social Media Handle Research", "Brand Direction", "Domain Availability Research"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
         offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/brand-naming" },
