@@ -16,3 +16,5 @@ aside.instagram-guides-popup .instagram-guides-copy strong{font-size:16px;line-h
 aside.instagram-guides-popup .instagram-guides-copy span{max-width:none;color:#4b4e55;font-size:13px;line-height:1.7;white-space:normal;overflow:visible}
 aside.instagram-guides-popup>a{grid-column:1 / -1;justify-self:stretch;justify-content:center;min-height:46px;border-radius:12px;font-size:14px}
 aside.instagram-guides-popup .instagram-guides-close{top:-12px;left:-6px;width:32px;height:32px;font-size:17px}
+/* The guides hub also shows the WhatsApp bar in the same corner: the card sits above it. */
+body:has(.sitewide-whatsapp-wrap) aside.instagram-guides-popup{bottom:96px}
