@@ -5,7 +5,10 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import "./instagram-follow-card.css";
 
-const STORAGE_KEY = "dewank-instagram-guides-popup-dismissed-v1";
+// v2: the card now offers the free prompts file, so a visitor who closed the old follow card sees it once.
+const STORAGE_KEY = "dewank-instagram-guides-popup-dismissed-v2";
+// Commenting "برومبت" on this post starts the automatic reply that sends the free file.
+const PROMPT_POST_URL = "https://www.instagram.com/p/Df-XOIgCvBb/";
 const DISMISS_FOR_MS = 7 * 24 * 60 * 60 * 1000;
 
 function InstagramIcon() {
@@ -16,6 +19,17 @@ function InstagramIcon() {
       <circle cx="17.25" cy="6.75" r="1.2" fill="currentColor" />
     </svg>
   );
+}
+
+// The card shows on the Arabic guides hub and on every Arabic guide, including guides added later.
+function isArabicGuide(pathname: string) {
+  return pathname === "/guides" || pathname.startsWith("/guides/");
+}
+
+// One dataLayer event per click, with the page path only. No GTM tag listens to it yet.
+function trackPromptGift(path: string) {
+  const layer = (window as unknown as { dataLayer?: unknown[] }).dataLayer;
+  if (Array.isArray(layer)) layer.push({ event: "prompt_gift_click", page_path: path });
 }
 
 function usesOffersRail(pathname: string) {
@@ -55,7 +69,7 @@ export default function InstagramFollowCard() {
       offerScroll();
     }
 
-    if (!pathname.startsWith("/guides/") || /instagram\.com|l\.instagram\.com/i.test(document.referrer)) {
+    if (!isArabicGuide(pathname) || /instagram\.com|l\.instagram\.com/i.test(document.referrer)) {
       return () => window.removeEventListener("scroll", offerScroll);
     }
 
@@ -103,16 +117,16 @@ export default function InstagramFollowCard() {
       )}
 
       {instagramVisible && (
-        <aside className="instagram-guides-popup" aria-label="تابع ديوانك على إنستجرام">
+        <aside className="instagram-guides-popup" aria-label="هدية مجانية: 70 برومبت جاهز">
           <button className="instagram-guides-close" type="button" onClick={dismiss} aria-label="إغلاق">×</button>
           <span className="instagram-guides-mark" aria-hidden="true"><InstagramIcon /></span>
           <div className="instagram-guides-copy">
-            <small>DEWANK / INSTAGRAM</small>
-            <strong>استفدت من الدليل؟</strong>
-            <span>تابع ديوانك لأفكار أقصر وتطبيقات عملية.</span>
+            <small>هدية مجانية للقراء</small>
+            <strong>70 برومبت جاهز لتسويق مشروعك</strong>
+            <span>اكتب «برومبت» في تعليقات البوست، ويوصلك الملف كامل في الخاص.</span>
           </div>
-          <a href="https://www.instagram.com/dewank_marketing" target="_blank" rel="noopener noreferrer" onClick={dismiss}>
-            تابعنا <span aria-hidden="true">↗</span>
+          <a href={PROMPT_POST_URL} target="_blank" rel="noopener noreferrer" onClick={() => { trackPromptGift(pathname); dismiss(); }}>
+            اكتب «برومبت» واستلم الملف <span aria-hidden="true">↗</span>
           </a>
         </aside>
       )}

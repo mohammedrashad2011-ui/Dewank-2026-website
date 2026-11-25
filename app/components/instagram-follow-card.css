@@ -7,3 +7,14 @@
 @keyframes mobile-offers-pulse{0%{box-shadow:0 0 0 0 rgba(216,169,59,.32)}100%{box-shadow:0 0 0 8px rgba(216,169,59,0)}}
 @keyframes mobile-offers-arrow{0%,100%{transform:translateX(0)}50%{transform:translateX(-3px)}}
 @media(prefers-reduced-motion:reduce){.instagram-guides-popup,.mobile-offers-rail-wrap,.mobile-offers-rail:before,.mobile-offers-rail>span:before,.mobile-offers-rail b{animation:none!important}}
+/* Free prompts file: readable copy and a full-width button. The aside prefix outranks the older copy of these rules in sitewide-whatsapp-cro.css. */
+aside.instagram-guides-popup{grid-template-columns:42px minmax(0,1fr);gap:12px;padding:16px}
+aside.instagram-guides-popup .instagram-guides-mark{width:42px;height:42px;border-radius:13px;align-self:start}
+aside.instagram-guides-popup .instagram-guides-mark svg{width:24px;height:24px}
+aside.instagram-guides-popup .instagram-guides-copy small{margin-bottom:2px;color:#8a6418;font:inherit;font-size:12px;font-weight:700;line-height:1.5;letter-spacing:0}
+aside.instagram-guides-popup .instagram-guides-copy strong{font-size:16px;line-height:1.5}
+aside.instagram-guides-popup .instagram-guides-copy span{max-width:none;color:#4b4e55;font-size:13px;line-height:1.7;white-space:normal;overflow:visible}
+aside.instagram-guides-popup>a{grid-column:1 / -1;justify-self:stretch;justify-content:center;min-height:46px;border-radius:12px;font-size:14px}
+aside.instagram-guides-popup .instagram-guides-close{top:-12px;left:-6px;width:32px;height:32px;font-size:17px}
+/* The guides hub also shows the WhatsApp bar in the same corner: the card sits above it. */
+body:has(.sitewide-whatsapp-wrap) aside.instagram-guides-popup{bottom:96px}
