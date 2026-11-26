@@ -6,6 +6,7 @@ import {getCrmPool,closeCrmPool} from "../app/lib/crm/mysql-pool.mjs";
 import {createLeadStore} from "../app/lib/crm/mysql-lead-store.mjs";
 import {createLeadRateLimiter} from "../app/lib/crm/mysql-rate-limit.mjs";
 import {handleLeadRequest} from "../app/lib/crm/handle-lead-request.mjs";
+import {deliverLeadNotifications} from "../app/lib/crm/notification-worker.mjs";
 
 const enabled=process.env.CRM_CI_MYSQL==="true";
 if(enabled && (process.env.DB_HOST!=="127.0.0.1" || process.env.DB_NAME!=="crm_ci")) throw Error("Refusing non-CI DB");
@@ -29,4 +30,20 @@ test("real MySQL: migrate, commit, replay, reject conflict, verify outbox and th
   assert.equal(rows.length,1);assert.equal(rows[0].name,body.name);assert.equal(rows[0].state,"pending");
   assert.equal((await handleLeadRequest(req({...body,phone:"wrong"}),options)).status,422);
   assert.equal((await handleLeadRequest(req({...body,requestId:randomUUID()}),options)).status,429);
+});
+
+test("real MySQL: notification retry and lease isolation",{skip:!enabled},async()=>{
+  const pool=getCrmPool();
+  // The preceding test applies schema and inserts one pending lead.
+  const first=await deliverLeadNotifications(pool,async()=>{throw Error("simulated SMTP failure");});
+  assert.equal(first.failed,1);
+  const [pending]=await pool.execute("SELECT state,attempts FROM dewank_crm_notifications");
+  assert.equal(pending[0].state,"pending");assert.equal(pending[0].attempts,1);
+  await pool.execute("UPDATE dewank_crm_notifications SET next_attempt_at=UTC_TIMESTAMP(3)");
+  const received=[];
+  const send=async lead=>{received.push(lead);};
+  const results=await Promise.all([deliverLeadNotifications(pool,send),deliverLeadNotifications(pool,send)]);
+  assert.equal(results.reduce((sum,r)=>sum+r.sent,0),1);assert.equal(received.length,1);
+  const [done]=await pool.execute("SELECT state,attempts,sent_at FROM dewank_crm_notifications");
+  assert.equal(done[0].state,"sent");assert.equal(done[0].attempts,2);assert.ok(done[0].sent_at);
 });
