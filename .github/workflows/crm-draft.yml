@@ -6,8 +6,10 @@ on:
     branches: [main]
     paths:
       - 'app/lib/crm/**'
+      - 'app/api/leads/**'
       - 'tests/crm-*.test.mjs'
       - 'db/mysql/**'
+      - 'package*.json'
       - '.github/workflows/crm-draft.yml'
 permissions:
   contents: read
@@ -17,27 +19,38 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
+    services:
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: ci_only_root
+          MYSQL_DATABASE: crm_ci
+          MYSQL_USER: crm_ci
+          MYSQL_PASSWORD: ci_only_password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=20
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
-      - name: Run dependency-free CRM tests
-        run: node --test tests/crm-validation.test.mjs tests/crm-capture.test.mjs
-      - name: Resolve MySQL driver lockfile for draft
-        run: |
-          cp package-lock.json /tmp/crm-lock-before.json
-          npm install --package-lock-only --ignore-scripts --save-exact --no-fund --no-audit mysql2
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          const before = JSON.parse(fs.readFileSync('/tmp/crm-lock-before.json','utf8'));
-          const after = JSON.parse(fs.readFileSync('package-lock.json','utf8'));
-          const pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
-          const changes = Object.fromEntries(Object.entries(after.packages).filter(([k,v])=>JSON.stringify(before.packages[k])!==JSON.stringify(v)));
-          const removed = Object.keys(before.packages).filter(k=>!(k in after.packages));
-          console.log('CRM_LOCK_DELTA '+JSON.stringify({version:pkg.dependencies.mysql2,changes,removed}));
-          NODE
       - name: Verify lockfile with clean installation
         run: npm ci --no-audit --no-fund
+      - name: Run CRM unit tests
+        run: node --test tests/crm-validation.test.mjs tests/crm-capture.test.mjs
+      - name: Test real isolated MySQL
+        env:
+          CRM_CI_MYSQL: "true"
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_NAME: crm_ci
+          DB_USER: crm_ci
+          DB_PASSWORD: ci_only_password
+        run: node --test tests/crm-mysql.test.mjs
       - name: Check production build
         run: npm run build

@@ -44,3 +44,10 @@ CREATE TABLE IF NOT EXISTS dewank_crm_notifications (
   KEY ix_pending (state,next_attempt_at),
   CONSTRAINT fk_crm_notification_lead FOREIGN KEY (lead_id) REFERENCES dewank_crm_leads(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Global fixed-window throttle. A shared cap across server instances, no IP or PII stored.
+CREATE TABLE IF NOT EXISTS dewank_crm_rate_limits (
+  bucket BIGINT UNSIGNED NOT NULL,
+  hits INT UNSIGNED NOT NULL DEFAULT 0,
+  PRIMARY KEY (bucket)
+) ENGINE=InnoDB;
