@@ -27,7 +27,9 @@ try{
         await cta.waitFor({state:"visible",timeout:10000});
         await page.evaluate(()=>document.fonts.ready);
         await cta.scrollIntoViewIfNeeded();
-        assert.equal((await cta.innerText()).trim(),locale==="ar"?"اترك رقمك للتواصل":"Request a callback",tag+" concise CTA");
+        const expectedLabel=locale==="ar"?"اترك رقمك للتواصل":"Request a callback";
+        await page.waitForFunction(({offer,expectedLabel})=>{const el=document.querySelector("a[data-crm-offer="+JSON.stringify(offer)+"]");return el?.innerText.trim()===expectedLabel&&el.checkVisibility({contentVisibilityAuto:true,visibilityProperty:true,opacityProperty:true});},{offer,expectedLabel},{timeout:10000});
+        assert.equal((await cta.innerText()).trim(),expectedLabel,tag+" concise CTA");
         await cta.scrollIntoViewIfNeeded();
         const metrics=await cta.evaluate(el=>{const r=el.getBoundingClientRect(),s=getComputedStyle(el);return {width:r.width,height:r.height,left:r.left,right:r.right,viewport:document.documentElement.clientWidth,cursor:s.cursor,bg:s.backgroundColor,fg:s.color,border:parseFloat(s.borderTopWidth),font:parseFloat(s.fontSize)};});
         assert.ok(metrics.height>=(viewport.width<=640?44:36)&&metrics.width>80&&metrics.width<=191,tag+" tap target "+JSON.stringify(metrics));

@@ -58,3 +58,10 @@
   .crm-offer-actions { width:100%;max-width:100%; }
   .crm-offer-actions > .crm-offer-contact-row > a.crm-preview-contact-link { min-height:44px; }
 }
+
+/* Keep the small closing action section laid out when CRM is enabled.
+   Other below-fold sections retain content-visibility optimizations. */
+:is(.offer-final-cta,.offer-final,.sa-final,.vs-close):has(.crm-offer-actions) {
+  content-visibility:visible;
+  contain-intrinsic-size:none;
+}

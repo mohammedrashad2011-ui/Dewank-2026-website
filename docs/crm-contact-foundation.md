@@ -61,3 +61,6 @@ Remove the prominent preview-only banner in both languages; preview submission b
 
 ## Hostinger standalone packaging fix
 Production deployed squash 10a0882 and built all routes, but standalone publish excluded both CLI scripts and direct mysql2/nodemailer resolution. Explicitly generate standalone outside Vercel and stage the six non-secret CRM runtime source files plus installed dependency closure into the standalone artifact. CI copies the artifact outside the repository, verifies direct imports, database schema preflight and disabled worker, and tests the standalone HTTP server. No secrets copied by this staging step. Hostinger publish must still be verified after merge; capture and notification flags remain disabled.
+
+## Standalone packaging verification follow-up
+CI run 45905737435 passed production builds, isolated standalone imports and schema preflight, disabled worker and standalone HTTP integration on both MySQL and MariaDB. Browser QA remained red at Arabic content package: innerText empty. The shared offer CSS applies content-visibility:auto to closing sections. Opt the small CRM closing sections out of this lazy rendering only when the action exists; preserve all other sections. Browser waits for the rendered label and real content visibility before asserting measurements, with no simulated pass. Recheck before production activation.
