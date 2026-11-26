@@ -1,0 +1,43 @@
+name: CRM draft verification
+on:
+  push:
+    branches: [draft/contact-crm-foundation]
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/lib/crm/**'
+      - 'tests/crm-*.test.mjs'
+      - 'db/mysql/**'
+      - '.github/workflows/crm-draft.yml'
+permissions:
+  contents: read
+concurrency:
+  group: crm-verification-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Run dependency-free CRM tests
+        run: node --test tests/crm-validation.test.mjs tests/crm-capture.test.mjs
+      - name: Resolve MySQL driver lockfile for draft
+        run: |
+          cp package-lock.json /tmp/crm-lock-before.json
+          npm install --package-lock-only --ignore-scripts --save-exact --no-fund --no-audit mysql2
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const before = JSON.parse(fs.readFileSync('/tmp/crm-lock-before.json','utf8'));
+          const after = JSON.parse(fs.readFileSync('package-lock.json','utf8'));
+          const pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
+          const changes = Object.fromEntries(Object.entries(after.packages).filter(([k,v])=>JSON.stringify(before.packages[k])!==JSON.stringify(v)));
+          const removed = Object.keys(before.packages).filter(k=>!(k in after.packages));
+          console.log('CRM_LOCK_DELTA '+JSON.stringify({version:pkg.dependencies.mysql2,changes,removed}));
+          NODE
+      - name: Verify lockfile with clean installation
+        run: npm ci --no-audit --no-fund
+      - name: Check production build
+        run: npm run build
