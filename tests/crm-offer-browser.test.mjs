@@ -30,11 +30,11 @@ try{
         assert.ok(metrics.height>=44&&metrics.width>80,tag+" tap target "+JSON.stringify(metrics));
         assert.ok(metrics.left>=-1&&metrics.right<=metrics.viewport+1,tag+" overflow "+JSON.stringify(metrics));
         assert.equal(metrics.cursor,"pointer",tag);
-        assert.equal(metrics.bg,"rgb(245, 249, 252)",tag);
+        assert.ok(["rgb(245, 249, 252)","rgb(223, 247, 250)"].includes(metrics.bg),tag+" normal/hover background "+metrics.bg);
         assert.equal(metrics.fg,"rgb(1, 17, 39)",tag);
-        assert.ok(metrics.border>=1&&metrics.font>=14,tag);
-        const alignment=await group.evaluate(el=>{const primary=el.firstElementChild,secondary=el.querySelector("a[data-crm-offer]");if(!primary||!secondary)return null;const a=primary.getBoundingClientRect(),b=secondary.getBoundingClientRect();return {left:Math.abs(a.left-b.left),right:Math.abs(a.right-b.right),gap:b.top-a.bottom};});
-        assert.ok(alignment&&alignment.left<=2&&alignment.right<=2&&alignment.gap>=6&&alignment.gap<=24,tag+" CTA alignment "+JSON.stringify(alignment));
+        assert.ok(metrics.border>=1&&metrics.font>=12&&metrics.font<=13,tag+" secondary visual hierarchy");
+        const alignment=await group.evaluate(el=>{const primary=el.firstElementChild,secondary=el.querySelector("a[data-crm-offer]");if(!primary||!secondary)return null;const a=primary.getBoundingClientRect(),b=secondary.getBoundingClientRect();return {center:Math.abs((a.left+a.right-b.left-b.right)/2),primaryWidth:a.width,secondaryWidth:b.width,primaryHeight:a.height,secondaryHeight:b.height,gap:b.top-a.bottom};});
+        assert.ok(alignment&&alignment.center<=2&&alignment.secondaryWidth<=alignment.primaryWidth*.90&&alignment.primaryHeight>=48&&alignment.gap>=6&&alignment.gap<=24,tag+" CTA alignment "+JSON.stringify(alignment));
         assert.ok((await cta.getAttribute("href")).startsWith(prefix+"/contact?offer="+offer),tag);
         await cta.click({trial:true,timeout:10000});
         console.log("CTA_VISIBLE "+tag);
