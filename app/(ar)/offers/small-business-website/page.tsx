@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -174,7 +177,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <span className="section-label">جاهز للبدء؟</span>
         <h2>اجعل لمشروعك<br/><em>عنوانًا رقميًا حقيقيًا</em></h2>
         <p>ابدأ بموقع واضح وسريع، وبعدها وسّعه فقط عندما يحتاج المشروع فعلًا.</p>
-        <SmallWebsiteWhatsApp className="button primary offer-consultation-cta" label="ابدأ موقعك" />
+        <CrmOfferActions enabled={crmVisible} locale="ar" offer="small-business-website"><SmallWebsiteWhatsApp className="button primary offer-consultation-cta" label="ابدأ موقعك" /></CrmOfferActions>
         <div className="small-website-links"><Link href="/offers/landing-page-package">تحتاج صفحة هبوط فقط؟</Link><Link href="/website-design">تحتاج موقعًا أكبر؟</Link><Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link></div>
       </section>
 

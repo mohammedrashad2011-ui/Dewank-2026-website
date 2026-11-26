@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
@@ -166,7 +169,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         <span className="section-label">Ready to start?</span>
         <h2>Give your business<br/><em>a real digital address</em></h2>
         <p>Start with a clear, fast website, and expand it only when the business actually needs it.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website <span>→</span></a>
+        <CrmOfferActions enabled={crmVisible} locale="en" offer="small-business-website"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website <span>→</span></a></CrmOfferActions>
         <div className="small-website-links"><Link href="/en/offers/landing-page-package">Need a landing page only?</Link><Link href="/en/website-design">Need a larger website?</Link></div>
       </section>
 

@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -151,7 +154,7 @@ export default function ContentOfferPage() {
       </section>
 
       <section id="order-final" className="shell offer-final-cta sales-final-cta">
-        <LocalizedOfferKicker /><h2>ابدأ شهرك القادم بمحتوى جاهز</h2><p>أرسل لنا نوع نشاطك. نراجع هل باقة 30 يومًا هي الأنسب، أو تحتاج إدارة شهرية أوسع، ثم نوضح لك الخطوة التالية.</p><LocalizedWhatsAppLink className="button primary offer-consultation-cta" label="ابدأ محتوى شهرك" />
+        <LocalizedOfferKicker /><h2>ابدأ شهرك القادم بمحتوى جاهز</h2><p>أرسل لنا نوع نشاطك. نراجع هل باقة 30 يومًا هي الأنسب، أو تحتاج إدارة شهرية أوسع، ثم نوضح لك الخطوة التالية.</p><CrmOfferActions enabled={crmVisible} locale="ar" offer="30-day-content-package"><LocalizedWhatsAppLink className="button primary offer-consultation-cta" label="ابدأ محتوى شهرك" /></CrmOfferActions>
       </section>
 
       <ContentOfferSticky watchIds={["order-cta", "order-panel", "order-final", "order-footer"]} />

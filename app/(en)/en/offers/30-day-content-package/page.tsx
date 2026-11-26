@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -150,7 +153,7 @@ export default function ContentOfferPage() {
         <span className="offer-kicker">16 content pieces · <OfferPrice offerKey="30-day-content-package" className="offer-kicker-price" /></span>
         <h2>Start next month with content ready</h2>
         <p>Send us your business type. We will check whether the 30-day package is the right fit, or whether you need a wider monthly service, then explain the next step.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your content month <span>→</span></a>
+        <CrmOfferActions enabled={crmVisible} locale="en" offer="30-day-content-package"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your content month <span>→</span></a></CrmOfferActions>
         
       </section>
 

@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import { LandingConversionMotion } from "../../../components/landing-conversion-motion";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -137,7 +140,7 @@ export default function LandingPageOffer() {
         <span className="offer-kicker">صفحة مخصصة · تسليم خلال 7–10 أيام</span>
         <h2>اجعل خدمتك واضحة قبل أن تطلب من العميل شراءها</h2>
         <p>اختر الباقة المناسبة وسنسألك عن نشاطك وهدف الصفحة قبل بدء التنفيذ.</p>
-        <LandingOfferWhatsApp kind="base" className="button primary offer-consultation-cta" label="ابدأ صفحتك" />
+        <CrmOfferActions enabled={crmVisible} locale="ar" offer="landing-page-package"><LandingOfferWhatsApp kind="base" className="button primary offer-consultation-cta" label="ابدأ صفحتك" /></CrmOfferActions>
         <div><Link href="/offers/small-business-website">تحتاج موقعًا من عدة صفحات؟</Link> · <Link href="/guides/website-design-cost-saudi-arabia">قارن أسعار تصميم المواقع</Link> · <Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
       <LandingOfferSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />

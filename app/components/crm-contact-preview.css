@@ -1,0 +1,60 @@
+
+.crm-contact-preview { display:grid;gap:16px;scroll-margin-top:140px;min-width:0; }
+.en-site .crm-contact-preview { background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,36px); }
+.crm-contact-preview .crm-preview-note { margin:0;padding:10px 14px;border:1px solid #b99038;border-radius:10px;color:#624512;background:#fff9e9;font-size:14px;line-height:1.6; }
+.crm-contact-preview label { display:grid;gap:8px;font-weight:700;min-width:0; }
+.crm-contact-preview label > input:not([type="checkbox"]),.crm-contact-preview label > select,.crm-contact-preview label > textarea { width:100%;min-width:0;box-sizing:border-box;min-height:48px;padding:12px 14px;font:inherit;font-size:16px;color:var(--ink,#011127);background:#fff;border:1px solid #9499a2;border-radius:12px; }
+.crm-contact-preview input:focus-visible,.crm-contact-preview select:focus-visible,.crm-contact-preview textarea:focus-visible,.crm-contact-preview summary:focus-visible,.crm-contact-preview a:focus-visible { outline:2px solid #17629a;outline-offset:3px; }
+.crm-contact-preview .crm-preview-details { border:1px solid #c7ccd3;border-radius:12px;padding:12px; }
+.crm-contact-preview .crm-preview-details summary { cursor:pointer;font-weight:600;min-height:32px; }
+.crm-contact-preview .crm-preview-extra { display:grid;gap:16px;margin-top:12px; }
+.crm-contact-preview form.contact-form .crm-preview-consent { display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.7;font-weight:500; }
+.crm-contact-preview form.contact-form .crm-preview-consent input[type="checkbox"] { flex:0 0 20px;width:20px;min-height:20px;height:20px;margin-top:3px;padding:0; }
+.crm-contact-preview a { text-decoration:underline; }
+.crm-contact-preview .crm-preview-hint,.crm-contact-preview .crm-preview-error { margin:-10px 0 0;font-size:13px; }
+.crm-contact-preview .crm-preview-error { color:#a21d2d; }
+.crm-contact-preview .crm-preview-result { padding:20px;border:1px solid #24714a;border-radius:12px;background:#f1faf4;color:#16482f; }
+/* Standalone secondary action: fixed contrast on both dark and light offer themes. */
+.crm-offer-contact-row { display:block;box-sizing:border-box;min-width:0;max-width:100%;width:100%;flex:0 0 100%;grid-column:1 / -1;margin-block:8px; }
+.crm-offer-contact-row > a.crm-preview-contact-link {
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;box-sizing:border-box;
+  max-width:100%;min-height:36px;width:fit-content;padding:5px 10px;
+  border:1px solid #526a7e;border-radius:8px;background:#f5f9fc;color:#011127;
+  font-size:13px;font-weight:600;line-height:1.5;text-align:start;text-decoration:none;
+  cursor:pointer;white-space:normal;transition:background-color .15s,border-color .15s;
+}
+.crm-offer-contact-row > a.crm-preview-contact-link > svg { flex:none; }
+.crm-offer-contact-row > a.crm-preview-contact-link:hover { background:#dff7fa;border-color:#0c6475;color:#011127;text-decoration:none; }
+.crm-offer-contact-row > a.crm-preview-contact-link:focus-visible { outline:3px solid #0c6475;outline-offset:3px; }
+@media (prefers-reduced-motion:reduce) {
+  .crm-offer-contact-row > a.crm-preview-contact-link { transition:none; }
+}
+
+.crm-preview-fields { display:grid;gap:16px;min-width:0;border:0;margin:0;padding:0; }
+.crm-preview-fields button:disabled { opacity:.65;cursor:wait; }
+
+
+
+/* Stack the existing primary action and callback within the same layout column.
+   Do not make a new full-section grid row or move related links. */
+.crm-offer-actions {
+  display:inline-grid;grid-template-columns:minmax(0,1fr);gap:10px;
+  width:fit-content;max-width:100%;min-width:min(100%,260px);box-sizing:border-box;
+  vertical-align:top;align-self:center;justify-items:stretch;
+}
+.crm-offer-actions > :is(a,button).button,
+.crm-offer-actions > a.vs-button {
+  width:100%;max-width:100%;min-height:48px;box-sizing:border-box;justify-content:center;
+  text-align:center;white-space:normal;
+}
+.crm-offer-actions > .crm-offer-contact-row {
+  display:flex;justify-content:center;width:100%;max-width:100%;margin:0;grid-column:auto;min-width:0;
+}
+.crm-offer-actions > .crm-offer-contact-row > a.crm-preview-contact-link {
+  width:fit-content;max-width:min(78%,190px);justify-content:center;text-align:center;
+}
+.bn2-hero-actions > .crm-offer-actions { align-self:flex-start; }
+@media(max-width:640px){
+  .crm-offer-actions { width:100%;max-width:100%; }
+  .crm-offer-actions > .crm-offer-contact-row > a.crm-preview-contact-link { min-height:44px; }
+}

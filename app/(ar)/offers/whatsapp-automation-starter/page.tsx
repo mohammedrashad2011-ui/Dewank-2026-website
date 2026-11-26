@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -93,7 +96,7 @@ export default function WhatsAppAutomationStarterOffer() {
 
       <section className="shell offer-faq whatsapp-starter-faq" id="faq"><div><span className="section-label">أسئلة سريعة</span><h2>قبل ما تبدأ</h2></div><div className="offer-faq-list">{allFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
 
-      <section id="order-final" className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">ابدأ من هنا</span><h2>خلّي أول رسالة<br/>تتحول إلى خطوة واضحة</h2><p>أرسل لنا نوع نشاطك وأكثر الأسئلة التي تصلك يوميًا، ونحدد هل التأسيسية تكفيك أم تحتاج نظامًا أكبر</p></div><WhatsAppStarterLink className="button primary offer-consultation-cta" label="ابدأ أتمتة واتساب" /><div className="whatsapp-starter-links"><Link href="/whatsapp-automation">تحتاج نظام إدارة عملاء وتكاملات أكبر؟</Link><Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">كم تكلفة النظام الكامل؟</Link></div></section>
+      <section id="order-final" className="shell offer-final-cta whatsapp-starter-final wa-cinema-final"><div><span className="section-label">ابدأ من هنا</span><h2>خلّي أول رسالة<br/>تتحول إلى خطوة واضحة</h2><p>أرسل لنا نوع نشاطك وأكثر الأسئلة التي تصلك يوميًا، ونحدد هل التأسيسية تكفيك أم تحتاج نظامًا أكبر</p></div><CrmOfferActions enabled={crmVisible} locale="ar" offer="whatsapp-automation-starter"><WhatsAppStarterLink className="button primary offer-consultation-cta" label="ابدأ أتمتة واتساب" /></CrmOfferActions><div className="whatsapp-starter-links"><Link href="/whatsapp-automation">تحتاج نظام إدارة عملاء وتكاملات أكبر؟</Link><Link href="/guides/whatsapp-crm-automation-cost-saudi-arabia">كم تكلفة النظام الكامل؟</Link></div></section>
       <WhatsAppStarterSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />
       <div id="order-footer"><Footer /></div>
     </main>

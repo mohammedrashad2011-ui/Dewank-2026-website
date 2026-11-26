@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { Footer as EnglishFooter } from "../../../(en)/en/_en/parity/footer";
@@ -239,7 +242,7 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
           <div>
             <h2>{t.closeTitle}</h2>
             <p>{t.closeIntro}</p>
-            <a className="vs-button vs-button-primary" href="#video-brief">{t.closeCta}<span aria-hidden="true">↑</span></a>
+            <CrmOfferActions enabled={crmVisible} locale={locale} offer="ai-video-production"><a className="vs-button vs-button-primary" href="#video-brief">{t.closeCta}<span aria-hidden="true">↑</span></a></CrmOfferActions>
           </div>
           <aside className="vs-related"><small>{t.related}</small>
             {t.links.map(([label, href]) => <Link key={href} href={href}>{label}<span aria-hidden="true">{ar ? "←" : "→"}</span></Link>)}

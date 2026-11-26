@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -152,7 +155,7 @@ export default function MiniVisualIdentityOffer() {
         <span className="offer-kicker">هوية بصرية أساسية · 7–10 أيام</span>
         <h2>اجعل مشروعك يبدو كعلامة، لا كمجموعة تصميمات منفصلة</h2>
         <p>أرسل نوع النشاط والاسم والسوق المستهدف، ونبدأ بتحديد الاتجاه قبل تصميم الشعار.</p>
-        <MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="ابدأ تصميم هويتك" />
+        <CrmOfferActions enabled={crmVisible} locale="ar" offer="visual-identity"><MiniIdentityWhatsApp className="button primary offer-consultation-cta" label="ابدأ تصميم هويتك" /></CrmOfferActions>
         <div className="mini-identity-links"><Link href="/offers/name-identity">تحتاج الاسم أيضًا؟ الاسم + الهوية</Link><Link href="/branding">خدمة البراند والهوية الكاملة</Link><Link href="/guides/branding-identity-cost-saudi-arabia">كم تكلفة الهوية الكاملة؟</Link><Link href="/offers/brand-naming">لم تختر الاسم بعد؟</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
       <MiniIdentitySticky watchIds={["order-cta", "order-panel", "order-final", "order-footer"]} />

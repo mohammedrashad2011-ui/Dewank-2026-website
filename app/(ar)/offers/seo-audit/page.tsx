@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -183,7 +186,7 @@ export default function SeoAuditOfferPage() {
         <span className="offer-kicker">SEO + AEO · تقرير PDF · خلال 48 ساعة</span>
         <h2>اعرف أين تخسر الظهور قبل أن تدفع أكثر لجلب الزيارات</h2>
         <p>أرسل رابط موقعك ونوع النشاط والسوق المستهدف، ونبدأ الفحص من الصورة الكبيرة إلى التفاصيل التي تؤثر فعلًا.</p>
-        <SeoAuditWhatsApp className="button primary offer-consultation-cta" label="اطلب فحص موقعك" />
+        <CrmOfferActions enabled={crmVisible} locale="ar" offer="seo-audit"><SeoAuditWhatsApp className="button primary offer-consultation-cta" label="اطلب فحص موقعك" /></CrmOfferActions>
         <div className="seo-audit-links"><Link href="/guides/seo-vs-aeo">تريد فهم الفرق بين SEO وAEO؟</Link><Link href="/seo-aeo">تحتاج تنفيذًا مستمرًا بعد الفحص؟</Link><Link href="/offers">← العودة إلى جميع العروض</Link></div>
       </section>
       <SeoAuditSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />

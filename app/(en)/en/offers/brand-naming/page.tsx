@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -116,7 +119,7 @@ export default function BrandNamingOfferPage() {
           <h1 id="bn2-title">A brand name <em>your customers will remember</em></h1>
           <p className="bn2-lede">We develop 10–15 considered names for your business and recommend the best three after checking meaning, pronunciation, similarity, domain and social handles, with 3 taglines for the name you choose. The complete package is <OfferPrice offerKey="brand-naming" className="bn2-inline-price" />.</p>
           <div className="bn2-hero-actions">
-            <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start naming your brand <span aria-hidden="true">→</span></a>
+            <CrmOfferActions enabled={crmVisible} locale="en" offer="brand-naming"><a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start naming your brand <span aria-hidden="true">→</span></a></CrmOfferActions>
             <p className="bn2-microcopy">No commitment. Tell us your business type and city, and we will reply with the next step.</p>
           </div>
           <ul className="bn2-facts" aria-label="What the package includes">

@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
 import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
@@ -165,7 +168,7 @@ export default function Instagram14DayUpgradeOffer() {
 
       <section id="order-final" className="shell offer-final instagram-upgrade-final">
         <div><small>14-day Instagram upgrade</small><h2>Make the first visit to the account<br/><em>say that you are organised and ready</em></h2><p>If the account exists but does not reflect the level of your business, this is a focused starting point before you pay for more content or more advertising.</p></div>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Upgrade my account <span>→</span></a>
+        <CrmOfferActions enabled={crmVisible} locale="en" offer="instagram-14-day-upgrade"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Upgrade my account <span>→</span></a></CrmOfferActions>
         <div className="instagram-upgrade-links"><Link href="/en/offers/30-day-content-package">Need a full month of content?</Link><Link href="/en/social-media-content">Need ongoing social media management?</Link></div>
       </section>
 

@@ -1,0 +1,90 @@
+name: CRM draft verification
+on:
+  push:
+    branches: [draft/contact-crm-foundation]
+  pull_request:
+    branches: [main]
+    paths:
+      - 'app/lib/crm/**'
+      - 'app/api/leads/**'
+      - 'app/components/crm-**'
+      - 'scripts/crm-*.mjs'
+      - 'tests/crm-*.test.mjs'
+      - 'db/mysql/**'
+      - 'package*.json'
+      - '.github/workflows/crm-draft.yml'
+permissions:
+  contents: read
+concurrency:
+  group: crm-verification-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - engine: mysql84
+            image: mysql:8.4
+            health: mysqladmin ping -h localhost
+          - engine: mariadb118
+            image: mariadb:11.8
+            health: healthcheck.sh --connect --innodb_initialized
+    services:
+      mysql:
+        image: ${{ matrix.image }}
+        env:
+          MYSQL_ROOT_PASSWORD: ci_only_root
+          MYSQL_DATABASE: crm_ci
+          MYSQL_USER: crm_ci
+          MYSQL_PASSWORD: ci_only_password
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="${{ matrix.health }}"
+          --health-interval=5s
+          --health-timeout=5s
+          --health-retries=20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Verify lockfile with clean installation
+        run: npm ci --no-audit --no-fund
+      - name: Run CRM unit tests
+        run: node --test tests/crm-validation.test.mjs tests/crm-capture.test.mjs
+      - name: Test real isolated database (${{ matrix.engine }})
+        env:
+          CRM_CI_MYSQL: "true"
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_NAME: crm_ci
+          DB_USER: crm_ci
+          DB_PASSWORD: ci_only_password
+        run: node --test tests/crm-mysql.test.mjs
+      - name: Check production build with capture enabled in CI
+        env:
+          CRM_CAPTURE_ENABLED: "true"
+        run: npm run build
+      - name: Test actual Next.js HTTP route and rendered contact pages
+        env:
+          CRM_CAPTURE_ENABLED: "true"
+          CRM_NOTIFICATIONS_ENABLED: "false"
+          CRM_CI_MYSQL: "true"
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_NAME: crm_ci
+          DB_USER: crm_ci
+          DB_PASSWORD: ci_only_password
+        run: node --test tests/crm-http.test.mjs
+      - name: Browser QA all offer CTAs at mobile and desktop widths
+        if: matrix.engine == 'mysql84'
+        env:
+          CRM_CAPTURE_ENABLED: "true"
+          CRM_NOTIFICATIONS_ENABLED: "false"
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts --no-audit --no-fund playwright@1.58.2
+          npx playwright install --with-deps chromium
+          node tests/crm-offer-browser.test.mjs

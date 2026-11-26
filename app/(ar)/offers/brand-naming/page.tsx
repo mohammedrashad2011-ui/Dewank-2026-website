@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
@@ -117,7 +120,7 @@ export default function BrandNamingOfferPage() {
           <h1 id="bn2-title">اختيار اسم تجاري <em>يتذكره عميلك من أول مرة</em></h1>
           <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه والدومين وحسابات التواصل، مع 3 شعارات لفظية للاسم الذي تختاره. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
           <div className="bn2-hero-actions">
-            <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
+            <CrmOfferActions enabled={crmVisible} locale="ar" offer="brand-naming"><BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" /></CrmOfferActions>
             <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
           </div>
           <ul className="bn2-facts" aria-label="ما تشمله الباقة">

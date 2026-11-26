@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
 import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
@@ -165,7 +168,7 @@ export default function SeoAuditOfferPage() {
         <span className="offer-kicker">SEO + AEO · PDF report · within 48 hours</span>
         <h2>Find where you are losing visibility before you pay more to bring visitors in</h2>
         <p>Send us your website address, your business type and your target market. We will start the audit from the big picture and move to the details that affect results.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Audit my website <span>→</span></a>
+        <CrmOfferActions enabled={crmVisible} locale="en" offer="seo-audit"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Audit my website <span>→</span></a></CrmOfferActions>
         <div className="seo-audit-links"><Link href="/en/guides/seo-vs-aeo">Want to understand the difference between SEO and AEO?</Link><Link href="/en/seo-geo-aeo">Need ongoing implementation after the audit?</Link><Link href="/en/offers">← Back to all offers</Link></div>
       </section>
       <EnOfferSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} href={contactLink} label="Audit my website" priceLabel="Full audit from" offerKey="seo-audit" />
