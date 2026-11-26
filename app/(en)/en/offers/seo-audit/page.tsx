@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
 import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
@@ -104,6 +107,7 @@ export default function SeoAuditOfferPage() {
           <div className="oe-hero-actions">
             <p className="oe-price">Full one-time audit from <OfferPrice offerKey="seo-audit" className="oe-price-value" /></p>
             <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Audit my website <span>→</span></a>
+            {crmVisible && <CrmOfferContactLink locale="en" offer="seo-audit" />}
             <OfferMicro offer="seo" locale="en" />
           </div>
           <div className="seo-audit-answer" aria-label="Short answer">

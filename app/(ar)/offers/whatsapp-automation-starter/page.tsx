@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -68,6 +71,7 @@ export default function WhatsAppAutomationStarterOffer() {
           <div className="oe-hero-actions">
             <p className="oe-price">باقة التأسيس من <InlineOfferPrice offerKey="whatsapp-automation-starter" /></p>
             <WhatsAppStarterLink id="order-hero" className="button primary offer-consultation-cta" label="ابدأ أتمتة واتساب" />
+            {crmVisible && <CrmOfferContactLink locale="ar" offer="whatsapp-automation-starter" />}
             <OfferMicro offer="whatsapp" locale="ar" />
           </div>
           <div className="whatsapp-starter-answer" aria-label="الإجابة المختصرة"><b>الإجابة المختصرة</b><span>هذه باقة تأسيسية وليست نظامًا كاملًا لإدارة العملاء، ومناسبة لو مشكلتك الأساسية هي بطء الرد وتكرار الأسئلة وضياع العملاء قبل وصولهم للفريق</span></div>

@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
 import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
@@ -92,6 +95,7 @@ export default function WhatsAppAutomationStarterOffer() {
           <div className="oe-hero-actions">
             <p className="oe-price">Foundation package from <OfferPrice offerKey="whatsapp-automation-starter" className="oe-price-value" /></p>
             <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your automation <span>→</span></a>
+            {crmVisible && <CrmOfferContactLink locale="en" offer="whatsapp-automation-starter" />}
             <OfferMicro offer="whatsapp" locale="en" />
           </div>
           <div className="whatsapp-starter-answer" aria-label="The short answer"><b>The short answer</b><span>This is a foundation package, not a full CRM, and it suits you if your main problems are slow replies, the same questions repeated, and customers lost before they reach the team</span></div>

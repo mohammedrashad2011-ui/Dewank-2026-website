@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -92,6 +95,7 @@ export default function Instagram14DayUpgradeOffer() {
           <div className="oe-hero-actions">
             <p className="oe-price">باقة 14 يومًا من <InlineOfferPrice offerKey="instagram-14-day-upgrade" /></p>
             <InstagramUpgradeWhatsApp id="order-hero" className="button primary offer-consultation-cta" label="طوّر حسابك" />
+            {crmVisible && <CrmOfferContactLink locale="ar" offer="instagram-14-day-upgrade" />}
             <OfferMicro offer="instagram" locale="ar" />
           </div>
           <div className="instagram-upgrade-answer" aria-label="الإجابة المختصرة">

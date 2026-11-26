@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { getCrmOffer, crmOfferPath } from "@/app/lib/crm/offer-catalog.mjs";
 import { explicitConsent, permittedCampaign } from "@/app/lib/crm/browser-attribution";
 
 const SERVICES = [
@@ -20,6 +21,7 @@ const SERVICES = [
 export function CrmContactPreview({ locale, preview=true }: { locale: "ar" | "en"; preview?: boolean }) {
   const ar = locale === "ar";
   const [service,setService] = useState("not-sure");
+  const [selectedOffer,setSelectedOffer] = useState<string|null>(null);
   const [result,setResult] = useState<"idle"|"valid"|"phone"|"sending"|"failed">("idle");
   const [reference,setReference]=useState("");
   const [failure,setFailure]=useState("");
@@ -29,7 +31,8 @@ export function CrmContactPreview({ locale, preview=true }: { locale: "ar" | "en
   const statusRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const offer = new URLSearchParams(window.location.search).get("offer");
-    if (SERVICES.some(([id])=>id===offer)) setService(offer!);
+    const entry=getCrmOffer(offer);
+    if(entry && offer){setSelectedOffer(offer);setService(entry[0]);}
   },[]);
   useEffect(() => { if (result==="valid") statusRef.current?.focus(); },[result]);
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -40,7 +43,8 @@ export function CrmContactPreview({ locale, preview=true }: { locale: "ar" | "en
     if (!/^\+[1-9]\d{6,14}$/.test(phone)) {setResult("phone");phoneRef.current?.focus();return;}
     if(preview){setResult("valid");return;}
     const params=new URLSearchParams(window.location.search);
-    const offer=params.get("offer")==="brand-naming"?"brand-naming":null;
+    const rawOffer=params.get("offer");
+    const offer=getCrmOffer(rawOffer)?rawOffer:null;
     const campaign=permittedCampaign(params);
     const consent=explicitConsent();
     const payload={
@@ -48,7 +52,7 @@ export function CrmContactPreview({ locale, preview=true }: { locale: "ar" | "en
       company:String(data.get("company")??""),email:String(data.get("email")??""),brief:String(data.get("brief")??""),
       website:String(data.get("website")??""),contactConsent:data.get("contactConsent")==="on",
       analyticsConsent:consent.analytics===true,advertisingConsent:consent.advertising===true,
-      offer,landingPath:offer?(ar?"/offers/brand-naming":"/en/offers/brand-naming"):window.location.pathname,
+      offer,landingPath:crmOfferPath(offer,locale)??window.location.pathname,
       utmSource:campaign.utm_source,utmMedium:campaign.utm_medium,utmCampaign:campaign.utm_campaign,utmContent:campaign.utm_content,gclid:campaign.gclid
     };
     const fingerprint=JSON.stringify(payload);
@@ -68,7 +72,7 @@ export function CrmContactPreview({ locale, preview=true }: { locale: "ar" | "en
       // Only confirmed new inserts, explicit analytics permission, no personal data.
       if(body.created===true && explicitConsent().analytics===true){
         const trackingWindow=window as unknown as {dataLayer?:Record<string,unknown>[]};
-        try{(trackingWindow.dataLayer??=[]).push({event:"generate_lead",lead_intent:service,source_path:ar?"/contact":"/en/contact",cta_location:"crm_contact_form"});}catch{}
+        try{(trackingWindow.dataLayer??=[]).push({event:"generate_lead",lead_intent:service,offer_id:offer??"none",source_path:crmOfferPath(offer,locale)??(ar?"/contact":"/en/contact"),cta_location:"crm_contact_form"});}catch{}
       }
     }catch{
       setFailure(ar?"تعذّر تأكيد استلام طلبك. حاول مرة أخرى أو تواصل عبر واتساب.":"We could not confirm receipt. Try again or use WhatsApp.");
@@ -89,6 +93,7 @@ export function CrmContactPreview({ locale, preview=true }: { locale: "ar" | "en
         <label>{ar?"الاسم":"Name"} *<input name="name" autoComplete="name" required minLength={2} maxLength={100}/></label>
         <label>{ar?"رقم واتساب مع مفتاح الدولة":"WhatsApp number with country code"} *<input ref={phoneRef} name="phone" type="tel" inputMode="tel" autoComplete="tel" dir="ltr" required maxLength={40} placeholder="+966 5X XXX XXXX" aria-invalid={result==="phone"} aria-describedby="crm-phone-hint"/></label>
         <p id="crm-phone-hint" className={result==="phone"?"crm-preview-error":"crm-preview-hint"} role={result==="phone"?"alert":undefined}>{result==="phone"?(ar?"أدخل رقمًا دوليًا صحيحًا يبدأ بمفتاح الدولة.":"Enter a valid international number with its country code."):(ar?"يمكن كتابة الرقم بأي مفتاح دولة.":"Any international country code is supported.")}</p>
+        {selectedOffer && <p className="crm-preview-hint">{ar?"العرض الذي اخترته: ":"Selected offer: "}<strong>{getCrmOffer(selectedOffer)?.[ar?2:3]}</strong></p>}
         <label>{ar?"الخدمة المطلوبة":"Service"}<select name="service" value={service} onChange={e=>setService(e.target.value)}>{SERVICES.map(([id,arabic,english])=><option key={id} value={id}>{ar?arabic:english}</option>)}</select></label>
         <details className="crm-preview-details"><summary>{ar?"أضف تفاصيل عن المشروع (اختياري)":"Add project details (optional)"}</summary>
           <div className="crm-preview-extra">

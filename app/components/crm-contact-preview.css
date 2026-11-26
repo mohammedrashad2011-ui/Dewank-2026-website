@@ -18,3 +18,7 @@
 
 .crm-preview-fields { display:grid;gap:16px;min-width:0;border:0;margin:0;padding:0; }
 .crm-preview-fields button:disabled { opacity:.65;cursor:wait; }
+
+/* A secondary link, never a competing primary button. */
+.oe-hero-actions .crm-preview-contact-link,.vs-hero-buy .crm-preview-contact-link { flex-basis:100%; }
+.sa-hero-copy .crm-preview-contact-link { display:block;width:fit-content;margin-block-start:8px; }

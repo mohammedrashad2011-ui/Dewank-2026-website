@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
@@ -284,6 +287,7 @@ export default function ConversionRateOptimizationEnglishPage() {
         <div>
           <p>Send the website or page link and your business type. We will agree the most useful path to review and what the audit needs.</p>
           <a className="button primary offer-consultation-cta" href={whatsappAudit} target="_blank" rel="noreferrer">Talk to us about the right package <span>→</span></a>
+          {crmVisible && <CrmOfferContactLink locale="en" offer="cro-snapshot" />}
         </div>
       </section>
       <Footer />

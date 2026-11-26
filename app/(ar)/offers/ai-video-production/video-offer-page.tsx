@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { Footer as EnglishFooter } from "../../../(en)/en/_en/parity/footer";
@@ -179,6 +182,7 @@ export default function VideoOfferPage({ locale }: { locale: Locale }) {
               <div className="vs-hero-from"><small>{t.from}</small><VideoOfferFromPrice locale={locale} /></div>
               <a className="vs-button vs-button-primary" href="#video-packages">{t.cta}<span aria-hidden="true">↓</span></a>
               <a id="vs-order" className="vs-button vs-button-ghost" href={orderHref} target="_blank" rel="noopener noreferrer">{t.orderCta}<span aria-hidden="true">↗</span></a>
+              {crmVisible && <CrmOfferContactLink locale={locale} offer="ai-video-production" />}
             </div>
             <ul className="vs-hero-facts">{t.heroFacts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
           </div>

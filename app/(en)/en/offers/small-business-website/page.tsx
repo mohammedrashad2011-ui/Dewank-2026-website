@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
 import { enMetadata } from "../../_en/metadata";
@@ -114,6 +117,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <p>A complete company website: mobile-friendly design and build, WhatsApp and a contact form, analytics, basic SEO and a full review before launch. The package starts at <span className="sw-inline-price"><OfferPrice offerKey="small-business-website" className="sw-price-value" /></span>.</p>
           <div className="sw-hero-actions">
             <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your website <span>→</span></a>
+            {crmVisible && <CrmOfferContactLink locale="en" offer="small-business-website" />}
             <p className="sw-microcopy">No commitment. Send your business type, and we confirm the pages and scope before we start.</p>
           </div>
           <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>

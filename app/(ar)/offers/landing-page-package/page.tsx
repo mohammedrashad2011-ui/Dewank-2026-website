@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import { LandingConversionMotion } from "../../../components/landing-conversion-motion";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -79,6 +82,7 @@ export default function LandingPageOffer() {
           <div className="oe-hero-actions">
             <p className="oe-price">الباقة الأساسية من <InlineOfferPrice offerKey="landing-page-package" /></p>
             <LandingOfferWhatsApp kind="base" id="order-hero" className="button primary offer-consultation-cta" label="ابدأ صفحتك" />
+            {crmVisible && <CrmOfferContactLink locale="ar" offer="landing-page-package" />}
             <OfferMicro offer="landing" locale="ar" />
           </div>
           <Link className="offer-work-link" href="/work">شاهد أعمال ديوانك ودراسات الحالة ←</Link>

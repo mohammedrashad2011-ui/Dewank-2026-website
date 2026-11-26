@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
 import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
@@ -94,6 +97,7 @@ export default function GoogleAdsLaunchOffer() {
           <div className="oe-hero-actions">
             <p className="oe-price">Launch package from <OfferPrice offerKey="google-ads-launch" className="oe-price-value" /></p>
             <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your campaign <span>→</span></a>
+            {crmVisible && <CrmOfferContactLink locale="en" offer="google-ads-launch" />}
             <OfferMicro offer="ads" locale="en" />
           </div>
           <div className="google-ads-answer" aria-label="The short answer">

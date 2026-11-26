@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -96,6 +99,7 @@ export default function MiniVisualIdentityOffer() {
           <p>تحصل على شعار أساسي ونسخة مبسطة، لوحة ألوان، خطوط مقترحة، توجه بصري، 3 تطبيقات عملية وملف إرشادي مختصر، لتظهر علامتك بصورة متماسكة من أول يوم. الباقة تبدأ من <span className="vi-inline-price"><InlineOfferPrice offerKey="mini-visual-identity" /></span>.</p>
           <div className="vi-hero-actions">
             <MiniIdentityWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="ابدأ تصميم هويتك" />
+            {crmVisible && <CrmOfferContactLink locale="ar" offer="visual-identity" />}
             <p className="vi-microcopy">بدون أي التزام. اكتب اسم مشروعك ونشاطك، ونخبرك بالخطوة التالية.</p>
           </div>
         </div>

@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
@@ -103,6 +106,7 @@ export default function MiniVisualIdentityOffer() {
           <p>A professional logo and brand identity design service for startups and small businesses anywhere. You receive a primary logo and a simplified version, a colour palette, typefaces, a visual direction, three practical applications and a short guidelines file. The package starts at <span className="vi-inline-price"><OfferPrice offerKey="mini-visual-identity" className="vi-price-value" /></span>.</p>
           <div className="vi-hero-actions">
             <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand identity <span>→</span></a>
+            {crmVisible && <CrmOfferContactLink locale="en" offer="visual-identity" />}
             <p className="vi-microcopy">No commitment. Send us your brand name and business type, and we will reply with the next step.</p>
           </div>
         </div>

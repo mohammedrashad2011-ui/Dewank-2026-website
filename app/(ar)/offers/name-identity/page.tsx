@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -87,6 +90,7 @@ export default function NameIdentityBundle() {
           <div className="oe-hero-actions">
             <p className="oe-price">الباقة المجمعة <InlineOfferPrice offerKey="name-identity-bundle" /></p>
             <NameIdentityWhatsApp id="order-hero" className="button primary offer-consultation-cta" label="ابدأ اسمك وهويتك" />
+            {crmVisible && <CrmOfferContactLink locale="ar" offer="name-identity" />}
             <OfferMicro offer="bundle" locale="ar" />
           </div>
         </div>

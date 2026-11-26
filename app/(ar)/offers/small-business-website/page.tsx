@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -122,6 +125,7 @@ export default function SmallBusinessWebsiteOfferPage() {
           <p>موقع تعريفي متكامل: تصميم وتطوير متجاوب مع الجوال، واتساب ونموذج تواصل، تحليلات وSEO أساسي، ومراجعة كاملة قبل الإطلاق. الباقة تبدأ من <span className="sw-inline-price"><InlineOfferPrice offerKey="small-business-website" /></span>.</p>
           <div className="sw-hero-actions">
             <SmallWebsiteWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="ابدأ موقعك" />
+            {crmVisible && <CrmOfferContactLink locale="ar" offer="small-business-website" />}
             <p className="sw-microcopy">بدون أي التزام. أرسل نوع نشاطك، ونؤكد لك الصفحات والنطاق قبل البدء.</p>
           </div>
           <Link className="offer-work-link" href="/work">شاهد أعمال ديوانك ودراسات الحالة ←</Link>

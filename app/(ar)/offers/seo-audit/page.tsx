@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -122,6 +125,7 @@ export default function SeoAuditOfferPage() {
           <div className="oe-hero-actions">
             <p className="oe-price">فحص شامل لمرة واحدة من <InlineOfferPrice offerKey="seo-audit" /></p>
             <SeoAuditWhatsApp id="order-hero" className="button primary offer-consultation-cta" label="اطلب فحص موقعك" />
+            {crmVisible && <CrmOfferContactLink locale="ar" offer="seo-audit" />}
             <OfferMicro offer="seo" locale="ar" />
           </div>
           <div className="seo-audit-answer" aria-label="الإجابة المختصرة">

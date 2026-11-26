@@ -23,7 +23,7 @@ async function claim(pool,token,batch){
     if(!locked)return [];
     await retryLock(()=>conn.execute("UPDATE dewank_crm_notifications SET state='failed',lease_token=NULL,lease_until=NULL WHERE state='sending' AND lease_until<UTC_TIMESTAMP(3) AND attempts>=?",[MAX_ATTEMPTS]));
     await retryLock(()=>conn.execute("UPDATE dewank_crm_notifications SET state='sending',lease_token=?,lease_until=DATE_ADD(UTC_TIMESTAMP(3),INTERVAL 10 MINUTE),attempts=attempts+1 WHERE attempts<? AND ((state='pending' AND next_attempt_at<=UTC_TIMESTAMP(3)) OR (state='sending' AND lease_until<UTC_TIMESTAMP(3))) ORDER BY id LIMIT "+batch,[token,MAX_ATTEMPTS]));
-    const [rows]=await conn.execute("SELECT n.id,n.attempts,l.lead_ref,l.name,l.phone,l.service FROM dewank_crm_notifications n JOIN dewank_crm_leads l ON l.id=n.lead_id WHERE n.lease_token=? AND n.state='sending' ORDER BY n.id",[token]);
+    const [rows]=await conn.execute("SELECT n.id,n.attempts,l.lead_ref,l.name,l.phone,l.service,l.offer FROM dewank_crm_notifications n JOIN dewank_crm_leads l ON l.id=n.lead_id WHERE n.lease_token=? AND n.state='sending' ORDER BY n.id",[token]);
     return rows;
   }finally{
     if(locked){
@@ -44,7 +44,7 @@ export async function deliverLeadNotifications(pool,send,{limit=5}={}) {
   let sent=0,failed=0;
   for(const row of rows){
     try{
-      await send({reference:row.lead_ref,name:row.name,phone:row.phone,service:row.service});
+      await send({reference:row.lead_ref,name:row.name,phone:row.phone,service:row.service,offer:row.offer});
     }catch{
       const terminal=row.attempts>=MAX_ATTEMPTS;
       const delay=Math.min(60,2**Number(row.attempts));

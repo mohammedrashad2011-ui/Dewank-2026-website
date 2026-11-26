@@ -122,7 +122,7 @@ export default function BrandNamingOfferPage() {
           <div className="bn2-hero-actions">
             <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
             <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
-            {crmVisible && <CrmOfferContactLink locale="ar" />}
+            {crmVisible && <CrmOfferContactLink locale="ar" offer="brand-naming" />}
           </div>
           <ul className="bn2-facts" aria-label="ما تشمله الباقة">
             <li><b>10–15</b><span>اسمًا مدروسًا</span></li>

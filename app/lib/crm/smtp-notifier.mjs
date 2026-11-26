@@ -9,7 +9,7 @@ export async function createCrmMailSender(env=process.env,{verifyOnly=false}={})
   const transport=nodemailer.createTransport({host,port,secure:port===465,requireTLS:port===587,auth:{user:SMTP_USER,pass:SMTP_PASSWORD},connectionTimeout:8000,greetingTimeout:8000,socketTimeout:10000,tls:{rejectUnauthorized:true,minVersion:"TLSv1.2"}});
   if(verifyOnly){try{await transport.verify();return true;}finally{transport.close();}}
   return async lead=>{
-    const info=await transport.sendMail({from:SMTP_USER,to:CRM_NOTIFY_TO,subject:"DEWANK | New website enquiry",messageId:"<crm-"+lead.reference+"@dewank.com>",text:["New enquiry from the website","Reference: "+lead.reference,"Name: "+lead.name,"WhatsApp: "+lead.phone,"Service: "+lead.service].join("\n")});
+    const info=await transport.sendMail({from:SMTP_USER,to:CRM_NOTIFY_TO,subject:"DEWANK | New website enquiry",messageId:"<crm-"+lead.reference+"@dewank.com>",text:["New enquiry from the website","Reference: "+lead.reference,"Name: "+lead.name,"WhatsApp: "+lead.phone,"Service: "+lead.service,"Offer: "+(lead.offer??"Direct contact")].join("\n")});
     if(!info.accepted?.length||info.rejected?.length)throw Error("Mail not accepted");
   };
 }

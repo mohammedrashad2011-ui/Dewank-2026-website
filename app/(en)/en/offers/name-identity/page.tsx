@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
 import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
@@ -88,6 +91,7 @@ export default function NameIdentityBundleEn() {
           <div className="oe-hero-actions">
             <p className="oe-price">Bundle price <OfferPrice offerKey="name-identity-bundle" className="oe-price-value" /></p>
             <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand <span>→</span></a>
+            {crmVisible && <CrmOfferContactLink locale="en" offer="name-identity" />}
             <OfferMicro offer="bundle" locale="en" />
           </div>
         </div>

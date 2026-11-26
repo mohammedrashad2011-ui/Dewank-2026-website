@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
@@ -279,6 +282,7 @@ export default function ConversionRateOptimizationPage() {
         <div>
           <p>أرسل رابط الموقع أو الصفحة ونوع النشاط، وسنحدد معك المسار الأنسب للفحص وما يحتاجه التدقيق.</p>
           <a className="button primary offer-consultation-cta" href={whatsappAudit} target="_blank" rel="noreferrer">احصل على استشارة مجانية الآن <span>←</span></a>
+          {crmVisible && <CrmOfferContactLink locale="ar" offer="cro-snapshot" />}
         </div>
       </section>
       <Footer />

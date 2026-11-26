@@ -121,7 +121,7 @@ export default function BrandNamingOfferPage() {
           <div className="bn2-hero-actions">
             <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start naming your brand <span aria-hidden="true">→</span></a>
             <p className="bn2-microcopy">No commitment. Tell us your business type and city, and we will reply with the next step.</p>
-            {crmVisible && <CrmOfferContactLink locale="en" />}
+            {crmVisible && <CrmOfferContactLink locale="en" offer="brand-naming" />}
           </div>
           <ul className="bn2-facts" aria-label="What the package includes">
             <li><b>10–15</b><span>names</span></li>

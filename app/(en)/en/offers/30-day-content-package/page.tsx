@@ -1,3 +1,6 @@
+import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -93,6 +96,7 @@ export default function ContentOfferPage() {
           <p className="sales-hero-lead">You receive 16 ready-to-publish pieces with the ideas, captions and a 30-day plan, without a monthly management contract. The complete package is <span className="cp-inline-price"><OfferPrice offerKey="30-day-content-package" className="cp-price-value" /></span>.</p>
           <div className="cp-hero-actions">
             <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your content month <span>→</span></a>
+            {crmVisible && <CrmOfferContactLink locale="en" offer="30-day-content-package" />}
             <p className="cp-microcopy">No commitment. Send your business type, and we confirm first that the package fits.</p>
           </div>
           <div className="sales-proof-strip" aria-label="Package summary"><span>12 posts</span><span>3 stories</span><span>1 reel</span><span>30-day plan</span></div>
