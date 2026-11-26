@@ -24,7 +24,6 @@
   cursor:pointer;white-space:normal;transition:background-color .15s,border-color .15s;
 }
 .crm-offer-contact-row > a.crm-preview-contact-link > svg { flex:none; }
-.crm-offer-contact-row > a.crm-preview-contact-link > span { min-width:0; }
 .crm-offer-contact-row > a.crm-preview-contact-link:hover { background:#dff7fa;border-color:#0c6475;color:#011127;text-decoration:none; }
 .crm-offer-contact-row > a.crm-preview-contact-link:focus-visible { outline:3px solid #0c6475;outline-offset:3px; }
 @media (prefers-reduced-motion:reduce) {

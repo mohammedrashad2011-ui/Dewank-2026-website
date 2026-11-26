@@ -55,3 +55,6 @@ Owner requested a smaller callback CTA across all offers. Keep naming in the her
 
 ## Stage 14 — concise compact secondary CTA
 Use the owner-suggested Arabic label اترك رقمك للتواصل and short English Request a callback. Remove the arrow, retain the phone icon, set intrinsic width capped at 190px and 78% of primary width, 36px minimum height on desktop and 44px on mobile for touch accessibility. Keep existing placements, links and primary actions. Update browser assertions for label, compact size and center alignment. No live activation or merge.
+
+## Stage 15 — owner approved merge and removal of preview banner
+Remove the prominent preview-only banner in both languages; preview submission button and result continue to clearly identify the simulation. Preview never submits real data. The preceding browser test caught empty rendered CTA text on Arabic content offer; render the label as direct anchor text to avoid span styling conflicts, and check after scrolling and font readiness. Merge approval applies to disabled foundation only; production capture and notifications remain off pending runtime readiness and browser verification.

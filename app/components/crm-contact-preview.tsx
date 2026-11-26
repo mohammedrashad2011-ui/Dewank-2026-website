@@ -81,7 +81,6 @@ export function CrmContactPreview({ locale, preview=true }: { locale: "ar" | "en
   }
   return (
     <div id="brief-form" className="crm-contact-preview" dir={ar?"rtl":"ltr"}>
-      {preview && <p className="crm-preview-note" role="note">{ar?"نسخة معاينة فقط. استخدم بيانات وهمية، لن تُحفظ أو تُرسل.":"Preview only. Use fictional details; nothing is saved or sent."}</p>}
       {result==="valid" ? <div ref={statusRef} tabIndex={-1} className="crm-preview-result" role="status">
         <h3>{preview?(ar?"نجحت معاينة النموذج":"Form preview passed"):(ar?"تم استلام طلبك بنجاح":"Your enquiry has been received")}</h3>
         <p>{preview?(ar?"لم يُرسل أي طلب حقيقي الآن.":"No real enquiry was sent."):(ar?"سيتواصل معك فريق ديوانك بخصوص طلبك.":"The Dewank team will contact you about your enquiry.")}</p>

@@ -25,6 +25,8 @@ try{
         const cta=group.locator("a[data-crm-offer="+JSON.stringify(offer)+"]");
         assert.equal(await page.locator("a[data-crm-offer="+JSON.stringify(offer)+"]").count(),1,tag+" exactly one callback");
         await cta.waitFor({state:"visible",timeout:10000});
+        await page.evaluate(()=>document.fonts.ready);
+        await cta.scrollIntoViewIfNeeded();
         assert.equal((await cta.innerText()).trim(),locale==="ar"?"اترك رقمك للتواصل":"Request a callback",tag+" concise CTA");
         await cta.scrollIntoViewIfNeeded();
         const metrics=await cta.evaluate(el=>{const r=el.getBoundingClientRect(),s=getComputedStyle(el);return {width:r.width,height:r.height,left:r.left,right:r.right,viewport:document.documentElement.clientWidth,cursor:s.cursor,bg:s.backgroundColor,fg:s.color,border:parseFloat(s.borderTopWidth),font:parseFloat(s.fontSize)};});
