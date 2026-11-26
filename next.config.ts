@@ -17,6 +17,8 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   // Do not advertise the framework.
   poweredByHeader: false,
+  // Hostinger publishes only the standalone server artifact. Vercel keeps its native output.
+  ...(process.env.VERCEL === "1" ? {} : { output: "standalone" as const }),
   // Shared hosts can expose many CPUs while enforcing a much smaller process limit.
   experimental: process.env.VERCEL === "1" ? {} : { cpus: 2 },
   async redirects() {

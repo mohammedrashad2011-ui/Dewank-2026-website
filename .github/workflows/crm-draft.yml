@@ -9,6 +9,9 @@ on:
       - 'app/api/leads/**'
       - 'app/components/crm-**'
       - 'scripts/crm-*.mjs'
+      - 'scripts/stage-crm-runtime.mjs'
+      - 'scripts/build-next.mjs'
+      - 'next.config.ts'
       - 'tests/crm-*.test.mjs'
       - 'db/mysql/**'
       - 'package*.json'
@@ -68,6 +71,23 @@ jobs:
         env:
           CRM_CAPTURE_ENABLED: "true"
         run: npm run build
+      - name: Verify isolated published standalone CRM files and dependencies
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_NAME: crm_ci
+          DB_USER: crm_ci
+          DB_PASSWORD: ci_only_password
+          CRM_CAPTURE_ENABLED: "false"
+          CRM_NOTIFICATIONS_ENABLED: "false"
+        run: |
+          runtime="$(mktemp -d)"
+          trap 'rm -rf "$runtime"' EXIT
+          cp -a .next/standalone/. "$runtime/"
+          cd "$runtime"
+          node --input-type=module -e 'await import("mysql2/promise"); await import("nodemailer"); console.log("Standalone dependencies verified")'
+          node scripts/crm-admin.mjs check
+          node scripts/crm-notify.mjs
       - name: Test actual Next.js HTTP route and rendered contact pages
         env:
           CRM_CAPTURE_ENABLED: "true"

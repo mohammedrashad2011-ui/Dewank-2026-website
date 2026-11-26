@@ -1,4 +1,5 @@
 import { spawnSync } from "node:child_process";
+import { stageCrmRuntime } from "./stage-crm-runtime.mjs";
 
 const useWebpack = process.env.VERCEL !== "1";
 const args = [
@@ -21,4 +22,5 @@ const result = spawnSync(process.execPath, args, {
 });
 
 if (result.error) throw result.error;
-process.exit(result.status ?? 1);
+if (result.status !== 0) process.exit(result.status ?? 1);
+if (useWebpack) stageCrmRuntime();
