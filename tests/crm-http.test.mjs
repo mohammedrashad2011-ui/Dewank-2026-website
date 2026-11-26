@@ -10,7 +10,7 @@ const enabled=process.env.CRM_CI_MYSQL==="true";
 if(enabled&&(process.env.DB_HOST!=="127.0.0.1"||process.env.DB_NAME!=="crm_ci"||process.env.CRM_CAPTURE_ENABLED!=="true"||process.env.CRM_NOTIFICATIONS_ENABLED!=="false"||process.env.VERCEL_ENV))throw Error("Refusing non-isolated HTTP test");
 test("built Next.js: bilingual forms, committed POST, replay, privacy, origin and validation",{skip:!enabled,timeout:90000},async()=>{
   const url="http://127.0.0.1:3100";
-  const child=spawn(process.execPath,["node_modules/next/dist/bin/next","start","--hostname","127.0.0.1","--port","3100"],{env:process.env,stdio:["ignore","ignore","ignore"]});
+  const child=spawn(process.execPath,[".next/standalone/server.js"],{env:{...process.env,HOSTNAME:"127.0.0.1",PORT:"3100"},stdio:["ignore","ignore","ignore"]});
   try{
     let ready=false;
     for(let n=0;n<60;n++){

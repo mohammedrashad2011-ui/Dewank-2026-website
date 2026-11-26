@@ -58,3 +58,6 @@ Use the owner-suggested Arabic label اترك رقمك للتواصل and short 
 
 ## Stage 15 — owner approved merge and removal of preview banner
 Remove the prominent preview-only banner in both languages; preview submission button and result continue to clearly identify the simulation. Preview never submits real data. The preceding browser test caught empty rendered CTA text on Arabic content offer; render the label as direct anchor text to avoid span styling conflicts, and check after scrolling and font readiness. Merge approval applies to disabled foundation only; production capture and notifications remain off pending runtime readiness and browser verification.
+
+## Hostinger standalone packaging fix
+Production deployed squash 10a0882 and built all routes, but standalone publish excluded both CLI scripts and direct mysql2/nodemailer resolution. Explicitly generate standalone outside Vercel and stage the six non-secret CRM runtime source files plus installed dependency closure into the standalone artifact. CI copies the artifact outside the repository, verifies direct imports, database schema preflight and disabled worker, and tests the standalone HTTP server. No secrets copied by this staging step. Hostinger publish must still be verified after merge; capture and notification flags remain disabled.
