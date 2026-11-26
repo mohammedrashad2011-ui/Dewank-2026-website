@@ -22,9 +22,19 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - engine: mysql84
+            image: mysql:8.4
+            health: mysqladmin ping -h localhost
+          - engine: mariadb118
+            image: mariadb:11.8
+            health: healthcheck.sh --connect --innodb_initialized
     services:
       mysql:
-        image: mysql:8.4
+        image: ${{ matrix.image }}
         env:
           MYSQL_ROOT_PASSWORD: ci_only_root
           MYSQL_DATABASE: crm_ci
@@ -33,7 +43,7 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h localhost"
+          --health-cmd="${{ matrix.health }}"
           --health-interval=5s
           --health-timeout=5s
           --health-retries=20
@@ -45,7 +55,7 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Run CRM unit tests
         run: node --test tests/crm-validation.test.mjs tests/crm-capture.test.mjs
-      - name: Test real isolated MySQL
+      - name: Test real isolated database (${{ matrix.engine }})
         env:
           CRM_CI_MYSQL: "true"
           DB_HOST: 127.0.0.1

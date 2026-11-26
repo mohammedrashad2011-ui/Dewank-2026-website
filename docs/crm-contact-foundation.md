@@ -34,3 +34,6 @@ Do not enable CRM_CAPTURE_ENABLED until schema and SMTP checks succeed, cron is 
 
 ## Stage 7 — concurrent notification correction
 One of two CI runs on stage 6 failed with ER_LOCK_DEADLOCK while competing workers claimed the outbox; the other passed. Serialize the claim using a per-database advisory lock released before SMTP, and retry transient lock errors with bounded jitter. Add 12 rounds of four-worker concurrent delivery (36 synthetic records). Verify advisory lock support on the actual Hostinger MySQL before activation. No production migration or email sent.
+
+## Stage 8 — Hostinger database engine parity
+Owner verified SSH connectivity to the designated production database using 127.0.0.1:3306; the server reports MariaDB 11.8.9 and SHOW TABLES is empty. The public hostname was rejected. Add CI integration on both MySQL 8.4 and MariaDB 11.8 (minor-series tag, not guaranteed identical patch). Production schema creation and app-runtime connection are still pending. Keep both feature flags false. Check advisory lock support with GET_LOCK/RELEASE_LOCK in the private host session before applying the reviewed schema.
