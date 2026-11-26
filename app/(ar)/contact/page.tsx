@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { createMetadata } from "../../lib/seo";
 import { Footer, Header } from "../../components/site-shell";
 import ContactForm from "./contact-form";
+import { crmVisible, crmPreview } from "@/app/lib/crm/capture-mode";
 import { CrmContactPreview } from "@/app/components/crm-contact-preview";
 import "@/app/components/crm-contact-preview.css";
 // Visual concept adapted from the approved English Contact page: hero, form with an aside, two contact channels, notice.
@@ -55,7 +56,7 @@ export default function ContactPage() {
 
         <div className="cp-form-layout">
           <div className="cp-form-card">
-            {process.env.VERCEL_ENV === "preview" ? <CrmContactPreview locale="ar" /> : <ContactForm />}
+            {crmVisible ? <CrmContactPreview locale="ar" preview={crmPreview} /> : <ContactForm />}
           </div>
 
           <aside className="cp-aside" aria-label="ما الذي تحتاجه، وما الذي يحدث بعد ذلك">

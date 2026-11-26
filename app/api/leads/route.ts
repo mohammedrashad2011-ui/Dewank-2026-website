@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
   // Fail closed. No live writes from Vercel previews, even with misconfigured credentials.
-  if (process.env.CRM_CAPTURE_ENABLED !== "true" || process.env.VERCEL_ENV === "preview") {
+  if (process.env.CRM_CAPTURE_ENABLED !== "true" || Boolean(process.env.VERCEL_ENV)) {
     return Response.json({error:"unavailable"},{status:503,headers:{"Cache-Control":"no-store"}});
   }
   const origin=request.headers.get("origin");

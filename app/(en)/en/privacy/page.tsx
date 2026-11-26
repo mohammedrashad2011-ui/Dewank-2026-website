@@ -40,8 +40,7 @@ function PrivacyPage() {
         Our hosting provider may record technical information, including IP addresses, to operate and secure the website.
       </p>
       <p>
-        When you use our contact form, the details are prepared as a WhatsApp message on your device. Clicking the form
-        button does not send those details to DEWANK servers. Your enquiry reaches us only when you send the message in WhatsApp.
+        When you submit an enquiry through the website form, we may store your contact details, selected service and project information in DEWANK’s hosted database to respond and follow up. Alternatively, you may message us directly on WhatsApp, where we receive your message after you send it. We may retain visit-source and campaign information with an enquiry when usage measurement is permitted, and an advertising click identifier only when advertising measurement is also permitted.
       </p>
 
       <h2 id="purposes">3. How we use information</h2>

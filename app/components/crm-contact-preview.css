@@ -15,3 +15,6 @@
 .crm-contact-preview .crm-preview-error { color:#a21d2d; }
 .crm-contact-preview .crm-preview-result { padding:20px;border:1px solid #24714a;border-radius:12px;background:#f1faf4;color:#16482f; }
 .crm-preview-contact-link { display:inline-block;text-decoration:underline;text-underline-offset:3px;font-size:14px;line-height:1.8;min-height:28px; }
+
+.crm-preview-fields { display:grid;gap:16px;min-width:0;border:0;margin:0;padding:0; }
+.crm-preview-fields button:disabled { opacity:.65;cursor:wait; }

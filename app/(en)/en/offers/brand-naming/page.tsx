@@ -1,4 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
+import { crmVisible } from "@/app/lib/crm/capture-mode";
+import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
 import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
@@ -119,7 +121,7 @@ export default function BrandNamingOfferPage() {
           <div className="bn2-hero-actions">
             <a id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start naming your brand <span aria-hidden="true">→</span></a>
             <p className="bn2-microcopy">No commitment. Tell us your business type and city, and we will reply with the next step.</p>
-            {process.env.VERCEL_ENV === "preview" && <a className="crm-preview-contact-link" href="/en/contact?offer=brand-naming#brief-form">Prefer us to contact you? Leave your number</a>}
+            {crmVisible && <CrmOfferContactLink locale="en" />}
           </div>
           <ul className="bn2-facts" aria-label="What the package includes">
             <li><b>10–15</b><span>names</span></li>
