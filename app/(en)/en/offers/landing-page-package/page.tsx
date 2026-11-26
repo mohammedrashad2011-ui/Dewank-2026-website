@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import { LandingConversionMotion } from "../../../../components/landing-conversion-motion";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
@@ -85,7 +85,6 @@ export default function LandingPageOffer() {
           <div className="oe-hero-actions">
             <p className="oe-price">Base package from <OfferPrice offerKey="landing-page-package" className="oe-price-value" /></p>
             <a id="order-hero" className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a>
-            {crmVisible && <CrmOfferContactLink locale="en" offer="landing-page-package" />}
             <OfferMicro offer="landing" locale="en" />
           </div>
           <Link className="offer-work-link" href="/en/work">See Dewank work and case studies →</Link>
@@ -144,7 +143,7 @@ export default function LandingPageOffer() {
         <span className="offer-kicker">Custom page · delivery in 7–10 days</span>
         <h2>Make your service clear before you ask a customer to buy it</h2>
         <p>Choose the package that suits you, and we will ask about your business and the goal of the page before production begins.</p>
-        <a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a>
+        <CrmOfferActions enabled={crmVisible} locale="en" offer="landing-page-package"><a className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a></CrmOfferActions>
         <div><Link href="/en/offers/small-business-website">Need a website with several pages?</Link> · <Link href="/en/website-design">Compare website design services</Link> · <Link href="/en/offers">← Back to all offers</Link></div>
       </section>
       <EnOfferSticky watchIds={orderWatchIds} href={contactBase} label="Start your page" priceLabel="Base package from" offerKey="landing-page-package" />

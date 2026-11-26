@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -90,7 +90,6 @@ export default function NameIdentityBundle() {
           <div className="oe-hero-actions">
             <p className="oe-price">الباقة المجمعة <InlineOfferPrice offerKey="name-identity-bundle" /></p>
             <NameIdentityWhatsApp id="order-hero" className="button primary offer-consultation-cta" label="ابدأ اسمك وهويتك" />
-            {crmVisible && <CrmOfferContactLink locale="ar" offer="name-identity" />}
             <OfferMicro offer="bundle" locale="ar" />
           </div>
         </div>
@@ -136,7 +135,7 @@ export default function NameIdentityBundle() {
         <span className="offer-kicker">اسم تجاري + هوية بصرية</span>
         <h2>ابدأ علامتك باسم واضح وشكل متماسك</h2>
         <p>أرسل لنا نشاطك وجمهورك والسوق الذي تستهدفه، ونبدأ بمرحلة الاسم.</p>
-        <NameIdentityWhatsApp className="button primary offer-consultation-cta" label="ابدأ اسمك وهويتك" />
+        <CrmOfferActions enabled={crmVisible} locale="ar" offer="name-identity"><NameIdentityWhatsApp className="button primary offer-consultation-cta" label="ابدأ اسمك وهويتك" /></CrmOfferActions>
         <div className="offer-bundle-links"><Link href="/offers/brand-naming">الاسم التجاري فقط</Link><Link href="/offers/visual-identity">الهوية الأساسية فقط</Link><Link href="/offers">العودة إلى العروض</Link></div>
       </section>
       <NameIdentitySticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} />

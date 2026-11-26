@@ -20,8 +20,10 @@ try{
         const prefix=locale==="en"?"/en":"";
         const tag=locale+" "+offer+" "+viewport.width;
         await page.goto(base+prefix+entry[1],{waitUntil:"domcontentloaded"});
-        const hero=page.locator("section.offer-detail-hero,section.bn2-hero,section.vs-hero,section.sa-hero").first();
-        const cta=hero.locator("a[data-crm-offer="+JSON.stringify(offer)+"]");
+        const section=page.locator(offer==="brand-naming"?"section.bn2-hero":"section.offer-final-cta,section.offer-final,section.vs-close,section.sa-final").filter({has:page.locator("div[data-crm-group="+JSON.stringify(offer)+"]")});
+        const group=section.locator("div[data-crm-group="+JSON.stringify(offer)+"]");
+        const cta=group.locator("a[data-crm-offer="+JSON.stringify(offer)+"]");
+        assert.equal(await page.locator("a[data-crm-offer="+JSON.stringify(offer)+"]").count(),1,tag+" exactly one callback");
         await cta.waitFor({state:"visible",timeout:10000});
         await cta.scrollIntoViewIfNeeded();
         const metrics=await cta.evaluate(el=>{const r=el.getBoundingClientRect(),s=getComputedStyle(el);return {width:r.width,height:r.height,left:r.left,right:r.right,viewport:document.documentElement.clientWidth,cursor:s.cursor,bg:s.backgroundColor,fg:s.color,border:parseFloat(s.borderTopWidth),font:parseFloat(s.fontSize)};});
@@ -31,6 +33,8 @@ try{
         assert.equal(metrics.bg,"rgb(245, 249, 252)",tag);
         assert.equal(metrics.fg,"rgb(1, 17, 39)",tag);
         assert.ok(metrics.border>=1&&metrics.font>=14,tag);
+        const alignment=await group.evaluate(el=>{const primary=el.firstElementChild,secondary=el.querySelector("a[data-crm-offer]");if(!primary||!secondary)return null;const a=primary.getBoundingClientRect(),b=secondary.getBoundingClientRect();return {left:Math.abs(a.left-b.left),right:Math.abs(a.right-b.right),gap:b.top-a.bottom};});
+        assert.ok(alignment&&alignment.left<=2&&alignment.right<=2&&alignment.gap>=6&&alignment.gap<=24,tag+" CTA alignment "+JSON.stringify(alignment));
         assert.ok((await cta.getAttribute("href")).startsWith(prefix+"/contact?offer="+offer),tag);
         await cta.click({trial:true,timeout:10000});
         console.log("CTA_VISIBLE "+tag);

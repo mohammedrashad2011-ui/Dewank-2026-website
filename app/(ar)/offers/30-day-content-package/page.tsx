@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
@@ -101,7 +101,6 @@ export default function ContentOfferPage() {
           <p className="sales-hero-lead">تستلم 16 قطعة محتوى جاهزة للنشر مع الأفكار والكابشنات وخطة 30 يومًا، بدون عقد إدارة شهري. الباقة كاملة بـ <span className="cp-inline-price"><LocalizedInlinePrice /></span>.</p>
           <div className="cp-hero-actions">
             <LocalizedWhatsAppLink id="order-cta" className="button primary offer-consultation-cta" label="ابدأ محتوى شهرك" />
-            {crmVisible && <CrmOfferContactLink locale="ar" offer="30-day-content-package" />}
             <p className="cp-microcopy">بدون أي التزام. أرسل نوع نشاطك، ونؤكد لك أولًا أن الباقة مناسبة.</p>
           </div>
           <div className="sales-proof-strip" aria-label="ملخص الباقة"><span>12 بوست</span><span>3 ستوري</span><span>1 ريل</span><span>خطة 30 يومًا</span></div>
@@ -155,7 +154,7 @@ export default function ContentOfferPage() {
       </section>
 
       <section id="order-final" className="shell offer-final-cta sales-final-cta">
-        <LocalizedOfferKicker /><h2>ابدأ شهرك القادم بمحتوى جاهز</h2><p>أرسل لنا نوع نشاطك. نراجع هل باقة 30 يومًا هي الأنسب، أو تحتاج إدارة شهرية أوسع، ثم نوضح لك الخطوة التالية.</p><LocalizedWhatsAppLink className="button primary offer-consultation-cta" label="ابدأ محتوى شهرك" />
+        <LocalizedOfferKicker /><h2>ابدأ شهرك القادم بمحتوى جاهز</h2><p>أرسل لنا نوع نشاطك. نراجع هل باقة 30 يومًا هي الأنسب، أو تحتاج إدارة شهرية أوسع، ثم نوضح لك الخطوة التالية.</p><CrmOfferActions enabled={crmVisible} locale="ar" offer="30-day-content-package"><LocalizedWhatsAppLink className="button primary offer-consultation-cta" label="ابدأ محتوى شهرك" /></CrmOfferActions>
       </section>
 
       <ContentOfferSticky watchIds={["order-cta", "order-panel", "order-final", "order-footer"]} />

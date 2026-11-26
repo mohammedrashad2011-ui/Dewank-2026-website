@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../../../../(ar)/offers/offer-extras";
 import { offerExtras } from "../../../../(ar)/offers/offer-extras-data";
@@ -91,7 +91,6 @@ export default function NameIdentityBundleEn() {
           <div className="oe-hero-actions">
             <p className="oe-price">Bundle price <OfferPrice offerKey="name-identity-bundle" className="oe-price-value" /></p>
             <a id="order-hero" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand <span>→</span></a>
-            {crmVisible && <CrmOfferContactLink locale="en" offer="name-identity" />}
             <OfferMicro offer="bundle" locale="en" />
           </div>
         </div>
@@ -137,7 +136,7 @@ export default function NameIdentityBundleEn() {
         <span className="offer-kicker">Brand naming + visual identity</span>
         <h2>Start your brand with a clear name and a consistent look</h2>
         <p>Send us your business, audience and target market, and we will start with the naming stage.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand <span>→</span></a>
+        <CrmOfferActions enabled={crmVisible} locale="en" offer="name-identity"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand <span>→</span></a></CrmOfferActions>
         <div className="offer-bundle-links"><Link href="/en/offers/brand-naming">Brand naming only</Link><Link href="/en/offers/visual-identity">Essential identity only</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
       <EnOfferSticky watchIds={["order-hero", "order-cta", "order-final", "order-footer"]} href={contactLink} label="Start your brand" priceLabel="Name + identity" offerKey="name-identity-bundle" />

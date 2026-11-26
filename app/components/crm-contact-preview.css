@@ -39,3 +39,26 @@
 .crm-preview-fields button:disabled { opacity:.65;cursor:wait; }
 
 
+
+/* Stack the existing primary action and callback within the same layout column.
+   Do not make a new full-section grid row or move related links. */
+.crm-offer-actions {
+  display:inline-grid;grid-template-columns:minmax(0,1fr);gap:10px;
+  width:fit-content;max-width:100%;min-width:0;box-sizing:border-box;
+  vertical-align:top;align-self:center;justify-items:stretch;
+}
+.crm-offer-actions > :is(a,button).button,
+.crm-offer-actions > a.vs-button {
+  width:100%;max-width:100%;box-sizing:border-box;justify-content:center;
+  text-align:center;white-space:normal;
+}
+.crm-offer-actions > .crm-offer-contact-row {
+  width:100%;max-width:100%;margin:0;grid-column:auto;min-width:0;
+}
+.crm-offer-actions > .crm-offer-contact-row > a.crm-preview-contact-link {
+  width:100%;max-width:100%;justify-content:center;text-align:center;
+}
+.bn2-hero-actions > .crm-offer-actions { align-self:flex-start; }
+@media(max-width:640px){
+  .crm-offer-actions { width:100%;max-width:100%; }
+}

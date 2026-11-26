@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -111,7 +111,6 @@ export default function GoogleAdsLaunchOffer() {
           <div className="oe-hero-actions">
             <p className="oe-price">باقة الإطلاق من <InlineOfferPrice offerKey="google-ads-launch" /></p>
             <GoogleAdsLaunchLink id="order-hero" className="button primary offer-consultation-cta" label="ابدأ حملتك" />
-            {crmVisible && <CrmOfferContactLink locale="ar" offer="google-ads-launch" />}
             <OfferMicro offer="ads" locale="ar" />
           </div>
           <div className="google-ads-answer" aria-label="الإجابة المختصرة">
@@ -191,7 +190,7 @@ export default function GoogleAdsLaunchOffer() {
 
       <section id="order-final" className="shell offer-final-cta google-ads-final">
         <div><span className="section-label">جاهز للإطلاق؟</span><h2>اجعل أول صرف على Google<br/>يبدأ بإعداد محسوب</h2><p>أرسل لنا نشاطك، السوق المستهدف، ورابط الصفحة الحالية ونراجع ملاءمتها قبل بدء الحملة.</p></div>
-        <GoogleAdsLaunchLink className="button primary offer-consultation-cta" label="ابدأ حملتك" />
+        <CrmOfferActions enabled={crmVisible} locale="ar" offer="google-ads-launch"><GoogleAdsLaunchLink className="button primary offer-consultation-cta" label="ابدأ حملتك" /></CrmOfferActions>
         <div className="google-ads-links"><Link href="/guides/google-ads-cost-saudi-arabia">تريد فهم التكلفة والميزانية أولًا؟</Link><Link href="/paid-ads">تحتاج إدارة Google Ads مستمرة؟</Link><Link href="/offers/landing-page-package">تحتاج صفحة هبوط أولًا؟</Link></div>
       </section>
 

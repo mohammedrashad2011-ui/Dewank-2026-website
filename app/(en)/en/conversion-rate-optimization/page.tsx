@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import Link from "next/link";
 import { enMetadata } from "../_en/metadata";
 import { Footer } from "../_en/parity/footer";
@@ -127,7 +127,6 @@ export default function ConversionRateOptimizationEnglishPage() {
             <a className="button primary" href="#pricing">Choose the right package <span>→</span></a>
             <a href="#audit">See what the audit covers</a>
           </div>
-          {crmVisible && <CrmOfferContactLink locale="en" offer="cro-snapshot" />}
         </div>
         <CroDiagnosticPanel locale="en" />
       </section>
@@ -287,8 +286,7 @@ export default function ConversionRateOptimizationEnglishPage() {
         <div><span className="sa-label">Next step</span><h2>Send us the page link<br/><em>We will show where the visit stops</em></h2></div>
         <div>
           <p>Send the website or page link and your business type. We will agree the most useful path to review and what the audit needs.</p>
-          <a className="button primary offer-consultation-cta" href={whatsappAudit} target="_blank" rel="noreferrer">Talk to us about the right package <span>→</span></a>
-          {crmVisible && <CrmOfferContactLink locale="en" offer="cro-snapshot" />}
+          <CrmOfferActions enabled={crmVisible} locale="en" offer="cro-snapshot"><a className="button primary offer-consultation-cta" href={whatsappAudit} target="_blank" rel="noreferrer">Talk to us about the right package <span>→</span></a></CrmOfferActions>
         </div>
       </section>
       <Footer />

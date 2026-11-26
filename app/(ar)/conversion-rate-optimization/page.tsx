@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../components/site-shell";
@@ -122,7 +122,6 @@ export default function ConversionRateOptimizationPage() {
             <a className="button primary" href="#pricing">اختر الباقة المناسبة <span>←</span></a>
             <a href="#audit">اعرف ما يشمله التدقيق</a>
           </div>
-          {crmVisible && <CrmOfferContactLink locale="ar" offer="cro-snapshot" />}
         </div>
         <CroDiagnosticPanel locale="ar" />
       </section>
@@ -282,8 +281,7 @@ export default function ConversionRateOptimizationPage() {
         <div><span className="sa-label">الخطوة التالية</span><h2>أرسل رابط الصفحة<br/><em>لنحدد أين تتوقف الزيارة</em></h2></div>
         <div>
           <p>أرسل رابط الموقع أو الصفحة ونوع النشاط، وسنحدد معك المسار الأنسب للفحص وما يحتاجه التدقيق.</p>
-          <a className="button primary offer-consultation-cta" href={whatsappAudit} target="_blank" rel="noreferrer">احصل على استشارة مجانية الآن <span>←</span></a>
-          {crmVisible && <CrmOfferContactLink locale="ar" offer="cro-snapshot" />}
+          <CrmOfferActions enabled={crmVisible} locale="ar" offer="cro-snapshot"><a className="button primary offer-consultation-cta" href={whatsappAudit} target="_blank" rel="noreferrer">احصل على استشارة مجانية الآن <span>←</span></a></CrmOfferActions>
         </div>
       </section>
       <Footer />

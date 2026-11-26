@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { enMetadata } from "../../_en/metadata";
@@ -106,7 +106,6 @@ export default function MiniVisualIdentityOffer() {
           <p>A professional logo and brand identity design service for startups and small businesses anywhere. You receive a primary logo and a simplified version, a colour palette, typefaces, a visual direction, three practical applications and a short guidelines file. The package starts at <span className="vi-inline-price"><OfferPrice offerKey="mini-visual-identity" className="vi-price-value" /></span>.</p>
           <div className="vi-hero-actions">
             <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand identity <span>→</span></a>
-            {crmVisible && <CrmOfferContactLink locale="en" offer="visual-identity" />}
             <p className="vi-microcopy">No commitment. Send us your brand name and business type, and we will reply with the next step.</p>
           </div>
         </div>
@@ -163,7 +162,7 @@ export default function MiniVisualIdentityOffer() {
         <span className="offer-kicker">Essential visual identity · 7–10 days</span>
         <h2>Make your project look like a brand, not a set of separate designs</h2>
         <p>Send us your business type, name and target market, and we will set the direction before designing the logo.</p>
-        <a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand identity <span>→</span></a>
+        <CrmOfferActions enabled={crmVisible} locale="en" offer="visual-identity"><a className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your brand identity <span>→</span></a></CrmOfferActions>
         <div className="mini-identity-links"><Link href="/en/branding">Full brand strategy and identity</Link><Link href="/en/offers/brand-naming">Haven&apos;t chosen a name yet?</Link><Link href="/en/offers/name-identity">Name + identity together</Link><Link href="/en/offers">Back to offers</Link></div>
       </section>
       <EnOfferSticky watchIds={["order-cta", "order-panel", "order-final", "order-footer"]} href={contactLink} label="Start your identity" priceLabel="Essential package from" offerKey="mini-visual-identity" />

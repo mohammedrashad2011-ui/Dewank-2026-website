@@ -1,6 +1,6 @@
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
-import { CrmOfferContactLink } from "@/app/components/crm-offer-contact-link";
+import { CrmOfferActions } from "@/app/components/crm-offer-actions";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OfferGuide, OfferMicro, OfferSample } from "../offer-extras";
@@ -95,7 +95,6 @@ export default function Instagram14DayUpgradeOffer() {
           <div className="oe-hero-actions">
             <p className="oe-price">باقة 14 يومًا من <InlineOfferPrice offerKey="instagram-14-day-upgrade" /></p>
             <InstagramUpgradeWhatsApp id="order-hero" className="button primary offer-consultation-cta" label="طوّر حسابك" />
-            {crmVisible && <CrmOfferContactLink locale="ar" offer="instagram-14-day-upgrade" />}
             <OfferMicro offer="instagram" locale="ar" />
           </div>
           <div className="instagram-upgrade-answer" aria-label="الإجابة المختصرة">
@@ -171,7 +170,7 @@ export default function Instagram14DayUpgradeOffer() {
 
       <section id="order-final" className="shell offer-final instagram-upgrade-final">
         <div><small>14 DAY INSTAGRAM UPGRADE</small><h2>خلي أول زيارة للحساب<br/><em>تقول إنك مرتب وجاهز</em></h2><p>لو الحساب قائم لكنه لا يعكس مستوى مشروعك، هذه نقطة بداية مركزة قبل أن تدفع على محتوى أكثر أو إعلانات أكثر.</p></div>
-        <InstagramUpgradeWhatsApp className="button primary offer-consultation-cta" label="طوّر حسابك" />
+        <CrmOfferActions enabled={crmVisible} locale="ar" offer="instagram-14-day-upgrade"><InstagramUpgradeWhatsApp className="button primary offer-consultation-cta" label="طوّر حسابك" /></CrmOfferActions>
         <div className="instagram-upgrade-links"><Link href="/offers/30-day-content-package">تحتاج محتوى شهر كامل؟</Link><Link href="/services/social-media-content">تحتاج إدارة سوشيال ميديا مستمرة؟</Link></div>
       </section>
 
