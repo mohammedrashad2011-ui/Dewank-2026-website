@@ -31,3 +31,6 @@ nodemailer 10.6.1 is pinned using the CI-generated lock delta. The server now re
 - node scripts/crm-admin.mjs smtp-check (auth/TLS verification, sends no message)
 - node scripts/crm-notify.mjs (requires both flags, drains eligible notifications; use private cron with secure environment)
 Do not enable CRM_CAPTURE_ENABLED until schema and SMTP checks succeed, cron is configured and a controlled end-to-end test is approved. SMTP verification does not prove inbox delivery; test one synthetic enquiry and confirm receipt. Build with the capture flag at release time (offer/contact pages are static at build); redeploy to toggle it. Production database remains untouched by CI. Verify actual provider/recipient, retention, host proxy/WAF limits and mobile UX before release. The global rate limit protects against bursts but is not per-IP abuse prevention.
+
+## Stage 7 — concurrent notification correction
+One of two CI runs on stage 6 failed with ER_LOCK_DEADLOCK while competing workers claimed the outbox; the other passed. Serialize the claim using a per-database advisory lock released before SMTP, and retry transient lock errors with bounded jitter. Add 12 rounds of four-worker concurrent delivery (36 synthetic records). Verify advisory lock support on the actual Hostinger MySQL before activation. No production migration or email sent.

@@ -16,7 +16,7 @@ test("real MySQL: migrate, commit, replay, reject conflict, verify outbox and th
   const ddl=await readFile(new URL("../db/mysql/001-crm-leads.sql",import.meta.url),"utf8");
   for(const stmt of ddl.replace(/^--.*$/gm,"").split(";").map(x=>x.trim()).filter(Boolean)) await pool.query(stmt);
   const saveLead=createLeadStore(pool);
-  const rateLimit=createLeadRateLimiter(pool,{limit:4});
+  const rateLimit=createLeadRateLimiter(pool,{limit:4,clock:()=>60000});
   const origin="https://dewank.com";
   const requestId=randomUUID();
   const body={requestId,name:"عميل تجريبي",phone:"+966501234567",service:"brand-naming",contactConsent:true,locale:"ar"};
@@ -46,4 +46,19 @@ test("real MySQL: notification retry and lease isolation",{skip:!enabled},async(
   assert.equal(results.reduce((sum,r)=>sum+r.sent,0),1);assert.equal(received.length,1);
   const [done]=await pool.execute("SELECT state,attempts,sent_at FROM dewank_crm_notifications");
   assert.equal(done[0].state,"sent");assert.equal(done[0].attempts,2);assert.ok(done[0].sent_at);
+});
+
+test("real MySQL: repeated concurrent claims do not deadlock or duplicate",{skip:!enabled},async()=>{
+  const pool=getCrmPool();
+  const save=createLeadStore(pool);
+  for(let round=0;round<12;round++){
+    const refs=[];
+    for(let n=0;n<3;n++){
+      const lead={requestId:randomUUID(),name:"Demo Client",phone:"+966501234567",email:null,company:null,brief:null,locale:"en",service:"brand-naming",analyticsConsent:false,landingPath:null,offer:null,utmSource:null,utmMedium:null,utmCampaign:null,utmContent:null,gclid:null};
+      refs.push((await save(lead)).reference);
+    }
+    const received=[];
+    await Promise.all(Array.from({length:4},()=>deliverLeadNotifications(pool,async lead=>{received.push(lead.reference);},{limit:2})));
+    assert.deepEqual(received.sort(),refs.sort());
+  }
 });
