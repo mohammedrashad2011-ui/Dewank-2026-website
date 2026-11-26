@@ -26,5 +26,5 @@ export function validateLead(raw) {
     const s = line(v,max);
     return /^[a-zA-Z0-9_ .:+%-]+$/.test(s) ? s : null;
   };
-  return {ok:true,data:{requestId,name,phone,email:email||null,service,locale,company:line(raw.company,120)||null,brief:line(raw.brief,3000)||null,contactConsent:true,analyticsConsent:attrib,landingPath,offer:services.includes(raw.offer)?raw.offer:null,utmSource:attrib?campaignField(raw.utmSource,100):null,utmMedium:attrib?campaignField(raw.utmMedium,100):null,utmCampaign:attrib?campaignField(raw.utmCampaign,160):null,utmContent:attrib?campaignField(raw.utmContent,160):null,gclid:attrib?campaignField(raw.gclid,256):null}};
+  return {ok:true,data:{requestId,name,phone,email:email||null,service,locale,company:line(raw.company,120)||null,brief:line(raw.brief,3000)||null,contactConsent:true,analyticsConsent:attrib,landingPath,offer:services.includes(raw.offer)?raw.offer:null,utmSource:attrib?campaignField(raw.utmSource,100):null,utmMedium:attrib?campaignField(raw.utmMedium,100):null,utmCampaign:attrib?campaignField(raw.utmCampaign,160):null,utmContent:attrib?campaignField(raw.utmContent,160):null,gclid:attrib&&raw.advertisingConsent===true?campaignField(raw.gclid,256):null}};
 }

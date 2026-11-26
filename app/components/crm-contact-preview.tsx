@@ -47,7 +47,7 @@ export function CrmContactPreview({ locale, preview=true }: { locale: "ar" | "en
       name:String(data.get("name")??"").trim(),phone,service,locale,
       company:String(data.get("company")??""),email:String(data.get("email")??""),brief:String(data.get("brief")??""),
       website:String(data.get("website")??""),contactConsent:data.get("contactConsent")==="on",
-      analyticsConsent:consent.analytics===true,
+      analyticsConsent:consent.analytics===true,advertisingConsent:consent.advertising===true,
       offer,landingPath:offer?(ar?"/offers/brand-naming":"/en/offers/brand-naming"):window.location.pathname,
       utmSource:campaign.utm_source,utmMedium:campaign.utm_medium,utmCampaign:campaign.utm_campaign,utmContent:campaign.utm_content,gclid:campaign.gclid
     };

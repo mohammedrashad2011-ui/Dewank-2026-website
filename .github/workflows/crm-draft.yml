@@ -7,6 +7,8 @@ on:
     paths:
       - 'app/lib/crm/**'
       - 'app/api/leads/**'
+      - 'app/components/crm-**'
+      - 'scripts/crm-*.mjs'
       - 'tests/crm-*.test.mjs'
       - 'db/mysql/**'
       - 'package*.json'
@@ -39,17 +41,6 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
-      - name: Resolve SMTP dependency for draft
-        run: |
-          cp package-lock.json /tmp/crm-lock-before.json
-          npm install --package-lock-only --ignore-scripts --save-exact --no-fund --no-audit nodemailer
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs';
-          const before=JSON.parse(fs.readFileSync('/tmp/crm-lock-before.json','utf8'));
-          const after=JSON.parse(fs.readFileSync('package-lock.json','utf8'));
-          const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));
-          console.log('CRM_SMTP_LOCK_DELTA '+JSON.stringify({version:pkg.dependencies.nodemailer,changes:Object.fromEntries(Object.entries(after.packages).filter(([k,v])=>JSON.stringify(before.packages[k])!==JSON.stringify(v))),removed:Object.keys(before.packages).filter(k=>!(k in after.packages))}));
-          NODE
       - name: Verify lockfile with clean installation
         run: npm ci --no-audit --no-fund
       - name: Run CRM unit tests
