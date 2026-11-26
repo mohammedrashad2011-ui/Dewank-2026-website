@@ -18,14 +18,13 @@
 .crm-offer-contact-row { display:block;box-sizing:border-box;min-width:0;max-width:100%;width:100%;flex:0 0 100%;grid-column:1 / -1;margin-block:8px; }
 .crm-offer-contact-row > a.crm-preview-contact-link {
   display:inline-flex;align-items:center;justify-content:center;gap:6px;box-sizing:border-box;
-  max-width:100%;min-height:44px;width:fit-content;padding:6px 10px;
-  border:1px solid #526a7e;border-radius:10px;background:#f5f9fc;color:#011127;
+  max-width:100%;min-height:36px;width:fit-content;padding:5px 10px;
+  border:1px solid #526a7e;border-radius:8px;background:#f5f9fc;color:#011127;
   font-size:13px;font-weight:600;line-height:1.5;text-align:start;text-decoration:none;
   cursor:pointer;white-space:normal;transition:background-color .15s,border-color .15s;
 }
 .crm-offer-contact-row > a.crm-preview-contact-link > svg { flex:none; }
 .crm-offer-contact-row > a.crm-preview-contact-link > span { min-width:0; }
-.crm-offer-contact-row > a.crm-preview-contact-link .crm-offer-contact-arrow { font-size:15px;line-height:1;flex:none; }
 .crm-offer-contact-row > a.crm-preview-contact-link:hover { background:#dff7fa;border-color:#0c6475;color:#011127;text-decoration:none; }
 .crm-offer-contact-row > a.crm-preview-contact-link:focus-visible { outline:3px solid #0c6475;outline-offset:3px; }
 @media (prefers-reduced-motion:reduce) {
@@ -53,9 +52,10 @@
   display:flex;justify-content:center;width:100%;max-width:100%;margin:0;grid-column:auto;min-width:0;
 }
 .crm-offer-actions > .crm-offer-contact-row > a.crm-preview-contact-link {
-  width:88%;max-width:280px;justify-content:center;text-align:center;
+  width:fit-content;max-width:min(78%,190px);justify-content:center;text-align:center;
 }
 .bn2-hero-actions > .crm-offer-actions { align-self:flex-start; }
 @media(max-width:640px){
   .crm-offer-actions { width:100%;max-width:100%; }
+  .crm-offer-actions > .crm-offer-contact-row > a.crm-preview-contact-link { min-height:44px; }
 }

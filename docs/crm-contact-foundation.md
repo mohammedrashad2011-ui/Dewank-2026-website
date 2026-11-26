@@ -52,3 +52,6 @@ Owner requested keeping naming's callback in the hero, and moving the other elev
 
 ## Stage 13 — secondary CTA hierarchy
 Owner requested a smaller callback CTA across all offers. Keep naming in the hero and the other eleven in the final action section. Shared styles make the secondary 88% of the primary width (max 280px), use 13px medium-weight text, 15px icons, compact padding and a minimum 44px touch target, centered under the main action. Primary retains its original label, link, colors and class, with at least 48px height within the group. Browser assertions now verify center alignment and relative width, and accept both normal and hover colors. Stage 12 browser run failed on the English naming page because the pointer stayed over the CTA after prior navigation, producing its expected hover color rather than default. Re-run all routes; no live activation or merge.
+
+## Stage 14 — concise compact secondary CTA
+Use the owner-suggested Arabic label اترك رقمك للتواصل and short English Request a callback. Remove the arrow, retain the phone icon, set intrinsic width capped at 190px and 78% of primary width, 36px minimum height on desktop and 44px on mobile for touch accessibility. Keep existing placements, links and primary actions. Update browser assertions for label, compact size and center alignment. No live activation or merge.
