@@ -1,0 +1,17 @@
+
+.crm-contact-preview { display:grid;gap:16px;scroll-margin-top:140px;min-width:0; }
+.en-site .crm-contact-preview { background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,36px); }
+.crm-contact-preview .crm-preview-note { margin:0;padding:10px 14px;border:1px solid #b99038;border-radius:10px;color:#624512;background:#fff9e9;font-size:14px;line-height:1.6; }
+.crm-contact-preview label { display:grid;gap:8px;font-weight:700;min-width:0; }
+.crm-contact-preview label > input:not([type="checkbox"]),.crm-contact-preview label > select,.crm-contact-preview label > textarea { width:100%;min-width:0;box-sizing:border-box;min-height:48px;padding:12px 14px;font:inherit;font-size:16px;color:var(--ink,#011127);background:#fff;border:1px solid #9499a2;border-radius:12px; }
+.crm-contact-preview input:focus-visible,.crm-contact-preview select:focus-visible,.crm-contact-preview textarea:focus-visible,.crm-contact-preview summary:focus-visible,.crm-contact-preview a:focus-visible { outline:2px solid #17629a;outline-offset:3px; }
+.crm-contact-preview .crm-preview-details { border:1px solid #c7ccd3;border-radius:12px;padding:12px; }
+.crm-contact-preview .crm-preview-details summary { cursor:pointer;font-weight:600;min-height:32px; }
+.crm-contact-preview .crm-preview-extra { display:grid;gap:16px;margin-top:12px; }
+.crm-contact-preview form.contact-form .crm-preview-consent { display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.7;font-weight:500; }
+.crm-contact-preview form.contact-form .crm-preview-consent input[type="checkbox"] { flex:0 0 20px;width:20px;min-height:20px;height:20px;margin-top:3px;padding:0; }
+.crm-contact-preview a { text-decoration:underline; }
+.crm-contact-preview .crm-preview-hint,.crm-contact-preview .crm-preview-error { margin:-10px 0 0;font-size:13px; }
+.crm-contact-preview .crm-preview-error { color:#a21d2d; }
+.crm-contact-preview .crm-preview-result { padding:20px;border:1px solid #24714a;border-radius:12px;background:#f1faf4;color:#16482f; }
+.crm-preview-contact-link { display:inline-block;text-decoration:underline;text-underline-offset:3px;font-size:14px;line-height:1.8;min-height:28px; }

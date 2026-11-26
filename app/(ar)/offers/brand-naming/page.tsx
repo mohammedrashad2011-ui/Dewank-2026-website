@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@/app/components/crm-contact-preview.css";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
@@ -119,6 +120,7 @@ export default function BrandNamingOfferPage() {
           <div className="bn2-hero-actions">
             <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
             <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
+            {process.env.VERCEL_ENV === "preview" && <a className="crm-preview-contact-link" href="/contact?offer=brand-naming#brief-form">تفضّل أن نتواصل معك؟ اترك رقمك</a>}
           </div>
           <ul className="bn2-facts" aria-label="ما تشمله الباقة">
             <li><b>10–15</b><span>اسمًا مدروسًا</span></li>

@@ -1,0 +1,12 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import {handleLeadRequest} from "../app/lib/crm/handle-lead-request.mjs";
+import {createLeadStore} from "../app/lib/crm/mysql-lead-store.mjs";
+const origin="https://staging.example";
+const data={requestId:"12345678-1234-4123-8123-123456789abc",name:"Demo Client",phone:"+966501234567",service:"brand-naming",contactConsent:true};
+function request(body=data,headers={}) {return new Request(origin+"/api/leads",{method:"POST",headers:{origin,"content-type":"application/json",...headers},body:JSON.stringify(body)});}
+const options={allowedOrigin:origin,rateLimit:async()=>true,saveLead:async()=>({reference:"example",created:true})};
+test("new lead, replay and conflict are distinct",async()=>{assert.equal((await handleLeadRequest(request(),options)).status,201);assert.equal((await handleLeadRequest(request(),{...options,saveLead:async()=>({reference:"example",created:false})})).status,200);assert.equal((await handleLeadRequest(request(),{...options,saveLead:async()=>({conflict:true})})).status,409);});
+test("rejects foreign origin, bad fields, oversized bodies and rate limits",async()=>{assert.equal((await handleLeadRequest(request(data,{origin:"https://wrong.example"}),options)).status,403);assert.equal((await handleLeadRequest(request({...data,phone:"abc"}),options)).status,422);assert.equal((await handleLeadRequest(request({...data,brief:"x".repeat(17000)}),options)).status,413);assert.equal((await handleLeadRequest(request(),{...options,rateLimit:async()=>false})).status,429);});
+test("failed storage is not a successful lead",async()=>{assert.equal((await handleLeadRequest(request(),{...options,saveLead:async()=>{throw Error("private DB error")}})).status,503);});
+test("store commits lead and outbox atomically, rolls back when outbox fails",async()=>{for(const fail of [false,true]){const calls=[];const conn={beginTransaction:async()=>calls.push("begin"),execute:async(sql,args)=>{if(sql.includes("dewank_crm_notifications")){calls.push("outbox");if(fail)throw Error("outbox");return [{}];}calls.push("lead");assert.equal((sql.match(/\?/g)||[]).length,args.length);return [{insertId:1}];},commit:async()=>calls.push("commit"),rollback:async()=>calls.push("rollback"),release:()=>calls.push("release")};const save=createLeadStore({getConnection:async()=>conn});if(fail)await assert.rejects(save(data));else assert.equal((await save(data)).created,true);assert.deepEqual(calls,["begin","lead","outbox",fail?"rollback":"commit","release"]);}});

@@ -3,6 +3,8 @@ import { EnShell } from "../_en/shell";
 import { enMetadata } from "../_en/metadata";
 import { CONTACT_EMAIL, WHATSAPP_NUMBER, briefMailto, whatsappHref } from "@/app/(en)/en/_en/lib/site";
 import { ContactForm } from "../_en/contact-form";
+import { CrmContactPreview } from "@/app/components/crm-contact-preview";
+import "@/app/components/crm-contact-preview.css";
 import "../_en/styles/contact.en.css";
 
 
@@ -36,7 +38,7 @@ function ContactPage() {
         <h2 id="form-title">Send your brief</h2>
         <p className="lead">About two minutes. Pricing is custom, and we reply with a scoped proposal, not a fixed package.</p>
         <div className="form-layout">
-          <ContactForm enabled={formEnabled} />
+          {process.env.VERCEL_ENV === "preview" ? <CrmContactPreview locale="en" /> : <ContactForm enabled={formEnabled} />}
           <aside className="form-aside" aria-label="What to include and what happens next">
             <h3>A brief in five lines is enough</h3>
             <ul className="checklist">

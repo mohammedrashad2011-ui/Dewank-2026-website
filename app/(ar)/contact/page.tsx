@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { createMetadata } from "../../lib/seo";
 import { Footer, Header } from "../../components/site-shell";
 import ContactForm from "./contact-form";
+import { CrmContactPreview } from "@/app/components/crm-contact-preview";
+import "@/app/components/crm-contact-preview.css";
 // Visual concept adapted from the approved English Contact page: hero, form with an aside, two contact channels, notice.
 // Scoped to .contact-polish. Form behaviour lives in contact-form.tsx and is unchanged.
 import "./contact-polish.css";
@@ -53,7 +55,7 @@ export default function ContactPage() {
 
         <div className="cp-form-layout">
           <div className="cp-form-card">
-            <ContactForm />
+            {process.env.VERCEL_ENV === "preview" ? <CrmContactPreview locale="ar" /> : <ContactForm />}
           </div>
 
           <aside className="cp-aside" aria-label="ما الذي تحتاجه، وما الذي يحدث بعد ذلك">

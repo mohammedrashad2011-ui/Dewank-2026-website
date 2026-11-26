@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS dewank_crm_leads (
   id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
   lead_ref CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
   request_id CHAR(36) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  request_hash CHAR(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
   name VARCHAR(100) NOT NULL,
   phone VARCHAR(16) CHARACTER SET ascii NOT NULL,
   email VARCHAR(160) NULL,
