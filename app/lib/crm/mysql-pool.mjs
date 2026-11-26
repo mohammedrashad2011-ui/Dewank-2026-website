@@ -8,7 +8,7 @@ export function getCrmPool() {
     throw new Error("CRM database configuration missing");
   pool=mysql.createPool({
     host:DB_HOST,port,database:DB_NAME,user:DB_USER,password:DB_PASSWORD,
-    connectionLimit:4,waitForConnections:true,queueLimit:20,connectTimeout:5000,
+    connectionLimit:4,maxIdle:2,idleTimeout:10000,waitForConnections:true,queueLimit:20,connectTimeout:5000,
     charset:"utf8mb4",timezone:"Z",multipleStatements:false,
     ...(process.env.DB_TLS==="true"?{ssl:{rejectUnauthorized:true}}:{})
   });

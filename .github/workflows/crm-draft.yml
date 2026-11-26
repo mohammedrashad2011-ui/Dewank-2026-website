@@ -64,5 +64,18 @@ jobs:
           DB_USER: crm_ci
           DB_PASSWORD: ci_only_password
         run: node --test tests/crm-mysql.test.mjs
-      - name: Check production build
+      - name: Check production build with capture enabled in CI
+        env:
+          CRM_CAPTURE_ENABLED: "true"
         run: npm run build
+      - name: Test actual Next.js HTTP route and rendered contact pages
+        env:
+          CRM_CAPTURE_ENABLED: "true"
+          CRM_NOTIFICATIONS_ENABLED: "false"
+          CRM_CI_MYSQL: "true"
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_NAME: crm_ci
+          DB_USER: crm_ci
+          DB_PASSWORD: ci_only_password
+        run: node --test tests/crm-http.test.mjs
