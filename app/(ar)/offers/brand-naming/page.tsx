@@ -121,8 +121,8 @@ export default function BrandNamingOfferPage() {
           <p className="bn2-lede">نقترح لك 10–15 اسمًا مدروسًا لنشاطك، ونرشح أفضل 3 بعد فحص المعنى والنطق والتشابه والدومين وحسابات التواصل، مع 3 شعارات لفظية للاسم الذي تختاره. الباقة كاملة بـ <BrandNamingInlinePrice />.</p>
           <div className="bn2-hero-actions">
             <BrandNamingWhatsApp id="bn2-hero-cta" className="button primary offer-consultation-cta bn2-cta" label="ابدأ اختيار اسمك" />
-            <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
             {crmVisible && <CrmOfferContactLink locale="ar" offer="brand-naming" />}
+            <p className="bn2-microcopy">بدون أي التزام. اكتب نوع نشاطك والمدينة، ونخبرك بالخطوة التالية.</p>
           </div>
           <ul className="bn2-facts" aria-label="ما تشمله الباقة">
             <li><b>10–15</b><span>اسمًا مدروسًا</span></li>

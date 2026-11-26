@@ -79,3 +79,12 @@ jobs:
           DB_USER: crm_ci
           DB_PASSWORD: ci_only_password
         run: node --test tests/crm-http.test.mjs
+      - name: Browser QA all offer CTAs at mobile and desktop widths
+        if: matrix.engine == 'mysql84'
+        env:
+          CRM_CAPTURE_ENABLED: "true"
+          CRM_NOTIFICATIONS_ENABLED: "false"
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts --no-audit --no-fund playwright@1.58.2
+          npx playwright install --with-deps chromium
+          node tests/crm-offer-browser.test.mjs

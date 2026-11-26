@@ -127,6 +127,7 @@ export default function ConversionRateOptimizationEnglishPage() {
             <a className="button primary" href="#pricing">Choose the right package <span>→</span></a>
             <a href="#audit">See what the audit covers</a>
           </div>
+          {crmVisible && <CrmOfferContactLink locale="en" offer="cro-snapshot" />}
         </div>
         <CroDiagnosticPanel locale="en" />
       </section>

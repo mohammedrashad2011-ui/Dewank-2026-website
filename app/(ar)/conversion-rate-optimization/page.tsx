@@ -122,6 +122,7 @@ export default function ConversionRateOptimizationPage() {
             <a className="button primary" href="#pricing">اختر الباقة المناسبة <span>←</span></a>
             <a href="#audit">اعرف ما يشمله التدقيق</a>
           </div>
+          {crmVisible && <CrmOfferContactLink locale="ar" offer="cro-snapshot" />}
         </div>
         <CroDiagnosticPanel locale="ar" />
       </section>

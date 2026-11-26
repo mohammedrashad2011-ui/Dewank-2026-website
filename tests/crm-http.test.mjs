@@ -29,6 +29,9 @@ test("built Next.js: bilingual forms, committed POST, replay, privacy, origin an
         const page=await fetch(url+prefix+entry[1]);assert.equal(page.status,200,entry[1]);
         const html=await page.text();
         assert.ok(html.includes('href="'+prefix+'/contact?offer='+offer+'#brief-form"'),"Missing CRM link: "+locale+" "+offer);
+        const hero=html.match(/<section[^>]*class="[^"]*(?:offer-detail-hero|bn2-hero|vs-hero|sa-hero)[^"]*"[^>]*>[\s\S]*?<\/section>/)?.[0];
+        assert.ok(hero?.includes('data-crm-offer="'+offer+'"'),"Missing visible hero CTA markup: "+locale+" "+offer);
+        assert.ok(hero?.includes('class="crm-offer-contact-row"'),"Missing dedicated CTA row: "+locale+" "+offer);
       }
     }
     const pool=getCrmPool();

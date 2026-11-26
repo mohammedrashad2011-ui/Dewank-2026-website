@@ -43,3 +43,6 @@ The owner confirmed all three production tables were created successfully and ad
 
 ## Stage 10 — all current offer pages
 The shared offer registry covers the 12 catalog entries, including CRO outside /offers and the shared video page, across both locales (24 routes). The offer key is distinct from the editable service; canonical localized source path is derived on the server. Existing WhatsApp links, prices, sticky CTA and GTM are unchanged. Company profile is not present as an offer page on this branch; future offers must be added to the registry and HTTP test. CI verifies each rendered route, and the new offer field is shown in notifications. Visual QA and live gates remain pending.
+
+## Stage 11 — visible secondary CTA
+The deployed stage-10 HTML includes the offer link, but its small text-only styling was insufficient and CRO only showed it near the closing CTA. Replace it with a consistent bordered light secondary action with phone icon, directional arrow, contrast, 46px minimum tap height, a separate full row and mobile width. Keep original WhatsApp buttons untouched; place the callback in each hero, also retain CRO's final callback. Add Chromium checks of all 24 routes at 390 and 1440 px, with click trials and mobile navigation/preselection; no real enquiry is sent. Visual QA is pending until CI completes. Existing production remains gated.
