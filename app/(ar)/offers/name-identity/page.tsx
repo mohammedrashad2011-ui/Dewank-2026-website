@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -10,7 +11,7 @@ import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { resolveCurrentOfferPrice } from "../offer-pricing";
 import { OfferClientProof } from "../offer-client-proof";
-import { NameIdentityPrice, NameIdentitySaving, NameIdentitySticky, NameIdentityWhatsApp } from "./localized-name-identity";
+import { NameIdentitySaving, NameIdentitySticky, NameIdentityWhatsApp } from "./localized-name-identity";
 import "../offers-page.css";
 import "../offer-trust.css";
 
@@ -95,7 +96,7 @@ export default function NameIdentityBundle() {
         </div>
         <aside className="offer-price-panel">
           <small>الباقة المجمعة</small>
-          <NameIdentityPrice />
+          <PromotionalPrice offerKey="name-identity-bundle" />
           <NameIdentitySaving />
           <div className="offer-trust-inline"><span>10–15 اسمًا</span><span>شعار وهوية أساسية</span><span>3 تطبيقات</span></div>
           <p>لا تشمل حجز الاسم أو تسجيل العلامة أو الرسوم الرسمية، ولا استراتيجية براند كاملة.</p>
