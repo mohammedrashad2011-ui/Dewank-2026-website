@@ -103,7 +103,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
           <span className="oh-eyebrow">{t.summaryEyebrow}</span>
           <h2 id="offers-summary-title">{t.summaryTitle}</h2>
           <p className="oh-inline-price">
-            {hubSummaryParts[locale].before}<HubPrice offerKey={hubFacts.cheapest.key} locale={locale} />{hubSummaryParts[locale].after}
+            {hubSummaryParts[locale].before}<HubPrice offerKey={hubFacts.cheapest.key} locale={locale} inline />{hubSummaryParts[locale].after}
           </p>
         </div>
         <div className="oh-table-wrap">
@@ -115,7 +115,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
                   <th scope="row"><Link href={prefix + row.path}>{row[locale].title}</Link></th>
                   <td className="oh-table-get">{row[locale].hook}</td>
                   <td data-label={t.colTime}>{row[locale].time}</td>
-                  <td data-label={t.colPrice} className="oh-inline-price"><HubPrice offerKey={row.key} locale={locale} /></td>
+                  <td data-label={t.colPrice} className="oh-inline-price"><HubPrice offerKey={row.key} locale={locale} inline /></td>
                 </tr>
               ))}
             </tbody>
