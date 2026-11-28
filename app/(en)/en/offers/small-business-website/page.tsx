@@ -1,3 +1,4 @@
+import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -86,7 +87,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         serviceType: ["Website Design", "Website Development", "Basic SEO"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: "1990", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/small-business-website" },
+        offers: { "@type": "Offer", price: String(offerPricing["small-business-website"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/small-business-website" },
         url,
         inLanguage: "en",
       },
