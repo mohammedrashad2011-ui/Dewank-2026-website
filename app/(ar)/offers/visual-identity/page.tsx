@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -6,7 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { MiniIdentityPrice, MiniIdentitySticky, MiniIdentityWhatsApp } from "./localized-mini-identity";
+import { MiniIdentitySticky, MiniIdentityWhatsApp } from "./localized-mini-identity";
 import { IdentityReel } from "./identity-reel";
 import { IdentityCaseFile, IdentityProblems, IdentitySectors, identityExtraFaqs } from "./identity-extras";
 import { InlineOfferPrice } from "../inline-offer-price";
@@ -105,7 +106,7 @@ export default function MiniVisualIdentityOffer() {
         </div>
         <aside className="offer-price-panel mini-identity-price-panel">
           <small>الباقة الأساسية</small>
-          <MiniIdentityPrice />
+          <PromotionalPrice offerKey="mini-visual-identity" />
           <div className="offer-trust-inline"><span>شعار أساسي</span><span>3 تطبيقات</span><span>جولتا تعديل</span></div>
           <p>لا تشمل استراتيجية براند كاملة أو اختيار الاسم أو إدارة المحتوى أو تطبيقات موسعة خارج النطاق المتفق عليه.</p>
           <p className="vi-assure">جولتا تعديل ضمن السعر بعد عرض الاتجاه الأولي.</p>
