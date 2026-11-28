@@ -8,7 +8,8 @@ import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../li
 // Reuses the Arabic SEO/AEO page's section system (hero, service grid, process, FAQ). Those classes are layout only.
 import "../seo-aeo/seo-aeo-page.css";
 import "../seo-aeo/seo-cluster.css";
-import { CroPackagePrice, CroPackageWhatsApp } from "./cro-packages";
+import { CroPackageWhatsApp } from "./cro-packages";
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { CroDiagnosticPanel } from "../../components/cro-diagnostic-panel";
 import "./cro.css";
 
@@ -217,7 +218,7 @@ export default function ConversionRateOptimizationPage() {
               <small>{pkg.label}</small>
               <h3>{pkg.name}</h3>
               <p className="cro-package-purpose">{pkg.purpose}</p>
-              <CroPackagePrice offerKey={pkg.offerKey} />
+              <PromotionalPrice offerKey={pkg.offerKey} amountClassName="cro-price" />
               <p className="cro-package-payment">دفع كامل مقدمًا قبل بدء العمل</p>
               <p className="cro-package-delivery"><strong>مدة التسليم:</strong> {pkg.delivery}</p>
               <h4>ما تحصل عليه</h4>
