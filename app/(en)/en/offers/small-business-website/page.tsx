@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -124,7 +125,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         </div>
         <aside id="order-panel" className="offer-price-panel small-website-price-panel">
           <small>Complete package from</small>
-          <OfferPrice offerKey="small-business-website" className="offer-price" />
+          <PromotionalPrice offerKey="small-business-website" locale="en" />
           <div className="offer-trust-inline"><span>Up to 5 pages</span><span>Mobile-friendly</span><span>WhatsApp and analytics</span></div>
           <p>Includes up to five pages. The domain, hosting, bespoke programming and paid external services are not included.</p>
           <p className="sw-assure">A full review before launch and seven days of technical support after it are included in the price.</p>
