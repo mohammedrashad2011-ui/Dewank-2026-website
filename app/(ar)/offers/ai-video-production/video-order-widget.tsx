@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { OfferPriceKey } from "../offer-pricing";
+import { PromotionalPriceDisplay } from "../promotional-price";
 import { getVideoOfferPrice, setVideoOfferCountry, useVideoOfferCountry } from "./video-localized-price";
 import { videoPackages, type VideoPackageId } from "./video-offer-content";
 import { pushVideoEvent } from "./video-events";
@@ -137,7 +138,6 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
       <div className="vs-packages" role="group" aria-label={t.grid}>
         {videoPackages.map((item, index) => {
           const active = item.id === selectedId;
-          const shown = price(item.priceKey);
           return (
             <article key={item.id} className={"vs-package" + (active ? " is-selected" : "")}>
               <div className="vs-package-demo">
@@ -148,11 +148,7 @@ export default function VideoOrderWidget({ locale }: { locale: Locale }) {
                 <p className="vs-package-fit">{item[locale].fit}{item.id === "ai" && <span>{t.recommended}</span>}</p>
                 <h3>{item[locale].title}</h3>
                 <p className="vs-package-desc">{item[locale].description}</p>
-                <div className="vs-package-price">
-                  <small>{t.startingAt}</small>
-                  <strong>{shown.digits}</strong>
-                  <span>{shown.currencyLabel}</span>
-                </div>
+                <PromotionalPriceDisplay offerKey={item.priceKey} locale={locale} country={country} amountClassName="vs-package-price" startingAt={t.startingAt} />
                 <p className="vs-package-spec">{item.count} {t.quantity} · {item.length} {t.seconds}</p>
                 <ul>{item[locale].features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
                 <p className="vs-package-note">{item[locale].note}</p>
