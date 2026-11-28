@@ -1,4 +1,4 @@
-import { offerPricing, type OfferPriceKey } from "./offer-pricing";
+import { resolveCurrentOfferPrice, type OfferPriceKey } from "./offer-pricing";
 import { hubOffers, hubVideo, type HubLocale } from "./offers-hub-data";
 
 // Rows and facts for the offers hub summary table, FAQ and schema.
@@ -26,7 +26,7 @@ export const hubRows = [
 });
 
 // Approved prices keep the same order in every market, so the Saudi starting price decides cheapest and dearest.
-const bySar = [...hubRows].sort((a, b) => offerPricing[a.key].initial.amount - offerPricing[b.key].initial.amount);
+const bySar = [...hubRows].sort((a, b) => resolveCurrentOfferPrice(a.key, null).amount - resolveCurrentOfferPrice(b.key, null).amount);
 
 export const hubFacts = {
   count: hubRows.length,
@@ -89,7 +89,7 @@ export function hubItemListSchema(locale: HubLocale) {
         description: row[locale].hook,
         url: base + row.path.split("#")[0],
         provider: { "@id": "https://dewank.com/#organization" },
-        offers: { "@type": "Offer", price: String(offerPricing[row.key].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock" },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice(row.key, null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock" },
       },
     })),
   };
