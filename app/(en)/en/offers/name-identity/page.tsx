@@ -12,7 +12,7 @@ import { whatsappHref } from "../../_en/lib/site";
 import { EnOfferSticky } from "../offer-sticky-en";
 import { NameIdentitySavingEn } from "./bundle-saving-en";
 import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
-import { offerPricing } from "../../../../(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "../../../../(ar)/offers/offer-pricing";
 // The Arabic offer layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -62,7 +62,7 @@ export default function NameIdentityBundleEn() {
         serviceType: ["Brand Naming", "Visual Identity Design", "Logo Design"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: String(offerPricing["name-identity-bundle"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("name-identity-bundle", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
         inLanguage: "en",
       },
