@@ -152,9 +152,21 @@ export function consentBootstrapScript(vendorsAllowed: boolean): string {
     if(state.analytics) loadGa();
     if(state.advertising) loadMeta();
   }
-  function deleteCookie(name){ document.cookie=name+'=; Max-Age=0; path=/; SameSite=Lax'; }
+  // Vendor tags set their cookies for the whole domain (for example domain=dewank.com), and a cookie is only removed when the
+  // deletion names the same domain. So the host-only deletion is followed by the host and each parent domain, with and
+  // without the leading dot, down to two labels.
+  function deleteCookie(name){
+    var base=name+'=; Max-Age=0; path=/; SameSite=Lax';
+    document.cookie=base;
+    var parts=location.hostname.split('.');
+    for(var i=0;i<parts.length-1;i++){
+      var d=parts.slice(i).join('.');
+      document.cookie=base+'; domain='+d;
+      document.cookie=base+'; domain=.'+d;
+    }
+  }
   function removeMeasurementCookies(){
-    var names=['_ga','_gid','_gcl_au','_gcl_aw','_fbp','_fbc'];
+    var names=['_ga','_gid','_gcl_au','_gcl_aw','_fbp','_fbc','_clck','_clsk'];
     var parts=document.cookie?document.cookie.split(';'):[];
     for(var i=0;i<parts.length;i++){
       var n=parts[i].split('=')[0].replace(/^\\s+|\\s+$/g,'');

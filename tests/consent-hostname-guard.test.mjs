@@ -26,6 +26,7 @@ const { consentBootstrapScript, PRODUCTION_VENDOR_HOSTS } = await import(pathToF
 // Runs the rendered bootstrap in a stubbed browser and reports the vendor scripts it asked the page to add.
 function runBootstrap({ host, vendorsAllowed, stored }) {
   const scriptSources = [];
+  const cookieWrites = [];
   const storage = new Map();
   if (stored !== undefined) storage.set("dewank-consent-v1", JSON.stringify(stored));
   const element = () => ({
@@ -52,7 +53,12 @@ function runBootstrap({ host, vendorsAllowed, stored }) {
     querySelector: () => null,
     querySelectorAll: () => [],
     getElementsByTagName: () => [{ parentNode: { insertBefore() {} } }],
-    cookie: "",
+    get cookie() {
+      return "";
+    },
+    set cookie(value) {
+      cookieWrites.push(String(value));
+    },
   };
   const window = {
     location,
@@ -78,6 +84,7 @@ function runBootstrap({ host, vendorsAllowed, stored }) {
     gtmRequested: scriptSources.some((s) => s.includes("googletagmanager.com/gtm.js")),
     metaRequested: scriptSources.some((s) => s.includes("connect.facebook.net")),
     consentDefault: consentDefault ? { ...consentDefault[2] } : null,
+    cookieWrites,
   };
 }
 
@@ -155,6 +162,27 @@ test("a stored Reject all keeps both categories off, whatever the defaults are",
   assert.equal(result.metaRequested, false);
   assert.equal(result.consentDefault.analytics_storage, "denied");
   assert.equal(result.consentDefault.ad_storage, "denied");
+});
+
+// Vendor tags set their cookies for the whole domain, so removing them must name the domain too.
+test("with no category allowed, measurement cookies are deleted for the host and its parent domains", () => {
+  const { cookieWrites } = runBootstrap({
+    host: "www.dewank.com",
+    vendorsAllowed: true,
+    stored: { v: 1, analytics: false, advertising: false },
+  });
+  for (const name of ["_ga", "_gcl_aw", "_fbp", "_clck", "_clsk"]) {
+    const writes = cookieWrites.filter((w) => w.startsWith(`${name}=;`));
+    assert.ok(writes.some((w) => !w.includes("domain=")), `${name}: host-only deletion`);
+    assert.ok(writes.some((w) => w.includes("domain=dewank.com")), `${name}: domain=dewank.com`);
+    assert.ok(writes.some((w) => w.includes("domain=.dewank.com")), `${name}: domain=.dewank.com`);
+    assert.ok(writes.some((w) => w.includes("domain=www.dewank.com")), `${name}: domain=www.dewank.com`);
+  }
+});
+
+test("with a category allowed, no measurement cookie is deleted", () => {
+  const { cookieWrites } = runBootstrap({ host: "dewank.com", vendorsAllowed: true });
+  assert.equal(cookieWrites.filter((w) => w.startsWith("_ga=;") || w.startsWith("_gcl_aw=;")).length, 0);
 });
 
 test("other hosts never load the Meta Pixel, with or without a stored choice", () => {
