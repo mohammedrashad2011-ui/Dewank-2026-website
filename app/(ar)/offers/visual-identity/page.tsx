@@ -1,4 +1,4 @@
-import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -65,7 +65,7 @@ export default function MiniVisualIdentityOffer() {
         serviceType: ["Visual Identity Design", "Logo Design", "Brand Identity"],
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
-        offers: { "@type": "Offer", price: String(offerPricing["mini-visual-identity"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("mini-visual-identity", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },
       {
