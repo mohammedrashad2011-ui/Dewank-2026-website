@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -112,7 +113,7 @@ export default function MiniVisualIdentityOffer() {
         </div>
         <aside className="offer-price-panel mini-identity-price-panel">
           <small>Essential package from</small>
-          <OfferPrice offerKey="mini-visual-identity" className="offer-price" />
+          <PromotionalPrice offerKey="mini-visual-identity" locale="en" />
           <div className="offer-trust-inline"><span>Primary logo</span><span>3 applications</span><span>Two revision rounds</span></div>
           <p>It does not include a full brand strategy, naming, content management or extended applications beyond the agreed scope.</p>
           <p className="vi-assure">Two revision rounds are included in the price, after the initial direction is presented.</p>
