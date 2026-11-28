@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -103,7 +104,7 @@ export default function Instagram14DayUpgradeOffer() {
         </div>
         <aside className="offer-price-panel instagram-upgrade-price-panel">
           <small>14-day upgrade package from</small>
-          <OfferPrice offerKey="instagram-14-day-upgrade" className="offer-price" />
+          <PromotionalPrice offerKey="instagram-14-day-upgrade" locale="en" />
           <div className="offer-trust-inline"><span>Full review</span><span>Six designs</span><span>14-day plan</span></div>
           <p>The price covers the development, the designs and the plan only. It does not include advertising, photography or ongoing daily management.</p>
           <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Upgrade my account <span>→</span></a>
