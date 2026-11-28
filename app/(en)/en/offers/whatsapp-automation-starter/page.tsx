@@ -1,4 +1,4 @@
-import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -64,7 +64,7 @@ export default function WhatsAppAutomationStarterOffer() {
         serviceType: ["WhatsApp Automation", "Lead Qualification", "Customer Messaging Automation"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: String(offerPricing["whatsapp-automation-starter"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/whatsapp-automation-starter" },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("whatsapp-automation-starter", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/whatsapp-automation-starter" },
         url,
         inLanguage: "en",
       },
