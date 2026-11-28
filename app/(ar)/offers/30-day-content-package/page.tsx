@@ -1,4 +1,4 @@
-import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -81,7 +81,7 @@ export default function ContentOfferPage() {
     url: `${siteUrl}/offers/30-day-content-package`,
     provider: { "@id": organizationId },
     areaServed: servedMarkets,
-    offers: { "@type": "Offer", price: String(offerPricing["30-day-content-package"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: `${siteUrl}/offers/30-day-content-package` },
+    offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("30-day-content-package", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: `${siteUrl}/offers/30-day-content-package` },
   };
 
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) };
