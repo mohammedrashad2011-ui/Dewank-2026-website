@@ -1,4 +1,4 @@
-import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -61,7 +61,7 @@ export default function LandingPageOffer() {
         serviceType: ["Landing page design", "Conversion copywriting", "Web analytics setup"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: [{ "@type": "Offer", price: String(offerPricing["landing-page-package"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/landing-page-package" }, { "@type": "Offer", price: String(offerPricing["landing-page-package-full"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/landing-page-package" }],
+        offers: [{ "@type": "Offer", price: String(resolveCurrentOfferPrice("landing-page-package", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/landing-page-package" }, { "@type": "Offer", price: String(resolveCurrentOfferPrice("landing-page-package-full", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/landing-page-package" }],
         url: "https://dewank.com/en/offers/landing-page-package",
         inLanguage: "en",
       },
