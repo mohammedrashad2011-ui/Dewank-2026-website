@@ -6,7 +6,7 @@ import { resolveOfferPrice, useOfferCountry } from "../_en/lib/localized-price";
 import { whatsappHref } from "../_en/lib/site";
 
 // The message uses the same resolved amount and currency as the price shown on the card, so they never disagree.
-// The saved country follows the existing USD-first rule. Opening WhatsApp does not complete an order.
+// The shared resolver starts with SAR until a country is known, then uses the localized market or USD fallback. Opening WhatsApp does not complete an order.
 const amountFormatter = new Intl.NumberFormat("en", { maximumFractionDigits: 0 });
 
 export function CroPackageWhatsAppEn({ offerKey, packageName, className, label }: { offerKey: OfferPriceKey; packageName: string; className: string; label: string }) {
