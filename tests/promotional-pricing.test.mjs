@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { offerPricing, offerFuturePricing, getOfferQuote, yearEndOffer, resolveCurrentOfferPrice, normalizeOfferCountry } from "../app/(ar)/offers/offer-pricing.ts";
+import { offerPricing, offerFuturePricing, getOfferQuote, yearEndOffer, resolveCurrentOfferPrice, normalizeOfferCountry, getNameIdentityBundleSaving } from "../app/(ar)/offers/offer-pricing.ts";
 
 const expiry = Date.parse(yearEndOffer.endsAt);
 const countries = [null, "SA", "AE", "BH", "KW", "QA", "OM", "US", "EG"];
@@ -70,4 +70,19 @@ test("country normalization and unsupported market fallback", () => {
   assert.equal(resolveCurrentOfferPrice("brand-naming", " eg ").currency, "USD");
   assert.equal(resolveCurrentOfferPrice("brand-naming", " eg ").amount, 130);
   assert.equal(resolveCurrentOfferPrice("brand-naming", null).currency, "SAR");
+});
+
+test("campaign and bundle savings remain independent at expiry", () => {
+  for (const country of countries) {
+    for (const at of [expiry - 1, expiry, expiry + 1]) {
+      const bundle = getOfferQuote("name-identity-bundle", country, at);
+      const savings = getNameIdentityBundleSaving(country, at);
+      assert.equal(savings.separate - bundle.amount, savings.saving);
+      assert.equal(savings.currency, bundle.currency);
+      assert.ok(savings.saving > 0);
+    }
+  }
+  assert.equal(getOfferQuote("brand-naming", " sa ", expiry).currency, "SAR");
+  assert.equal(getOfferQuote("brand-naming", "EG", expiry).currency, "USD");
+  assert.equal(getOfferQuote("brand-naming", "invalid", expiry).currency, "SAR");
 });
