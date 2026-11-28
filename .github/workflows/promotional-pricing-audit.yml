@@ -1,0 +1,16 @@
+name: Promotional pricing source audit
+on:
+  push:
+    branches: [feat/year-end-promotional-pricing]
+permissions:
+  contents: read
+jobs:
+  inventory:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Read-only source inventory
+        run: node scripts/qa/pricing-inventory.mjs
