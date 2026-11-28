@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { offerPricing, type OfferPriceKey } from "../(ar)/offers/offer-pricing";
-import { useSavedOfferCountry } from "../(ar)/offers/use-offer-price";
+import { resolveCurrentOfferPrice, type OfferPriceKey } from "../(ar)/offers/offer-pricing";
+import { useLocalizedOfferCountry } from "../(ar)/offers/use-offer-price";
 
 type OfferCard = {
   key: OfferPriceKey;
@@ -32,44 +32,14 @@ const offers: OfferCard[] = [
 
 const offerByKey = new Map(offers.map((offer) => [offer.key, offer]));
 const fallbackKeys: OfferPriceKey[] = ["brand-naming", "google-ads-launch", "whatsapp-automation-starter"];
-const countryStorageKey = "dewank_offer_country";
 
 export default function HomeSelectedOffers() {
   const [rankedKeys, setRankedKeys] = useState<OfferPriceKey[]>(fallbackKeys);
-  const [lookedUpCountry, setLookedUpCountry] = useState<string | null>(null);
-  // A saved country is used as it is. The lookup below only runs when no country is saved, so the saved value wins.
-  const storedCountry = useSavedOfferCountry();
-  const country = storedCountry ?? lookedUpCountry;
+  // Keep country lookup off the initial mobile critical path.
+  const country = useLocalizedOfferCountry(6500);
 
   useEffect(() => {
     let cancelled = false;
-    const savedCountry = window.localStorage.getItem(countryStorageKey)?.toUpperCase();
-
-    let countryTimer: number | null = null;
-    let countryController: AbortController | null = null;
-
-    // Country pricing is below the fold on the homepage, so do not put the
-    // third-party lookup on the initial mobile critical path. Returning visitors
-    // use the saved country immediately and do not need another network request.
-    if (!savedCountry) {
-      countryTimer = window.setTimeout(() => {
-        if (cancelled) return;
-        countryController = new AbortController();
-        fetch("https://api.country.is/", { cache: "no-store", signal: countryController.signal })
-          .then((response) => {
-            if (!response.ok) throw new Error("Country lookup failed");
-            return response.json() as Promise<{ country?: string }>;
-          })
-          .then((data) => {
-            const next = data.country?.toUpperCase();
-            if (!next || cancelled) return;
-            window.localStorage.setItem(countryStorageKey, next);
-            setLookedUpCountry(next);
-          })
-          .catch(() => {});
-      }, 6500);
-    }
-
     const loadRanking = () => {
       fetch("/api/offer-popularity", { cache: "force-cache" })
         .then((response) => response.json() as Promise<PopularityResponse>)
@@ -95,8 +65,6 @@ export default function HomeSelectedOffers() {
 
     return () => {
       cancelled = true;
-      if (countryTimer !== null) window.clearTimeout(countryTimer);
-      countryController?.abort();
       if (idleId !== null) win.cancelIdleCallback?.(idleId);
       if (timer !== null) window.clearTimeout(timer);
     };
@@ -118,8 +86,7 @@ export default function HomeSelectedOffers() {
   return (
     <div className="home-offer-grid">
       {resolved.map((offer, index) => {
-        const config = offerPricing[offer.key];
-        const price = !country ? config.initial : country && config.prices[country] ? config.prices[country] : config.fallback;
+        const price = resolveCurrentOfferPrice(offer.key, country);
         return (
           <Link
             className={`home-offer-card${index === 0 ? " is-recommended" : ""}`}
