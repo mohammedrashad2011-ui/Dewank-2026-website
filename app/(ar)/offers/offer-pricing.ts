@@ -116,3 +116,17 @@ export function getOfferQuote(key: OfferPriceKey, country: string | null, at: nu
     endDate: yearEndOffer.endDate,
   };
 }
+
+/** Shared market selection, deliberately pinned to current pricing until the release gate is complete. */
+export function normalizeOfferCountry(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const code = value.trim().toUpperCase();
+  return /^[A-Z]{2}$/.test(code) ? code : null;
+}
+
+export function resolveCurrentOfferPrice(key: OfferPriceKey, country: string | null) {
+  const normalized = normalizeOfferCountry(country);
+  const config = offerPricing[key];
+  const codes: Record<string, string> = { SA: "SAR", AE: "AED", BH: "BHD", KW: "KWD", QA: "QAR", OM: "OMR" };
+  return { ...marketPrice(config, normalized), currency: normalized ? (codes[normalized] ?? "USD") : "SAR" };
+}
