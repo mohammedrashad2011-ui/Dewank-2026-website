@@ -7,6 +7,7 @@ const SitewideWhatsAppBridge = dynamic(() => import("./sitewide-whatsapp-bridge"
 const InstagramFollowCard = dynamic(() => import("./instagram-follow-card"), { ssr: false });
 const HideMobileFeedbackNote = dynamic(() => import("./hide-mobile-feedback-note"), { ssr: false });
 const WebMcpTools = dynamic(() => import("./webmcp-tools"), { ssr: false });
+const PricingSnapshotRefresh = dynamic(() => import("./pricing-snapshot-refresh"), { ssr: false });
 
 export default function DeferredClientLayer() {
   const [ready, setReady] = useState(false);
@@ -41,6 +42,7 @@ export default function DeferredClientLayer() {
       <InstagramFollowCard />
       <HideMobileFeedbackNote />
       <WebMcpTools />
+      <PricingSnapshotRefresh />
     </>
   );
 }
