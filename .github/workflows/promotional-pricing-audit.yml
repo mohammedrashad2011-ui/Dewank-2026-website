@@ -28,3 +28,25 @@ jobs:
         env:
           NEXT_PUBLIC_DEWANK_PRICING_SNAPSHOT: regular
         run: node --experimental-strip-types --test tests/promotional-pricing.test.mjs
+  build-snapshots:
+    if: github.event_name == 'pull_request' && github.head_ref == 'feat/year-end-promotional-pricing'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        snapshot: [campaign, regular]
+    env:
+      NEXT_PUBLIC_DEWANK_PRICING_SNAPSHOT: ${{ matrix.snapshot }}
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build standalone Next.js artifact without deployment
+        run: npm run build
