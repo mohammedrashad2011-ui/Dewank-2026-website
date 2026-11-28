@@ -1,3 +1,4 @@
+import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -75,7 +76,7 @@ export default function GoogleAdsLaunchOffer() {
         serviceType: ["Google Ads Setup", "Google Ads Campaign Launch", "Google Search Ads", "Conversion Tracking"],
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
-        offers: { "@type": "Offer", price: "790", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        offers: { "@type": "Offer", price: String(offerPricing["google-ads-launch"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },
       {
