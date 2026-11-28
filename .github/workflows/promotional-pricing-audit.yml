@@ -20,5 +20,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Test central pricing and market parity
+      - name: Test campaign snapshot
+        env:
+          NEXT_PUBLIC_DEWANK_PRICING_SNAPSHOT: campaign
+        run: node --experimental-strip-types --test tests/promotional-pricing.test.mjs
+      - name: Test regular snapshot
+        env:
+          NEXT_PUBLIC_DEWANK_PRICING_SNAPSHOT: regular
         run: node --experimental-strip-types --test tests/promotional-pricing.test.mjs
