@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { resolveCurrentOfferPrice, type OfferPriceKey } from "../(ar)/offers/offer-pricing";
+import { PromotionalSaving } from "../(ar)/offers/promotional-price";
 import { useLocalizedOfferCountry } from "../(ar)/offers/use-offer-price";
 
 type OfferCard = {
@@ -101,7 +102,7 @@ export default function HomeSelectedOffers() {
             <h3>{offer.title}</h3>
             <p>{offer.text}</p>
             <div className="home-offer-bottom">
-              <div className="home-offer-price"><strong>{new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount)}</strong><span>{price.currencyLabel}</span></div>
+              <div className="dp-card-price-stack"><div className="home-offer-price"><strong>{new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount)}</strong><span>{price.currencyLabel}</span></div><PromotionalSaving quote={price} /></div>
               <b>شاهد العرض</b>
             </div>
           </Link>
