@@ -16,6 +16,7 @@ export function PromotionalPriceDisplay({ offerKey, locale = "ar", country, amou
   const ar = locale === "ar";
   const currency = ar ? quote.currencyLabel : quote.currency;
   const format = (amount: number) => new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(amount);
+  const endDate = new Intl.DateTimeFormat(ar ? "ar-SA-u-ca-gregory" : "en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(yearEndOffer.endDate + "T00:00:00Z"));
   return (
     <div className="dp-promotion" lang={locale} dir={ar ? "rtl" : "ltr"}>
       {quote.active && <div className="dp-promotion-label">{ar ? "سعر العرض" : "Offer price"}</div>}
@@ -27,7 +28,7 @@ export function PromotionalPriceDisplay({ offerKey, locale = "ar", country, amou
             <span><bdi>{format(quote.futureAmount)}</bdi> {currency}</span>
           </div>
           <div className="dp-promotion-saving">{ar ? "وفر" : "Save"} <bdi>{format(quote.savings)}</bdi> {currency} <span dir="ltr">({format(quote.savingsPercent)}%)</span></div>
-          <div className="dp-promotion-end">{ar ? "العرض حتى" : "Offer ends"} <time dateTime={yearEndOffer.endDate}>{ar ? "٣١ ديسمبر ٢٠٢٦" : "31 December 2026"}</time></div>
+          <div className="dp-promotion-end">{ar ? "العرض حتى" : "Offer ends"} <time dateTime={yearEndOffer.endDate}>{endDate}</time></div>
         </div>
       )}
     </div>
