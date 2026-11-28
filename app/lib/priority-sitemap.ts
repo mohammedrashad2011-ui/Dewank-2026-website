@@ -1,9 +1,8 @@
 type SitemapEntry = { url: string; lastModified?: Date | string };
 type Registry = { baselinePaths: readonly string[]; reviewedUpdates: Record<string, string> };
 
-const xmlEscape = (value: string) => value.replace(/[&<>"']/g, char =>
-  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" }[char] ?? char)
-);
+const xmlEntities: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" };
+const xmlEscape = (value: string) => value.replace(/[&<>"']/g, char => xmlEntities[char] ?? char);
 
 function validDate(value: string | Date | undefined): string | undefined {
   if (!value) return undefined;
