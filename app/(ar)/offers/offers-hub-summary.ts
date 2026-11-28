@@ -34,17 +34,15 @@ export const hubFacts = {
   priciest: bySar[bySar.length - 1],
 };
 
-/** The summary paragraph around the localized price range: [before] min [middle] max [after]. */
+/** The summary paragraph around the localized starting price: [before] min [after]. */
 export const hubSummaryParts = {
   ar: {
     before: `تقدم ديوانك ${hubFacts.count} باقة تسويق إلكتروني بنطاق محدد وسعر بداية معلن، للشركات والمتاجر في السعودية والخليج. تبدأ الأسعار من `,
-    middle: " وتصل إلى ",
-    after: " حسب الباقة، والتسليم من 48 ساعة إلى نحو 14 يوم عمل. تطلب الباقة عبر واتساب، ونؤكد النطاق والسعر قبل الدفع.",
+    after: "، والتسليم من 48 ساعة إلى نحو 14 يوم عمل. تطلب الباقة عبر واتساب، ونؤكد النطاق والسعر قبل الدفع.",
   },
   en: {
     before: `Dewank offers ${hubFacts.count} digital marketing packages with a fixed scope and a published starting price, for small businesses in the Gulf and worldwide. Prices start at `,
-    middle: " and go up to ",
-    after: ", depending on the package, with delivery from 48 hours to about 14 working days. You order on WhatsApp, and we confirm the scope and price before you pay.",
+    after: ", with delivery from 48 hours to about 14 working days. You order on WhatsApp, and we confirm the scope and price before you pay.",
   },
 };
 
