@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -6,7 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, siteUrl, servedMarkets, serviceId, organizationId } from "../../../lib/seo";
-import { SmallWebsitePrice, SmallWebsiteSticky, SmallWebsiteWhatsApp } from "./localized-small-website";
+import { SmallWebsiteSticky, SmallWebsiteWhatsApp } from "./localized-small-website";
 import { OfferClientProof } from "../offer-client-proof";
 import { InlineOfferPrice } from "../inline-offer-price";
 import { WebsitePlan, WebsiteProblems, WebsiteSectors, websiteExtraFaqs } from "./website-extras";
@@ -132,7 +133,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         </div>
         <aside id="order-panel" className="offer-price-panel small-website-price-panel">
           <small>الباقة كاملة من</small>
-          <SmallWebsitePrice />
+          <PromotionalPrice offerKey="small-business-website" />
           <div className="offer-trust-inline"><span>حتى 5 صفحات</span><span>متجاوب مع الجوال</span><span>واتساب وتحليلات</span></div>
           <p>يشمل حتى 5 صفحات. لا يشمل الدومين والاستضافة أو البرمجة الخاصة والخدمات الخارجية المدفوعة.</p>
           <p className="sw-assure">مراجعة كاملة قبل الإطلاق، و7 أيام دعم تقني بعده ضمن السعر.</p>
