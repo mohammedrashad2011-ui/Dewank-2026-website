@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -92,7 +93,7 @@ export default function LandingPageOffer() {
         </div>
         <aside id="order-panel" className="offer-price-panel">
           <small>Base package from</small>
-          <OfferPrice offerKey="landing-page-package" className="offer-price" />
+          <PromotionalPrice offerKey="landing-page-package" locale="en" />
           <div className="offer-trust-inline"><span>Custom page</span><span>50% to start</span><span>Full tracking</span></div>
           <p>Includes design, copy, connections and tracking. Domain and hosting fees are not included.</p>
           <a id="order-cta" className="button primary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a>
@@ -114,14 +115,14 @@ export default function LandingPageOffer() {
           <article className="offer-fit-card good landing-package-card">
             <small>If you already have a domain and hosting</small>
             <h3>Landing page package</h3>
-            <OfferPrice offerKey="landing-page-package" className="offer-price" />
+            <PromotionalPrice offerKey="landing-page-package" locale="en" />
             <ul><li>Design and copy for one page</li><li>WhatsApp and lead form connections</li><li>GA4, GTM and conversion tracking</li><li>Basic SEO, SSL and publishing</li><li>Two rounds of revisions</li></ul>
             <a className="button secondary offer-consultation-cta" href={contactBase} target="_blank" rel="noopener noreferrer">Start your page <span>→</span></a>
           </article>
           <article className="offer-fit-card limits landing-package-card featured">
             <small>If you are starting from scratch</small>
             <h3>Full package</h3>
-            <OfferPrice offerKey="landing-page-package-full" className="offer-price" />
+            <PromotionalPrice offerKey="landing-page-package-full" locale="en" />
             <ul><li>Everything in the base package</li><li>A domain for one year, registered in your name</li><li>Hosting for one year</li><li>Domain connection, SSL and setup</li><li>One professional email address where available</li></ul>
             <a className="button primary offer-consultation-cta" href={contactFull} target="_blank" rel="noopener noreferrer">Start the full package <span>→</span></a>
           </article>
