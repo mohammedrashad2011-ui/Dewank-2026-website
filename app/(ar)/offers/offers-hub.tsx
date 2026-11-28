@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import OffersDecisionPanel, { type OfferChoice } from "../../components/offers-decision-panel";
 import VideoOfferFromPrice from "./ai-video-production/video-offer-from-price";
 import { HubPrice } from "./offers-hub-price";
+import { LocalizedPromotionalSaving } from "./promotional-price";
 import { OfferIcon } from "./offers-hub-icons";
 import { hubCopy, hubFilterIds, hubOffers, hubVideo, type HubLocale } from "./offers-hub-data";
 import { hubFacts, hubRows, hubSummaryParts } from "./offers-hub-summary";
@@ -50,7 +51,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
               <span className="oh-feature-tag"><b>{t.featured}</b><OfferIcon name={hubVideo.icon} />{video.category}</span>
               <h2>{video.title}</h2>
               <ol>{video.steps.map((step) => <li key={step}>{step}</li>)}</ol>
-              <div className="oh-feature-price"><small>{video.label}</small><VideoOfferFromPrice locale={locale} /></div>
+              <div className="oh-feature-price"><small>{video.label}</small><VideoOfferFromPrice locale={locale} /><LocalizedPromotionalSaving offerKey="video-edit" locale={locale} delay={900} /></div>
               <span className="oh-feature-cta">{video.cta}<span aria-hidden="true">{arrow}</span></span>
             </div>
           </article>
@@ -77,7 +78,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
                 <h2>{text.title}<em>{text.hook}</em></h2>
                 <p>{text.text}</p>
                 <div className="oh-card-foot">
-                  <div><small>{text.label}</small><HubPrice offerKey={offer.priceKey} locale={locale} /></div>
+                  <div><small>{text.label}</small><HubPrice offerKey={offer.priceKey} locale={locale} /><LocalizedPromotionalSaving offerKey={offer.priceKey} locale={locale} /></div>
                   <span className="oh-card-cta">{text.cta}<span aria-hidden="true">{arrow}</span></span>
                 </div>
               </article>
