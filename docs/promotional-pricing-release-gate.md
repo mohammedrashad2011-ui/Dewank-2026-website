@@ -1,6 +1,6 @@
 # Phase 3 — expiry release gate (PR #241)
 
-Current integration deliberately uses a fixed campaign snapshot. Do not merge this draft as a completed promotion.
+Current integration supports deterministic campaign and regular build snapshots; campaign is the default. Do not merge this draft as a completed promotion.
 
 ## Recommended approach
 Preserve static rendering and current caching wherever possible. Use two immutable pricing snapshots (campaign and regular), selected centrally for a build, with an atomic production artifact switch at the approved deadline (2027-01-01 00:00 Asia/Riyadh, 2026-12-31 21:00 UTC). This approach needs verified scheduling and rollback on Hostinger and is not yet implemented. Vercel preview must exercise both snapshots. If exact atomic switching cannot be guaranteed, implement request-scoped server pricing and a shared client snapshot instead; do not silently use client-only Date.now().
@@ -15,4 +15,7 @@ Preserve static rendering and current caching wherever possible. Use two immutab
 - No merge or production scheduling before owner approval.
 
 ## Open items
-The deployment switch, cache invalidation and old-tab refresh are not implemented. No production changes have been made. The current gate remains closed.
+The production deployment switch and cache invalidation are not implemented. A deferred client refresh and uncached snapshot endpoint are implemented, but not yet verified in a browser or deployment. Campaign tabs check the serving deployment only after expiry; refresh when regular is confirmed, with a reload cooldown. A delayed switch, unavailable network, blocked session storage or stale cached HTML can still leave campaign content visible. No production changes have been made. The current gate remains closed.
+
+## Verified CI baseline
+At commit eff8112ff32c547f5fa2381cff445ae773a86887, run 46182414607 passed both Next.js builds and both sets of seven pricing tests. The 434-file inventory returned 60 candidates with zero read errors: 21 CSS, 20 market/competitor editorial lines, 14 SVG, and five other incidental/template matches. The non-SVG results were reviewed; visual asset QA and fresh checks of the new client/API code remain outstanding.
