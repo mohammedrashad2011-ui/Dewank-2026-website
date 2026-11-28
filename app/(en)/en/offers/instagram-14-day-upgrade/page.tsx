@@ -1,3 +1,4 @@
+import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -60,7 +61,7 @@ export default function Instagram14DayUpgradeOffer() {
         serviceType: ["Instagram Profile Optimization", "Social Media Content Strategy", "Social Media Design"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: "590", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/instagram-14-day-upgrade" },
+        offers: { "@type": "Offer", price: String(offerPricing["instagram-14-day-upgrade"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/instagram-14-day-upgrade" },
         url,
         inLanguage: "en",
       },
