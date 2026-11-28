@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -9,7 +10,7 @@ import { offerExtras } from "../offer-extras-data";
 import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { WhatsAppStarterLink, WhatsAppStarterPrice, WhatsAppStarterSticky } from "./localized-whatsapp-starter";
+import { WhatsAppStarterLink, WhatsAppStarterSticky } from "./localized-whatsapp-starter";
 import { AutomationJourney, AutomationContrast } from "./whatsapp-cinematic";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -76,7 +77,7 @@ export default function WhatsAppAutomationStarterOffer() {
           </div>
           <div className="whatsapp-starter-answer" aria-label="الإجابة المختصرة"><b>الإجابة المختصرة</b><span>هذه باقة تأسيسية وليست نظامًا كاملًا لإدارة العملاء، ومناسبة لو مشكلتك الأساسية هي بطء الرد وتكرار الأسئلة وضياع العملاء قبل وصولهم للفريق</span></div>
         </div>
-        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><WhatsAppStarterPrice /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل، ولا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink id="order-cta" className="button primary offer-consultation-cta" label="ابدأ أتمتة واتساب" /></aside>
+        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>باقة التأسيس</small><PromotionalPrice offerKey="whatsapp-automation-starter" /><div className="offer-trust-inline"><span>رد وتأهيل</span><span>تحويل للموظف</span><span>دعم 7 أيام</span></div><p>تشمل إعداد المسار الأساسي والاختبار والتشغيل، ولا تشمل رسوم واتساب أو الأدوات الخارجية أو نظامًا كاملًا لإدارة العملاء</p><WhatsAppStarterLink id="order-cta" className="button primary offer-consultation-cta" label="ابدأ أتمتة واتساب" /></aside>
       </section>
 
       <AutomationJourney locale="ar" />
