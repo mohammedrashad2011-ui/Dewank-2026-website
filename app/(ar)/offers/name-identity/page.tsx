@@ -8,7 +8,7 @@ import { offerExtras } from "../offer-extras-data";
 import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { offerPricing } from "../offer-pricing";
+import { resolveCurrentOfferPrice } from "../offer-pricing";
 import { OfferClientProof } from "../offer-client-proof";
 import { NameIdentityPrice, NameIdentitySaving, NameIdentitySticky, NameIdentityWhatsApp } from "./localized-name-identity";
 import "../offers-page.css";
@@ -62,7 +62,7 @@ export default function NameIdentityBundle() {
         serviceType: ["Brand Naming", "Visual Identity Design", "Logo Design"],
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
-        offers: { "@type": "Offer", price: String(offerPricing["name-identity-bundle"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("name-identity-bundle", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
