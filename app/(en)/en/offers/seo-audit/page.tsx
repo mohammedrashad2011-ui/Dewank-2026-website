@@ -1,3 +1,4 @@
+import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -74,7 +75,7 @@ export default function SeoAuditOfferPage() {
         serviceType: ["SEO Audit", "Technical SEO Audit", "On-page SEO Audit", "AEO Audit", "Website Performance Audit"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/seo-audit" },
+        offers: { "@type": "Offer", price: String(offerPricing["seo-audit"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/seo-audit" },
         url,
         inLanguage: "en",
       },
