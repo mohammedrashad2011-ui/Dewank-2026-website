@@ -16,7 +16,7 @@ export function BrandNamingOfferPrice() {
   return <div className="offer-price"><strong>{price.formattedAmount}</strong><span>{price.currencyLabel}</span></div>;
 }
 
-// Inline price for running text, e.g. inside the hero line "الباقة كاملة بـ 490 ريال سعودي".
+// Inline price for running text, using the same localized quote as the offer panel.
 export function BrandNamingInlinePrice() {
   const price = useOfferPrice("brand-naming");
   return <b className="bn2-inline-price">{price.formattedAmount} {price.currencyLabel}</b>;
