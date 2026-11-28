@@ -1,3 +1,4 @@
+import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -52,8 +53,8 @@ export default function LandingPageOffer() {
     provider: { "@id": organizationId },
     areaServed: servedMarkets,
     offers: [
-      { "@type": "Offer", name: "باقة صفحة الهبوط", price: "1490", priceCurrency: "SAR" },
-      { "@type": "Offer", name: "الباقة الكاملة مع دومين واستضافة", price: "1890", priceCurrency: "SAR" },
+      { "@type": "Offer", name: "باقة صفحة الهبوط", price: String(offerPricing["landing-page-package"].initial.amount), priceCurrency: "SAR" },
+      { "@type": "Offer", name: "الباقة الكاملة مع دومين واستضافة", price: String(offerPricing["landing-page-package-full"].initial.amount), priceCurrency: "SAR" },
     ],
   };
 
