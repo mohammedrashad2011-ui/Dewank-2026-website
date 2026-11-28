@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -100,7 +101,7 @@ export default function WhatsAppAutomationStarterOffer() {
           </div>
           <div className="whatsapp-starter-answer" aria-label="The short answer"><b>The short answer</b><span>This is a foundation package, not a full CRM, and it suits you if your main problems are slow replies, the same questions repeated, and customers lost before they reach the team</span></div>
         </div>
-        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>Foundation package from</small><OfferPrice offerKey="whatsapp-automation-starter" className="offer-price" /><div className="offer-trust-inline"><span>Reply and qualify</span><span>Handover to a person</span><span>7-day support</span></div><p>Includes setting up the basic path, testing and going live, while WhatsApp fees, external tools and a full CRM are not included</p><a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your automation <span>→</span></a></aside>
+        <aside className="offer-price-panel whatsapp-starter-price-panel"><small>Foundation package from</small><PromotionalPrice offerKey="whatsapp-automation-starter" locale="en" /><div className="offer-trust-inline"><span>Reply and qualify</span><span>Handover to a person</span><span>7-day support</span></div><p>Includes setting up the basic path, testing and going live, while WhatsApp fees, external tools and a full CRM are not included</p><a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your automation <span>→</span></a></aside>
       </section>
 
       <AutomationJourney locale="en" />
