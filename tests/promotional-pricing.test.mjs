@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { offerPricing, offerFuturePricing, getOfferQuote, yearEndOffer, resolveCurrentOfferPrice, normalizeOfferCountry, getNameIdentityBundleSaving } from "../app/(ar)/offers/offer-pricing.ts";
+import { offerPricing, offerFuturePricing, getOfferQuote, yearEndOffer, resolveCurrentOfferPrice, normalizeOfferCountry, getNameIdentityBundleSaving, getPricingSnapshotTime, pricingSnapshotTime } from "../app/(ar)/offers/offer-pricing.ts";
 
 const expiry = Date.parse(yearEndOffer.endsAt);
 const countries = [null, "SA", "AE", "BH", "KW", "QA", "OM", "US", "EG"];
@@ -55,7 +55,7 @@ test("shared localization preserves current amounts and currency across all pack
   for (const key of Object.keys(offerPricing)) {
     countries.forEach((country, index) => {
       const current = resolveCurrentOfferPrice(key, country);
-      const quote = getOfferQuote(key, country, expiry - 1);
+      const quote = getOfferQuote(key, country, getPricingSnapshotTime());
       assert.equal(current.amount, quote.amount);
       assert.equal(current.currencyLabel, quote.currencyLabel);
       assert.equal(current.currency, codes[index]);
@@ -68,7 +68,7 @@ test("country normalization and unsupported market fallback", () => {
   assert.equal(normalizeOfferCountry("invalid"), null);
   assert.equal(normalizeOfferCountry(null), null);
   assert.equal(resolveCurrentOfferPrice("brand-naming", " eg ").currency, "USD");
-  assert.equal(resolveCurrentOfferPrice("brand-naming", " eg ").amount, 130);
+  assert.equal(resolveCurrentOfferPrice("brand-naming", " eg ").amount, getOfferQuote("brand-naming", "EG", getPricingSnapshotTime()).amount);
   assert.equal(resolveCurrentOfferPrice("brand-naming", null).currency, "SAR");
 });
 
@@ -85,4 +85,17 @@ test("campaign and bundle savings remain independent at expiry", () => {
   assert.equal(getOfferQuote("brand-naming", " sa ", expiry).currency, "SAR");
   assert.equal(getOfferQuote("brand-naming", "EG", expiry).currency, "USD");
   assert.equal(getOfferQuote("brand-naming", "invalid", expiry).currency, "SAR");
+});
+
+test("build snapshot selects one consistent pricing epoch", () => {
+  assert.equal(pricingSnapshotTime("campaign"), expiry - 1);
+  assert.equal(pricingSnapshotTime("regular"), expiry);
+  assert.throws(() => pricingSnapshotTime("invalid"), RangeError);
+  const expected = process.env.NEXT_PUBLIC_DEWANK_PRICING_SNAPSHOT === "regular" ? expiry : expiry - 1;
+  assert.equal(getPricingSnapshotTime(), expected);
+  for (const key of Object.keys(offerPricing)) {
+    for (const country of countries) {
+      assert.deepEqual(resolveCurrentOfferPrice(key, country), getOfferQuote(key, country, expected));
+    }
+  }
 });
