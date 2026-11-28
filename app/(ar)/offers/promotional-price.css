@@ -8,3 +8,7 @@
 @media (max-width: 480px) {
   .dp-promotion-next { justify-content: flex-start; column-gap: 8px; }
 }
+
+.dp-card-saving { display: block; width: fit-content; max-width: 100%; font-size: .75rem !important; font-weight: 700; line-height: 1.5; margin-block-start: 4px; color: inherit; }
+.oh-feature-price > .dp-card-saving { flex-basis: 100%; }
+.dp-card-price-stack { min-width: 0; }
