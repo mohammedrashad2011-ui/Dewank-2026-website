@@ -148,7 +148,24 @@ export function getNameIdentityBundleSaving(country: string | null, at: number) 
   return { separate, saving: separate - bundle.amount, currency: bundle.currency, currencyLabel: bundle.currencyLabel };
 }
 
-/** Single release-gated snapshot used by price panels, schema and bundle calculations. */
+export type PricingSnapshot = "campaign" | "regular";
+
+/** Pure snapshot selection for deterministic builds and tests. */
+export function pricingSnapshotTime(snapshot: PricingSnapshot): number {
+  const expiry = Date.parse(yearEndOffer.endsAt);
+  if (snapshot === "campaign") return expiry - 1;
+  if (snapshot === "regular") return expiry;
+  throw new RangeError("Invalid pricing snapshot");
+}
+
+/** Public build-time setting is inlined by Next.js in both server and browser bundles.
+ * Default remains campaign until the production release gate is approved.
+ */
 export function getPricingSnapshotTime(): number {
-  return Date.parse(yearEndOffer.endsAt) - 1;
+  const configured = process.env.NEXT_PUBLIC_DEWANK_PRICING_SNAPSHOT;
+  if (configured === undefined || configured === "") return pricingSnapshotTime("campaign");
+  if (configured !== "campaign" && configured !== "regular") {
+    throw new RangeError("Invalid NEXT_PUBLIC_DEWANK_PRICING_SNAPSHOT");
+  }
+  return pricingSnapshotTime(configured);
 }
