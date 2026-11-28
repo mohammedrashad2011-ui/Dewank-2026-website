@@ -1,4 +1,4 @@
-import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -75,7 +75,7 @@ export default function ContentOfferPage() {
     areaServed: "Worldwide",
     url: "https://dewank.com/en/offers/30-day-content-package",
     inLanguage: "en",
-    offers: { "@type": "Offer", price: String(offerPricing["30-day-content-package"].fallback.amount), priceCurrency: "USD", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/30-day-content-package" },
+    offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("30-day-content-package", "US").amount), priceCurrency: "USD", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/30-day-content-package" },
   };
   const faqSchema = {
     "@context": "https://schema.org",
