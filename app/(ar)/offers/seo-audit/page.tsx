@@ -1,4 +1,4 @@
-import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -87,7 +87,7 @@ export default function SeoAuditOfferPage() {
         url,
         offers: {
           "@type": "Offer",
-          price: String(offerPricing["seo-audit"].initial.amount),
+          price: String(resolveCurrentOfferPrice("seo-audit", null).amount),
           priceCurrency: "SAR",
           availability: "https://schema.org/InStock",
           url,
