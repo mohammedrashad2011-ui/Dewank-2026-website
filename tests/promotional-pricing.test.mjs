@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { offerPricing, offerFuturePricing, getOfferQuote, yearEndOffer } from "../app/(ar)/offers/offer-pricing.ts";
+import { offerPricing, offerFuturePricing, getOfferQuote, yearEndOffer, resolveCurrentOfferPrice, normalizeOfferCountry } from "../app/(ar)/offers/offer-pricing.ts";
 
 const expiry = Date.parse(yearEndOffer.endsAt);
 const countries = [null, "SA", "AE", "BH", "KW", "QA", "OM", "US", "EG"];
@@ -48,4 +48,26 @@ test("name and identity bundle remains cheaper than separate packages in every m
         getOfferQuote("mini-visual-identity", country, at).amount);
     }
   }
+});
+
+test("shared localization preserves current amounts and currency across all packages and markets", () => {
+  const codes = ["SAR", "SAR", "AED", "BHD", "KWD", "QAR", "OMR", "USD", "USD"];
+  for (const key of Object.keys(offerPricing)) {
+    countries.forEach((country, index) => {
+      const current = resolveCurrentOfferPrice(key, country);
+      const quote = getOfferQuote(key, country, expiry - 1);
+      assert.equal(current.amount, quote.amount);
+      assert.equal(current.currencyLabel, quote.currencyLabel);
+      assert.equal(current.currency, codes[index]);
+    });
+  }
+});
+
+test("country normalization and unsupported market fallback", () => {
+  assert.equal(normalizeOfferCountry(" sa "), "SA");
+  assert.equal(normalizeOfferCountry("invalid"), null);
+  assert.equal(normalizeOfferCountry(null), null);
+  assert.equal(resolveCurrentOfferPrice("brand-naming", " eg ").currency, "USD");
+  assert.equal(resolveCurrentOfferPrice("brand-naming", " eg ").amount, 130);
+  assert.equal(resolveCurrentOfferPrice("brand-naming", null).currency, "SAR");
 });
