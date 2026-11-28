@@ -1,3 +1,5 @@
+import { resolveCurrentOfferPrice } from "../offer-pricing";
+
 export type VideoPackageId = "edit" | "ai" | "ads";
 
 export const videoPackages = [
@@ -6,7 +8,7 @@ export const videoPackages = [
     step: "EDIT",
     demo: "/videos/dewank-method-edit.webp",
     priceKey: "video-edit",
-    priceSAR: 990,
+    priceSAR: resolveCurrentOfferPrice("video-edit", null).amount,
     count: 4,
     length: "15–45",
     ar: {
@@ -29,7 +31,7 @@ export const videoPackages = [
     step: "CREATE",
     demo: "/videos/dewank-method-create.webp",
     priceKey: "video-ai",
-    priceSAR: 1290,
+    priceSAR: resolveCurrentOfferPrice("video-ai", null).amount,
     count: 3,
     length: "15–30",
     ar: {
@@ -52,7 +54,7 @@ export const videoPackages = [
     step: "SELL",
     demo: "/videos/dewank-method-sell.webp",
     priceKey: "video-ads",
-    priceSAR: 1890,
+    priceSAR: resolveCurrentOfferPrice("video-ads", null).amount,
     count: 3,
     length: "15–30",
     ar: {

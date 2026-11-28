@@ -1,3 +1,4 @@
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -6,6 +7,7 @@ import { enMetadata } from "../../_en/metadata";
 import { Footer } from "../../_en/parity/footer";
 import { Header } from "../../_en/parity/header";
 import { OfferPrice } from "../../_en/lib/localized-price";
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { whatsappHref } from "../../_en/lib/site";
 import { NameToIdentity } from "../../../../(ar)/offers/brand-naming/name-to-identity";
 import { StickyOfferBar } from "../../../../(ar)/offers/brand-naming/sticky-offer-bar";
@@ -87,7 +89,7 @@ export default function BrandNamingOfferPage() {
         serviceType: ["Brand Naming", "Tagline Writing", "Social Media Handle Research", "Brand Direction", "Domain Availability Research"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/brand-naming" },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("brand-naming", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/brand-naming" },
         url,
         inLanguage: "en",
       },
@@ -174,7 +176,7 @@ export default function BrandNamingOfferPage() {
         </div>
         <aside className="offer-price-panel brand-naming-price-panel bn2-price" aria-label="Package price">
           <small>The defined package</small>
-          <OfferPrice offerKey="brand-naming" className="offer-price" />
+          <PromotionalPrice offerKey="brand-naming" locale="en" />
           <p className="bn2-price-note">A fixed price covering the research, the naming, the short list, the taglines and the initial brand direction.</p>
           <p className="bn3-assure">If the first round does not settle your choice, one development round is included in the price.</p>
           <a className="button primary offer-consultation-cta bn2-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start naming your brand <span aria-hidden="true">→</span></a>

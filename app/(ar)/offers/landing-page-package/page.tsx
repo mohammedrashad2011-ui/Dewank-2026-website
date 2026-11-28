@@ -1,3 +1,5 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -9,7 +11,7 @@ import { offerExtras } from "../offer-extras-data";
 import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets, serviceId } from "../../../lib/seo";
-import { LandingOfferPrice, LandingOfferSticky, LandingOfferWhatsApp } from "./localized-landing-offer";
+import { LandingOfferSticky, LandingOfferWhatsApp } from "./localized-landing-offer";
 import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -52,8 +54,8 @@ export default function LandingPageOffer() {
     provider: { "@id": organizationId },
     areaServed: servedMarkets,
     offers: [
-      { "@type": "Offer", name: "باقة صفحة الهبوط", price: "1490", priceCurrency: "SAR" },
-      { "@type": "Offer", name: "الباقة الكاملة مع دومين واستضافة", price: "1890", priceCurrency: "SAR" },
+      { "@type": "Offer", name: "باقة صفحة الهبوط", price: String(resolveCurrentOfferPrice("landing-page-package", null).amount), priceCurrency: "SAR" },
+      { "@type": "Offer", name: "الباقة الكاملة مع دومين واستضافة", price: String(resolveCurrentOfferPrice("landing-page-package-full", null).amount), priceCurrency: "SAR" },
     ],
   };
 
@@ -88,7 +90,7 @@ export default function LandingPageOffer() {
         </div>
         <aside id="order-panel" className="offer-price-panel">
           <small>الباقة الأساسية</small>
-          <LandingOfferPrice kind="base" />
+          <PromotionalPrice offerKey="landing-page-package" />
           <div className="offer-trust-inline"><span>صفحة مخصصة</span><span>50% لبدء العمل</span><span>تتبع كامل</span></div>
           <p>تشمل التصميم والكتابة والربط والتتبع. لا تشمل رسوم الدومين أو الاستضافة.</p>
           <LandingOfferWhatsApp kind="base" id="order-cta" className="button primary offer-consultation-cta" label="ابدأ صفحتك" />
@@ -110,14 +112,14 @@ export default function LandingPageOffer() {
           <article className="offer-fit-card good landing-package-card">
             <small>لمن لديه دومين واستضافة</small>
             <h3>باقة صفحة الهبوط</h3>
-            <LandingOfferPrice kind="base" />
+            <PromotionalPrice offerKey="landing-page-package" />
             <ul><li>تصميم وكتابة صفحة واحدة</li><li>ربط واتساب ونموذج البيانات</li><li>GA4 وGTM وتتبع التحويلات</li><li>SEO أساسي وSSL والنشر</li><li>جولتا تعديل</li></ul>
             <LandingOfferWhatsApp kind="base" className="button secondary offer-consultation-cta" label="ابدأ صفحتك" />
           </article>
           <article className="offer-fit-card limits landing-package-card featured">
             <small>لمن يبدأ من الصفر</small>
             <h3>الباقة الكاملة</h3>
-            <LandingOfferPrice kind="full" />
+            <PromotionalPrice offerKey="landing-page-package-full" />
             <ul><li>كل ما في الباقة الأساسية</li><li>دومين لمدة عام باسم العميل</li><li>استضافة لمدة عام</li><li>ربط الدومين وSSL والإعداد</li><li>بريد مهني واحد عند توفره</li></ul>
             <LandingOfferWhatsApp kind="full" className="button primary offer-consultation-cta" label="ابدأ بالباقة الكاملة" />
           </article>

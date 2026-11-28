@@ -1,3 +1,5 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -74,7 +76,7 @@ export default function ContentOfferPage() {
     areaServed: "Worldwide",
     url: "https://dewank.com/en/offers/30-day-content-package",
     inLanguage: "en",
-    offers: { "@type": "Offer", price: "210", priceCurrency: "USD", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/30-day-content-package" },
+    offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("30-day-content-package", "US").amount), priceCurrency: "USD", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/30-day-content-package" },
   };
   const faqSchema = {
     "@context": "https://schema.org",
@@ -103,7 +105,7 @@ export default function ContentOfferPage() {
 
         <aside className="offer-price-panel sales-price-panel">
           <small>Full package price</small>
-          <OfferPrice offerKey="30-day-content-package" className="offer-price" />
+          <PromotionalPrice offerKey="30-day-content-package" locale="en" />
           <p className="sales-price-promise">We review your business first and explain whether this package is the right fit.</p>
           <div className="offer-trust-inline" aria-label="Trust and reassurance"><span>No monthly contract</span><span>Direction approved first</span><span>Two revision rounds</span></div>
           <p className="cp-assure">You approve the direction before production, and two rounds of design revisions are included in the price.</p>

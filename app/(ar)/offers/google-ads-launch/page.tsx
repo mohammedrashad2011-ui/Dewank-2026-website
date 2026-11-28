@@ -1,3 +1,5 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -8,7 +10,7 @@ import { offerExtras } from "../offer-extras-data";
 import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { GoogleAdsLaunchLink, GoogleAdsLaunchPrice, GoogleAdsLaunchSticky } from "./localized-google-ads-launch";
+import { GoogleAdsLaunchLink, GoogleAdsLaunchSticky } from "./localized-google-ads-launch";
 import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -75,7 +77,7 @@ export default function GoogleAdsLaunchOffer() {
         serviceType: ["Google Ads Setup", "Google Ads Campaign Launch", "Google Search Ads", "Conversion Tracking"],
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
-        offers: { "@type": "Offer", price: "790", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("google-ads-launch", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },
       {
@@ -120,7 +122,7 @@ export default function GoogleAdsLaunchOffer() {
         </div>
         <aside id="order-panel" className="offer-price-panel google-ads-price-panel">
           <small>إعداد وإطلاق حملة Search</small>
-          <GoogleAdsLaunchPrice />
+          <PromotionalPrice offerKey="google-ads-launch" />
           <div className="offer-trust-inline"><span>حملة Search</span><span>تتبع تحويل</span><span>7 أيام متابعة تقنية</span></div>
           <p>ميزانية الإعلان تُدفع إلى Google مباشرة. لا تشمل الباقة Landing Page جديدة أو إدارة وتحسين شهري مستمر.</p>
           <GoogleAdsLaunchLink id="order-cta" className="button primary offer-consultation-cta" label="ابدأ حملتك" />

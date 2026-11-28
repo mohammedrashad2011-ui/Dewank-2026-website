@@ -1,72 +1,75 @@
 "use client";
 
-import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
-import { offerPricing, type LocalPrice, type OfferPriceKey } from "./offer-pricing";
+import { useEffect, useSyncExternalStore } from "react";
+import { normalizeOfferCountry, resolveCurrentOfferPrice, type OfferPriceKey } from "./offer-pricing";
 
 const storageKey = "dewank_offer_country";
+const updateEvent = "dewank:offer-country-updated";
+let visitCountry: string | null = null;
+let lookup: Promise<void> | null = null;
 
-// The saved country is read from localStorage through useSyncExternalStore. The server snapshot is null, so the server
-// render and the first client render match, and the saved price applies as soon as the client reads it.
-const subscribeToNothing = () => () => {};
-const readSavedCountry = () => window.localStorage.getItem(storageKey)?.toUpperCase() ?? null;
-const noSavedCountryOnServer = () => null;
+function readCountry(): string | null {
+  try { return normalizeOfferCountry(window.localStorage.getItem(storageKey)) ?? visitCountry; }
+  catch { return visitCountry; }
+}
+const serverCountry = () => null;
+
+function subscribe(notify: () => void) {
+  window.addEventListener("storage", notify);
+  window.addEventListener("focus", notify);
+  window.addEventListener(updateEvent, notify);
+  return () => {
+    window.removeEventListener("storage", notify);
+    window.removeEventListener("focus", notify);
+    window.removeEventListener(updateEvent, notify);
+  };
+}
+
+export function setOfferCountry(value: string) {
+  const country = normalizeOfferCountry(value);
+  if (!country) return;
+  visitCountry = country;
+  try { window.localStorage.setItem(storageKey, country); } catch {}
+  window.dispatchEvent(new Event(updateEvent));
+}
+
+function lookupCountry() {
+  if (readCountry()) return;
+  if (!lookup) {
+    lookup = fetch("https://api.country.is/", { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) throw new Error("Country lookup failed");
+        return response.json() as Promise<{ country?: string }>;
+      })
+      .then(data => {
+        const country = normalizeOfferCountry(data.country);
+        if (country && !readCountry()) setOfferCountry(country);
+      })
+      .catch(() => {})
+      .finally(() => { lookup = null; });
+  }
+}
 
 export function useSavedOfferCountry() {
-  return useSyncExternalStore(subscribeToNothing, readSavedCountry, noSavedCountryOnServer);
+  return useSyncExternalStore(subscribe, readCountry, serverCountry);
+}
+
+/** One shared lookup across all mounted price readers; no network work during SSR. */
+export function useLocalizedOfferCountry(delay = 2200, enabled = true) {
+  const country = useSavedOfferCountry();
+  useEffect(() => {
+    if (country || !enabled) return;
+    const timer = window.setTimeout(lookupCountry, delay);
+    return () => window.clearTimeout(timer);
+  }, [country, delay, enabled]);
+  return country;
 }
 
 export function useOfferPrice(key: OfferPriceKey) {
-  const config = offerPricing[key];
-  const savedCountry = useSavedOfferCountry();
-  const [lookedUpPrice, setLookedUpPrice] = useState<LocalPrice | null>(null);
-
-  useEffect(() => {
-    const savedCountry = window.localStorage.getItem(storageKey)?.toUpperCase();
-    if (savedCountry && config.prices[savedCountry]) return;
-
-    const controller = new AbortController();
-    const win = window as Window & {
-      requestIdleCallback?: (callback: IdleRequestCallback, options?: IdleRequestOptions) => number;
-      cancelIdleCallback?: (handle: number) => void;
-    };
-
-    let idleId: number | undefined;
-    let timeoutId: number | undefined;
-
-    const lookupCountry = () => {
-      fetch("https://api.country.is/", { cache: "no-store", signal: controller.signal })
-        .then((response) => {
-          if (!response.ok) throw new Error("Country lookup failed");
-          return response.json() as Promise<{ country?: string }>;
-        })
-        .then((data) => {
-          const country = data.country?.toUpperCase();
-          if (!country) return;
-          window.localStorage.setItem(storageKey, country);
-          setLookedUpPrice(config.prices[country] ?? config.fallback);
-        })
-        .catch(() => {});
-    };
-
-    if (win.requestIdleCallback) {
-      idleId = win.requestIdleCallback(lookupCountry, { timeout: 3000 });
-    } else {
-      timeoutId = window.setTimeout(lookupCountry, 2200);
-    }
-
-    return () => {
-      controller.abort();
-      if (idleId !== undefined) win.cancelIdleCallback?.(idleId);
-      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
-    };
-  }, [config]);
-
-  // Same precedence as before: a looked-up price, then the saved country's price, then the initial price.
-  const savedPrice = savedCountry ? config.prices[savedCountry] : undefined;
-  const price = lookedUpPrice ?? savedPrice ?? config.initial;
-
-  return useMemo(() => ({
+  const country = useLocalizedOfferCountry();
+  const price = resolveCurrentOfferPrice(key, country);
+  return {
     ...price,
     formattedAmount: new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount),
-  }), [price]);
+  };
 }

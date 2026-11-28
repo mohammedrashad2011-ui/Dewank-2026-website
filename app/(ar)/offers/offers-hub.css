@@ -110,9 +110,9 @@
 .oh[dir="ltr"] .oh-card > p { line-height: 1.6; }
 .oh-card-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--oh-line); }
 .oh-card-foot small { display: block; color: var(--oh-muted); font-size: 12.5px; font-weight: 600; }
-.oh-card-foot .offer-price { display: inline-flex; align-items: baseline; gap: 6px; margin-top: 2px; }
-.oh-card-foot .offer-price strong { font-size: 26px; font-weight: 900; line-height: 1.1; }
-.oh-card-foot .offer-price span { font-size: 13px; font-weight: 700; }
+.oh-card-foot .oh-card-amount { display: inline-flex; align-items: baseline; gap: 6px; margin-top: 2px; }
+.oh-card-foot .oh-card-amount strong { font-size: 26px; font-weight: 900; line-height: 1.1; }
+.oh-card-foot .oh-card-amount span { font-size: 13px; font-weight: 700; }
 .oh-card-cta { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 8px 16px; border-radius: 10px; background: var(--oh-navy); color: var(--oh-cream); font-size: 14px; font-weight: 800; white-space: nowrap; transition: background-color .25s ease, color .25s ease; }
 .oh-card:hover .oh-card-cta { background: var(--oh-gold); color: var(--oh-navy); }
 
@@ -207,10 +207,11 @@
 .oh-table tbody tr:last-child > * { border-bottom: 0; }
 .oh-table tbody th a { color: var(--oh-navy); font-weight: 800; text-decoration: underline; text-decoration-color: var(--oh-gold); text-underline-offset: 4px; }
 .oh-table td:last-child { color: var(--oh-gold-ink); font-weight: 800; white-space: nowrap; }
-/* Localized prices (HubPrice) inside running text and table cells: amount, a space, then the currency. */
-.oh-inline-price .offer-price { display: inline-flex; align-items: baseline; gap: .3em; white-space: nowrap; }
-.oh-inline-price .offer-price strong { font-weight: 800; }
-.oh-summary-head .oh-inline-price .offer-price { color: var(--oh-navy); }
+/* Isolate inline amounts from detail-page hero pricing styles retained during client navigation. */
+.oh-inline-price .oh-inline-amount { display: inline-flex; align-items: baseline; gap: .3em; white-space: nowrap; font: inherit; color: inherit; }
+.oh-inline-price .oh-inline-amount strong { font: inherit; font-weight: 800; color: inherit; }
+.oh-inline-price .oh-inline-amount > span { font: inherit; color: inherit; }
+.oh-summary-head .oh-inline-amount { color: var(--oh-navy); }
 @media (max-width: 619px) {
   .oh-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .oh-table, .oh-table tbody, .oh-table tr, .oh-table th, .oh-table td { display: block; }

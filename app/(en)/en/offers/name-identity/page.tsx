@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -12,7 +13,7 @@ import { whatsappHref } from "../../_en/lib/site";
 import { EnOfferSticky } from "../offer-sticky-en";
 import { NameIdentitySavingEn } from "./bundle-saving-en";
 import { OfferClientProof } from "../../../../(ar)/offers/offer-client-proof";
-import { offerPricing } from "../../../../(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "../../../../(ar)/offers/offer-pricing";
 // The Arabic offer layout and styles, reused unchanged. English-only direction and type overrides follow.
 import "../../../../(ar)/offers/offers-page.css";
 import "../../../../(ar)/offers/offer-trust.css";
@@ -62,7 +63,7 @@ export default function NameIdentityBundleEn() {
         serviceType: ["Brand Naming", "Visual Identity Design", "Logo Design"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: String(offerPricing["name-identity-bundle"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("name-identity-bundle", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
         inLanguage: "en",
       },
@@ -96,7 +97,7 @@ export default function NameIdentityBundleEn() {
         </div>
         <aside className="offer-price-panel">
           <small>Bundle price</small>
-          <OfferPrice offerKey="name-identity-bundle" className="offer-price" />
+          <PromotionalPrice offerKey="name-identity-bundle" locale="en" />
           <NameIdentitySavingEn />
           <div className="offer-trust-inline"><span>10–15 names</span><span>Logo and essential identity</span><span>3 applications</span></div>
           <p>It does not include trade name reservation, trademark registration, official fees or a full brand strategy.</p>

@@ -8,7 +8,7 @@ import { Header } from "../_en/parity/header";
 import { whatsappHref } from "../_en/lib/site";
 import { siteUrl, organizationId, servedMarkets } from "../../../lib/seo";
 import { CroPackageWhatsAppEn } from "./cro-packages-en";
-import { OfferPrice } from "../_en/lib/localized-price";
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 // Shared section system from the Arabic SEO page and the CRO page, reused unchanged. English direction and type follow.
 import "../../../(ar)/seo-aeo/seo-aeo-page.css";
 import "../../../(ar)/seo-aeo/seo-cluster.css";
@@ -222,7 +222,7 @@ export default function ConversionRateOptimizationEnglishPage() {
               <small>{pkg.label}</small>
               <h3>{pkg.name}</h3>
               <p className="cro-package-purpose">{pkg.purpose}</p>
-              <OfferPrice offerKey={pkg.offerKey} className="cro-price" />
+              <PromotionalPrice offerKey={pkg.offerKey} locale="en" amountClassName="cro-price" />
               <p className="cro-package-payment">Full payment in advance, before work begins</p>
               <p className="cro-package-delivery"><strong>Delivery:</strong> {pkg.delivery}</p>
               <h4>What you receive</h4>

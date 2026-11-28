@@ -1,3 +1,5 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -74,7 +76,7 @@ export default function SeoAuditOfferPage() {
         serviceType: ["SEO Audit", "Technical SEO Audit", "On-page SEO Audit", "AEO Audit", "Website Performance Audit"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/seo-audit" },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("seo-audit", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/seo-audit" },
         url,
         inLanguage: "en",
       },
@@ -116,7 +118,7 @@ export default function SeoAuditOfferPage() {
         </div>
         <aside className="offer-price-panel seo-audit-price-panel">
           <small>Full audit · one-time</small>
-          <OfferPrice offerKey="seo-audit" className="offer-price" />
+          <PromotionalPrice offerKey="seo-audit" locale="en" />
           <div className="offer-trust-inline"><span>PDF report</span><span>30-day plan</span><span>No subscription</span></div>
           <p>The price covers the audit, the report and the recommendations. Implementing the fixes and ongoing SEO management are not included.</p>
           <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Audit my website <span>→</span></a>

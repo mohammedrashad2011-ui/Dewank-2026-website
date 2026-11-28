@@ -1,3 +1,5 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -5,7 +7,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets, serviceId } from "../../../lib/seo";
-import { ContentOfferSticky, LocalizedInlinePrice, LocalizedOfferKicker, LocalizedOfferPrice, LocalizedWhatsAppLink } from "../localized-offer";
+import { ContentOfferSticky, LocalizedInlinePrice, LocalizedOfferKicker, LocalizedWhatsAppLink } from "../localized-offer";
 import OfferVisualProof from "./offer-visual-proof";
 import ContentSystemStage from "./content-system-stage";
 import { ContentSamplePlan, ContentSectors, contentExtraFaqs } from "./content-extras";
@@ -80,7 +82,7 @@ export default function ContentOfferPage() {
     url: `${siteUrl}/offers/30-day-content-package`,
     provider: { "@id": organizationId },
     areaServed: servedMarkets,
-    offers: { "@type": "Offer", price: "790", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: `${siteUrl}/offers/30-day-content-package` },
+    offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("30-day-content-package", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: `${siteUrl}/offers/30-day-content-package` },
   };
 
   const faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: allFaqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) };
@@ -107,7 +109,7 @@ export default function ContentOfferPage() {
         </div>
 
         <aside className="offer-price-panel sales-price-panel">
-          <small>سعر الباقة الكامل</small><LocalizedOfferPrice />
+          <small>سعر الباقة الكامل</small><PromotionalPrice offerKey="30-day-content-package" />
           <p className="sales-price-promise">نراجع نشاطك أولًا ونوضح لك مدى مناسبة الباقة والخطوات التالية.</p>
           <div className="offer-trust-inline" aria-label="مزايا الأمان والثقة"><span>لا عقد شهري</span><span>اتجاه معتمد أولًا</span><span>جولتا تعديل</span></div>
           <p className="cp-assure">تعتمد الاتجاه قبل التنفيذ، وجولتا تعديل على التصميمات ضمن السعر.</p>

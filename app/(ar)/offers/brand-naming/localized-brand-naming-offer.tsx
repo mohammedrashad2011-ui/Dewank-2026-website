@@ -1,6 +1,7 @@
 "use client";
 
 import { useOfferPrice } from "../use-offer-price";
+import { PromotionalPrice } from "../promotional-price";
 import { StickyOfferBar } from "./sticky-offer-bar";
 
 // Every CTA on the page builds its link here, so the wa.me URL that GTM's
@@ -12,11 +13,10 @@ function useBrandNamingWhatsAppHref() {
 }
 
 export function BrandNamingOfferPrice() {
-  const price = useOfferPrice("brand-naming");
-  return <div className="offer-price"><strong>{price.formattedAmount}</strong><span>{price.currencyLabel}</span></div>;
+  return <PromotionalPrice offerKey="brand-naming" />;
 }
 
-// Inline price for running text, e.g. inside the hero line "الباقة كاملة بـ 490 ريال سعودي".
+// Inline price for running text, using the same localized quote as the offer panel.
 export function BrandNamingInlinePrice() {
   const price = useOfferPrice("brand-naming");
   return <b className="bn2-inline-price">{price.formattedAmount} {price.currencyLabel}</b>;

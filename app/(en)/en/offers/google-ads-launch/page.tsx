@@ -1,3 +1,5 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -64,7 +66,7 @@ export default function GoogleAdsLaunchOffer() {
         serviceType: ["Google Ads Setup", "Google Ads Campaign Launch", "Google Search Ads", "Conversion Tracking"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: "790", priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/google-ads-launch" },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("google-ads-launch", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/google-ads-launch" },
         url,
         inLanguage: "en",
       },
@@ -106,7 +108,7 @@ export default function GoogleAdsLaunchOffer() {
         </div>
         <aside id="order-panel" className="offer-price-panel google-ads-price-panel">
           <small>Setup and launch of a Search campaign</small>
-          <OfferPrice offerKey="google-ads-launch" className="offer-price" />
+          <PromotionalPrice offerKey="google-ads-launch" locale="en" />
           <div className="offer-trust-inline"><span>Search campaign</span><span>Conversion tracking</span><span>7-day technical follow-up</span></div>
           <p>Ad spend is paid directly to Google. The package does not include a new landing page or ongoing monthly management and optimisation.</p>
           <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your campaign <span>→</span></a>

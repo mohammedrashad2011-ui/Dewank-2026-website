@@ -1,3 +1,5 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -9,7 +11,7 @@ import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
 import { SeoAuditIntelligence } from "../../../components/seo-audit-intelligence";
-import { SeoAuditOfferPrice, SeoAuditSticky, SeoAuditWhatsApp } from "./localized-seo-audit-offer";
+import { SeoAuditSticky, SeoAuditWhatsApp } from "./localized-seo-audit-offer";
 import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -86,7 +88,7 @@ export default function SeoAuditOfferPage() {
         url,
         offers: {
           "@type": "Offer",
-          price: "490",
+          price: String(resolveCurrentOfferPrice("seo-audit", null).amount),
           priceCurrency: "SAR",
           availability: "https://schema.org/InStock",
           url,
@@ -134,7 +136,7 @@ export default function SeoAuditOfferPage() {
         </div>
         <aside className="offer-price-panel seo-audit-price-panel">
           <small>فحص شامل · مرة واحدة</small>
-          <SeoAuditOfferPrice />
+          <PromotionalPrice offerKey="seo-audit" />
           <div className="offer-trust-inline"><span>تقرير PDF</span><span>خطة 30 يوم</span><span>بدون اشتراك</span></div>
           <p>السعر يشمل الفحص والتقرير والتوصيات. تنفيذ الإصلاحات أو إدارة SEO الشهرية غير مشمولين.</p>
           <SeoAuditWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="اطلب فحص موقعك" />

@@ -1,3 +1,4 @@
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import type { Metadata } from "next";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -15,7 +16,7 @@ import "./brand-naming-v2.css";
 import "./brand-naming-extras.css";
 
 const title = "اختيار اسم تجاري + توجه أولي للعلامة | باقة جاهزة";
-const description = "باقة اختيار اسم تجاري للعلامات الجديدة تشمل 10–15 اسمًا مدروسًا، فحصًا لغويًا وثقافيًا، توفر الدومين، أفضل 3 ترشيحات وتوجهًا أوليًا للعلامة. تبدأ من 490 ريال.";
+const description = `باقة اختيار اسم تجاري للعلامات الجديدة تشمل 10–15 اسمًا مدروسًا، فحصًا لغويًا وثقافيًا، توفر الدومين، أفضل 3 ترشيحات وتوجهًا أوليًا للعلامة. تبدأ من ${resolveCurrentOfferPrice("brand-naming", null).amount} ريال.`;
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
@@ -85,7 +86,7 @@ export default function BrandNamingOfferPage() {
         serviceType: ["Brand Naming", "Tagline Writing", "Social Media Handle Research", "Brand Direction", "Domain Availability Research"],
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
-        offers: { "@type": "Offer", price: "490", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("brand-naming", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },
       {

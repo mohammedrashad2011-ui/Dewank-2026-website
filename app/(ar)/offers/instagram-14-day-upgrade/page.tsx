@@ -1,3 +1,5 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -8,7 +10,7 @@ import { offerExtras } from "../offer-extras-data";
 import { InlineOfferPrice } from "../inline-offer-price";
 import { Footer, Header } from "../../../components/site-shell";
 import { createMetadata, organizationId, siteUrl, servedMarkets } from "../../../lib/seo";
-import { InstagramUpgradePrice, InstagramUpgradeSticky, InstagramUpgradeWhatsApp } from "./localized-instagram-upgrade";
+import { InstagramUpgradeSticky, InstagramUpgradeWhatsApp } from "./localized-instagram-upgrade";
 import { OfferClientProof } from "../offer-client-proof";
 import "../offers-page.css";
 import "../offer-trust.css";
@@ -59,7 +61,7 @@ export default function Instagram14DayUpgradeOffer() {
         serviceType: ["Instagram Profile Optimization", "Social Media Content Strategy", "Social Media Design"],
         provider: { "@id": organizationId },
         areaServed: servedMarkets,
-        offers: { "@type": "Offer", price: "590", priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("instagram-14-day-upgrade", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url },
         url,
       },
       {
@@ -104,7 +106,7 @@ export default function Instagram14DayUpgradeOffer() {
         </div>
         <aside className="offer-price-panel instagram-upgrade-price-panel">
           <small>باقة تطوير لمدة 14 يومًا</small>
-          <InstagramUpgradePrice />
+          <PromotionalPrice offerKey="instagram-14-day-upgrade" />
           <div className="offer-trust-inline"><span>مراجعة شاملة</span><span>6 تصميمات</span><span>خطة 14 يومًا</span></div>
           <p>سعر الباقة يشمل التطوير والنماذج والخطة فقط. لا يشمل الإعلانات أو التصوير أو الإدارة اليومية المستمرة.</p>
           <InstagramUpgradeWhatsApp id="order-cta" className="button primary offer-consultation-cta" label="طوّر حسابك" />

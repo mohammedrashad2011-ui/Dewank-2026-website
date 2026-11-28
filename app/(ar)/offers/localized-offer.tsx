@@ -1,44 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { offerPricing, type LocalPrice } from "./offer-pricing";
-import { useSavedOfferCountry } from "./use-offer-price";
+import { useOfferPrice } from "./use-offer-price";
 import { StickyOfferBar } from "./brand-naming/sticky-offer-bar";
 import "./offer-sticky-cta.css";
 
-const config = offerPricing["30-day-content-package"];
-const storageKey = "dewank_offer_country";
-
 function useLocalizedPrice() {
-  const savedCountry = useSavedOfferCountry();
-  const [lookedUpPrice, setLookedUpPrice] = useState<LocalPrice | null>(null);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetch("https://api.country.is/", { cache: "no-store", signal: controller.signal })
-      .then((response) => {
-        if (!response.ok) throw new Error("Country lookup failed");
-        return response.json() as Promise<{ country?: string }>;
-      })
-      .then((data) => {
-        const country = data.country?.toUpperCase();
-        if (!country) return;
-        window.localStorage.setItem(storageKey, country);
-        setLookedUpPrice(config.prices[country] ?? config.fallback);
-      })
-      .catch(() => {});
-
-    return () => controller.abort();
-  }, []);
-
-  // Same precedence as before: a looked-up price, then the saved country's price, then the initial price.
-  const savedPrice = savedCountry ? config.prices[savedCountry] : undefined;
-  const price = lookedUpPrice ?? savedPrice ?? config.initial;
-
-  return useMemo(() => ({
-    ...price,
-    formattedAmount: new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(price.amount),
-  }), [price]);
+  return useOfferPrice("30-day-content-package");
 }
 
 export function LocalizedOfferPrice() {
