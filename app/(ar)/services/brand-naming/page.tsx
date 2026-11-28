@@ -1,3 +1,4 @@
+import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
 import NamingDecisionMotion from "../../../components/naming-decision-motion";
 import { NamingLocalizedPrice, NamingLocalizedOfferLink, NamingLocalizedPriceAnswer } from "./localized-naming-price";
 import type { Metadata } from "next";
@@ -9,7 +10,7 @@ import "../../branding/branding-page.css";
 import "./brand-naming-layout.css";
 
 const title = "خدمة اقتراح أسماء تجارية وفحص العلامة والدومين";
-const description = "اختيار اسم تجاري تبدأ من 490 ريال: 10–15 اسمًا مدروسًا وأفضل 3 ترشيحات، فحص لغوي وثقافي ومبدئي للتشابه والدومين، وتوجه أولي للعلامة، وتسليم خلال 3–5 أيام عمل.";
+const description = `اختيار اسم تجاري تبدأ من ${offerPricing["brand-naming"].initial.amount} ريال: 10–15 اسمًا مدروسًا وأفضل 3 ترشيحات، فحص لغوي وثقافي ومبدئي للتشابه والدومين، وتوجه أولي للعلامة، وتسليم خلال 3–5 أيام عمل.`;
 
 export const metadata: Metadata = createMetadata({
   title: `${title} | ديوانك`,
@@ -31,7 +32,7 @@ const deliverables = [
 ];
 
 const faqs = [
-  ["كم سعر خدمة اقتراح الأسماء التجارية؟", "تبدأ الباقة الجاهزة من 490 ريال سعودي وتشمل 10–15 اسمًا مع المعاني والفحص المبدئي والدومين وأفضل الترشيحات و3 شعارات لفظية والتوجّه الأولي للعلامة. يتغير السعر عند تعدد الأسواق أو اللغات أو الحاجة إلى بحث أوسع."],
+  ["كم سعر خدمة اقتراح الأسماء التجارية؟", `تبدأ الباقة الجاهزة من ${offerPricing["brand-naming"].initial.amount} ريال سعودي وتشمل 10–15 اسمًا مع المعاني والفحص المبدئي والدومين وأفضل الترشيحات و3 شعارات لفظية والتوجّه الأولي للعلامة. يتغير السعر عند تعدد الأسواق أو اللغات أو الحاجة إلى بحث أوسع.`],
   ["هل تضمنون قبول الاسم أو تسجيل العلامة؟", "لا. نجري بحثًا مبدئيًا لتقليل احتمالات التعارض أو الرفض، لكن القبول النهائي من اختصاص الجهة الرسمية ولا يمكن ضمانه قبل تقديم الطلب وفحصه رسميًا."],
   ["هل تشمل الخدمة حجز الدومين أو تسجيل العلامة؟", "تشمل التحقق من التوفر وقت البحث. شراء الدومين وإجراءات تسجيل العلامة والرسوم الرسمية ليست ضمن السعر الأساسي إلا إذا ذُكرت صراحة في عرض مستقل."],
   ["ما الفرق بين التسمية والهوية البصرية؟", "التسمية تحدد الاسم والتوجه الأولي للعلامة. تصميم الشعار والهوية البصرية الكاملة خدمة منفصلة بعد اعتماد الاسم، ولا يدخل في السعر الأساسي للتسمية."],
@@ -41,7 +42,7 @@ const faqs = [
 export default function BrandNamingPage() {
   const url = `${siteUrl}/services/brand-naming`;
   const schema = { "@context": "https://schema.org", "@graph": [
-    { "@type": "Service", "@id": `${url}#service`, name: title, description, serviceType: ["Brand Naming", "Tagline Writing", "Preliminary Trademark Search", "Domain Availability Research"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", priceCurrency: "SAR", price: "490", description: "سعر الباقة الجاهزة الأساسية" }, url },
+    { "@type": "Service", "@id": `${url}#service`, name: title, description, serviceType: ["Brand Naming", "Tagline Writing", "Preliminary Trademark Search", "Domain Availability Research"], provider: { "@id": organizationId }, areaServed: servedMarkets, offers: { "@type": "Offer", priceCurrency: "SAR", price: String(offerPricing["brand-naming"].initial.amount), description: "سعر الباقة الجاهزة الأساسية" }, url },
     { "@type": "FAQPage", mainEntity: faqs.map(([question, answer]) => ({ "@type": "Question", name: question, acceptedAnswer: { "@type": "Answer", text: answer } })) },
     { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl }, { "@type": "ListItem", position: 2, name: "الخدمات", item: `${siteUrl}/services` }, { "@type": "ListItem", position: 3, name: "تسمية العلامة التجارية", item: url }] },
   ] };
