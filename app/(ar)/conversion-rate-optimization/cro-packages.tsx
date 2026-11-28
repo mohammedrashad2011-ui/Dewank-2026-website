@@ -4,17 +4,6 @@ import { pushCroPackageSelect } from "../../components/cro-package-event";
 import type { OfferPriceKey } from "../offers/offer-pricing";
 import { useOfferPrice } from "../offers/use-offer-price";
 
-// ISO codes for the Arabic currency names in offer-pricing.ts. Used only for the dataLayer event, never for display.
-const currencyCodes: Record<string, string> = {
-  "ريال سعودي": "SAR",
-  "درهم إماراتي": "AED",
-  "ريال قطري": "QAR",
-  "دينار بحريني": "BHD",
-  "دينار كويتي": "KWD",
-  "ريال عُماني": "OMR",
-  "دولار أمريكي": "USD",
-};
-
 // Price and currency come from the same hook, so the amount on screen and the amount in the WhatsApp text always agree.
 export function CroPackagePrice({ offerKey }: { offerKey: OfferPriceKey }) {
   const price = useOfferPrice(offerKey);
@@ -32,7 +21,7 @@ export function CroPackageWhatsApp({ offerKey, packageName, className, label }: 
       package_id: offerKey as "cro-snapshot" | "cro-audit" | "cro-growth-diagnostic",
       language: "ar",
       displayed_amount: price.amount,
-      currency: currencyCodes[price.currencyLabel] ?? "USD",
+      currency: price.currency,
       page_path: window.location.pathname,
     });
   }
