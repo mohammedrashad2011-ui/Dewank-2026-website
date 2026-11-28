@@ -1,4 +1,4 @@
-import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
+import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -75,7 +75,7 @@ export default function MiniVisualIdentityOffer() {
         serviceType: ["Logo Design Services", "Brand Identity Design", "Visual Identity Design"],
         provider: { "@id": "https://dewank.com/#organization" },
         areaServed: "Worldwide",
-        offers: { "@type": "Offer", price: String(offerPricing["mini-visual-identity"].initial.amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/visual-identity" },
+        offers: { "@type": "Offer", price: String(resolveCurrentOfferPrice("mini-visual-identity", null).amount), priceCurrency: "SAR", availability: "https://schema.org/InStock", url: "https://dewank.com/en/offers/visual-identity" },
         url,
         inLanguage: "en",
       },
