@@ -136,7 +136,7 @@ function marketCurrency(country: string | null): string {
  * Switch to a request-scoped timestamp only after SSR, cache and hydration tests pass.
  */
 export function resolveCurrentOfferPrice(key: OfferPriceKey, country: string | null) {
-  return getOfferQuote(key, country, Date.parse(yearEndOffer.endsAt) - 1);
+  return getOfferQuote(key, country, getPricingSnapshotTime());
 }
 
 /** Bundle savings are distinct from campaign savings and use one market/time snapshot. */
@@ -146,4 +146,9 @@ export function getNameIdentityBundleSaving(country: string | null, at: number) 
   const identity = getOfferQuote("mini-visual-identity", country, at);
   const separate = naming.amount + identity.amount;
   return { separate, saving: separate - bundle.amount, currency: bundle.currency, currencyLabel: bundle.currencyLabel };
+}
+
+/** Single release-gated snapshot used by price panels, schema and bundle calculations. */
+export function getPricingSnapshotTime(): number {
+  return Date.parse(yearEndOffer.endsAt) - 1;
 }
