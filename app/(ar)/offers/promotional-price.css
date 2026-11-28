@@ -1,0 +1,10 @@
+.dp-promotion { min-width: 0; }
+.dp-promotion-label { font-size: .82rem; font-weight: 650; color: inherit; }
+.dp-promotion .offer-price { flex-wrap: wrap; }
+.dp-promotion-details { display: grid; gap: 7px; margin-block: 8px 14px; font-size: .82rem; line-height: 1.65; }
+.dp-promotion-next { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 10px; opacity: .85; }
+.dp-promotion-saving { width: fit-content; max-width: 100%; padding: 3px 9px; border: 1px solid currentColor; border-radius: 6px; color: inherit; font-weight: 650; }
+.dp-promotion-end { font-size: .75rem; opacity: .85; }
+@media (max-width: 480px) {
+  .dp-promotion-next { justify-content: flex-start; column-gap: 8px; }
+}
