@@ -1,3 +1,4 @@
+import { offerPricing } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
 import { CrmOfferActions } from "@/app/components/crm-offer-actions";
@@ -88,7 +89,7 @@ export default function SmallBusinessWebsiteOfferPage() {
         url: `${siteUrl}/offers/small-business-website`,
         offers: {
           "@type": "Offer",
-          price: "1990",
+          price: String(offerPricing["small-business-website"].initial.amount),
           priceCurrency: "SAR",
           availability: "https://schema.org/InStock",
           url: `${siteUrl}/offers/small-business-website`,
