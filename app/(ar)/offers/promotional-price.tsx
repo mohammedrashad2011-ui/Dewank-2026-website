@@ -21,7 +21,7 @@ export function PromotionalPrice({ offerKey, locale = "ar" }: { offerKey: OfferP
             <span><bdi>{format(quote.futureAmount)}</bdi> {currency}</span>
           </div>
           <div className="dp-promotion-saving">{ar ? "وفر" : "Save"} <bdi>{format(quote.savings)}</bdi> {currency} <span dir="ltr">({format(quote.savingsPercent)}%)</span></div>
-          <div className="dp-promotion-end">{ar ? "العرض حتى" : "Offer ends"} <time dateTime={yearEndOffer.endDate}>{ar ? "٣١ ديسمبر ٢٠٢٦" : "31 December 2026"}</time> {ar ? "بتوقيت السعودية" : "Saudi time"}</div>
+          <div className="dp-promotion-end">{ar ? "العرض حتى" : "Offer ends"} <time dateTime={yearEndOffer.endDate}>{ar ? "٣١ ديسمبر ٢٠٢٦" : "31 December 2026"}</time></div>
         </div>
       )}
     </div>
