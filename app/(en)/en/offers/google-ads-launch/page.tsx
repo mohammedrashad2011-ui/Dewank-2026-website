@@ -1,3 +1,4 @@
+import { PromotionalPrice } from "@/app/(ar)/offers/promotional-price";
 import { resolveCurrentOfferPrice } from "@/app/(ar)/offers/offer-pricing";
 import "@/app/components/crm-contact-preview.css";
 import { crmVisible } from "@/app/lib/crm/capture-mode";
@@ -107,7 +108,7 @@ export default function GoogleAdsLaunchOffer() {
         </div>
         <aside id="order-panel" className="offer-price-panel google-ads-price-panel">
           <small>Setup and launch of a Search campaign</small>
-          <OfferPrice offerKey="google-ads-launch" className="offer-price" />
+          <PromotionalPrice offerKey="google-ads-launch" locale="en" />
           <div className="offer-trust-inline"><span>Search campaign</span><span>Conversion tracking</span><span>7-day technical follow-up</span></div>
           <p>Ad spend is paid directly to Google. The package does not include a new landing page or ongoing monthly management and optimisation.</p>
           <a id="order-cta" className="button primary offer-consultation-cta" href={contactLink} target="_blank" rel="noopener noreferrer">Start your campaign <span>→</span></a>
