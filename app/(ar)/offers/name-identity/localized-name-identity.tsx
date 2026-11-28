@@ -1,6 +1,7 @@
 "use client";
 
-import { useOfferPrice } from "../use-offer-price";
+import { useOfferPrice, useLocalizedOfferCountry } from "../use-offer-price";
+import { getNameIdentityBundleSaving, getPricingSnapshotTime } from "../offer-pricing";
 import { StickyOfferBar } from "../brand-naming/sticky-offer-bar";
 import "../offer-sticky-cta.css";
 
@@ -18,15 +19,13 @@ export function NameIdentityPrice() {
 }
 
 export function NameIdentitySaving() {
-  const bundle = useOfferPrice("name-identity-bundle");
-  const naming = useOfferPrice("brand-naming");
-  const identity = useOfferPrice("mini-visual-identity");
-  const saving = naming.amount + identity.amount - bundle.amount;
-  if (saving <= 0 || naming.currencyLabel !== bundle.currencyLabel || identity.currencyLabel !== bundle.currencyLabel) return null;
+  const country = useLocalizedOfferCountry();
+  const { separate, saving, currencyLabel } = getNameIdentityBundleSaving(country, getPricingSnapshotTime());
+  if (saving <= 0) return null;
   const format = (n: number) => new Intl.NumberFormat("ar", { maximumFractionDigits: 0 }).format(n);
   return (
     <p className="offer-bundle-saving">
-      توفر {format(saving)} {bundle.currencyLabel} مقارنة بطلب الباقتين منفصلتين ({format(naming.amount + identity.amount)} {bundle.currencyLabel})
+      توفر {format(saving)} {currencyLabel} مقارنة بطلب الباقتين منفصلتين ({format(separate)} {currencyLabel})
     </p>
   );
 }
