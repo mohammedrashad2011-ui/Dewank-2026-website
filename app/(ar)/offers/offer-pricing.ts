@@ -49,3 +49,70 @@ export type OfferPriceKey = keyof typeof offerPricing;
 export function getOfferPriceConfig(key: OfferPriceKey): OfferPriceConfig {
   return offerPricing[key];
 }
+
+/**
+ * Year-end campaign. The approved SAR prices are explicit; the other market prices
+ * below are proposed fixed amounts, preserving the existing local pricing ratios
+ * (whole units for BH/OM and KW, nearest 5 for USD). No exchange-rate API.
+ * This table and offerPricing are the only sources of package amounts.
+ *
+ * Integration gate: the legacy exports above deliberately still return the current
+ * amounts until ALL display, message, metadata and cache paths use the same quote.
+ * Do not publish/merge a partially integrated campaign.
+ */
+export const offerFuturePricing = {
+  "30-day-content-package": gcc(970, 97, 80, 260),
+  "video-edit": gcc(1270, 127, 105, 340),
+  "video-ai": gcc(1670, 167, 139, 445),
+  "video-ads": gcc(2470, 247, 204, 660),
+  "landing-page-package": gcc(1740, 174, 146, 465),
+  "landing-page-package-full": gcc(2240, 224, 188, 600),
+  "seo-audit": gcc(650, 65, 52, 170),
+  "brand-naming": gcc(690, 69, 55, 185),
+  "whatsapp-automation-starter": gcc(1170, 117, 96, 310),
+  "mini-visual-identity": gcc(1470, 147, 122, 395),
+  "name-identity-bundle": gcc(1870, 187, 157, 500),
+  "google-ads-launch": gcc(1070, 107, 88, 285),
+  "instagram-14-day-upgrade": gcc(740, 74, 61, 200),
+  "small-business-website": gcc(2470, 247, 205, 660),
+  "cro-snapshot": gcc(390, 39, 31, 105),
+  "cro-audit": gcc(770, 77, 64, 210),
+  "cro-growth-diagnostic": gcc(1470, 147, 122, 395),
+} as const satisfies Record<OfferPriceKey, OfferPriceConfig>;
+
+export const yearEndOffer = {
+  endDate: "2026-12-31",
+  // Exclusive end: midnight on 1 January in Asia/Riyadh.
+  endsAt: "2027-01-01T00:00:00+03:00",
+  timeZone: "Asia/Riyadh",
+} as const;
+
+export function isYearEndOfferActive(at: number): boolean {
+  if (!Number.isFinite(at)) throw new RangeError("Invalid quote timestamp");
+  return at < Date.parse(yearEndOffer.endsAt);
+}
+
+function marketPrice(config: OfferPriceConfig, country: string | null): LocalPrice {
+  if (!country) return config.initial;
+  const code = country.trim().toUpperCase();
+  return Object.prototype.hasOwnProperty.call(config.prices, code)
+    ? config.prices[code]
+    : config.fallback;
+}
+
+/** Explicit time input lets server, client and tests share a consistent quote. */
+export function getOfferQuote(key: OfferPriceKey, country: string | null, at: number) {
+  const campaignPrice = marketPrice(offerPricing[key], country);
+  const futurePrice = marketPrice(offerFuturePricing[key], country);
+  const active = isYearEndOfferActive(at);
+  const price = active ? campaignPrice : futurePrice;
+  const savings = active ? futurePrice.amount - campaignPrice.amount : 0;
+  return {
+    ...price,
+    active,
+    futureAmount: futurePrice.amount,
+    savings,
+    savingsPercent: active ? Math.round(savings / futurePrice.amount * 100) : 0,
+    endDate: yearEndOffer.endDate,
+  };
+}
