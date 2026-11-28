@@ -34,3 +34,15 @@ export function PromotionalPriceDisplay({ offerKey, locale = "ar", country, amou
     </div>
   );
 }
+
+/** Small card treatment: keep the current price dominant and avoid repeating the full offer panel. */
+export function PromotionalSaving({ quote, locale = "ar" }: { quote: ReturnType<typeof resolveCurrentOfferPrice>; locale?: "ar" | "en" }) {
+  if (!quote.active || quote.savings <= 0) return null;
+  const percent = new Intl.NumberFormat(locale, { style: "percent", maximumFractionDigits: 0 }).format(quote.savingsPercent / 100);
+  return <span className="dp-card-saving" lang={locale}>{locale === "ar" ? "وفر" : "Save"} <bdi>{percent}</bdi></span>;
+}
+
+export function LocalizedPromotionalSaving({ offerKey, locale = "ar", delay }: { offerKey: OfferPriceKey; locale?: "ar" | "en"; delay?: number }) {
+  const country = useLocalizedOfferCountry(delay ?? (locale === "ar" ? 2200 : 6500));
+  return <PromotionalSaving quote={resolveCurrentOfferPrice(offerKey, country)} locale={locale} />;
+}
