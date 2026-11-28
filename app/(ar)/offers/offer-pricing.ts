@@ -102,13 +102,15 @@ function marketPrice(config: OfferPriceConfig, country: string | null): LocalPri
 
 /** Explicit time input lets server, client and tests share a consistent quote. */
 export function getOfferQuote(key: OfferPriceKey, country: string | null, at: number) {
-  const campaignPrice = marketPrice(offerPricing[key], country);
-  const futurePrice = marketPrice(offerFuturePricing[key], country);
+  const normalized = normalizeOfferCountry(country);
+  const campaignPrice = marketPrice(offerPricing[key], normalized);
+  const futurePrice = marketPrice(offerFuturePricing[key], normalized);
   const active = isYearEndOfferActive(at);
   const price = active ? campaignPrice : futurePrice;
   const savings = active ? futurePrice.amount - campaignPrice.amount : 0;
   return {
     ...price,
+    currency: marketCurrency(normalized),
     active,
     futureAmount: futurePrice.amount,
     savings,
@@ -124,9 +126,24 @@ export function normalizeOfferCountry(value: unknown): string | null {
   return /^[A-Z]{2}$/.test(code) ? code : null;
 }
 
+const marketCurrencyCodes: Record<string, string> = { SA: "SAR", AE: "AED", BH: "BHD", KW: "KWD", QA: "QAR", OM: "OMR" };
+
+function marketCurrency(country: string | null): string {
+  return country ? (marketCurrencyCodes[country] ?? "USD") : "SAR";
+}
+
+/** The integration gate keeps every reader on the same campaign snapshot.
+ * Switch to a request-scoped timestamp only after SSR, cache and hydration tests pass.
+ */
 export function resolveCurrentOfferPrice(key: OfferPriceKey, country: string | null) {
-  const normalized = normalizeOfferCountry(country);
-  const config = offerPricing[key];
-  const codes: Record<string, string> = { SA: "SAR", AE: "AED", BH: "BHD", KW: "KWD", QA: "QAR", OM: "OMR" };
-  return { ...marketPrice(config, normalized), currency: normalized ? (codes[normalized] ?? "USD") : "SAR" };
+  return getOfferQuote(key, country, Date.parse(yearEndOffer.endsAt) - 1);
+}
+
+/** Bundle savings are distinct from campaign savings and use one market/time snapshot. */
+export function getNameIdentityBundleSaving(country: string | null, at: number) {
+  const bundle = getOfferQuote("name-identity-bundle", country, at);
+  const naming = getOfferQuote("brand-naming", country, at);
+  const identity = getOfferQuote("mini-visual-identity", country, at);
+  const separate = naming.amount + identity.amount;
+  return { separate, saving: separate - bundle.amount, currency: bundle.currency, currencyLabel: bundle.currencyLabel };
 }
