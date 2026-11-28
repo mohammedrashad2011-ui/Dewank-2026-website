@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useMemo } from "react";
-import type { OfferPriceKey } from "@/app/(ar)/offers/offer-pricing";
-import { resolveOfferPrice, useOfferCountry } from "../lib/localized-price";
+import { resolveCurrentOfferPrice, type OfferPriceKey } from "@/app/(ar)/offers/offer-pricing";
+import { PromotionalSaving } from "@/app/(ar)/offers/promotional-price";
+import { useOfferCountry } from "../lib/localized-price";
 
 // English copy of the Arabic HomeSelectedOffers. Prices come from the shared English pricing engine (USD first, then the
 // saved or looked-up country where an approved price exists). No popularity request and no home_offer_select event.
@@ -34,7 +35,7 @@ const offers: Array<{ key: OfferPriceKey; label: string; title: string; text: st
 export function HomeSelectedOffers() {
   const country = useOfferCountry();
   const cards = useMemo(
-    () => offers.map((offer) => ({ ...offer, price: resolveOfferPrice(offer.key, country) })),
+    () => offers.map((offer) => ({ ...offer, price: resolveCurrentOfferPrice(offer.key, country) })),
     [country],
   );
 
@@ -52,10 +53,10 @@ export function HomeSelectedOffers() {
           <h3>{offer.title}</h3>
           <p>{offer.text}</p>
           <div className="home-offer-bottom">
-            <div className="home-offer-price">
+            <div className="dp-card-price-stack"><div className="home-offer-price">
               <strong>{new Intl.NumberFormat("en", { maximumFractionDigits: 0 }).format(offer.price.amount)}</strong>
               <span>{offer.price.currency}</span>
-            </div>
+            </div><PromotionalSaving quote={offer.price} locale="en" /></div>
             <b>View the service</b>
           </div>
         </Link>
