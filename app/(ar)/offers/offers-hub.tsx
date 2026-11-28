@@ -102,7 +102,7 @@ export default function OffersHub({ locale, faq }: { locale: HubLocale; faq: Rea
           <span className="oh-eyebrow">{t.summaryEyebrow}</span>
           <h2 id="offers-summary-title">{t.summaryTitle}</h2>
           <p className="oh-inline-price">
-            {hubSummaryParts[locale].before}<HubPrice offerKey={hubFacts.cheapest.key} locale={locale} />{hubSummaryParts[locale].middle}<HubPrice offerKey={hubFacts.priciest.key} locale={locale} />{hubSummaryParts[locale].after}
+            {hubSummaryParts[locale].before}<HubPrice offerKey={hubFacts.cheapest.key} locale={locale} />{hubSummaryParts[locale].after}
           </p>
         </div>
         <div className="oh-table-wrap">
