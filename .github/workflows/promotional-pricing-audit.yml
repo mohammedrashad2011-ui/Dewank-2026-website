@@ -2,10 +2,13 @@ name: Promotional pricing source audit
 on:
   push:
     branches: [feat/year-end-promotional-pricing]
+  pull_request:
+    types: [opened, synchronize, reopened]
 permissions:
   contents: read
 jobs:
   inventory:
+    if: github.event_name == 'push' || github.head_ref == 'feat/year-end-promotional-pricing'
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
@@ -16,6 +19,6 @@ jobs:
         run: node scripts/qa/pricing-inventory.mjs
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '22'
       - name: Test central pricing and market parity
         run: node --experimental-strip-types --test tests/promotional-pricing.test.mjs
